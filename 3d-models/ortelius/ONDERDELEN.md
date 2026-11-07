@@ -1,11 +1,13 @@
 # Onderdelen
 
-Prijzen zijn indicaties (november 2026). Startbudget om te varen: ca. € 250–300;
-geluid en verlichting komen daarbij.
+Dit is de eerdere, **niet bevestigde selectielijst** voor de RC-hardware.
+Prijzen en modelkeuzes hieronder zijn niet opnieuw geverifieerd; gebruik
+ze niet als actuele bestellijst. CAD p1 bevat generieke houders en een
+Ø4 mm roerbladboring. Pas die aan de daadwerkelijk gekozen hardware aan.
 
 ## Aandrijving
 - [ ] MFA Torpedo 850, langzaamlopende motor (één schroef, zoals het origineel) — ca. € 30–40.
-  Een 540 draait te snel voor een 45 mm-schroef op een schaalschip.
+  Selectie, voeding, belasting en motortoerental zijn nog niet doorgerekend.
 - [ ] Raboesch schroefas M4 met stevenbuis, ca. 20 cm — ca. € 20
 - [ ] Raboesch messing schroef Ø 45 mm, M4 — ca. € 15
 - [ ] Flexibele askoppeling — ca. € 5
@@ -40,11 +42,15 @@ geluid en verlichting komen daarbij.
 ## Bouwmateriaal
 - [ ] ASA ca. 3,5 kg: marineblauw, wit, groen, rood-oranje, zwart (AMS)
 - [ ] Laminerepoxy ca. 300 g (naden + binnencoating romp)
-- [ ] Neodymium magneten 10 × 3 mm, ca. 16 stuks
-- [ ] Ballast 1–1,5 kg (lood of stalen kogels in epoxy; minder bij een loodaccu)
+- [ ] M3-bouten, moeren en dunne afdichtingsband voor dekborging en serviceluik
+  (p1 gebruikt losse schroefsteunen; geen magneetkamers)
+- [ ] Ballast: hoeveelheid pas bepalen na wegen en drijfproef; houd deze laag en verstelbaar
 - [ ] Messingdraad 0,8 mm voor relingen en antennes
 
-Doelgewicht vaarklaar: ca. 4 kg, waterlijn op 5,4 cm boven de kiel.
+De CAD-buitenromp verplaatst bij de getekende waterlijn van 54 mm circa
+4,62 kg zoet water. Dat is geen vastgesteld vaargewicht; hardware, lijm,
+printmassa en trim moeten eerst worden gewogen/getest. Zie de
+[bouwbeschrijving](print/BOUWHANDLEIDING.md).
 
 ## Bestelvolgorde
 1. Zender, motor, as, schroef, ESC en servo: daarmee kun je testen zodra het

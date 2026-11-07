@@ -2,16 +2,16 @@
 
 ## Actuele opdracht en status
 
-De bestemming is een printbaar RC-model op schaal 1:100 voor de Bambu Lab
-P2S met AMS. **De gebruiker wil eerst het verbeterde 3D-model zien.**
-Werk dus eerst aan de zichtbare vorm; CAD- en printbestanden volgen daarna.
+De gebruiker heeft de vormstudie bekeken en vraagt nu CAD- en printbestanden.
+**Constructieprototype p1 is beschikbaar:** 68 unieke onderdelen met CAD-bron,
+STEP, STL, geometrie-3MF, onderdelenlijst en bouwbeschrijving.
 
-Vormstudie v3 staat in [`index.html`](index.html), met zes vaste aanzichten
-en twee detailstanden.
-Open galerijen, gegroepeerde ramen, hangardiepte, lichtkap, banken,
-achterdekdetails en dubbele davitarmen zijn uitgewerkt op basis van de
-34 lokale beeldbestanden. De hoofdposities van brug en masten zijn behouden.
-Het model is nog niet door de gebruiker beoordeeld. Er zijn nog geen printbare CAD-delen gemaakt.
+Begin met [de CAD-weergave](cad/index.html) en
+[de bouw-/printvolgorde](print/BOUWHANDLEIDING.md). Print eerst de kleine
+pasproefstukken. De 34 referentiefoto's blijven lokaal buiten Git.
+
+De oorspronkelijke [vormstudie v3](index.html) blijft beschikbaar en toont
+meer schilder- en modelbouwdetails dan de vereenvoudigde printgeometrie.
 
 De viewer bevat ook **RC-inbouw**: motor, accu, as, roerservo, twee regelaars,
 ontvanger en een boegschroef als ruimtereserveringen. Zie de RC-secties in
@@ -32,21 +32,23 @@ elkaar zonder hoofdrotorbladen. Gebruik **Heli’s in hangar** en
 ## Uitgangspunten
 
 - Lengte over alles circa 91 cm, rompbreedte 17,2 cm; waterlijn 5,4 cm boven de kiel.
-- Centimeters in het browsermodel; toekomstige printbestanden in millimeters.
+- Centimeters in de vormstudie; CAD/print in millimeters.
 - Eén schroef, roer en voorgenomen boegschroef; afneembare opbouw.
 - Bestaande materiaalrichting: ASA, epoxy aan de binnenkant, 2S LiPo.
 - Dekhoogtes, raampatronen en onderwatervorm zijn schattingen uit foto’s.
-- Voorlopige rompsneden op 22,75 / 45,5 / 68,25 cm; nog geen echte verbindingen.
+- Uitgewerkte rompsneden op 227,5 / 455 / 682,5 mm met losse interne lasstroken.
 - Geen rederijlogo's. Referentiefoto's niet publiceren.
 
 ## Volgorde hierna
 
-1. Vorm bekijken en eventuele correcties verwerken.
-2. Parametrische CAD maken: holle romp, verbindingen, toegang en RC-inbouw.
-3. Alle delen met marges controleren op het P2S-volume van 256 mm per as.
-4. Gewicht/stabiliteit berekenen; pasproef en slicercontrole uitvoeren.
-5. Waterdichtheid testen, elektronica inbouwen, ballasten en proefvaren.
+1. Drie pasproefstukken printen en lijmspeling beoordelen.
+2. Werkelijke RC-hardware kiezen; houders en technische doorvoeren daarop aanpassen.
+3. Romp en afneembare opbouw monteren volgens de bouwbeschrijving.
+4. Complete massa wegen en lek-/drijfproeven doen; laag ballasten en trim controleren.
+5. Elektronica inbouwen en rustig proefvaren.
 
-Bewaar CAD-bronnen in `cad/` en toekomstige STL/3MF in `print/`.
-Volg de werkafspraken in `../../AGENTS.md`; commit alleen wijzigingen van
-de eigen opdracht en push uitsluitend op verzoek.
+De huidige digitale checks staan in `print/controle.json` en
+`print/slicercontrole.json`; fysieke tests zijn nog niet gedaan.
+CAD-bronnen staan in `cad/`, STL/3MF in `print/`. Het lokale ZIP-pakket wordt
+met `cad/package.py` gemaakt en blijft volgens `.gitignore` buiten Git.
+Commit alleen opdrachtwijzigingen; push uitsluitend op verzoek.

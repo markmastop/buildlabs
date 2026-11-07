@@ -1,0 +1,18 @@
+{
+  "type": "process",
+  "name": "Ortelius p1 details 0.16 P2S",
+  "inherits": "0.20mm Standard @BBL P2S",
+  "from": "User",
+  "instantiation": "true",
+  "compatible_printers": ["Bambu Lab P2S 0.4 nozzle"],
+  "layer_height": "0.16",
+  "wall_loops": "4",
+  "top_shell_layers": "6",
+  "bottom_shell_layers": "6",
+  "sparse_infill_density": "15%",
+  "brim_type": "outer_only",
+  "brim_width": "3",
+  "enable_support": "1",
+  "support_type": "tree(auto)",
+  "support_on_build_plate_only": "1"
+}

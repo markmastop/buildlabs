@@ -1,7 +1,9 @@
 # Ontwerp Ortelius RC — vormstudie v3
 
-Deze versie is een **visueel browsermodel**, geen CAD-bron of printbestand.
-Eerst de vorm beoordelen; de constructieve RC-uitwerking volgt daarna.
+De vormstudie v3 is de visuele bron van het constructieprototype p1.
+De CAD-bron en STEP staan in `cad/`, de STL/3MF en controles in `print/`.
+Zie [CAD-weergave](cad/index.html) en [bouwbeschrijving](print/BOUWHANDLEIDING.md).
+De onderstaande fotocontrole beschrijft de oorspronkelijke browserstudie.
 Alle geometrie staat zelfstandig in [`index.html`](index.html), met Three.js
 r128 via vastgepinde CDN-links. Er is geen buildstap.
 
@@ -86,8 +88,8 @@ foto en model hebben niet automatisch dezelfde camerahoek of verticale schaal.
 
 De invulling achter de galerijen, stuwage en kleinere uitrusting is een
 visuele reconstructie. Een foto'set uit verschillende toestanden levert
-nog geen exact gedateerde uitvoering of bouwtekening op. Alleen het
-browsermodel is aangepast; er zijn geen CAD-, STL- of 3MF-bestanden gemaakt.
+nog geen exact gedateerde uitvoering of bouwtekening op. In die vormstudieronde is alleen het
+browsermodel aangepast. De latere CAD-uitwerking p1 staat onderaan dit document.
 
 ## Assen en belangrijkste stations
 
@@ -140,26 +142,19 @@ zodat de vorm direct kan worden bekeken.
 - **Bovenbouw eraf:** visuele animatie van de opbouw, geen uitgewerkte passing.
 - **Avond:** licht uit de ramen; **Langzaam draaien:** automatische rotatie.
 
-Beoordeel eerst de zijprofielen en het brugfront, daarna het achterschip en
-het bovenaanzicht. De pagina bevat bewust nog geen verwijzing naar een
-printpakket.
+Beoordeel zijprofielen en brugfront, achterschip en bovenaanzicht. De pagina
+linkt nu ook naar het aparte CAD-prototype en de printinstructies.
 
 ## Vervolg: printbare RC-constructie
 
-De gebruiker wil eerst dit 3D-model zien. Daarom zijn in deze stap **geen
-CAD-, STL- of 3MF-bestanden** gemaakt. `cad/` en `print/` blijven gereserveerd.
+Het printprototype p1 is nu uitgewerkt. Vier holle rompdelen zijn gesneden
+bij x = 227,5 / 455 / 682,5 mm. De laatste sectie is 217,5 mm lang; de
+uitwaaierende verschansing reikt als los deel tot x = 910 mm. Lasstroken,
+opleglip, serviceluik, losse dekdrager en RC-platen staan in de CAD-bron.
 
-Een mogelijke rompverdeling heeft sneden bij x = 22,75 / 45,5 / 68,25:
-vier nominale lengtes van 22,75 cm. Dit vervangt het onjuiste eerdere totaal
-van 4 × 22,5 cm voor een romp van 91 cm. Verbindingslippen, brims en
-printstand moeten bij de CAD-uitwerking opnieuw op het P2S-volume van
-256 × 256 × 256 mm worden gecontroleerd.
-
-Daarna volgen: wanddiktes, echte verbindingen, toegang tot de techniek,
-montage voor concreet gekozen motor/as/roer/boegschroef, gewichtsbegroting,
-proefprint, slicercontrole, waterdichtheidsproef en stabiliteits-/vaartest.
-Dunne relingen en antennes zijn voor de vorm getekend; ze zijn niet daarmee
-als printbaar gevalideerd.
+Dit zijn modelbouwkundige constructiekeuzes. Gewicht, trim, hechting,
+waterdichtheid, geselecteerde RC-producten en de fysieke passing moeten nog
+met proefprints en hardware worden bevestigd.
 
 ## Werken in de bron
 
@@ -184,7 +179,7 @@ een transparante referentie van de romp en dek-/waterlijncontouren. De
 zichtbaarheid van buitenonderdelen en het water wordt bij terugschakelen
 hersteld. **Labels** kan apart uit; de uitklapbare tabel bij de viewer bevat
 alle ruimtematen. De bestaande vormstudie en fotogebaseerde hoofdposities
-blijven behouden. Er zijn geen nieuwe CAD- of printbestanden.
+blijven behouden. De CAD- en printbestanden zijn apart uitgewerkt in p1.
 
 | Onderdeel | Positie x (cm) | Keuze |
 |---|---|---|
@@ -234,3 +229,37 @@ het andere op enige afstand in de lucht geplaatst, naar de referentiefoto.
 De knoppen **Helikopter** en **Heli’s in hangar** geven detailweergaven.
 De functie `helicopter()` maakt beide identieke modellen;
 `positionHelicopters()` wisselt tussen buiten- en stallingsstand.
+
+
+## CAD- en printprototype p1
+
+Bronnen: [`cad/build.py`](cad/build.py), [`cad/parameters.json`](cad/parameters.json).
+De STEP-assemblage en zelfstandige [CAD-viewer](cad/index.html) tonen dezelfde
+geometrie als de printonderdelen. De units veranderen van cm in de browser
+naar mm in CAD/print; CAD-assen X naar de boeg, Y bakboord, Z omhoog.
+
+- 68 unieke delen, 146 exemplaren volgens de printlijst (inclusief 24 relingstroken,
+  16 montageblokken, 8 deklijmstrips en proefstukken).
+- Holle romp met 3 mm horizontale en 3 mm verticale binnenoffset; lokaal dikker
+  voor stevige schuine kimmen. Vier secties en drie losse lasstroken.
+- Nominale lijmspeling 0,25 mm horizontaal en verticaal; 24 mm overlapstrip,
+  12 mm per zijde. Geen gegarandeerde printertolerantie zonder proef.
+- Voorste dekken op een integrale lip, als gezamenlijke opbouwunit afneembaar.
+  Achterste dek met afgedicht M3-serviceluik boven servo/as; losse borgblokken.
+- Bovenbouw hol met echte raamgaten en open galerijen; hangardak afzonderlijk.
+- Helikopterrompen in vlak printbare helften, met aparte skids en losse rotors.
+- Maximaal printdeel 240 mm; alle delen blijven binnen 246 mm per as.
+- De geschatte romp verplaatst bij 44 / 54 / 64 mm diepgang circa
+  3,40 / 4,62 / 5,90 kg zoet water. Dit vervangt het onbevestigde modeldoel
+  van circa 4 kg niet door een gegarandeerd vaargewicht.
+
+Bewuste FDM-keuzes: vlakke versterkte vakwerkmast met losse ra’s, verdikte
+staanders, solide lichtkap en sloepen, geschilderde ramen/markeringen en
+losse generieke relingstroken. Veiligheidsnetten, touwen, kleine antennes,
+zodiacs en ankerkettingen zijn modelbouwafwerking, geen losse p1-printdelen.
+De accubak en montageplaten zijn adapters; de functionele doorvoeren blijven
+dicht tot de echte as, roerkoker en boegschroef gekozen zijn.
+
+[`print/controle.json`](print/controle.json) bevat de herimportcontrole;
+[`print/slicercontrole.json`](print/slicercontrole.json) de proefslicing met
+Bambu Studio. Geen van beide vervangt een fysieke lek-, drijf- of vaartest.

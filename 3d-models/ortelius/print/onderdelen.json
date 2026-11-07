@@ -1,0 +1,2124 @@
+{
+  "revision": "p1",
+  "units": "mm",
+  "scale": 100,
+  "printer": "Bambu Lab P2S 256³; modelmarge 5 mm per zijde",
+  "parts": [
+    {
+      "name": "01_romp_1",
+      "quantity": 1,
+      "group": "romp",
+      "color": "#163b70",
+      "print_mm": [
+        107.0,
+        172.0,
+        227.5
+      ],
+      "volume_cm3": 295.7056,
+      "asa_solid_mass_g": 316.4,
+      "note": "Snijvlak op bed; buitenste overhangen controleren. Epoxy en glasband aan binnenzijde.",
+      "rotation": [
+        [
+          0,
+          1,
+          0
+        ],
+        90
+      ],
+      "bed_translation": [
+        9.999998445687765e-08,
+        86.0000001,
+        227.50000010000005
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "01_romp_2",
+      "quantity": 1,
+      "group": "romp",
+      "color": "#163b70",
+      "print_mm": [
+        139.0,
+        172.0,
+        227.5
+      ],
+      "volume_cm3": 329.2783,
+      "asa_solid_mass_g": 352.33,
+      "note": "Snijvlak op bed; buitenste overhangen controleren. Epoxy en glasband aan binnenzijde.",
+      "rotation": [
+        [
+          0,
+          1,
+          0
+        ],
+        90
+      ],
+      "bed_translation": [
+        9.999997474242619e-08,
+        86.0000001,
+        455.00000010000014
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "01_romp_3",
+      "quantity": 1,
+      "group": "romp",
+      "color": "#163b70",
+      "print_mm": [
+        139.0,
+        172.0,
+        227.5
+      ],
+      "volume_cm3": 317.8262,
+      "asa_solid_mass_g": 340.07,
+      "note": "Snijvlak op bed; buitenste overhangen controleren. Epoxy en glasband aan binnenzijde.",
+      "rotation": [
+        [
+          0,
+          1,
+          0
+        ],
+        90
+      ],
+      "bed_translation": [
+        9.999996421063686e-08,
+        86.0000001,
+        682.5000001000001
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "01_romp_4",
+      "quantity": 1,
+      "group": "romp",
+      "color": "#163b70",
+      "print_mm": [
+        139.0,
+        155.653,
+        217.5
+      ],
+      "volume_cm3": 242.7886,
+      "asa_solid_mass_g": 259.78,
+      "note": "Snijvlak op bed; buitenste overhangen controleren. Epoxy en glasband aan binnenzijde.",
+      "rotation": [
+        [
+          0,
+          1,
+          0
+        ],
+        -90
+      ],
+      "bed_translation": [
+        139.0000001000002,
+        77.82668355181173,
+        -682.4999998999998
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "02_lasstrook_1",
+      "quantity": 1,
+      "group": "romp",
+      "color": "#eeeeea",
+      "print_mm": [
+        100.5,
+        165.5,
+        24.0
+      ],
+      "volume_cm3": 20.9421,
+      "asa_solid_mass_g": 22.41,
+      "note": "24 mm breed; half in ieder rompdeel. Epoxylijmspeling 0,25 mm, niet klemmen.",
+      "rotation": [
+        [
+          0,
+          1,
+          0
+        ],
+        90
+      ],
+      "bed_translation": [
+        -3.249999900000024,
+        82.7500001,
+        239.50000010000002
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "02_lasstrook_2",
+      "quantity": 1,
+      "group": "romp",
+      "color": "#eeeeea",
+      "print_mm": [
+        100.5,
+        165.5,
+        24.0
+      ],
+      "volume_cm3": 20.9642,
+      "asa_solid_mass_g": 22.43,
+      "note": "24 mm breed; half in ieder rompdeel. Epoxylijmspeling 0,25 mm, niet klemmen.",
+      "rotation": [
+        [
+          0,
+          1,
+          0
+        ],
+        90
+      ],
+      "bed_translation": [
+        -3.249999900000049,
+        82.7500001,
+        467.00000010000014
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "02_lasstrook_3",
+      "quantity": 1,
+      "group": "romp",
+      "color": "#eeeeea",
+      "print_mm": [
+        100.5,
+        148.498,
+        24.0
+      ],
+      "volume_cm3": 20.3973,
+      "asa_solid_mass_g": 21.83,
+      "note": "24 mm breed; half in ieder rompdeel. Epoxylijmspeling 0,25 mm, niet klemmen.",
+      "rotation": [
+        [
+          0,
+          1,
+          0
+        ],
+        90
+      ],
+      "bed_translation": [
+        -3.2499999000000743,
+        74.24898885589951,
+        694.5000001000001
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "03_werkdek_achter",
+      "quantity": 1,
+      "group": "dek",
+      "color": "#477d60",
+      "print_mm": [
+        238.0,
+        164.0,
+        6.0
+      ],
+      "volume_cm3": 79.2775,
+      "asa_solid_mass_g": 84.83,
+      "note": "Vast verlijmen; servo-/as-serviceluik met onderliggende oplegring.",
+      "rotation": null,
+      "bed_translation": [
+        -1.9999999999999998,
+        82.0,
+        -101.0
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "03_serviceluik_achter",
+      "quantity": 1,
+      "group": "dek",
+      "color": "#477d60",
+      "print_mm": [
+        149.5,
+        125.5,
+        3.0
+      ],
+      "volume_cm3": 56.1903,
+      "asa_solid_mass_g": 60.12,
+      "note": "Afneembaar: 4 × M3 met eigen moeren; dunne afdichtingsband op oplegring.",
+      "rotation": null,
+      "bed_translation": [
+        -70.25,
+        62.75,
+        -104.0
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "04_hoofddek_1",
+      "quantity": 1,
+      "group": "dek",
+      "color": "#477d60",
+      "print_mm": [
+        211.5,
+        165.5,
+        3.0
+      ],
+      "volume_cm3": 105.0098,
+      "asa_solid_mass_g": 112.36,
+      "note": "Afneembare module op romp-lip; rand met schuimband afdichten, niet onderdompelbaar.",
+      "rotation": null,
+      "bed_translation": [
+        -243.25,
+        82.75,
+        -135.99999999999972
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "04_hoofddek_2",
+      "quantity": 1,
+      "group": "dek",
+      "color": "#477d60",
+      "print_mm": [
+        227.0,
+        165.5,
+        3.0
+      ],
+      "volume_cm3": 110.1328,
+      "asa_solid_mass_g": 117.84,
+      "note": "Afneembare module op romp-lip; rand met schuimband afdichten, niet onderdompelbaar.",
+      "rotation": null,
+      "bed_translation": [
+        -455.25,
+        82.75,
+        -135.99999999999972
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "04_hoofddek_3",
+      "quantity": 1,
+      "group": "dek",
+      "color": "#477d60",
+      "print_mm": [
+        213.277,
+        149.062,
+        3.0
+      ],
+      "volume_cm3": 67.5866,
+      "asa_solid_mass_g": 72.32,
+      "note": "Afneembare module op romp-lip; rand met schuimband afdichten, niet onderdompelbaar.",
+      "rotation": null,
+      "bed_translation": [
+        -682.75,
+        74.5312204244265,
+        -135.99999999999972
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "05_deksteun_M3",
+      "quantity": 16,
+      "group": "montage",
+      "color": "#eeeeea",
+      "print_mm": [
+        12.0,
+        8.0,
+        10.0
+      ],
+      "volume_cm3": 0.8796,
+      "asa_solid_mass_g": 15.06,
+      "note": "16 universele lijmsteunen. M3-moer/bout zelf toevoegen; pas bij proefmontage positioneren.",
+      "rotation": null,
+      "bed_translation": [
+        6.0,
+        4.0,
+        -0.0
+      ],
+      "assembly_translations": [],
+      "included": false
+    },
+    {
+      "name": "05_deklijmstrip",
+      "quantity": 8,
+      "group": "montage",
+      "color": "#eeeeea",
+      "print_mm": [
+        60.0,
+        12.0,
+        2.0
+      ],
+      "volume_cm3": 1.44,
+      "asa_solid_mass_g": 12.33,
+      "note": "Voeg de drie hoofddekpanelen tot één afneembare unit; vier strips per naad onder het dek.",
+      "rotation": null,
+      "bed_translation": [
+        30.0,
+        6.0,
+        -0.0
+      ],
+      "assembly_translations": [],
+      "included": false
+    },
+    {
+      "name": "06_bakverschansing",
+      "quantity": 1,
+      "group": "bovenbouw",
+      "color": "#eeeeea",
+      "print_mm": [
+        194.0,
+        147.556,
+        13.5
+      ],
+      "volume_cm3": 9.0375,
+      "asa_solid_mass_g": 9.67,
+      "note": "Buitenrand op bestaande romp; top vereenvoudigd, geen fotometrisch exacte uitwaaiering.",
+      "rotation": null,
+      "bed_translation": [
+        -715.9999999,
+        73.77804409438426,
+        -138.9999999
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "10_accommodatie_1",
+      "quantity": 1,
+      "group": "bovenbouw",
+      "color": "#eeeeea",
+      "print_mm": [
+        180.0,
+        164.0,
+        27.0
+      ],
+      "volume_cm3": 22.7087,
+      "asa_solid_mass_g": 24.3,
+      "note": "Raamgaten; donker schilderen of transparante folie achterlijmen.",
+      "rotation": null,
+      "bed_translation": [
+        -175.0,
+        82.0,
+        -138.99999999999997
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "10_accommodatie_2",
+      "quantity": 1,
+      "group": "bovenbouw",
+      "color": "#eeeeea",
+      "print_mm": [
+        180.0,
+        164.0,
+        27.0
+      ],
+      "volume_cm3": 16.5416,
+      "asa_solid_mass_g": 17.7,
+      "note": "Raamgaten; donker schilderen of transparante folie achterlijmen.",
+      "rotation": null,
+      "bed_translation": [
+        -355.0,
+        82.0,
+        -138.99999999999997
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "10_accommodatie_3",
+      "quantity": 1,
+      "group": "bovenbouw",
+      "color": "#eeeeea",
+      "print_mm": [
+        179.0,
+        164.0,
+        27.0
+      ],
+      "volume_cm3": 21.2464,
+      "asa_solid_mass_g": 22.73,
+      "note": "Raamgaten; donker schilderen of transparante folie achterlijmen.",
+      "rotation": null,
+      "bed_translation": [
+        -535.0,
+        82.0,
+        -138.99999999999997
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "11_dak_lage_accommodatie",
+      "quantity": 1,
+      "group": "dek",
+      "color": "#477d60",
+      "print_mm": [
+        114.0,
+        160.0,
+        2.0
+      ],
+      "volume_cm3": 36.454,
+      "asa_solid_mass_g": 39.01,
+      "note": "",
+      "rotation": null,
+      "bed_translation": [
+        -298.0,
+        80.0,
+        -164.0
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "12_sloependek_1",
+      "quantity": 1,
+      "group": "dek",
+      "color": "#477d60",
+      "print_mm": [
+        148.0,
+        165.0,
+        2.9
+      ],
+      "volume_cm3": 70.7919,
+      "asa_solid_mass_g": 75.75,
+      "note": "",
+      "rotation": null,
+      "bed_translation": [
+        -412.0,
+        82.5,
+        -164.0
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "12_sloependek_2",
+      "quantity": 1,
+      "group": "dek",
+      "color": "#477d60",
+      "print_mm": [
+        156.0,
+        165.0,
+        2.9
+      ],
+      "volume_cm3": 72.8335,
+      "asa_solid_mass_g": 77.93,
+      "note": "",
+      "rotation": null,
+      "bed_translation": [
+        -560.0,
+        82.5,
+        -164.0
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "13_binnenhuis_galerij",
+      "quantity": 1,
+      "group": "bovenbouw",
+      "color": "#eeeeea",
+      "print_mm": [
+        188.0,
+        93.0,
+        26.1
+      ],
+      "volume_cm3": 21.4172,
+      "asa_solid_mass_g": 22.92,
+      "note": "",
+      "rotation": null,
+      "bed_translation": [
+        -420.0,
+        46.5,
+        -166.89999999999998
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "14_voorhuis",
+      "quantity": 1,
+      "group": "bovenbouw",
+      "color": "#eeeeea",
+      "print_mm": [
+        93.0,
+        134.0,
+        26.1
+      ],
+      "volume_cm3": 17.2001,
+      "asa_solid_mass_g": 18.4,
+      "note": "",
+      "rotation": null,
+      "bed_translation": [
+        -605.0,
+        67.0,
+        -166.89999999999992
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "15_galerijdak_1",
+      "quantity": 1,
+      "group": "dek",
+      "color": "#477d60",
+      "print_mm": [
+        148.0,
+        161.0,
+        3.1
+      ],
+      "volume_cm3": 73.8668,
+      "asa_solid_mass_g": 79.04,
+      "note": "",
+      "rotation": null,
+      "bed_translation": [
+        -412.0,
+        80.5,
+        -191.0
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "15_galerijdak_2",
+      "quantity": 1,
+      "group": "dek",
+      "color": "#477d60",
+      "print_mm": [
+        142.0,
+        161.0,
+        3.1
+      ],
+      "volume_cm3": 63.4911,
+      "asa_solid_mass_g": 67.94,
+      "note": "",
+      "rotation": null,
+      "bed_translation": [
+        -560.0,
+        80.5,
+        -191.0
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "16_galerijwand_SB",
+      "quantity": 1,
+      "group": "bovenbouw",
+      "color": "#eeeeea",
+      "print_mm": [
+        198.0,
+        2.2,
+        24.1
+      ],
+      "volume_cm3": 5.1916,
+      "asa_solid_mass_g": 5.55,
+      "note": "",
+      "rotation": null,
+      "bed_translation": [
+        -414.0,
+        79.1,
+        -166.9
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "16_galerijwand_BB",
+      "quantity": 1,
+      "group": "bovenbouw",
+      "color": "#eeeeea",
+      "print_mm": [
+        198.0,
+        2.2,
+        24.1
+      ],
+      "volume_cm3": 5.1916,
+      "asa_solid_mass_g": 5.55,
+      "note": "",
+      "rotation": null,
+      "bed_translation": [
+        -414.0,
+        -76.9,
+        -166.9
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "17_brug",
+      "quantity": 1,
+      "group": "bovenbouw",
+      "color": "#eeeeea",
+      "print_mm": [
+        111.0,
+        160.0,
+        28.9
+      ],
+      "volume_cm3": 20.1412,
+      "asa_solid_mass_g": 21.55,
+      "note": "",
+      "rotation": null,
+      "bed_translation": [
+        -585.0,
+        80.0,
+        -194.0999999999999
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "18_brugdak",
+      "quantity": 1,
+      "group": "dek",
+      "color": "#477d60",
+      "print_mm": [
+        116.0,
+        165.0,
+        3.0
+      ],
+      "volume_cm3": 50.301,
+      "asa_solid_mass_g": 53.82,
+      "note": "",
+      "rotation": null,
+      "bed_translation": [
+        -583.0,
+        82.5,
+        -223.0
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "20_promenadedek",
+      "quantity": 1,
+      "group": "dek",
+      "color": "#477d60",
+      "print_mm": [
+        240.0,
+        174.0,
+        3.0
+      ],
+      "volume_cm3": 124.4152,
+      "asa_solid_mass_g": 133.12,
+      "note": "",
+      "rotation": null,
+      "bed_translation": [
+        -1.9999999999999987,
+        87.0,
+        -136.0
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "21_kolom_onder",
+      "quantity": 8,
+      "group": "bovenbouw",
+      "color": "#eeeeea",
+      "print_mm": [
+        2.4,
+        2.5,
+        29.0
+      ],
+      "volume_cm3": 0.174,
+      "asa_solid_mass_g": 1.49,
+      "note": "",
+      "rotation": null,
+      "bed_translation": [
+        1.2,
+        1.25,
+        -0.0
+      ],
+      "assembly_translations": [
+        [
+          19,
+          -73,
+          107
+        ],
+        [
+          19,
+          73,
+          107
+        ],
+        [
+          72,
+          -81,
+          107
+        ],
+        [
+          72,
+          81,
+          107
+        ],
+        [
+          126,
+          -81,
+          107
+        ],
+        [
+          126,
+          81,
+          107
+        ],
+        [
+          164,
+          -81,
+          107
+        ],
+        [
+          164,
+          81,
+          107
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "22_kolom_helidek",
+      "quantity": 8,
+      "group": "bovenbouw",
+      "color": "#eeeeea",
+      "print_mm": [
+        2.4,
+        2.5,
+        23.5
+      ],
+      "volume_cm3": 0.141,
+      "asa_solid_mass_g": 1.21,
+      "note": "",
+      "rotation": null,
+      "bed_translation": [
+        1.2,
+        1.25,
+        -0.0
+      ],
+      "assembly_translations": [
+        [
+          19,
+          -73,
+          139
+        ],
+        [
+          19,
+          73,
+          139
+        ],
+        [
+          72,
+          -81,
+          139
+        ],
+        [
+          72,
+          81,
+          139
+        ],
+        [
+          126,
+          -81,
+          139
+        ],
+        [
+          126,
+          81,
+          139
+        ],
+        [
+          164,
+          -81,
+          139
+        ],
+        [
+          164,
+          81,
+          139
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "23_achterkajuit",
+      "quantity": 1,
+      "group": "bovenbouw",
+      "color": "#eeeeea",
+      "print_mm": [
+        137.0,
+        146.0,
+        25.0
+      ],
+      "volume_cm3": 21.4725,
+      "asa_solid_mass_g": 22.98,
+      "note": "",
+      "rotation": null,
+      "bed_translation": [
+        -100.0,
+        73.0,
+        -106.99999999999999
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "24_helidek",
+      "quantity": 1,
+      "group": "dek",
+      "color": "#477d60",
+      "print_mm": [
+        175.0,
+        178.0,
+        5.0
+      ],
+      "volume_cm3": 153.63,
+      "asa_solid_mass_g": 164.38,
+      "note": "H en gele cirkel schilderen; vloer hangar ligt op 168,1 mm.",
+      "rotation": null,
+      "bed_translation": [
+        8.907986580745172e-16,
+        89.0,
+        -162.5
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "25_hangarwanden",
+      "quantity": 1,
+      "group": "bovenbouw",
+      "color": "#eeeeea",
+      "print_mm": [
+        124.2,
+        160.0,
+        38.1
+      ],
+      "volume_cm3": 39.7686,
+      "asa_solid_mass_g": 42.55,
+      "note": "Dunne ramenfolie niet nodig. Schilder binnenwanden vóór dakmontage.",
+      "rotation": null,
+      "bed_translation": [
+        -173.8,
+        80.0,
+        -166.9
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "26_hangarvloer",
+      "quantity": 1,
+      "group": "dek",
+      "color": "#477d60",
+      "print_mm": [
+        120.6,
+        155.3,
+        2.1
+      ],
+      "volume_cm3": 39.3313,
+      "asa_solid_mass_g": 42.08,
+      "note": "",
+      "rotation": null,
+      "bed_translation": [
+        -176.2,
+        77.65,
+        -166.0
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "27_hangardak",
+      "quantity": 1,
+      "group": "dek",
+      "color": "#477d60",
+      "print_mm": [
+        197.0,
+        164.0,
+        2.0
+      ],
+      "volume_cm3": 59.576,
+      "asa_solid_mass_g": 63.75,
+      "note": "",
+      "rotation": null,
+      "bed_translation": [
+        -173.0,
+        82.0,
+        -205.0
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "28_hangar_voorhuis",
+      "quantity": 1,
+      "group": "bovenbouw",
+      "color": "#eeeeea",
+      "print_mm": [
+        67.0,
+        118.0,
+        38.1
+      ],
+      "volume_cm3": 21.8035,
+      "asa_solid_mass_g": 23.33,
+      "note": "",
+      "rotation": null,
+      "bed_translation": [
+        -298.0,
+        59.0,
+        -166.89999999999998
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "30_schoorsteen",
+      "quantity": 1,
+      "group": "bovenbouw",
+      "color": "#eeeeea",
+      "print_mm": [
+        72.0,
+        56.0,
+        45.0
+      ],
+      "volume_cm3": 20.4959,
+      "asa_solid_mass_g": 21.93,
+      "note": "",
+      "rotation": null,
+      "bed_translation": [
+        -263.9999999,
+        28.0000001,
+        -206.99999989999998
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "31_schoorsteenkap",
+      "quantity": 1,
+      "group": "bovenbouw",
+      "color": "#242b30",
+      "print_mm": [
+        94.0,
+        59.0,
+        9.0
+      ],
+      "volume_cm3": 34.751,
+      "asa_solid_mass_g": 37.18,
+      "note": "",
+      "rotation": null,
+      "bed_translation": [
+        -250.0,
+        29.5,
+        -251.0
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "32_vakwerkmast",
+      "quantity": 1,
+      "group": "bovenbouw",
+      "color": "#242b30",
+      "print_mm": [
+        15.0,
+        119.0,
+        3.0
+      ],
+      "volume_cm3": 2.2641,
+      "asa_solid_mass_g": 2.42,
+      "note": "Vlak versterkt vakwerk 3 mm dik; plat printen, losse ra’s verlijmen.",
+      "rotation": [
+        [
+          1,
+          0,
+          0
+        ],
+        90
+      ],
+      "bed_translation": [
+        -325.5,
+        374.0,
+        1.499999999999972
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "32_ra_1",
+      "quantity": 1,
+      "group": "bovenbouw",
+      "color": "#242b30",
+      "print_mm": [
+        3.0,
+        54.0,
+        2.0
+      ],
+      "volume_cm3": 0.324,
+      "asa_solid_mass_g": 0.35,
+      "note": "Losse ra tegen vlakke vakwerkmast verlijmen.",
+      "rotation": null,
+      "bed_translation": [
+        -331.5,
+        27.0,
+        -291.0
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "32_ra_2",
+      "quantity": 1,
+      "group": "bovenbouw",
+      "color": "#242b30",
+      "print_mm": [
+        3.0,
+        48.0,
+        2.0
+      ],
+      "volume_cm3": 0.288,
+      "asa_solid_mass_g": 0.31,
+      "note": "Losse ra tegen vlakke vakwerkmast verlijmen.",
+      "rotation": null,
+      "bed_translation": [
+        -331.5,
+        24.0,
+        -314.0
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "32_ra_3",
+      "quantity": 1,
+      "group": "bovenbouw",
+      "color": "#242b30",
+      "print_mm": [
+        3.0,
+        38.0,
+        2.0
+      ],
+      "volume_cm3": 0.228,
+      "asa_solid_mass_g": 0.24,
+      "note": "Losse ra tegen vlakke vakwerkmast verlijmen.",
+      "rotation": null,
+      "bed_translation": [
+        -331.5,
+        19.0,
+        -335.0
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "33_radarmast",
+      "quantity": 1,
+      "group": "bovenbouw",
+      "color": "#eeeeea",
+      "print_mm": [
+        32.0,
+        167.9,
+        3.599
+      ],
+      "volume_cm3": 1.9775,
+      "asa_solid_mass_g": 2.12,
+      "note": "Steunmateriaal nodig bij ra’s; dunne antennes als messing draad toevoegen.",
+      "rotation": [
+        [
+          1,
+          0,
+          0
+        ],
+        90
+      ],
+      "bed_translation": [
+        -573.9999999,
+        362.0000001,
+        1.8000000999999786
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "34_voormast",
+      "quantity": 1,
+      "group": "bovenbouw",
+      "color": "#eeeeea",
+      "print_mm": [
+        12.0,
+        133.0,
+        2.599
+      ],
+      "volume_cm3": 0.7251,
+      "asa_solid_mass_g": 0.78,
+      "note": "",
+      "rotation": [
+        [
+          1,
+          0,
+          0
+        ],
+        90
+      ],
+      "bed_translation": [
+        -799.9999999,
+        272.0000001,
+        1.3000000999999848
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "39_sloepenplatform",
+      "quantity": 2,
+      "group": "bovenbouw",
+      "color": "#eeeeea",
+      "print_mm": [
+        94.0,
+        32.0,
+        3.0
+      ],
+      "volume_cm3": 9.024,
+      "asa_solid_mass_g": 19.31,
+      "note": "",
+      "rotation": null,
+      "bed_translation": [
+        47.0,
+        16.0,
+        -0.0
+      ],
+      "assembly_translations": [
+        [
+          346,
+          -89,
+          173.5
+        ],
+        [
+          346,
+          89,
+          173.5
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "40_reddingsboot",
+      "quantity": 2,
+      "group": "bovenbouw",
+      "color": "#ed741e",
+      "print_mm": [
+        85.0,
+        28.4,
+        26.0
+      ],
+      "volume_cm3": 41.1669,
+      "asa_solid_mass_g": 88.1,
+      "note": "Ramen zwart schilderen; ondersteunt romp buitenzijde.",
+      "rotation": null,
+      "bed_translation": [
+        42.0000001,
+        14.200000099999999,
+        1e-07
+      ],
+      "assembly_translations": [
+        [
+          346,
+          -89,
+          176.5
+        ],
+        [
+          346,
+          89,
+          176.5
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "41_davit",
+      "quantity": 4,
+      "group": "bovenbouw",
+      "color": "#ed741e",
+      "print_mm": [
+        26.188,
+        40.663,
+        8.0
+      ],
+      "volume_cm3": 0.7417,
+      "asa_solid_mass_g": 3.17,
+      "note": "",
+      "rotation": [
+        [
+          1,
+          0,
+          0
+        ],
+        90
+      ],
+      "bed_translation": [
+        16.0,
+        40.444576930118295,
+        4.0
+      ],
+      "assembly_translations": [
+        [
+          313,
+          -98,
+          176.5
+        ],
+        [
+          313,
+          98,
+          176.5
+        ],
+        [
+          379,
+          -98,
+          176.5
+        ],
+        [
+          379,
+          98,
+          176.5
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "42_dekkraan",
+      "quantity": 2,
+      "group": "bovenbouw",
+      "color": "#ed741e",
+      "print_mm": [
+        43.792,
+        42.504,
+        10.0
+      ],
+      "volume_cm3": 1.1235,
+      "asa_solid_mass_g": 2.4,
+      "note": "",
+      "rotation": [
+        [
+          1,
+          0,
+          0
+        ],
+        90
+      ],
+      "bed_translation": [
+        37.791769035815456,
+        42.50436107804937,
+        5.0
+      ],
+      "assembly_translations": [
+        [
+          552,
+          -59,
+          194.1
+        ],
+        [
+          552,
+          59,
+          194.1
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "43_lichtkap",
+      "quantity": 1,
+      "group": "bovenbouw",
+      "color": "#62939a",
+      "print_mm": [
+        58.0,
+        60.0,
+        10.3
+      ],
+      "volume_cm3": 25.0639,
+      "asa_solid_mass_g": 26.82,
+      "note": "Glasvlakken schilderen; solide detail om vlakke browserruiten printbaar te maken.",
+      "rotation": null,
+      "bed_translation": [
+        -491.9999999,
+        30.0000001,
+        -194.0999999
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "44_bank",
+      "quantity": 2,
+      "group": "bovenbouw",
+      "color": "#8a6944",
+      "print_mm": [
+        38.0,
+        11.0,
+        17.0
+      ],
+      "volume_cm3": 1.804,
+      "asa_solid_mass_g": 3.86,
+      "note": "",
+      "rotation": null,
+      "bed_translation": [
+        19.0,
+        5.0,
+        -0.0
+      ],
+      "assembly_translations": [
+        [
+          521,
+          -45.5,
+          194.1
+        ],
+        [
+          521,
+          45.5,
+          194.1
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "45_reling_100mm",
+      "quantity": 24,
+      "group": "bovenbouw",
+      "color": "#eeeeea",
+      "print_mm": [
+        101.4,
+        12.2,
+        1.2
+      ],
+      "volume_cm3": 0.5244,
+      "asa_solid_mass_g": 13.47,
+      "note": "24 losse stroken à 100 mm; buigen/inkorten bij proefmontage. Geen dragend onderdeel.",
+      "rotation": [
+        [
+          1,
+          0,
+          0
+        ],
+        90
+      ],
+      "bed_translation": [
+        0.7,
+        12.2,
+        0.6
+      ],
+      "assembly_translations": [],
+      "included": false
+    },
+    {
+      "name": "50_accubak_2S",
+      "quantity": 1,
+      "group": "RC",
+      "color": "#242b30",
+      "print_mm": [
+        160.0,
+        68.0,
+        12.0
+      ],
+      "volume_cm3": 43.284,
+      "asa_solid_mass_g": 46.31,
+      "note": "Binnenruimte 154 × 62 mm; klittenband door sleuven, montagevoet op maat uitvullen.",
+      "rotation": null,
+      "bed_translation": [
+        -380.0,
+        34.0,
+        -15.0
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "51_motorplaat_verstelbaar",
+      "quantity": 1,
+      "group": "RC",
+      "color": "#242b30",
+      "print_mm": [
+        116.0,
+        78.0,
+        4.0
+      ],
+      "volume_cm3": 34.016,
+      "asa_solid_mass_g": 36.4,
+      "note": "Voor metalen motorbeugel; M3-sleuven. Motortype, ashoogte en uitlijning eerst vastleggen.",
+      "rotation": null,
+      "bed_translation": [
+        -242.0,
+        39.0,
+        -16.0
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "52_servoplaat",
+      "quantity": 1,
+      "group": "RC",
+      "color": "#242b30",
+      "print_mm": [
+        56.0,
+        36.0,
+        3.0
+      ],
+      "volume_cm3": 3.4168,
+      "asa_solid_mass_g": 3.66,
+      "note": "Proefmaat 41 × 21 mm opening, M3-hartafstand 48 mm; aanpassen aan werkelijke servo.",
+      "rotation": null,
+      "bed_translation": [
+        -82.0,
+        -22.0,
+        -40.0
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "53_elektronicaplaat",
+      "quantity": 3,
+      "group": "RC",
+      "color": "#242b30",
+      "print_mm": [
+        65.0,
+        42.0,
+        3.0
+      ],
+      "volume_cm3": 8.0935,
+      "asa_solid_mass_g": 25.98,
+      "note": "Voor regelaar/ontvanger met klittenband; neutrale M3-plaat.",
+      "rotation": null,
+      "bed_translation": [
+        32.5,
+        21.0,
+        -0.0
+      ],
+      "assembly_translations": [
+        [
+          370,
+          43,
+          30
+        ],
+        [
+          555,
+          0,
+          25
+        ],
+        [
+          670,
+          -20,
+          30
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "54_ballastbak",
+      "quantity": 2,
+      "group": "RC",
+      "color": "#242b30",
+      "print_mm": [
+        55.0,
+        45.0,
+        12.0
+      ],
+      "volume_cm3": 10.7,
+      "asa_solid_mass_g": 22.9,
+      "note": "",
+      "rotation": null,
+      "bed_translation": [
+        27.5,
+        22.5,
+        -0.0
+      ],
+      "assembly_translations": [
+        [
+          575,
+          0,
+          15
+        ],
+        [
+          635,
+          0,
+          15
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "55_boegschroef_proeftunnel",
+      "quantity": 1,
+      "group": "RC",
+      "color": "#242b30",
+      "print_mm": [
+        23.0,
+        22.993,
+        125.0
+      ],
+      "volume_cm3": 12.6593,
+      "asa_solid_mass_g": 13.55,
+      "note": "Alleen maattest ID20/OD23 ×125; geen functionele boegschroef, geen gaten in romp.",
+      "rotation": null,
+      "bed_translation": [
+        11.5,
+        11.5,
+        -0.0
+      ],
+      "assembly_translations": [],
+      "included": false
+    },
+    {
+      "name": "56_roerblad",
+      "quantity": 1,
+      "group": "RC",
+      "color": "#163b70",
+      "print_mm": [
+        24.0,
+        40.0,
+        7.0
+      ],
+      "volume_cm3": 6.1661,
+      "asa_solid_mass_g": 6.6,
+      "note": "Metalen roeras Ø4 met epoxy verlijmen; koker/lager en afdichting uit handelsdelen.",
+      "rotation": [
+        [
+          1,
+          0,
+          0
+        ],
+        90
+      ],
+      "bed_translation": [
+        2.0,
+        44.0,
+        3.4999999999999996
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "60_heli_romp_SB",
+      "quantity": 2,
+      "group": "heli",
+      "color": "#efce27",
+      "print_mm": [
+        109.3,
+        25.092,
+        12.65
+      ],
+      "volume_cm3": 7.0901,
+      "asa_solid_mass_g": 15.17,
+      "note": "Twee exemplaren per zijde; middenvlak op bed, vlak verlijmen. Ramen schilderen volgens foto/detailviewer.",
+      "rotation": [
+        [
+          1,
+          0,
+          0
+        ],
+        -90
+      ],
+      "bed_translation": [
+        33.35000010000001,
+        -6.298480574485753,
+        1.0000000433269556e-07
+      ],
+      "assembly_translations": [],
+      "included": false
+    },
+    {
+      "name": "60_heli_romp_BB",
+      "quantity": 2,
+      "group": "heli",
+      "color": "#efce27",
+      "print_mm": [
+        109.3,
+        25.092,
+        12.65
+      ],
+      "volume_cm3": 7.0918,
+      "asa_solid_mass_g": 15.18,
+      "note": "Twee exemplaren per zijde; middenvlak op bed, vlak verlijmen. Ramen schilderen volgens foto/detailviewer.",
+      "rotation": [
+        [
+          1,
+          0,
+          0
+        ],
+        90
+      ],
+      "bed_translation": [
+        33.35000010000001,
+        31.4000001,
+        1.0000000705173253e-07
+      ],
+      "assembly_translations": [],
+      "included": false
+    },
+    {
+      "name": "61_heli_landingsgestel",
+      "quantity": 2,
+      "group": "heli",
+      "color": "#242b30",
+      "print_mm": [
+        49.862,
+        24.2,
+        9.9
+      ],
+      "volume_cm3": 0.388,
+      "asa_solid_mass_g": 0.83,
+      "note": "0,8–0,9 mm radius; geprint vanaf rails met steun onder dwarsbalkjes.",
+      "rotation": null,
+      "bed_translation": [
+        30.861541301655624,
+        12.100000099999999,
+        1e-07
+      ],
+      "assembly_translations": [],
+      "included": false
+    },
+    {
+      "name": "62_heli_rotorblad",
+      "quantity": 6,
+      "group": "heli",
+      "color": "#242b30",
+      "print_mm": [
+        51.0,
+        2.3,
+        1.2
+      ],
+      "volume_cm3": 0.1408,
+      "asa_solid_mass_g": 0.9,
+      "note": "Drie per heli, lijmen op hub op 120 graden; voor hangar loslaten. 1,2 mm dik voor FDM.",
+      "rotation": null,
+      "bed_translation": [
+        -2.4499999999999993,
+        1.15,
+        -30.3
+      ],
+      "assembly_translations": [],
+      "included": false
+    },
+    {
+      "name": "63_heli_staartrotor",
+      "quantity": 2,
+      "group": "heli",
+      "color": "#242b30",
+      "print_mm": [
+        18.6,
+        18.6,
+        1.2
+      ],
+      "volume_cm3": 0.0518,
+      "asa_solid_mass_g": 0.11,
+      "note": "",
+      "rotation": [
+        [
+          1,
+          0,
+          0
+        ],
+        90
+      ],
+      "bed_translation": [
+        9.3,
+        18.6,
+        0.6
+      ],
+      "assembly_translations": [],
+      "included": false
+    },
+    {
+      "name": "00_pasproef_A",
+      "quantity": 1,
+      "group": "proef",
+      "color": "#163b70",
+      "print_mm": [
+        40.0,
+        8.229,
+        10.0
+      ],
+      "volume_cm3": 1.3427,
+      "asa_solid_mass_g": 1.44,
+      "note": "Eerst printen. Controleer las en lijmspeling vóór de vier grote rompdelen.",
+      "rotation": [
+        [
+          0,
+          1,
+          0
+        ],
+        90
+      ],
+      "bed_translation": [
+        -50.00000000000004,
+        -77.77142857142857,
+        455.0
+      ],
+      "assembly_translations": [],
+      "included": false
+    },
+    {
+      "name": "00_pasproef_B",
+      "quantity": 1,
+      "group": "proef",
+      "color": "#163b70",
+      "print_mm": [
+        40.0,
+        8.229,
+        10.0
+      ],
+      "volume_cm3": 1.3427,
+      "asa_solid_mass_g": 1.44,
+      "note": "Eerst printen. Controleer las en lijmspeling vóór de vier grote rompdelen.",
+      "rotation": [
+        [
+          0,
+          1,
+          0
+        ],
+        90
+      ],
+      "bed_translation": [
+        -50.00000000000004,
+        -77.77142857142857,
+        465.0
+      ],
+      "assembly_translations": [],
+      "included": false
+    },
+    {
+      "name": "00_pasproef_las",
+      "quantity": 1,
+      "group": "proef",
+      "color": "#eeeeea",
+      "print_mm": [
+        40.0,
+        8.461,
+        16.0
+      ],
+      "volume_cm3": 1.7543,
+      "asa_solid_mass_g": 1.88,
+      "note": "",
+      "rotation": [
+        [
+          0,
+          1,
+          0
+        ],
+        90
+      ],
+      "bed_translation": [
+        -50.00000000000005,
+        -74.28857142857146,
+        463.0
+      ],
+      "assembly_translations": [],
+      "included": false
+    }
+  ],
+  "unique_parts": 68,
+  "print_quantity": 146,
+  "maximum_part_dimension_mm": 240.0,
+  "solid_ASA_mass_g": 3261.7,
+  "limitations": [
+    "Fotogebaseerde onderwatervorm",
+    "Geen fysieke pas-/water-/vaartest",
+    "RC-hardware niet gekozen; doorvoeren niet geboord",
+    "Slicerprofielen en ondersteuning apart controleren"
+  ],
+  "hydrostatics": [
+    {
+      "waterline_mm": 44,
+      "displacement_freshwater_kg": 3.4
+    },
+    {
+      "waterline_mm": 54,
+      "displacement_freshwater_kg": 4.618
+    },
+    {
+      "waterline_mm": 64,
+      "displacement_freshwater_kg": 5.902
+    }
+  ]
+}

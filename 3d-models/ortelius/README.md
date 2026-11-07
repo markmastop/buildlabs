@@ -3,17 +3,27 @@
 RC-model van het Nederlandse poolexpeditieschip **Ortelius** van Oceanwide
 Expeditions (thuishaven Vlissingen), op schaal 1:100.
 
-**Status:** vormstudie v3 in de browser, na de nieuwe fotocontrole.
-Het middenschip heeft open galerijen met schuine stijlen en terugliggende
-binnengevels. De hangar heeft een echte opening en zichtbare diepte.
-Ramen staan in groepjes; lichtkap, banken, achterdekken en davits zijn verfijnd.
-Dit is alleen het 3D-model; er zijn geen printbestanden gemaakt.
+**Status: CAD- en printprototype p1 beschikbaar.** De holle romp bestaat uit
+vier delen; de vooropbouw is afneembaar. Er zijn losse bovenbouwdelen,
+RC-montageplaten, twee helikopters, proefstukken en een bouwbeschrijving.
+
+- [Bekijk de daadwerkelijke CAD-onderdelen](cad/index.html), ook uit elkaar.
+- [Open de CAD-assemblage (STEP)](cad/step/ortelius-p1-assemblage.step).
+- [Begin met de bouw- en printvolgorde](print/BOUWHANDLEIDING.md) en de [onderdelenlijst](print/onderdelen.csv).
+- Parametrische bron: [`cad/build.py`](cad/build.py) en [`cad/parameters.json`](cad/parameters.json).
+
+Dit is het eerste constructieprototype. Digitale geometrie- en slicercontrole
+staan in `print/`; fysieke passing, lekdichtheid en vaargedrag moeten nog
+worden getest. De RC-hardware is nog niet definitief gekozen. Kleine
+modelbouwdetails en schilderwerk zijn geen volledige kopie van de browserstudie.
 
 Open [`index.html`](index.html) voor het draaibare model. Naast de zes
-overzichtsaanzichten zijn er twee detailknoppen: **Middenschip** en **Hangar**.
+overzichtsaanzichten zijn er detailknoppen voor **Middenschip**, **Helikopter** en **Hangar**.
 Het model begint stil. Met **Water** uit zie je het geschatte onderwaterschip.
 
-![Werkelijke browserweergave van vormstudie v3](beelden/render.jpg)
+![Werkelijke CAD-assemblage p1](beelden/cad-p1.jpg)
+
+[Onderdelen uit elkaar bekijken](beelden/cad-p1-exploded.jpg) · [Oorspronkelijke vormstudie v3](beelden/render.jpg)
 
 | Bestand | Inhoud |
 |---|---|
@@ -25,7 +35,8 @@ Het model begint stil. Met **Water** uit zie je het geschatte onderwaterschip.
 | [`beelden/middenschip-v3.jpg`](beelden/middenschip-v3.jpg) | Detail van de open galerijen en dekuitrusting |
 | [`beelden/hangar-v3.jpg`](beelden/hangar-v3.jpg) | Detail van de open hangar |
 | [`beelden/helikopter-detail.jpg`](beelden/helikopter-detail.jpg) | Gele helikopter op het helidek |
-| `cad/`, `print/` | Gereserveerd voor de latere CAD- en printuitwerking |
+| [`cad/index.html`](cad/index.html), [`cad/README.md`](cad/README.md) | Printgeometrie bekijken, bewerkbare bron en STEP |
+| [`print/README.md`](print/README.md), [`print/BOUWHANDLEIDING.md`](print/BOUWHANDLEIDING.md) | STL/3MF, aantallen, controle en bouwvolgorde |
 
 ## Twee gele helikopters
 
@@ -45,7 +56,7 @@ gelegd. Dit volgt het principe beschreven in het
 De stallingsstand is tegen de geometrie van deze modelhangar gecontroleerd.
 Boven de rotornaaf blijft circa 2 mm tot de rechte bovenkant van de ingang.
 Dit is geen bevestiging van echte hangarmaten of fysieke printpassing.
-Dit is alleen het 3D-model; de printuitwerking volgt later.
+De printuitwerking in p1 heeft losse romphelften, skids en rotorbladen; cockpitramen schilderen.
 
 ## RC-inbouw bekijken
 
@@ -83,9 +94,10 @@ helikopterdek en hangar toegevoegd in 2007.
 
 ## Ontwerpkeuzes
 
-- Voorstel: romp in vier delen van 22,75 cm voor de Bambu Lab P2S.
-  Deelvlakken en afneembare bovenbouw zijn nu alleen visueel getoond;
-  verbindingen en magneten moeten nog in CAD worden uitgewerkt.
+- CAD p1: vier holle rompdelen met sneden op 227,5 / 455 / 682,5 mm;
+  losse lasstroken met lijmspeling en afneembare dek-/opbouwunit. Alle
+  printdelen blijven binnen 246 mm per as. Er zijn geen magneetverbindingen.
+- Het achterste werkdek heeft een apart serviceluik met vier M3-borgpunten.
 - Eén schroef (MFA Torpedo 850, langzaamlopend) en één roer zoals het origineel, plus een boegschroef voor
   wendbaarheid.
 - Kenmerken uit de foto's: hoge voorromp met beplatingsvlakken en open achterdekken, witte
@@ -101,11 +113,13 @@ helikopterdek en hangar toegevoegd in 2007.
 
 ## Volgende stappen
 
-1. Vormstudie v3 beoordelen vanuit zijaanzichten, boeg, achterschip en bovenaanzicht.
-2. Daarna romp en bovenbouw in CAD uitwerken met wanddikte, naden en uitlijning.
-3. Concreet gekozen RC-techniek inpassen en gewicht/stabiliteit berekenen.
-4. Proefprint en slicercontrole, daarna waterdichtheid en vaargedrag testen.
+1. Begin met de drie pasproefstukken en een helikopterhelft.
+2. Kies de werkelijke RC-hardware en pas houders, as-/roerkoker en boegschroefdoorvoeren aan.
+3. Print en monteer de romp en bovenbouw volgens de bouwbeschrijving.
+4. Weeg de complete uitrusting en doe pas-, lek-, drijf- en vaartests.
 
 De hoofdmaten komen uit de bronnen hierboven. Dekhoogtes, posities en
 onderwatervorm zijn fotogebaseerde schattingen; dit model is geen lijnenplan
-en nog geen gevalideerd print- of vaarmodel.
+en geen fysiek gevalideerd vaarmodel. De berekende waterverplaatsing van de
+CAD-buitenromp bij 54 mm diepgang is circa 4,62 kg in zoet water; het eerdere
+doel van circa 4 kg is dus geen bevestigde eindtrim.

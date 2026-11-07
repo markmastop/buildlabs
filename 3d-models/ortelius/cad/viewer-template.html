@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ortelius — CAD-prototype p1</title>
+<style>
+:root{font-family:system-ui,sans-serif;color:#22343e;background:#edf2f5;color-scheme:light dark}*{box-sizing:border-box}body{margin:0}.wrap{max-width:1400px;margin:auto;padding:24px}header{margin:12px 0}h1{font-size:28px;margin:8px 0}p{line-height:1.5;margin:8px 0}a{color:inherit}.actions{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}button,select,.link{font:inherit;border:1px solid #91a4ae;border-radius:8px;padding:8px 12px;background:#fff;color:#22343e;cursor:pointer}button[aria-pressed=true]{background:#174c63;color:#fff}.viewer{border:1px solid #aabac5;border-radius:12px;overflow:hidden;background:#dfe9ef}canvas{display:block;width:100%;height:65vh;min-height:450px;max-height:800px;touch-action:none}.meta{font-size:14px;color:#425865}#selection{min-height:24px}footer{margin-top:16px}@media(prefers-color-scheme:dark){:root{background:#131e25;color:#e6edf2}.meta{color:#b0c5d1}button,select,.link{background:#22343e;color:#e6edf2}}@media(max-width:600px){.wrap{padding:14px}canvas{min-height:370px;height:60vh}}
+</style>
+<style>.bl-home{justify-self:start;align-self:start;display:inline-flex;align-items:center;gap:8px;width:max-content;margin:0 0 4px;padding:7px 14px 7px 11px;border:1px solid rgba(127,140,150,.45);border-radius:999px;font:500 14px/1 "IBM Plex Sans",system-ui,sans-serif;color:inherit;text-decoration:none;background:transparent;transition:border-color .15s,background .15s}.bl-home:hover{border-color:currentColor;background:rgba(127,140,150,.12)}.bl-home:focus-visible{outline:2px solid currentColor;outline-offset:2px}.bl-home svg{width:15px;height:15px;flex:none}</style>
+</head><body><div class="wrap">
+<a class="bl-home" href="../../../index.html" aria-label="Terug naar het Build Labs-overzicht"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/></svg>Build Labs</a>
+<header><p>ORTELIUS · 1:100 · CAD-PROTOTYPE P1</p><h1>De echte CAD-onderdelen bekijken</h1><p>Holle romp, losse dekmodules, bovenbouw, RC-houders en twee helikopters. De weergave hieronder komt uit de CAD-bron van de printbestanden.</p></header>
+<div class="actions"><button id="assembly">Overzicht</button><button id="hangar">Hangar</button><button id="explode" aria-pressed="false">Uit elkaar</button><button id="hull" aria-pressed="true">Romp</button><button id="rc" aria-pressed="false">RC-houders</button><select id="part" aria-label="Selecteer een onderdeel"><option value="">Alle onderdelen</option></select><button id="solo" aria-pressed="false">Alleen selectie</button></div>
+<div class="viewer"><canvas id="model" aria-label="Draaibare CAD-assemblage van de Ortelius"></canvas></div>
+<p class="meta" id="selection">Slepen om te draaien · scrollen om te zoomen. Groen: dekken, blauw: romp, geel: helikopters.</p>
+<footer><div class="actions"><a class="link" href="step/ortelius-p1-assemblage.step">CAD-assemblage STEP</a><a class="link" href="../print/BOUWHANDLEIDING.md">Bouw- en printvolgorde</a><a class="link" href="../print/onderdelen.csv">Onderdelenlijst</a></div><p class="meta">Eerste printprototype. Passing en bouwvolume zijn digitaal gecontroleerd; fysieke passing, waterdichtheid en vaargedrag vragen nog proeven. RC-houders zijn voorlopig; handelsmotor, accu, elektronica, metalen assen en lagers zelf toevoegen. Relingstroken en losse montageblokken staan in het printpakket, buiten deze assemblage.</p></footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script><script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(function(){
+const DATA=/*MODEL_DATA*/[];
+const cv=document.getElementById('model');if(!window.THREE){cv.replaceWith(document.createTextNode('Three.js kon niet worden geladen.'));return;}
+const renderer=new THREE.WebGLRenderer({canvas:cv,antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+const scene=new THREE.Scene();scene.background=new THREE.Color('#dfe9ef');
+scene.add(new THREE.HemisphereLight(0xffffff,0x4b6170,0.9));const sun=new THREE.DirectionalLight(0xffffff,.8);sun.position.set(200,650,400);scene.add(sun);const fill=new THREE.DirectionalLight(0xffffff,.4);fill.position.set(-500,100,-300);scene.add(fill);
+const camera=new THREE.PerspectiveCamera(35,1,1,5000);const controls=new THREE.OrbitControls(camera,cv);controls.enableDamping=true;controls.minDistance=50;controls.maxDistance=2300;
+const grid=new THREE.GridHelper(1100,22,0xa4b6c0,0xc7d4dc);grid.position.set(450,-1,0);scene.add(grid);
+const meshes=[];const part=document.getElementById('part');
+DATA.forEach((d,i)=>{const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(d.vertices.flat(),3));g.setIndex(d.faces.flat());g.computeVertexNormals();const m=new THREE.Mesh(g,new THREE.MeshStandardMaterial({color:d.color,roughness:.65,side:THREE.DoubleSide}));m.name=d.name;m.userData=d;m.userData.i=i;meshes.push(m);scene.add(m);const o=document.createElement('option');o.value=d.name;o.textContent=d.name;part.append(o);});
+let exploded=false,hull=true,rc=false,solo=false;
+function update(){meshes.forEach(m=>{const d=m.userData;const selected=m.name===part.value;m.visible=(!solo||!part.value||selected)&&(hull||d.group!=='romp')&&(rc||d.group!=='RC');m.material.emissive.set(selected?'#324a53':'#000000');let y=0,x=0,z=0;if(exploded){if(d.group==='romp')x=(+d.name.match(/\d+(?=_\d+$)/)?.[0]||2)*35-70;else if(d.group==='dek')y=65;else if(d.group==='bovenbouw')y=120;else if(d.group==='heli')y=160;else if(d.group==='RC')y=35;}m.position.set(x,y,z);});document.getElementById('selection').textContent=part.value||'Slepen om te draaien · scrollen om te zoomen. Groen: dekken, blauw: romp, geel: helikopters.';}
+function bind(id,fn){const b=document.getElementById(id);b.addEventListener('click',()=>{const on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',String(on));fn(on);update();});}
+bind('explode',on=>exploded=on);bind('hull',on=>hull=on);bind('rc',on=>rc=on);bind('solo',on=>solo=on);part.addEventListener('change',()=>{const m=meshes.find(m=>m.name===part.value);if(m?.userData.group==='RC'){rc=true;document.getElementById('rc').setAttribute('aria-pressed','true');}if(m?.userData.group==='romp'){hull=true;document.getElementById('hull').setAttribute('aria-pressed','true');}update();});
+let detail=false;
+function view(hangar){detail=hangar;controls.target.set(hangar?215:450,hangar?185:150,0);const width=cv.clientWidth,height=cv.clientHeight;const min=hangar?290:1400;const dist=Math.max(min,(hangar?135:530)/(Math.tan(camera.fov*Math.PI/360)*width/height));camera.position.copy(controls.target).addScaledVector(new THREE.Vector3(hangar?-1:.8,hangar?.18:.45,hangar?.15:1).normalize(),dist);controls.update();}
+document.getElementById('assembly').onclick=()=>view(false);document.getElementById('hangar').onclick=()=>view(true);
+new ResizeObserver(()=>{renderer.setSize(cv.clientWidth,cv.clientHeight,false);camera.aspect=cv.clientWidth/cv.clientHeight;camera.updateProjectionMatrix();view(detail);}).observe(cv);
+window.__orteliusCAD={scene,meshes,renderer,camera};update();view(false);
+(function loop(){requestAnimationFrame(loop);controls.update();renderer.render(scene,camera);})();
+})();
+</script></body></html>

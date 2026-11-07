@@ -1,0 +1,696 @@
+{
+  "status": "PASS",
+  "revision": "p1",
+  "unique_parts": 68,
+  "assembly_solids": 84,
+  "checks": [
+    {
+      "part": "01_romp_1",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 14.25,
+      "STEP_STL_volume_delta": 0.000266,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "01_romp_2",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 14.25,
+      "STEP_STL_volume_delta": 7.1e-05,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "01_romp_3",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 14.25,
+      "STEP_STL_volume_delta": 0.000451,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "01_romp_4",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 19.25,
+      "STEP_STL_volume_delta": 0.001735,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "02_lasstrook_1",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 45.25,
+      "STEP_STL_volume_delta": 3e-06,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "02_lasstrook_2",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 45.25,
+      "STEP_STL_volume_delta": 2.1e-05,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "02_lasstrook_3",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 53.751,
+      "STEP_STL_volume_delta": 9e-06,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "03_werkdek_achter",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 9.0,
+      "STEP_STL_volume_delta": 1e-06,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "03_serviceluik_achter",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 53.25,
+      "STEP_STL_volume_delta": 1e-06,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "04_hoofddek_1",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 22.25,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "04_hoofddek_2",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 14.5,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "04_hoofddek_3",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 21.361,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "05_deksteun_M3",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 122.0,
+      "STEP_STL_volume_delta": 3.8e-05,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "05_deklijmstrip",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 98.0,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "06_bakverschansing",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 31.0,
+      "STEP_STL_volume_delta": 0.003681,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "10_accommodatie_1",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 38.0,
+      "STEP_STL_volume_delta": 1e-06,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "10_accommodatie_2",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 38.0,
+      "STEP_STL_volume_delta": 2e-06,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "10_accommodatie_3",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 38.5,
+      "STEP_STL_volume_delta": 2e-06,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "11_dak_lage_accommodatie",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 48.0,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "12_sloependek_1",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 45.5,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "12_sloependek_2",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 45.5,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "13_binnenhuis_galerij",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 34.0,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "14_voorhuis",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 61.0,
+      "STEP_STL_volume_delta": 1e-06,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "15_galerijdak_1",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 47.5,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "15_galerijdak_2",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 47.5,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "16_galerijwand_SB",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 29.0,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "16_galerijwand_BB",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 29.0,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "17_brug",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 48.0,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "18_brugdak",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 45.5,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "20_promenadedek",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 8.0,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "21_kolom_onder",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 113.5,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "22_kolom_helidek",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 116.25,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "23_achterkajuit",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 55.0,
+      "STEP_STL_volume_delta": 2e-06,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "24_helidek",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 39.0,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "25_hangarwanden",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 48.0,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "26_hangarvloer",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 50.35,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "27_hangardak",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 29.5,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "28_hangar_voorhuis",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 69.0,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "30_schoorsteen",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 92.0,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "31_schoorsteenkap",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 81.0,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "32_vakwerkmast",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 68.5,
+      "STEP_STL_volume_delta": 8e-06,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "32_ra_1",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 101.0,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "32_ra_2",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 104.0,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "32_ra_3",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 109.0,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "33_radarmast",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 44.05,
+      "STEP_STL_volume_delta": 0.000299,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "34_voormast",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 61.5,
+      "STEP_STL_volume_delta": 0.000316,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "39_sloepenplatform",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 81.0,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "40_reddingsboot",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 85.5,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "41_davit",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 107.668,
+      "STEP_STL_volume_delta": 0.000167,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "42_dekkraan",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 106.104,
+      "STEP_STL_volume_delta": 0.000217,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "43_lichtkap",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 98.0,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "44_bank",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 109.0,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "45_reling_100mm",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 77.3,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "50_accubak_2S",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 48.0,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "51_motorplaat_verstelbaar",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 70.0,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "52_servoplaat",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 100.0,
+      "STEP_STL_volume_delta": 6e-06,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "53_elektronicaplaat",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 95.5,
+      "STEP_STL_volume_delta": 5e-06,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "54_ballastbak",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 100.5,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "55_boegschroef_proeftunnel",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 65.5,
+      "STEP_STL_volume_delta": 0.000415,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "56_roerblad",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 108.0,
+      "STEP_STL_volume_delta": 3.7e-05,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "60_heli_romp_SB",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 73.35,
+      "STEP_STL_volume_delta": 0.003231,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "60_heli_romp_BB",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 73.35,
+      "STEP_STL_volume_delta": 0.002984,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "61_heli_landingsgestel",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 103.069,
+      "STEP_STL_volume_delta": 0.000288,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "62_heli_rotorblad",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 102.5,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "63_heli_staartrotor",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 118.7,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "00_pasproef_A",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 108.0,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "00_pasproef_B",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 108.0,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "00_pasproef_las",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 108.0,
+      "STEP_STL_volume_delta": 0.0,
+      "geometry_3MF_matches_STL": true
+    }
+  ],
+  "RC_hull_clearance": [
+    {
+      "part": "50_accubak_2S",
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "intersection_mm3": 0.0
+    },
+    {
+      "part": "51_motorplaat_verstelbaar",
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "intersection_mm3": 0.0
+    },
+    {
+      "part": "52_servoplaat",
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "intersection_mm3": 0.0
+    },
+    {
+      "part": "53_elektronicaplaat",
+      "translation": [
+        370,
+        43,
+        30
+      ],
+      "intersection_mm3": 0.0
+    },
+    {
+      "part": "53_elektronicaplaat",
+      "translation": [
+        555,
+        0,
+        25
+      ],
+      "intersection_mm3": 0.0
+    },
+    {
+      "part": "53_elektronicaplaat",
+      "translation": [
+        670,
+        -20,
+        30
+      ],
+      "intersection_mm3": 0.0
+    },
+    {
+      "part": "54_ballastbak",
+      "translation": [
+        575,
+        0,
+        15
+      ],
+      "intersection_mm3": 0.0
+    },
+    {
+      "part": "54_ballastbak",
+      "translation": [
+        635,
+        0,
+        15
+      ],
+      "intersection_mm3": 0.0
+    }
+  ],
+  "helicopter_headroom_mm": 2.0,
+  "limitations": "Statische geometriecontrole, geen fysieke print-, lek- of vaartest. Slicercontrole apart."
+}
