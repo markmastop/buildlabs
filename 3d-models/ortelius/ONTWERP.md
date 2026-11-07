@@ -37,6 +37,7 @@ vormstudie op basis van die verzameling, geen vastgelegde historische toestand.
 |---|---|---|
 | 02, 06, 08, 09 | Zijprofiel, dekniveaus, schoorsteen en sloepen | Posities herverdeeld; lage accommodatie met kleinere patrijspoorten, smaller hoger dekhuis en open gangboorden |
 | 13, 18, 19 + zijfoto 07-11 | Brug, dekhoogtes en positie voorste opbouw | Precies drie witte lagen boven de romp (dek 1, dek 2, brug, elk ~3 cm); de hele voorste opbouw ~5 cm naar achteren. De brug is recht en bijna even breed als het schip, met één rij van 11 frontramen. Erachter staat een smaller dekhuis met het naambord op het kompasdek en een schuine mantel achter de radarmast. Gecontroleerd met een overlay op de zijfoto |
+| Zijfoto 07-11 (ronde 5) | Achterschip, schoorsteen en voorsteven | Schoorsteen 4,5 cm naar achteren met een naar achteren oplopende kap, de mast tegen het front en drie uitlaten op een rij. Hangar loopt van 17,5 tot 36,5 en is 3,9 cm hoog. Helidek ingekort tot 0–17,5. Dek 1 loopt door tot de hangar en dek 2 eindigt met een rechte achterwand op x 41,4. Sloepen en davits 1,8 lager. Voorsteven sterker hellend (waterlijn x 84,6, dek x 90); witte, bijna vlakke verschansing met verhaalgaten tot de punt op x 91; ankerkuil lager in de boeg |
 | 03, 07, 11, 15 | Getrapte spiegel en open achterdekken | Lagere achterromp en twee open niveaus met kolommen en witte randliggers |
 | 05, 14 | Helidek, hangaringang en veiligheidsnetten | Groter, afgeschuind helidek met open netstructuur en zichtbare hangaringang |
 | 06, 09, 14 | Schoorsteenkap, uitlaten, mast en davits | Schuine witte mantel, oplopende zwarte kap, drie mastarmen en geknikte sloepdavits |
@@ -56,17 +57,17 @@ gestuwd in plaats van schuin door het water getekend.
 |---|---|---|---|
 | Achterste werkvloer | 0,2–24,2 | 10,7 | Max. 16,6; afgeschuinde hoeken |
 | Promenadedek achter | 0,2–24,2 | 13,9 | Max. 17,4; open ruimte eronder |
-| Hoofddek voor | 24–91 | 13,9 | Volgt de rompvorm |
-| Lage accommodatie (dek 1) | 22–71,4 | 13,9–16,6 | Max. 16,4 |
-| Hoger dekhuis (dek 2) | 46–69,8 onder / 50–69,8 boven | 16,6–19,3 | Smaller; schuin oplopende achterwand |
+| Hoofddek voor | 24–90 | 13,9 | Volgt de rompvorm; witte verschansing tot x 91 |
+| Lage accommodatie (dek 1) | 17,5–71,4 | 13,9–16,6 | Max. 16,4 |
+| Hoger dekhuis (dek 2) | 41,4–69,8 | 16,6–19,3 | Smaller; rechte achterwand |
 | Brug | 64,1–69,6 stuurhuis, 58,5–64,3 dekhuis | 19,3–22,3 | Recht front, stuurhuis max. 16,0 breed, dekhuis 12,0 |
 | Kompasdek | 58,3–69,9 | 22,6 | Max. 16,5 voor, 12,4 achter; naambord ORTELIUS aan beide zijden |
-| Hangar | 21–36,5 | 16,6–19,2 | Max. 11,8 |
-| Helidek | 0–21,1 | 16,75 | Max. 17,8 zonder netten |
-| Schoorsteen | ca. 30,4–39,7 | 19,4–26,3 | Schuine mantel en overstekende kap |
-| Sloepen | middelpunt 40,5 | onderzijde 19,45 | Twee gesloten sloepen met geknikte davits |
+| Hangar | 17,5–36,5 | 16,6–20,5 | Max. 11,8; deur naar het helidek |
+| Helidek | 0–17,5 | 16,75 | Max. 17,8 zonder netten |
+| Schoorsteen | ca. 25,0–34,4 | 20,7–26,0 | Kap loopt naar achteren op, drie uitlaten |
+| Sloepen | middelpunt 34,6 | onderzijde 17,65 | Twee gesloten sloepen met geknikte davits |
 | Zodiacs / knikarmkranen | ca. 53 / 55,2 | op dek 19,3 | Stapels en losse oranje kranen |
-| Zwarte mast | ca. 37,6 | top 38,2 | Vakwerk met drie ra's |
+| Zwarte mast | 33,3 | top 37,4 | Vakwerk met drie ra's, tegen het schoorsteenfront |
 | Witte radarmast | 58,9 | top 36,2 | Twee draaiende radars, schuine mantel tot dek 2 |
 | Voormast | 80,6 | top 27,2 | Slanker en lager dan de radarmast |
 

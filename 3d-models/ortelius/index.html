@@ -331,9 +331,11 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
   // ---------- Romp: lagere open achterdekken, scherpe boeg en oplopend achterschip ----------
   var MAIN = 13.9, AFT = 10.7, HTS = 0.58, HSS = 0.055, HSF = 0.78;
   // [hoogte, halve breedte, achterste x, voorste x]. Onder water: vormschatting.
-  var hullStations = [[0,0.65,14,79.5], [0.8,3.4,11,81.3], [2,6.1,7.5,83.3],
-    [3.5,7.7,3.8,85.2], [5.25,8.25,0.8,86.6], [5.4,8.3,0.6,86.8],
-    [7,8.6,0,88.1], [9,8.6,0,89.2], [10.7,8.6,0,90], [11.4,8.6,0,90.3], [13.9,8.6,0,91]];
+  // Voorsteven naar de zijfoto (07-11): sterker hellend, op de waterlijn x 84,6, aan dek x 90;
+  // de witte verschansing steekt daar nog ~1 cm voorbij tot de lengte over alles van 91 cm.
+  var hullStations = [[0,0.65,14,78.0], [0.8,3.4,11,79.8], [2,6.1,7.5,81.6],
+    [3.5,7.7,3.8,83.2], [5.25,8.25,0.8,84.5], [5.4,8.3,0.6,84.6],
+    [7,8.6,0,86.0], [9,8.6,0,87.4], [10.7,8.6,0,88.5], [11.4,8.6,0,88.9], [13.9,8.6,0,90.0]];
   function station(y, col) {
     for (var i = 1; i < hullStations.length; i++) if (y <= hullStations[i][0]) {
       var a = hullStations[i - 1], b = hullStations[i], t = Math.max(0, (y - a[0]) / (b[0] - a[0]));
@@ -384,12 +386,13 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
 
   // hawse pipes with anchors, bow thruster marks, draft marks
   [-1, 1].forEach(function (s) {
-    var hz = s * (hwAt(84.5, 10.4) * 0.97);
-    var hp = box(1.5, 1.6, 0.25, darkMat, 84.5, 10.4, hz); hp.rotation.y = s * 0.5; ship.add(hp);
-    var an = box(0.5, 1.6, 0.18, blackMat, 84.5, 9.3, hz * 1.01); an.rotation.y = s * 0.5; ship.add(an);
-    var fl = box(1.2, 0.35, 0.22, blackMat, 84.5, 8.5, hz * 1.01); fl.rotation.y = s * 0.5; ship.add(fl);
-    var mk = new THREE.Mesh(new THREE.RingGeometry(0.45, 0.6, 20), whiteMat); mk.position.set(79, 6.6, s * (hwAt(79, 6.6) + 0.04)); if (s < 0) mk.rotation.y = Math.PI; ship.add(mk);
-    for (var d = 0; d < 4; d++) ship.add(box(0.12, 0.25, 0.1, whiteMat, 87.3 + d * 0.12, 3.6 + d, s * (hwAt(87.3 + d * 0.12, 3.6 + d) + 0.02)));
+    // Ankerkuil laag in de boeg en boegschroefmerk vlak boven de waterlijn (zijfoto).
+    var hz = s * (hwAt(81.8, 7.6) * 0.97);
+    var hp = box(1.7, 1.5, 0.25, darkMat, 81.8, 7.6, hz); hp.rotation.y = s * 0.45; ship.add(hp);
+    var an = box(0.5, 1.5, 0.18, blackMat, 81.8, 6.9, hz * 1.01); an.rotation.y = s * 0.45; ship.add(an);
+    var fl = box(1.2, 0.35, 0.22, blackMat, 81.8, 6.2, hz * 1.01); fl.rotation.y = s * 0.45; ship.add(fl);
+    var mk = new THREE.Mesh(new THREE.RingGeometry(0.45, 0.6, 20), whiteMat); mk.position.set(75.8, 6.6, s * (hwAt(75.8, 6.6) + 0.04)); if (s < 0) mk.rotation.y = Math.PI; ship.add(mk);
+    for (var d = 0; d < 4; d++) { var dy = 3.6 + d, dx = bowX(dy) - 0.7; ship.add(box(0.12, 0.25, 0.1, whiteMat, dx, dy, s * (hwAt(dx, dy) + 0.02))); }
   });
 
   // white bulwark around the short foredeck
@@ -400,16 +403,27 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
     var a = bw[i], b = bw[i + 1], za = hwAt(a, MAIN) - 0.08, zb = hwAt(b, MAIN) - 0.08, ang = -Math.atan2(zb - za, b - a);
     bwl.push([(a + b) / 2, MAIN + 0.6, (za + zb) / 2, ang], [(a + b) / 2, MAIN + 0.6, -(za + zb) / 2, -ang]);
   }
-  // Zeeg: de verschansing loopt op naar de boeg (foto's 04/13), blauw met witte kap.
+  // Witte, bijna vlakke verschansing (~1,1 cm) op de blauwe romp; licht oplopend en naar voren
+  // uitwaaierend tot x 91 (zijfoto 07-11). Ronde verhaalgaten en een meerpoort aan beide zijden.
   var bwEnd = bowX(MAIN) - 0.3;
-  function sheerH(x) { var t = Math.max(0, (x - 74) / (bwEnd - 74)); return 1.0 + 1.5 * t * t; }
+  function sheerH(x) { var t = Math.max(0, (x - 74) / (bwEnd - 74)); return 1.1 + 0.45 * t * t; }
   bwl.forEach(function (it) {
-    var h = sheerH(it[0]), lo = box(1.05, h - 0.3, 0.14, navyMat, it[0], MAIN + (h - 0.3) / 2, it[2]); lo.rotation.y = it[3]; ship.add(lo);
-    var cap = box(1.08, 0.3, 0.18, whiteMat, it[0], MAIN + h - 0.15, it[2]); cap.rotation.y = it[3]; ship.add(cap);
+    var h = sheerH(it[0]), fl = Math.max(0, it[0] - 84) * 0.06, w = box(1.05, h, 0.16, whiteMat, it[0], MAIN + h / 2, it[2] + Math.sign(it[2]) * fl); w.rotation.y = it[3]; ship.add(w);
   });
   var hs = sheerH(bwEnd);
-  ship.add(box(0.9, hs - 0.3, 0.5, navyMat, bwEnd + 0.1, MAIN + (hs - 0.3) / 2, 0));
-  ship.add(box(0.95, 0.3, 0.55, whiteMat, bwEnd + 0.1, MAIN + hs - 0.15, 0));
+  // Twee schuine stukken sluiten de verschansing tot een punt op x 90,9.
+  (function () {
+    var lx = bw[bw.length - 1], lz = hwAt(lx, MAIN) - 0.08 + Math.max(0, lx - 84) * 0.06, tx = 90.9;
+    [-1, 1].forEach(function (s) {
+      var dx = tx - lx, dz = -s * lz, len = Math.hypot(dx, dz);
+      var p = box(len + 0.1, hs, 0.16, whiteMat, (lx + tx) / 2, MAIN + hs / 2, s * lz / 2); p.rotation.y = -Math.atan2(dz, dx); ship.add(p);
+    });
+  })();
+  var holeGeo = new THREE.CylinderGeometry(0.22, 0.22, 0.2, 14); holeGeo.rotateX(Math.PI / 2);
+  var holes = [];
+  [84.6, 83.3].forEach(function (x) { [-1, 1].forEach(function (s) { var z = hwAt(x, MAIN) - 0.08 + Math.max(0, x - 84) * 0.06; holes.push([x, MAIN + 0.55, s * (z + 0.03)]); }); });
+  ship.add(instances(holeGeo, darkMat, holes));
+  [-1, 1].forEach(function (s) { ship.add(box(0.9, 0.5, 0.2, darkMat, 74.6, MAIN + 0.5, s * (hwAt(74.6, MAIN) - 0.02))); });
 
   // underwater: single shaft, 4-blade prop, rudder, skeg
   var sh = new Rods(bronze, 8); sh.add(V(19, 3.7, 0), V(3.5, 2.2, 0), 0.3); ship.add(sh.build());
@@ -436,7 +450,7 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
   if (document.fonts && document.fonts.load) document.fonts.load('700 40px "Saira Extra Condensed"').then(names, names); else names();
 
   // ---------- Bovenbouw: lage accommodatie, open promenades en gefacetteerde brug ----------
-  var A1 = 16.6, A2 = 19.3, B2 = 23.5, CD = 23.8, HG = 19.2, HD = 16.75;
+  var A1 = 16.6, A2 = 19.3, B2 = 23.5, CD = 23.8, HG = 20.5, HD = 16.75;
   // Boven de blauwe romp zitten precies drie witte lagen van ~3 cm: dek 1, dek 2 en de brug
   // (foto Mark 07-11, foto's 13/18/19). De brug staat dus direct op dek 2 (A2); BL verschuift de brugcode.
   var BRIDGE_H = 3.0, A3 = A2, BL = A2 - (B2 - BRIDGE_H);
@@ -444,17 +458,17 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
   // brugfront op x 69,6, radarmast op x ~58,8. BDX schuift de brug-groep naar achteren.
   var BDX = -5.0;
   var bg = new THREE.Group(); bg.position.set(BDX, BL, 0); top.add(bg);
-  top.add(slab(plan(22, 71.4, 8.2, 0.4, 3.0), MAIN, A1, whiteMat));
+  top.add(slab(plan(17.5, 71.4, 8.2, 0.4, 3.0), MAIN, A1, whiteMat));
   // Een smaller dekhuis laat naast de bovenste ramen een open gangboord vrij.
   top.add(tier([
-    {y:A1,pts:plan(46,69.8,6.8,0.5,2.2)},
-    {y:A2,pts:plan(50,69.8,6.6,0.5,2.2)}
+    {y:A1,pts:plan(41.4,69.8,6.8,0.5,2.2)},
+    {y:A2,pts:plan(41.4,69.8,6.6,0.5,2.2)}
   ], whiteMat));
   var boatDeck = plan(44.5,71.6,8.25,0.3,2.5);
   top.add(slab(boatDeck, A1 - 0.16, A1 + 0.06, whiteMat));
   top.add(slab(plan(44.7,71.4,8.1,0.3,2.5), A1 + 0.06, A1 + 0.09, greenMat));
-  top.add(slab(plan(49.8,70.2,7.05,0.4,2.1), A2 - 0.16, A2 + 0.08, whiteMat));
-  top.add(slab(plan(49.9,70.0,6.9,0.4,2.1), A2 + 0.08, A2 + 0.11, greenMat));
+  top.add(slab(plan(41.2,70.2,7.05,0.4,2.1), A2 - 0.16, A2 + 0.08, whiteMat));
+  top.add(slab(plan(41.35,70.0,6.9,0.4,2.1), A2 + 0.08, A2 + 0.11, greenMat));
 
   // Brug (lokale x, +BDX = wereld): breed stuurhuis voor, smaller dekhuis met zijgangen erachter.
   function bridgeRing() { return plan(69.1, 74.6, 8.0, 0.5, 0.5); }
@@ -475,16 +489,14 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
 
   // Kleine, onregelmatige ramen en patrijspoorten; geen twee grote uniforme raamrijen.
   var cabinPorts = [], cabinGeo = new THREE.CylinderGeometry(0.19,0.19,0.09,14); cabinGeo.rotateX(Math.PI/2);
-  [25,28,31,34,37,40,43,46,49,52,55,58,61,64,67].forEach(function(x) {
+  [19,22,25,28,31,34,37,40,43,46,49,52,55,58,61,64,67].forEach(function(x) {
     [-1,1].forEach(function(side) { cabinPorts.push([x,15.05,side*8.23]); });
   });
   top.add(instances(cabinGeo,glassMat,cabinPorts));
   [-1,1].forEach(function(side) {
-    [51,53.2,55.7,58,60.5,62.8,65.1].forEach(function(x) {
+    [42.6,44.9,47.2,49.3,51,53.2,55.7,58,60.5,62.8,65.1].forEach(function(x) {
       top.add(box(0.9,0.72,0.07,glassMat,x,18.05,side*6.74));
     });
-    // Schuin oplopende zijwangen bij de buitenste trappen.
-    top.add(sidePanel([[45,A1],[46.4,A1],[51.4,A2],[50,A2]],0.18,whiteMat,side*7.65));
     var door = box(0.05,1.65,0.8,whiteMat,63.45+BDX,A3+0.9,side*4.3); top.add(door);
   });
   [-4,-1.3,1.3,4].forEach(function(z) {
@@ -496,26 +508,27 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
   top.add(slab(promenadePlan, MAIN - 0.48, MAIN, whiteMat));
   top.add(slab(plan(0.35,24,8.45,1.65,0.4), MAIN, MAIN + 0.06, greenMat));
   // Twee open niveaus met kolommen, in plaats van een volle hoge spiegel.
-  [[1.9,7.3],[8,8.1],[15.2,8.1],[21,8.1]].forEach(function(p) {
+  [[1.9,7.3],[7.2,8.1],[12.6,8.1]].forEach(function(p) {
     [-1,1].forEach(function(side) {
       rTopWhite.add(V(p[0],AFT,side*p[1]),V(p[0],MAIN-0.48,side*p[1]),0.15);
       rTopWhite.add(V(p[0],MAIN,side*p[1]),V(p[0],HD-0.45,side*p[1]),0.15);
     });
   });
-  top.add(slab(plan(21,36.5,5.9,0.2,0.4), A1, HG, whiteMat));
-  top.add(box(0.06,2.15,9.4,darkMat,20.96,A1+1.1,0));
-  [-4.85,4.85].forEach(function(z) { top.add(box(0.1,2.2,0.2,greyMat,20.91,A1+1.1,z)); });
-  top.add(slab(plan(20.8,37,6.4,0.25,0.4), HG, HG+0.17, whiteMat));
-  top.add(slab(plan(21,36.8,6.2,0.25,0.4), HG+0.17, HG+0.2, greenMat));
+  // Hangar: van de helidekrand (x 17,5) tot voor de sloepen, ~3,8 cm hoog (zijfoto 07-11).
+  top.add(slab(plan(17.5,36.5,5.9,0.2,0.4), A1, HG, whiteMat));
+  top.add(box(0.06,HG-0.35-HD,9.4,darkMat,17.46,(HD+HG-0.35)/2,0));
+  [-4.85,4.85].forEach(function(z) { top.add(box(0.1,HG-0.3-HD,0.2,greyMat,17.41,(HD+HG-0.3)/2,z)); });
+  top.add(slab(plan(17.3,37,6.4,0.25,0.4), HG, HG+0.17, whiteMat));
+  top.add(slab(plan(17.5,36.8,6.2,0.25,0.4), HG+0.17, HG+0.2, greenMat));
 
   // Helidek met afgeschuinde hoeken, randligger en open veiligheidsnetten.
-  var heliPlan = plan(0.0,21.1,8.9,1.8,1.0);
+  var heliPlan = plan(0.0,17.5,8.9,1.8,1.0);
   top.add(slab(heliPlan, HD-0.5, HD, whiteMat));
-  top.add(slab(plan(0.25,20.9,8.65,1.75,1.0), HD,HD+0.06,greenMat));
+  top.add(slab(plan(0.25,17.3,8.65,1.75,1.0), HD,HD+0.06,greenMat));
   var heliRing = new THREE.Mesh(new THREE.RingGeometry(5.05,5.6,80), new THREE.MeshStandardMaterial({color:'#e9bd32',roughness:0.9,side:THREE.DoubleSide}));
-  heliRing.rotation.x=-Math.PI/2;heliRing.position.set(10.2,HD+0.075,0);top.add(heliRing);
-  [-1.35,1.35].forEach(function(z) { top.add(box(3.7,0.035,0.5,whiteMat,10.2,HD+0.09,z)); });
-  top.add(box(0.5,0.035,3.1,whiteMat,10.2,HD+0.09,0));
+  heliRing.rotation.x=-Math.PI/2;heliRing.position.set(8.7,HD+0.075,0);top.add(heliRing);
+  [-1.35,1.35].forEach(function(z) { top.add(box(3.7,0.035,0.5,whiteMat,8.7,HD+0.09,z)); });
+  top.add(box(0.5,0.035,3.1,whiteMat,8.7,HD+0.09,0));
   heliPlan.forEach(function(p,i) {
     var q=heliPlan[(i+1)%heliPlan.length];
     if(i===1 || i===2 || i===3) return; // Geen net dwars door de hangaringang.
@@ -533,18 +546,18 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
   // ---------- Schoorsteen: schuine witte mantel en zwarte, oplopende kap ----------
   var fg = new THREE.Group(); top.add(fg);
   fg.add(tier([
-    {y:HG+0.2,pts:plan(30.4,37.8,2.8,0.35,0.65)},
-    {y:25.2,pts:plan(32.0,38.2,2.45,0.3,0.6)}
+    {y:HG+0.2,pts:plan(26.4,33.0,2.8,0.35,0.65)},
+    {y:25.2,pts:plan(26.6,33.6,2.45,0.3,0.6)}
   ],whiteMat));
-  fg.add(sidePanel([[31.3,25.1],[38.8,25.1],[39.7,26.3],[31.0,26.0]],5.9,blackMat,0));
+  fg.add(sidePanel([[25.4,25.1],[34.2,25.1],[34.4,25.5],[25.0,26.0]],5.9,blackMat,0));
   // Donker achtervlak en losse uitlaten; geen rederijembleem.
-  fg.add(box(0.11,4.9,4.7,blackMat,31.6,22.7,0));
-  [-1.2,0,1.2].forEach(function(z) {
-    var ex = new THREE.Mesh(new THREE.CylinderGeometry(0.32,0.36,1.5,12),blackMat);
-    ex.position.set(33.0,26.6,z);ex.rotation.z=-0.24;fg.add(ex);
+  fg.add(box(0.11,4.0,4.7,blackMat,26.36,23.0,0));
+  [31.4,29.9,28.4].forEach(function(x) {
+    var ex = new THREE.Mesh(new THREE.CylinderGeometry(0.34,0.38,1.3,12),greyMat);
+    ex.position.set(x,26.0,0);ex.rotation.z=0.5;fg.add(ex);
   });
   (function() {
-    var cx=37.6,y0=26.3,y1=36.4,b0=0.75,b1=0.18,n=7;
+    var cx=33.3,y0=25.5,y1=35.4,b0=0.75,b1=0.18,n=7;
     function c(y,sx,sz) { var t=(y-y0)/(y1-y0),b=b0+(b1-b0)*t; return V(cx+sx*b,y,sz*b); }
     var corners=[[-1,-1],[1,-1],[1,1],[-1,1]];
     corners.forEach(function(p) { rBlack.add(c(y0,p[0],p[1]),c(y1,p[0],p[1]),0.065); });
@@ -552,13 +565,13 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
       var ya=y0+(y1-y0)*k/n,yb=y0+(y1-y0)*(k+1)/n;
       corners.forEach(function(p,i) { var q=corners[(i+1)%4]; rBlack.add(c(yb,p[0],p[1]),c(yb,q[0],q[1]),0.035);rBlack.add(c(ya,p[0],p[1]),c(yb,q[0],q[1]),0.025); });
     }
-    [[29.7,2.7],[32,2.4],[34.2,1.9]].forEach(function(a) { rBlack.add(V(cx,a[0],-a[1]),V(cx,a[0],a[1]),0.055); });
-    rBlack.add(V(cx,y1,0),V(cx,38.2,0),0.045);
-    var light = new THREE.Mesh(new THREE.SphereGeometry(0.12,8,6),lampMat);light.position.set(cx,38.2,0);fg.add(light);
+    [[29.2,2.7],[31.5,2.4],[33.6,1.9]].forEach(function(a) { rBlack.add(V(cx,a[0],-a[1]),V(cx,a[0],a[1]),0.055); });
+    rBlack.add(V(cx,y1,0),V(cx,37.4,0),0.045);
+    var light = new THREE.Mesh(new THREE.SphereGeometry(0.12,8,6),lampMat);light.position.set(cx,37.4,0);fg.add(light);
   })();
   var tarp = new THREE.MeshStandardMaterial({color:'#243d68',roughness:0.9});
   [-1,1].forEach(function(side) {
-    top.add(sidePanel([[21.4,HG+0.2],[27,HG+0.2],[27,HG+1.85],[22.5,HG+2.05]],3.7,tarp,side*2.35));
+    top.add(sidePanel([[19.6,HG+0.2],[25.2,HG+0.2],[25.2,HG+1.2],[20.4,HG+1.35]],3.2,tarp,side*2.35));
   });
 
   // ---------- Enclosed lifeboats on big orange A-frame davits ----------
@@ -578,17 +591,17 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
     return g;
   }
   [-1, 1].forEach(function (side) {
-    var x=34.6,k=1.45,zc=side*8.9,by=19.45,hookY=by+1.98*k;
+    var x=34.6,k=1.45,zc=side*8.9,by=17.65,hookY=by+1.98*k;
     var lb=lifeboat();lb.scale.setScalar(k);lb.position.set(x,by,zc);top.add(lb);
     [-3.3,3.3].forEach(function(dx) {
       var px=x+dx;
       // Ingetrokken sloep boven een dubbel geknikte uitzetarm, zoals foto's 06/09.
-      rTopOrange.add(V(px-0.6,MAIN,side*7.65),V(px-0.6,17.4,side*8.0),0.19);
-      rTopOrange.add(V(px-0.6,17.4,side*8.0),V(px,19.0,side*9.5),0.2);
-      rTopOrange.add(V(px,19.0,side*9.5),V(px+0.5,23.4,side*9.1),0.19);
-      rTopOrange.add(V(px+0.5,23.4,side*9.1),V(px+0.35,24.0,side*8.6),0.16);
-      rTopDark.add(V(px+0.35,23.8,zc),V(px,hookY,zc),0.022);
-      rTopOrange.add(V(px-0.4,16.8,side*7.6),V(px+0.2,20.1,side*8.9),0.13);
+      rTopOrange.add(V(px-0.6,MAIN,side*7.65),V(px-0.6,16.0,side*8.0),0.19);
+      rTopOrange.add(V(px-0.6,16.0,side*8.0),V(px,17.2,side*9.5),0.2);
+      rTopOrange.add(V(px,17.2,side*9.5),V(px+0.5,21.6,side*9.1),0.19);
+      rTopOrange.add(V(px+0.5,21.6,side*9.1),V(px+0.35,22.2,side*8.6),0.16);
+      rTopDark.add(V(px+0.35,22.0,zc),V(px,hookY,zc),0.022);
+      rTopOrange.add(V(px-0.4,15.6,side*7.6),V(px+0.2,18.3,side*8.9),0.13);
     });
     var winch = new THREE.Mesh(new THREE.CylinderGeometry(0.3,0.3,1.4,12),orange);
     winch.rotation.z=Math.PI/2;winch.position.set(x,A1+0.4,side*7.2);top.add(winch);
@@ -688,7 +701,7 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
   [[85.5, 2.6], [74.5, 6.4]].forEach(function (p) { [-1, 1].forEach(function (s) { rShipDark.add(V(80.6, 26.4, 0), V(p[0], fd + 1.1, s * p[1]), 0.02); }); });
   rShipDark.add(V(80.6, 26.4, 0), V(88.2, fd + 1.2, 0), 0.02);
   var bell = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.25, 0.35, 12), bronze); bell.position.set(81.0, 24.1, 0); ship.add(bell);
-  rShip.add(V(90.4, fd + 1.2, 0), V(90.9, fd + 3.3, 0), 0.06);
+  rShip.add(V(90.2, fd + 1.5, 0), V(90.6, fd + 3.6, 0), 0.06);
   [-1, 1].forEach(function (s) {
     var wz = s * 2;
     ship.add(box(1.8, 0.4, 1.6, new THREE.MeshStandardMaterial({ color: '#5e6d78' }), 82, fd + 0.2, wz));
@@ -737,16 +750,16 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
     }
   }
   railing(rShip, lowerPts, AFT + 0.12, 0.9);
-  var promenadeRail=plan(0.6,21.1,8.35,1.6,0.4);promenadeRail.push(promenadeRail[0]);
+  var promenadeRail=plan(0.6,17.3,8.35,1.6,0.4);promenadeRail.push(promenadeRail[0]);
   railing(rTop,promenadeRail,MAIN+0.06,0.95);
   [-1,1].forEach(function(side) {
-    railing(rTop,[[22,side*8.0],[44.2,side*8.0]],A1,0.95);
+    railing(rTop,[[17.8,side*8.0],[44.2,side*8.0]],A1,0.95);
     railing(rTop,[[45,side*8.0],[68.6,side*8.0]],A1+0.1,0.95);
-    railing(rTop,[[50.1,side*6.9],[63.9,side*6.9]],A2+0.11,0.95);
+    railing(rTop,[[41.5,side*6.9],[63.9,side*6.9]],A2+0.11,0.95);
   });
   var compassRail=[[63.5,-6.05],[69.1,-6.05],[69.1,-8.05],[74.2,-8.05],[74.7,-7.55],[74.7,7.55],[74.2,8.05],[69.1,8.05],[69.1,6.05],[63.5,6.05],[63.5,-6.05]].map(function(p){return [p[0]+BDX,p[1]];});
   railing(rTop,compassRail,CD+BL+0.04,0.9);
-  var hangarRail=plan(21.1,36.8,6.15,0.25,0.4);hangarRail.push(hangarRail[0]);
+  var hangarRail=plan(17.6,36.8,6.15,0.25,0.4);hangarRail.push(hangarRail[0]);
   railing(rTop,hangarRail,HG+0.2,0.9);
 
   // stairs: aft deckhouse -> forward block roof, forward block -> bridge roof, helideck -> aft deckhouse
@@ -757,10 +770,9 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
     [x0, x1].forEach(function (x) { rods.add(V(x, y0, z0), V(x, y1, z1), 0.05); rods.add(V(x, y0 + 0.9, z0), V(x, y1 + 0.9, z1), 0.035); });
   }
   [-1, 1].forEach(function (s) {
-    stairs(top, rTop, 46.5, 47.4, A1, A2, s * 4.1, s * 6.5);
-    stairs(top, rTop, 22.5, 23.4, A1, HG, s * 5.3, s * 3.2);
+    stairs(top, rTop, 40.3, 41.2, A1, A2, s * 3.9, s * 6.3);
     stairs(top, rTop, 57.4, 58.3, A2, CD + BL, s * 1.0, s * 4.5);
-    stairs(top, rTop, 18.0, 18.9, MAIN + 0.1, HD, s * 2.0, s * 5.0);
+    stairs(top, rTop, 15.9, 16.8, MAIN + 0.1, HD, s * 2.0, s * 5.0);
   });
 
   // life rings
@@ -781,7 +793,7 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
     flag = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ map: new THREE.CanvasTexture(c), side: THREE.DoubleSide, roughness: 0.8 }));
     flag.position.set(1.28, HD + 2.9, 6.5); top.add(flag);
     flagBase = geo.attributes.position.array.slice();
-    rTop.add(V(14, A1, -7.6), V(14, A1 + 5, -7.6), 0.06);
+    rTop.add(V(14, HD, -7.6), V(14, HD + 5, -7.6), 0.06);
     var sock = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.3, 1.6, 10, 1, true), new THREE.MeshStandardMaterial({ color: '#e8452c', side: THREE.DoubleSide }));
     sock.rotation.z = Math.PI / 2; sock.position.set(13.2, A1 + 4.9, -7.6); top.add(sock);
   })();
