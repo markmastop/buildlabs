@@ -1,5 +1,7 @@
 # Porsche 911 Targa 1971
 
+**[Open de projectpagina →](index.html)**
+
 Decoratief 3D-printmodel van Marks eigen **Porsche 911 Targa uit 1971**.
 
 **Status: referenties en ontwerpkeuzes overgedragen; herkenbaar herontwerp nodig.**
@@ -28,6 +30,7 @@ deze overdracht gelaten.
 
 | Map of bestand | Betekenis |
 |---|---|
+| [index.html](index.html) | Referentiepagina met fotowissel, kleurvoorstel en bewaarde vormchecklist |
 | [ONTWERPBRIEF.md](ONTWERPBRIEF.md) | Vorm, gemaakte keuzes en criteria voor de volgende versie |
 | [OVERDRACHT.md](OVERDRACHT.md) | Herkomst, bronkandidaten, beperkingen en vervolg |
 | [referentie/](referentie/README.md) | Echte foto’s van voorzijde, achterzijde en interieur |
@@ -46,7 +49,10 @@ uit. Beoordeel zijaanzicht, vooraanzicht en beide driekwartaanzichten van de
 werkelijke CAD-geometrie voordat dunne details worden aangepast voor het printen.
 De technische printcontrole volgt op een herkenbare carrosserievorm.
 
-Voor een nieuw browserconcept gelden centimeters op modelschaal; printbestanden
-gebruiken millimeters. Een eventueel nieuw `index.html` volgt de repo-afspraken;
-dat bestand is er nu nog niet. Bewaar toekomstige CAD-bronnen naast hun exports.
-Nieuwe geometrie krijgt neutrale merkdetails, zonder toegevoegde logo’s.
+De zelfstandige `index.html` sluit aan op de werkplaatsstijl van Ortelius en
+Smit-Lloyd. De pagina gebruikt de drie echte foto’s en bewaart de vormchecklist
+op dit apparaat. Er staat nog geen 3D-geometrie in; de pagina toont geen
+vervangend of goedgekeurd model. Voor een later browserconcept gelden centimeters
+op modelschaal; printbestanden gebruiken millimeters. Bewaar toekomstige
+CAD-bronnen naast hun exports. Nieuwe geometrie krijgt neutrale merkdetails,
+zonder toegevoegde logo’s.

@@ -18,4 +18,4 @@ Mappen die nog niet nodig zijn, mogen ontbreken.
 |---|---|
 | [ortelius](ortelius/index.html) | Concept |
 | [smit-lloyd-109](smit-lloyd-109/index.html) | Printbaar prototype (v17) |
-| [porsche-911-targa-1971](porsche-911-targa-1971/README.md) | Referenties en ontwerpbrief; herkenbaar herontwerp nodig |
+| [porsche-911-targa-1971](porsche-911-targa-1971/index.html) | Referentiepagina; herkenbaar 3D-ontwerp volgt |

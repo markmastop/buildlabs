@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Marks Porsche 911 Targa uit 1971: echte referentiefoto’s, ontwerpkeuzes en vormcriteria voor een decoratief 3D-printmodel.">
+<title>911 Targa 1971 · decoratief model</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@500;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Werkplaatsblad zoals Ortelius en Smit-Lloyd: beeld, maatstrook en werklijst. */
+:root {
+  --ice:#edf2f5; --sheet:#f8fafb; --ink:#14212c; --muted:#536472;
+  --rule:#d3dde4; --accent:#93510c; --gold:#bd690f; --stage:#dfe8ee;
+  --display:"Saira Extra Condensed","Arial Narrow",sans-serif;
+  --body:"IBM Plex Sans",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  color-scheme:light;
+}
+@media(prefers-color-scheme:dark) { :root {
+  --ice:#0d1720; --sheet:#142330; --ink:#e4ecf1; --muted:#a2b2bf;
+  --rule:#304353; --accent:#efb461; --gold:#efb461; --stage:#0f1e2a;
+  color-scheme:dark;
+} }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--ice); color:var(--ink); font:16px/1.55 var(--body); }
+.wrap { max-width:960px; margin:auto; padding:28px max(16px,env(safe-area-inset-right,0px)) 56px max(16px,env(safe-area-inset-left,0px)); display:grid; gap:28px; }
+a { color:var(--accent); text-underline-offset:.2em; }
+a:focus-visible,button:focus-visible,input:focus-visible { outline:2px solid var(--accent); outline-offset:4px; }
+.back { width:fit-content; font:500 13px var(--mono); text-decoration:none; }
+header { display:grid; gap:7px; }
+.eyebrow { font:500 12px var(--mono); letter-spacing:.08em; text-transform:uppercase; color:var(--accent); }
+h1 { font:700 clamp(52px,10vw,82px)/.92 var(--display); letter-spacing:.01em; margin:0; }
+h1 span { color:var(--gold); }
+.lede { color:var(--muted); max-width:65ch; margin:5px 0 0; }
+.status { margin:0; color:var(--muted); font-size:14px; }
+.phase { display:flex; align-items:center; gap:8px; margin-top:5px; font:500 12px var(--mono); color:var(--accent); }
+.phase::before { content:""; width:7px; height:7px; border-radius:50%; background:currentColor; flex:none; }
+section { display:grid; gap:16px; min-width:0; }
+.reference { gap:12px; }
+figure { margin:0; border:1px solid var(--rule); border-radius:6px; overflow:hidden; background:var(--sheet); }
+.photo-frame { width:100%; aspect-ratio:4/3; background:var(--stage); overflow:hidden; }
+.photo-frame img { display:block; width:100%; height:100%; object-fit:contain; }
+figcaption { padding:12px 16px; color:var(--muted); font-size:14px; border-top:1px solid var(--rule); }
+figcaption strong { color:var(--ink); font-weight:500; }
+.reference-tools { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px 18px; }
+.controls { display:flex; flex-wrap:wrap; gap:8px; }
+button { cursor:pointer; }
+.controls button { font:500 14px var(--body); padding:9px 14px; min-height:44px; color:var(--ink); background:var(--sheet); border:1px solid var(--rule); border-radius:999px; display:inline-flex; align-items:center; gap:8px; }
+.controls button::before { content:""; width:9px; height:9px; border-radius:50%; border:1.5px solid var(--muted); flex:none; }
+.controls button[aria-pressed="true"] { border-color:var(--accent); }
+.controls button[aria-pressed="true"]::before { background:var(--accent); border-color:var(--accent); }
+.original { font-size:14px; min-height:44px; display:inline-flex; align-items:center; }
+.specs { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border-top:2px solid var(--ink); border-bottom:1px solid var(--rule); margin:0; }
+.spec { padding:13px 12px 15px 0; }
+.spec dt { color:var(--muted); font:500 11px/1.5 var(--mono); text-transform:uppercase; letter-spacing:.05em; }
+.spec dd { font:500 32px/1.1 var(--display); margin:3px 0 0; font-variant-numeric:tabular-nums; }
+.spec dd small { font:14px var(--body); margin-left:4px; color:var(--muted); }
+h2 { font:700 34px/1.05 var(--display); margin:0; }
+.section-head { display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px 20px; align-items:baseline; }
+.section-head p { margin:0; color:var(--muted); font-size:14px; }
+.colours { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; margin:0; padding:0; list-style:none; }
+.colours li { display:flex; gap:12px; align-items:center; border-bottom:1px solid var(--rule); padding:0 0 15px; }
+.swatch { width:34px; height:34px; border:1px solid rgb(0 0 0/.18); border-radius:50%; flex:none; }
+.swatch.gold { background:#e69a22; }
+.swatch.black { background:#242729; }
+.swatch.silver { background:#b8bfc2; }
+.colours strong { font-weight:500; display:block; }
+.colours small { display:block; color:var(--muted); font-size:13px; }
+.groups { display:grid; grid-template-columns:1fr 1fr; gap:28px 36px; }
+.group h3 { font:500 12px var(--mono); text-transform:uppercase; letter-spacing:.07em; color:var(--accent); margin:0 0 7px; }
+.group ul { margin:0; padding:0; list-style:none; border-top:1px solid var(--rule); }
+.group li { border-bottom:1px solid var(--rule); }
+.group label { display:grid; grid-template-columns:20px minmax(0,1fr); gap:3px 10px; padding:12px 0; cursor:pointer; }
+.group input { width:16px; height:16px; margin:5px 0 0; accent-color:var(--accent); }
+.name { font-weight:500; }
+.detail { grid-column:2; font-size:14px; color:var(--muted); }
+li:has(input:checked) .name { text-decoration:line-through; color:var(--muted); }
+.checklist-foot { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:center; }
+.quiet { font:500 13px var(--body); color:var(--accent); padding:7px 0; min-height:40px; background:none; border:0; text-decoration:underline; text-underline-offset:.2em; }
+.downloads { display:flex; flex-wrap:wrap; gap:10px; }
+.downloads a { padding:10px 16px; min-height:44px; color:var(--ink); border:1px solid var(--rule); border-radius:6px; background:var(--sheet); text-decoration:none; font-weight:500; }
+.downloads a.primary { background:var(--accent); border-color:var(--accent); color:var(--sheet); }
+.steps { display:grid; gap:10px; margin:0; padding-left:22px; }
+.steps strong { font-weight:500; }
+.note { padding:14px 16px; margin:0; border:1px solid var(--rule); background:var(--sheet); border-radius:6px; color:var(--muted); font-size:14px; }
+.note strong { color:var(--ink); font-weight:500; }
+footer { padding-top:16px; border-top:1px solid var(--rule); color:var(--muted); font-size:13px; }
+[hidden] { display:none!important; }
+@media(max-width:620px) {
+  .wrap { gap:24px; padding-top:22px; }
+  .specs { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .spec:nth-child(-n+2) { border-bottom:1px solid var(--rule); }
+  .groups { grid-template-columns:1fr; gap:24px; }
+  .colours { grid-template-columns:1fr; gap:12px; }
+  .colours li { padding-bottom:12px; }
+  .downloads a { flex:1 1 42%; text-align:center; }
+  figcaption { padding:11px 12px; }
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <a class="back" href="../../index.html">← Alle projecten</a>
+  <header>
+    <div class="eyebrow">Decoratief schaalmodel · bouwjaar 1971</div>
+    <h1>911 <span>Targa</span></h1>
+    <p class="lede">Marks eigen 911 Targa als uitgangspunt voor een decoratief printmodel. De lange neus, ronde spatborden en brede Targaband moeten ook op kleine schaal herkenbaar blijven.</p>
+    <p class="phase">Referenties gereed · herkenbaar 3D-ontwerp volgt</p>
+  </header>
+
+  <section class="reference" aria-label="Referentiefoto’s van de echte auto">
+    <figure>
+      <div class="photo-frame">
+        <img id="reference-image" src="referentie/voor-driekwart.jpeg" width="1600" height="1200" alt="Marks geel-oranje 911 Targa uit 1971, schuin van voren gefotografeerd, met ronde koplampen in de spatborden en open Targadak" fetchpriority="high">
+      </div>
+      <figcaption id="reference-caption"><strong>Voorzijde.</strong> De lage voorklep ligt tussen de hoge, afgeronde spatbordtoppen. De koplampen zijn onderdeel van die vorm.</figcaption>
+    </figure>
+    <div class="reference-tools">
+      <div class="controls" role="group" aria-label="Kies een referentiefoto">
+        <button type="button" data-view="front" aria-pressed="true" aria-controls="reference-image">Voorzijde</button>
+        <button type="button" data-view="rear" aria-pressed="false" aria-controls="reference-image">Achterzijde</button>
+        <button type="button" data-view="interior" aria-pressed="false" aria-controls="reference-image">Interieur</button>
+      </div>
+      <a id="original-photo" class="original" href="referentie/voor-driekwart.jpeg" target="_blank" rel="noopener">Foto groot openen ↗</a>
+    </div>
+    <p id="photo-error" class="status" role="status" hidden>De foto kon niet worden geladen. Gebruik ‘Foto groot openen’ om het bestand te bekijken.</p>
+    <noscript><p class="status">Bekijk ook de <a href="referentie/achter-driekwart.jpeg">achterzijde</a> en het <a href="referentie/interieur.jpeg">interieur</a>.</p></noscript>
+  </section>
+
+  <dl class="specs">
+    <div class="spec"><dt>Bouwjaar auto</dt><dd>1971</dd></div>
+    <div class="spec"><dt>Richtlengte model</dt><dd>≈20<small>cm</small></dd></div>
+    <div class="spec"><dt>Printer</dt><dd>P2S<small>+ AMS</small></dd></div>
+    <div class="spec"><dt>Kleurvoorstel</dt><dd>3<small>kleuren</small></dd></div>
+  </dl>
+
+  <section aria-labelledby="colours-heading">
+    <div class="section-head"><h2 id="colours-heading">Kleurvoorstel</h2><p>Een richting voor de uitvoering met AMS.</p></div>
+    <ul class="colours">
+      <li><span class="swatch gold" aria-hidden="true"></span><div><strong>Geel-oranje</strong><small>Carrosserie</small></div></li>
+      <li><span class="swatch black" aria-hidden="true"></span><div><strong>Zwart</strong><small>Banden, interieur en raaminzetten</small></div></li>
+      <li><span class="swatch silver" aria-hidden="true"></span><div><strong>Zilvergrijs</strong><small>Targaband, velgdetails en accenten</small></div></li>
+    </ul>
+    <p class="status">De definitieve schaal, maat en onderdeelindeling volgen bij het uitwerken van de carrosserie.</p>
+  </section>
+
+  <section aria-labelledby="shape-heading">
+    <div class="section-head"><h2 id="shape-heading">De vorm moet kloppen</h2><p>Te beoordelen aan het volgende 3D-ontwerp.</p></div>
+    <div class="groups">
+      <div class="group"><h3>Neus en silhouet</h3><ul>
+        <li><label><input type="checkbox" id="shape-headlights" data-shape><span class="name">Koplampen in de spatborden</span><span class="detail">Schuin geplaatste lampen in doorlopende, hoge en afgeronde spatbordtoppen.</span></label></li>
+        <li><label><input type="checkbox" id="shape-bonnet" data-shape><span class="name">Een lange, lage neus</span><span class="detail">Een lager liggende voorklep tussen de spatborden, met afgeronde voorste hoeken.</span></label></li>
+        <li><label><input type="checkbox" id="shape-waist" data-shape><span class="name">Ronde schouders en een zichtbare taille</span><span class="detail">Een slanke zijwand, passende wielbogen en een ingesnoerde onderdorpel.</span></label></li>
+      </ul></div>
+      <div class="group"><h3>Targa en achterzijde</h3><ul>
+        <li><label><input type="checkbox" id="shape-windscreen" data-shape><span class="name">Een passende voorruit</span><span class="detail">Een gebogen ruit en raamkader die naar boven smaller worden.</span></label></li>
+        <li><label><input type="checkbox" id="shape-targa" data-shape><span class="name">Een brede Targaband</span><span class="detail">De band omsluit de grote, bolle achterruit en bepaalt samen daarmee het profiel.</span></label></li>
+        <li><label><input type="checkbox" id="shape-tail" data-shape><span class="name">Een vloeiende, aflopende staart</span><span class="detail">Van de achterruit via de motorklep naar een afgeronde achterkant met smalle bumper.</span></label></li>
+      </ul></div>
+    </div>
+    <div class="checklist-foot"><p id="shape-progress" class="status" aria-live="polite">0 van 6 vormcriteria afgevinkt</p><button type="button" id="reset-shapes" class="quiet">Alles uitvinken</button></div>
+    <p class="status">Je vinkjes worden op dit apparaat bewaard voor je eigen beoordeling.</p>
+  </section>
+
+  <section aria-labelledby="files-heading">
+    <div class="section-head"><h2 id="files-heading">Projectbestanden</h2><p>Referenties, keuzes en de stand van het ontwerp.</p></div>
+    <div class="downloads">
+      <a class="primary" href="ONTWERPBRIEF.md">Ontwerpbrief</a>
+      <a href="referentie/README.md">Referentiefoto’s en herkomst</a>
+      <a href="OVERDRACHT.md">Overdracht en bronkandidaten</a>
+      <a href="concept/ontwerpbrief-en-prompt-v1.txt">Eerdere conceptbeschrijving</a>
+    </div>
+  </section>
+
+  <section aria-labelledby="next-heading">
+    <h2 id="next-heading">Van referentie naar model</h2>
+    <ol class="steps">
+      <li><strong>De carrosserie opbouwen.</strong> Een passende vroege 911-basis kiezen of betrouwbare profielen uitwerken, met de eigen foto’s als vergelijking.</li>
+      <li><strong>Van alle kanten beoordelen.</strong> Dezelfde geometrie bekijken van voren, opzij en in beide driekwartaanzichten.</li>
+      <li><strong>Geschikt maken voor het printen.</strong> Daarna de details, onderdelen, wanddiktes en printoriëntatie uitwerken voor de P2S.</li>
+    </ol>
+    <p class="note"><strong>Huidige fase: ontwerpvoorbereiding.</strong> De foto’s tonen de echte auto. Een passend 3D-model en printbestanden moeten nog worden gemaakt.</p>
+  </section>
+  <footer>911 Targa 1971 · decoratief model in ontwikkeling · <a href="README.md">Projectdocumentatie</a></footer>
+</main>
+<script>
+(() => {
+  const photos = {
+    front: {
+      src: 'referentie/voor-driekwart.jpeg',
+      alt: 'Marks geel-oranje 911 Targa uit 1971, schuin van voren gefotografeerd, met ronde koplampen in de spatborden en open Targadak',
+      title: 'Voorzijde.',
+      caption: 'De lage voorklep ligt tussen de hoge, afgeronde spatbordtoppen. De koplampen zijn onderdeel van die vorm.'
+    },
+    rear: {
+      src: 'referentie/achter-driekwart.jpeg',
+      alt: 'Marks 911 Targa uit 1971 schuin van achteren, met zilverkleurige Targaband, grote gebogen achterruit en aflopende motorklep',
+      title: 'Achterzijde.',
+      caption: 'De brede Targaband, bolle achterruit en ronde schouders lopen over in de aflopende motorklep en staart.'
+    },
+    interior: {
+      src: 'referentie/interieur.jpeg',
+      alt: 'Interieur van Marks 911 Targa, met zwart dashboard, houten stuur en zwarte stoelen met pepita-bekleding',
+      title: 'Interieur.',
+      caption: 'De zitplaatsen, het stuur en dashboard geven de open cockpit zijn indeling. De geometrie wordt vereenvoudigd op modelschaal.'
+    }
+  };
+  const image = document.getElementById('reference-image');
+  const caption = document.getElementById('reference-caption');
+  const original = document.getElementById('original-photo');
+  const error = document.getElementById('photo-error');
+  const buttons = [...document.querySelectorAll('[data-view]')];
+  function showPhoto(key) {
+    const photo = photos[key];
+    if (!photo) return;
+    error.hidden = true;
+    image.alt = photo.alt;
+    image.src = photo.src;
+    original.href = photo.src;
+    const title = document.createElement('strong');
+    title.textContent = photo.title;
+    caption.replaceChildren(title, document.createTextNode(' ' + photo.caption));
+    for (const button of buttons) button.setAttribute('aria-pressed', String(button.dataset.view === key));
+  }
+  image.addEventListener('error', () => { error.hidden = false; });
+  image.addEventListener('load', () => { error.hidden = true; });
+  for (const [index, button] of buttons.entries()) {
+    button.addEventListener('click', () => showPhoto(button.dataset.view));
+    button.addEventListener('keydown', event => {
+      let next;
+      if (event.key === 'ArrowRight') next = (index + 1) % buttons.length;
+      if (event.key === 'ArrowLeft') next = (index + buttons.length - 1) % buttons.length;
+      if (event.key === 'Home') next = 0;
+      if (event.key === 'End') next = buttons.length - 1;
+      if (next === undefined) return;
+      event.preventDefault();
+      buttons[next].focus();
+      showPhoto(buttons[next].dataset.view);
+    });
+  }
+  const boxes = [...document.querySelectorAll('[data-shape]')];
+  const progress = document.getElementById('shape-progress');
+  const storageKey = 'porsche-911-targa-1971-vormcriteria-v1';
+  let saved = [];
+  try {
+    const value = JSON.parse(localStorage.getItem(storageKey) || '[]');
+    if (Array.isArray(value)) saved = value.filter(item => typeof item === 'string');
+  } catch {}
+  for (const box of boxes) box.checked = saved.includes(box.id);
+  function updateChecklist() {
+    const selected = boxes.filter(box => box.checked).map(box => box.id);
+    progress.textContent = selected.length + ' van ' + boxes.length + ' vormcriteria afgevinkt';
+    try { localStorage.setItem(storageKey, JSON.stringify(selected)); } catch {}
+  }
+  for (const box of boxes) box.addEventListener('change', updateChecklist);
+  document.getElementById('reset-shapes').addEventListener('click', () => {
+    for (const box of boxes) box.checked = false;
+    updateChecklist();
+  });
+  updateChecklist();
+})();
+</script>
+</body>
+</html>
