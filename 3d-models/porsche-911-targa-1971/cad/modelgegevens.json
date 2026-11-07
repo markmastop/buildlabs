@@ -1,0 +1,13 @@
+{
+  "status": "eerste vormconcept; geen printklaar model",
+  "eenheid": "centimeter",
+  "maten_cm": [
+    20.34,
+    8.06,
+    6.092
+  ],
+  "objecten": 88,
+  "meshes": 58,
+  "bron": "Nieuwe handmatige parametrische opbouw op basis van eigen foto’s en 20cm-beeldvoorstel; geen scan of exacte schaalreconstructie.",
+  "printcontrole": false
+}

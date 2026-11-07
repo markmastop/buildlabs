@@ -4,8 +4,8 @@
 
 Decoratief 3D-printmodel van Marks eigen **Porsche 911 Targa uit 1971**.
 
-**Status: referenties en ontwerpkeuzes overgedragen; herkenbaar herontwerp nodig.**
-Er is nog geen goedgekeurd 3D-model van de auto. Mark wees de eerste geometrie af
+**Status: eerste bewerkbare 3D-vormconcept v1; gelijkenis nog te beoordelen.**
+Er is een nieuw 3D-vormconcept met afzonderlijke onderdelen. De vorm is nog niet goedgekeurd. Mark wees de eerste geometrie af
 op gelijkenis. Op zijn verzoek is de mini met alle bijbehorende bestanden buiten
 deze overdracht gelaten.
 
@@ -39,8 +39,7 @@ deze overdracht gelaten.
 
 De originele AI-visualisatie staat lokaal in `concept/renders/`; renders zijn
 volgens de repo-afspraken uitgesloten van Git. De bronnen in het iCloud-project
-zijn behouden; er zijn kopieën gemaakt. Er staan hier geen mini-, STL-, Blender-
-of 3MF-bestanden uit de afgewezen poging.
+zijn behouden; er zijn kopieën gemaakt. Er staan hier geen bestanden uit de afgewezen poging. De nieuwe Blender-bron staat in `cad/`.
 
 ## Volgende stap
 
@@ -49,10 +48,18 @@ uit. Beoordeel zijaanzicht, vooraanzicht en beide driekwartaanzichten van de
 werkelijke CAD-geometrie voordat dunne details worden aangepast voor het printen.
 De technische printcontrole volgt op een herkenbare carrosserievorm.
 
-De zelfstandige `index.html` sluit aan op de werkplaatsstijl van Ortelius en
-Smit-Lloyd. De pagina gebruikt de drie echte foto’s en bewaart de vormchecklist
-op dit apparaat. Er staat nog geen 3D-geometrie in; de pagina toont geen
-vervangend of goedgekeurd model. Voor een later browserconcept gelden centimeters
-op modelschaal; printbestanden gebruiken millimeters. Bewaar toekomstige
-CAD-bronnen naast hun exports. Nieuwe geometrie krijgt neutrale merkdetails,
-zonder toegevoegde logo’s.
+De zelfstandige `index.html` bevat het 3D-kijkmodel als ingebedde GLB, three.js
+0.160.1 via CDN, vaste aanzichten en de echte referentiefoto’s. Het model is ook
+los beschikbaar als `model/911-targa-concept-v1.glb`. De bron staat in
+`cad/911-targa-concept-v1.blend` en het reproduceerbare `cad/maak_concept.py`.
+
+Blender-coördinaten zijn centimeters; de GLB-export gebruikt de standaard
+glTF-eenheden. De viewer normaliseert de carrosserielengte naar 20 cm op
+modelschaal. Dit is een ontwerpmaat, geen vastgestelde schaal of maatvaste scan.
+De vorm is handmatig opgebouwd naar de drie eigen foto’s en het grotere
+beeldvoorstel. Zie `cad/modelgegevens.json`. Er zijn geen merklogo’s toegevoegd.
+
+Dit concept bestaat uit losse oppervlakken en overlappende onderdelen. Er is
+nog geen controle op gesloten printvolumes, minimale diktes, passing of support.
+Er worden daarom geen STL/3MF-printbestanden aangeboden. Beoordeel eerst de
+herkenbaarheid vanuit de drie aanzichten en vergelijk met de foto’s.
