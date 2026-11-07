@@ -1,19 +1,23 @@
-# Bewerkbare CAD — Ortelius p1
+# Bewerkbare CAD — Ortelius p2
 
 De parametrische bron is [`build.py`](build.py), met hoofdparameters in
 [`parameters.json`](parameters.json). Eenheden zijn **millimeters**, schaal
 1:100. Vormbron: de fotogebaseerde vormstudie v3 in [`../index.html`](../index.html).
-De CAD is een constructieprototype; kleine aankleding en raamglas worden
-met schilderwerk en modelbouwmateriaal afgewerkt.
+P2 herstelt de details die in de eerste CAD-versie ontbraken. Raamstroken,
+cockpitruiten, relingen en dekinleg zijn nu echte onderdelen. Touwen,
+verstaging en kettingen blijven modelbouwwerk met draad.
 
 ## Bestanden
 
 - [`index.html`](index.html): zelfstandige Three.js-viewer van de echte CAD-geometrie.
-- [`step/ortelius-p1-assemblage.step`](step/ortelius-p1-assemblage.step): complete, benoemde STEP-assemblage.
+- [`step/ortelius-p2-assemblage.step`](step/ortelius-p2-assemblage.step): complete, benoemde STEP-assemblage.
 - `step/`: bewerkbaar STEP per printonderdeel, in dezelfde printstand als het STL.
 - [`build.py`](build.py): geometrie, deling, export en viewer-generatie.
+- [`details.py`](details.py): echte relingen, trappen, masten, cockpitruiten en dekuitrusting.
+- [`DETAILS.md`](DETAILS.md): vergelijking met de vormstudie en bewuste printaanpassingen.
 - [`parameters.json`](parameters.json): rompstations, wanddiktes, lijmspeling, sneden en maatreserveringen.
-- [`viewer-template.html`](viewer-template.html): bron voor de zelfstandige viewer; modeldata wordt bij generatie ingebed.
+- [`viewer.py`](viewer.py): bouwt de viewer rechtstreeks uit de georiënteerde STL-bestanden.
+- [`viewer-template.html`](viewer-template.html): zelfstandige viewer met ingebedde modeldata.
 - [`validate.py`](validate.py): onafhankelijke herimportcontrole, inclusief houders/romp en heli/hangar.
 - [`slice_check.py`](slice_check.py): proefslicing met lokaal geïnstalleerde Bambu Studio op macOS.
 - [`package.py`](package.py): maakt lokaal het ZIP-pakket, zonder dependencies of G-code.
@@ -39,7 +43,11 @@ P2S-profielen uit de lokale Bambu Studio-installatie; het lost profielerving
 expliciet op en controleert of laaghoogte, zes/vier wanden en filament zijn
 toegepast. Tijdelijke G-code blijft buiten de repository. Je kunt na een
 wijziging ook enkele delen testen, bijvoorbeeld `cad/slice_check.py 01_romp_2`.
-De profielbestanden die je zelf meelevert staan in `../print/profielen/`.
+Bij een gerichte hercontrole worden eerdere resultaten alleen hergebruikt
+als de overige 3MF-bestanden byte-identiek zijn en de opgeloste printer-,
+proces- en filamentinstellingen exact overeenkomen. Ontbreken die tijdelijke
+profielen, draai dan de volledige controle opnieuw. De eigen
+profielbestanden staan in `../print/profielen/`.
 
 ## Constructie en coördinaten
 

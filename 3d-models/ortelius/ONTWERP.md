@@ -1,6 +1,6 @@
 # Ontwerp Ortelius RC — vormstudie v3
 
-De vormstudie v3 is de visuele bron van het constructieprototype p1.
+De vormstudie v3 is de visuele bron van het constructieprototype p2.
 De CAD-bron en STEP staan in `cad/`, de STL/3MF en controles in `print/`.
 Zie [CAD-weergave](cad/index.html) en [bouwbeschrijving](print/BOUWHANDLEIDING.md).
 De onderstaande fotocontrole beschrijft de oorspronkelijke browserstudie.
@@ -282,3 +282,22 @@ dicht tot de echte as, roerkoker en boegschroef gekozen zijn.
 [`print/controle.json`](print/controle.json) bevat de herimportcontrole;
 [`print/slicercontrole.json`](print/slicercontrole.json) de proefslicing met
 Bambu Studio. Geen van beide vervangt een fysieke lek-, drijf- of vaartest.
+
+
+## Detailherstel p2 na vergelijking met de vormstudie
+
+P1 was visueel te ver vereenvoudigd. P2 behoudt de rompconstructie en
+herstelt de relingen op de juiste plekken, acht trappen, vijf helideknetten,
+de ruimtelijke vakwerkmast, radarplatforms/scanners, dubbele davits,
+dekkranen, zodiacs, RIB-davits, hangarinterieur, tank en dekbeslag.
+De witte gevels hebben donkere inzetruiten; de helikopters hebben echte
+cockpituitsparingen met zes typen gebogen inzetruit. De helidekcirkel en H
+zijn passende inlegstukken in het dek.
+
+Bron en verantwoording: [`cad/details.py`](cad/details.py) en
+[`cad/DETAILS.md`](cad/DETAILS.md). De maten en posities komen uit de
+bestaande vormstudie v3 (cm ×10, assen omgezet), geen nieuwe maatvoering
+uit foto's. De belangrijkste FDM-aanpassingen zijn relingrails van 1,2 mm,
+staanders van 1,4 mm, mastvlakken van 1,2 mm en ruiten van circa 1 mm.
+De kleuren in de CAD-viewer tonen de bedoelde afwerking; de rode
+onderzijde is een schildervlak, geen extra deling van de romp.

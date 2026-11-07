@@ -1,9 +1,10 @@
-# Printbestanden — Ortelius p1
+# Printbestanden — Ortelius p2
 
-Eerste constructieprototype op 1:100 voor de Bambu Lab P2S, in millimeters.
+Gedetailleerd constructieprototype op 1:100 voor de Bambu Lab P2S, in millimeters.
 **Begin met de pasproef; dit pakket is nog niet fysiek geprint of gevaren.**
 
 - [`BOUWHANDLEIDING.md`](BOUWHANDLEIDING.md): printinstellingen, montage, RC-keuzes en proefvolgorde.
+- [`WIJZIGINGEN-P2.md`](WIJZIGINGEN-P2.md): verschil met p1 en herbruikbare eerdere prints.
 - [`onderdelen.csv`](onderdelen.csv): uniek onderdeel, aantal en printmaten.
 - [`onderdelen.json`](onderdelen.json): montageposities, volumes, geometrische massa en geschatte waterverplaatsing.
 - [`controle.json`](controle.json): onafhankelijke CAD/mesh-hercontrole.
@@ -17,7 +18,7 @@ Eerste constructieprototype op 1:100 voor de Bambu Lab P2S, in millimeters.
 
 De kopieën en losse reling-/montagestrips staan in de onderdelenlijst.
 Print op 100% en schaal niet automatisch naar de plaat. De grootste delen
-zijn 240 mm lang; geometrie ≤246 mm in alle assen. Slicerhulpgeometrie,
+zijn circa 241.6 mm lang; geometrie ≤246 mm in alle assen. Slicerhulpgeometrie,
 krimp, hechting en ondersteuningen moeten ook bij jouw instellingen passen.
 Print in PETG op Textured PEI Plate (op gladde PEI eerst lijmstift als scheidingslaag).
 

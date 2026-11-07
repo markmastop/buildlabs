@@ -3,27 +3,30 @@
 RC-model van het Nederlandse poolexpeditieschip **Ortelius** van Oceanwide
 Expeditions (thuishaven Vlissingen), op schaal 1:100.
 
-**Status: CAD- en printprototype p1 beschikbaar.** De holle romp bestaat uit
+**Status: CAD- en printprototype p2 beschikbaar.** De holle romp bestaat uit
 vier delen; de vooropbouw is afneembaar. Er zijn losse bovenbouwdelen,
-RC-montageplaten, twee helikopters, proefstukken en een bouwbeschrijving.
+relingen, trappen, ruimtelijke masten, radarinstallatie, dekinrichting,
+RC-montageplaten, twee helikopters met inzetruiten en proefstukken.
 
 - [Bekijk de daadwerkelijke CAD-onderdelen](cad/index.html), ook uit elkaar.
-- [Open de CAD-assemblage (STEP)](cad/step/ortelius-p1-assemblage.step).
+- [Open de CAD-assemblage (STEP)](cad/step/ortelius-p2-assemblage.step).
 - [Begin met de bouw- en printvolgorde](print/BOUWHANDLEIDING.md) en de [onderdelenlijst](print/onderdelen.csv).
 - Parametrische bron: [`cad/build.py`](cad/build.py) en [`cad/parameters.json`](cad/parameters.json).
 
-Dit is het eerste constructieprototype. Digitale geometrie- en slicercontrole
+Dit is een gedetailleerd constructieprototype. Digitale geometrie- en slicercontrole
 staan in `print/`; fysieke passing, lekdichtheid en vaargedrag moeten nog
-worden getest. De RC-hardware is nog niet definitief gekozen. Kleine
-modelbouwdetails en schilderwerk zijn geen volledige kopie van de browserstudie.
+worden getest. De RC-hardware is nog niet definitief gekozen. De
+[detailvergelijking](cad/DETAILS.md) laat zien welke kenmerken uit de
+browserstudie nu echte onderdelen zijn. Touwen, kettingen en verfafwerking
+blijven aanvullend modelbouwwerk.
 
 Open [`index.html`](index.html) voor het draaibare model. Naast de zes
 overzichtsaanzichten zijn er detailknoppen voor **Middenschip**, **Helikopter** en **Hangar**.
 Het model begint stil. Met **Water** uit zie je het geschatte onderwaterschip.
 
-![Werkelijke CAD-assemblage p1](beelden/cad-p1.jpg)
+![Werkelijke CAD-assemblage p2](beelden/cad-p2.jpg)
 
-[Onderdelen uit elkaar bekijken](beelden/cad-p1-exploded.jpg) · [Oorspronkelijke vormstudie v3](beelden/render.jpg)
+[Brug en radar in detail](beelden/cad-p2-brug.jpg) · [Hangar en helikopters](beelden/cad-p2-hangar.jpg) · [Onderdelen uit elkaar bekijken](beelden/cad-p2-exploded.jpg) · [Oorspronkelijke vormstudie v3](beelden/render.jpg)
 
 | Bestand | Inhoud |
 |---|---|
@@ -56,7 +59,8 @@ gelegd. Dit volgt het principe beschreven in het
 De stallingsstand is tegen de geometrie van deze modelhangar gecontroleerd.
 Boven de rotornaaf blijft circa 2 mm tot de rechte bovenkant van de ingang.
 Dit is geen bevestiging van echte hangarmaten of fysieke printpassing.
-De printuitwerking in p1 heeft losse romphelften, skids en rotorbladen; cockpitramen schilderen.
+De printuitwerking in p2 heeft losse romphelften met echte raamuitsparingen,
+gebogen inzetruiten, skids, staartrotoren en losse hoofdrotorbladen.
 
 ## RC-inbouw bekijken
 
@@ -94,7 +98,7 @@ helikopterdek en hangar toegevoegd in 2007.
 
 ## Ontwerpkeuzes
 
-- CAD p1: vier holle rompdelen met sneden op 227,5 / 455 / 682,5 mm;
+- CAD p2: vier holle rompdelen met sneden op 227,5 / 455 / 682,5 mm;
   losse lasstroken met lijmspeling en afneembare dek-/opbouwunit. Alle
   printdelen blijven binnen 246 mm per as. Er zijn geen magneetverbindingen.
 - Het achterste werkdek heeft een apart serviceluik met vier M3-borgpunten.

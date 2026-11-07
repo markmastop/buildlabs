@@ -7,7 +7,9 @@ R=Path(__file__).resolve().parents[1]
 APP=Path('/Applications/BambuStudio.app/Contents')
 BIN=APP/'MacOS/BambuStudio';PROFILES=APP/'Resources/profiles/BBL'
 D=json.loads((R/'print/onderdelen.json').read_text())
-checks=[];tmp=Path(tempfile.mkdtemp(prefix='ortelius-p1-slice-'))
+previous_path=R/'print/slicercontrole.json'
+previous=json.loads(previous_path.read_text()) if previous_path.exists() else {}
+checks=[];tmp=Path(tempfile.mkdtemp(prefix='ortelius-p2-slice-'))
 # De CLI lost inherits/include niet vanzelf op: maak tijdelijke volledige profielen.
 lookup={p.stem:p for p in PROFILES.rglob('*.json')}
 def resolve(path):
@@ -24,10 +26,11 @@ filament=resolve(PROFILES/'filament/Generic ASA @BBL P2S.json')
 for n,d in [('machine',machine),('filament',filament)]:
  (tmp/(n+'.json')).write_text(json.dumps(d))
 for n in ['romp','details']:
- path=R/'print/profielen'/('ortelius-p1-'+n+'-p2s.json')
+ path=R/'print/profielen'/('ortelius-p2-'+n+'-p2s.json')
  d=resolve(path);d['curr_bed_type']='Textured PEI Plate'
  (tmp/(n+'.json')).write_text(json.dumps(d))
 selected=set(sys.argv[1:])
+assert selected.issubset({q['name'] for q in D['parts']}),'Onbekende onderdeelnamen'
 for q in D['parts']:
  name=q['name']
  if selected and name not in selected:continue
@@ -47,9 +50,27 @@ for q in D['parts']:
  assert grams>0,(name,'filamentprofiel ontbreekt')
  checks.append(dict(part=name,profile=profile,status='PASS',warning=plate.get('warning_message',''),wall_loops=result['wall_loops'],layer_height_mm=round(result['layer_height'],2),estimated_grams=round(grams,2),estimated_seconds=round(plate['total_predication']),source_3mf_sha256=hashlib.sha256((R/'print/3mf'/(name+'.3mf')).read_bytes()).hexdigest()))
  print(name,'SLICE OK',checks[-1]['estimated_grams'],'g',flush=True)
- report=dict(slicer='Bambu Studio 02.09.01.70 macOS CLI',printer=machine['printer_model'],nozzle_mm=.4,bed_mm=[256,256,256],filament=filament['name'],status='RUNNING',scope='Alle unieke onderdelen, 1 exemplaar per plaat' if not selected else 'Geselecteerde onderdelen',checks=checks,temporary_gcode_directory=str(tmp),limitations='Proefslicing, geen fysieke proef. Ondersteuning en hechting visueel beoordelen vóór productie.')
+ report=dict(revision=D['revision'],slicer='Bambu Studio 02.09.01.70 macOS CLI',printer=machine['printer_model'],nozzle_mm=.4,bed_mm=[256,256,256],filament=filament['name'],status='RUNNING',scope='Alle unieke onderdelen, 1 exemplaar per plaat' if not selected else 'Geselecteerde onderdelen',checks=checks,temporary_gcode_directory=str(tmp),limitations='Proefslicing, geen fysieke proef. Ondersteuning en hechting visueel beoordelen vóór productie.')
  (R/'print/slicercontrole.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+# Reeds geslaagde controles alleen hergebruiken als geometrie én alle
+# opgeloste printer-/proces-/filamentinstellingen exact overeenkomen.
+if selected and previous.get('status')=='PASS':
+ olddir=Path(previous.get('temporary_gcode_directory','/nonexistent'))
+ settings=['machine.json','filament.json','romp.json','details.json']
+ same_settings=all((olddir/f).exists() and json.loads((olddir/f).read_text())==json.loads((tmp/f).read_text()) for f in settings)
+ old={q['part']:q for q in previous.get('checks',[])}
+ fresh={q['part']:q for q in checks}
+ if same_settings and all(q['name'] in old and old[q['name']]['source_3mf_sha256']==hashlib.sha256((R/'print/3mf'/(q['name']+'.3mf')).read_bytes()).hexdigest() for q in D['parts'] if q['name'] not in selected):
+  combined=[]
+  for q in D['parts']:
+   name=q['name']
+   if name in fresh:combined.append(fresh[name])
+   else:combined.append(dict(old[name],reused_verified_mesh=True))
+  checks=combined;report['checks']=checks
+  report['scope']='Alle actuele unieke onderdelen; '+str(len(selected))+' opnieuw gesliced, overige byte-identieke meshes met identieke opgeloste instellingen hergebruikt.'
+  report['reused_settings_directory']=str(olddir)
 report['status']='PASS'
+
 report['expected_unique_parts']=len(D['parts'])
 quantities={q['name']:q['quantity'] for q in D['parts']}
 report['complete_print_list_estimate_g']=round(sum(q['estimated_grams']*quantities[q['part']] for q in checks),1)

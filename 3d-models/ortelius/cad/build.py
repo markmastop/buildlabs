@@ -1,4 +1,4 @@
-"""Ortelius p1: parametrische CAD, millimeters, X naar boeg / Y bakboord / Z boven.
+"""Ortelius p2: parametrische CAD, millimeters, X naar boeg / Y bakboord / Z boven.
 python cad/build.py; bestanden worden uitsluitend in dit project geschreven.
 Vormbron: ../index.html v3. Constructiekeuzes staan in parameters.json.
 """
@@ -8,12 +8,13 @@ import xml.etree.ElementTree as ET
 import cadquery as cq
 import numpy as np
 import trimesh
+from details import masts, davits_cranes, enrich, helicopter_windows
 R=Path(__file__).resolve().parents[1]
 P=json.loads((R/'cad/parameters.json').read_text())
 W=P['hull_wall'];T=P['deck_wall'];H=P['house_wall'];G=P['fit_clearance']
 STEP=R/'cad/step';STL=R/'print/stl';MF=R/'print/3mf'
 for d in [STEP,STL,MF]:d.mkdir(parents=True,exist_ok=True)
-records=[];objects={};assembly=cq.Assembly(name='Ortelius_p1')
+records=[];objects={};assembly=cq.Assembly(name='Ortelius_p2')
 NAVY='#163b70';WHITE='#eeeeea';GREEN='#477d60';BLACK='#242b30';ORANGE='#ed741e';YELLOW='#efce27'
 
 def wp(s):return s if isinstance(s,cq.Workplane) else cq.Workplane(obj=s)
@@ -48,10 +49,14 @@ def write_3mf(mesh,path,name):
  build=ET.SubElement(root,'{'+ns+'}build')
  xy=128-mesh.extents[:2]/2
  ET.SubElement(build,'{'+ns+'}item',objectid='1',transform=f'1 0 0 0 1 0 0 0 1 {xy[0]:.6f} {xy[1]:.6f} 0')
+ data=ET.tostring(root,encoding='utf-8',xml_declaration=True)
+ if path.exists():
+  with zipfile.ZipFile(path) as old:
+   if old.read('3D/3dmodel.model')==data:return
  with zipfile.ZipFile(path,'w',zipfile.ZIP_DEFLATED) as z:
   z.writestr('[Content_Types].xml','<?xml version="1.0"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="model" ContentType="application/vnd.ms-package.3dmanufacturing-3dmodel+xml"/></Types>')
   z.writestr('_rels/.rels','<?xml version="1.0"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rel0" Type="http://schemas.microsoft.com/3dmanufacturing/2013/01/3dmodel" Target="/3D/3dmodel.model"/></Relationships>')
-  z.writestr('3D/3dmodel.model',ET.tostring(root,encoding='utf-8',xml_declaration=True))
+  z.writestr('3D/3dmodel.model',data)
 
 def add(name,shape,color=WHITE,qty=1,note='',rotate=None,include=True,placements=None,group='bovenbouw'):
  shape=wp(shape).clean();solids=shape.solids().vals()
@@ -63,6 +68,12 @@ def add(name,shape,color=WHITE,qty=1,note='',rotate=None,include=True,placements
  cq.exporters.export(out,str(STEP/(name+'.step')))
  cq.exporters.export(out,str(STL/(name+'.stl')),tolerance=.025,angularTolerance=.10)
  m=trimesh.load_mesh(STL/(name+'.stl'),process=True)
+ # OCCT kan bij een bolpool een driehoek met nul oppervlak schrijven.
+ # Alleen zulke degeneraties verwijderen; gaten of echte vormfouten niet repareren.
+ keep=m.nondegenerate_faces(height=1e-8)
+ if not keep.all():
+  m.update_faces(keep);m.remove_unreferenced_vertices();m.export(STL/(name+'.stl'))
+  m=trimesh.load_mesh(STL/(name+'.stl'),process=True)
  assert m.is_watertight and m.is_winding_consistent and m.volume>0 and len(m.split())==1,(name,'mesh-topologie')
  assert max(m.extents)<P['max_print_size']+.001,(name,'P2S-bouwvolume',m.extents)
  write_3mf(m,MF/(name+'.3mf'),name)
@@ -146,6 +157,7 @@ add('06_bakverschansing',bowring,WHITE,note='Buitenrand op bestaande romp; top v
 lowpts=plan(175,714,82,4,30);house=hollow_plan(lowpts,139,27)
 for sd,xs in [(-1,[192,221,254,280,312,341,372,421.1,428.9,467.1,474.9,510.1,517.9,556.1,563.9,600.1,607.9,647.1,654.9,692]),(1,[194,223,253,284,313,342,376,424.1,431.9,469.1,476.9,513.1,520.9,556.1,563.9,603.1,610.9,648.1,655.9,692])]:
  for x in xs:house=house.cut(box(2.5,32,5.3,x,sd*78,148.65))
+for y in [-40,-31,-8,1,32,41]:house=house.cut(box(7,2.5,5.3,713.5,y,148.65))
 for x in [355,535]:house=house.union(box(4,162,2,x,0,139))
 for i,(a,b) in enumerate([(175,355),(355,535),(535,714)]):add(f'10_accommodatie_{i+1}',clip(house,a,b),note='Raamgaten; donker schilderen of transparante folie achterlijmen.')
 # Dak achter lage accommodatie; bovenbouw op het dek maken en per module afnemen.
@@ -190,7 +202,14 @@ cab=hollow_plan(plan(100,237,73,2,2),107,25)
 for sd in [-1,1]:
  for x in [114,138,172,196,220]:cab=cab.cut(box(8,8,6,x,sd*73,122.5))
 add('23_achterkajuit',cab)
-add('24_helidek',poly(plan(0,175,89,18,10),162.5,5),GREEN,group='dek',note='H en gele cirkel schilderen; vloer hangar ligt op 168,1 mm.')
+helideck=poly(plan(0,175,89,18,10),162.5,5)
+ring=cq.Workplane('XY').center(87,0).circle(56).circle(50.5).extrude(.9).translate((0,0,166.6))
+ringcut=cq.Workplane('XY').center(87,0).circle(56.15).circle(50.35).extrude(1.2).translate((0,0,166.5))
+letterH=join([box(37,5,.9,87,-13.5,166.6),box(37,5,.9,87,13.5,166.6),box(5,31,.9,87,0,166.6)])
+hcut=join([box(37.3,5.3,1.2,87,-13.5,166.5),box(37.3,5.3,1.2,87,13.5,166.5),box(5.3,31.3,1.2,87,0,166.5)])
+add('24_helidek',helideck.cut(ringcut).cut(hcut),GREEN,group='dek',note='Met uitsparingen voor gele cirkel en witte H; inzetstukken circa 0,15 mm lijmspeling.')
+add('24_helidek_cirkel',ring,YELLOW,group='dek')
+add('24_helidek_H',letterH,WHITE,group='dek')
 # Hangar: ingang exact 124 breed / 201,5 hoog, met hoeken zoals browsermodel.
 hg=join([box(123,2.3,38.1,236.5,sd*78.8,166.9) for sd in [-1,1]]+[box(2.3,158,38.1,296.5,0,166.9)])
 front=box(2.4,160,38.1,175,0,166.9)
@@ -206,39 +225,22 @@ funnel=funnel.cut(loft([(206,plan(266,328,26,3,6)),(253,plan(268,334,22.5,3,5))]
 add('30_schoorsteen',funnel)
 cap=xz_panel([(250,260),(344,255),(342,251),(254,251)],29.5,59)
 add('31_schoorsteenkap',cap,BLACK)
-# Masten uit dikkere staven: minimaal 1,2 mm, losse staande printdelen.
-# Vlakke versterkte vakwerkplaat: zonder minieme cylinder-intersecties.
-mast=xz_panel([(325.5,255),(340.5,255),(334.8,354),(331.2,354)],1.5,3)
-for k in range(7):
- za=255+99*k/7;zb=255+99*(k+1)/7
- ba=7.5-5.7*k/7;bb=7.5-5.7*(k+1)/7
- tri=[(333-ba,za),(333+ba,za),(333-bb,zb)] if k%2==0 else [(333-ba,za),(333+ba,za),(333+bb,zb)]
- # Een negatieve offset houdt rond ieder gat een 1,4 mm brede rand over.
- tw=wire(tri);inset=offset(tw,1.4)
- pts=[(v.X,v.Y) for v in inset.Vertices()]
- mast=mast.cut(xz_panel(pts,3,6))
-mast=mast.union(rod((333,0,351),(333,0,374),.85))
-add('32_vakwerkmast',mast,BLACK,rotate=((1,0,0),90),note='Vlak versterkt vakwerk 3 mm dik; plat printen, losse ra’s verlijmen.')
-for i,(z,length) in enumerate([(292,54),(315,48),(336,38)]):
- add('32_ra_'+str(i+1),box(3,length,2,333,0,z-1),BLACK,note='Losse ra tegen vlakke vakwerkmast verlijmen.')
-radar=join([rod((589,0,194.1),(589,0,362),1.8),rod((579,0,294),(601,0,294),1.2),rod((574,0,315),(606,0,315),1.2),rod((584,0,335),(602,0,335),1.1)])
-add('33_radarmast',radar,WHITE,rotate=((1,0,0),90),note='Steunmateriaal nodig bij ra’s; dunne antennes als messing draad toevoegen.')
+# Ruimtelijke mast en gedetailleerde radarinstallatie uit de vormstudie.
+masts(globals())
 add('34_voormast',join([rod((806,0,139),(806,0,272),1.3),rod((800,0,257),(812,0,257),.8)]),WHITE,rotate=((1,0,0),90))
 # Dekuitrusting: twee sloepen (maat/kleur browser), davits, kranen, lichtkap en banken.
 add('39_sloepenplatform',box(94,32,3),WHITE,qty=2,placements=[(346,-89,173.5),(346,89,173.5)])
 boat=loft([(0,plan(-35,36,9,6,8)),(12,plan(-42,43,14.2,8,12)),(26,plan(-30,29,8.3,6,6.5))])
 add('40_reddingsboot',boat,ORANGE,qty=2,placements=[(346,-89,176.5),(346,89,176.5)],note='Ramen zwart schilderen; ondersteunt romp buitenzijde.')
-davit=join([rod((-10,0,0),(-14,0,29),1.6),rod((-14,0,29),(7,0,39),1.6),rod((7,0,39),(9,0,25),1.2),box(12,8,3,-10,0,0)])
-add('41_davit',davit,ORANGE,qty=4,placements=[(x,y,176.5) for x in [313,379] for y in [-98,98]],rotate=((1,0,0),90))
-crane=join([rod((0,0,0),(0,0,25),2),rod((0,0,25),(-18,0,41),2),rod((-18,0,41),(-37,0,31),1.7),box(12,10,3)])
-add('42_dekkraan',crane,ORANGE,qty=2,placements=[(552,-59,194.1),(552,59,194.1)],rotate=((1,0,0),90))
+davits_cranes(globals())
 skylight=loft([(194.1,plan(492,550,30,1,1)),(198,plan(492,550,30,1,1)),(204.4,plan(492,550,1,0.5,0.5))])
 add('43_lichtkap',skylight,'#62939a',note='Glasvlakken schilderen; solide detail om vlakke browserruiten printbaar te maken.')
 bench=join([box(38,10,2,0,0,6),box(38,2,9,0,5,8),box(3,10,6,-14,0,0),box(3,10,6,14,0,0)])
+for y in [-2,2]:bench=bench.cut(box(37,.8,2.2,0,y,6))
 add('44_bank',bench,'#8a6944',qty=2,placements=[(521,-45.5,194.1),(521,45.5,194.1)])
 # Losse relingpanelen kunnen plat geprint en op maat geknipt worden.
 rail=join([box(100,1.2,1.2,50,0,z) for z in [3,7,11]]+[box(1.4,1.2,12,x,0,0) for x in [0,20,40,60,80,100]])
-add('45_reling_100mm',rail,WHITE,qty=24,include=False,rotate=((1,0,0),90),note='24 losse stroken à 100 mm; buigen/inkorten bij proefmontage. Geen dragend onderdeel.')
+add('45_reling_100mm',rail,WHITE,qty=2,include=False,rotate=((1,0,0),90),note='Twee reservestroken; de juiste relingen staan als eigen delen in de CAD-assemblage.')
 # Verstelbare RC-inbouw: houders, geen geprinte motoren/accu's of schroefassen.
 tray=box(160,68,3,460,0,15)
 tray=join([tray,box(160,3,9,460,-32.5,18),box(160,3,9,460,32.5,18),box(3,62,9,381.5,0,18),box(3,62,9,538.5,0,18)])
@@ -268,16 +270,20 @@ secs=[(-33.35,13.5,.8,1),(-30,14.2,6,6.2),(-22,15.2,8.8,10),(-10,15.5,9,10.85),(
 wires=[]
 for x,z,rz,ry in secs:
  wires.append(cq.Workplane('YZ',origin=(x,0,z)).ellipse(ry,rz).wire().val())
-heli=cq.Workplane(obj=cq.Solid.makeLoft(wires,ruled=False))
+heli=cq.Workplane(obj=cq.Solid.makeLoft(wires,ruled=True))
 heli=heli.union(rod((16,0,19),(69,0,20.5),2.5))
 heli=heli.union(xz_panel([(63,18.5),(75.95,18.5),(73,30.5),(69,30.5)],.8,1.6))
 heli=heli.union(box(7.2,25.3,1.2,58,0,18.2))
 heli=heli.union(cq.Workplane('XY').ellipse(10.5,5.5).extrude(5).translate((7,0,23.3)))
 heli=heli.union(rod((0,0,24),(0,0,30.9),1.1)).union(cq.Workplane('XY').circle(2.2).extrude(1).translate((0,0,30.4)))
+# Echte cockpitopeningen met afzonderlijke, gebogen donkergekleurde ruiten.
+heli,heli_glazing=helicopter_windows(heli,secs)
+for name,cap in heli_glazing:
+ add(name,cap,'#163a49',qty=2,include=False,group='heli',note='Gebogen inzetruit, circa 1 mm dik; rondom 0,12–0,15 mm lijmspeling. Ook als schildermal te gebruiken.')
 # Skid sleeves via butt surfaces, no blind hidden press fits.
 for sd in [-1,1]:
  half=heli.intersect(box(140,35,60,20,sd*17.5,-1))
- add('60_heli_romp_'+('BB' if sd>0 else 'SB'),half,YELLOW,qty=2,include=False,rotate=((1,0,0),90 if sd>0 else -90),group='heli',note='Twee exemplaren per zijde; middenvlak op bed, vlak verlijmen. Ramen schilderen volgens foto/detailviewer.')
+ add('60_heli_romp_'+('BB' if sd>0 else 'SB'),half,YELLOW,qty=2,include=False,rotate=((1,0,0),90 if sd>0 else -90),group='heli',note='Twee exemplaren per zijde; middenvlak op bed, vlak verlijmen. Losse ruiten 64 in de uitgespaarde cockpit lijmen.')
 skids=[]
 for sd in [-1,1]:
  skids+=[rod((-28.5,sd*11.2,0.9),(19,sd*11.2,.9),.9),rod((-28.5,sd*11.2,.9),(-30.2,sd*11.2,3.4),.8)]
@@ -295,33 +301,36 @@ for i,y in enumerate([-32,32]):
  pos=cq.Vector(213,y,168.1)
  assembly.add(heli.translate(pos),name='heli_assemblage_'+str(i),color=cq.Color(YELLOW))
  assembly.add(skid.translate(pos),name='skids_assemblage_'+str(i),color=cq.Color(BLACK))
+ for name,cap in heli_glazing:assembly.add(cap.translate(pos),name=name+'_'+str(i),color=cq.Color('#163a49'))
+ assembly.add(tail.translate(cq.Vector(279.65,y+2.5,179.1)),name='heli_staartrotor_'+str(i),color=cq.Color(BLACK))
 # Kleine passingstest: echte romp/lijmnaad op middenstation, als twee delen exporteren.
 coupon=clip(hull,445,465).intersect(box(30,22,40,455,78,50))
 for label,a,b in [('A',445,455),('B',455,465)]:
  add('00_pasproef_'+label,clip(coupon,a,b),NAVY,include=False,group='proef',rotate=((0,1,0),90),note='Eerst printen. Controleer las en lijmspeling vóór de vier grote rompdelen.')
 add('00_pasproef_las',clip(splice,447,463).intersect(box(30,22,40,455,78,50)),WHITE,include=False,group='proef',rotate=((0,1,0),90))
+# Herstel de zichtbare details als daadwerkelijke printonderdelen.
+enrich(globals())
+# De zes losse bladen worden in de CAD-stallingsstand in hun rekken getoond.
+for y in [-69,69]:
+ for k in range(3):assembly.add(blade.translate(cq.Vector(196.05,y,139.4+k*1.2)),name='opgeborgen_rotor_'+str(y)+'_'+str(k),color=cq.Color(BLACK))
 # Uitvoer, rapport, massa en modeldata voor de losse CAD-viewer.
-assembly.export(str(STEP/'ortelius-p1-assemblage.step'))
+assembly.export(str(STEP/'ortelius-p2-assemblage.step'))
+# Verouderde eigen exports horen niet tussen de actuele printdelen. P1 blijft in Git/het eerdere ZIP.
+expected={q['name'] for q in records}
+for folder,ext in [(STEP,'.step'),(STL,'.stl'),(MF,'.3mf')]:
+ for f in folder.glob('*'+ext):
+  if f.stem not in expected and f.name!='ortelius-p2-assemblage.step':f.unlink()
 # OCCT schrijft spaties aan regeleinden; normaliseer de tekstexports voor Git.
 for f in STEP.glob('*.step'):
  f.write_text('\n'.join(line.rstrip() for line in f.read_text().splitlines())+'\n')
-report=dict(revision='p1',units='mm',scale=100,printer='Bambu Lab P2S 256³; modelmarge 5 mm per zijde',parts=records,unique_parts=len(records),print_quantity=sum(q['quantity'] for q in records),maximum_part_dimension_mm=max(max(q['print_mm']) for q in records),solid_ASA_mass_g=round(sum(q['asa_solid_mass_g'] for q in records),1),limitations=['Fotogebaseerde onderwatervorm','Geen fysieke pas-/water-/vaartest','RC-hardware niet gekozen; doorvoeren niet geboord','Slicerprofielen en ondersteuning apart controleren'])
+report=dict(revision='p2',units='mm',scale=100,printer='Bambu Lab P2S 256³; modelmarge 5 mm per zijde',parts=records,unique_parts=len(records),print_quantity=sum(q['quantity'] for q in records),maximum_part_dimension_mm=max(max(q['print_mm']) for q in records),solid_ASA_mass_g=round(sum(q['asa_solid_mass_g'] for q in records),1),limitations=['Fotogebaseerde onderwatervorm','Geen fysieke pas-/water-/vaartest','RC-hardware niet gekozen; doorvoeren niet geboord','Slicerprofielen en ondersteuning apart controleren'])
+report['details']=detail_report
 report['hydrostatics']=[dict(waterline_mm=z,displacement_freshwater_kg=round(outer.intersect(box(1100,300,z,450,0,0)).val().Volume()/1e6,3)) for z in [44,54,64]]
 (R/'print/onderdelen.json').write_text(json.dumps(report,indent=2,ensure_ascii=False)+'\n')
 with (R/'print/onderdelen.csv').open('w') as f:
  writer=csv.writer(f,lineterminator="\n");writer.writerow(['onderdeel','aantal','groep','X_mm','Y_mm','Z_mm','volledig_solide_ASA_g','opmerking'])
  for q in records:writer.writerow([q['name'],q['quantity'],q['group'],*q['print_mm'],q['asa_solid_mass_g'],q['note']])
-# Capture mesh before orientation for browser assembly, including actual helicopter body.
-view=[]
-def viewmesh(name,s,color,group):
- verts,faces=wp(s).val().tessellate(.15,.2)
- view.append(dict(name=name,color=color,group=group,vertices=[[round(v.x,3),round(v.z,3),round(-v.y,3)] for v in verts],faces=faces))
-for q in records:
- if q['included']:
-  for i,p in enumerate(q['assembly_translations']):viewmesh(q['name']+'_'+str(i+1),objects[q['name']].translate(cq.Vector(*p)),q['color'],q['group'])
-for i,y in enumerate([-32,32]):
- viewmesh('helikopter_'+str(i),heli.translate(cq.Vector(213,y,168.1)),YELLOW,'heli')
- viewmesh('skids_'+str(i),skid.translate(cq.Vector(213,y,168.1)),BLACK,'heli')
-template=(R/'cad/viewer-template.html').read_text()
-(R/'cad/index.html').write_text(template.replace('/*MODEL_DATA*/[]',json.dumps(view,separators=(',',':'))))
+# De viewer gebruikt dezelfde meshes als de printbestanden.
+from viewer import create_viewer
+create_viewer(R,records)
 print('GEREED',report['unique_parts'],'unieke delen,',report['print_quantity'],'prints',flush=True)

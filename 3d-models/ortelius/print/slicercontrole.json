@@ -1,4 +1,5 @@
 {
+  "revision": "p2",
   "slicer": "Bambu Studio 02.09.01.70 macOS CLI",
   "printer": "Bambu Lab P2S",
   "nozzle_mm": 0.4,
@@ -9,7 +10,7 @@
   ],
   "filament": "Generic ASA @BBL P2S",
   "status": "PASS",
-  "scope": "Alle unieke onderdelen, 1 exemplaar per plaat",
+  "scope": "Alle actuele unieke onderdelen; 8 opnieuw gesliced, overige byte-identieke meshes met identieke opgeloste instellingen hergebruikt.",
   "checks": [
     {
       "part": "01_romp_1",
@@ -20,7 +21,8 @@
       "layer_height_mm": 0.2,
       "estimated_grams": 332.5,
       "estimated_seconds": 47331,
-      "source_3mf_sha256": "eda694a300813c6fa4ac29729ea833e3e8178dcb474b88ddcff46c2457e872b7"
+      "source_3mf_sha256": "eda694a300813c6fa4ac29729ea833e3e8178dcb474b88ddcff46c2457e872b7",
+      "reused_verified_mesh": true
     },
     {
       "part": "01_romp_2",
@@ -31,7 +33,8 @@
       "layer_height_mm": 0.2,
       "estimated_grams": 363.6,
       "estimated_seconds": 46770,
-      "source_3mf_sha256": "c06a275677d0e1c3e3bb4884cb6b2c80cb2073de74d640bb5668c64828e8196c"
+      "source_3mf_sha256": "c06a275677d0e1c3e3bb4884cb6b2c80cb2073de74d640bb5668c64828e8196c",
+      "reused_verified_mesh": true
     },
     {
       "part": "01_romp_3",
@@ -42,7 +45,8 @@
       "layer_height_mm": 0.2,
       "estimated_grams": 312.7,
       "estimated_seconds": 35349,
-      "source_3mf_sha256": "7431c624ec2fc1ef1cafdf2caf7b77c841b4d9636f2310585b4a8959b04a0b14"
+      "source_3mf_sha256": "7431c624ec2fc1ef1cafdf2caf7b77c841b4d9636f2310585b4a8959b04a0b14",
+      "reused_verified_mesh": true
     },
     {
       "part": "01_romp_4",
@@ -53,7 +57,8 @@
       "layer_height_mm": 0.2,
       "estimated_grams": 236.78,
       "estimated_seconds": 29061,
-      "source_3mf_sha256": "588e5386b12f251ffa04094b3bf69c220e0697b3a4ecc257803b1e7970750782"
+      "source_3mf_sha256": "588e5386b12f251ffa04094b3bf69c220e0697b3a4ecc257803b1e7970750782",
+      "reused_verified_mesh": true
     },
     {
       "part": "02_lasstrook_1",
@@ -64,7 +69,8 @@
       "layer_height_mm": 0.2,
       "estimated_grams": 21.03,
       "estimated_seconds": 3023,
-      "source_3mf_sha256": "78773fa062c3439687a5596deae938af0d9c526f0af6ca579f58213c9518bb72"
+      "source_3mf_sha256": "78773fa062c3439687a5596deae938af0d9c526f0af6ca579f58213c9518bb72",
+      "reused_verified_mesh": true
     },
     {
       "part": "02_lasstrook_2",
@@ -75,7 +81,8 @@
       "layer_height_mm": 0.2,
       "estimated_grams": 21.08,
       "estimated_seconds": 2836,
-      "source_3mf_sha256": "0aaf65ca41c80c9ad664b45ea2089ab1269d2307976bae46521dd97131c9d2f7"
+      "source_3mf_sha256": "0aaf65ca41c80c9ad664b45ea2089ab1269d2307976bae46521dd97131c9d2f7",
+      "reused_verified_mesh": true
     },
     {
       "part": "02_lasstrook_3",
@@ -86,7 +93,8 @@
       "layer_height_mm": 0.2,
       "estimated_grams": 20.39,
       "estimated_seconds": 2922,
-      "source_3mf_sha256": "ce06ec71b63b72a51450fa6511f25416bb3277f723a6103ee25160df22b082af"
+      "source_3mf_sha256": "ce06ec71b63b72a51450fa6511f25416bb3277f723a6103ee25160df22b082af",
+      "reused_verified_mesh": true
     },
     {
       "part": "03_werkdek_achter",
@@ -97,7 +105,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 78.64,
       "estimated_seconds": 19674,
-      "source_3mf_sha256": "ad90600e43b5a790d05e4154891d3318f8c3e78be6eb9b41379723758c9e8626"
+      "source_3mf_sha256": "ad90600e43b5a790d05e4154891d3318f8c3e78be6eb9b41379723758c9e8626",
+      "reused_verified_mesh": true
     },
     {
       "part": "03_serviceluik_achter",
@@ -108,7 +117,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 44.61,
       "estimated_seconds": 5122,
-      "source_3mf_sha256": "d4e1cebaccb1098c99aff3c2ebaed4cf042e6988bc11624877736cabb0c4f8e6"
+      "source_3mf_sha256": "d4e1cebaccb1098c99aff3c2ebaed4cf042e6988bc11624877736cabb0c4f8e6",
+      "reused_verified_mesh": true
     },
     {
       "part": "04_hoofddek_1",
@@ -119,7 +129,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 82.84,
       "estimated_seconds": 8776,
-      "source_3mf_sha256": "d5bd0b8620b4bd66e7ee4747f46d56b351f731f7f82e9904e77749fce78211f5"
+      "source_3mf_sha256": "d5bd0b8620b4bd66e7ee4747f46d56b351f731f7f82e9904e77749fce78211f5",
+      "reused_verified_mesh": true
     },
     {
       "part": "04_hoofddek_2",
@@ -130,7 +141,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 86.84,
       "estimated_seconds": 9168,
-      "source_3mf_sha256": "80854aa442a1d2744c98229db67fcb776840f38a631cbd132f6e682e0e8f9b92"
+      "source_3mf_sha256": "80854aa442a1d2744c98229db67fcb776840f38a631cbd132f6e682e0e8f9b92",
+      "reused_verified_mesh": true
     },
     {
       "part": "04_hoofddek_3",
@@ -141,7 +153,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 53.52,
       "estimated_seconds": 5902,
-      "source_3mf_sha256": "08ef68b7798dcdd04b45d54092361ece8c300dce9e0d1a0e67a5e5f462267949"
+      "source_3mf_sha256": "08ef68b7798dcdd04b45d54092361ece8c300dce9e0d1a0e67a5e5f462267949",
+      "reused_verified_mesh": true
     },
     {
       "part": "05_deksteun_M3",
@@ -152,7 +165,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 0.89,
       "estimated_seconds": 748,
-      "source_3mf_sha256": "d75a7c261ca5f1ee780759b6d50e615609c955508364ed8327b3938cf613294d"
+      "source_3mf_sha256": "d75a7c261ca5f1ee780759b6d50e615609c955508364ed8327b3938cf613294d",
+      "reused_verified_mesh": true
     },
     {
       "part": "05_deklijmstrip",
@@ -163,7 +177,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 1.48,
       "estimated_seconds": 652,
-      "source_3mf_sha256": "21739d84841946fa17a6f58426a4a79355495158d3926ea6ab8b7dfe766b368f"
+      "source_3mf_sha256": "21739d84841946fa17a6f58426a4a79355495158d3926ea6ab8b7dfe766b368f",
+      "reused_verified_mesh": true
     },
     {
       "part": "06_bakverschansing",
@@ -174,7 +189,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 9.3,
       "estimated_seconds": 1515,
-      "source_3mf_sha256": "a8f7a15e77b5ffa3778816ea6588ff88b3f642408565e816c08999c3c5c953b6"
+      "source_3mf_sha256": "a8f7a15e77b5ffa3778816ea6588ff88b3f642408565e816c08999c3c5c953b6",
+      "reused_verified_mesh": true
     },
     {
       "part": "10_accommodatie_1",
@@ -185,7 +201,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 22.7,
       "estimated_seconds": 2842,
-      "source_3mf_sha256": "8c86e416c15a414bb462af4dd791ff647cfee1b388d49434f44e378f6d394aba"
+      "source_3mf_sha256": "8c86e416c15a414bb462af4dd791ff647cfee1b388d49434f44e378f6d394aba",
+      "reused_verified_mesh": true
     },
     {
       "part": "10_accommodatie_2",
@@ -196,7 +213,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 16.59,
       "estimated_seconds": 2418,
-      "source_3mf_sha256": "f0e6c41d621024d98b0eef4fb513d0885a5757d7b8ad4e944ea8f72066ec2966"
+      "source_3mf_sha256": "f0e6c41d621024d98b0eef4fb513d0885a5757d7b8ad4e944ea8f72066ec2966",
+      "reused_verified_mesh": true
     },
     {
       "part": "10_accommodatie_3",
@@ -205,9 +223,10 @@
       "warning": "",
       "wall_loops": 4,
       "layer_height_mm": 0.16,
-      "estimated_grams": 21.24,
-      "estimated_seconds": 2737,
-      "source_3mf_sha256": "e442d1071d3fb0cd70df81496abd515f1c448331427520f9c207bd3a659c348b"
+      "estimated_grams": 21.11,
+      "estimated_seconds": 2816,
+      "source_3mf_sha256": "13b0469486c49e2f580f7c8e91fdf7346a26c6b2a5a18ff0756a5d810eff75c8",
+      "reused_verified_mesh": true
     },
     {
       "part": "11_dak_lage_accommodatie",
@@ -218,7 +237,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 35.62,
       "estimated_seconds": 3855,
-      "source_3mf_sha256": "b1d0be6214d441ced0b6ba994ed0add13bd887266ee077e1f75332d3162d6b71"
+      "source_3mf_sha256": "b1d0be6214d441ced0b6ba994ed0add13bd887266ee077e1f75332d3162d6b71",
+      "reused_verified_mesh": true
     },
     {
       "part": "12_sloependek_1",
@@ -229,7 +249,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 57.94,
       "estimated_seconds": 6332,
-      "source_3mf_sha256": "493eb609be20a8c5f1a9cba25576323188dfcf49e97b10b769cefb5df6a8dbb8"
+      "source_3mf_sha256": "493eb609be20a8c5f1a9cba25576323188dfcf49e97b10b769cefb5df6a8dbb8",
+      "reused_verified_mesh": true
     },
     {
       "part": "12_sloependek_2",
@@ -240,7 +261,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 59.56,
       "estimated_seconds": 6468,
-      "source_3mf_sha256": "46cd9825f3ef4ad2dfebacb4dac8da026acf67a4ee48d5a36da64c51b6d512c6"
+      "source_3mf_sha256": "46cd9825f3ef4ad2dfebacb4dac8da026acf67a4ee48d5a36da64c51b6d512c6",
+      "reused_verified_mesh": true
     },
     {
       "part": "13_binnenhuis_galerij",
@@ -251,7 +273,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 21.45,
       "estimated_seconds": 2790,
-      "source_3mf_sha256": "5996c3593d777d65cc37993566c94bf1e2084e272c43cd0526f46b5ce41e636d"
+      "source_3mf_sha256": "5996c3593d777d65cc37993566c94bf1e2084e272c43cd0526f46b5ce41e636d",
+      "reused_verified_mesh": true
     },
     {
       "part": "14_voorhuis",
@@ -262,7 +285,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 17.23,
       "estimated_seconds": 2341,
-      "source_3mf_sha256": "27308c7bd3fe868a6fd553fe3f2dde844df204b172eda0e2687e3910e0ca8d73"
+      "source_3mf_sha256": "27308c7bd3fe868a6fd553fe3f2dde844df204b172eda0e2687e3910e0ca8d73",
+      "reused_verified_mesh": true
     },
     {
       "part": "15_galerijdak_1",
@@ -273,7 +297,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 57.25,
       "estimated_seconds": 6255,
-      "source_3mf_sha256": "2dc1d85a83300f104bcc6c729770ef7cab7e74b56695bffe78aa1de1d2382832"
+      "source_3mf_sha256": "2dc1d85a83300f104bcc6c729770ef7cab7e74b56695bffe78aa1de1d2382832",
+      "reused_verified_mesh": true
     },
     {
       "part": "15_galerijdak_2",
@@ -284,7 +309,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 49.32,
       "estimated_seconds": 5490,
-      "source_3mf_sha256": "c00cfc07fe18f0d337e722a205c209b2e9d99f3c817821ccad32ee97616151cf"
+      "source_3mf_sha256": "c00cfc07fe18f0d337e722a205c209b2e9d99f3c817821ccad32ee97616151cf",
+      "reused_verified_mesh": true
     },
     {
       "part": "16_galerijwand_SB",
@@ -295,7 +321,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 7.02,
       "estimated_seconds": 2355,
-      "source_3mf_sha256": "007a378ba0a6ff83142421cf13160478ee839ae5232c365e00da1bcb189bee0c"
+      "source_3mf_sha256": "007a378ba0a6ff83142421cf13160478ee839ae5232c365e00da1bcb189bee0c",
+      "reused_verified_mesh": true
     },
     {
       "part": "16_galerijwand_BB",
@@ -306,7 +333,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 7.02,
       "estimated_seconds": 2355,
-      "source_3mf_sha256": "410f7902c21567b9ce5bbcc8f04714c1620f5dc615e48c10f67c461e586019d9"
+      "source_3mf_sha256": "410f7902c21567b9ce5bbcc8f04714c1620f5dc615e48c10f67c461e586019d9",
+      "reused_verified_mesh": true
     },
     {
       "part": "17_brug",
@@ -317,7 +345,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 20.13,
       "estimated_seconds": 3262,
-      "source_3mf_sha256": "ee18938bc6fbaaa7cc1a6158668071bd2c8552ba29f3cc870e3af0f60ebe6c52"
+      "source_3mf_sha256": "ee18938bc6fbaaa7cc1a6158668071bd2c8552ba29f3cc870e3af0f60ebe6c52",
+      "reused_verified_mesh": true
     },
     {
       "part": "18_brugdak",
@@ -328,7 +357,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 39.97,
       "estimated_seconds": 4587,
-      "source_3mf_sha256": "a5f7f6f857a701dd18dea1862e6bb2f50e1232a604cd1ae8f865b9a708639db2"
+      "source_3mf_sha256": "a5f7f6f857a701dd18dea1862e6bb2f50e1232a604cd1ae8f865b9a708639db2",
+      "reused_verified_mesh": true
     },
     {
       "part": "20_promenadedek",
@@ -339,7 +369,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 97.95,
       "estimated_seconds": 10246,
-      "source_3mf_sha256": "b863a1869ae576f6d9a1e11875a689e6ebe4f7415adc8fbebfbd6f13c1d89745"
+      "source_3mf_sha256": "b863a1869ae576f6d9a1e11875a689e6ebe4f7415adc8fbebfbd6f13c1d89745",
+      "reused_verified_mesh": true
     },
     {
       "part": "21_kolom_onder",
@@ -350,7 +381,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 0.18,
       "estimated_seconds": 614,
-      "source_3mf_sha256": "39f281e1ba6e7ea2a41a7193b28bf0601d89bd3ea99cbe8595f982582d501bb5"
+      "source_3mf_sha256": "39f281e1ba6e7ea2a41a7193b28bf0601d89bd3ea99cbe8595f982582d501bb5",
+      "reused_verified_mesh": true
     },
     {
       "part": "22_kolom_helidek",
@@ -361,7 +393,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 0.14,
       "estimated_seconds": 581,
-      "source_3mf_sha256": "731b77c458964caa7d9c4114566da64ffaa4aba292a339f551d57018ee2adb69"
+      "source_3mf_sha256": "731b77c458964caa7d9c4114566da64ffaa4aba292a339f551d57018ee2adb69",
+      "reused_verified_mesh": true
     },
     {
       "part": "23_achterkajuit",
@@ -372,7 +405,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 21.51,
       "estimated_seconds": 2774,
-      "source_3mf_sha256": "c284e65aba911aa52f22911cf3ccd0852d59879aff325c2def8c842a3d3a000f"
+      "source_3mf_sha256": "c284e65aba911aa52f22911cf3ccd0852d59879aff325c2def8c842a3d3a000f",
+      "reused_verified_mesh": true
     },
     {
       "part": "24_helidek",
@@ -381,9 +415,34 @@
       "warning": "",
       "wall_loops": 4,
       "layer_height_mm": 0.16,
-      "estimated_grams": 84.19,
-      "estimated_seconds": 8816,
-      "source_3mf_sha256": "77777655001fed0f94ad1e2955d4d8e52f56f6ac278249a6bc585b3ea863b634"
+      "estimated_grams": 86.38,
+      "estimated_seconds": 9438,
+      "source_3mf_sha256": "072282a443259904957564bf38f5e70314c5a9a9e2593e6e839bc3c2cbe75bba",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "24_helidek_cirkel",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.7,
+      "estimated_seconds": 750,
+      "source_3mf_sha256": "5d47fd59c3c92a03329411f370499dcc95577394cdb8ae463ec208715aa8c237",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "24_helidek_H",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.5,
+      "estimated_seconds": 544,
+      "source_3mf_sha256": "acf9a823a8c672f29b60dc8f95a23ca5f28be78e22247bb9fd410f1241661d12",
+      "reused_verified_mesh": true
     },
     {
       "part": "25_hangarwanden",
@@ -394,7 +453,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 41.32,
       "estimated_seconds": 5483,
-      "source_3mf_sha256": "14ac929cdea2c6c0a9a47d283f99d55e826aea25d1c71425cb2ebd0614f98237"
+      "source_3mf_sha256": "14ac929cdea2c6c0a9a47d283f99d55e826aea25d1c71425cb2ebd0614f98237",
+      "reused_verified_mesh": true
     },
     {
       "part": "26_hangarvloer",
@@ -405,7 +465,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 39.56,
       "estimated_seconds": 4206,
-      "source_3mf_sha256": "d688d78e856eb482c4f0ee18f556e1858b7725a31122ec584d1dbaddd395b258"
+      "source_3mf_sha256": "d688d78e856eb482c4f0ee18f556e1858b7725a31122ec584d1dbaddd395b258",
+      "reused_verified_mesh": true
     },
     {
       "part": "27_hangardak",
@@ -416,7 +477,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 58.11,
       "estimated_seconds": 5914,
-      "source_3mf_sha256": "cff9406c724a74a8de98593a6748a22f71d7e828e7831b0680e64bbb3809a949"
+      "source_3mf_sha256": "cff9406c724a74a8de98593a6748a22f71d7e828e7831b0680e64bbb3809a949",
+      "reused_verified_mesh": true
     },
     {
       "part": "28_hangar_voorhuis",
@@ -427,7 +489,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 21.76,
       "estimated_seconds": 2580,
-      "source_3mf_sha256": "cfe77c00d6f79a9060e81fe3e0ce75f1d8902dbfea527d46efd2f59c21b3ed3b"
+      "source_3mf_sha256": "cfe77c00d6f79a9060e81fe3e0ce75f1d8902dbfea527d46efd2f59c21b3ed3b",
+      "reused_verified_mesh": true
     },
     {
       "part": "30_schoorsteen",
@@ -438,7 +501,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 20.09,
       "estimated_seconds": 3013,
-      "source_3mf_sha256": "d2a540b55b2b49605c8f17e9413ef0df756b5263d7ccfa45de11fe13bb335a3f"
+      "source_3mf_sha256": "d2a540b55b2b49605c8f17e9413ef0df756b5263d7ccfa45de11fe13bb335a3f",
+      "reused_verified_mesh": true
     },
     {
       "part": "31_schoorsteenkap",
@@ -449,18 +513,68 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 18.54,
       "estimated_seconds": 2820,
-      "source_3mf_sha256": "ac1220f6a904677cb5361082545d1a4a240c5e1084858ccf0789fe683e481ce0"
+      "source_3mf_sha256": "ac1220f6a904677cb5361082545d1a4a240c5e1084858ccf0789fe683e481ce0",
+      "reused_verified_mesh": true
     },
     {
-      "part": "32_vakwerkmast",
+      "part": "32_vakwerk_voor",
       "profile": "details",
       "status": "PASS",
       "warning": "",
       "wall_loops": 4,
       "layer_height_mm": 0.16,
-      "estimated_grams": 2.18,
-      "estimated_seconds": 918,
-      "source_3mf_sha256": "3c6aacb2cbecba046f5f8c1b4dae8ef1cdf9b29608f179ed97eaf24fddd0e4c8"
+      "estimated_grams": 0.59,
+      "estimated_seconds": 612,
+      "source_3mf_sha256": "ba0a6afdd11865758da774555e8bfb070a79282bee59a6f19767dde918e7759a",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "32_vakwerk_SB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.6,
+      "estimated_seconds": 1512,
+      "source_3mf_sha256": "e72176d3b262fd30c1c23bd092a09971b595fe2e5acc94728e400c0dacb6f5dc",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "32_vakwerk_achter",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.59,
+      "estimated_seconds": 612,
+      "source_3mf_sha256": "8c79eddb68017ca7c1fb4197bfb391ee501890fbd3aec29afe7abdd5a22d15b1",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "32_vakwerk_BB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.6,
+      "estimated_seconds": 1509,
+      "source_3mf_sha256": "12ff951f34bca72e8d7eb71f7bc457d24953f416b2f469e7e13bd2dfd9dc2daf",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "32_masttop",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.18,
+      "estimated_seconds": 571,
+      "source_3mf_sha256": "fbdb11104a6a3ef655025a01b1cc80fd8eadfa6772216cae4a971a7dba5848f3",
+      "reused_verified_mesh": true
     },
     {
       "part": "32_ra_1",
@@ -469,9 +583,10 @@
       "warning": "",
       "wall_loops": 4,
       "layer_height_mm": 0.16,
-      "estimated_grams": 0.37,
-      "estimated_seconds": 503,
-      "source_3mf_sha256": "4d189c1c0b4f9b421bfc8834a4f6fc8c84f12dc5b9a5fb4cf703079a24897a68"
+      "estimated_grams": 0.24,
+      "estimated_seconds": 490,
+      "source_3mf_sha256": "3705bbd0ed18880abf70f646c2faddafcc60616cfff60ff4fce77fbd04385167",
+      "reused_verified_mesh": true
     },
     {
       "part": "32_ra_2",
@@ -480,9 +595,10 @@
       "warning": "",
       "wall_loops": 4,
       "layer_height_mm": 0.16,
-      "estimated_grams": 0.33,
-      "estimated_seconds": 500,
-      "source_3mf_sha256": "a7654038734f01ae87f1129db9748456daebcfca3b1c6797620d2ddfe39c7338"
+      "estimated_grams": 0.21,
+      "estimated_seconds": 488,
+      "source_3mf_sha256": "107ef0ac2a009076cb25fb003eff5819f7cbf9af50feefbf7a40d418f03cc4c7",
+      "reused_verified_mesh": true
     },
     {
       "part": "32_ra_3",
@@ -491,9 +607,10 @@
       "warning": "",
       "wall_loops": 4,
       "layer_height_mm": 0.16,
-      "estimated_grams": 0.27,
-      "estimated_seconds": 494,
-      "source_3mf_sha256": "4a9ce155e3b9664f25fdcbeed84ce1e6aee383bdd87f73e2492cfd8f0024cfa0"
+      "estimated_grams": 0.17,
+      "estimated_seconds": 483,
+      "source_3mf_sha256": "1aa8697bb5afd1c7d75ab08914c3b7efdfa5bb74015d77c98b376bcd2370ec0e",
+      "reused_verified_mesh": true
     },
     {
       "part": "33_radarmast",
@@ -502,9 +619,118 @@
       "warning": "",
       "wall_loops": 4,
       "layer_height_mm": 0.16,
-      "estimated_grams": 2.22,
-      "estimated_seconds": 860,
-      "source_3mf_sha256": "91d2831d7d6bb4339443513aa684c73691dc4b715f5e9be22e55b710885bf62c"
+      "estimated_grams": 4.75,
+      "estimated_seconds": 1116,
+      "source_3mf_sha256": "c6085e92efe8139e96df4312c3363bafd0b55f560b173d9ce80d2c5074e90320",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "33_mastmantel",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 8.08,
+      "estimated_seconds": 1437,
+      "source_3mf_sha256": "d63e3b5618bc987e1c2a8962384812bf5647a579c6e859aa4f602cc94afabdbd",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "33_radarplatform_1",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 3.11,
+      "estimated_seconds": 831,
+      "source_3mf_sha256": "bcb8c87858693d15dbab90aec70ccf24b9719afd0383a3754df283929dd0e4b0",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "33_radarvoet_1",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.28,
+      "estimated_seconds": 558,
+      "source_3mf_sha256": "2f0494474328d6a1aa46718348368ea2840e30ae44b9bb57adced7558bd98391",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "33_radarscanner_1",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.89,
+      "estimated_seconds": 710,
+      "source_3mf_sha256": "6f23676763c17ed41d620afe19fadd9809098a3ae0d8a4d3adeb8e58ff10068c",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "33_radarplatform_2",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.61,
+      "estimated_seconds": 669,
+      "source_3mf_sha256": "60b3c51e48cbb6721f39b41ff898986f75394ae32940a4d825ef4b0d2388cbf3",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "33_radarvoet_2",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.28,
+      "estimated_seconds": 558,
+      "source_3mf_sha256": "f082eed657f55bab00c7f3a20e69dcd801aea56f796e52c87fca3ec3ac504f79",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "33_radarscanner_2",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.63,
+      "estimated_seconds": 655,
+      "source_3mf_sha256": "87f362373eb75e6ac748b4aae0fd9c7a5d0dd2651a1fded73ba20bedfbd26fe1",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "33_mastdwarsarm",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.34,
+      "estimated_seconds": 555,
+      "source_3mf_sha256": "2e2f1dd64b0b579cda723c0890938c6502347c541ac27c5537555cbc4b918a78",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "35_brugvoormast",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 2.21,
+      "estimated_seconds": 1529,
+      "source_3mf_sha256": "6e728df642c5f675a9e4f5d64837de093a04841a5bf52e9b3100fa0bcf2b2320",
+      "reused_verified_mesh": true
     },
     {
       "part": "34_voormast",
@@ -515,7 +741,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 0.87,
       "estimated_seconds": 578,
-      "source_3mf_sha256": "912b3136c8dc45dc39bf725267525264f74c0ecafaa8de0919becf0ff14e5bef"
+      "source_3mf_sha256": "912b3136c8dc45dc39bf725267525264f74c0ecafaa8de0919becf0ff14e5bef",
+      "reused_verified_mesh": true
     },
     {
       "part": "39_sloepenplatform",
@@ -526,7 +753,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 7.43,
       "estimated_seconds": 1299,
-      "source_3mf_sha256": "1e55cb65e589f84ac229976d5f2e4474e571b36372af038ce3f06e9ca7f1a375"
+      "source_3mf_sha256": "1e55cb65e589f84ac229976d5f2e4474e571b36372af038ce3f06e9ca7f1a375",
+      "reused_verified_mesh": true
     },
     {
       "part": "40_reddingsboot",
@@ -537,29 +765,104 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 15.67,
       "estimated_seconds": 2202,
-      "source_3mf_sha256": "1fa371fa9676103128d036586e326f8bdd482e5f694fb2e66afa70e9c534ba8a"
+      "source_3mf_sha256": "1fa371fa9676103128d036586e326f8bdd482e5f694fb2e66afa70e9c534ba8a",
+      "reused_verified_mesh": true
     },
     {
-      "part": "41_davit",
+      "part": "41_davit_BB",
       "profile": "details",
       "status": "PASS",
       "warning": "",
       "wall_loops": 4,
       "layer_height_mm": 0.16,
-      "estimated_grams": 1.0,
-      "estimated_seconds": 789,
-      "source_3mf_sha256": "8e785117071cc2c08ccf05162b161dcafb07fd4815fb219baa9d63b30165b05b"
+      "estimated_grams": 1.74,
+      "estimated_seconds": 1536,
+      "source_3mf_sha256": "fba262c1c99806ead70d3c36ce85c11aa15a44e7ffc8dcef2590b4d0bda6e01b",
+      "reused_verified_mesh": true
     },
     {
-      "part": "42_dekkraan",
+      "part": "41_hydrauliek_BB",
       "profile": "details",
       "status": "PASS",
       "warning": "",
       "wall_loops": 4,
       "layer_height_mm": 0.16,
-      "estimated_grams": 1.43,
-      "estimated_seconds": 924,
-      "source_3mf_sha256": "cea7f280bc960a3875eead52263f867b584ddb2e80c5641baa28da843d699530"
+      "estimated_grams": 0.31,
+      "estimated_seconds": 658,
+      "source_3mf_sha256": "dafcf5366ceab9afa5f9dd0ee18accbe8b75e9602d23cd96e22df05c9b326919",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "42_dekkraan_BB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 2.69,
+      "estimated_seconds": 1372,
+      "source_3mf_sha256": "22c1a0f49a30cf4f29e8538ad36bc8cd738a79758022904c4d689b61dd65035f",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "42_kraancilinder_BB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.15,
+      "estimated_seconds": 537,
+      "source_3mf_sha256": "134792148e67891942350dadacc44adfeac10e5f084937d3cf805ccebd706dae",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "41_davit_SB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.71,
+      "estimated_seconds": 1526,
+      "source_3mf_sha256": "a98b8efa5ecf52f38df92b89886f613f29f602ead5f0d44457a695e46d19cd6d",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "41_hydrauliek_SB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.29,
+      "estimated_seconds": 661,
+      "source_3mf_sha256": "cfec259e7db69530178d95240138833b079748ad84eaa90568833365ad60db3f",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "42_dekkraan_SB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 2.77,
+      "estimated_seconds": 1424,
+      "source_3mf_sha256": "70cca3464382ef3922118b80ee72f8e341c1d4c52e515469ffd2af228670e6db",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "42_kraancilinder_SB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.15,
+      "estimated_seconds": 546,
+      "source_3mf_sha256": "4291851d6b8565ab43f542b901a284e964f97393833f0a283024bd3c8c3ca33c",
+      "reused_verified_mesh": true
     },
     {
       "part": "43_lichtkap",
@@ -570,7 +873,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 12.79,
       "estimated_seconds": 2363,
-      "source_3mf_sha256": "076acdce1d89ad4fceb3fe3d56f042ede03e9851a520c63dfa83eb6114df9d30"
+      "source_3mf_sha256": "076acdce1d89ad4fceb3fe3d56f042ede03e9851a520c63dfa83eb6114df9d30",
+      "reused_verified_mesh": true
     },
     {
       "part": "44_bank",
@@ -579,9 +883,10 @@
       "warning": "",
       "wall_loops": 4,
       "layer_height_mm": 0.16,
-      "estimated_grams": 2.29,
-      "estimated_seconds": 1169,
-      "source_3mf_sha256": "84edc55e6af3069cb792715f63a45a822e498cd6ef2404ad3b64ddad2c611991"
+      "estimated_grams": 2.15,
+      "estimated_seconds": 1160,
+      "source_3mf_sha256": "412410f115fd656df99ed94f82b40e33a7e7ba976f289bd74b96e8253ed6c8ea",
+      "reused_verified_mesh": true
     },
     {
       "part": "45_reling_100mm",
@@ -591,8 +896,9 @@
       "wall_loops": 4,
       "layer_height_mm": 0.16,
       "estimated_grams": 0.61,
-      "estimated_seconds": 559,
-      "source_3mf_sha256": "d665cd75ec92afc31be68ab8ae47af392663da8b6a9cb8f47c1791b0ddf21ad2"
+      "estimated_seconds": 562,
+      "source_3mf_sha256": "d665cd75ec92afc31be68ab8ae47af392663da8b6a9cb8f47c1791b0ddf21ad2",
+      "reused_verified_mesh": true
     },
     {
       "part": "50_accubak_2S",
@@ -603,7 +909,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 37.3,
       "estimated_seconds": 4452,
-      "source_3mf_sha256": "756c3b86f4fb9558278e30c68e59c5834f34cf4cd726c70db3b0e792aa634122"
+      "source_3mf_sha256": "756c3b86f4fb9558278e30c68e59c5834f34cf4cd726c70db3b0e792aa634122",
+      "reused_verified_mesh": true
     },
     {
       "part": "51_motorplaat_verstelbaar",
@@ -614,7 +921,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 23.49,
       "estimated_seconds": 3142,
-      "source_3mf_sha256": "8611637fb3634abaa8938c674a562781c1ac2b6705728ab543cbd04f58d253ff"
+      "source_3mf_sha256": "8611637fb3634abaa8938c674a562781c1ac2b6705728ab543cbd04f58d253ff",
+      "reused_verified_mesh": true
     },
     {
       "part": "52_servoplaat",
@@ -625,7 +933,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 3.06,
       "estimated_seconds": 931,
-      "source_3mf_sha256": "3e5bf293eb945db1b0fe56c3372342d72d0941912c09cb4fd2d5d2477a2dd91d"
+      "source_3mf_sha256": "3e5bf293eb945db1b0fe56c3372342d72d0941912c09cb4fd2d5d2477a2dd91d",
+      "reused_verified_mesh": true
     },
     {
       "part": "53_elektronicaplaat",
@@ -636,7 +945,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 6.7,
       "estimated_seconds": 1315,
-      "source_3mf_sha256": "faa2e8da75368b6c7a7bf96fe132222c5c749444394aee9204cf5da020c5a051"
+      "source_3mf_sha256": "faa2e8da75368b6c7a7bf96fe132222c5c749444394aee9204cf5da020c5a051",
+      "reused_verified_mesh": true
     },
     {
       "part": "54_ballastbak",
@@ -647,7 +957,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 10.17,
       "estimated_seconds": 1575,
-      "source_3mf_sha256": "88b7a7e5f3223cc4599aa5c9659ea506034023b810e0f614c808086462914dce"
+      "source_3mf_sha256": "88b7a7e5f3223cc4599aa5c9659ea506034023b810e0f614c808086462914dce",
+      "reused_verified_mesh": true
     },
     {
       "part": "55_boegschroef_proeftunnel",
@@ -658,7 +969,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 13.39,
       "estimated_seconds": 3090,
-      "source_3mf_sha256": "8d3d8b034efe58984bf74a236188eb180e2c7bf8c87e95204bb17ef57157e6c2"
+      "source_3mf_sha256": "8d3d8b034efe58984bf74a236188eb180e2c7bf8c87e95204bb17ef57157e6c2",
+      "reused_verified_mesh": true
     },
     {
       "part": "56_roerblad",
@@ -669,7 +981,80 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 4.23,
       "estimated_seconds": 1003,
-      "source_3mf_sha256": "a637ad0e99d8048e1d8c1533d80085638923f1a764ca8916d4c93f3b61bac21c"
+      "source_3mf_sha256": "a637ad0e99d8048e1d8c1533d80085638923f1a764ca8916d4c93f3b61bac21c",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "64_heli_ruit_SB_1",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.2,
+      "estimated_seconds": 627,
+      "source_3mf_sha256": "a99752d58130bbc888466a4155daacbf3984d9aa031bda524247b246420a8ab9",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "64_heli_ruit_SB_2",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.18,
+      "estimated_seconds": 589,
+      "source_3mf_sha256": "07c33d91da71e2a3dad0a922740a200fdd93353bf854f77c40e9c31373b6a15b",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "64_heli_ruit_SB_3",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.13,
+      "estimated_seconds": 553,
+      "source_3mf_sha256": "3e0a5c145c3fbd1be8a2fa731b5339541882a7f7c8e94747548ea443c5c9562a",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "64_heli_ruit_BB_1",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.21,
+      "estimated_seconds": 636,
+      "source_3mf_sha256": "8b8f49180e39e2bed74386eedcf7cea1bbb5f879b5f3f82689e1c8b84be50043",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "64_heli_ruit_BB_2",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.18,
+      "estimated_seconds": 584,
+      "source_3mf_sha256": "c8200145814c1eda094b793070678268744f696fab7d6ec282f2857041b48651",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "64_heli_ruit_BB_3",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.12,
+      "estimated_seconds": 544,
+      "source_3mf_sha256": "756a2ea1b19e3ce20bd55f71fb32725f1d68acb8b30901d365ffd12ae8fdc00b",
+      "reused_verified_mesh": true
     },
     {
       "part": "60_heli_romp_SB",
@@ -678,9 +1063,10 @@
       "warning": "",
       "wall_loops": 4,
       "layer_height_mm": 0.16,
-      "estimated_grams": 4.55,
-      "estimated_seconds": 1212,
-      "source_3mf_sha256": "fd90554cc4f232c9f4700b0afa941e91f7e7800aa0e4253e4b787dcad1b78c12"
+      "estimated_grams": 4.47,
+      "estimated_seconds": 1257,
+      "source_3mf_sha256": "7233d89fc95333caf2a143a36951ec597efcf83a9fcc50b0ce7c4b4cd2a6d762",
+      "reused_verified_mesh": true
     },
     {
       "part": "60_heli_romp_BB",
@@ -689,9 +1075,10 @@
       "warning": "",
       "wall_loops": 4,
       "layer_height_mm": 0.16,
-      "estimated_grams": 4.55,
-      "estimated_seconds": 1215,
-      "source_3mf_sha256": "c7ae930c9887cbb4f08d35ec4360c5d8d2eeede3f90afa72251ff5228ec157be"
+      "estimated_grams": 4.47,
+      "estimated_seconds": 1256,
+      "source_3mf_sha256": "7266836dfe5bab2857a905797fe06c660cfb957e2a1dca699a950ce4ce7a7fb4",
+      "reused_verified_mesh": true
     },
     {
       "part": "61_heli_landingsgestel",
@@ -702,7 +1089,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 0.83,
       "estimated_seconds": 890,
-      "source_3mf_sha256": "03f747d465dc15f1f8fea309cc2bc5004b4e4c9c43d8010f4c45c992d98d1aa6"
+      "source_3mf_sha256": "03f747d465dc15f1f8fea309cc2bc5004b4e4c9c43d8010f4c45c992d98d1aa6",
+      "reused_verified_mesh": true
     },
     {
       "part": "62_heli_rotorblad",
@@ -713,7 +1101,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 0.19,
       "estimated_seconds": 481,
-      "source_3mf_sha256": "9f659d86cb7a690ebc96747d8e2452632d261cc0052888f5efe4e344737d25e9"
+      "source_3mf_sha256": "9f659d86cb7a690ebc96747d8e2452632d261cc0052888f5efe4e344737d25e9",
+      "reused_verified_mesh": true
     },
     {
       "part": "63_heli_staartrotor",
@@ -724,7 +1113,8 @@
       "layer_height_mm": 0.16,
       "estimated_grams": 0.09,
       "estimated_seconds": 470,
-      "source_3mf_sha256": "66118d04e50b7cfc5ca226e7ea178838b0e0f610fef27c23b9d03a04e4ea6ba0"
+      "source_3mf_sha256": "66118d04e50b7cfc5ca226e7ea178838b0e0f610fef27c23b9d03a04e4ea6ba0",
+      "reused_verified_mesh": true
     },
     {
       "part": "00_pasproef_A",
@@ -735,7 +1125,8 @@
       "layer_height_mm": 0.2,
       "estimated_grams": 1.4,
       "estimated_seconds": 650,
-      "source_3mf_sha256": "46b893e08bdcb5b36d9b6f01d2bcbdb843dc37aa31f528bb4b371a2a1d131c85"
+      "source_3mf_sha256": "46b893e08bdcb5b36d9b6f01d2bcbdb843dc37aa31f528bb4b371a2a1d131c85",
+      "reused_verified_mesh": true
     },
     {
       "part": "00_pasproef_B",
@@ -746,7 +1137,8 @@
       "layer_height_mm": 0.2,
       "estimated_grams": 1.4,
       "estimated_seconds": 650,
-      "source_3mf_sha256": "dd13869664818632f1d5066cb8934f69fd8ba35a073491c2c03cb90d6b1d912a"
+      "source_3mf_sha256": "dd13869664818632f1d5066cb8934f69fd8ba35a073491c2c03cb90d6b1d912a",
+      "reused_verified_mesh": true
     },
     {
       "part": "00_pasproef_las",
@@ -757,12 +1149,1434 @@
       "layer_height_mm": 0.2,
       "estimated_grams": 1.8,
       "estimated_seconds": 741,
-      "source_3mf_sha256": "cab47bc198fa3a1d8cc7f48aa2d00f7339ac65bfa7e9da79336f151f60fce226"
+      "source_3mf_sha256": "cab47bc198fa3a1d8cc7f48aa2d00f7339ac65bfa7e9da79336f151f60fce226",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "19_ruitstrook_laag_1_BB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.55,
+      "estimated_seconds": 638,
+      "source_3mf_sha256": "44efaa27fb7c6cacb2119b97494889ea8712ffe19fdfa26f1c92d9d876be0f10",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "19_ruitstrook_laag_1_SB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.55,
+      "estimated_seconds": 639,
+      "source_3mf_sha256": "12f344e5e57e4ba4b1f3ace40ef0e9ee0537dd201e295251eccbc562be0dea11",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "19_ruitstrook_laag_2_BB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.09,
+      "estimated_seconds": 612,
+      "source_3mf_sha256": "237343d87c2e166150a984d39ca9765f4702285b3a0d404dfe2ee85383531767",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "19_ruitstrook_laag_2_SB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.09,
+      "estimated_seconds": 612,
+      "source_3mf_sha256": "ef440c072217a50c545d9058f7e07f9d48e2a529e49d0170d0b814f5e75ccfee",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "19_ruitstrook_laag_3_BB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.45,
+      "estimated_seconds": 634,
+      "source_3mf_sha256": "2f62d7cd5ab3144a092f125ddd144ef437469851f9aaf9f87239f37a7adc0776",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "19_ruitstrook_laag_3_SB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.45,
+      "estimated_seconds": 634,
+      "source_3mf_sha256": "dbadb40f0ae8f507a4f35645b7f6d371e86014eed7f0541228f9f4d2bb9dc20b",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "19_ruitstrook_binnenhuis",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 4.94,
+      "estimated_seconds": 954,
+      "source_3mf_sha256": "f8aaa9725d324057564e548126ffbca39fd8729cb66347742ab52c46ba2c0980",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "19_ruitstrook_voorhuis",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 2.5,
+      "estimated_seconds": 719,
+      "source_3mf_sha256": "9c71d583a53a6d50d27d157942ef10e542eaad8f2d61c7c503eb25a5905a9d49",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "19_brugbeglazing_1",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 2.23,
+      "estimated_seconds": 749,
+      "source_3mf_sha256": "1e9c448da5fd2ad9ca7f075275c4e3f9d61f020a8c1c09d49528523d5bbb68c5",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "19_brugbeglazing_2",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 2.98,
+      "estimated_seconds": 799,
+      "source_3mf_sha256": "e4b7e81b29b90e915cdf718f262dbeca73a15dc127c22858bd64636e2f214bd3",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "70_reling_laag_achter_BB_1",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.89,
+      "estimated_seconds": 671,
+      "source_3mf_sha256": "67dd9264315a11365a000e1c69f47ba526fb84415882a588bb16118cd17beae3",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "70_reling_laag_achter_BB_2",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.89,
+      "estimated_seconds": 672,
+      "source_3mf_sha256": "106387122523f0af0446527796514b43ce3f87979941bfccc2400fd6a2f28ff8",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "70_reling_laag_voor_BB_1",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.82,
+      "estimated_seconds": 650,
+      "source_3mf_sha256": "d3344a903ce50ded2762f3586b760b50407302792e550f122a2a212530f67460",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "70_reling_laag_voor_BB_2",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.8,
+      "estimated_seconds": 648,
+      "source_3mf_sha256": "155812471a409d69ae6d9430fbcda3d3a0978d22919fda93a5ff3a980d205e31",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "70_reling_galerijdak_BB_1",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.79,
+      "estimated_seconds": 647,
+      "source_3mf_sha256": "266db1c221e2c56dde07b0f2ae1c8d955f60894ef63421f376f65c0d2faa0a03",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "70_reling_galerijdak_BB_2",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.79,
+      "estimated_seconds": 650,
+      "source_3mf_sha256": "fd30ae16a2162dc83ade5f6e35c80f04c7754f1ed20a04495ae1ab0a6bcc3170",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "70_reling_laag_achter_SB_1",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.89,
+      "estimated_seconds": 671,
+      "source_3mf_sha256": "331ccdaf63be74c68b1362baca09795cba2c65543d27681cf3f23ec79010a1a1",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "70_reling_laag_achter_SB_2",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.89,
+      "estimated_seconds": 672,
+      "source_3mf_sha256": "01af22619569dacd0f62f330c74482faa1b7191ecd4e179392a1940eb8b011d4",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "70_reling_laag_voor_SB_1",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.82,
+      "estimated_seconds": 649,
+      "source_3mf_sha256": "34001fc06c370367988efd7878e4ba573c7c0fab94c05e153c860ece1a2150e6",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "70_reling_laag_voor_SB_2",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.8,
+      "estimated_seconds": 650,
+      "source_3mf_sha256": "46087f417fcd3195689493aea10c05cc868950541fa266454b76a4974e3d6421",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "70_reling_galerijdak_SB_1",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.79,
+      "estimated_seconds": 645,
+      "source_3mf_sha256": "225b49f22192f5df8a914137355efc335d1c7406d11d4b68e18bfcf9b1d648e1",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "70_reling_galerijdak_SB_2",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.79,
+      "estimated_seconds": 650,
+      "source_3mf_sha256": "951a04c6095deb7a3d7f1ce11ba26ca5fe7c38b8bfebc02f1f8ecfa71cc59ef9",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "70_reling_kompasdek_1",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.41,
+      "estimated_seconds": 550,
+      "source_3mf_sha256": "cdebf9e6f89fdc6dd48e7723e902c2d6bc829c130c9fe31d0fe8dc33ec117fa9",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "70_reling_kompasdek_2",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.16,
+      "estimated_seconds": 486,
+      "source_3mf_sha256": "08b4d82da106181b1b34e2c2594d2da3b6a9c8e69eef0010023aa3bc3e425cbe",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "70_reling_kompasdek_3",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.37,
+      "estimated_seconds": 539,
+      "source_3mf_sha256": "4bac3e7fe8c3a9d689952346d098677b4202ad17c77d72b7a3314f3c8006a5f8",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "70_reling_kompasdek_4",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.09,
+      "estimated_seconds": 482,
+      "source_3mf_sha256": "bb307fe2fadc7bad9dfbb933e7c9c54c810d6f1e0fc0fe407b936fa97cdfd4a1",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "70_reling_kompasdek_5",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.0,
+      "estimated_seconds": 703,
+      "source_3mf_sha256": "914125602e01ce79805c46bb8eaf1e6231702bff80674cd6c4d47b08e892cad7",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "70_reling_kompasdek_6",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.09,
+      "estimated_seconds": 481,
+      "source_3mf_sha256": "961c792f59f2e7936f6913c1b5b66b32cbf6a1f2ee76863e5f35379d9f7752d6",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "70_reling_kompasdek_7",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.37,
+      "estimated_seconds": 534,
+      "source_3mf_sha256": "959433d866d47b9f143fd8cfb4042da30814b3293f55723a556b765d05d7842d",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "70_reling_kompasdek_8",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.16,
+      "estimated_seconds": 486,
+      "source_3mf_sha256": "a1f7cc0d8128966fd7f1650197ee3441dedbc16828dfab1b6d99826a30b3fe21",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "70_reling_kompasdek_9",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.41,
+      "estimated_seconds": 551,
+      "source_3mf_sha256": "1bf538cfc0abb3f7a1d687ddfe2ecb2eda395d06534a31d6239592acf1dc97c8",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "70_reling_kompasdek_10",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.8,
+      "estimated_seconds": 646,
+      "source_3mf_sha256": "448a23c7f39bf6e3086920e854cdaa23f8a945df21b2b85e13fd0e2e9f5e1cea",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "70_reling_hangardak_1",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.85,
+      "estimated_seconds": 660,
+      "source_3mf_sha256": "f052b27146d8e02bec1805ca1de140ded34a0d2095c6aa5ea8475e1d4075d568",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "70_reling_hangardak_2",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.16,
+      "estimated_seconds": 486,
+      "source_3mf_sha256": "a1bd36dc26ddbb4508dea93ad79321a3e6afa2f1efba76aec1a5241669b44077",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "70_reling_hangardak_3",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.49,
+      "estimated_seconds": 574,
+      "source_3mf_sha256": "3188963deeb196c929790115a2a3ca09ea1da3a47f2d0868d6a4141eb228ee4a",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "70_reling_hangardak_4",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.85,
+      "estimated_seconds": 661,
+      "source_3mf_sha256": "31c0d6fcf4a48be825dc16e0482ebe2875dfaeb54815f36e66ee3e31fcc2e82c",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "70_reling_hangardak_5",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.49,
+      "estimated_seconds": 569,
+      "source_3mf_sha256": "8f505c0f3e6568c6bafeaa78aeb2311b710b55734e7d764bd3b1cb087aa137ac",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "70_reling_hangardak_6",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.16,
+      "estimated_seconds": 486,
+      "source_3mf_sha256": "36e325b8ba0b2f2acd7a5dd2891936441e6ae774c5cb5565bdedffb9e0ab6492",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "70_reling_hangardak_7",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.85,
+      "estimated_seconds": 661,
+      "source_3mf_sha256": "6c0cef9c488e597a46f14f4c2535b997b99efb5350bf0b74a57caa220ddbebf9",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "70_reling_hangardak_8",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.07,
+      "estimated_seconds": 721,
+      "source_3mf_sha256": "b754cff44a2666787cb11aa6a4d29d20bc4f6899e7628b01b6b7c65013bdaa6e",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "70_reling_radar1_1",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.22,
+      "estimated_seconds": 510,
+      "source_3mf_sha256": "aa2e8920b00d25629f288bb1bd2d672106696ec0a22d04d0cc8e1a64da931d46"
+    },
+    {
+      "part": "70_reling_radar1_2",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.44,
+      "estimated_seconds": 573,
+      "source_3mf_sha256": "31535df59b84e34335f132feb447852adaaf3bfe6cd9a2429ee08b71d42d54c5"
+    },
+    {
+      "part": "70_reling_radar1_3",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.22,
+      "estimated_seconds": 508,
+      "source_3mf_sha256": "9688b4ae29abe60c6b563f1a9c4a192f82f947550cbb31b7ff455465c2574418"
+    },
+    {
+      "part": "70_reling_radar1_4",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.44,
+      "estimated_seconds": 574,
+      "source_3mf_sha256": "e2e3a978f6c4bdd4e6f4fc4d135530923881009925cc4db171ef42913a9f4725"
+    },
+    {
+      "part": "70_reling_radar2_1",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.17,
+      "estimated_seconds": 496,
+      "source_3mf_sha256": "6afe94ddf66cc9e09f2996a871f9eca94b087f630d1d11d76cc7d9e665ea15cc"
+    },
+    {
+      "part": "70_reling_radar2_2",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.32,
+      "estimated_seconds": 535,
+      "source_3mf_sha256": "72d69590f4cb0f397c6b0fad0a43e583b0ceaeae8692ef5c3676dc05472d2ecc"
+    },
+    {
+      "part": "70_reling_radar2_3",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.17,
+      "estimated_seconds": 495,
+      "source_3mf_sha256": "64cee7cb8af5ad425627b5eb1f25a8027f888a342033729d51d9132d78d11ba7"
+    },
+    {
+      "part": "70_reling_radar2_4",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.32,
+      "estimated_seconds": 534,
+      "source_3mf_sha256": "2f87748ce5f8bc389814c1c03958526bfc012f40ec3bb48ce3a41a615db83151"
+    },
+    {
+      "part": "71_trap_galerij_BB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.02,
+      "estimated_seconds": 1000,
+      "source_3mf_sha256": "6d8a361cf43e478a0d1ea5083b09273b9131aced6759c4ee457693dc24ec8d66",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "71_trap_hangar_BB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.32,
+      "estimated_seconds": 1186,
+      "source_3mf_sha256": "8b2a01e9e193b6d9f603962bed78930d3a1a358ea54c7a8052d7e95130439e09",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "71_trap_brug_BB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.25,
+      "estimated_seconds": 1107,
+      "source_3mf_sha256": "e058e599aec5e24f837224cf0ef1bbfd3fb0485a5928ab051940f2a4014e70e1",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "71_trap_helidek_BB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.14,
+      "estimated_seconds": 1059,
+      "source_3mf_sha256": "2e651175d2158c8ec7164aad61b80d099852c8171dca810f4f870c30b35e5712",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "71_trap_galerij_SB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.07,
+      "estimated_seconds": 1018,
+      "source_3mf_sha256": "bb07e1531bfa1a0a4c4f0a8b714b5f284b71bbc2b86aa343682235f52da0b500",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "71_trap_hangar_SB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.31,
+      "estimated_seconds": 1166,
+      "source_3mf_sha256": "8027a237167d849da48ab8bd28183cf836282a22690f9cee21235c2b74370383",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "71_trap_brug_SB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.32,
+      "estimated_seconds": 1136,
+      "source_3mf_sha256": "0f1e0d6e0f82660e9e12f947d19fb09e16423fee13114f854d59517edf357133",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "71_trap_helidek_SB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.18,
+      "estimated_seconds": 1076,
+      "source_3mf_sha256": "876fbed0bfb98f4599f6ee1f354bc9cb81278a9c0de48b3f209aac27f395e228",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "72_helideknet_1",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.27,
+      "estimated_seconds": 802,
+      "source_3mf_sha256": "523b3926fb422ca998f4cf66b4928ae0e67eefe6562078881c34d070dd393557",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "72_helideknet_5",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.27,
+      "estimated_seconds": 791,
+      "source_3mf_sha256": "0d8b787f7941f0ecc859a7272d17dde9bc7877005fd65e9afa135d0d5a640ebf",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "72_helideknet_6",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.25,
+      "estimated_seconds": 514,
+      "source_3mf_sha256": "7ae2d43f9fe5598edecf4ba40a404fc87d1b321c0095a901e32815f349f6b6cd",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "72_helideknet_7",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.22,
+      "estimated_seconds": 784,
+      "source_3mf_sha256": "03f037b792e71d4c715dc20100fca9ec231aa76cba2ee9d42ba5b3ac7ce9b509",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "72_helideknet_8",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.25,
+      "estimated_seconds": 513,
+      "source_3mf_sha256": "8f2806ad5b225f5fea45f17aabb44cf28f58209925eebee726006d5081892c0e",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "73_achterverschansing",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 7.99,
+      "estimated_seconds": 1293,
+      "source_3mf_sha256": "4ea2295596e4174b743848030f08b2674928e9d688f89bc5a0803eaffb31eb31",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "73_werkdekverschansing",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 10.82,
+      "estimated_seconds": 1569,
+      "source_3mf_sha256": "b681239bd54e5a81a1638bda86f8c933cdad326c7628f5b0d1fb9a5b60466729",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "73_werkdekverschansing_BB_voor",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.89,
+      "estimated_seconds": 717,
+      "source_3mf_sha256": "0c5261c2c8a30d1db12d77750eca0b6b510607bd3aba610727c24c96465e591b",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "74_achtertank",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 6.05,
+      "estimated_seconds": 1851,
+      "source_3mf_sha256": "173b7fb9b0f551306ab5dc536f6ee8ff24db72a0c7585b841611cde28279d81d",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "75_hangarspant_1",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.92,
+      "estimated_seconds": 588,
+      "source_3mf_sha256": "9bebc93c250bf1eb8b3446e2556e736348a7a602fed533ff9940274abc386d80",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "75_hangarspant_2",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.92,
+      "estimated_seconds": 588,
+      "source_3mf_sha256": "c5dcf91366df0bce2c6262dfee9804c60879510aa14da9d56290961203998cfc",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "75_hangarspant_3",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.92,
+      "estimated_seconds": 588,
+      "source_3mf_sha256": "2da12b8ae5cebf021e62f992761b97846b302115bea0f19195b5d43069dcf014",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "75_hangarspant_4",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.92,
+      "estimated_seconds": 588,
+      "source_3mf_sha256": "f35312fc1b4c5c2898b99f038e87b7aeb1d397f39c6df644926a6f1d498129cd",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "75_hangarkast",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.88,
+      "estimated_seconds": 876,
+      "source_3mf_sha256": "99ae93e89e286b250669b13efc429612352f7f0e91bc9d8112d677661b075677",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "75_werkbok",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.3,
+      "estimated_seconds": 932,
+      "source_3mf_sha256": "ad6fe3df31083c6cf691285db6b491516bdae3e7c07abbec033fa0a48b875100",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "75_rotorbladenrek",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.45,
+      "estimated_seconds": 655,
+      "source_3mf_sha256": "25ccd8523cfc35707075b1d123172ab120be1bccd600780394efba2202a85870",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "75_dakkast",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.41,
+      "estimated_seconds": 701,
+      "source_3mf_sha256": "561ebced4d5f6237627b719610732805dfa3ca1787b840f309781e8d7d65bd1d",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "76_sloep_raamstrook_BB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.14,
+      "estimated_seconds": 521,
+      "source_3mf_sha256": "b1eb3d05915c78be545392f1a4964f6044ae6017df229a17cce2b010b059d389",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "76_sloep_raamstrook_SB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.14,
+      "estimated_seconds": 522,
+      "source_3mf_sha256": "5bbc9e2c3b2e02940839fcd073608c294620d0a147de35ee80d2d22ef3c1fa41",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "76_sloep_dakluik",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.23,
+      "estimated_seconds": 531,
+      "source_3mf_sha256": "3aed9741a6e64ed1ce23ff9317c50de2e438130361dd022f2efee9049f9399a7",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "77_lichtkap_roeden",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.66,
+      "estimated_seconds": 824,
+      "source_3mf_sha256": "1253356a6ce5b65d20b12773c994d95f4c2ed1710f05d68c0c6a3ffc8a75adef",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "78_satcom_1",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 2.76,
+      "estimated_seconds": 1035,
+      "source_3mf_sha256": "f424e09ea319ddef2880dad6d4a5a1bd2cf04d7466f6cbd93f11d6c9781a8396",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "78_satcom_2",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.78,
+      "estimated_seconds": 938,
+      "source_3mf_sha256": "d140a6c11f7e03e41a106132210a2b936ffe96af185ca24e02c0804744fa1358",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "78_satcom_3",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.84,
+      "estimated_seconds": 816,
+      "source_3mf_sha256": "4ef40ae12d6f36d3ce7a17fd5622f588861e4e475e12e26aef1f218b6e5c7f7f",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "78_satcom_4",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.84,
+      "estimated_seconds": 816,
+      "source_3mf_sha256": "7cca4df06489ecf54033733cf26e42b1d26fdd96926b567251434d86c95ca1ae",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "78_brugdomes",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.97,
+      "estimated_seconds": 710,
+      "source_3mf_sha256": "588b6534d3ed61d32fdaa2dbeda3294cd77e58701f5547b36e62fae0977835ba",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "78_GPS_1",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.18,
+      "estimated_seconds": 608,
+      "source_3mf_sha256": "bd20b85f0e60290f428a50d7135737d32523b184ef32d79c2f14ca7f5d7858fd",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "78_GPS_2",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.18,
+      "estimated_seconds": 608,
+      "source_3mf_sha256": "9c917d8eb816bb645bad41c7cd5c258bc34dbd2fd085c34b5424f4f1f65222f3",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "78_GPS_3",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.18,
+      "estimated_seconds": 608,
+      "source_3mf_sha256": "76e42312bfaaa6ec9b707778a8af9c6d047b9f19cbae758c4f39f2a9a22fabd0",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "78_antenne_1",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.14,
+      "estimated_seconds": 476,
+      "source_3mf_sha256": "60de52230c29be8986d59d311fd50f51494e6ef26922bd32de78065c7d6fa78b",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "78_antenne_2",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.12,
+      "estimated_seconds": 473,
+      "source_3mf_sha256": "90d8a9ab1244b3c4ee446ef565237ea2f82346e69a88890c7a7005d847fdfb32",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "78_antenne_3",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.09,
+      "estimated_seconds": 469,
+      "source_3mf_sha256": "fb490a2b557762f0250b14efcd09437f22f8335989bf110340ecbaba3008d658",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "78_antenne_4",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.09,
+      "estimated_seconds": 469,
+      "source_3mf_sha256": "ded607acea004b9dfa7e268a61771fe1609f78f56995374b9e81396f46284835",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "78_antenne_5",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.08,
+      "estimated_seconds": 468,
+      "source_3mf_sha256": "dc1915799959674bde3ccd3d3bb95991ed184993af6d6f559920c0148d3ee634",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "78_zoeklicht",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.43,
+      "estimated_seconds": 683,
+      "source_3mf_sha256": "1486f44c6e8318c4079d8a489be629b25e21136ab845f3fd4ebf5e5a060e849a",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "79_schoorsteen_achtervlak",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 2.19,
+      "estimated_seconds": 1245,
+      "source_3mf_sha256": "565b8f5997fa060efc10aa359b0958ca4eff3c51458cbd05aac46810f39e9398",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "79_uitlaat",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.54,
+      "estimated_seconds": 742,
+      "source_3mf_sha256": "325ad3e5a0b9a2a18e1a251f3e8647e423fad765f1f7f63ca2a0d4b7f0e3425b",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "80_zodiac",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 2.91,
+      "estimated_seconds": 1373,
+      "source_3mf_sha256": "646bdbe5026458c73f341ecc7a4c85ab00e62f199d8a111c434fa8a289add6a7",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "80_reddingsrib",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 2.91,
+      "estimated_seconds": 1373,
+      "source_3mf_sha256": "d8087cb2d733a743edc6f59fd06fb3bb20b6437cb56d693d49397d11022cb273",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "80_RIB_platform_BB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.98,
+      "estimated_seconds": 694,
+      "source_3mf_sha256": "e4dd60e4153a2f791048540c995babda572db8a59e3b90d44a8cf29af965ec0d",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "80_RIB_davit_BB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.88,
+      "estimated_seconds": 741,
+      "source_3mf_sha256": "fcf19f0b75ea3f93439e8ba9ab8c2d922941fae011ed0bc721ed2c6141f9891c",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "80_RIB_platform_SB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.98,
+      "estimated_seconds": 694,
+      "source_3mf_sha256": "4442643f5f4f5e74fd95d2b65c9982acad559c7be8fabf968107aec6af6df1fd",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "80_RIB_davit_SB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.01,
+      "estimated_seconds": 846,
+      "source_3mf_sha256": "a2b528bda684465a90c451de9bba8c6bdf4d11569b19d00d025ac0c3ca08aaa2",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "81_reddingsvlot",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.88,
+      "estimated_seconds": 685,
+      "source_3mf_sha256": "6f22a61b9b40f5710b44ea6e9a1c7683f7749b2d3acff0f07685f95efb77e982",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "81_reddingsboei",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.12,
+      "estimated_seconds": 482,
+      "source_3mf_sha256": "f3440129e4114853ce764b54bf4c1ef98de48e2906a453f640eb720806499d74",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "82_windsokmast",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.13,
+      "estimated_seconds": 478,
+      "source_3mf_sha256": "550fac7eb5da2e4625dfc1bef8627e9d165f104f8c8fc4eca339eb4f4f44b0ec",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "82_windsok",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.27,
+      "estimated_seconds": 572,
+      "source_3mf_sha256": "e8b962f9550271810c89836c31df000cd5bd05a665f1cb80915c33537281da89",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "82_vlaggenstok",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.12,
+      "estimated_seconds": 476,
+      "source_3mf_sha256": "375ec4642eb8f0115cfb95a22e6c9983bf4c88b5057a38231e8856a879a749f8",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "82_vlagstrook_1",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.14,
+      "estimated_seconds": 471,
+      "source_3mf_sha256": "8b9bef7e684065da77822b89dbdaebace0e225ebf131c55ef9a96349a9e89f7e",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "82_vlagstrook_2",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.14,
+      "estimated_seconds": 471,
+      "source_3mf_sha256": "531bc627a92bd5f0bcaece6707dee7c44947ec2be1239c169c3809cf2a6df648",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "82_vlagstrook_3",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.14,
+      "estimated_seconds": 471,
+      "source_3mf_sha256": "5f09e524b071e999e4a156bf7740fc7f60c7f58eeced1d72d90d6f3f4e48da57",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "83_ankerlier",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 1.54,
+      "estimated_seconds": 813,
+      "source_3mf_sha256": "f95a06715d5b5977f8f0bc22d9a53b8826902238859f759770bc2872e59c5867",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "83_kettingschijf",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.23,
+      "estimated_seconds": 494,
+      "source_3mf_sha256": "0ddc54ae500c793d42712b32de8bfc1e97dda01ed0b1475a0902d15ceb58f9a4",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "83_bolder",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.3,
+      "estimated_seconds": 608,
+      "source_3mf_sha256": "c63f0ffaa039fa0b149adc97d58a750f4d225e590ca6bdf062360e7845781ea2",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "83_luchtkoker",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.35,
+      "estimated_seconds": 686,
+      "source_3mf_sha256": "0836e19eacfda6e05cd0e4a09b8d3a8773aac0634ebbcc8b67d09efca5bfd708",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "83_bakluik",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 3.41,
+      "estimated_seconds": 854,
+      "source_3mf_sha256": "d245f93b0d1c327398f95124413c1ce9c7d1900a26c52504675966ba1c3ce0da",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "84_patrijspoort",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.02,
+      "estimated_seconds": 445,
+      "source_3mf_sha256": "7b7916b98e22f30c066b8852759830193d21ccf04ee3290160198c7c348ab209",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "85_anker_BB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.28,
+      "estimated_seconds": 523,
+      "source_3mf_sha256": "ec21cad0923c45a51c39a50cb25b87ded12ed3d52cedc231f564fd15cc1267d5",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "85_anker_SB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.28,
+      "estimated_seconds": 523,
+      "source_3mf_sha256": "d618a43054fc98f82a683aca1940ab44d4ac674e94e09c1ddefddb4f7404c286",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "85_valreep_BB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 2.05,
+      "estimated_seconds": 1628,
+      "source_3mf_sha256": "9291c7e10ebc1c9f5800353c8e82487980066b71008f15c51811a254f2ccb3fa",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "85_valreep_SB_gestuwd",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.51,
+      "estimated_seconds": 581,
+      "source_3mf_sha256": "bd29280d84eb7fbbe1fa11c4f9e4478b93e9aa133c6ff9fc6acf27aee923a5b1",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "86_naamplaat_SB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.33,
+      "estimated_seconds": 578,
+      "source_3mf_sha256": "dd58ff9431f62b9cd9947c9ead951d3910a0dcb431db0ef7614b0941b396e69d",
+      "reused_verified_mesh": true
+    },
+    {
+      "part": "86_naamplaat_BB",
+      "profile": "details",
+      "status": "PASS",
+      "warning": "",
+      "wall_loops": 4,
+      "layer_height_mm": 0.16,
+      "estimated_grams": 0.33,
+      "estimated_seconds": 576,
+      "source_3mf_sha256": "93d164ca437ca407c9636663722a5695b0f8563f9d6e370d9577b17a99054d59",
+      "reused_verified_mesh": true
     }
   ],
-  "temporary_gcode_directory": "/var/folders/l1/lh7bz0xn2xxd8hd6b4zw9y6m0000gn/T/ortelius-p1-slice-kaarp98a",
+  "temporary_gcode_directory": "/var/folders/l1/lh7bz0xn2xxd8hd6b4zw9y6m0000gn/T/ortelius-p2-slice-fuk8i4yw",
   "limitations": "Proefslicing, geen fysieke proef. Ondersteuning en hechting visueel beoordelen vóór productie.",
-  "expected_unique_parts": 68,
-  "complete_print_list_estimate_g": 2767.5,
-  "complete_print_list_estimate_hours": 114.0
+  "reused_settings_directory": "/var/folders/l1/lh7bz0xn2xxd8hd6b4zw9y6m0000gn/T/ortelius-p2-slice-3e4bjeni",
+  "expected_unique_parts": 214,
+  "complete_print_list_estimate_g": 2947.6,
+  "complete_print_list_estimate_hours": 154.3
 }

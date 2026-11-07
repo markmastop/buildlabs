@@ -1,6 +1,6 @@
-# Ortelius p1 — bouw- en printvolgorde
+# Ortelius p2 — bouw- en printvolgorde
 
-Dit is het **eerste printbare constructieprototype** op schaal 1:100 voor
+Dit is een **gedetailleerd printbaar constructieprototype** op schaal 1:100 voor
 het P2S-bouwvolume van 256 × 256 × 256 mm. De vorm volgt de browserstudie v3,
 met constructieve vereenvoudigingen voor FDM. Er is nog geen fysieke
 pasproef, lekproef of vaartest uitgevoerd. Print eerst de kleine proefstukken.
@@ -8,7 +8,7 @@ pasproef, lekproef of vaartest uitgevoerd. Print eerst de kleine proefstukken.
 ## Wat je opent
 
 - [`../cad/index.html`](../cad/index.html): de daadwerkelijke CAD-onderdelen, gemonteerd of uit elkaar.
-- [`../cad/step/ortelius-p1-assemblage.step`](../cad/step/ortelius-p1-assemblage.step): benoemde CAD-assemblage in millimeters.
+- [`../cad/step/ortelius-p2-assemblage.step`](../cad/step/ortelius-p2-assemblage.step): benoemde CAD-assemblage in millimeters.
 - `stl/`: één bestand per uniek onderdeel, al georiënteerd met de onderkant op Z = 0.
 - `3mf/`: dezelfde geometrie, expliciete millimetereenheid, op het midden van een 256 mm plaat geplaatst. **Geen machineprofiel of G-code.**
 - [`onderdelen.csv`](onderdelen.csv): aantallen, printmaten en aanwijzingen per onderdeel.
@@ -22,7 +22,7 @@ filamenttemperatuur of printerhardware. De slicercontrole gebruikt tijdelijke,
 volledig opgeloste officiële printer- en ASA-profielen met Textured PEI Plate.
 Die controle is gedaan vóór de overstap naar PETG; herhaal haar met een PETG-profiel.
 
-![De CAD-onderdelen uit elkaar](../beelden/cad-p1-exploded.jpg)
+![De CAD-onderdelen uit elkaar](../beelden/cad-p2-exploded.jpg)
 
 Alle kopieën zijn identiek: print een bestand zo vaak als de kolom **aantal**
 aangeeft. Eén `60_heli_romp_BB` en één `60_heli_romp_SB` vormen één helikopter;
@@ -64,14 +64,15 @@ De grootste delen blijven binnen 246 mm per as, met ten minste 5 mm
 nominale marge tot de bouwvolumerand. Controleer in de slicer daarnaast
 **brim, support, eventuele kalibratiezone en plaatindeling**. Print de grote
 rompdelen afzonderlijk. Er is geen automatische AMS-kleurtoewijzing: de
-onderdelen zijn per kleur te printen; ramen, scheepsnaam, waterlijn en
-helidekmarkeringen schilderen of als eigen decal aanbrengen.
+onderdelen zijn per kleur te printen; ramen, scheepsnaam en waterlijn schilderen; de
+helidekmarkeringen als losse gele cirkel en witte H inlijmen. De romp heeft
+geen extra snede op de waterlijn: de rode onderzijde in de viewer is de
+bedoelde schilderafwerking.
 
-De uitgevoerde proefslicing met deze startprofielen schat de **volledige
-printlijst van 146 exemplaren** op circa **2,77 kg ASA en 114 uur**. Dat
-is inclusief de berekende steunen/brims, proefstukken en voorraadstroken,
-met één exemplaar per plaat; samen indelen kan tijd besparen. Werkelijke
-extrusie, mislukkingen en filamentkalibratie kunnen hiervan afwijken.
+De actuele slicerschatting voor massa en tijd staat in
+[`slicercontrole.json`](slicercontrole.json), inclusief steunen en brims.
+De lijst bevat meer details dan p1; groepeer kleine delen per kleur in de
+slicer om platen en opstarttijd te besparen.
 
 ## Romp en toegang
 
@@ -113,25 +114,31 @@ transparante folie binnenin. De hangarwanden en het dak zijn aparte delen,
 zodat je de binnenkant kunt schilderen en de helikopters plaatsen.
 
 De schoorsteen is hol. De zwarte kap en de mast zijn losse delen. De
-vakwerkmast is als **vlakke, versterkte plaat** uitgevoerd; lijm de drie
-losse ra’s eraan. De andere masten en davits zijn verdikt voor FDM.
-De 24 relingstroken van 100 mm zijn losse voorraadstukken om bij de
-proefmontage in te korten; niet allemaal onverkort op het schip lijmen.
-Messing draad kan geprinte relingen en antennes vervangen.
+vakwerkmast bestaat uit **vier taps toelopende vakwerkvlakken**. Verlijm die
+tot een ruimtelijke mast, breng de masttop aan en lijm de drie losse ra’s
+op de dwarsbanden. De radarplatforms, scanners en mantel zijn aparte delen.
+De andere masten en davits zijn verdikt voor FDM.
+De relingen `70_*` zijn op maat gemaakt en staan op hun montageplek in de
+CAD-assemblage. Twee rechte stroken blijven als reserve beschikbaar.
+Messing draad kan de kleinste geprinte antennes vervangen.
 
 Sloepen, platforms, davits, kranen, banken en lichtkap zijn losse kleuronderdelen.
-Kleine fotodetails zoals touwen, dunne antennes, veiligheidsnetten, zodiacs,
-ankerkettingen en tekst zijn geen losse printdelen in p1; voeg die met
-modelbouwmateriaal toe. De fotoverhoudingen zijn aangehouden, maar deze
-CAD-versie is geen één-op-één export van ieder visueel browserdetail.
+P2 bevat ook de vijf helideknetten, zodiacs, RIB-davits, ramen, vlotkokers,
+reddingsboeien, achtertank, vlag, windsok, dekbeslag en naamplaten. Zie
+[`../cad/DETAILS.md`](../cad/DETAILS.md) voor de volledige vergelijking.
+Touwen, verstaging, kettingen en verfafwerking blijven aanvullend
+modelbouwwerk; de fotoverhoudingen zijn schattingen uit de vormstudie.
 
 ## Twee helikopters
 
 1. Verlijm de twee gele romphelften vlak op elkaar; beide heli's zijn gelijk.
-2. Schilder de cockpitramen naar het voorbeeld in [`../index.html`](../index.html).
+2. Lijm de zes typen `64_heli_ruit_*` in de bijbehorende uitsparingen.
+   Er zijn twee exemplaren per type. De nominale randspeling is 0,12–0,15 mm;
+   print eerst één helft en één ruit als pasproef. Helder folie op basis van
+   de ruitvormen is een alternatief.
 3. Pas het aparte landingsgestel en verlijm de dwarsstukken aan de onderzijde.
 4. Per heli zijn er drie losse hoofdrotorbladen, onder 120° op de naaf.
-   Voor de hangar laat je ze **los** en berg je ze apart op. Er is geen
+   Voor de hangar laat je ze **los** en leg je drie bladen per wandrek. Er is geen
    vouwmechanisme; alle blad- en staartrotorverbindingen zijn lijmverbindingen.
 5. Plaats de staartrotor aan de zijkant van de staart. Deze kan in de hangar
    aan de binnenzijde worden gedraaid of apart gelegd voor meer vrije ruimte.

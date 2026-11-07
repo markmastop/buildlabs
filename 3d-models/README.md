@@ -16,7 +16,7 @@ Mappen die nog niet nodig zijn, mogen ontbreken.
 
 | Project | Status |
 |---|---|
-| [ortelius](ortelius/index.html) | CAD- en printprototype p1 met RC-houders en twee helikopters |
+| [ortelius](ortelius/index.html) | Gedetailleerd CAD- en printprototype p2, met relingen, dekuitrusting en helikopters |
 | [smit-lloyd-109](smit-lloyd-109/index.html) | Printbaar prototype (v17) |
 | [porsche-911-targa-1971](porsche-911-targa-1971/index.html) | Visueel ontwerpvoorstel; passende 3D-uitwerking volgt |
 | [porsche-911-f-model-dash-subwoofer](porsche-911-f-model-dash-subwoofer/index.html) | Printklaar (v2.5.1) |

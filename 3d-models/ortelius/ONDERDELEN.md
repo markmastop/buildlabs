@@ -2,7 +2,7 @@
 
 Dit is de eerdere, **niet bevestigde selectielijst** voor de RC-hardware.
 Prijzen en modelkeuzes hieronder zijn niet opnieuw geverifieerd; gebruik
-ze niet als actuele bestellijst. CAD p1 bevat generieke houders en een
+ze niet als actuele bestellijst. CAD p2 bevat generieke houders en een
 Ø4 mm roerbladboring. Pas die aan de daadwerkelijk gekozen hardware aan.
 
 ## Aandrijving

@@ -16,7 +16,7 @@ onderdeel,aantal,groep,X_mm,Y_mm,Z_mm,volledig_solide_ASA_g,opmerking
 06_bakverschansing,1,bovenbouw,194.0,147.556,13.5,9.67,"Buitenrand op bestaande romp; top vereenvoudigd, geen fotometrisch exacte uitwaaiering."
 10_accommodatie_1,1,bovenbouw,180.0,164.0,27.0,24.3,Raamgaten; donker schilderen of transparante folie achterlijmen.
 10_accommodatie_2,1,bovenbouw,180.0,164.0,27.0,17.7,Raamgaten; donker schilderen of transparante folie achterlijmen.
-10_accommodatie_3,1,bovenbouw,179.0,164.0,27.0,22.73,Raamgaten; donker schilderen of transparante folie achterlijmen.
+10_accommodatie_3,1,bovenbouw,179.0,164.0,27.0,22.6,Raamgaten; donker schilderen of transparante folie achterlijmen.
 11_dak_lage_accommodatie,1,dek,114.0,160.0,2.0,39.01,
 12_sloependek_1,1,dek,148.0,165.0,2.9,75.75,
 12_sloependek_2,1,dek,156.0,165.0,2.9,77.93,
@@ -32,26 +32,47 @@ onderdeel,aantal,groep,X_mm,Y_mm,Z_mm,volledig_solide_ASA_g,opmerking
 21_kolom_onder,8,bovenbouw,2.4,2.5,29.0,1.49,
 22_kolom_helidek,8,bovenbouw,2.4,2.5,23.5,1.21,
 23_achterkajuit,1,bovenbouw,137.0,146.0,25.0,22.98,
-24_helidek,1,dek,175.0,178.0,5.0,164.38,"H en gele cirkel schilderen; vloer hangar ligt op 168,1 mm."
+24_helidek,1,dek,175.0,178.0,5.0,161.76,"Met uitsparingen voor gele cirkel en witte H; inzetstukken circa 0,15 mm lijmspeling."
+24_helidek_cirkel,1,dek,112.0,111.965,0.9,1.77,
+24_helidek_H,1,dek,37.0,32.0,0.9,0.46,
 25_hangarwanden,1,bovenbouw,124.2,160.0,38.1,42.55,Dunne ramenfolie niet nodig. Schilder binnenwanden vóór dakmontage.
 26_hangarvloer,1,dek,120.6,155.3,2.1,42.08,
 27_hangardak,1,dek,197.0,164.0,2.0,63.75,
 28_hangar_voorhuis,1,bovenbouw,67.0,118.0,38.1,23.33,
 30_schoorsteen,1,bovenbouw,72.0,56.0,45.0,21.93,
 31_schoorsteenkap,1,bovenbouw,94.0,59.0,9.0,37.18,
-32_vakwerkmast,1,bovenbouw,15.0,119.0,3.0,2.42,"Vlak versterkt vakwerk 3 mm dik; plat printen, losse ra’s verlijmen."
-32_ra_1,1,bovenbouw,3.0,54.0,2.0,0.35,Losse ra tegen vlakke vakwerkmast verlijmen.
-32_ra_2,1,bovenbouw,3.0,48.0,2.0,0.31,Losse ra tegen vlakke vakwerkmast verlijmen.
-32_ra_3,1,bovenbouw,3.0,38.0,2.0,0.24,Losse ra tegen vlakke vakwerkmast verlijmen.
-33_radarmast,1,bovenbouw,32.0,167.9,3.599,2.12,Steunmateriaal nodig bij ra’s; dunne antennes als messing draad toevoegen.
+32_vakwerk_voor,1,bovenbouw,15.0,99.164,1.2,0.54,"Vier taps toelopende vlakken tot een ruimtelijke mast verlijmen; breedte onder 15, boven 3,6 mm."
+32_vakwerk_SB,1,bovenbouw,98.646,15.0,12.573,0.54,"Vier taps toelopende vlakken tot een ruimtelijke mast verlijmen; breedte onder 15, boven 3,6 mm."
+32_vakwerk_achter,1,bovenbouw,15.0,99.164,1.2,0.54,"Vier taps toelopende vlakken tot een ruimtelijke mast verlijmen; breedte onder 15, boven 3,6 mm."
+32_vakwerk_BB,1,bovenbouw,98.646,15.0,12.573,0.54,"Vier taps toelopende vlakken tot een ruimtelijke mast verlijmen; breedte onder 15, boven 3,6 mm."
+32_masttop,1,bovenbouw,6.0,20.6,6.0,0.09,
+32_ra_1,1,bovenbouw,2.0,54.0,1.6,0.18,Lijmen op de dwarsbanden van de vier vakwerkvlakken.
+32_ra_2,1,bovenbouw,2.0,48.0,1.6,0.16,Lijmen op de dwarsbanden van de vier vakwerkvlakken.
+32_ra_3,1,bovenbouw,2.0,38.0,1.6,0.13,Lijmen op de dwarsbanden van de vier vakwerkvlakken.
+33_radarmast,1,bovenbouw,8.4,136.0,8.397,6.72,
+33_mastmantel,1,bovenbouw,23.0,81.0,15.0,17.55,
+33_radarplatform_1,1,bovenbouw,32.0,66.0,1.5,3.29,
+33_radarvoet_1,1,bovenbouw,7.0,7.0,5.5,0.29,
+33_radarscanner_1,1,bovenbouw,5.0,60.0,5.7,0.8,
+33_radarplatform_2,1,bovenbouw,24.0,46.0,1.5,1.67,
+33_radarvoet_2,1,bovenbouw,7.0,7.0,5.5,0.29,
+33_radarscanner_2,1,bovenbouw,5.0,42.0,5.7,0.57,
+33_mastdwarsarm,1,bovenbouw,5.0,72.0,3.0,0.26,
+35_brugvoormast,1,bovenbouw,12.0,66.0,44.0,1.29,
 34_voormast,1,bovenbouw,12.0,133.0,2.599,0.78,
 39_sloepenplatform,2,bovenbouw,94.0,32.0,3.0,19.31,
 40_reddingsboot,2,bovenbouw,85.0,28.4,26.0,88.1,Ramen zwart schilderen; ondersteunt romp buitenzijde.
-41_davit,4,bovenbouw,26.188,40.663,8.0,3.17,
-42_dekkraan,2,bovenbouw,43.792,42.504,10.0,2.4,
+41_davit_BB,2,bovenbouw,84.446,20.393,16.3,1.49,"Dubbele geknikte armen met dwarsverbindingen, volgens vormstudie v3."
+41_hydrauliek_BB,2,bovenbouw,27.984,14.901,8.058,0.23,
+42_dekkraan_BB,1,bovenbouw,69.433,30.019,15.485,2.86,
+42_kraancilinder_BB,1,bovenbouw,18.921,11.246,4.902,0.09,
+41_davit_SB,2,bovenbouw,84.446,20.393,16.3,1.49,"Dubbele geknikte armen met dwarsverbindingen, volgens vormstudie v3."
+41_hydrauliek_SB,2,bovenbouw,27.984,14.901,8.058,0.23,
+42_dekkraan_SB,1,bovenbouw,69.433,30.019,15.485,2.86,
+42_kraancilinder_SB,1,bovenbouw,18.921,11.246,4.902,0.09,
 43_lichtkap,1,bovenbouw,58.0,60.0,10.3,26.82,Glasvlakken schilderen; solide detail om vlakke browserruiten printbaar te maken.
-44_bank,2,bovenbouw,38.0,11.0,17.0,3.86,
-45_reling_100mm,24,bovenbouw,101.4,12.2,1.2,13.47,24 losse stroken à 100 mm; buigen/inkorten bij proefmontage. Geen dragend onderdeel.
+44_bank,2,bovenbouw,38.0,11.0,17.0,3.61,
+45_reling_100mm,2,bovenbouw,101.4,12.2,1.2,1.12,Twee reservestroken; de juiste relingen staan als eigen delen in de CAD-assemblage.
 50_accubak_2S,1,RC,160.0,68.0,12.0,46.31,"Binnenruimte 154 × 62 mm; klittenband door sleuven, montagevoet op maat uitvullen."
 51_motorplaat_verstelbaar,1,RC,116.0,78.0,4.0,36.4,"Voor metalen motorbeugel; M3-sleuven. Motortype, ashoogte en uitlijning eerst vastleggen."
 52_servoplaat,1,RC,56.0,36.0,3.0,3.66,"Proefmaat 41 × 21 mm opening, M3-hartafstand 48 mm; aanpassen aan werkelijke servo."
@@ -59,11 +80,136 @@ onderdeel,aantal,groep,X_mm,Y_mm,Z_mm,volledig_solide_ASA_g,opmerking
 54_ballastbak,2,RC,55.0,45.0,12.0,22.9,
 55_boegschroef_proeftunnel,1,RC,23.0,22.993,125.0,13.55,"Alleen maattest ID20/OD23 ×125; geen functionele boegschroef, geen gaten in romp."
 56_roerblad,1,RC,24.0,40.0,7.0,6.6,Metalen roeras Ø4 met epoxy verlijmen; koker/lager en afdichting uit handelsdelen.
-60_heli_romp_SB,2,heli,109.3,25.092,12.65,15.17,"Twee exemplaren per zijde; middenvlak op bed, vlak verlijmen. Ramen schilderen volgens foto/detailviewer."
-60_heli_romp_BB,2,heli,109.3,25.092,12.65,15.18,"Twee exemplaren per zijde; middenvlak op bed, vlak verlijmen. Ramen schilderen volgens foto/detailviewer."
+64_heli_ruit_SB_1,2,heli,11.76,9.359,8.985,0.22,"Gebogen inzetruit, circa 1 mm dik; rondom 0,12–0,15 mm lijmspeling. Ook als schildermal te gebruiken."
+64_heli_ruit_SB_2,2,heli,11.26,5.759,7.158,0.19,"Gebogen inzetruit, circa 1 mm dik; rondom 0,12–0,15 mm lijmspeling. Ook als schildermal te gebruiken."
+64_heli_ruit_SB_3,2,heli,10.06,5.413,6.323,0.14,"Gebogen inzetruit, circa 1 mm dik; rondom 0,12–0,15 mm lijmspeling. Ook als schildermal te gebruiken."
+64_heli_ruit_BB_1,2,heli,11.76,9.359,8.985,0.22,"Gebogen inzetruit, circa 1 mm dik; rondom 0,12–0,15 mm lijmspeling. Ook als schildermal te gebruiken."
+64_heli_ruit_BB_2,2,heli,11.26,5.759,7.158,0.19,"Gebogen inzetruit, circa 1 mm dik; rondom 0,12–0,15 mm lijmspeling. Ook als schildermal te gebruiken."
+64_heli_ruit_BB_3,2,heli,10.06,5.413,6.323,0.14,"Gebogen inzetruit, circa 1 mm dik; rondom 0,12–0,15 mm lijmspeling. Ook als schildermal te gebruiken."
+60_heli_romp_SB,2,heli,109.3,25.0,12.65,14.02,"Twee exemplaren per zijde; middenvlak op bed, vlak verlijmen. Losse ruiten 64 in de uitgespaarde cockpit lijmen."
+60_heli_romp_BB,2,heli,109.3,25.0,12.65,14.03,"Twee exemplaren per zijde; middenvlak op bed, vlak verlijmen. Losse ruiten 64 in de uitgespaarde cockpit lijmen."
 61_heli_landingsgestel,2,heli,49.862,24.2,9.9,0.83,"0,8–0,9 mm radius; geprint vanaf rails met steun onder dwarsbalkjes."
 62_heli_rotorblad,6,heli,51.0,2.3,1.2,0.9,"Drie per heli, lijmen op hub op 120 graden; voor hangar loslaten. 1,2 mm dik voor FDM."
 63_heli_staartrotor,2,heli,18.6,18.6,1.2,0.11,
 00_pasproef_A,1,proef,40.0,8.229,10.0,1.44,Eerst printen. Controleer las en lijmspeling vóór de vier grote rompdelen.
 00_pasproef_B,1,proef,40.0,8.229,10.0,1.44,Eerst printen. Controleer las en lijmspeling vóór de vier grote rompdelen.
 00_pasproef_las,1,proef,40.0,8.461,16.0,1.88,
+19_ruitstrook_laag_1_BB,1,bovenbouw,178.3,80.3,6.5,1.43,Inzet achter accommodatievensters; transparant printen of als snijmal voor folie gebruiken.
+19_ruitstrook_laag_1_SB,1,bovenbouw,178.3,80.3,6.5,1.43,Inzet achter accommodatievensters; transparant printen of als snijmal voor folie gebruiken.
+19_ruitstrook_laag_2_BB,1,bovenbouw,180.0,0.8,6.5,1.0,Inzet achter accommodatievensters; transparant printen of als snijmal voor folie gebruiken.
+19_ruitstrook_laag_2_SB,1,bovenbouw,180.0,0.8,6.5,1.0,Inzet achter accommodatievensters; transparant printen of als snijmal voor folie gebruiken.
+19_ruitstrook_laag_3_BB,1,bovenbouw,177.3,80.3,6.5,1.34,Inzet achter accommodatievensters; transparant printen of als snijmal voor folie gebruiken.
+19_ruitstrook_laag_3_SB,1,bovenbouw,177.3,80.3,6.5,1.34,Inzet achter accommodatievensters; transparant printen of als snijmal voor folie gebruiken.
+19_ruitstrook_binnenhuis,1,bovenbouw,184.6,89.6,11.2,5.18,
+19_ruitstrook_voorhuis,1,bovenbouw,89.6,130.6,7.2,2.52,
+19_brugbeglazing_1,1,bovenbouw,52.5,116.6,12.0,2.23,"Twee passende brug-inzetstukken; circa 0,2 mm vrij van het tussenschot. Ook als foliesjabloon te gebruiken."
+19_brugbeglazing_2,1,bovenbouw,51.6,156.6,12.0,2.97,"Twee passende brug-inzetstukken; circa 0,2 mm vrij van het tussenschot. Ook als foliesjabloon te gebruiken."
+70_reling_laag_achter_BB_1,1,bovenbouw,133.4,10.1,1.4,0.8,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_laag_achter_BB_2,1,bovenbouw,133.4,10.1,1.4,0.8,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_laag_voor_BB_1,1,bovenbouw,121.4,10.1,1.4,0.73,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_laag_voor_BB_2,1,bovenbouw,117.4,10.1,1.4,0.72,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_galerijdak_BB_1,1,bovenbouw,113.4,10.1,1.4,0.7,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_galerijdak_BB_2,1,bovenbouw,113.4,10.1,1.4,0.7,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_laag_achter_SB_1,1,bovenbouw,133.4,10.1,1.4,0.8,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_laag_achter_SB_2,1,bovenbouw,133.4,10.1,1.4,0.8,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_laag_voor_SB_1,1,bovenbouw,121.4,10.1,1.4,0.73,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_laag_voor_SB_2,1,bovenbouw,117.4,10.1,1.4,0.72,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_galerijdak_SB_1,1,bovenbouw,113.4,10.1,1.4,0.7,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_galerijdak_SB_2,1,bovenbouw,113.4,10.1,1.4,0.7,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_kompasdek_1,1,bovenbouw,57.4,9.6,1.4,0.36,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_kompasdek_2,1,bovenbouw,9.6,21.4,1.4,0.14,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_kompasdek_3,1,bovenbouw,52.4,9.6,1.4,0.32,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_kompasdek_4,1,bovenbouw,12.764,12.764,1.98,0.07,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_kompasdek_5,1,bovenbouw,9.6,152.4,1.4,0.91,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_kompasdek_6,1,bovenbouw,12.764,12.764,1.98,0.07,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_kompasdek_7,1,bovenbouw,52.4,9.6,1.4,0.32,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_kompasdek_8,1,bovenbouw,9.6,21.4,1.4,0.14,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_kompasdek_9,1,bovenbouw,57.4,9.6,1.4,0.36,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_kompasdek_10,1,bovenbouw,9.6,122.4,1.4,0.73,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_hangardak_1,1,bovenbouw,126.4,9.6,1.4,0.76,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_hangardak_2,1,bovenbouw,9.6,19.4,1.4,0.13,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_hangardak_3,1,bovenbouw,70.9,9.6,1.4,0.43,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_hangardak_4,1,bovenbouw,9.6,126.4,1.4,0.76,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_hangardak_5,1,bovenbouw,70.9,9.6,1.4,0.43,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_hangardak_6,1,bovenbouw,9.6,19.4,1.4,0.13,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_hangardak_7,1,bovenbouw,126.4,9.6,1.4,0.76,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_hangardak_8,1,bovenbouw,9.6,162.4,1.4,0.97,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_radar1_1,1,bovenbouw,31.4,6.1,1.4,0.2,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_radar1_2,1,bovenbouw,6.1,67.4,1.4,0.42,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_radar1_3,1,bovenbouw,31.4,6.1,1.4,0.2,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_radar1_4,1,bovenbouw,6.1,67.4,1.4,0.42,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_radar2_1,1,bovenbouw,23.4,6.1,1.4,0.15,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_radar2_2,1,bovenbouw,6.1,47.4,1.4,0.3,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_radar2_3,1,bovenbouw,23.4,6.1,1.4,0.15,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+70_reling_radar2_4,1,bovenbouw,6.1,47.4,1.4,0.3,"Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm."
+71_trap_galerij_BB,1,bovenbouw,36.106,27.8,10.4,0.66,Treden en leuningen in één deel. Boomsteunen controleren.
+71_trap_hangar_BB,1,bovenbouw,48.055,31.8,10.4,0.88,Treden en leuningen in één deel. Boomsteunen controleren.
+71_trap_brug_BB,1,bovenbouw,41.943,38.8,10.4,0.83,Treden en leuningen in één deel. Boomsteunen controleren.
+71_trap_helidek_BB,1,bovenbouw,37.542,33.8,10.4,0.74,Treden en leuningen in één deel. Boomsteunen controleren.
+71_trap_galerij_SB,1,bovenbouw,36.106,27.8,10.4,0.66,Treden en leuningen in één deel. Boomsteunen controleren.
+71_trap_hangar_SB,1,bovenbouw,48.055,31.8,10.4,0.88,Treden en leuningen in één deel. Boomsteunen controleren.
+71_trap_brug_SB,1,bovenbouw,41.943,38.8,10.4,0.83,Treden en leuningen in één deel. Boomsteunen controleren.
+71_trap_helidek_SB,1,bovenbouw,37.542,33.8,10.4,0.74,Treden en leuningen in één deel. Boomsteunen controleren.
+72_helideknet_1,1,bovenbouw,148.2,11.731,1.447,1.12,"Roosterframe 1,2 mm, vlak voorgedraaid. Aan rand helidek verlijmen."
+72_helideknet_5,1,bovenbouw,148.2,11.731,1.447,1.12,"Roosterframe 1,2 mm, vlak voorgedraaid. Aan rand helidek verlijmen."
+72_helideknet_6,1,bovenbouw,26.295,26.295,1.447,0.22,"Roosterframe 1,2 mm, vlak voorgedraaid. Aan rand helidek verlijmen."
+72_helideknet_7,1,bovenbouw,11.731,143.2,1.447,1.08,"Roosterframe 1,2 mm, vlak voorgedraaid. Aan rand helidek verlijmen."
+72_helideknet_8,1,bovenbouw,26.295,26.295,1.447,0.22,"Roosterframe 1,2 mm, vlak voorgedraaid. Aan rand helidek verlijmen."
+73_achterverschansing,1,bovenbouw,173.0,174.0,11.2,8.36,
+73_werkdekverschansing,1,bovenbouw,241.639,172.692,12.0,11.07,
+73_werkdekverschansing_BB_voor,1,bovenbouw,94.0,1.6,12.0,1.93,
+74_achtertank,1,bovenbouw,14.995,16.0,64.0,12.18,
+75_hangarspant_1,1,bovenbouw,36.4,155.3,1.6,0.74,
+75_hangarspant_2,1,bovenbouw,36.4,155.3,1.6,0.74,
+75_hangarspant_3,1,bovenbouw,36.4,155.3,1.6,0.74,
+75_hangarspant_4,1,bovenbouw,36.4,155.3,1.6,0.74,
+75_hangarkast,2,bovenbouw,13.0,14.35,17.0,6.51,
+75_werkbok,1,bovenbouw,11.0,13.0,14.7,1.34,
+75_rotorbladenrek,2,bovenbouw,58.0,8.0,6.0,3.03,
+75_dakkast,1,bovenbouw,14.0,16.0,10.0,2.4,
+76_sloep_raamstrook_BB,2,bovenbouw,47.5,1.868,3.213,0.18,
+76_sloep_raamstrook_SB,2,bovenbouw,47.5,1.868,3.213,0.18,
+76_sloep_dakluik,2,bovenbouw,8.6,7.0,4.2,0.51,
+77_lichtkap_roeden,1,bovenbouw,56.7,59.2,8.1,0.61,
+78_satcom_1,1,bovenbouw,21.0,20.987,26.85,5.43,
+78_satcom_2,1,bovenbouw,16.995,16.988,23.45,3.03,
+78_satcom_3,1,bovenbouw,10.997,11.0,18.35,1.07,
+78_satcom_4,1,bovenbouw,10.997,11.0,18.35,1.07,
+78_brugdomes,1,bovenbouw,12.0,20.992,10.0,1.12,
+78_GPS_1,1,bovenbouw,5.0,4.998,11.0,0.11,
+78_GPS_2,1,bovenbouw,5.0,4.998,11.0,0.11,
+78_GPS_3,1,bovenbouw,5.0,4.998,11.0,0.11,
+78_antenne_1,1,bovenbouw,1.3,55.0,1.3,0.08,
+78_antenne_2,1,bovenbouw,1.3,46.0,1.3,0.07,
+78_antenne_3,1,bovenbouw,1.3,34.0,1.3,0.05,
+78_antenne_4,1,bovenbouw,1.3,34.0,1.3,0.05,
+78_antenne_5,1,bovenbouw,1.3,30.0,1.3,0.04,
+78_zoeklicht,2,bovenbouw,7.0,7.198,9.6,0.72,
+79_schoorsteen_achtervlak,1,bovenbouw,1.2,47.0,40.0,2.41,
+79_uitlaat,3,bovenbouw,12.551,7.598,14.86,1.7,
+80_zodiac,6,bovenbouw,46.856,17.8,11.0,16.01,
+80_reddingsrib,2,bovenbouw,46.856,17.8,11.0,5.34,
+80_RIB_platform_BB,1,bovenbouw,52.0,20.5,1.8,2.05,
+80_RIB_davit_BB,1,bovenbouw,32.217,39.516,7.784,0.76,
+80_RIB_platform_SB,1,bovenbouw,52.0,20.5,1.8,2.05,
+80_RIB_davit_SB,1,bovenbouw,32.217,39.516,7.784,0.76,
+81_reddingsvlot,4,bovenbouw,9.597,13.0,10.6,4.75,
+81_reddingsboei,6,bovenbouw,10.6,10.597,2.199,0.64,
+82_windsokmast,1,bovenbouw,1.6,40.0,1.6,0.09,
+82_windsok,1,bovenbouw,16.0,5.998,6.0,0.25,
+82_vlaggenstok,1,bovenbouw,1.6,35.0,1.6,0.08,
+82_vlagstrook_1,1,bovenbouw,24.0,5.333,0.8,0.11,
+82_vlagstrook_2,1,bovenbouw,24.0,5.333,0.8,0.11,
+82_vlagstrook_3,1,bovenbouw,24.0,5.333,0.8,0.11,
+83_ankerlier,2,bovenbouw,21.5,16.0,12.7,3.88,
+83_kettingschijf,2,bovenbouw,10.997,11.0,2.2,0.45,
+83_bolder,4,bovenbouw,14.0,6.0,7.2,1.21,
+83_luchtkoker,4,bovenbouw,8.4,8.397,10.0,1.0,
+83_bakluik,1,bovenbouw,30.0,32.0,6.0,6.16,
+84_patrijspoort,50,bovenbouw,3.399,3.4,0.8,0.39,Optionele gesloten opzetplaatjes; schilderen kan ook. Geen gaten onder de waterlijn maken.
+85_anker_BB,1,bovenbouw,12.0,17.0,3.0,0.28,
+85_anker_SB,1,bovenbouw,12.0,17.0,3.0,0.28,
+85_valreep_BB,1,bovenbouw,64.8,53.587,9.8,1.36,
+85_valreep_SB_gestuwd,1,bovenbouw,106.0,6.2,1.2,0.46,
+86_naamplaat_SB,1,bovenbouw,40.0,8.5,2.0,0.31,Gegraveerde scheepsnaam; letters donker inwassen. Twee steunpootjes op het kompasdek.
+86_naamplaat_BB,1,bovenbouw,40.0,8.5,2.0,0.31,Gegraveerde scheepsnaam; letters donker inwassen. Twee steunpootjes op het kompasdek.
