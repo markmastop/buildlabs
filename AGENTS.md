@@ -9,7 +9,8 @@ Deze afspraken gelden voor de hele repository.
   mapnamen.
 - Elk project heeft een `README.md` met: wat het is, de status, belangrijkste
   maten of keuzes, de bestanden en de volgende stappen.
-- Voeg een nieuw project ook toe aan de tabel in de hoofd-`README.md`.
+- Voeg een nieuw project ook toe aan de tabel in de hoofd-`README.md` en als
+  kaart aan de startpagina `index.html` in de root (GitHub Pages).
 - Schrijf documentatie en commitberichten in het Nederlands.
 
 ## 3D-modellen
