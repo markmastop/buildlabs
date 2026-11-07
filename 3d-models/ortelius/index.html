@@ -477,8 +477,6 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
       var x = 80.5, y = 13.1, slope = (hwAt(x - 3, y) - hwAt(x + 3, y)) / 6;
       var nm = new THREE.Mesh(new THREE.PlaneGeometry(6.4, 1.2), new THREE.MeshBasicMaterial({ map: textTex([['ORTELIUS', 96, 55]], 512, 110, '#ffffff'), transparent: true }));
       nm.position.set(x, y, s * (hwAt(x, y) + 0.05)); nm.rotation.y = (s < 0 ? Math.PI : 0) + s * slope; ship.add(nm);
-      var st = new THREE.Mesh(new THREE.PlaneGeometry(7, 1.48), new THREE.MeshBasicMaterial({ map: textTex([['ORTELIUS', 100, 55]], 512, 110, '#ffffff'), transparent: true }));
-      st.position.set(8.5, 10.0, s * (hwAt(8.5, 13.18) + 0.05)); if (s < 0) st.rotation.y = Math.PI; ship.add(st);
     });
     var tr = new THREE.Mesh(new THREE.PlaneGeometry(8, 2.8), new THREE.MeshBasicMaterial({ map: textTex([['ORTELIUS', 110, 70], ['VLISSINGEN', 54, 165]], 512, 210, '#ffffff'), transparent: true }));
     tr.rotation.y = -Math.PI / 2; tr.position.set(-0.04, 8.5, 0); ship.add(tr);
@@ -554,11 +552,22 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
     });
   });
   // Hangar: van de helidekrand (x 17,5) tot voor de sloepen, ~3,8 cm hoog (zijfoto 07-11).
+  // Brede hangar (foto's 32/33): bijna scheepsbreed tot x 29,8, daarvoor smaller rond de schoorsteen.
+  // Grote deuropening met afgeschuinde bovenhoeken naar het helidek.
+  top.add(slab(plan(17.5,29.8,8.0,0.2,0.4), A1, HG, whiteMat));
   top.add(slab(plan(17.5,36.5,5.9,0.2,0.4), A1, HG, whiteMat));
-  top.add(box(0.06,HG-0.35-HD,9.4,darkMat,17.46,(HD+HG-0.35)/2,0));
-  [-4.85,4.85].forEach(function(z) { top.add(box(0.1,HG-0.3-HD,0.2,greyMat,17.41,(HD+HG-0.3)/2,z)); });
-  top.add(slab(plan(17.3,37,6.4,0.25,0.4), HG, HG+0.17, whiteMat));
-  top.add(slab(plan(17.5,36.8,6.2,0.25,0.4), HG+0.17, HG+0.2, greenMat));
+  (function () {
+    var dh = HG - 0.4 - HD, dw = 12.4, yc = HD + dh / 2;
+    top.add(box(0.06, dh, dw, darkMat, 17.46, yc, 0));
+    [-1, 1].forEach(function (z) {
+      var c = box(0.09, 1.1, 1.1, whiteMat, 17.44, HG - 0.4, z * dw / 2); c.rotation.x = Math.PI / 4; top.add(c);
+      top.add(box(0.12, dh + 0.1, 0.25, greyMat, 17.41, yc, z * (dw / 2 + 0.1)));
+    });
+    top.add(box(0.12, 0.25, dw + 0.4, greyMat, 17.41, HG - 0.33, 0));
+  })();
+  var hangarDeck = [[17.3,-8.2],[30.0,-8.2],[30.0,-6.4],[37.0,-6.4],[37.0,6.4],[30.0,6.4],[30.0,8.2],[17.3,8.2]];
+  top.add(slab(hangarDeck, HG, HG+0.17, whiteMat));
+  top.add(slab(hangarDeck.map(function (p) { return [p[0] + (p[0] < 20 ? 0.15 : -0.15), p[1] - Math.sign(p[1]) * 0.15]; }), HG+0.17, HG+0.2, greenMat));
 
   // Helidek met afgeschuinde hoeken, randligger en open veiligheidsnetten.
   var heliPlan = plan(0.0,17.5,8.9,1.8,1.0);
@@ -608,9 +617,9 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
     rBlack.add(V(cx,y1,0),V(cx,37.4,0),0.045);
     var light = new THREE.Mesh(new THREE.SphereGeometry(0.12,8,6),lampMat);light.position.set(cx,37.4,0);fg.add(light);
   })();
-  var tarp = new THREE.MeshStandardMaterial({color:'#243d68',roughness:0.9});
+
   [-1,1].forEach(function(side) {
-    top.add(sidePanel([[19.6,HG+0.2],[25.2,HG+0.2],[25.2,HG+1.2],[20.4,HG+1.35]],3.2,tarp,side*2.35));
+    if (side < 0) top.add(box(1.4, 1.0, 1.6, whiteMat, 19.6, HG + 0.7, 0));
   });
 
   // ---------- Enclosed lifeboats on big orange A-frame davits ----------
@@ -809,8 +818,12 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
       [0.66, 0.33].forEach(function (f) { rods.add(V(a[0], y + h * f, a[1]), V(b[0], y + h * f, b[1]), 0.03); });
     }
   }
-  var promenadeRail=plan(0.6,17.3,8.35,1.6,0.4);promenadeRail.push(promenadeRail[0]);
-  railing(rTop,promenadeRail,MAIN+0.06,0.95);
+  // Dichte witte verschansing rond het promenadedek onder het helidek (foto's 30/32/33).
+  top.add(wallStrip([[17.5,-8.7],[1.85,-8.7],[0.2,-7.05],[0.2,7.05],[1.85,8.7],[17.5,8.7]], 9, MAIN - 0.02, function () { return 1.12; }, function () { return 0; }, 0.14, whiteMat));
+  // Grote witte tank dwarsscheeps tegen de spiegel, stuurboordzijde (foto 33).
+  var tank = new THREE.Mesh(new THREE.CylinderGeometry(0.75, 0.75, 6.4, 20), new THREE.MeshStandardMaterial({ color: '#dcdcd4', roughness: 0.6 }));
+  tank.rotation.x = Math.PI / 2; tank.position.set(1.4, MAIN + 0.85, 4.0); top.add(tank);
+  [1.3, 6.7].forEach(function (z) { top.add(box(0.9, 0.2, 0.25, greyMat, 1.4, MAIN + 0.1, z)); });
   [-1,1].forEach(function(side) {
     railing(rTop,[[17.8,side*8.0],[44.2,side*8.0]],A1,0.95);
     railing(rTop,[[45,side*8.0],[68.6,side*8.0]],A1+0.1,0.95);
@@ -818,7 +831,7 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
   });
   var compassRail=[[63.5,-6.05],[69.1,-6.05],[69.1,-8.05],[74.2,-8.05],[74.7,-7.55],[74.7,7.55],[74.2,8.05],[69.1,8.05],[69.1,6.05],[63.5,6.05],[63.5,-6.05]].map(function(p){return [p[0]+BDX,p[1]];});
   railing(rTop,compassRail,CD+BL+0.04,0.9);
-  var hangarRail=plan(17.6,36.8,6.15,0.25,0.4);hangarRail.push(hangarRail[0]);
+  var hangarRail=[[17.4,-8.05],[29.9,-8.05],[29.9,-6.25],[36.85,-6.25],[36.85,6.25],[29.9,6.25],[29.9,8.05],[17.4,8.05],[17.4,-8.05]];
   railing(rTop,hangarRail,HG+0.2,0.9);
 
   // stairs: aft deckhouse -> forward block roof, forward block -> bridge roof, helideck -> aft deckhouse
@@ -853,9 +866,9 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
     flag = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ map: new THREE.CanvasTexture(c), side: THREE.DoubleSide, roughness: 0.8 }));
     flag.position.set(1.28, HD + 2.9, 6.5); top.add(flag);
     flagBase = geo.attributes.position.array.slice();
-    rTop.add(V(14, HD, -7.6), V(14, HD + 5, -7.6), 0.06);
+    rTop.add(V(21.4, HG + 0.2, 0), V(21.4, HG + 4.2, 0), 0.06);
     var sock = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.3, 1.6, 10, 1, true), new THREE.MeshStandardMaterial({ color: '#e8452c', side: THREE.DoubleSide }));
-    sock.rotation.z = Math.PI / 2; sock.position.set(13.2, A1 + 4.9, -7.6); top.add(sock);
+    sock.rotation.z = Math.PI / 2; sock.position.set(20.6, HG + 4.1, 0); top.add(sock);
   })();
 
   [rShip, rShipDark, rLines, rShipWhite].forEach(function (r) { ship.add(r.build()); });

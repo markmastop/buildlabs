@@ -28,7 +28,8 @@ browsermodel berekende waterverplaatsing of stabiliteitscontrole.
 
 ## Fotocontrole en wijzigingen
 
-De 17 foto's staan lokaal in `images/ortelius-01.jpg` t/m `ortelius-17.jpg`.
+De foto's staan lokaal in `images/ortelius-01.jpg` t/m `ortelius-33.jpg`
+(30 = zuivere zijfoto, 32/33 = achteraanzichten, 31 = kleine luchtfoto).
 Ze zijn buiten Git gehouden; het browsermodel laadt ze niet. De foto's tonen
 verschillende kleurstellingen en uitrusting. De geometrie hieronder is een
 vormstudie op basis van die verzameling, geen vastgelegde historische toestand.
@@ -40,6 +41,7 @@ vormstudie op basis van die verzameling, geen vastgelegde historische toestand.
 | Zijfoto 07-11 (ronde 5) | Achterschip, schoorsteen en voorsteven | Schoorsteen 4,5 cm naar achteren met een naar achteren oplopende kap, de mast tegen het front en drie uitlaten op een rij. Hangar loopt van 17,5 tot 36,5 en is 3,9 cm hoog. Helidek ingekort tot 0–17,5. Dek 1 loopt door tot de hangar en dek 2 eindigt met een rechte achterwand op x 41,4. Sloepen en davits 1,8 lager. Voorsteven sterker hellend (waterlijn x 84,6, dek x 90); witte, bijna vlakke verschansing met verhaalgaten tot de punt op x 91; ankerkuil lager in de boeg |
 | Zijfoto 07-11 (ronde 6) | Bakverschansing, achterschip en valreep | Verschansing voor is nu één doorlopende wand precies op de dekrand die naar de punt toe naar buiten uitwaaiert, zonder losse blokken of naden. Achterschip: blauwe romp tot 11,9 met daarboven open poorten tot het dek en een teruggezette witte wand met ramen; de dekrand is blauw. Valreep aan bakboord uitgezet (x 13,8 → 19,9) met bordes en rode boei, aan stuurboord gestuwd. Boegschroefmerken met kruis voor en achter. Trap van het sloependek naar het hangardak teruggezet |
 | Luchtfoto 07-11 (klein) | Dekkleuren van boven | Kompasdek groen in plaats van grijs, zoals de overige dekken; verder bevestigt de foto de indeling van de bak, de brug met de radarmast achteraan en de sloepen |
+| 32, 33 (achteraanzichten) | Hangar, helidek en promenadedek | Hangar bijna scheepsbreed tot x 29,8 met een grote deuropening (12,4 breed, afgeschuinde bovenhoeken). Hangardak zonder blauwe dekzeilen: een witte kast en de windzakmast in het midden. Dichte witte verschansing rond het promenadedek onder het helidek, met een grote witte tank dwarsscheeps tegen de spiegel. Scheepsnaam alleen nog op de spiegel, niet op de zijkant |
 | 03, 07, 11, 15 | Getrapte spiegel en open achterdekken | Lagere achterromp en twee open niveaus met kolommen en witte randliggers |
 | 05, 14 | Helidek, hangaringang en veiligheidsnetten | Groter, afgeschuind helidek met open netstructuur en zichtbare hangaringang |
 | 06, 09, 14 | Schoorsteenkap, uitlaten, mast en davits | Schuine witte mantel, oplopende zwarte kap, drie mastarmen en geknikte sloepdavits |
@@ -64,7 +66,7 @@ boven het water (zoals op de zijfoto); aan stuurboord ligt hij gestuwd tegen de 
 | Hoger dekhuis (dek 2) | 41,4–69,8 | 16,6–19,3 | Smaller; rechte achterwand |
 | Brug | 64,1–69,6 stuurhuis, 58,5–64,3 dekhuis | 19,3–22,3 | Recht front, stuurhuis max. 16,0 breed, dekhuis 12,0 |
 | Kompasdek | 58,3–69,9 | 22,6 | Max. 16,5 voor, 12,4 achter; naambord ORTELIUS aan beide zijden |
-| Hangar | 17,5–36,5 | 16,6–20,5 | Max. 11,8; deur naar het helidek |
+| Hangar | 17,5–29,8 breed / tot 36,5 smal | 16,6–20,5 | Max. 16,0, rond de schoorsteen 11,8; deur 12,4 breed naar het helidek |
 | Helidek | 0–17,5 | 16,75 | Max. 17,8 zonder netten |
 | Schoorsteen | ca. 25,0–34,4 | 20,7–26,0 | Kap loopt naar achteren op, drie uitlaten |
 | Sloepen | middelpunt 34,6 | onderzijde 17,65 | Twee gesloten sloepen met geknikte davits |
