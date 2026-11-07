@@ -3,17 +3,23 @@
 RC-model van het Nederlandse poolexpeditieschip **Ortelius** van Oceanwide
 Expeditions (thuishaven Vlissingen), op schaal 1:100.
 
-**Status:** conceptmodel in de browser. Vorm en indeling zijn vergeleken met
-foto's; de printbare CAD-versie volgt.
+**Status:** vormstudie v2 in de browser. Brug, dekken, ramen, achterschip,
+schoorsteen en davits zijn verfijnd op basis van de 17 lokale foto’s.
+Eerst deze vorm beoordelen; de printbare CAD-versie volgt daarna.
 
-Open [`index.html`](index.html) voor het draaibare 3D-model met onderdelenlijst.
+Open [`index.html`](index.html) voor het draaibare 3D-model met zes vaste
+aanzichten en onderdelenlijst. Het model begint stil. Met **Water** uit
+zie je ook het geschatte onderwaterschip.
+
+![Werkelijke browserweergave van vormstudie v2](beelden/render.jpg)
 
 | Bestand | Inhoud |
 |---|---|
-| [`START-HIER.md`](START-HIER.md) | Overdracht en prompt voor een nieuwe chat, stappenplan |
+| [`START-HIER.md`](START-HIER.md) | Actuele status, werkvolgorde en overdracht |
 | [`ONTWERP.md`](ONTWERP.md) | Alle maten, assenstelsel, printopdeling, open punten, uitleg van `index.html` |
 | [`ONDERDELEN.md`](ONDERDELEN.md) | Afvinkbare onderdelenlijst |
-| [`referentie/`](referentie/README.md) | Foto's van het echte schip |
+| [`referentie/README.md`](referentie/README.md) | Uitleg bij de 17 lokale foto’s in `images/` (buiten Git) |
+| `beelden/render.jpg` | Browserweergave van de huidige vormstudie |
 | `cad/`, `print/` | CAD-bronnen en printbestanden (nog leeg) |
 
 ## Origineel
@@ -30,12 +36,13 @@ helikopterdek en hangar toegevoegd in 2007.
 
 ## Ontwerpkeuzes
 
-- Romp in vier delen van 22,5 cm, passend op de Bambu Lab P2S. Bovenbouw los
-  en met magneten afneembaar.
+- Voorstel: romp in vier delen van 22,75 cm voor de Bambu Lab P2S.
+  Deelvlakken en afneembare bovenbouw zijn nu alleen visueel getoond;
+  verbindingen en magneten moeten nog in CAD worden uitgewerkt.
 - Eén schroef en één roer zoals het origineel, plus een boegschroef voor
   wendbaarheid.
-- Kenmerken uit de foto's: hoge doorlopende romp met beplatingsvlakken, witte
-  hoekige schoorsteen met zwarte vakwerkmast, grote oranje A-davits, laag
+- Kenmerken uit de foto's: hoge voorromp met beplatingsvlakken en open achterdekken, witte
+  hoekige schoorsteen met zwarte vakwerkmast, grote oranje geknikte davits, laag
   helidek achter op kolommen, groene dekken.
 - Logo's van de rederij zijn bewust neutraal gehouden.
 
@@ -47,7 +54,11 @@ helikopterdek en hangar toegevoegd in 2007.
 
 ## Volgende stappen
 
-1. Romp en bovenbouw uitwerken in CAD met wanddikte, overlappende naden en
-   uitlijnpennen.
-2. Motorbok, stevenbuis, roerkoning en boegschroeftunnel inpassen.
-3. Proefprint van één rompdeel, waterdichtheid testen.
+1. Vormstudie v2 beoordelen vanuit zijaanzichten, boeg, achterschip en bovenaanzicht.
+2. Daarna romp en bovenbouw in CAD uitwerken met wanddikte, naden en uitlijning.
+3. Concreet gekozen RC-techniek inpassen en gewicht/stabiliteit berekenen.
+4. Proefprint en slicercontrole, daarna waterdichtheid en vaargedrag testen.
+
+De hoofdmaten komen uit de bronnen hierboven. Dekhoogtes, posities en
+onderwatervorm zijn fotogebaseerde schattingen; dit model is geen lijnenplan
+en nog geen gevalideerd print- of vaarmodel.

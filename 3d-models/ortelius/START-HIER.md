@@ -1,48 +1,41 @@
-# Start hier (nieuwe chat)
+# Start hier — Ortelius RC
 
-Dit bestand is het overdrachtsdocument. Begin een nieuwe chat met de tekst
-hieronder, zodat de assistent direct de juiste context heeft.
+## Actuele opdracht en status
 
-## Prompt om te plakken
+De bestemming is een printbaar RC-model op schaal 1:100 voor de Bambu Lab
+P2S met AMS. **De gebruiker wil eerst het verbeterde 3D-model zien.**
+Werk dus eerst aan de zichtbare vorm; CAD- en printbestanden volgen daarna.
 
-> Ik bouw een RC-model van het poolexpeditieschip Ortelius, schaal 1:100
-> (91 cm), om te 3D-printen op mijn Bambu Lab P2S met AMS. Alles staat in
-> `~/Github/buildlabs/3d-models/ortelius/`. Lees eerst `START-HIER.md`,
-> `ONTWERP.md` en `ONDERDELEN.md`, bekijk de foto's in `referentie/` en volg
-> `AGENTS.md` in de root van de repo. Vandaag wil ik: **[verfijnen /
-> CAD-romp maken / onderdelen bestellen / …]**.
+Vormstudie v2 staat in [`index.html`](index.html), met zes vaste aanzichten.
+Brug, raamverdeling, open achterdekken, helidek, schoorsteen en davits zijn
+verfijnd op basis van de lokale foto's. Het model is nog niet door de
+gebruiker beoordeeld. Er zijn nog geen printbare CAD-delen gemaakt.
 
-## Waar staan we
+## Bestanden om te lezen
 
-- **Fase:** conceptmodel klaar en vergeleken met foto's (`index.html`).
-- **Nog niet gedaan:** printbare CAD, wanddiktes, naden, motor- en
-  roerbevestiging, waterdichtheidstest.
-- **Gekozen:** schaal 1:100, romp in 4 delen van 22,5 cm, bovenbouw met
-  magneten afneembaar, één schroef + roer + boegschroef, ASA, 2S LiPo.
+1. [`README.md`](README.md): status, hoofdmaten, bronnen en voorbeeldbeeld.
+2. [`ONTWERP.md`](ONTWERP.md): fotokoppeling, huidige modelstations, aannames en bronfuncties.
+3. [`ONDERDELEN.md`](ONDERDELEN.md): voorlopige RC-onderdelenlijst, nog geen bevestigde inbouwmaten.
+4. [`referentie/README.md`](referentie/README.md): de foto's staan lokaal in `images/`, buiten Git.
 
-## Twee sporen
+## Uitgangspunten
 
-### 1. Ontwerp verfijnen (in `index.html`)
+- Romp 91 × 17,2 cm, getekende waterlijn 5,4 cm boven de kiel.
+- Centimeters in het browsermodel; toekomstige printbestanden in millimeters.
+- Eén schroef, roer en voorgenomen boegschroef; afneembare opbouw.
+- Bestaande materiaalrichting: ASA, epoxy aan de binnenkant, 2S LiPo.
+- Dekhoogtes, raampatronen en onderwatervorm zijn schattingen uit foto’s.
+- Voorlopige rompsneden op 22,75 / 45,5 / 68,25 cm; nog geen echte verbindingen.
+- Geen rederijlogo's. Referentiefoto's niet publiceren.
 
-1. Leg de foto's uit `referentie/` naast het model en noteer afwijkingen in
-   `ONTWERP.md` onder *Open punten*.
-2. Pas de maten aan in `index.html`; zie *Werken in index.html* in
-   `ONTWERP.md` voor waar alles staat.
-3. Controleer visueel (draaien, inzoomen, knoppen *Water* en *Bovenbouw eraf*).
-4. Werk `ONTWERP.md` bij als maten veranderen, en commit.
+## Volgorde hierna
 
-### 2. Gaan bouwen (CAD en printen)
+1. Vorm bekijken en eventuele correcties verwerken.
+2. Parametrische CAD maken: holle romp, verbindingen, toegang en RC-inbouw.
+3. Alle delen met marges controleren op het P2S-volume van 256 mm per as.
+4. Gewicht/stabiliteit berekenen; pasproef en slicercontrole uitvoeren.
+5. Waterdichtheid testen, elektronica inbouwen, ballasten en proefvaren.
 
-Volgorde die we hebben afgesproken:
-
-1. **Romp in CAD** (Fusion 360 of Onshape) op basis van de rompmaten in
-   `ONTWERP.md`. Wanddikte 2–2,4 mm (4 wanden ASA), overlappende naad van
-   10 mm met uitlijnpennen.
-2. **Inbouw ontwerpen:** motorbok, stevenbuis-ondersteuning, roerkoker,
-   boegschroeftunnel van 20 mm, accubak midscheeps.
-3. **Proefprint** van het achterste rompdeel (meest complex), epoxy binnenin,
-   waterdichtheid testen in bad.
-4. Overige rompdelen, dan bovenbouw in delen (zie *Printopdeling*).
-5. Elektronica inbouwen, ballasten tot waterlijn op 5,4 cm, eerste vaartest.
-
-Sla CAD-bestanden op in `cad/`, STL/3MF in `print/`.
+Bewaar CAD-bronnen in `cad/` en toekomstige STL/3MF in `print/`.
+Volg de werkafspraken in `../../AGENTS.md`; commit alleen wijzigingen van
+de eigen opdracht en push uitsluitend op verzoek.

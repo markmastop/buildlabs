@@ -1,15 +1,18 @@
 # Referentiefoto's
 
-Foto's van het echte schip, door Mark aangeleverd op 7 november 2026.
-Gebruik ze om het model te controleren; zie *Open punten* in `../ONTWERP.md`.
+De 17 foto's van het echte schip staan **lokaal in `../images/`**, als
+`ortelius-01.jpg` t/m `ortelius-17.jpg`. Die map blijft buiten Git. De eerder
+hier genoemde vijf beschrijvende bestandsnamen bestaan niet in deze map.
 
-| Bestand | Wat je ziet |
+| Foto's | Gebruik bij de vormstudie |
 |---|---|
-| `01-zijaanzicht-stuurboord.jpg` | Volledig zijaanzicht stuurboord: rompverhouding, opbouw, masten |
-| `02-bakboord-achter-driekwart.jpg` | Bakboord van achteren: helidek, schoorsteen, sloep, dekzeilen |
-| `03-luchtfoto-helidek-davits.jpg` | Van bovenaf: helidek, groene dekken, davits, schoorsteenkap |
-| `04-achtersteven-helikopter.jpg` | Achtersteven: spiegel, helidek-overstek, kolommen |
-| `05-boeg-stuurboord-driekwart.jpg` | Boeg stuurboord: brugfront, voormast, anker, verschansing |
+| 01, 02, 06, 08, 09, 17 | Zijprofiel en verhoudingen van romp, accommodatie, brug en sloepen |
+| 03, 07, 11, 15 | Achtersteven, open achterdekken en ondersteuning helidek |
+| 04, 13, 16 | Boeg, brugfront, verschansing en rompbeplating |
+| 05, 10, 12, 14 | Dekindeling, hangar, helidek, schoorsteen en veiligheidsnetten |
 
-Herkomst onbekend (verzameld van het web); alleen voor eigen gebruik als
-bouwreferentie, niet publiceren.
+De foto's zijn door Mark voor dit project verzameld. De afzonderlijke
+fotografen, data en gebruiksrechten zijn niet vastgesteld. Alleen lokaal
+als bouwreferentie gebruiken; niet publiceren. Sommige beelden tonen
+andere kleuren of uitrusting. De gekozen geometrie en onzekerheden staan
+in [`../ONTWERP.md`](../ONTWERP.md).

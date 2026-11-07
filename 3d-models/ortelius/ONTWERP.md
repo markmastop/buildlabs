@@ -1,120 +1,126 @@
-# Ontwerp Ortelius RC
+# Ontwerp Ortelius RC — vormstudie v2
 
-Alle maten in **centimeters op modelschaal 1:100** (1 cm model = 1 m echt).
+Deze versie is een **visueel browsermodel**, geen CAD-bron of printbestand.
+Eerst de vorm beoordelen; de constructieve RC-uitwerking volgt daarna.
+Alle geometrie staat zelfstandig in [`index.html`](index.html), met Three.js
+r128 via vastgepinde CDN-links. Er is geen buildstap.
 
-## Assenstelsel (gelijk aan `index.html`)
+## Maten en herkomst
 
-- **x:** lengte, 0 = achtersteven, boeg bij ca. 89.
-- **y:** hoogte, 0 = kiel. Waterlijn **WL = 5,4**.
-- **z:** breedte, 0 = midden, **+z = stuurboord**, −z = bakboord.
+Maten zijn in **centimeters op modelschaal 1:100**: 1 cm model = 1 m echt.
+De romplengte is nu ook geometrisch 91 cm, de maximale rompbreedte 17,2 cm
+en de getekende waterlijn ligt 5,4 cm boven de kiel. De eerdere romp eindigde
+bij circa 88,8 cm. Uitstekende uitrusting en veiligheidsnetten vallen buiten
+de rompmaat; 91 cm is dus geen gemeten totaalmaat van alle details.
 
-## Echt schip
+Bronnen van de gekozen hoofdmaten:
 
-| | Waarde | Bron |
+- [Oceanwide, kenmerken Ortelius](https://oceanwide-expeditions.com/blog/15-features-figures-and-facts-about-ortelius)
+- [MV Ortelius](https://en.wikipedia.org/wiki/MV_Ortelius)
+- [Oceanwide, plaats van het helidek](https://oceanwide-expeditions.com/faq/where-is-the-helicopter-deck-located)
+
+Deze bronnen waren al onderdeel van het project. In deze wijziging zijn de
+bestaande hoofdmaten aangehouden; er is geen scheepsbouwkundig lijnenplan
+beschikbaar. Dekhoogtes, ramen, posities van uitrusting en onderwatervorm
+zijn **schattingen uit foto's**, geen opgemeten of goedgekeurde bouwmaten.
+Het eerder genoemde vaargewicht van circa 4 kg blijft een doel, geen uit dit
+browsermodel berekende waterverplaatsing of stabiliteitscontrole.
+
+## Fotocontrole en wijzigingen
+
+De 17 foto's staan lokaal in `images/ortelius-01.jpg` t/m `ortelius-17.jpg`.
+Ze zijn buiten Git gehouden; het browsermodel laadt ze niet. De foto's tonen
+verschillende kleurstellingen en uitrusting. De geometrie hieronder is een
+vormstudie op basis van die verzameling, geen vastgelegde historische toestand.
+
+| Referentie | Zichtbare kenmerken | Aanpassing in v2 |
 |---|---|---|
-| Lengte over alles | 90,95–91,25 m | Oceanwide / Wikipedia |
-| Breedte | 17,2–17,6 m | idem |
-| Diepgang | 5,4 m | Oceanwide |
-| Waterverplaatsing | 4.090 t | Oceanwide |
-| Ijsklasse | UL1 / 1A | idem |
-| Bouw | 1989, Stocznia Gdynia, ex *Marina Svetaeva* | Wikipedia |
-| Voortstuwing | één Sulzer-diesel, één schroef | Wikipedia |
-| Sloepen | 2 (één per zijde) | dekplan |
-| Zodiacs | 10 | Oceanwide |
-| Helidek | dek 6, achterschip | Oceanwide FAQ |
+| 02, 06, 08, 09 | Zijprofiel, dekniveaus, schoorsteen en sloepen | Posities herverdeeld; lage accommodatie met kleinere patrijspoorten, smaller hoger dekhuis en open gangboorden |
+| 09, 10, 13 | Brugfront en brugvleugels | Kortere, gefacetteerde brug; naar boven uitlopende gevel, losse raamvakken met witte stijlen en schuine zijwangen |
+| 03, 07, 11, 15 | Getrapte spiegel en open achterdekken | Lagere achterromp en twee open niveaus met kolommen en witte randliggers |
+| 05, 14 | Helidek, hangaringang en veiligheidsnetten | Groter, afgeschuind helidek met open netstructuur en zichtbare hangaringang |
+| 06, 09, 14 | Schoorsteenkap, uitlaten, mast en davits | Schuine witte mantel, oplopende zwarte kap, drie mastarmen en geknikte sloepdavits |
+| 07, 16 | Droogdok en boeg | Oplopend onderwaterschip achter en smallere kiel; verdere onderwatervorm blijft onzeker |
 
-Uit de foto's afgeleid (schatting): vrijboord ca. 8,5 m, dak brug ca. 18,4 m
-boven WL, top masten ca. 30 m boven WL.
+De scheepsnaam is behouden. Het gekleurde embleem op de schoorsteen is
+verwijderd; het model heeft geen rederijlogo's. De valreep is horizontaal
+gestuwd in plaats van schuin door het water getekend.
 
-## Romp
+## Assen en belangrijkste stations
 
-- Hoofddek (bovenkant romp): **MAIN = 13,9**, vlak doorlopend (geen verhoogde bak).
-- Halve breedte: `8,6 × (0,7 + 0,3 × sin(min(y/4, 1) × π/2))` → 8,6 vanaf y = 4.
-- Achtersteven: spiegel, onderaan teruggetrokken: `x0 = 2,4 × (1 − min(y/5, 1))`.
-  Breed achterschip (breedtefactor 0,8 op de spiegel).
-- Boeg: hellende voorsteven, `bowX = 82 + 6,8 × (y/13,9)^0,85` → 88,8 aan dek.
-  Taps toelopend vanaf 58% van de lengte.
-- Kleuren: romp marineblauw `#1e3570`, onderwaterschip rood-oranje `#c2452d`, dekken groen `#3d6b4f`.
-- Witte schuurlijst hoog op de romp (y 12,2–12,42); naam ORTELIUS op bug en achterschip erboven.
-- Beplating: horizontale naden op y = 9,4 en 12,7, verticale spanten om de 6,4,
-  diagonalen in de vlakken voor (x > 60) en achter (x < 20).
-- Patrijspoorten: rij op y = 11,1 (x 14,5–80, steek 2,2) en losse rij op y = 7,9.
-- Witte verschansing op het voordek vanaf x = 68, hoogte 1,2.
-- Valreep schuin langs beide zijden van x = 20,5 (dek) naar x = 12 (y ≈ 6,3).
+- **x:** lengte, achtersteven = 0, boeg aan dek = 91.
+- **y:** hoogte, kiel = 0, waterlijn = 5,4.
+- **z:** breedte, middenlijn = 0; +z = stuurboord, −z = bakboord.
 
-## Bovenbouw
-
-| Deel | x | y | halve breedte |
+| Deel | x-bereik | Hoogte y | Breedte / keuze |
 |---|---|---|---|
-| Achterste dekhuis (1 dek) | 15 – 38,6 | 13,9 – 16,6 | 8,3 |
-| Voorste blok (2 dekken) | 38 – 70 | 13,9 – 18,6 | 8,3 |
-| Brugdek | 50 – 69,8 | 18,6 – 23,4 | 7,9 |
-| Brugdak / kompasdek | 49,4 – 70,1 | 23,4 – 23,7 | 8,1 |
-| Hangar (op achterste dekhuis) | 15,5 – 34,5 | 16,6 – 19,2 | 5,6 |
-| Schoorsteen (wit, op hangardak) | 25,5 – 32,8 | 19,2 – 26,0 | 2,8 |
-| Schoorsteenkap (donker) | 25,0 – 33,3 | 26,0 – 26,7 | 3,15 |
-| Helidek (groen, op kolommen, witte rand 1,1) | −1,3 – 15,7 | bovenkant 16,75 | 8,8 |
+| Achterste werkvloer | 0,2–24,2 | 10,7 | Max. 16,6; afgeschuinde hoeken |
+| Promenadedek achter | 0,2–24,2 | 13,9 | Max. 17,4; open ruimte eronder |
+| Hoofddek voor | 24–91 | 13,9 | Volgt de rompvorm |
+| Lage accommodatie | 22–76 | 13,9–16,6 | Max. 16,4 |
+| Hoger dekhuis | 46–74,8 onder / 50–72,8 boven | 16,6–19,3 | Smaller; schuin oplopende achterwand |
+| Brug | ca. 60–74 | 19,3–23,5 | Naar boven uitlopend; vlak front met afgeschuinde hoeken |
+| Kompasdek | 59,3–74,65 | 23,8 | Max. 16,6 |
+| Hangar | 21–36,5 | 16,6–19,2 | Max. 11,8 |
+| Helidek | 0–21,1 | 16,75 | Max. 17,8 zonder netten |
+| Schoorsteen | ca. 30,4–39,7 | 19,4–26,3 | Schuine mantel en overstekende kap |
+| Sloepen | middelpunt 40,5 | onderzijde 19,45 | Twee gesloten sloepen met geknikte davits |
+| Zodiacs / knikarmkranen | ca. 53 / 55,2 | op dek 19,3 | Stapels en losse oranje kranen |
+| Zwarte mast | ca. 37,6 | top 38,2 | Vakwerk met drie ra's |
+| Witte radarmast | ca. 64,8 | top 37,4 | Twee draaiende radars |
+| Voormast | 82 | top 27,2 | Slanker en lager dan de radarmast |
 
-- Ramen: twee rijen op y = 15,2 en 17,4 in het voorste blok, ook in het
-  front; brugramen rondom op y 20,9–22,5 met stijlen en zonnekap; naambord
-  ORTELIUS op het brugfront.
-- Blauwe dekzeilen achter de schoorsteen (x 18–24).
+## Rompvorm
 
-## Uitrusting
+`hullStations` bevat per hoogte de halve breedte en de achterste/voorste x.
+`station`, `hullHW`, `hullX0`, `bowX` en `hwAt` interpoleren deze doorsnedes.
+De onderste gesloten romp loopt tot de achterste werkvloer op y = 10,7.
+Daarboven begint de gesloten voorromp pas bij x = 24; zo blijven achter de
+bovenliggende dekken twee echte open niveaus zichtbaar.
 
-| Onderdeel | Positie | Opmerking |
-|---|---|---|
-| Sloep (dicht, oranje) | x 33,2, z ±9,25, onderkant y 19,55 | 8,4 lang, aan oranje A-davits op x 29,9 en 36,5 |
-| Zodiacs | x 43,5, z ±3,4 op het voorste blok | stapels van 3, 5 cm lang |
-| Oranje knikarmkranen | x 47,5, z ±6,6 | giek naar achteren |
-| Reddingsboot + davit | x 22,5, z ±6,6 op het dekhuis | rood-oranje |
-| Vakwerkmast (zwart) | x 31,6 op de schoorsteen, tot y ≈ 37,8 | twee ra's |
-| Radarmast (wit) | x 56,8 op het brugdak, tot y 37,4 | radars op y 27,8 en 30,8 |
-| Mastje brugfront | x 68,4, tot y 30,4 | koepels en ra |
-| Voormast met tuien | x 80, tot y 28,5 | scheepsbel |
-| Ankerlieren | x 82, z ±2 | kettingen naar klusgaten x 84,5 |
-| Satcom-koepels | x 61,5 en 64,5 op het brugdak | 4 stuks |
-| Vlag (NL) | helidekrand, x −1, z 6,5 | |
+De kiel is versmald ten opzichte van v1 en de onderkant loopt naar achteren
+op. Dit is nog geen definitieve keuze voor spanten, schroefraam, stevenbuis,
+roerkoker of boegschroef. De getekende aandrijving is alleen een visuele indicatie.
 
-## Aanpassingen op basis van 17 foto's (`images/`)
+## Bediening en vormcontrole
 
-- Hangar toegevoegd op het achterste dekhuis, met donkere deur naar het helidek;
-  schoorsteen, vakwerkmast, sloepen en dekzeilen staan één dek hoger op het hangardak.
-- Helidek met dikke witte rand en schuin aflopende veiligheidsnetten in plaats van reling.
-- Onderwaterschip rood-oranje, romp helderder marineblauw, witte schuurlijst.
-- Reddingsboot naast de hangar; trap van dekhuis naar hangardak.
+Vaste aanzichten: **Driekwart, Stuurboord, Bakboord, Boeg, Achterschip,
+Bovenaanzicht**. Slepen en zoomen blijven beschikbaar. Het model begint stil,
+zodat de vorm direct kan worden bekeken.
 
-## Printopdeling (Bambu Lab P2S, 256 mm)
+- **Water:** aan = waterlijn zichtbaar, onderwaterschip afgedekt; uit = hele romp.
+- **Voorgestelde deelvlakken:** alleen rode hulplijnen, geen losse CAD-delen.
+- **Bovenbouw eraf:** visuele animatie van de opbouw, geen uitgewerkte passing.
+- **Avond:** licht uit de ramen; **Langzaam draaien:** automatische rotatie.
 
-- **Romp:** 4 delen, naden op x = 22,5 / 45 / 67,5. Elk deel max. 22,5 × 17,2 × 13,9 cm.
-- **Achterste dekhuis:** 1 deel (23,6 cm).
-- **Voorste blok:** 2 delen (naad rond x = 54, verspringend t.o.v. rompnaad 45/67,5).
-- **Brugdek + dak:** 1 deel.
-- **Schoorsteen, helidek, masten, sloepen, kranen:** los, kleine onderdelen
-  in de AMS-kleuren. Relingen en antennes in messingdraad 0,8 mm.
+Beoordeel eerst de zijprofielen en het brugfront, daarna het achterschip en
+het bovenaanzicht. De pagina bevat bewust nog geen verwijzing naar een
+printpakket.
 
-## Open punten (verfijnen)
+## Vervolg: printbare RC-constructie
 
-- Lengte over alles is in het model ca. 89 cm (+1,3 helidek-overstek);
-  echt 91 cm. Boeg iets verlengen of romp schalen.
-- Exacte dekhoogtes, aantal en ritme van de ramen per dek.
-- Vorm van het brugfront (vlak of licht schuin) en de brugvleugels.
-- Positie en vorm van de schoorsteen t.o.v. de sloepen.
-- Onderwaterschip: bulbsteven aanwezig of niet; vorm van de kim.
-- Logo op de schoorsteen bewust neutraal (alleen ring).
+De gebruiker wil eerst dit 3D-model zien. Daarom zijn in deze stap **geen
+CAD-, STL- of 3MF-bestanden** gemaakt. `cad/` en `print/` blijven gereserveerd.
 
-## Werken in index.html
+Een mogelijke rompverdeling heeft sneden bij x = 22,75 / 45,5 / 68,25:
+vier nominale lengtes van 22,75 cm. Dit vervangt het onjuiste eerdere totaal
+van 4 × 22,5 cm voor een romp van 91 cm. Verbindingslippen, brims en
+printstand moeten bij de CAD-uitwerking opnieuw op het P2S-volume van
+256 × 256 × 256 mm worden gecontroleerd.
 
-Alle geometrie staat in het eerste grote `<script>`-blok, in deze secties
-(zoek op de kopjes in het commentaar):
+Daarna volgen: wanddiktes, echte verbindingen, toegang tot de techniek,
+montage voor concreet gekozen motor/as/roer/boegschroef, gewichtsbegroting,
+proefprint, slicercontrole, waterdichtheidsproef en stabiliteits-/vaartest.
+Dunne relingen en antennes zijn voor de vorm getekend; ze zijn niet daarmee
+als printbaar gevalideerd.
 
-- `taper` / `loft`: bouwen een romp of blok uit horizontale doorsnedes
-  (`x0`, `x1`, halve breedte `hw`, boegovergang `ts`, spiegel `ss`/`sf`).
-- `Hull`: rompfuncties `hullHW`, `hullX0`, `bowX`, constante `MAIN`.
-- `Superstructure`: `block(y0, y1, x0, x1, hw, kleur)` en de constanten
-  `A1 = 16,6`, `A2 = 18,6`, `B2 = 23,4`, `CD = 23,7` (dekhoogtes).
-- `Funnel`, `Helideck`, `lifeboats`, `Zodiacs and orange cranes`, `Masts`,
-  `Foredeck`, `Accommodation ladder`, `Railings`, `stairs`.
-- `Rods`: verzamelt staafjes (relingen, davits, tuien) in één mesh per kleur.
+## Werken in de bron
 
-Kleuren staan bovenaan als constanten (`NAVY`, `GREEN`, `WHITE` …).
+- `loft`: doorlopende, afgeronde rompdoorsnedes en sloepen.
+- `tier`, `plan`, `slab`: hoekige dekken en corresponderende gevelvlakken.
+- `sidePanel`: zijwangen en schoorsteenkap uit profielpolygonen.
+- `bridgeRing`, `facadeWindows`: schuine bruggevel en losse glasvakken.
+- `Rods`, `railing`, `stairs`: masten, kolommen, relingen, davits en trappen.
+- `viewDirections`, `positionView`: vaste camera-aanzichten.
+
+De kleuren staan bij `NAVY`, `BOTTOM`, `WHITE`, `GLASS`, `GREEN`.
