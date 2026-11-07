@@ -302,11 +302,14 @@ for label,a,b in [('A',445,455),('B',455,465)]:
 add('00_pasproef_las',clip(splice,447,463).intersect(box(30,22,40,455,78,50)),WHITE,include=False,group='proef',rotate=((0,1,0),90))
 # Uitvoer, rapport, massa en modeldata voor de losse CAD-viewer.
 assembly.export(str(STEP/'ortelius-p1-assemblage.step'))
+# OCCT schrijft spaties aan regeleinden; normaliseer de tekstexports voor Git.
+for f in STEP.glob('*.step'):
+ f.write_text('\n'.join(line.rstrip() for line in f.read_text().splitlines())+'\n')
 report=dict(revision='p1',units='mm',scale=100,printer='Bambu Lab P2S 256³; modelmarge 5 mm per zijde',parts=records,unique_parts=len(records),print_quantity=sum(q['quantity'] for q in records),maximum_part_dimension_mm=max(max(q['print_mm']) for q in records),solid_ASA_mass_g=round(sum(q['asa_solid_mass_g'] for q in records),1),limitations=['Fotogebaseerde onderwatervorm','Geen fysieke pas-/water-/vaartest','RC-hardware niet gekozen; doorvoeren niet geboord','Slicerprofielen en ondersteuning apart controleren'])
 report['hydrostatics']=[dict(waterline_mm=z,displacement_freshwater_kg=round(outer.intersect(box(1100,300,z,450,0,0)).val().Volume()/1e6,3)) for z in [44,54,64]]
 (R/'print/onderdelen.json').write_text(json.dumps(report,indent=2,ensure_ascii=False)+'\n')
 with (R/'print/onderdelen.csv').open('w') as f:
- writer=csv.writer(f);writer.writerow(['onderdeel','aantal','groep','X_mm','Y_mm','Z_mm','volledig_solide_ASA_g','opmerking'])
+ writer=csv.writer(f,lineterminator="\n");writer.writerow(['onderdeel','aantal','groep','X_mm','Y_mm','Z_mm','volledig_solide_ASA_g','opmerking'])
  for q in records:writer.writerow([q['name'],q['quantity'],q['group'],*q['print_mm'],q['asa_solid_mass_g'],q['note']])
 # Capture mesh before orientation for browser assembly, including actual helicopter body.
 view=[]
