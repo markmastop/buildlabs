@@ -13,6 +13,7 @@ Open [`index.html`](index.html) voor het draaibare 3D-model met speaker en doors
 | Bestand | Inhoud |
 |---|---|
 | `porsche-911-f-model-dash-subwoofer.stl` | Printbestand (gesloten mesh, 3.996 driehoeken) |
+| `porsche-911-f-model-dash-subwoofer.step` | STEP-export uit Fusion (één solid, echte cilinder- en kegelvlakken, mm) |
 | `porsche-911-f-model-dash-subwoofer.f3d` | Fusion 360-ontwerp |
 | `PorscheSubCupV251_Fusion.zip` | Parametrisch Fusion-script v2.5.1 met readme |
 
