@@ -28,6 +28,11 @@ header { display: grid; gap: 6px; border-bottom: 2px solid var(--ink); padding-b
 h1 { font: 700 clamp(48px, 10vw, 88px)/.9 var(--display); margin: 0; }
 h1 span { color: var(--hull); }
 .lede { margin: 6px 0 0; color: var(--muted); max-width: 62ch; }
+.sections { display: grid; gap: 44px; }
+.group { display: grid; gap: 16px; }
+.group-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-bottom: 1px solid var(--rule); padding-bottom: 8px; }
+.group-head h3 { font: 700 30px/1 var(--display); margin: 0; }
+.group-head span { font: 500 12px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
 .card { background: var(--card); border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; }
 .shot { aspect-ratio: 16 / 9; max-width: 100%; background: var(--stage); display: grid; place-items: center; overflow: hidden; }
@@ -54,7 +59,10 @@ footer { font: 12px var(--mono); color: var(--muted); }
     <p class="lede">3D-ontwerpen en printprojecten. Elk model is in de browser te draaien; de bronbestanden, STL's en documentatie staan in de repository.</p>
   </header>
 
-  <main class="grid">
+  <main class="sections">
+    <section class="group">
+      <div class="group-head"><h3>Schepen</h3><span>RC-modellen</span></div>
+      <div class="grid">
     <article class="card">
       <div class="shot" aria-hidden="true">
         <svg viewBox="0 0 400 150" role="img">
@@ -84,7 +92,6 @@ footer { font: 12px var(--mono); color: var(--muted); }
         </div>
       </div>
     </article>
-
     <article class="card">
       <div class="shot"><img src="3d-models/smit-lloyd-109/beelden/totaal-v17.jpg" alt="Render van de Smit-Lloyd 109 bovenbouw, versie 17" loading="lazy"></div>
       <div class="body">
@@ -97,6 +104,12 @@ footer { font: 12px var(--mono); color: var(--muted); }
         </div>
       </div>
     </article>
+      </div>
+    </section>
+
+    <section class="group">
+      <div class="group-head"><h3>Porsche 911 F-Model</h3><span>1964–1973</span></div>
+      <div class="grid">
     <article class="card">
       <div class="shot" aria-hidden="true">
         <svg viewBox="0 0 400 150">
@@ -108,14 +121,54 @@ footer { font: 12px var(--mono); color: var(--muted); }
         </svg>
       </div>
       <div class="body">
-        <div class="meta"><span class="tag status">In voorbereiding</span><span class="tag">1971</span></div>
-        <h2>Porsche 911 Targa</h2>
-        <p>Nieuw project rond de 911 Targa uit 1971. Doel, schaal en eerste ontwerp volgen.</p>
+        <div class="meta"><span class="tag status">Herontwerp</span><span class="tag">1971</span></div>
+        <h2>911 Targa 1971</h2>
+        <p>Decoratief model met eigen referentiefoto’s en ontwerpbrief. De eerste mini is afgewezen op gelijkenis; een herkenbare carrosserie volgt.</p>
         <div class="links">
           <a href="https://github.com/markmastop/buildlabs/tree/main/3d-models/porsche-911-targa-1971">Bestanden</a>
         </div>
       </div>
     </article>
+    <article class="card">
+      <div class="shot" aria-hidden="true">
+        <svg viewBox="0 0 400 150">
+          <path d="M30 60 Q200 30 370 60 L370 104 Q200 86 30 104 Z" fill="#2b2e31"/>
+          <path d="M30 60 Q200 30 370 60 L370 70 Q200 42 30 70 Z" fill="#3a3f44"/>
+          <circle cx="150" cy="80" r="17" fill="#16191c" stroke="#9aa2a8" stroke-width="2"/>
+          <circle cx="200" cy="76" r="20" fill="#16191c" stroke="#9aa2a8" stroke-width="2"/>
+          <circle cx="250" cy="80" r="17" fill="#16191c" stroke="#9aa2a8" stroke-width="2"/>
+          <g fill="#5d6267"><rect x="58" y="62" width="44" height="10" rx="3"/><rect x="298" y="62" width="44" height="10" rx="3"/></g><g stroke="#16191c" stroke-width="1.5"><path d="M64 64v6M72 64v6M80 64v6M88 64v6M96 64v6M304 64v6M312 64v6M320 64v6M328 64v6M336 64v6"/></g>
+        </svg></div>
+      <div class="body">
+        <div class="meta"><span class="tag status">In voorbereiding</span><span class="tag">Audio · dashboard</span></div>
+        <h2>Dashboard: dubbele voorspeakers</h2>
+        <p>Geprinte houders voor twee speakers in het dashboard van de F-Model 911.</p>
+        <div class="links">
+          <a href="https://github.com/markmastop/buildlabs/tree/main/3d-models/porsche-911-f-model-dash-double-front-speaker">Bestanden</a>
+        </div>
+      </div>
+    </article>
+    <article class="card">
+      <div class="shot" aria-hidden="true">
+        <svg viewBox="0 0 400 150">
+          <path d="M30 60 Q200 30 370 60 L370 104 Q200 86 30 104 Z" fill="#2b2e31"/>
+          <path d="M30 60 Q200 30 370 60 L370 70 Q200 42 30 70 Z" fill="#3a3f44"/>
+          <circle cx="150" cy="80" r="17" fill="#16191c" stroke="#9aa2a8" stroke-width="2"/>
+          <circle cx="200" cy="76" r="20" fill="#16191c" stroke="#9aa2a8" stroke-width="2"/>
+          <circle cx="250" cy="80" r="17" fill="#16191c" stroke="#9aa2a8" stroke-width="2"/>
+          <rect x="160" y="108" width="80" height="30" rx="4" fill="#3a3f44"/><circle cx="200" cy="123" r="11" fill="#16191c" stroke="#9aa2a8" stroke-width="2"/><circle cx="200" cy="123" r="4" fill="#5d6267"/>
+        </svg></div>
+      <div class="body">
+        <div class="meta"><span class="tag status">In voorbereiding</span><span class="tag">Audio · dashboard</span></div>
+        <h2>Dashboard: subwoofer</h2>
+        <p>Behuizing en bevestiging voor een subwoofer onder het dashboard.</p>
+        <div class="links">
+          <a href="https://github.com/markmastop/buildlabs/tree/main/3d-models/porsche-911-f-model-dash-subwoofer">Bestanden</a>
+        </div>
+      </div>
+    </article>
+      </div>
+    </section>
   </main>
 
   <footer>github.com/markmastop/buildlabs</footer>

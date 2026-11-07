@@ -18,7 +18,7 @@ hoe je ermee verder werkt.
 |---|---|---|---|
 | [Ortelius RC](3d-models/ortelius/index.html) | Concept | RC-model van het poolexpeditieschip Ortelius, schaal 1:100, 91 cm | [README](3d-models/ortelius/README.md) |
 | [Smit-Lloyd 109](3d-models/smit-lloyd-109/index.html) | Printbaar prototype (v17) | Afneembare bovenbouw voor een bestaande RC-romp, STEP en STL | [README](3d-models/smit-lloyd-109/README.md) |
-| Porsche 911 Targa 1971 | In voorbereiding | Nieuw project; doel en schaal volgen | [README](3d-models/porsche-911-targa-1971/README.md) |
+| Porsche 911 Targa 1971 | Herontwerp | Decoratief model; referenties en ontwerpbrief aanwezig, eerste mini afgewezen op vorm | [README](3d-models/porsche-911-targa-1971/README.md) |
 
 De projectnaam opent het draaibare 3D-model.
 
