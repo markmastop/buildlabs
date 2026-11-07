@@ -3,24 +3,28 @@
 RC-model van het Nederlandse poolexpeditieschip **Ortelius** van Oceanwide
 Expeditions (thuishaven Vlissingen), op schaal 1:100.
 
-**Status:** vormstudie v2 in de browser. Brug, dekken, ramen, achterschip,
-schoorsteen en davits zijn verfijnd op basis van de 17 lokale foto’s.
-Eerst deze vorm beoordelen; de printbare CAD-versie volgt daarna.
+**Status:** vormstudie v3 in de browser, na de nieuwe fotocontrole.
+Het middenschip heeft open galerijen met schuine stijlen en terugliggende
+binnengevels. De hangar heeft een echte opening en zichtbare diepte.
+Ramen staan in groepjes; lichtkap, banken, achterdekken en davits zijn verfijnd.
+Dit is alleen het 3D-model; er zijn geen printbestanden gemaakt.
 
-Open [`index.html`](index.html) voor het draaibare 3D-model met zes vaste
-aanzichten en onderdelenlijst. Het model begint stil. Met **Water** uit
-zie je ook het geschatte onderwaterschip.
+Open [`index.html`](index.html) voor het draaibare model. Naast de zes
+overzichtsaanzichten zijn er twee detailknoppen: **Middenschip** en **Hangar**.
+Het model begint stil. Met **Water** uit zie je het geschatte onderwaterschip.
 
-![Werkelijke browserweergave van vormstudie v2](beelden/render.jpg)
+![Werkelijke browserweergave van vormstudie v3](beelden/render.jpg)
 
 | Bestand | Inhoud |
 |---|---|
-| [`START-HIER.md`](START-HIER.md) | Actuele status, werkvolgorde en overdracht |
-| [`ONTWERP.md`](ONTWERP.md) | Alle maten, assenstelsel, printopdeling, open punten, uitleg van `index.html` |
-| [`ONDERDELEN.md`](ONDERDELEN.md) | Afvinkbare onderdelenlijst |
-| [`referentie/README.md`](referentie/README.md) | Uitleg bij de 17 lokale foto’s in `images/` (buiten Git) |
-| `beelden/render.jpg` | Browserweergave van de huidige vormstudie |
-| `cad/`, `print/` | CAD-bronnen en printbestanden (nog leeg) |
+| [`START-HIER.md`](START-HIER.md) | Actuele status en werkvolgorde |
+| [`ONTWERP.md`](ONTWERP.md) | Maten, fotokoppeling, aannames en bronfuncties |
+| [`ONDERDELEN.md`](ONDERDELEN.md) | Voorlopige onderdelenlijst voor de latere RC-uitwerking |
+| [`referentie/README.md`](referentie/README.md) | Overzicht van 34 lokale beeldbestanden in `images/` (buiten Git) |
+| [`beelden/render.jpg`](beelden/render.jpg) | Browserweergave van het hele model |
+| [`beelden/middenschip-v3.jpg`](beelden/middenschip-v3.jpg) | Detail van de open galerijen en dekuitrusting |
+| [`beelden/hangar-v3.jpg`](beelden/hangar-v3.jpg) | Detail van de open hangar |
+| `cad/`, `print/` | Gereserveerd voor de latere CAD- en printuitwerking |
 
 ## Origineel
 
@@ -54,7 +58,7 @@ helikopterdek en hangar toegevoegd in 2007.
 
 ## Volgende stappen
 
-1. Vormstudie v2 beoordelen vanuit zijaanzichten, boeg, achterschip en bovenaanzicht.
+1. Vormstudie v3 beoordelen vanuit zijaanzichten, boeg, achterschip en bovenaanzicht.
 2. Daarna romp en bovenbouw in CAD uitwerken met wanddikte, naden en uitlijning.
 3. Concreet gekozen RC-techniek inpassen en gewicht/stabiliteit berekenen.
 4. Proefprint en slicercontrole, daarna waterdichtheid en vaargedrag testen.

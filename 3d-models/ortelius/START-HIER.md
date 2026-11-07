@@ -6,10 +6,12 @@ De bestemming is een printbaar RC-model op schaal 1:100 voor de Bambu Lab
 P2S met AMS. **De gebruiker wil eerst het verbeterde 3D-model zien.**
 Werk dus eerst aan de zichtbare vorm; CAD- en printbestanden volgen daarna.
 
-Vormstudie v2 staat in [`index.html`](index.html), met zes vaste aanzichten.
-Brug, raamverdeling, open achterdekken, helidek, schoorsteen en davits zijn
-verfijnd op basis van de lokale foto's. Het model is nog niet door de
-gebruiker beoordeeld. Er zijn nog geen printbare CAD-delen gemaakt.
+Vormstudie v3 staat in [`index.html`](index.html), met zes vaste aanzichten
+en twee detailstanden.
+Open galerijen, gegroepeerde ramen, hangardiepte, lichtkap, banken,
+achterdekdetails en dubbele davitarmen zijn uitgewerkt op basis van de
+34 lokale beeldbestanden. De hoofdposities van brug en masten zijn behouden.
+Het model is nog niet door de gebruiker beoordeeld. Er zijn nog geen printbare CAD-delen gemaakt.
 
 ## Bestanden om te lezen
 
@@ -20,7 +22,7 @@ gebruiker beoordeeld. Er zijn nog geen printbare CAD-delen gemaakt.
 
 ## Uitgangspunten
 
-- Romp 91 × 17,2 cm, getekende waterlijn 5,4 cm boven de kiel.
+- Lengte over alles circa 91 cm, rompbreedte 17,2 cm; waterlijn 5,4 cm boven de kiel.
 - Centimeters in het browsermodel; toekomstige printbestanden in millimeters.
 - Eén schroef, roer en voorgenomen boegschroef; afneembare opbouw.
 - Bestaande materiaalrichting: ASA, epoxy aan de binnenkant, 2S LiPo.
