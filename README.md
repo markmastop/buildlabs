@@ -16,6 +16,7 @@ hoe je ermee verder werkt.
 |---|---|---|
 | [Ortelius RC](3d-models/ortelius/README.md) | Concept | RC-model van het poolexpeditieschip Ortelius, schaal 1:100, 91 cm |
 | [Smit-Lloyd 109](3d-models/smit-lloyd-109/README.md) | Printbaar prototype (v17) | Afneembare bovenbouw voor een bestaande RC-romp, STEP en STL |
+| [Porsche 911 Targa 1971](3d-models/porsche-911-targa-1971/README.md) | In voorbereiding | Nieuw project; doel en schaal volgen |
 
 ## Online bekijken
 
