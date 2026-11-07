@@ -1,0 +1,27 @@
+WIJZIGINGEN IN V6 — EERST DE ACHTERKANT
+De drie nieuwe achterfoto's zijn vergeleken met de werkelijke v5-geometrie.
+- V5 had deur/trapkast en schuin kastje aan de verkeerde zijde in achteraanzicht.
+- V5 had één rechte U-achterwand en een deur op dat rechte vlak.
+- V6 heeft twee afgeschuinde hoekwangen; de patrijspoortdeur zit op de linker wang.
+- V6 heeft een grotere trapkast links met twee lange voorpanelen. Het bestaande
+  binnenblok van de brede arm is ervoor uitgespaard, zodat er geen dubbele massa is.
+- De lage kast staat onder de twee ramen; het kleine schuine kastje staat rechts.
+- De dwarsverbinding heeft een vlakke balk en lage driehoekige middenverhoging.
+  De oude ronde middenschijf en het rond pennetje zijn vervallen.
+- De eerder aangenomen kleine binnenknik is in v6 teruggenomen naar Y=51,5
+  (interne schetsas); beide kastpanelen blijven hierdoor zichtbaar. Niet gemeten.
+- Het brede dek blijft vlak. De foto bewijst geen extra helling in dit vlak.
+
+Nieuwe detailmaten zijn GEEN nagemeten maten: deur 18 x 42 met gat 5; linker
+hoekwang 14 langs X en 20 dwars; rechter 10/8. Trapniveaus 60/49/38.
+Lage kast 44 breed x 22 diep x 22 hoog. Schuine kast 10 breed x 20 diep,
+hoogte 32 achter naar 25 voor. Alle waarden staan onder "aft" in parameters.json.
+De originele gladde kitvorm en de gedetailleerde Marktplaats-opbouw zijn geen
+bewezen identieke mallen. V6 combineert de gemeten basis met de zichtbare details.
+
+TEN OPZICHTE VAN V5 OPNIEUW PRINTEN
+03 onderdekhuis achter, 05 achterdek achter, 16 dwarsverbinding,
+17 trapkast, 18 lage kast en 19 schuin kastje vormen samen de gewijzigde set.
+Ook de optionele vloer 21 is aangepast met vrije uitsparingen onder kasten 18/19.
+Gebruik deze zes v6-onderdelen samen. Andere onderdelen kunnen uit v5 blijven.
+Het pasframe en de gemeten voorste blokjes behouden hun eerdere maatvoering.

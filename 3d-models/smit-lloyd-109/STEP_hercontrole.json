@@ -1,0 +1,354 @@
+{
+  "parts": [
+    {
+      "part": "02_onderdekhuis_voor",
+      "STL_closed": true,
+      "STL_one_component": true,
+      "STEP_readback_valid": true,
+      "STEP_STL_volume_difference_fraction": 6e-08
+    },
+    {
+      "part": "03_onderdekhuis_achter",
+      "STL_closed": true,
+      "STL_one_component": true,
+      "STEP_readback_valid": true,
+      "STEP_STL_volume_difference_fraction": 1.665e-05
+    },
+    {
+      "part": "00_pasproef",
+      "STL_closed": true,
+      "STL_one_component": true,
+      "STEP_readback_valid": true,
+      "STEP_STL_volume_difference_fraction": 1.13e-06
+    },
+    {
+      "part": "01_pasframe",
+      "STL_closed": true,
+      "STL_one_component": true,
+      "STEP_readback_valid": true,
+      "STEP_STL_volume_difference_fraction": 8.6e-07
+    },
+    {
+      "part": "04_achterdek_voor",
+      "STL_closed": true,
+      "STL_one_component": true,
+      "STEP_readback_valid": true,
+      "STEP_STL_volume_difference_fraction": 3e-08
+    },
+    {
+      "part": "05_achterdek_achter",
+      "STL_closed": true,
+      "STL_one_component": true,
+      "STEP_readback_valid": true,
+      "STEP_STL_volume_difference_fraction": 1.9e-06
+    },
+    {
+      "part": "06_verhoogd_voordekhuis",
+      "STL_closed": true,
+      "STL_one_component": true,
+      "STEP_readback_valid": true,
+      "STEP_STL_volume_difference_fraction": 1e-07
+    },
+    {
+      "part": "07_voordak_163mm",
+      "STL_closed": true,
+      "STL_one_component": true,
+      "STEP_readback_valid": true,
+      "STEP_STL_volume_difference_fraction": 2e-08
+    },
+    {
+      "part": "08_middenblok_65x25x55",
+      "STL_closed": true,
+      "STL_one_component": true,
+      "STEP_readback_valid": true,
+      "STEP_STL_volume_difference_fraction": 3.403e-05
+    },
+    {
+      "part": "09_klein_blok_links_25x15x30",
+      "STL_closed": true,
+      "STL_one_component": true,
+      "STEP_readback_valid": true,
+      "STEP_STL_volume_difference_fraction": 2.734e-05
+    },
+    {
+      "part": "10_stuurhut_met_raamopeningen",
+      "STL_closed": true,
+      "STL_one_component": true,
+      "STEP_readback_valid": true,
+      "STEP_STL_volume_difference_fraction": 0.00056556
+    },
+    {
+      "part": "11_stuurhutdak_lichtkap",
+      "STL_closed": true,
+      "STL_one_component": true,
+      "STEP_readback_valid": true,
+      "STEP_STL_volume_difference_fraction": 3e-08
+    },
+    {
+      "part": "12_lichtkap_deksel",
+      "STL_closed": true,
+      "STL_one_component": true,
+      "STEP_readback_valid": true,
+      "STEP_STL_volume_difference_fraction": 7e-08
+    },
+    {
+      "part": "13_windscherm_L",
+      "STL_closed": true,
+      "STL_one_component": true,
+      "STEP_readback_valid": true,
+      "STEP_STL_volume_difference_fraction": 1e-08
+    },
+    {
+      "part": "13_windscherm_R",
+      "STL_closed": true,
+      "STL_one_component": true,
+      "STEP_readback_valid": true,
+      "STEP_STL_volume_difference_fraction": 4e-08
+    },
+    {
+      "part": "15_schoorsteen_logo_roosters_L",
+      "STL_closed": true,
+      "STL_one_component": true,
+      "STEP_readback_valid": true,
+      "STEP_STL_volume_difference_fraction": 0.00182375
+    },
+    {
+      "part": "14_schoorsteenvoet_L",
+      "STL_closed": true,
+      "STL_one_component": true,
+      "STEP_readback_valid": true,
+      "STEP_STL_volume_difference_fraction": 0.00055039
+    },
+    {
+      "part": "15_schoorsteen_logo_roosters_R",
+      "STL_closed": true,
+      "STL_one_component": true,
+      "STEP_readback_valid": true,
+      "STEP_STL_volume_difference_fraction": 0.0019317
+    },
+    {
+      "part": "14_schoorsteenvoet_R",
+      "STL_closed": true,
+      "STL_one_component": true,
+      "STEP_readback_valid": true,
+      "STEP_STL_volume_difference_fraction": 0.00067924
+    },
+    {
+      "part": "16_dwarsverbinding_met_platform",
+      "STL_closed": true,
+      "STL_one_component": true,
+      "STEP_readback_valid": true,
+      "STEP_STL_volume_difference_fraction": 4.86e-06
+    },
+    {
+      "part": "17_achterkast_getrapt",
+      "STL_closed": true,
+      "STL_one_component": true,
+      "STEP_readback_valid": true,
+      "STEP_STL_volume_difference_fraction": 6.6e-06
+    },
+    {
+      "part": "18_achterkast_laag",
+      "STL_closed": true,
+      "STL_one_component": true,
+      "STEP_readback_valid": true,
+      "STEP_STL_volume_difference_fraction": 2.202e-05
+    },
+    {
+      "part": "19_achterkast_schuin",
+      "STL_closed": true,
+      "STL_one_component": true,
+      "STEP_readback_valid": true,
+      "STEP_STL_volume_difference_fraction": 1.4e-07
+    },
+    {
+      "part": "20_rooster_bovenhuis_1",
+      "STL_closed": true,
+      "STL_one_component": true,
+      "STEP_readback_valid": true,
+      "STEP_STL_volume_difference_fraction": 0.0
+    },
+    {
+      "part": "20_rooster_bovenhuis_2",
+      "STL_closed": true,
+      "STL_one_component": true,
+      "STEP_readback_valid": true,
+      "STEP_STL_volume_difference_fraction": 0.0
+    },
+    {
+      "part": "20_rooster_bovenhuis_3",
+      "STL_closed": true,
+      "STL_one_component": true,
+      "STEP_readback_valid": true,
+      "STEP_STL_volume_difference_fraction": 0.0
+    },
+    {
+      "part": "20_rooster_bovenhuis_4",
+      "STL_closed": true,
+      "STL_one_component": true,
+      "STEP_readback_valid": true,
+      "STEP_STL_volume_difference_fraction": 0.0
+    },
+    {
+      "part": "20_rooster_bovenhuis_5",
+      "STL_closed": true,
+      "STL_one_component": true,
+      "STEP_readback_valid": true,
+      "STEP_STL_volume_difference_fraction": 0.0
+    },
+    {
+      "part": "21_achtervloer_optioneel",
+      "STL_closed": true,
+      "STL_one_component": true,
+      "STEP_readback_valid": true,
+      "STEP_STL_volume_difference_fraction": 2e-08
+    },
+    {
+      "part": "22_lijmstrip_4x",
+      "STL_closed": true,
+      "STL_one_component": true,
+      "STEP_readback_valid": true,
+      "STEP_STL_volume_difference_fraction": 0.0
+    },
+    {
+      "part": "23_dek_lijmstrip_4x",
+      "STL_closed": true,
+      "STL_one_component": true,
+      "STEP_readback_valid": true,
+      "STEP_STL_volume_difference_fraction": 0.0
+    }
+  ],
+  "assembly_solids": 27,
+  "checks": {
+    "no_unintended_volume_collisions": true,
+    "all_print_footprints_under_246_mm": true,
+    "fore_roof_top_face_163_by_180": true,
+    "roof_heights_60_and_86": true,
+    "insertion_depth_6": true,
+    "small_front_box_photo_left": true,
+    "rear_photo_handedness": true,
+    "angled_door_porthole_open": true,
+    "optional_floor_clears_rear_cabinets": true,
+    "inclined_stair_beside_two_panel_cabinet": true,
+    "rounded_funnel_corners": true,
+    "funnel_tubes_open": true,
+    "connector_flat_widened_platform": true,
+    "upper_recesses_closed_with_sloping_returns": true,
+    "front_groove_full_height_and_closed_backing": true,
+    "front_railing_gap_clear_between_both_cheeks": true,
+    "bridge_17_open_windows_and_three_hood_windows": true,
+    "bridge_three_tall_rear_windows_open_at_bottom": true,
+    "rectangular_doors_with_separate_sloping_forward_windows": true,
+    "solid_front_windbreak_restored_with_central_gap": true,
+    "other_railings_roof_equipment_lifebuoys_removed": true,
+    "anchor_niche_one_side_closed_back_returns_sill_and_ceiling": true,
+    "anchor_niche_clears_existing_frame": true,
+    "rounder_front_52mm_flat_and_angled_outer_panes": true,
+    "tall_narrow_door_and_forward_trapezoid": true,
+    "shorter_hood_with_flat_rear_ledge": true,
+    "wheelhouse_wall_55mm_foot_90mm_width_136mm": true,
+    "added_wall_height_below_unchanged_glass_heights": true,
+    "small_recess_depth_doubled_to_8_mm": true,
+    "anchor_nominal_depth_doubled_to_24_mm": true
+  },
+  "limits": "No physical print/fit, no Bambu Studio layer-by-layer slicer check.",
+  "funnel_foot_support": [
+    {
+      "side": "L",
+      "deck_support_fraction": 1.0
+    },
+    {
+      "side": "R",
+      "deck_support_fraction": 1.0
+    }
+  ],
+  "side_window_readback": [
+    {
+      "side": "A",
+      "lower_openings": 6,
+      "closed_upper_recesses": 2,
+      "backing_present_at_three_stations_per_recess": true,
+      "before_joint": 4,
+      "after_joint": 2
+    },
+    {
+      "side": "B",
+      "lower_openings": 4,
+      "closed_upper_recesses": 2,
+      "backing_present_at_three_stations_per_recess": true,
+      "before_joint": 2,
+      "after_joint": 2
+    }
+  ],
+  "bridge_mirror_symmetry": [
+    {
+      "part": "10_stuurhut_met_raamopeningen",
+      "mirror_volume_difference_mm3": 0.0
+    },
+    {
+      "part": "11_stuurhutdak_lichtkap",
+      "mirror_volume_difference_mm3": 0.0
+    },
+    {
+      "part": "12_lichtkap_deksel",
+      "mirror_volume_difference_mm3": 0.0
+    }
+  ],
+  "windbreak_pair_symmetry": [
+    {
+      "pair": "13_windscherm",
+      "mirror_volume_difference_mm3": 0.0
+    }
+  ],
+  "anchor_niche": {
+    "side": "B",
+    "export_side_y": 1,
+    "x_front": 116,
+    "x_rear": 184,
+    "back_y": 66,
+    "backing": 2,
+    "sill_top": 5,
+    "sill_thickness": 2,
+    "ceiling_z": 60,
+    "description": "V16: uitsluitend zijde B, nominale diepte verdubbeld van circa 12 naar 24 mm. Rug op Y66; breedte en hoogtes ongewijzigd. Kleinere afwijking door buitenwandtapsheid blijft foto-inschatting.",
+    "nominal_depth": 24,
+    "cavity_top": 57.6,
+    "backing_bottom": 3,
+    "frame_flange_clearance": 1
+  },
+  "byte_identical_v16_STLs": [
+    "00_pasproef",
+    "01_pasframe",
+    "02_onderdekhuis_voor",
+    "03_onderdekhuis_achter",
+    "04_achterdek_voor",
+    "05_achterdek_achter",
+    "06_verhoogd_voordekhuis",
+    "07_voordak_163mm",
+    "08_middenblok_65x25x55",
+    "09_klein_blok_links_25x15x30",
+    "13_windscherm_L",
+    "13_windscherm_R",
+    "14_schoorsteenvoet_L",
+    "14_schoorsteenvoet_R",
+    "15_schoorsteen_logo_roosters_L",
+    "15_schoorsteen_logo_roosters_R",
+    "16_dwarsverbinding_met_platform",
+    "17_achterkast_getrapt",
+    "18_achterkast_laag",
+    "19_achterkast_schuin",
+    "20_rooster_bovenhuis_1",
+    "20_rooster_bovenhuis_2",
+    "20_rooster_bovenhuis_3",
+    "20_rooster_bovenhuis_4",
+    "20_rooster_bovenhuis_5",
+    "21_achtervloer_optioneel",
+    "22_lijmstrip_4x",
+    "23_dek_lijmstrip_4x"
+  ],
+  "changed_v17_STLs": [
+    "10_stuurhut_met_raamopeningen",
+    "11_stuurhutdak_lichtkap",
+    "12_lichtkap_deksel"
+  ]
+}

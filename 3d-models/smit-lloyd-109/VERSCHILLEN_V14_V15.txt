@@ -1,0 +1,11 @@
+V14 -> V15
+10: stuurhutwand met 52 mm recht middenstuk in plaats van 96; totale breedte 136.
+    Buitenste voorruiten op Y+/-38 volgen de lokale wandrichting.
+11/12: dak, kap en los deksel volgen de nieuwe bovencontour met 3 mm overstek.
+02: alleen zijde B krijgt een brede ankernis met gesloten rug, zijwangen en vloer.
+    Zijde B vier kleine ramen; zijde A behoudt zes kleine ramen.
+04: integraal plafond boven de ankernis, vlak dek op Z60 behouden.
+Overige printdelen blijven gelijk aan v14. Geen anker, boeien, extra relingen
+of dakapparatuur toegevoegd. Rechte deuren en hoge achterramen blijven.
+Nieuwe vormmaten en nisafmetingen zijn foto-inschattingen. Positie van pasframe
+in de echte romp nog droogpassen; insteekdiepte en framegeometrie onveranderd.

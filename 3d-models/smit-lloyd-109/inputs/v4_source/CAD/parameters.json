@@ -1,0 +1,20 @@
+{
+  "status": "PHOTO-DETAIL PROTOTYPE; NOT PLAN-VERIFIED",
+  "hull_opening_mm": [
+    205,
+    153
+  ],
+  "frame_tongue_mm": [
+    204,
+    152,
+    6
+  ],
+  "nominal_previous_body_mm": [
+    320,
+    205
+  ],
+  "front_boxes_extend_to_x_mm": -11.6,
+  "wall_mm": 2,
+  "logo_relief_mm": 0.75,
+  "assumptions": "Most detail stations and dimensions are explicit in build.py. No original plan measurement."
+}

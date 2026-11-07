@@ -1,0 +1,20 @@
+WIJZIGING V7 — SCHUINE TRAP NAAST DE KAST
+De gebruiker verduidelijkt: het schuine stuk is de trap zelf.
+V6 behandelde de volle binnenstrook als één brede trapkast. V7 verdeelt die strook
+in een glad aflopend trapvlak LINKS en een smallere kast met twee lange panelen
+RECHTS ernaast, gezien op de achterfoto. Onderdeel 17 combineert beide tot één
+aaneengesloten printdeel; het schuine vlak is werkelijk CAD-materiaal.
+
+Voorlopige trapmaten: breedte 14; achterhoogte 60; voorhoogte 0; looplengte 41.
+De hoek is daarmee ongeveer 55,7 graden. Functie/indeling komt uit de uitleg van
+de gebruiker; deze precieze trapmaten en hoek zijn foto-inschattingen.
+Geen extra tredeneuzen toegevoegd: het voorbeeld toont hier een glad schuin vlak.
+De naastliggende kast houdt twee lange panelen en de fotoniveaus 60/49/38.
+De gecombineerde voetafdruk en buitenhoogte blijven gelijk aan v6.
+
+Print onderdeel 17 met de onderzijde op bed. De schuine bovenzijde bouwt naar
+binnen op; de holle kast heeft een dakoverspanning die in de slicer gecontroleerd
+moet worden. Samen met v6-onderdelen droogpassen voordat je lijmt.
+Ten opzichte van v6 hoeft alleen onderdeel 17 opnieuw geprint te worden.
+Alle andere onderdelen en de verdere montageregels hieronder blijven gelden.
+

@@ -1,0 +1,32 @@
+onderdeel,aantal,X_mm,Y_mm,Z_mm,volume_cm3,printstand,in_assemblage,opmerking
+02_onderdekhuis_voor,1,190.0,180.0,57.6,68.8289,onderzijde op bed,True,V17: zijde A vier voorste ramen; zijde B twee voorste ramen en gesloten ankernis. Rechtop printen; nisplafond is deel 04. Pasframevlakken blijven vrij.
+03_onderdekhuis_achter,1,195.0,189.0,57.6,96.3888,onderzijde op bed,True,V9 zijwand: twee kleine ramen per zijde achter de naad; ongelijke uitlopers en knikken. Rechtop printen.
+00_pasproef,1,212.0,160.0,8.0,14.8557,bovenzijde op bed,False,Eerst volledig passen in 205 x 153 mm opening. Niet forceren; controleer ook hoekradius en dekdikte.
+01_pasframe,1,212.0,160.0,8.0,19.3101,bovenzijde op bed,True,Los droogpassen; definitieve lengtepositie op echte romp bepalen vóór verlijmen. Flens intern op Z 0..2.
+04_achterdek_voor,1,190.0,180.0,2.4,10.0815,onderzijde op bed,True,V17: vlak printen. Ring rond hoger voordek plus plafond ankernis aan zijde B. Eerst zijraambeglazing plaatsen; nieuwe nis droogpassen.
+05_achterdek_achter,1,195.0,189.0,2.4,54.9121,onderzijde op bed,True,Vlak printen. Meetbasis op Z=60 mm; U blijft open zoals origineel.
+06_verhoogd_voordekhuis,1,183.0,180.0,23.6,44.1755,onderzijde op bed,True,"V17: twee gesloten nissen per kant; diepte 8 mm in Y, schuine aansluitingen 2,5 mm. Achterwand integraal, voorste nis volgt ronding. Foto-inschattingen. Open schaal rechtop printen."
+07_voordak_163mm,1,164.846,180.0,2.4,67.5679,bovenzijde op bed,True,"Vlakke bovenzijde op bed. Lengte bovenzijde 163 mm, breedte 180 mm; gemeten dakhoogte 86 mm."
+08_middenblok_65x25x55,1,27.366,65.0,55.0,18.0521,onderzijde op bed,True,"V11: gemeten 65 breed x 25 uitsteek x 55 hoog. Verticale groef over volle hoogte, voorlopig R4 met 2 mm gesloten rug. Holle onderzijde op bed; groef niet vullen."
+09_klein_blok_links_25x15x30,1,18.389,25.0,30.0,3.8896,onderzijde op bed,True,"Gemeten breedte 25, uitsteek 15 en hoogte 30 mm. Links van middenblok zoals foto; onderkant Z=0 aangenomen."
+10_stuurhut_met_raamopeningen,1,98.25,136.8,55.0,35.0857,onderzijde op bed,True,"V17: wand 55 hoog, voet 90 lang, breedte 136. Extra hoogte onder ramen; glasvormen behouden. Rechte deur, apart schuin raam en compactere zijramen. Dunne kozijnen; geen donkere ondervlakjes. Voet op bed. Alle detailmaten foto-inschattingen."
+11_stuurhutdak_lichtkap,1,104.0,142.0,14.0,20.3492,onderzijde op bed,True,"V17: dak voor kortere stuurhut, contact Z141. Overstek 3; kap eindigt X97 en is 14 mm hoog; vlak achterdak en 3 kleine kapramen. Vlakke onderzijde op bed. Overstekken en raambruggen in slicer beoordelen."
+12_lichtkap_deksel,1,57.857,124.857,2.0,13.4654,onderzijde op bed,True,V17: kaal 2 mm kapdeksel zonder rand of uitrusting. VLAKKE ONDERZIJDE op bed. Na beglazing op 11 lijmen.
+13_windscherm_L,1,67.921,84.0,16.0,3.7644,onderzijde op bed,True,"Vlakke onderrand op bed, tegen stuurhutdakplint lijmen. Breedte aangepast aan 180 mm dak."
+13_windscherm_R,1,67.921,84.0,16.0,3.7644,onderzijde op bed,True,"Vlakke onderrand op bed, tegen stuurhutdakplint lijmen. Breedte aangepast aan 180 mm dak."
+15_schoorsteen_logo_roosters_L,1,80.475,32.599,134.0,41.8152,onderzijde op bed,True,V8: rondingen R12/R10; lengte 80/62. SMIT en twee gebogen hoekroosters integraal. Afgeschuinde bovenrand; bovenzijde open. Foto-aannames. Brede onderrand op bed.
+14_schoorsteenvoet_L,1,84.0,34.0,2.0,1.0831,onderzijde op bed,True,"V8: afgeronde voetplaat met bijna half ronde uiteinden, 84 lang. Zelfde montagecentrum als v7. Vlak op bed; bovenkant voet op Z=62."
+15_schoorsteen_logo_roosters_R,1,80.475,34.599,134.0,42.7544,onderzijde op bed,True,V8: rondingen R12/R10; lengte 80/62. SMIT en twee gebogen hoekroosters integraal. Afgeschuinde bovenrand; bovenzijde open. Foto-aannames. Brede onderrand op bed.
+14_schoorsteenvoet_R,1,84.0,36.0,2.0,1.055,onderzijde op bed,True,"V8: afgeronde voetplaat met bijna half ronde uiteinden, 84 lang. Zelfde montagecentrum als v7. Vlak op bed; bovenkant voet op Z=62."
+16_dwarsverbinding_met_platform,1,24.0,127.649,5.7,5.48,onderzijde op bed,True,"V8: vlakke plaat met in bovenaanzicht verbreed, naar achter uitstekend middenplatform. Kleine ring met twee schoren. Brede vlakke onderzijde op bed; foto-aannames."
+17_achterkast_getrapt,1,41.58,33.7,60.0,22.5867,onderzijde op bed,True,Achterfoto LINKS: schuin trapvlak 14 mm breed naast smallere tweepanelenkast. Samen één printdeel. Vorm trap door gebruiker verduidelijkt; breedte/helling foto-aannames. Onderzijde op bed; kastdakbrug controleren.
+18_achterkast_laag,1,22.58,44.0,22.0,7.1658,onderzijde op bed,True,"Onder de twee kleine ramen. Afgeronde kast met twee deurpanelen; hol, onderrand op bed. Foto-aannames 44 x 22 x 22."
+19_achterkast_schuin,1,20.53,10.0,32.0,3.5517,onderzijde op bed,True,"Achterfoto RECHTS, tegen smalle arm. Schuin dak; onderrand op bed. Fotomaten 20 lang x 10 breed, hoogte 32 naar 25 mm."
+20_rooster_bovenhuis_1,1,12.0,13.0,0.91,0.1085,voorgeorienteerd; zie opmerking,True,Los rooster; locatie en maat uit fotoprototype aangenomen. Vlakke rug op bed.
+20_rooster_bovenhuis_2,1,12.0,13.0,0.91,0.1085,voorgeorienteerd; zie opmerking,True,Los rooster; locatie en maat uit fotoprototype aangenomen. Vlakke rug op bed.
+20_rooster_bovenhuis_3,1,12.0,13.0,0.91,0.1085,voorgeorienteerd; zie opmerking,True,Los rooster; locatie en maat uit fotoprototype aangenomen. Vlakke rug op bed.
+20_rooster_bovenhuis_4,1,12.0,13.0,0.91,0.1085,voorgeorienteerd; zie opmerking,True,Los rooster; locatie en maat uit fotoprototype aangenomen. Vlakke rug op bed.
+20_rooster_bovenhuis_5,1,12.0,13.0,0.91,0.1085,voorgeorienteerd; zie opmerking,True,Los rooster; locatie en maat uit fotoprototype aangenomen. Vlakke rug op bed.
+21_achtervloer_optioneel,1,114.7,79.7,2.4,18.4829,onderzijde op bed,False,"Optioneel: centrale U-vloer, met vrije uitsparingen onder achterkasten 18/19. Niet in assemblage opgenomen. Werkelijk pasframe eerst passen."
+22_lijmstrip_4x,4,30.0,12.0,2.0,0.72,onderzijde op bed,False,"Binnen langs lengtenaad onderdekhuis lijmen, vrij plaatsen/inkorten."
+23_dek_lijmstrip_4x,4,24.0,8.0,2.0,0.384,onderzijde op bed,False,"Onder de deknaden, vrij plaatsen vóór montage."

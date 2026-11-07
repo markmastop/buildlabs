@@ -1,0 +1,20 @@
+# 3D-modellen
+
+Elk ontwerp heeft een eigen map:
+
+```
+3d-models/
+  <project>/
+    README.md      wat het is, status, maten, volgende stappen
+    index.html     draaibaar conceptmodel in de browser
+    cad/           CAD-bronbestanden (bijv. Fusion, Onshape-export, FreeCAD)
+    print/         STL- en 3MF-bestanden per onderdeel
+    referentie/    foto's en tekeningen, met bronvermelding
+```
+
+Mappen die nog niet nodig zijn, mogen ontbreken.
+
+| Project | Status |
+|---|---|
+| [ortelius](ortelius/README.md) | Concept |
+| [smit-lloyd-109](smit-lloyd-109/README.md) | Printbaar prototype (v17) |

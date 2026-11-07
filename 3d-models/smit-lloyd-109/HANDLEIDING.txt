@@ -1,0 +1,103 @@
+SMIT-LLOYD 109 — V17 / PRINTBAAR FOTOPROTOTYPE
+
+V17 — HOGERE EN KORTERE STUURHUT
+De goedgekeurde proefmaten zijn nu werkelijk in CAD verwerkt:
+- Stuurhutwand 55 mm hoog zonder dak (was 42).
+- Voetlengte in vaarrichting 90 mm, van X33 tot X123 (was 112, tot X145).
+- Breedte 136 mm, gelijk aan v16.
+De wandvoet blijft op Z86. Dakcontact nu Z141; kapbasis Z143; dakdeksel Z155..157.
+Totale hoogte boven het voordek inclusief dak 71 mm. Dit model heeft geen hoofdmast.
+
+De 13 mm extra hoogte zit onder de raamstrook. Bestaande glashoogtes en de
+schuine voorruit/hoekruit behouden; glasstrook 13 mm omhoog geplaatst.
+De achterwand staat 22 mm verder naar voren. Twee gewone zijramen compacter op
+X87 en X107, elk 16 breed bij 19 hoog. Deurpositie behouden; langer dicht onderpaneel.
+Drie hoge achterramen en twee korte buitenste ramen blijven echte openingen,
+met dezelfde glashoogtes als v16. De stuurhut is links/rechts spiegelgelijk.
+
+Het dak volgt de kortere wand met 3 mm overstek. De 14 mm hoge schuine kap eindigt
+op X97, met een laag vlak achterdak van 29 mm. Dak blijft kaal, geen rand of uitrusting.
+De kijkversie biedt V17 / Vergelijk v16 vanuit dezelfde kijkrichting.
+
+Deze stuurhutmaten zijn goedgekeurde ontwerpkeuzes uit fotoverhoudingen;
+het zijn geen opgemeten of bewezen historische schaalmaten.
+Alle overige onderdelen behouden: onderbouw, pasframe, dichte voorverschansing,
+schoorstenen, achtertrap, vier kleine nissen van 8 mm en ankernis circa 24 mm
+uitsluitend aan zijde B. Geen extra relingen, boeien, radar of antennes toegevoegd.
+
+MAATSTATUS
+Gemeten: onderbouwlengte 385; voordekbreedte 180; voordeklengte 163;
+hoogtes vanaf onderkant 60 en 86; U-breedte 80 en diepte 115 mm.
+Gemeten voorblok 65 breed x 25 uitsteek x 55 hoog, klein blok 25 x 15 x 30.
+Zie meetmaten.csv en CAD/metingen.json voor de overige gemeten maten.
+Stuurhut, ramen, deur, dak, schoorstenen, roosters en kleine details zijn
+fotoreconstructies. Geen bewezen exacte historische 1:50 maatvoering.
+De oorspronkelijke schatting 320 x 205 x 325 is vervallen door de metingen.
+De huidige totaalmaten staan in controle.json: dit model heeft geen hoofdmast.
+Het bovenwerk wordt niet zomaar herschaald om een onbevestigde schatting te halen.
+
+BESTANDEN
+31 unieke STL-bestanden, 31 STEP-partbestanden en SL109_v17_assemblage.step
+met 27 gemonteerde solids. onderdelen.csv geeft aantallen, afmetingen en printstand.
+Print 22 en 23 elk viermaal: 35 noodzakelijke prints inclusief deze lijmstrips;
+met pasproef 00 en optionele vloer 21 in totaal 37 prints.
+CAD/build.py en bridge.py plus parameters.json vormen de parametrische bron.
+Benodigd voor herbouw: Python, CadQuery 2.8, trimesh en numpy; daarna
+python CAD/build.py en python CAD/validate.py vanuit deze map.
+De meegeleverde inputs blijven nodig om de overgenomen referentievormen te lezen.
+
+PRINTVOLGORDE / ORIENTATIE
+1. Print eerst 00_pasproef met de flenszijde op het bed (voorgeoriënteerd). Pas in de echte
+   rechte dekopening 205 x 153. Nominaal 0,5 mm ruimte rondom, zonder garantie
+   voor verf, printerafwijking of een niet helemaal rechthoekige opening.
+2. Daarna 01_pasframe; bovenzijde/flens op het bed (voorgeoriënteerd). Insteekdiepte 6 mm.
+   Zijn positie in de opbouw is voorlopig; in de romp droogpassen voor verlijmen.
+3. 02/03 onderdekhuis, 06 verhoogd dekhuis en 08/09 voorblokjes: onderzijde op bed.
+   04/05 dekplaten vlak printen; 04 heeft nu het plafond van de ankernis.
+   07 met de vlakke bovenzijde op het bed. Onderdelen zijn verdeeld voor een 256 x 256 bed;
+   de gecontroleerde maximale voetafdruk is 246 mm, dus marge voor een rand.
+4. 10 stuurhut: onderzijde op bed, rechtop. 17 echte raamopeningen; twee buitenste voorruiten draaien mee. Deuronderpanelen
+   blijven dicht. Controleer raambruggen en schuine hoekramen in de slicer.
+5. 11 dak met lichtkap: vlakke onderzijde op bed. Kap boven open tot deksel erop zit.
+   12 los deksel: vlakke onderzijde op bed. 13 L/R dichte voorverschansing: onderrand op bed.
+6. 14 schoorsteenvoeten en 15 schoorstenen: onderzijde op bed, rechtop.
+   SMIT-logo en onderste roosters zijn integraal meegeprint. Buizen boven open.
+7. 16 dwarsverbinding: vlakke onderzijde op bed. 17/18/19 achtertrap en kasten:
+   onderzijde op bed. De gladde schuine trap staat naast de kast met twee panelen.
+8. De vijf 20-roosters vlak printen; 22 en 23 elk viermaal vlak printen.
+   21 is een optionele achtervloer. Alle afzonderlijke bestanden staan op Z=0.
+
+RICHTINSTELLINGEN
+0,4 mm nozzle; 0,16-0,20 mm lagen; 3-4 wanden; 4-5 boven-/onderlagen;
+10-15% vulling waar nodig. PLA bruikbaar voor pasproeven. Materiaal en lijm
+op elkaar afstemmen. Gebruik steunmateriaal alleen waar de eigen slicercontrole
+het nodig maakt; verwijderbaar steunen, raamopeningen en lijmvlakken vrijhouden.
+
+MONTAGE
+- Eerst alles droogpassen. Lijm 02/03 in elkaars verlengde met strips 22 aan
+  de binnenzijde. Lijm 04/05 onderling met strips 23 en plaats op de wanden.
+- Plaats het nisplafond van 04 precies op de nieuwe rug/wangen van 02,
+  en controleer binnenin de vrije ruimte boven pasframe 01.
+- Zet 06 en 07 op de gemeten hoogtes 60/86; lijm de voorblokjes 08/09 tegen
+  de voorwand. Houd de verticale groef over de volle hoogte van 08 vrij.
+- Monteer 17/18/19 achterin volgens de referentiefoto's; links/rechts in deze
+  foto's is niet dezelfde kijkrichting als de eerste bovenfoto.
+- Monteer 10 op 07. Voorzie desgewenst glasfolie aan de binnenzijde.
+  Dak 11 met drie lichtkapramen beglazen en sluiten met 12. Daarna 13 L/R
+  langs de voorrand plaatsen; centrale 12 mm doorgang openhouden.
+- Monteer 14/15/16 en de losse roosters. Verlijm de afgewerkte opbouw tot één
+  afneembaar geheel. Pasframe aan de opbouw lijmen nadat de positie klopt;
+  lijm het niet aan de romp vast.
+
+CONTROLE EN BEPERKINGEN
+De digitale controle omvat gesloten STL-meshes, telkens één aangesloten solid,
+STEP opnieuw inlezen, footprint en hoogtes, montagebotsingen, symmetrie,
+open ramen, rechte deurstijlen, schuine hoekraamstijlen, ronding, eenzijdige
+ankernis, verdubbelde nisdieptes, 55 x 90 x 136 stuurhutproporties en ruimte tot het pasframe.
+Zie controle.json en STEP_hercontrole.json. SHA256SUMS.txt bewaakt de bestanden.
+Geen fysieke print/pasproef uitgevoerd en geen laagcontrole in Bambu Studio.
+Controleer de laagweergave voor een volledige print; begin met de pasproef.
+
+Referentiefoto's zijn meegeleverd voor de eigen vergelijking. Oudere
+VERSCHILLEN-bestanden beschrijven de geschiedenis; dit document en de actuele
+parameters beschrijven v17. Niet alle vroegere details zijn nog aanwezig.

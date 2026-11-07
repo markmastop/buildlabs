@@ -1,0 +1,91 @@
+ACTIEVE VERSIE: V17
+V17 vervangt eerdere stuurhutproporties. Oudere vermeldingen zijn geschiedenis.
+
+- 180 mm is de gemeten breedte van het afgeronde voordek; de achterste verbredingen kunnen daarbuiten vallen.
+- Bakboord/stuurboord nog niet toegewezen: L/R altijd zoals de eerste bovenfoto.
+- Voorste ronding: halve ellips 35 x 90 mm; niet gemeten.
+- Achterste zijwanden lopen van 180 naar 175 mm breedte; U ligt 22,5 mm uit het midden door 25 + 80 + 70 mm.
+- Rechterarm verschuift 3 mm naar buiten bij de knik. De positie langs de lengte en beide breedtes zijn gemeten; deze zijdelingse verschuiving niet.
+- Rechter kleine inkeping: 10 mm lang; tussenstap Y=51,5 mm (v6, zodat het trapkastfront vrij blijft zoals de achterfoto). Niet nagemeten.
+- Achterste hoeken R5 en lichte eindtapsheid zijn foto-inschattingen.
+- Achterste schuine wand van het hogere voordek loopt 20 mm terug over 26 mm hoogte, uit eerdere fotostudie.
+- Pasframe voorlopig op X=160 mm, Y=0; nog niet ten opzichte van de echte rompopening gemeten. Eerst droogpassen en pas daarna verlijmen.
+- Blokjes vóór de dekhuiswand: gemeten uitsteekmaten, breedtes en hoogtes; onderkant op Z=0 en onderlinge afstand zijn aannames.
+- Ramen, deuren, stuurhut, daklichtkap, schoorstenen, logoafmeting, roosters en achterkasten zijn fotodetails, niet maatvast bevestigd.
+- Geen mast meegeleverd; gat voor 3 mm messing mast blijft behouden.
+- Neusellips is met 96 rechte segmenten benaderd (koordeafwijking <0,05 mm) voor betrouwbare gesloten STEP-uitwisseling.
+- v6: achterfoto bepaalt links/rechts van deur en kasten. Dit is een andere kijkrichting dan de eerste bovenfoto. De gemeten uitlopers zijn niet omgedraaid.
+- v6: rechte kitopening krijgt twee schuine hoekwangen. Diepste achterwand blijft X=270 (115 mm vanaf uiteinden); vrije diepte langs de hoekwangen is lokaal kleiner. Run/inspringing links 14/20, rechts 10/8 mm zijn foto-aannames.
+- v6: de gemeten 34 mm extra breedte van de brede arm wordt een losse trapkast; voetafdruk behouden, bovenzijde met aangenomen niveaus 60/49/38 mm. Dit is detailreconstructie, niet de gladde modeldoosvorm.
+- v6: deur 18 x 42 mm met patrijspoort 5; raamopeningen 9 x 9; lage kast 44 x 22 x 22 mm; rechter schuine kast 10 x 20 x 32/25 mm. Alle detailmaten zijn fotokeuzes, niet gemeten.
+- v6: dwarsbalk krijgt vlakke onderzijde en een driehoekige middenverhoging; geen ronde schijf of rond pennetje. Hoogte en doorsnede blijven voorlopige foto-aannames.
+- v6: brede achterdek tussen achterwand en hoger voordek blijft vlak: perspectief in de foto bewijst geen extra helling.
+- v7: gebruiker verduidelijkt dat het schuine stuk de trap zelf is. In achteraanzicht staat een schuin aflopend trapdeel LINKS van de smallere kast met twee lange frontpanelen; niet één brede trapkast zoals v6.
+- v7: de beschikbare blokbreedte van circa 34 mm wordt verdeeld in 14 mm trapbreedte en 19,7 mm kastbreedte (inclusief 0,15 mm voetspeling aan beide buitenzijden). Deze verdeling is een foto-inschatting, niet gemeten.
+- v7: glad trapvlak daalt van Z=60 op X=288,15 naar Z=0 op X=329,15 (circa 55,7 graden). De functie trap is door gebruiker bevestigd, maar breedte, looplengte en hoek niet. Geen afzonderlijke tredeneuzen toegevoegd: de referentie toont hier een glad schuin vlak.
+- v7: trap en naastliggende kast worden als één aangesloten printdeel 17 geleverd; de twee functies blijven geometrisch zichtbaar. Kast houdt de voorlopige bovenniveaus 60/49/38 mm en twee lange panelen.
+- v8: gebruiker bevestigt dat de schoorstenen ronder zijn. Afgeronde doorsnede met hoekstralen 12 onder en 10 boven; deze stralen zijn ontwerpkeuzes uit de foto, niet gemeten.
+- v8: lengte langs het schip 80 onder en 62 boven vervangt 60/42 uit v7. De bredere zijaanblik en minder sterke lengte-tapsheid volgen de fotoverhouding; hoogte 134 en breedtes 32/34 blijven voorlopig gelijk. Dit zijn geen bevestigde schaalmaten.
+- v8: bovensnede loopt 6 mm naar achteren af; 2 mm hoge rand met 0,6 mm extra relief. Bovenkant/inwendige uitlaatindeling is niet duidelijk genoeg in de fotos: de schoorstenen blijven boven open; geen verzonnen uitlaatpijpjes.
+- v8: twee onderste hoekroosters per schoorsteen zijn 42 mm hoog, beginnend 4 mm boven de voet. De rastervorm wordt op de ronde schoorsteenwand geprojecteerd; basisrelief 0,25 en ribrelief 0,75 mm. Geen ventilatiegaten door de 1,8 mm wand.
+- v8: voetplaat 84 mm lang, 34/36 mm breed, met bijna half ronde uiteinden; maximaal 0,5 mm recht eindvlak. De voet blijft op dezelfde bevestigingspositie; hoekrondingen zijn fotokeuzes.
+- v8: detailfoto van boven toont een vlak uitstekend middenplatform in de dwarsverbinding. Een verticale driehoekige verhoging uit v6/v7 vervalt. Nieuwe plaat is 3,2 dik, armen 10 breed, platform 44 dwars bij 24 lang en achterwaarts uitstekend. Kleine ring met twee schoren is een foto-interpretatie, functie niet bevestigd.
+- v9: gebruiker corrigeert eerdere twijfel en bevestigt dat de zijden gelijk zijn. Beide zijwanden krijgen dezelfde hoofdindeling, met apart bewerkbare lijsten voor A/B.
+- v9: zes kleine ramen in de onderste laag staan voorlopig op X=48/112/135/176/202/240; opening 11 x 13, onderkant Z=25, hoekradius 0,6. Vier ramen voor de deelnaad X=190 en twee erachter, zoals op de foto. Plaatsing/raammaten niet nagemeten.
+- v9: de schuine overgang van het hogere dekhuis blijft de bestaande 20 mm terugloop over 26 mm hoogte; de nieuwe zijfoto ondersteunt die vorm. De gemeten daklengte 163 en hoogtes 60/86 blijven bepalend.
+- v10: foto toont twee gesloten zijwandnissen per zijde boven de kleine ramen. De eerdere interpretatie als doorgaande openingen is vervallen.
+- v10: voorlopige mondmaten blijven 28/44 breed en 16 hoog, centra X=30/105, onderzijde Z=65. Geen gemeten detailmaten.
+- v10: nissen 4 mm terugliggend in dwarsrichting Y, met 2,5 mm verloop aan de vier randen. De voorste nis volgt de bestaande neusafronding.
+- v10: achterwand tweede nis 2 mm in Y; eerste gebogen nis 4 mm in Y om voldoende materiaal langs de ronding te houden. Deze plaatselijke verdikkingen zitten aan de binnenzijde.
+- v10: alleen onderdeel 06 is gewijzigd; de zes kleine ramen blijven echt open. Geen fysieke print-/pasproef of laagcontrole in Bambu Studio.
+- v11: gebruiker bevestigt de centrale opening in de dichte voorreling en een inkeping die in het grote voorblok helemaal doorloopt. De foto is geïnterpreteerd als een verticale groef over de volle hoogte van 55 mm.
+- v11: groefvorm voorlopig halfrond, radius 4 mm (8 mm mondbreedte), 4 mm diep vanaf het voorvlak. Radius/diepte zijn niet gemeten. Dit vervangt het oude boogje uitsluitend aan de onderrand.
+- v11: achter de verticale groef zit een gesloten rug met 2 mm materiaal; plaatselijke verdikking aan binnenzijde houdt het holle voorblok als één aangesloten printdeel.
+- v11: de centrale relingopening is ongewijzigd 12 mm breed en loopt van het dak op Z=86 tot bovenrand Z=102. De opening en beide naastliggende wandjes zijn opnieuw geometrisch gecontroleerd. Breedte is een foto-aanname.
+- v11: alleen onderdeel 08 wijzigt ten opzichte van v10; de relingdelen 13 L/R waren al open. De nieuwe kijkstand toont de reling standaard, in tegenstelling tot Alleen dekhuis.
+- v12: stuurhut links/rechts spiegelgelijk, expliciet door gebruiker bevestigd. Dit betreft de stuurhut; gemeten ongelijke onderste uitlopers blijven hun vastgelegde maatvoering houden.
+- v12: de drie lange middenvlakken achterop zijn hoge raamopeningen, geen gesloten deuren. Dit is expliciet door gebruiker bevestigd en met nieuwe detailfoto onderbouwd.
+- v12: romp van de stuurhut voorlopig 136 mm breed en 42 mm hoog op Z=86. Voorkant x33 onder en x25 boven; achterwand x145. Dit zijn fotoprototypematen, niet opgemeten.
+- v12: afgeronde voorhoeken, voorste raamstrook 8 mm naar voren uitlopend, zijramen drie per kant met deur onder de voorste opening; vier vlakke voorramen plus twee hoekramen. Raammaten/posities voorlopig.
+- v12: achterwand vijf openingen: drie hoge van 18 x 35 vanaf Z=90 en twee buitenste van 20 x 19 vanaf Z=106; alle met afgeronde randen en circa 0,6 mm verhoogde lijsten. Detailmaten niet gemeten.
+- v12: nieuw dak volgt de afgeronde voorhoeken, met 3 mm overstek, 2 mm basisplaat, 11 mm hoge schuine kap en drie achterste lichtkapramen van 24 x 4,5. Los 2 mm deksel sluit na beglazing. Geen gemeten dakdetails.
+- v12: alleen delen 10, 11 en 12 gewijzigd. Dakcontact Z=128 en bestaande 3,3 mm mastopening blijven behouden. Geen fysieke print/pasproef of Bambu Studio laagcontrole.
+- v12: dakvlak achter kap blijft vlak zoals detailfoto; opstaande oude mastbus vervalt. Bestaand 3,3 mm gat blijft voorlopig aanwezig. Definitieve mast en steunconstructie zijn nog niet ontworpen.
+- v13: laatste twee afgewerkte modelfotos krijgen voorrang voor raamverhoudingen en dakdetails. Exacte historische variant en millimeters zijn niet uit deze perspectieffotos vastgesteld.
+- v13: drie hoge achterramen blijven open, maar beginnen 12 mm boven stuurhutvoet en zijn 26 mm hoog; buitenste ramen 20 x 12 vanaf 26 mm. Deze foto-inschattingen vervangen 4/35 en 20/19 uit v12.
+- v13: per zijde twee smalle hoge ramen van 10,5 x 23,5 op X65/90, en een breder laag raam 20 x 12 op X122. Donkere onderpanelen zijn blinde schildervlakken met 0,35 mm verdieping; functie niet bevestigd. Eerste smalle raam houdt een bescheiden deurkader.
+- v13: witte raamranden 0,7 mm breed en 0,25 mm relief; zijden blijven spiegelgelijk. Vier vlakke voorruiten en twee hoekruiten behouden, omdat totaal aantal voorruiten op nieuwe fotos niet betrouwbaar te tellen is.
+- v13: dakvoorrand sterker rond, voorste rechte stuk 52 mm in plaats van 96 mm. Dak steekt lokaal 3 tot circa 8 mm over. Op het losse kapdeksel staat een 1 mm hoge rand; print deze kap met vlakke onderzijde op bed.
+- v13: open loopdekrelingen vervangen beide dichte windschermen. Hoogte 14, posts 1,8 en regels 1,6 mm. Voorste opening 12 mm behouden; achterste middenopening 24 mm is een voorlopige montage-/toegangskeuze.
+- v13: dakreling 20 mm hoog, posts 1,6 en regels 1,4 mm; losse voetjes voor lijmen. Diktes en postafstanden zijn printkeuzes, niet exact schaalgetrouwe buisdiameters.
+- v13: vereenvoudigde radarmast met twee losse scanners, antennevoet met vlak te printen hoepel, twee losse antennestaven en twee reddingsboeien. Afmetingen/posities zijn fotokeuzes; instrumenttypen, kabels en werkelijke montagepunten zijn niet vastgesteld.
+- v13: dakuitrusting voorlopig langs middellijn met twee spiegelgelijke staven; hoofdvorm en relingen spiegelgelijk. Reddingsboeien op beide zijden op X133. Kleuren in kijkversie zijn schilderindicaties, geen meerkleurige printinstructies.
+- v13: onderbouwmaten, pasframe, verticale voorblokgroef, gesloten zijwandnissen, achtertrap en schoorstenen blijven geometrisch gelijk. Geen fysieke print-/pasproef en geen Bambu Studio laagcontrole.
+- v13: loopdekreling na zijaanzichtcontrole verlaagd tot 14 mm, net onder de smalle raamonderrand op 14,5 mm; hoogte volgt hier de fotoverhouding, geen bevestigde scheepsmaat. Boeicentrum 8 mm boven loopdek.
+- v14: vereenvoudiging op expliciet verzoek: alleen oude dichte voorverschansing uit v12, met 12 mm centrale doorgang. Geen overige relingen, radar, antennes, hoepel of reddingsboeien.
+- v14: lage opstaande dakrand en ongebruikte mastboring vervallen; de verbeterde ronde dakvorm en drie lichtkapramen uit v13 blijven. Dak wordt kaal.
+- v14: één rechte deur per zijde, voorlopig 24,5 x 39,5 mm, onderkant 1,5 mm boven stuurhutvoet, centrum X65; dicht onderpaneel en raam 19,5 x 19 vanaf 20 mm. Deze maten zijn niet gemeten.
+- v14: direct voor deur afzonderlijk hoekraam met schuine voorstijl. XZ-profiel in mm relatief aan stuurhutvoet: (40,20), (50,20), (50,38), (28,38). Afstand tot rechte deur circa 2,75 mm tussen randen, voor toevoeging van lijsten. Profiel volgt bestaande gebogen hoekwand; foto-inschatting.
+- v14: achter de deur twee afzonderlijke zijramen, 20 x 19 op X94 en X122, onderkant 20 mm. De twee donkere blinde vlakjes uit v13 vervallen. Drie hoge achterramen blijven hoge ramen, geen deuren.
+- v14: v13-notities over open relingen, dakuitrusting, donkere onderpanelen en opstaande kaprand beschrijven de vorige versie en zijn vervallen. Actuele instellingen in bridge en status zijn bepalend.
+- v15: gebruiker bevestigt ankernis alleen aan de gefotografeerde zijde. Die wordt in CAD/kijkmodel zijde B (+Y na export) genoemd, zoals de foto met de boeg rechts. Geen bakboord/stuurboordnaam uit een onbewezen foto-oriëntatie afgeleid.
+- v15: ankernis voorlopig X116..184 (68 mm breed), achterwand op Y78, circa 12 mm terugliggend vanaf buitenwand. Rug en zijwangen 2 mm; dorpel bovenzijde Z5, onderzijde Z3. Alle nismaten zijn foto-inschattingen, niet gemeten.
+- v15: de nis is onder en boven gesloten. Onderzijde Z3 houdt 1 mm ruimte boven het pasframeflensvlak Z2. Het bestaande pasframe, insteekdiepte en gemeten hoofdcontour blijven behouden; de plafondplaat is in onderdeel 04 opgenomen.
+- v15: zijde B krijgt vier kleine ramen op X48/95/202/240; X112 verschuift naar 95 en X135/176 vervallen bij de nis. Zijde A houdt alle zes eerdere ramen. Posities niet nagemeten. Geen los anker toegevoegd.
+- v15: rechte middenstrook van stuurhutwand 52 mm in plaats van 96 bij ongewijzigde totale breedte 136. Ronding begint breder; voorhoeken blijven fijn gesegmenteerd. Fotoreconstructie, geen exact bewezen radius.
+- v15: twee middelste voorruiten op Y+/-11,5 blijven recht, twee buitenste verschuiven naar Y+/-38 en draaien mee met de lokale wandrichting. Alle vier zijn 18 x 19 mm; schuine hoekramen blijven apart vóór de rechte deuren.
+- v15: dakrand volgt de actuele bovenste stuurhutcontour met constant 3 mm overstek in plaats van de afzonderlijke v13-dakcontour. Dak/kap en los deksel samen herbouwd. Geen dakuitrusting of andere relingen toegevoegd.
+- v15: oudere notities over gelijke zijraamrijen en 96 mm recht stuurhutfront zijn vervangen door deze v15-instellingen. De ankernis verandert alleen B; de stuurhut blijft spiegelgelijk.
+- v16: gebruiker bevestigt dat zowel de twee kleine nissen per zijde als de grote ankernis tweemaal zo diep moeten worden. Kleine nissen 4 naar 8 mm; mondmaten, verloopstrook 2,5 en gesloten rugdiktes 4/2 blijven behouden.
+- v16: ankernis alleen B, rugvlak van Y78 naar Y66: nominale diepte circa 12 naar 24 mm. Buitenwand loopt plaatselijk iets taps; dit zijn nominale dieptes. Dorpel, plafondhoogte, breedte en 1 mm vrije ruimte boven pasframe blijven.
+- v16: vergelijking met nieuwe close-ups toont dat deurraam en raam direct richting boeg smaller en hoger moeten zijn dan v15. Deurraam voorlopig 14,5 x 24,5 vanaf 14,5 boven stuurhutvoet; deurkader 21,5 x 39,5. Dit is een foto-inschatting, geen gemeten historische maat.
+- v16: apart hoekraam direct voor deur heeft XZ-profiel (43,5;14,5), (52,5;14,5), (52,5;39), (35;39) relatief aan stuurhutvoet. Boven 17,5 mm, onder 9 mm breed in zijprojectie; rechte achterstijl en schuine voorstijl. Deze constructie volgt de bestaande hoekwand.
+- v16: dakkap eindigt op X110 in plaats van X122, zodat een groter laag vlak dakdeel boven het achterste zijraam zichtbaar wordt. Kaphoogte van 11 naar 14; drie kleine kapramen middenhoogte 6 boven kapbasis. Deze verhoudingen zijn fotografische ontwerpkeuzes.
+- v16: dak blijft kaal; geen relingen, boeien, radar, antennes of andere extra dakdetails. Ronding van v15, rechte deuren, drie hoge achterramen en gemeten hoofdvorm behouden.
+- v16: oudere notities met nisdiepte 4, ankerrug Y78, brede vierkante deurraamopening en kaplengte X122 zijn vervangen door deze actuele instellingen.
+- v17: gebruiker keurt voorstel goed: stuurhutwand 55 mm hoog zonder dakkap (was 42), voetlengte van voor naar achter 90 mm (was 112), breedte 136 ongewijzigd. De maten zijn fotoprototypekeuzes, geen exacte scheepsmaten.
+- v17: voorzijde voet blijft X33; achterwand schuift X145 naar X123. Ronde voorzijde en deurpositie blijven behouden. Twee gewone zijramen op X87/107, elk 16 breed bij 19 hoog, passend in kortere zijwand. De maatkeuze is voorlopig.
+- v17: glasstrook schuift 13 mm omhoog; glashoogtes worden behouden. Extra hoogte komt onder de ramen. Deurhoogte 52,5, onderrand 1,5 boven voet; bestaand klein handgreepje op 19,5 boven voet. Geen nieuwe details toegevoegd.
+- v17: drie hoge achterramen blijven open, 26 hoog vanaf 25 boven de voet; de twee buitenste ramen 12 hoog vanaf 39. Zelfde glasvormen als v16, 13 mm hoger geplaatst. Stuurhut blijft links/rechts spiegelgelijk.
+- v17: dakcontact Z141; kapbasis Z143; kaal kapdeksel Z155..157. Dakoverstek 3 en kaphoogte 14 blijven; kap achterrand naar X97 zodat een vlak achterdak van 29 mm overblijft. Deze dakverhoudingen zijn foto-inschattingen.
+- v17: onderbouw, dichte voorverschansing, pasframe, schoorstenen, achtertrap en verdubbelde nisdieptes blijven ongewijzigd. Geen extra relingen, boeien, radar of antennes. Oudere notities met 42 mm stuurhutwand en achterwand X145 zijn vervallen.

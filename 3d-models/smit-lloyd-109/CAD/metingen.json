@@ -1,0 +1,90 @@
+{
+  "units": "mm",
+  "source": "Door gebruiker gemeten originele opbouw uit modelbouwdoos, 2026-11-06",
+  "reference_scale": {
+    "intended_CAD_scale": "1:50",
+    "kit_scale_confirmed": false,
+    "values_are_raw_model_measurements": true
+  },
+  "orientation": "Links en rechts zoals op de eerste bovenfoto; afgerond brede deel onderaan, twee uitlopers bovenaan. Geen bakboord/stuurboord-toewijzing bevestigd.",
+  "main_body": {
+    "A_overall_length": 385,
+    "A_definition": "Afgeronde voorzijde tot verste uiteinde; volgens meetinstructie exclusief kleine uitstekende kastje, niet afzonderlijk bevestigd",
+    "B_maximum_width": 180,
+    "D_rounded_front_section_length": 163,
+    "D_definition": "Van de voorste ronding tot de zichtbare rechte dwarsrand"
+  },
+  "vertical": {
+    "reference": "Onderkant / steunvlak op rompdek",
+    "first_level_top": 60,
+    "second_level_top": 86,
+    "second_level_increment": 26,
+    "same_datum_confirmed": true,
+    "physical_deck_mapping": "60 mm: achterste U-vormige deel; 86 mm: brede afgeronde voordak",
+    "physical_deck_mapping_confirmed": true,
+    "back_U_deck_top": 60,
+    "rounded_front_roof_top": 86
+  },
+  "U_recess": {
+    "clear_width": 80,
+    "depth_to_low_right_block": 60,
+    "depth_to_longest_outer_tip": 115,
+    "depth_reference": "Binnenste dwarswand van de grote U; gemeten in lengterichting",
+    "depth_to_right_tip": 115,
+    "depth_to_left_tip": 115,
+    "both_tip_depths_confirmed": true
+  },
+  "extensions": {
+    "left": {
+      "F1_narrow_width": 25,
+      "F2_maximum_widened_end_width": 35,
+      "F3_tip_to_start_of_outer_shoulder": 80,
+      "F4_tip_to_end_of_outer_shoulder": 85,
+      "derived_longitudinal_shoulder_run": 5
+    },
+    "right": {
+      "F1_outer_edge_to_main_U_inner_wall_including_low_block": 70,
+      "F1_definition": "Zelfde dwarslijn als F1 links; bevat het lage binnenste blokje, is niet de kale armbreedte",
+      "F2_maximum_widened_end_width": 37,
+      "F3_tip_to_start_of_outer_shoulder": 75,
+      "F4_tip_to_end_of_outer_shoulder": 85,
+      "derived_longitudinal_shoulder_run": 10,
+      "bare_narrow_arm_width": 36,
+      "F5_definition": "Dwars over rechterarm bij kleine binnenste inkeping, zonder laag blokje; volgens getoond meetplaatje"
+    },
+    "F3_F4_definition": "Vanaf verste uiteinde langs lengterichting tot begin/einde van schuine buitenste schouder; F3 brede kant, F4 smalle kant"
+  },
+  "hull_interface": {
+    "user_measured_clear_opening": [
+      205,
+      153
+    ],
+    "provisional_insert_outer_size": [
+      204,
+      152
+    ],
+    "provisional_insert_depth": 6,
+    "opening_orientation_and_longitudinal_position_relative_to_original_body_confirmed": false
+  },
+  "open_items": [
+    "Exacte kleine inkeping aan rechter binnenzijde",
+    "Positie dekopening ten opzichte van opbouw; insteekdiepte fysiek passen",
+    "Rondingen en tapsheid zijn nog geen maatvaste reconstructie",
+    "Hogere stuurhut, dak en schoorstenen blijven afhankelijk van foto's en aannames"
+  ],
+  "cad_status": "Nagemeten onderbouw verwerkt in v5; hoger bovenwerk en expliciete vormaannames blijven voorlopig. V4 bestanden blijven behouden.",
+  "front_boxes": {
+    "small_left": {
+      "width": 25,
+      "projection": 15,
+      "height": 30
+    },
+    "center": {
+      "width": 65,
+      "projection": 25,
+      "height": 55
+    },
+    "dimensions_confirmed": true,
+    "bottom_elevation_and_spacing_unmeasured": true
+  }
+}

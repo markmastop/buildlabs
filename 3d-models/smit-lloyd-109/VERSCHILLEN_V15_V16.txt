@@ -1,0 +1,12 @@
+V15 -> V16
+02/04: ankernis alleen B, nominale diepte circa 12 -> 24 mm; rug Y78 -> Y66.
+06: vier kleine gesloten zijwandnissen 4 -> 8 mm diep.
+10: deurraam smaller/hoger, 14,5 x 24,5; deurkader 21,5 x 39,5.
+    Apart trapeziumraam ervoor: 17,5 boven / 9 onder, hoogte 24,5.
+    Raambovenkanten gelijk; rechte achterstijl en schuine voorstijl.
+11/12: schuine kap korter (achterrand X110) en hoger (14), groter laag achterdak.
+       Drie kleine kapramen behouden. Geen dakuitrusting of andere versiering.
+Overige printdelen blijven gelijk aan v15. Pasframegeometrie en 6 mm insteek,
+gemeten onderbouw, ronde voorwand, hoge achterramen en voorverschansing behouden.
+Nieuwe raam- en dakmaten zijn foto-inschattingen; de verdubbelde diepte is een
+expliciete ontwerpkeuze van de gebruiker. Geen fysieke print/pasproef uitgevoerd.

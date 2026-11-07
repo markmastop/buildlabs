@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Smit-Lloyd 109 · printbare opbouw v17</title><meta name="description" content="Draaibare CAD-opbouw van de Smit-Lloyd 109: v17, printbestanden, maatvoering en een afvinkbare onderdelenlijst.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@500;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one column like a shipyard drawing sheet — model viewer on top, spec strip, then the parts list grouped per system. */
+:root {
+  --ice: #edf2f5;
+  --sheet: #f8fafb;
+  --ink: #14212c;
+  --muted: #536472;
+  --rule: #d3dde4;
+  --hull: #b3261e;
+  --polar: #1f6f94;
+  --stage: #dfe8ee;
+  --display: "Saira Extra Condensed", "Arial Narrow", sans-serif;
+  --body: "IBM Plex Sans", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --ice: #0d1720; --sheet: #142330; --ink: #e4ecf1; --muted: #93a6b4; --rule: #263a4a;
+  --hull: #e0574d; --polar: #6cb8d9; --stage: #0f1e2a; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --ice: #0d1720; --sheet: #142330; --ink: #e4ecf1; --muted: #93a6b4; --rule: #263a4a;
+  --hull: #e0574d; --polar: #6cb8d9; --stage: #0f1e2a; color-scheme: dark }
+
+body { background: var(--ice); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.55; }
+.wrap { max-width: 960px; margin: 0 auto; padding-block: 28px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 28px; }
+header { display: grid; gap: 4px; }
+.eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--polar); }
+h1 { font-family: var(--display); font-weight: 700; font-size: clamp(44px, 9vw, 76px); line-height: .9; margin: 0; letter-spacing: .01em; text-wrap: balance; }
+h1 span { color: var(--hull); }
+.lede { color: var(--muted); max-width: 60ch; margin: 6px 0 0; }
+
+.viewer { background: var(--stage); border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; position: relative; }
+#stage { width: 100%; display: block; touch-action: none; }
+.hint { position: absolute; left: 12px; bottom: 10px; font-family: var(--mono); font-size: 11px; color: var(--muted); pointer-events: none; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; }
+.controls button { font: 500 14px var(--body); color: var(--ink); background: var(--sheet); border: 1px solid var(--rule);
+  border-radius: 999px; padding: 7px 14px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+.controls button::before { content: ""; width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid var(--muted); }
+.controls button[aria-pressed="true"] { border-color: var(--polar); }
+.controls button[aria-pressed="true"]::before { background: var(--polar); border-color: var(--polar); }
+.controls button:focus-visible, input:focus-visible { outline: 2px solid var(--polar); outline-offset: 2px; }
+
+.specs { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); border-top: 2px solid var(--ink); border-bottom: 1px solid var(--rule); }
+.spec { padding: 12px 12px 12px 0; display: grid; gap: 2px; }
+.spec dt { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.spec dd { margin: 0; font-family: var(--display); font-weight: 500; font-size: 30px; line-height: 1; font-variant-numeric: tabular-nums; }
+.spec dd small { font-family: var(--body); font-size: 13px; color: var(--muted); margin-left: 3px; }
+
+h2 { font-family: var(--display); font-weight: 700; font-size: 34px; line-height: 1; margin: 0; }
+.section-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.section-head p { margin: 0; color: var(--muted); font-size: 14px; }
+.groups { display: grid; gap: 22px; }
+.group h3 { font-family: var(--mono); font-weight: 500; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--polar); margin: 0 0 6px; }
+.group ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+.group li { border-bottom: 1px solid var(--rule); }
+.group label { display: grid; grid-template-columns: 22px minmax(0,1fr) auto; gap: 4px 10px; padding: 10px 0; cursor: pointer; align-items: start; }
+.group input { margin: 4px 0 0; accent-color: var(--polar); width: 16px; height: 16px; }
+.name { font-weight: 500; min-width: 0; }
+.detail { grid-column: 2 / 4; color: var(--muted); font-size: 14px; min-width: 0; }
+.tag { font-family: var(--mono); font-size: 11px; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--rule); color: var(--muted); white-space: nowrap; }
+.tag.opt { border-color: var(--polar); color: var(--polar); }
+li:has(input:checked) .name { text-decoration: line-through; color: var(--muted); }
+.note { background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 16px; font-size: 14px; color: var(--muted); }
+.note strong { color: var(--ink); font-weight: 500; }
+@media (min-width: 760px) { .groups { grid-template-columns: 1fr 1fr; gap: 28px 36px; } }
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+a { color: var(--polar); text-underline-offset: .18em; }
+a:focus-visible { outline: 2px solid var(--polar); outline-offset: 3px; }
+.viewer iframe { display:block; width:100%; height:790px; border:0; background:var(--stage); }
+.viewer-links { display:flex; flex-wrap:wrap; gap:6px 20px; margin:0; font-size:14px; }
+.downloads { display:flex; flex-wrap:wrap; gap:10px; }
+.downloads a { display:inline-flex; align-items:center; padding:10px 16px; background:var(--sheet); border:1px solid var(--rule); border-radius:6px; text-decoration:none; font-weight:500; }
+.downloads a.primary { background:var(--polar); color:var(--sheet); border-color:var(--polar); }
+.group li { padding-bottom:9px; }
+.part-links { display:flex; gap:16px; padding-left:32px; font-family:var(--mono); font-size:12px; }
+.table-wrap { overflow-x:auto; }
+table { width:100%; border-collapse:collapse; font-size:14px; }
+th,td { text-align:left; padding:10px 10px 10px 0; border-bottom:1px solid var(--rule); vertical-align:top; }
+thead th { color:var(--muted); font-weight:500; }
+tbody th { font-weight:500; width:43%; }
+td:last-child { color:var(--muted); white-space:nowrap; }
+.steps { margin:0; padding-left:22px; display:grid; gap:10px; }
+footer { color:var(--muted); font-size:13px; border-top:1px solid var(--rule); padding-top:16px; }
+.status { color:var(--muted); font-size:14px; margin:0; }
+@media(max-width:600px) { .viewer iframe {height:1080px;} .downloads a {flex:1 1 45%; justify-content:center;} td:last-child {white-space:normal;} }
+</style></head><body><main class="wrap">
+<header><div class="eyebrow">Afneembare opbouw · schaal 1:50 · versie 17</div><h1>Smit-Lloyd <span>109</span></h1><p class="lede">Een printbare opbouw voor de bestaande romp. De delen passen op een Bambu Lab P2S-bed van 256 × 256 mm en worden tot één afneembaar geheel verlijmd. V17 heeft een hogere, kortere stuurhut en diepe zijwandnissen.</p></header>
+<section style="display:grid;gap:12px" aria-label="3D-model"><div class="viewer"><iframe src="bekijken.html" title="Volledige draaibare opbouw van de Smit-Lloyd 109, v17" loading="eager"></iframe></div><p class="viewer-links"><a href="bekijken.html">3D-model apart openen</a><a href="beelden/totaal-v17.jpg">Afbeelding bekijken</a><a href="https://smit-lloyd-109-vormstudie.mkram.chatgpt.site/" target="_blank" rel="noopener">Openbare kijkversie</a></p></section>
+<dl class="specs"><div class="spec"><dt>Lengte totaal</dt><dd>410<small>mm</small></dd></div><div class="spec"><dt>Breedte maximaal</dt><dd>189<small>mm</small></dd></div><div class="spec"><dt>Hoogte boven rompdek</dt><dd>196<small>mm</small></dd></div><div class="spec"><dt>Unieke printdelen</dt><dd>31<small>STL's</small></dd></div><div class="spec"><dt>Stuurhutwand</dt><dd>55<small>mm hoog</small></dd></div></dl>
+<section style="display:grid;gap:14px"><div class="section-head"><h2>Bestanden</h2><p>De huidige, digitaal gecontroleerde versie.</p></div><div class="downloads"><a class="primary" href="Smit-Lloyd-109_v17_printpakket.zip" download>Compleet printpakket · 36,7 MB</a><a href="STEP/SL109_v17_assemblage.step" download>STEP-assemblage</a><a href="HANDLEIDING.txt">Handleiding</a><a href="onderdelen.csv" download>Onderdelenlijst CSV</a></div><p class="status">Het pakket bevat STL, STEP, parametrische CAD-bron, referentiefoto's en controlebestanden. De bron staat ook los in <a href="CAD/parameters.json">CAD/parameters.json</a> en <a href="CAD/build.py">CAD/build.py</a>.</p></section>
+<section style="display:grid;gap:16px"><div class="section-head"><h2>Onderdelenlijst</h2><p>Vink af wat je geprint hebt; deze pagina onthoudt het op dit apparaat.</p></div><p id="print-progress" class="status" aria-live="polite">0 van 31 unieke onderdelen afgevinkt</p><div class="groups"><div class="group"><h3>Pasvorm en onderbouw</h3><ul><li><label for="sl17-00_pasproef"><input type="checkbox" id="sl17-00_pasproef" data-part><span class="name">1× Pasproef voor de rompopening</span><span class="tag">pasproef</span><span class="detail">212 × 160 × 8 mm · bovenzijde op bed</span></label><div class="part-links"><a href="STL/00_pasproef.stl" download>STL</a><a href="STEP/00_pasproef.step" download>STEP</a></div></li>
+<li><label for="sl17-01_pasframe"><input type="checkbox" id="sl17-01_pasframe" data-part><span class="name">1× Pasframe met insteekrand</span><span class="tag">printdeel</span><span class="detail">212 × 160 × 8 mm · bovenzijde op bed</span></label><div class="part-links"><a href="STL/01_pasframe.stl" download>STL</a><a href="STEP/01_pasframe.step" download>STEP</a></div></li>
+<li><label for="sl17-02_onderdekhuis_voor"><input type="checkbox" id="sl17-02_onderdekhuis_voor" data-part><span class="name">1× Voorste onderdekhuis met ankernis</span><span class="tag">printdeel</span><span class="detail">190 × 180 × 57,6 mm · onderzijde op bed</span></label><div class="part-links"><a href="STL/02_onderdekhuis_voor.stl" download>STL</a><a href="STEP/02_onderdekhuis_voor.step" download>STEP</a></div></li>
+<li><label for="sl17-03_onderdekhuis_achter"><input type="checkbox" id="sl17-03_onderdekhuis_achter" data-part><span class="name">1× Achterste onderdekhuis</span><span class="tag">printdeel</span><span class="detail">195 × 189 × 57,6 mm · onderzijde op bed</span></label><div class="part-links"><a href="STL/03_onderdekhuis_achter.stl" download>STL</a><a href="STEP/03_onderdekhuis_achter.step" download>STEP</a></div></li>
+<li><label for="sl17-04_achterdek_voor"><input type="checkbox" id="sl17-04_achterdek_voor" data-part><span class="name">1× Voorste dekdeel en plafond ankernis</span><span class="tag">printdeel</span><span class="detail">190 × 180 × 2,4 mm · onderzijde op bed</span></label><div class="part-links"><a href="STL/04_achterdek_voor.stl" download>STL</a><a href="STEP/04_achterdek_voor.step" download>STEP</a></div></li>
+<li><label for="sl17-05_achterdek_achter"><input type="checkbox" id="sl17-05_achterdek_achter" data-part><span class="name">1× Achterste dekdeel</span><span class="tag">printdeel</span><span class="detail">195 × 189 × 2,4 mm · onderzijde op bed</span></label><div class="part-links"><a href="STL/05_achterdek_achter.stl" download>STL</a><a href="STEP/05_achterdek_achter.step" download>STEP</a></div></li>
+<li><label for="sl17-06_verhoogd_voordekhuis"><input type="checkbox" id="sl17-06_verhoogd_voordekhuis" data-part><span class="name">1× Verhoogd voordekhuis met diepe nissen</span><span class="tag">printdeel</span><span class="detail">183 × 180 × 23,6 mm · onderzijde op bed</span></label><div class="part-links"><a href="STL/06_verhoogd_voordekhuis.stl" download>STL</a><a href="STEP/06_verhoogd_voordekhuis.step" download>STEP</a></div></li>
+<li><label for="sl17-07_voordak_163mm"><input type="checkbox" id="sl17-07_voordak_163mm" data-part><span class="name">1× Voordak, bovenzijde 163 mm</span><span class="tag">printdeel</span><span class="detail">164,846 × 180 × 2,4 mm · bovenzijde op bed</span></label><div class="part-links"><a href="STL/07_voordak_163mm.stl" download>STL</a><a href="STEP/07_voordak_163mm.step" download>STEP</a></div></li>
+<li><label for="sl17-08_middenblok_65x25x55"><input type="checkbox" id="sl17-08_middenblok_65x25x55" data-part><span class="name">1× Groot voorblok met verticale groef</span><span class="tag">printdeel</span><span class="detail">27,366 × 65 × 55 mm · onderzijde op bed</span></label><div class="part-links"><a href="STL/08_middenblok_65x25x55.stl" download>STL</a><a href="STEP/08_middenblok_65x25x55.step" download>STEP</a></div></li>
+<li><label for="sl17-09_klein_blok_links_25x15x30"><input type="checkbox" id="sl17-09_klein_blok_links_25x15x30" data-part><span class="name">1× Klein voorblok</span><span class="tag">printdeel</span><span class="detail">18,389 × 25 × 30 mm · onderzijde op bed</span></label><div class="part-links"><a href="STL/09_klein_blok_links_25x15x30.stl" download>STL</a><a href="STEP/09_klein_blok_links_25x15x30.step" download>STEP</a></div></li></ul></div>
+<div class="group"><h3>Stuurhut en voorverschansing</h3><ul><li><label for="sl17-10_stuurhut_met_raamopeningen"><input type="checkbox" id="sl17-10_stuurhut_met_raamopeningen" data-part><span class="name">1× Stuurhut met open ramen</span><span class="tag">printdeel</span><span class="detail">98,25 × 136,8 × 55 mm · onderzijde op bed</span></label><div class="part-links"><a href="STL/10_stuurhut_met_raamopeningen.stl" download>STL</a><a href="STEP/10_stuurhut_met_raamopeningen.step" download>STEP</a></div></li>
+<li><label for="sl17-11_stuurhutdak_lichtkap"><input type="checkbox" id="sl17-11_stuurhutdak_lichtkap" data-part><span class="name">1× Stuurhutdak en lichtkap</span><span class="tag">printdeel</span><span class="detail">104 × 142 × 14 mm · onderzijde op bed</span></label><div class="part-links"><a href="STL/11_stuurhutdak_lichtkap.stl" download>STL</a><a href="STEP/11_stuurhutdak_lichtkap.step" download>STEP</a></div></li>
+<li><label for="sl17-12_lichtkap_deksel"><input type="checkbox" id="sl17-12_lichtkap_deksel" data-part><span class="name">1× Los deksel van de lichtkap</span><span class="tag">printdeel</span><span class="detail">57,857 × 124,857 × 2 mm · onderzijde op bed</span></label><div class="part-links"><a href="STL/12_lichtkap_deksel.stl" download>STL</a><a href="STEP/12_lichtkap_deksel.step" download>STEP</a></div></li>
+<li><label for="sl17-13_windscherm_L"><input type="checkbox" id="sl17-13_windscherm_L" data-part><span class="name">1× Dichte voorverschansing L</span><span class="tag">printdeel</span><span class="detail">67,921 × 84 × 16 mm · onderzijde op bed</span></label><div class="part-links"><a href="STL/13_windscherm_L.stl" download>STL</a><a href="STEP/13_windscherm_L.step" download>STEP</a></div></li>
+<li><label for="sl17-13_windscherm_R"><input type="checkbox" id="sl17-13_windscherm_R" data-part><span class="name">1× Dichte voorverschansing R</span><span class="tag">printdeel</span><span class="detail">67,921 × 84 × 16 mm · onderzijde op bed</span></label><div class="part-links"><a href="STL/13_windscherm_R.stl" download>STL</a><a href="STEP/13_windscherm_R.step" download>STEP</a></div></li></ul></div>
+<div class="group"><h3>Schoorstenen en verbinding</h3><ul><li><label for="sl17-14_schoorsteenvoet_L"><input type="checkbox" id="sl17-14_schoorsteenvoet_L" data-part><span class="name">1× Schoorsteenvoet L</span><span class="tag">printdeel</span><span class="detail">84 × 34 × 2 mm · onderzijde op bed</span></label><div class="part-links"><a href="STL/14_schoorsteenvoet_L.stl" download>STL</a><a href="STEP/14_schoorsteenvoet_L.step" download>STEP</a></div></li>
+<li><label for="sl17-14_schoorsteenvoet_R"><input type="checkbox" id="sl17-14_schoorsteenvoet_R" data-part><span class="name">1× Schoorsteenvoet R</span><span class="tag">printdeel</span><span class="detail">84 × 36 × 2 mm · onderzijde op bed</span></label><div class="part-links"><a href="STL/14_schoorsteenvoet_R.stl" download>STL</a><a href="STEP/14_schoorsteenvoet_R.step" download>STEP</a></div></li>
+<li><label for="sl17-15_schoorsteen_logo_roosters_L"><input type="checkbox" id="sl17-15_schoorsteen_logo_roosters_L" data-part><span class="name">1× Schoorsteen L met SMIT-logo en roosters</span><span class="tag">printdeel</span><span class="detail">80,475 × 32,599 × 134 mm · onderzijde op bed</span></label><div class="part-links"><a href="STL/15_schoorsteen_logo_roosters_L.stl" download>STL</a><a href="STEP/15_schoorsteen_logo_roosters_L.step" download>STEP</a></div></li>
+<li><label for="sl17-15_schoorsteen_logo_roosters_R"><input type="checkbox" id="sl17-15_schoorsteen_logo_roosters_R" data-part><span class="name">1× Schoorsteen R met SMIT-logo en roosters</span><span class="tag">printdeel</span><span class="detail">80,475 × 34,599 × 134 mm · onderzijde op bed</span></label><div class="part-links"><a href="STL/15_schoorsteen_logo_roosters_R.stl" download>STL</a><a href="STEP/15_schoorsteen_logo_roosters_R.step" download>STEP</a></div></li>
+<li><label for="sl17-16_dwarsverbinding_met_platform"><input type="checkbox" id="sl17-16_dwarsverbinding_met_platform" data-part><span class="name">1× Dwarsverbinding met middenplatform</span><span class="tag">printdeel</span><span class="detail">24 × 127,649 × 5,7 mm · onderzijde op bed</span></label><div class="part-links"><a href="STL/16_dwarsverbinding_met_platform.stl" download>STL</a><a href="STEP/16_dwarsverbinding_met_platform.step" download>STEP</a></div></li></ul></div>
+<div class="group"><h3>Trap en achterkasten</h3><ul><li><label for="sl17-17_achterkast_getrapt"><input type="checkbox" id="sl17-17_achterkast_getrapt" data-part><span class="name">1× Schuine trap en kast met twee panelen</span><span class="tag">printdeel</span><span class="detail">41,58 × 33,7 × 60 mm · onderzijde op bed</span></label><div class="part-links"><a href="STL/17_achterkast_getrapt.stl" download>STL</a><a href="STEP/17_achterkast_getrapt.step" download>STEP</a></div></li>
+<li><label for="sl17-18_achterkast_laag"><input type="checkbox" id="sl17-18_achterkast_laag" data-part><span class="name">1× Lage achterkast</span><span class="tag">printdeel</span><span class="detail">22,58 × 44 × 22 mm · onderzijde op bed</span></label><div class="part-links"><a href="STL/18_achterkast_laag.stl" download>STL</a><a href="STEP/18_achterkast_laag.step" download>STEP</a></div></li>
+<li><label for="sl17-19_achterkast_schuin"><input type="checkbox" id="sl17-19_achterkast_schuin" data-part><span class="name">1× Schuine achterkast</span><span class="tag">printdeel</span><span class="detail">20,53 × 10 × 32 mm · onderzijde op bed</span></label><div class="part-links"><a href="STL/19_achterkast_schuin.stl" download>STL</a><a href="STEP/19_achterkast_schuin.step" download>STEP</a></div></li></ul></div>
+<div class="group"><h3>Roosters en lijmverbindingen</h3><ul><li><label for="sl17-20_rooster_bovenhuis_1"><input type="checkbox" id="sl17-20_rooster_bovenhuis_1" data-part><span class="name">1× Los rooster 1</span><span class="tag">printdeel</span><span class="detail">12 × 13 × 0,91 mm · voorgeorienteerd; zie opmerking</span></label><div class="part-links"><a href="STL/20_rooster_bovenhuis_1.stl" download>STL</a><a href="STEP/20_rooster_bovenhuis_1.step" download>STEP</a></div></li>
+<li><label for="sl17-20_rooster_bovenhuis_2"><input type="checkbox" id="sl17-20_rooster_bovenhuis_2" data-part><span class="name">1× Los rooster 2</span><span class="tag">printdeel</span><span class="detail">12 × 13 × 0,91 mm · voorgeorienteerd; zie opmerking</span></label><div class="part-links"><a href="STL/20_rooster_bovenhuis_2.stl" download>STL</a><a href="STEP/20_rooster_bovenhuis_2.step" download>STEP</a></div></li>
+<li><label for="sl17-20_rooster_bovenhuis_3"><input type="checkbox" id="sl17-20_rooster_bovenhuis_3" data-part><span class="name">1× Los rooster 3</span><span class="tag">printdeel</span><span class="detail">12 × 13 × 0,91 mm · voorgeorienteerd; zie opmerking</span></label><div class="part-links"><a href="STL/20_rooster_bovenhuis_3.stl" download>STL</a><a href="STEP/20_rooster_bovenhuis_3.step" download>STEP</a></div></li>
+<li><label for="sl17-20_rooster_bovenhuis_4"><input type="checkbox" id="sl17-20_rooster_bovenhuis_4" data-part><span class="name">1× Los rooster 4</span><span class="tag">printdeel</span><span class="detail">12 × 13 × 0,91 mm · voorgeorienteerd; zie opmerking</span></label><div class="part-links"><a href="STL/20_rooster_bovenhuis_4.stl" download>STL</a><a href="STEP/20_rooster_bovenhuis_4.step" download>STEP</a></div></li>
+<li><label for="sl17-20_rooster_bovenhuis_5"><input type="checkbox" id="sl17-20_rooster_bovenhuis_5" data-part><span class="name">1× Los rooster 5</span><span class="tag">printdeel</span><span class="detail">12 × 13 × 0,91 mm · voorgeorienteerd; zie opmerking</span></label><div class="part-links"><a href="STL/20_rooster_bovenhuis_5.stl" download>STL</a><a href="STEP/20_rooster_bovenhuis_5.step" download>STEP</a></div></li>
+<li><label for="sl17-21_achtervloer_optioneel"><input type="checkbox" id="sl17-21_achtervloer_optioneel" data-part><span class="name">1× Optionele vloer in de achterste U</span><span class="tag opt">optie</span><span class="detail">114,7 × 79,7 × 2,4 mm · onderzijde op bed</span></label><div class="part-links"><a href="STL/21_achtervloer_optioneel.stl" download>STL</a><a href="STEP/21_achtervloer_optioneel.step" download>STEP</a></div></li>
+<li><label for="sl17-22_lijmstrip_4x"><input type="checkbox" id="sl17-22_lijmstrip_4x" data-part><span class="name">4× Lijmstrip voor de huisnaad</span><span class="tag">printdeel</span><span class="detail">30 × 12 × 2 mm · onderzijde op bed</span></label><div class="part-links"><a href="STL/22_lijmstrip_4x.stl" download>STL</a><a href="STEP/22_lijmstrip_4x.step" download>STEP</a></div></li>
+<li><label for="sl17-23_dek_lijmstrip_4x"><input type="checkbox" id="sl17-23_dek_lijmstrip_4x" data-part><span class="name">4× Lijmstrip voor de deknaden</span><span class="tag">printdeel</span><span class="detail">24 × 8 × 2 mm · onderzijde op bed</span></label><div class="part-links"><a href="STL/23_dek_lijmstrip_4x.stl" download>STL</a><a href="STEP/23_dek_lijmstrip_4x.step" download>STEP</a></div></li></ul></div></div><p class="note">Print lijmstrips 22 en 23 elk <strong>viermaal</strong>. Dat geeft 35 noodzakelijke prints. Inclusief pasproef 00 en optionele achtervloer 21 zijn het 37 prints. De afmetingen in de lijst zijn de buitenmaten van het georiënteerde printbestand, in lengte × breedte × hoogte.</p></section>
+<section style="display:grid;gap:16px"><div class="section-head"><h2>Huidige maatvoering</h2><p>Alle maten in millimeters.</p></div><div class="table-wrap"><table><thead><tr><th>Onderdeel</th><th>Maat</th><th>Basis</th></tr></thead><tbody><tr><th scope="row">Totale opbouw, inclusief insteekrand</th><td>410 × 189 × 202 mm</td><td>CAD-buitenmaat</td></tr>
+<tr><th scope="row">Totale hoogte boven het rompdek</th><td>196 mm, zonder mast</td><td>CAD-buitenmaat</td></tr>
+<tr><th scope="row">Hoofddekhuis</th><td>385 mm lang; vooraan 180 mm breed</td><td>Opgemeten</td></tr>
+<tr><th scope="row">Achterdek / verhoogd voordek</th><td>60 / 86 mm boven rompdek</td><td>Opgemeten</td></tr>
+<tr><th scope="row">Bovenzijde verhoogd voordek</th><td>163 × 180 mm</td><td>Opgemeten</td></tr>
+<tr><th scope="row">Stuurhutvoet en wand</th><td>90 × 136 × 55 mm</td><td>Proefmaat</td></tr>
+<tr><th scope="row">Stuurhut inclusief dak</th><td>104 × 142 × 71 mm</td><td>CAD-buitenmaat</td></tr>
+<tr><th scope="row">Bovenkant stuurhutdak</th><td>157 mm boven rompdek</td><td>CAD-buitenmaat</td></tr>
+<tr><th scope="row">Schoorstenen, zonder opgelegde details</th><td>80 lang × 32 / 34 breed × 134 hoog</td><td>Ontwerpmaat</td></tr>
+<tr><th scope="row">Bestaande rompopening</th><td>205 × 153 mm</td><td>Opgemeten</td></tr>
+<tr><th scope="row">Insteekrand</th><td>204 × 152 mm; 6 mm diep</td><td>Ontwerpmaat</td></tr>
+<tr><th scope="row">Flens van pasframe</th><td>212 × 160 × 2 mm</td><td>Ontwerpmaat</td></tr>
+<tr><th scope="row">Dichte voorverschansing</th><td>16 mm hoog; middenopening 12 mm</td><td>Ontwerpmaat</td></tr>
+<tr><th scope="row">Groot voorblok</th><td>65 breed × 25 uitsteek × 55 hoog</td><td>Opgemeten</td></tr>
+<tr><th scope="row">Klein voorblok</th><td>25 breed × 15 uitsteek × 30 hoog</td><td>Opgemeten</td></tr>
+<tr><th scope="row">U-uitsparing achter</th><td>80 breed × 115 diep</td><td>Opgemeten</td></tr>
+<tr><th scope="row">Kleine zijwandnissen, per zijde</th><td>28 / 44 breed × 16 hoog × 8 diep</td><td>Ontwerpmaat</td></tr>
+<tr><th scope="row">Ankernis, alleen zijde B</th><td>68 breed × circa 24 diep × 52,6 hoog</td><td>Ontwerpmaat</td></tr></tbody></table></div><p class="note">De stuurhutwand is 55 mm hoog zonder dak. De voet is 90 mm lang; de bovenkant en het dak steken verder naar voren uit. De totale opbouwhoogte is 202 mm inclusief de 6 mm insteekrand. Stuurhut en fotodetails blijven proefmaten; er is nog geen fysieke print- of pasproef uitgevoerd.</p></section>
+<section style="display:grid;gap:16px"><h2>Printen en monteren</h2><ol class="steps"><li><strong>Eerst de pasproef.</strong> Print 00 en pas hem in de echte opening van 205 × 153 mm. Het pasframe heeft een insteekrand van 204 × 152 mm en 6 mm diepte.</li><li><strong>Onderbouw droogpassen.</strong> Plaats de huisdelen en dekplaten op de hoogtes 60 en 86 mm. Verlijm de naden van binnenuit met de lijmstrips.</li><li><strong>Stuurhut beglazen en sluiten.</strong> Plaats glasfolie aan de binnenzijde, monteer dak 11 en sluit met deksel 12. Houd de centrale opening in de dichte voorverschansing vrij.</li><li><strong>Afneembaar geheel maken.</strong> Monteer de schoorstenen, verbinding en achterdetails. Lijm het pasframe pas op zijn definitieve plek nadat de complete opbouw op de romp is gepast. Laat de aansluiting met de romp afneembaar.</li></ol><p class="status">Volledige printoriëntaties, richtinstellingen en montagevolgorde staan in de <a href="HANDLEIDING.txt">handleiding</a>. Controleer de laagweergave in de slicer vóór een volledige print.</p></section>
+<footer>Smit-Lloyd 109 · v17 · nominale schaal 1:50 · bestaande romp. Digitale geometriecontrole uitgevoerd; historische schaalnauwkeurigheid van de fotodetails is niet vastgesteld. <a href="STEP_hercontrole.json">Controleverslag</a> · <a href="SHA256SUMS.txt">Bestandscontrolesommen</a></footer>
+</main><script>
+(() => { const boxes=[...document.querySelectorAll('[data-part]')],key='smit-lloyd-109-v17-printvoortgang'; let saved=[];try{const value=JSON.parse(localStorage.getItem(key)||'[]');if(Array.isArray(value))saved=value.filter(v=>typeof v==='string');}catch{}
+for(const box of boxes)box.checked=saved.includes(box.id);
+function update(){document.getElementById('print-progress').textContent=boxes.filter(b=>b.checked).length+' van '+boxes.length+' unieke onderdelen afgevinkt';}
+for(const box of boxes)box.addEventListener('change',()=>{try{localStorage.setItem(key,JSON.stringify(boxes.filter(b=>b.checked).map(b=>b.id)));}catch{}update();});update();})();
+</script></body></html>

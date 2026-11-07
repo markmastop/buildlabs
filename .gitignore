@@ -1,0 +1,44 @@
+# Lokale configuratie en sleutels; voorbeelden mogen wel in Git.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Afhankelijkheden en caches.
+node_modules/
+__pycache__/
+*.py[cod]
+.venv/
+
+# Slicer- en printuitvoer: alleen bron, STL en 3MF in Git.
+*.gcode
+*.gcode.3mf
+*.bgcode
+*.stl.bak
+*.3mf.bak
+
+# CAD-autosaves en tijdelijke bestanden.
+*.FCStd1
+*.FCBak
+*.f3d.tmp
+~$*
+
+# Volledige printpakketten (ZIP) via GitHub Releases, niet in Git.
+*printpakket.zip
+
+# Grote renders en exports per project lokaal houden.
+renders/
+exports/tmp/
+
+# Opruimmap.
+_to_delete/
+
+# Besturingssysteem en editorback-ups.
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~

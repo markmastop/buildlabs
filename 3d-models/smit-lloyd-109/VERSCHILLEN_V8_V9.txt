@@ -1,0 +1,25 @@
+WIJZIGING V9 — ZIJKANTEN
+De gebruiker bevestigt na vergelijking dat de hoofdindeling aan beide kanten gelijk is.
+V8 had zes kleine gaten op onjuiste stations (twee voor de naad en vier erachter)
+en twee even grote bovenopeningen. V9 volgt de foto: vier kleine ramen voor de
+verticale deelnaad X=190 en twee erachter; bovenaan één opening deels in de
+voorste ronding en één bredere opening verder naar achteren.
+
+Foto-keuzes in millimeters (geen nagemeten detailmaten):
+- Kleine ramen: centra X=48/112/135/176/202/240; 11 breed x 13 hoog;
+  onderkant Z=25; hoekradius 0,6.
+- Bovenopeningen: X=30, breed 28; X=105, breed 44. Beide 16 hoog,
+  onderkant Z=65, hoekradius 0,9. De voorste opening loopt door de afronding.
+De schuine overgang, daklengte 163 en hoogtes 60/86 zijn het bestaande uitgangspunt.
+Zijde A kijkt naar de geëxporteerde negatieve Y-zijde; B naar positieve Y.
+Bakboord/stuurboordnamen zijn niet apart bevestigd. Per zijde zijn de ramen
+afzonderlijk te wijzigen onder CAD/parameters.json > sides.
+
+Ten opzichte van v8 opnieuw printen: 02 onderdekhuis voor, 03 onderdekhuis achter
+en 06 verhoogd voordekhuis. Andere delen blijven geometrisch gelijk.
+Print deze drie schalen rechtop met de open bovenzijde omhoog.
+Controleer vooral de 44 mm raambrug en de 2,6 mm bovenligger in Bambu Studio.
+Eventuele ondersteuning blijft via de open onder- en bovenzijde bereikbaar.
+Beglazing aan de binnenkant plaatsen voordat de losse daken worden verlijmd.
+Geen fysieke print-/pasproef uitgevoerd voor deze revisie.
+

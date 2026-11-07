@@ -1,0 +1,1228 @@
+{
+  "validation": {
+    "measured_dimensions": {
+      "length": 385,
+      "front_width": 180,
+      "fore_roof_top_length": 163,
+      "aft_roof_z": 60,
+      "fore_roof_z": 86,
+      "U_width": 80.0,
+      "U_depth_left": 115,
+      "U_depth_right": 115,
+      "left_narrow": 25,
+      "right_with_block": 70.0,
+      "right_bare": 36,
+      "left_shoulder_run": 5,
+      "right_shoulder_run": 10
+    },
+    "datum": "Z=0 is rompdek/onderrand huis; pasframe-insteek tot Z=-6. Exportassen: X naar achteren, Y naar foto-links, Z omhoog. Cross_sections gebruiken interne Y-as met tegengesteld teken.",
+    "assembly_bounds": [
+      -25.0,
+      385.0,
+      -91.50000000000003,
+      97.5,
+      -6.0,
+      196.00000010000008
+    ],
+    "assembly_size": [
+      410.0,
+      189.00000000000003,
+      202.00000010000008
+    ],
+    "frame_position_status": "PROVISIONAL X=160; slide fit to actual hull before gluing",
+    "status": "Geometry checked; no physical fit or print/slicer layer validation yet",
+    "cross_sections": {
+      "100": [
+        [
+          -90.0,
+          90.0
+        ]
+      ],
+      "280": [
+        [
+          -87.5,
+          -62.49919999999999
+        ],
+        [
+          11.784285714285716,
+          87.5
+        ]
+      ],
+      "302.5": [
+        [
+          -92.50199999999997,
+          -62.5
+        ],
+        [
+          17.5,
+          88.50040000000006
+        ]
+      ],
+      "307.5": [
+        [
+          -97.5,
+          -62.5
+        ],
+        [
+          17.5,
+          90.50040000000004
+        ]
+      ],
+      "320": [
+        [
+          -97.5,
+          -62.5
+        ],
+        [
+          17.5,
+          91.00005000000003
+        ]
+      ],
+      "337": [
+        [
+          -97.5,
+          -62.5
+        ],
+        [
+          51.5,
+          90.5
+        ]
+      ],
+      "350": [
+        [
+          -97.5,
+          -62.5
+        ],
+        [
+          54.5,
+          90.5
+        ]
+      ]
+    },
+    "bridge_revision": {
+      "proportions": {
+        "wall_height": 55,
+        "foot_length": 90,
+        "width": 136,
+        "added_height_under_windows": 13
+      },
+      "symmetry_confirmed_by_user": true,
+      "front_revision": {
+        "flat_width": 52,
+        "outer_panes_follow_local_tangent": true,
+        "roof_overhang": 3
+      },
+      "rear_three_tall_openings_confirmed": true,
+      "windows": [
+        {
+          "name": "front_-38",
+          "center": [
+            29.89181463203282,
+            -38,
+            128.5
+          ],
+          "normal": [
+            -0.9924616401748879,
+            -0.12255567217134972,
+            0
+          ],
+          "width": 18,
+          "height": 19,
+          "opening_bottom": 119.0
+        },
+        {
+          "name": "front_-11.5",
+          "center": [
+            29.166666666666668,
+            -11.5,
+            128.5
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ],
+          "width": 18,
+          "height": 19,
+          "opening_bottom": 119.0
+        },
+        {
+          "name": "front_11.5",
+          "center": [
+            29.166666666666668,
+            11.5,
+            128.5
+          ],
+          "normal": [
+            -1,
+            0,
+            0
+          ],
+          "width": 18,
+          "height": 19,
+          "opening_bottom": 119.0
+        },
+        {
+          "name": "front_38",
+          "center": [
+            29.89181463203282,
+            38,
+            128.5
+          ],
+          "normal": [
+            -0.9924616401748879,
+            0.12255567217134972,
+            0
+          ],
+          "width": 18,
+          "height": 19,
+          "opening_bottom": 119.0
+        },
+        {
+          "name": "sloped_corner_-1",
+          "center": [
+            47.5,
+            -67.5,
+            126
+          ],
+          "normal": [
+            0,
+            -1,
+            0
+          ],
+          "profile_xz": [
+            [
+              43.5,
+              113.5
+            ],
+            [
+              52.5,
+              113.5
+            ],
+            [
+              52.5,
+              138
+            ],
+            [
+              35,
+              138
+            ]
+          ],
+          "extrusion_plane_y": -68,
+          "opening_bottom": 113.5
+        },
+        {
+          "name": "side_-1_65",
+          "center": [
+            65,
+            -68,
+            125.75
+          ],
+          "normal": [
+            0,
+            -1,
+            0
+          ],
+          "width": 14.5,
+          "height": 24.5,
+          "opening_bottom": 113.5
+        },
+        {
+          "name": "side_-1_87",
+          "center": [
+            87,
+            -68,
+            128.5
+          ],
+          "normal": [
+            0,
+            -1,
+            0
+          ],
+          "width": 16,
+          "height": 19,
+          "opening_bottom": 119.0
+        },
+        {
+          "name": "side_-1_107",
+          "center": [
+            107,
+            -68,
+            128.5
+          ],
+          "normal": [
+            0,
+            -1,
+            0
+          ],
+          "width": 16,
+          "height": 19,
+          "opening_bottom": 119.0
+        },
+        {
+          "name": "sloped_corner_1",
+          "center": [
+            47.5,
+            67.5,
+            126
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "profile_xz": [
+            [
+              43.5,
+              113.5
+            ],
+            [
+              52.5,
+              113.5
+            ],
+            [
+              52.5,
+              138
+            ],
+            [
+              35,
+              138
+            ]
+          ],
+          "extrusion_plane_y": 68,
+          "opening_bottom": 113.5
+        },
+        {
+          "name": "side_1_65",
+          "center": [
+            65,
+            68,
+            125.75
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "width": 14.5,
+          "height": 24.5,
+          "opening_bottom": 113.5
+        },
+        {
+          "name": "side_1_87",
+          "center": [
+            87,
+            68,
+            128.5
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "width": 16,
+          "height": 19,
+          "opening_bottom": 119.0
+        },
+        {
+          "name": "side_1_107",
+          "center": [
+            107,
+            68,
+            128.5
+          ],
+          "normal": [
+            0,
+            1,
+            0
+          ],
+          "width": 16,
+          "height": 19,
+          "opening_bottom": 119.0
+        },
+        {
+          "name": "rear_outer_-46",
+          "center": [
+            123,
+            -46,
+            131.0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ],
+          "width": 20,
+          "height": 12,
+          "opening_bottom": 125.0
+        },
+        {
+          "name": "rear_outer_46",
+          "center": [
+            123,
+            46,
+            131.0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ],
+          "width": 20,
+          "height": 12,
+          "opening_bottom": 125.0
+        },
+        {
+          "name": "rear_tall_-23",
+          "center": [
+            123,
+            -23,
+            124.0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ],
+          "width": 17,
+          "height": 26,
+          "opening_bottom": 111.0
+        },
+        {
+          "name": "rear_tall_0",
+          "center": [
+            123,
+            0,
+            124.0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ],
+          "width": 17,
+          "height": 26,
+          "opening_bottom": 111.0
+        },
+        {
+          "name": "rear_tall_23",
+          "center": [
+            123,
+            23,
+            124.0
+          ],
+          "normal": [
+            1,
+            0,
+            0
+          ],
+          "width": 17,
+          "height": 26,
+          "opening_bottom": 111.0
+        }
+      ],
+      "roof_windows": [
+        {
+          "center": [
+            92.71428571428571,
+            -29,
+            149
+          ],
+          "width": 24,
+          "height": 4.5
+        },
+        {
+          "center": [
+            92.71428571428571,
+            0,
+            149
+          ],
+          "width": 24,
+          "height": 4.5
+        },
+        {
+          "center": [
+            92.71428571428571,
+            29,
+            149
+          ],
+          "width": 24,
+          "height": 4.5
+        }
+      ],
+      "body_base_z": 86,
+      "body_top_z": 141,
+      "hood_top_z": 157,
+      "cap_bottom_z": 155,
+      "door": {
+        "rectangular": true,
+        "center_x": 65,
+        "width": 21.5,
+        "bottom": 87.5,
+        "height": 52.5,
+        "closed_lower_panel": true
+      },
+      "separate_forward_window": {
+        "sloped_fore_stile": true,
+        "profile_xz": [
+          [
+            43.5,
+            113.5
+          ],
+          [
+            52.5,
+            113.5
+          ],
+          [
+            52.5,
+            138
+          ],
+          [
+            35,
+            138
+          ]
+        ]
+      },
+      "roof_revision": {
+        "hood_rear_x": 97,
+        "hood_height": 14,
+        "flat_aft_roof_length": 29
+      },
+      "dimensions_status": "photographic prototype dimensions, not measured"
+    },
+    "simplification": {
+      "solid_front_windbreak_restored_from": "v12",
+      "other_railings": false,
+      "roof_equipment": false,
+      "lifebuoys": false,
+      "roof_rim": false,
+      "mast_bore": false
+    },
+    "front_revision": {
+      "full_height_groove": true,
+      "groove_radius": 4,
+      "groove_backing": 2,
+      "groove_height": 55,
+      "railing_gap_width": 12,
+      "railing_gap_bottom": 86,
+      "railing_gap_top": 102,
+      "dimensions_status": "groove and gap detail sizes are photographic assumptions"
+    },
+    "side_windows": {
+      "A": {
+        "internal_sign": 1,
+        "lower_windows": [
+          {
+            "x": 48,
+            "width": 11,
+            "height": 13,
+            "bottom": 25,
+            "corner_radius": 0.6
+          },
+          {
+            "x": 112,
+            "width": 11,
+            "height": 13,
+            "bottom": 25,
+            "corner_radius": 0.6
+          },
+          {
+            "x": 135,
+            "width": 11,
+            "height": 13,
+            "bottom": 25,
+            "corner_radius": 0.6
+          },
+          {
+            "x": 176,
+            "width": 11,
+            "height": 13,
+            "bottom": 25,
+            "corner_radius": 0.6
+          },
+          {
+            "x": 202,
+            "width": 11,
+            "height": 13,
+            "bottom": 25,
+            "corner_radius": 0.6
+          },
+          {
+            "x": 240,
+            "width": 11,
+            "height": 13,
+            "bottom": 25,
+            "corner_radius": 0.6
+          }
+        ],
+        "upper_recesses": [
+          {
+            "x": 30,
+            "width": 28,
+            "height": 16,
+            "bottom": 65,
+            "depth_y": 8,
+            "return_run": 2.5,
+            "backing_y": 4
+          },
+          {
+            "x": 105,
+            "width": 44,
+            "height": 16,
+            "bottom": 65,
+            "depth_y": 8,
+            "return_run": 2.5,
+            "backing_y": 2
+          }
+        ]
+      },
+      "B": {
+        "internal_sign": -1,
+        "lower_windows": [
+          {
+            "x": 48,
+            "width": 11,
+            "height": 13,
+            "bottom": 25,
+            "corner_radius": 0.6
+          },
+          {
+            "x": 95,
+            "width": 11,
+            "height": 13,
+            "bottom": 25,
+            "corner_radius": 0.6
+          },
+          {
+            "x": 202,
+            "width": 11,
+            "height": 13,
+            "bottom": 25,
+            "corner_radius": 0.6
+          },
+          {
+            "x": 240,
+            "width": 11,
+            "height": 13,
+            "bottom": 25,
+            "corner_radius": 0.6
+          }
+        ],
+        "upper_recesses": [
+          {
+            "x": 30,
+            "width": 28,
+            "height": 16,
+            "bottom": 65,
+            "depth_y": 8,
+            "return_run": 2.5,
+            "backing_y": 4
+          },
+          {
+            "x": 105,
+            "width": 44,
+            "height": 16,
+            "bottom": 65,
+            "depth_y": 8,
+            "return_run": 2.5,
+            "backing_y": 2
+          }
+        ]
+      },
+      "same_layout_confirmed_by_user": false,
+      "anchor_one_side_confirmed_by_user": true,
+      "lower_count": {
+        "A": 6,
+        "B": 4
+      },
+      "upper_recess_count_per_side": 2,
+      "lower_joint_distribution": {
+        "A": [
+          4,
+          2
+        ],
+        "B": [
+          2,
+          2
+        ]
+      },
+      "dimension_status": "photo estimates, not measured"
+    },
+    "anchor_niche": {
+      "side": "B",
+      "export_side_y": 1,
+      "x_front": 116,
+      "x_rear": 184,
+      "back_y": 66,
+      "backing": 2,
+      "sill_top": 5,
+      "sill_thickness": 2,
+      "ceiling_z": 60,
+      "description": "V16: uitsluitend zijde B, nominale diepte verdubbeld van circa 12 naar 24 mm. Rug op Y66; breedte en hoogtes ongewijzigd. Kleinere afwijking door buitenwandtapsheid blijft foto-inschatting.",
+      "nominal_depth": 24,
+      "cavity_top": 57.6,
+      "backing_bottom": 3,
+      "frame_flange_clearance": 1
+    },
+    "left_stair_transition": {
+      "kind": "inclined_stair_beside_cabinet",
+      "start_x": 288.15,
+      "end_x": 329.15000000000003,
+      "height_start": 60,
+      "height_end": 0,
+      "stair_width": 14,
+      "cabinet_width": 19.700000000000003,
+      "stair_internal_y": [
+        37.35,
+        51.35
+      ],
+      "angle_degrees": 55.653902599938455,
+      "status": "function confirmed by user; dimensions photographic assumptions"
+    },
+    "funnel_revision": {
+      "parts": [
+        {
+          "label": "L",
+          "center_x": 342,
+          "internal_center_y": -80,
+          "base_z": 62,
+          "height": 134,
+          "base_length": 80,
+          "top_length": 62,
+          "base_width": 32,
+          "top_width": 22,
+          "base_radius": 12,
+          "top_radius": 10,
+          "top_drop": 6,
+          "grille_height": 42,
+          "grille_bottom": 4
+        },
+        {
+          "label": "R",
+          "center_x": 342,
+          "internal_center_y": 72.5,
+          "base_z": 62,
+          "height": 134,
+          "base_length": 80,
+          "top_length": 62,
+          "base_width": 34,
+          "top_width": 24,
+          "base_radius": 12,
+          "top_radius": 10,
+          "top_drop": 6,
+          "grille_height": 42,
+          "grille_bottom": 4
+        }
+      ],
+      "connector": {
+        "flat_plate": true,
+        "plate_thickness": 3.2,
+        "planform_platform": [
+          [
+            337,
+            -25.75
+          ],
+          [
+            347.0,
+            -25.75
+          ],
+          [
+            361,
+            -11.75
+          ],
+          [
+            361,
+            4.25
+          ],
+          [
+            347.0,
+            18.25
+          ],
+          [
+            337,
+            18.25
+          ]
+        ]
+      },
+      "status": "Photographic prototype; radii and dimensions not measured"
+    },
+    "aft_photo_revision": {
+      "door_on_left_chamfer": true,
+      "stepped_cabinet_rear_photo_left": true,
+      "right_sloping_case_rear_photo_right": true,
+      "flat_rear_deck": true,
+      "detail_dimensions": "photographic assumptions; not measured",
+      "deepest_recess_x": 270,
+      "left_chamfer_mouth_x": 284,
+      "right_chamfer_mouth_x": 280
+    },
+    "collisions": []
+  },
+  "parts": [
+    {
+      "part": "02_onderdekhuis_voor",
+      "qty": 1,
+      "print_mm": [
+        190.0,
+        180.0,
+        57.6
+      ],
+      "volume_cm3": 68.8289,
+      "orientation": "onderzijde op bed",
+      "assembled": true,
+      "roof": false,
+      "measured_base": true,
+      "note": "V17: zijde A vier voorste ramen; zijde B twee voorste ramen en gesloten ankernis. Rechtop printen; nisplafond is deel 04. Pasframevlakken blijven vrij."
+    },
+    {
+      "part": "03_onderdekhuis_achter",
+      "qty": 1,
+      "print_mm": [
+        195.0,
+        189.0,
+        57.6
+      ],
+      "volume_cm3": 96.3888,
+      "orientation": "onderzijde op bed",
+      "assembled": true,
+      "roof": false,
+      "measured_base": true,
+      "note": "V9 zijwand: twee kleine ramen per zijde achter de naad; ongelijke uitlopers en knikken. Rechtop printen."
+    },
+    {
+      "part": "00_pasproef",
+      "qty": 1,
+      "print_mm": [
+        212.0,
+        160.0,
+        8.0
+      ],
+      "volume_cm3": 14.8557,
+      "orientation": "bovenzijde op bed",
+      "assembled": false,
+      "roof": false,
+      "measured_base": true,
+      "note": "Eerst volledig passen in 205 x 153 mm opening. Niet forceren; controleer ook hoekradius en dekdikte."
+    },
+    {
+      "part": "01_pasframe",
+      "qty": 1,
+      "print_mm": [
+        212.0,
+        160.0,
+        8.0
+      ],
+      "volume_cm3": 19.3101,
+      "orientation": "bovenzijde op bed",
+      "assembled": true,
+      "roof": false,
+      "measured_base": true,
+      "note": "Los droogpassen; definitieve lengtepositie op echte romp bepalen vóór verlijmen. Flens intern op Z 0..2."
+    },
+    {
+      "part": "04_achterdek_voor",
+      "qty": 1,
+      "print_mm": [
+        190.0,
+        180.0,
+        2.4
+      ],
+      "volume_cm3": 10.0815,
+      "orientation": "onderzijde op bed",
+      "assembled": true,
+      "roof": false,
+      "measured_base": true,
+      "note": "V17: vlak printen. Ring rond hoger voordek plus plafond ankernis aan zijde B. Eerst zijraambeglazing plaatsen; nieuwe nis droogpassen."
+    },
+    {
+      "part": "05_achterdek_achter",
+      "qty": 1,
+      "print_mm": [
+        195.0,
+        189.0,
+        2.4
+      ],
+      "volume_cm3": 54.9121,
+      "orientation": "onderzijde op bed",
+      "assembled": true,
+      "roof": false,
+      "measured_base": true,
+      "note": "Vlak printen. Meetbasis op Z=60 mm; U blijft open zoals origineel."
+    },
+    {
+      "part": "06_verhoogd_voordekhuis",
+      "qty": 1,
+      "print_mm": [
+        183.0,
+        180.0,
+        23.6
+      ],
+      "volume_cm3": 44.1755,
+      "orientation": "onderzijde op bed",
+      "assembled": true,
+      "roof": false,
+      "measured_base": true,
+      "note": "V17: twee gesloten nissen per kant; diepte 8 mm in Y, schuine aansluitingen 2,5 mm. Achterwand integraal, voorste nis volgt ronding. Foto-inschattingen. Open schaal rechtop printen."
+    },
+    {
+      "part": "07_voordak_163mm",
+      "qty": 1,
+      "print_mm": [
+        164.846,
+        180.0,
+        2.4
+      ],
+      "volume_cm3": 67.5679,
+      "orientation": "bovenzijde op bed",
+      "assembled": true,
+      "roof": false,
+      "measured_base": true,
+      "note": "Vlakke bovenzijde op bed. Lengte bovenzijde 163 mm, breedte 180 mm; gemeten dakhoogte 86 mm."
+    },
+    {
+      "part": "08_middenblok_65x25x55",
+      "qty": 1,
+      "print_mm": [
+        27.366,
+        65.0,
+        55.0
+      ],
+      "volume_cm3": 18.0521,
+      "orientation": "onderzijde op bed",
+      "assembled": true,
+      "roof": false,
+      "measured_base": true,
+      "note": "V11: gemeten 65 breed x 25 uitsteek x 55 hoog. Verticale groef over volle hoogte, voorlopig R4 met 2 mm gesloten rug. Holle onderzijde op bed; groef niet vullen."
+    },
+    {
+      "part": "09_klein_blok_links_25x15x30",
+      "qty": 1,
+      "print_mm": [
+        18.389,
+        25.0,
+        30.0
+      ],
+      "volume_cm3": 3.8896,
+      "orientation": "onderzijde op bed",
+      "assembled": true,
+      "roof": false,
+      "measured_base": true,
+      "note": "Gemeten breedte 25, uitsteek 15 en hoogte 30 mm. Links van middenblok zoals foto; onderkant Z=0 aangenomen."
+    },
+    {
+      "part": "10_stuurhut_met_raamopeningen",
+      "qty": 1,
+      "print_mm": [
+        98.25,
+        136.8,
+        55.0
+      ],
+      "volume_cm3": 35.0857,
+      "orientation": "onderzijde op bed",
+      "assembled": true,
+      "roof": false,
+      "measured_base": false,
+      "note": "V17: wand 55 hoog, voet 90 lang, breedte 136. Extra hoogte onder ramen; glasvormen behouden. Rechte deur, apart schuin raam en compactere zijramen. Dunne kozijnen; geen donkere ondervlakjes. Voet op bed. Alle detailmaten foto-inschattingen."
+    },
+    {
+      "part": "11_stuurhutdak_lichtkap",
+      "qty": 1,
+      "print_mm": [
+        104.0,
+        142.0,
+        14.0
+      ],
+      "volume_cm3": 20.3492,
+      "orientation": "onderzijde op bed",
+      "assembled": true,
+      "roof": true,
+      "measured_base": false,
+      "note": "V17: dak voor kortere stuurhut, contact Z141. Overstek 3; kap eindigt X97 en is 14 mm hoog; vlak achterdak en 3 kleine kapramen. Vlakke onderzijde op bed. Overstekken en raambruggen in slicer beoordelen."
+    },
+    {
+      "part": "12_lichtkap_deksel",
+      "qty": 1,
+      "print_mm": [
+        57.857,
+        124.857,
+        2.0
+      ],
+      "volume_cm3": 13.4654,
+      "orientation": "onderzijde op bed",
+      "assembled": true,
+      "roof": true,
+      "measured_base": false,
+      "note": "V17: kaal 2 mm kapdeksel zonder rand of uitrusting. VLAKKE ONDERZIJDE op bed. Na beglazing op 11 lijmen."
+    },
+    {
+      "part": "13_windscherm_L",
+      "qty": 1,
+      "print_mm": [
+        67.921,
+        84.0,
+        16.0
+      ],
+      "volume_cm3": 3.7644,
+      "orientation": "onderzijde op bed",
+      "assembled": true,
+      "roof": false,
+      "measured_base": false,
+      "note": "Vlakke onderrand op bed, tegen stuurhutdakplint lijmen. Breedte aangepast aan 180 mm dak."
+    },
+    {
+      "part": "13_windscherm_R",
+      "qty": 1,
+      "print_mm": [
+        67.921,
+        84.0,
+        16.0
+      ],
+      "volume_cm3": 3.7644,
+      "orientation": "onderzijde op bed",
+      "assembled": true,
+      "roof": false,
+      "measured_base": false,
+      "note": "Vlakke onderrand op bed, tegen stuurhutdakplint lijmen. Breedte aangepast aan 180 mm dak."
+    },
+    {
+      "part": "15_schoorsteen_logo_roosters_L",
+      "qty": 1,
+      "print_mm": [
+        80.475,
+        32.599,
+        134.0
+      ],
+      "volume_cm3": 41.8152,
+      "orientation": "onderzijde op bed",
+      "assembled": true,
+      "roof": false,
+      "measured_base": false,
+      "note": "V8: rondingen R12/R10; lengte 80/62. SMIT en twee gebogen hoekroosters integraal. Afgeschuinde bovenrand; bovenzijde open. Foto-aannames. Brede onderrand op bed."
+    },
+    {
+      "part": "14_schoorsteenvoet_L",
+      "qty": 1,
+      "print_mm": [
+        84.0,
+        34.0,
+        2.0
+      ],
+      "volume_cm3": 1.0831,
+      "orientation": "onderzijde op bed",
+      "assembled": true,
+      "roof": false,
+      "measured_base": false,
+      "note": "V8: afgeronde voetplaat met bijna half ronde uiteinden, 84 lang. Zelfde montagecentrum als v7. Vlak op bed; bovenkant voet op Z=62."
+    },
+    {
+      "part": "15_schoorsteen_logo_roosters_R",
+      "qty": 1,
+      "print_mm": [
+        80.475,
+        34.599,
+        134.0
+      ],
+      "volume_cm3": 42.7544,
+      "orientation": "onderzijde op bed",
+      "assembled": true,
+      "roof": false,
+      "measured_base": false,
+      "note": "V8: rondingen R12/R10; lengte 80/62. SMIT en twee gebogen hoekroosters integraal. Afgeschuinde bovenrand; bovenzijde open. Foto-aannames. Brede onderrand op bed."
+    },
+    {
+      "part": "14_schoorsteenvoet_R",
+      "qty": 1,
+      "print_mm": [
+        84.0,
+        36.0,
+        2.0
+      ],
+      "volume_cm3": 1.055,
+      "orientation": "onderzijde op bed",
+      "assembled": true,
+      "roof": false,
+      "measured_base": false,
+      "note": "V8: afgeronde voetplaat met bijna half ronde uiteinden, 84 lang. Zelfde montagecentrum als v7. Vlak op bed; bovenkant voet op Z=62."
+    },
+    {
+      "part": "16_dwarsverbinding_met_platform",
+      "qty": 1,
+      "print_mm": [
+        24.0,
+        127.649,
+        5.7
+      ],
+      "volume_cm3": 5.48,
+      "orientation": "onderzijde op bed",
+      "assembled": true,
+      "roof": false,
+      "measured_base": false,
+      "note": "V8: vlakke plaat met in bovenaanzicht verbreed, naar achter uitstekend middenplatform. Kleine ring met twee schoren. Brede vlakke onderzijde op bed; foto-aannames."
+    },
+    {
+      "part": "17_achterkast_getrapt",
+      "qty": 1,
+      "print_mm": [
+        41.58,
+        33.7,
+        60.0
+      ],
+      "volume_cm3": 22.5867,
+      "orientation": "onderzijde op bed",
+      "assembled": true,
+      "roof": false,
+      "measured_base": false,
+      "note": "Achterfoto LINKS: schuin trapvlak 14 mm breed naast smallere tweepanelenkast. Samen één printdeel. Vorm trap door gebruiker verduidelijkt; breedte/helling foto-aannames. Onderzijde op bed; kastdakbrug controleren."
+    },
+    {
+      "part": "18_achterkast_laag",
+      "qty": 1,
+      "print_mm": [
+        22.58,
+        44.0,
+        22.0
+      ],
+      "volume_cm3": 7.1658,
+      "orientation": "onderzijde op bed",
+      "assembled": true,
+      "roof": false,
+      "measured_base": false,
+      "note": "Onder de twee kleine ramen. Afgeronde kast met twee deurpanelen; hol, onderrand op bed. Foto-aannames 44 x 22 x 22."
+    },
+    {
+      "part": "19_achterkast_schuin",
+      "qty": 1,
+      "print_mm": [
+        20.53,
+        10.0,
+        32.0
+      ],
+      "volume_cm3": 3.5517,
+      "orientation": "onderzijde op bed",
+      "assembled": true,
+      "roof": false,
+      "measured_base": false,
+      "note": "Achterfoto RECHTS, tegen smalle arm. Schuin dak; onderrand op bed. Fotomaten 20 lang x 10 breed, hoogte 32 naar 25 mm."
+    },
+    {
+      "part": "20_rooster_bovenhuis_1",
+      "qty": 1,
+      "print_mm": [
+        12.0,
+        13.0,
+        0.91
+      ],
+      "volume_cm3": 0.1085,
+      "orientation": "voorgeorienteerd; zie opmerking",
+      "assembled": true,
+      "roof": false,
+      "measured_base": false,
+      "note": "Los rooster; locatie en maat uit fotoprototype aangenomen. Vlakke rug op bed."
+    },
+    {
+      "part": "20_rooster_bovenhuis_2",
+      "qty": 1,
+      "print_mm": [
+        12.0,
+        13.0,
+        0.91
+      ],
+      "volume_cm3": 0.1085,
+      "orientation": "voorgeorienteerd; zie opmerking",
+      "assembled": true,
+      "roof": false,
+      "measured_base": false,
+      "note": "Los rooster; locatie en maat uit fotoprototype aangenomen. Vlakke rug op bed."
+    },
+    {
+      "part": "20_rooster_bovenhuis_3",
+      "qty": 1,
+      "print_mm": [
+        12.0,
+        13.0,
+        0.91
+      ],
+      "volume_cm3": 0.1085,
+      "orientation": "voorgeorienteerd; zie opmerking",
+      "assembled": true,
+      "roof": false,
+      "measured_base": false,
+      "note": "Los rooster; locatie en maat uit fotoprototype aangenomen. Vlakke rug op bed."
+    },
+    {
+      "part": "20_rooster_bovenhuis_4",
+      "qty": 1,
+      "print_mm": [
+        12.0,
+        13.0,
+        0.91
+      ],
+      "volume_cm3": 0.1085,
+      "orientation": "voorgeorienteerd; zie opmerking",
+      "assembled": true,
+      "roof": false,
+      "measured_base": false,
+      "note": "Los rooster; locatie en maat uit fotoprototype aangenomen. Vlakke rug op bed."
+    },
+    {
+      "part": "20_rooster_bovenhuis_5",
+      "qty": 1,
+      "print_mm": [
+        12.0,
+        13.0,
+        0.91
+      ],
+      "volume_cm3": 0.1085,
+      "orientation": "voorgeorienteerd; zie opmerking",
+      "assembled": true,
+      "roof": false,
+      "measured_base": false,
+      "note": "Los rooster; locatie en maat uit fotoprototype aangenomen. Vlakke rug op bed."
+    },
+    {
+      "part": "21_achtervloer_optioneel",
+      "qty": 1,
+      "print_mm": [
+        114.7,
+        79.7,
+        2.4
+      ],
+      "volume_cm3": 18.4829,
+      "orientation": "onderzijde op bed",
+      "assembled": false,
+      "roof": false,
+      "measured_base": false,
+      "note": "Optioneel: centrale U-vloer, met vrije uitsparingen onder achterkasten 18/19. Niet in assemblage opgenomen. Werkelijk pasframe eerst passen."
+    },
+    {
+      "part": "22_lijmstrip_4x",
+      "qty": 4,
+      "print_mm": [
+        30.0,
+        12.0,
+        2.0
+      ],
+      "volume_cm3": 0.72,
+      "orientation": "onderzijde op bed",
+      "assembled": false,
+      "roof": false,
+      "measured_base": false,
+      "note": "Binnen langs lengtenaad onderdekhuis lijmen, vrij plaatsen/inkorten."
+    },
+    {
+      "part": "23_dek_lijmstrip_4x",
+      "qty": 4,
+      "print_mm": [
+        24.0,
+        8.0,
+        2.0
+      ],
+      "volume_cm3": 0.384,
+      "orientation": "onderzijde op bed",
+      "assembled": false,
+      "roof": false,
+      "measured_base": false,
+      "note": "Onder de deknaden, vrij plaatsen vóór montage."
+    }
+  ]
+}
