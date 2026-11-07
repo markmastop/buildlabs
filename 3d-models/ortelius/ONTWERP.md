@@ -176,3 +176,32 @@ als printbaar gevalideerd.
 - `viewDirections`, `positionView`: vaste camera-aanzichten.
 
 De kleuren staan bij `NAVY`, `BOTTOM`, `WHITE`, `GLASS`, `GREEN`.
+
+## Visueel RC-inbouwvoorstel
+
+De knop **RC-inbouw** verbergt de buitengeometrie en toont de techniek met
+een transparante referentie van de romp en dek-/waterlijncontouren. De
+zichtbaarheid van buitenonderdelen en het water wordt bij terugschakelen
+hersteld. **Labels** kan apart uit; de uitklapbare tabel bij de viewer bevat
+alle ruimtematen. De bestaande vormstudie en fotogebaseerde hoofdposities
+blijven behouden. Er zijn geen nieuwe CAD- of printbestanden.
+
+| Onderdeel | Positie x (cm) | Keuze |
+|---|---|---|
+| Stevenbuis / koppeling | 3,5–23,5 / 23,5–25 | Loopt van y 2,2 naar y 4,1; motor ligt op dezelfde aslijn |
+| Motor | 25–35 | Reserve Ø 6 × 10; schuine aslijn, neutrale mantel |
+| Roerservo | 11 | Reserve 4,2 × 2 × 4; naast de as, met roerkoker/hefboom en stang |
+| Accu 2S | 39–53 | Reserve 14 × 4,8 × 2,8; bak 16 × 6, laag op y 1,25 |
+| Regelaars | 37 / 67 | Behuizingen 3,65 × 3,2 × 1,8; extra stekkerruimte niet meegerekend |
+| Ontvanger | 55,5 | Reserve 5,5 × 3 × 2; op verhoogde montageplaat |
+| Boegschroef | 76 | Open dwarstunnel ID 2, OD 2,3; generiek motorvolume Ø 2,4 × 3 |
+| Ballastbakken | 57 / 63 | Twee lage bakken; gewicht nog te bepalen |
+
+Alle maten behalve de regelaarbehuizing zijn voorlopige reserveringen. De
+onderdelenlijst is geen bevestigde bestel- of compatibiliteitslijst. De
+montageplaten zijn conceptueel; bevestigingen, schotten, doorvoeren, bereikbaarheid,
+stabiliteit en werkelijk gekozen producten moeten bij CAD/inbouw nog worden
+gecontroleerd. De bedrading is geen elektrisch schema.
+
+Bron van de regelaarmaat: [Hobbywing-handleiding](https://www.hobbywing.com/en/uploads/file/20240315/4806bbdbab8eb9fea0bb26da87d81b00.pdf).
+De bestaande productnamen krijgen in het model geen logo of merkopschrift.

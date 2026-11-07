@@ -13,6 +13,10 @@ achterdekdetails en dubbele davitarmen zijn uitgewerkt op basis van de
 34 lokale beeldbestanden. De hoofdposities van brug en masten zijn behouden.
 Het model is nog niet door de gebruiker beoordeeld. Er zijn nog geen printbare CAD-delen gemaakt.
 
+De viewer bevat ook **RC-inbouw**: motor, accu, as, roerservo, twee regelaars,
+ontvanger en een boegschroef als ruimtereserveringen. Zie de RC-secties in
+README en ONTWERP voor maten en onzekerheden. Het is geen gevalideerde inbouw.
+
 ## Bestanden om te lezen
 
 1. [`README.md`](README.md): status, hoofdmaten, bronnen en voorbeeldbeeld.

@@ -50,6 +50,10 @@ h1 span { color: var(--hull); }
 .controls button[aria-pressed="true"] { border-color: var(--polar); }
 .controls button[aria-pressed="true"]::before { background: var(--polar); border-color: var(--polar); }
 .views button::before { display: none; }
+.controls button:disabled { opacity: .45; cursor: default; }
+[hidden] { display: none !important; }
+#rc-info { min-width: 0; }
+#rc-info th, #rc-info td { padding: 5px 10px 5px 0; border-bottom: 1px solid var(--rule); }
 .controls button:focus-visible, input:focus-visible { outline: 2px solid var(--polar); outline-offset: 2px; }
 
 .specs { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); border-top: 2px solid var(--ink); border-bottom: 1px solid var(--rule); }
@@ -103,6 +107,8 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
       <button data-view="hangar" aria-pressed="false">Hangar</button>
     </div>
     <div class="controls" role="group" aria-label="Weergave">
+      <button id="t-internals" aria-pressed="false">RC-inbouw</button>
+      <button id="t-labels" aria-pressed="true" disabled>Labels</button>
       <button id="t-water" aria-pressed="true">Water</button>
       <button id="t-seams" aria-pressed="false">Voorgestelde deelvlakken</button>
       <button id="t-lift" aria-pressed="false">Bovenbouw eraf</button>
@@ -110,6 +116,12 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
       <button id="t-spin" aria-pressed="false">Langzaam draaien</button>
     </div>
   </section>
+
+  <aside id="rc-info" class="note" hidden>
+    <strong>RC-inbouwvoorstel · centimeters op modelschaal</strong>
+    <p>Motor, accu en overige onderdelen zijn neutrale ruimtemodellen. Alleen de maat van de regelaars volgt een fabrikantopgave; de overige maten zijn voorlopige reserveringen. Dit toont de indeling, geen bevestigde passing, motorselectie of aansluitschema.</p>
+    <div style="overflow-x:auto"><table style="width:100%;text-align:left;border-collapse:collapse"><thead><tr><th>Onderdeel</th><th>Ruimtemaat</th><th>Positie x vanaf achtersteven</th></tr></thead><tbody id="rc-parts"></tbody></table></div>
+  </aside>
 
   <dl class="specs">
     <div class="spec"><dt>Lengte over alles</dt><dd>91<small>cm</small></dd></div>
@@ -391,11 +403,11 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
   }
   var hullYs = hullStations.map(function (s) { return s[0]; });
   var lowerYs = hullYs.filter(function (y) { return y <= AFT; });
-  ship.add(loft(lowerYs.map(hullLevel), 100));
+  var lowerHull = loft(lowerYs.map(hullLevel),100);ship.add(lowerHull);
   var upperYs = [AFT, 11.4, MAIN];
   // Boven de achterste werkvloer stopt de gesloten romp bij x = 24.
   function forwardLevel(y) { var L = hullLevel(y); L.x0 = 24; L.ts = (HTS * (bowX(y) - hullX0(y)) + hullX0(y) - 24) / (bowX(y) - 24); L.ss = 0; return L; }
-  ship.add(loft(upperYs.map(forwardLevel), 90));
+  var upperHull = loft(upperYs.map(forwardLevel),90);ship.add(upperHull);
   ship.add(loft([MAIN, MAIN + 0.12].map(function (y) { var L = forwardLevel(MAIN); L.y = y; L.hw -= 0.04; L.x1 -= 0.05; L.color = GREEN; return L; }), 90));
   var aftPlan = plan(0.2, 24.2, 8.3, 1.7, 0.3);
   ship.add(slab(aftPlan, AFT, AFT + 0.12, greenMat));
@@ -504,7 +516,7 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
   })();
 
   // underwater: single shaft, 4-blade prop, rudder, skeg
-  var sh = new Rods(bronze, 8); sh.add(V(19, 3.7, 0), V(3.5, 2.2, 0), 0.3); ship.add(sh.build());
+  var sh = new Rods(bronze, 8); sh.add(V(23.5, 4.1, 0), V(3.5, 2.2, 0), 0.4); ship.add(sh.build());
   ship.add(box(10, 1.4, 0.6, new THREE.MeshStandardMaterial({ color: BOTTOM }), 8, 0.6, 0));
   var hub = new THREE.Mesh(new THREE.SphereGeometry(0.55, 12, 8), bronze); hub.position.set(3.5, 2.2, 0); ship.add(hub);
   for (var bl = 0; bl < 4; bl++) { var bb = box(0.15, 2.1, 0.9, bronze, 3.5, 2.2, 0); bb.geometry.translate(0, 1.05, 0); bb.rotation.x = bl * Math.PI / 2; bb.rotation.y = 0.35; ship.add(bb); }
@@ -977,6 +989,88 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
   [rTop, rTopDark, rTopWhite, rTopOrange].forEach(function (r) { top.add(r.build()); });
   fg.add(rBlack.build());
 
+  // ---------- RC-inbouw: ruimtereserveringen, geen product-CAD of printgeometrie ----------
+  var rc = new THREE.Group();rc.name='RC-inbouw';rc.visible=false;ship.add(rc);
+  var rcLabels=new THREE.Group();rcLabels.name='RC-labels';rc.add(rcLabels);
+  var rcContext=new THREE.Group();rcContext.name='rompcontext';rcContext.visible=false;ship.add(rcContext);
+  var contextMaterial=new THREE.MeshBasicMaterial({color:'#6c9bac',transparent:true,opacity:0.12,depthWrite:false,side:THREE.DoubleSide});
+  [lowerHull,upperHull].forEach(function(hull) {rcContext.add(new THREE.Mesh(hull.geometry,contextMaterial));});
+  var outlineMaterial=new THREE.LineBasicMaterial({color:'#799fac',transparent:true,opacity:0.65});
+  [WL,MAIN].forEach(function(y) {
+    var pts=[],x0=hullX0(y),x1=bowX(y);
+    for(var k=0;k<=100;k++) {var x=x0+(x1-x0)*k/100;pts.push(V(x,y,-hwAt(x,y)));}
+    for(var j=100;j>=0;j--) {var xx=x0+(x1-x0)*j/100;pts.push(V(xx,y,hwAt(xx,y)));}
+    rcContext.add(new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints(pts),outlineMaterial));
+  });
+  var rcMat={motor:new THREE.MeshStandardMaterial({color:'#d49b37',metalness:0.35,roughness:0.5}),
+    battery:new THREE.MeshStandardMaterial({color:'#397db5',roughness:0.7}),electronics:new THREE.MeshStandardMaterial({color:'#346c55',roughness:0.7}),
+    servo:new THREE.MeshStandardMaterial({color:'#79579d',roughness:0.7}),thruster:new THREE.MeshStandardMaterial({color:'#349b9c',roughness:0.6})};
+  var rcWires=new Rods(darkMat,6),rcPower=new Rods(orange,6),rcShafts=new Rods(steelMat,12);
+  function component(name,shape) {shape.name=name;rc.add(shape);return shape;}
+  function cylinderBetween(a,b,r,mat) {
+    var d=b.clone().sub(a),mesh=new THREE.Mesh(new THREE.CylinderGeometry(r,r,d.length(),24),mat);
+    mesh.position.copy(a).add(b).multiplyScalar(0.5);mesh.quaternion.setFromUnitVectors(V(0,1,0),d.normalize());return mesh;
+  }
+  function route(rods,pts,r) {for(var k=1;k<pts.length;k++)rods.add(V.apply(null,pts[k-1]),V.apply(null,pts[k]),r);}
+  function label(text,x,y,z,anchor) {
+    var canvas=document.createElement('canvas');canvas.width=512;canvas.height=96;var ctx=canvas.getContext('2d');
+    ctx.fillStyle='#f8fafb';ctx.fillRect(0,0,512,96);ctx.fillStyle='#14212c';ctx.font='500 42px "IBM Plex Sans",system-ui,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(text,256,48,480);
+    var sprite=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(canvas),depthTest:false,depthWrite:false}));
+    sprite.position.set(x,y,z);sprite.scale.set(14,2.625,1);sprite.renderOrder=10;rcLabels.add(sprite);
+    var line=new THREE.Line(new THREE.BufferGeometry().setFromPoints([V(x,y-0.5,z),V.apply(null,anchor)]),new THREE.LineBasicMaterial({color:'#7799a7',depthTest:false}));rcLabels.add(line);
+  }
+  // Motoras en stevenbuis liggen op één lijn. Voorlopige motormantel Ø 60 × 100 mm.
+  component('stevenbuis',cylinderBetween(V(3.5,2.2,0),V(23.5,4.1,0),0.4,steelMat));
+  component('askoppeling',cylinderBetween(V(23.5,4.1,0),V(25,4.2425,0),0.6,rcMat.motor));
+  component('motor',cylinderBetween(V(25,4.2425,0),V(35,5.1925,0),3.0,rcMat.motor));
+  component('motorsteun',box(11.2,0.3,7.0,greyMat,30,1.45,0));
+  [-2.4,2.4].forEach(function(z) {rc.add(box(0.4,1.4,0.4,greyMat,30,2.2,z));});
+  // Accu laag op de hartlijn, in een uitneembare bak met bandjes.
+  component('accubak',box(16,0.3,6.0,greyMat,46,1.1,0));
+  component('accu',box(14,2.8,4.8,rcMat.battery,46,2.65,0));
+  [41.5,50.5].forEach(function(x) {rc.add(box(0.65,0.09,5.0,darkMat,x,4.1,0));});
+  // Dwarsplaten zijn alleen een montagevoorstel; wandbevestiging volgt in CAD.
+  function shelf(x,y) {var width=2*hwAt(x,y)-0.6;rc.add(box(4.5,0.25,width,greyMat,x,y,0));}
+  shelf(37,6.2);shelf(55.5,6.2);shelf(67,6.2);
+  component('regelaar-hoofdmotor',box(3.65,1.8,3.2,rcMat.electronics,37,7.225,4.0));
+  component('regelaar-boegschroef',box(3.65,1.8,3.2,rcMat.electronics,67,7.225,3.5));
+  component('ontvanger',box(5.5,2.0,3.0,rcMat.electronics,55.5,7.325,-4.0));
+  component('zekering',box(2.5,1.0,1.5,orange,43,7,4));
+  component('hoofdschakelaar',box(2.0,1.2,1.5,darkMat,49,7,4));
+  // Roerservo en stangen: visuele mechanische route, nog geen gekozen servohevel.
+  component('roerservo',box(4.2,4.0,2.0,rcMat.servo,11,6.5,3.5));
+  rc.add(box(0.8,0.2,3.0,greyMat,11,8.6,3.5));
+  rcShafts.add(V(1,2.4,0),V(1,8.6,0),0.15);
+  rcShafts.add(V(1,8.6,0),V(1,8.6,2),0.12);
+  rcShafts.add(V(1,8.6,2),V(11,8.6,2),0.07);
+  // Boegschroef: 20 mm dwarstunnel plus generieke verticale motorruimte.
+  var tunnelHalf=hwAt(76,5.0)+0.3;
+  var tunnelProfile=[new THREE.Vector2(1,-tunnelHalf),new THREE.Vector2(1.15,-tunnelHalf),new THREE.Vector2(1.15,tunnelHalf),new THREE.Vector2(1,tunnelHalf),new THREE.Vector2(1,-tunnelHalf)];
+  var tunnel=new THREE.Mesh(new THREE.LatheGeometry(tunnelProfile,32),rcMat.thruster);tunnel.rotation.x=Math.PI/2;tunnel.position.set(76,5,0);component('boegschroeftunnel',tunnel);
+  component('boegschroefmotor',cylinderBetween(V(76,6.1,0),V(76,9.1,0),1.2,rcMat.thruster));
+  rc.add(box(2.8,0.3,3.2,greyMat,76,6.0,0));
+  // Ballastbakken tonen beschikbare lage ruimte; geen vast ballastgewicht.
+  [57,63].forEach(function(x) {component('ballastbak-'+x,box(4.8,0.65,4.0,darkMat,x,1.6,0));});
+  route(rcPower,[[46,4.1,2.2],[43,5,4],[43,7,4],[49,7,4],[49,6.7,5.5],[37,6.7,5.5],[37,7.5,4]],0.07);
+  route(rcPower,[[49,7,4],[49,6.7,5.5],[67,6.7,5.5],[67,7.5,3.5]],0.07);
+  route(rcWires,[[37,7.3,4],[35.5,6.3,2],[35,5.2,0]],0.08);
+  route(rcWires,[[67,7.3,3.5],[73,7.0,3.5],[76,8,0]],0.07);
+  route(rcWires,[[55.5,8,-4],[55.5,9,-5.5],[11,9,-5.5],[11,8.5,3.5]],0.035);
+  rc.add(rcPower.build());rc.add(rcWires.build());rc.add(rcShafts.build());
+  label('1 Roerservo',10,11,-7,[11,8.5,3.5]);
+  label('2 Motorruimte',29,11,-10,[30,6,0]);
+  label('3 Accu 2S',46,11,-10,[46,4.1,0]);
+  label('4 Hoofdregelaar',32,11,11,[37,8,4]);
+  label('5 Ontvanger',56,13,-10,[55.5,8.3,-4]);
+  label('6 Boegregelaar',65,11,11,[67,8,3.5]);
+  label('7 Boegschroef',77,11,-10,[76,8,0]);
+  var rcParts=[['1 Roerservo','4,2 × 2,0 × 4,0 cm (reserve)','11 cm'],
+    ['2 Motor','Ø 6 × 10 cm (reserve)','25–35 cm'],['3 Accu 2S','14 × 4,8 × 2,8 cm (reserve)','39–53 cm'],
+    ['4/6 Regelaars','3,65 × 3,2 × 1,8 cm (fabrikant, zonder kabelruimte)','37 / 67 cm'],
+    ['5 Ontvanger','5,5 × 3 × 2 cm (reserve)','55,5 cm'],['7 Boegschroef','Ø 2 cm tunnel; motor Ø 2,4 × 3 cm (reserve)','76 cm'],
+    ['Stevenbuis / koppeling','ca. 20 cm / 1,5 cm (reserve)','3,5–25 cm'],['Ballastbakken','2 × 4,8 × 4 × 0,65 cm; gewicht nog bepalen','57 / 63 cm']];
+  var rows=document.getElementById('rc-parts');rcParts.forEach(function(part) {var tr=document.createElement('tr');part.forEach(function(value) {var td=document.createElement('td');td.textContent=value;tr.appendChild(td);});rows.appendChild(tr);});
+
   // ---------- Print seams, water, controls ----------
   var seams = new THREE.Group(); seams.visible = false; ship.add(seams);
   var seamMat = new THREE.LineBasicMaterial({ color: '#ff3b30' });
@@ -998,6 +1092,23 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
     b.addEventListener('click', function () { var on = b.getAttribute('aria-pressed') !== 'true'; b.setAttribute('aria-pressed', on); fn(on); });
     return b;
   }
+  var savedVisibility=[],waterBeforeRC=true;
+  function showRC(on) {
+    if(on) {
+      savedVisibility=ship.children.filter(function(o) {return o!==rc&&o!==rcContext;}).map(function(o) {var old=o.visible;o.visible=false;return [o,old];});
+      waterBeforeRC=water.visible;water.visible=false;document.getElementById('t-water').setAttribute('aria-pressed','false');rc.visible=true;rcContext.visible=true;
+      activeView='internals';controls.autoRotate=false;spinBtn.setAttribute('aria-pressed','false');
+      document.querySelectorAll('[data-view]').forEach(function(b) {b.setAttribute('aria-pressed','false');});
+    } else {
+      savedVisibility.forEach(function(pair) {pair[0].visible=pair[1];});rc.visible=false;rcContext.visible=false;water.visible=waterBeforeRC;document.getElementById('t-water').setAttribute('aria-pressed',String(waterBeforeRC));activeView='three';
+      document.querySelectorAll('[data-view]').forEach(function(b) {b.setAttribute('aria-pressed',String(b.dataset.view==='three'));});
+    }
+    ['t-water','t-seams','t-lift','t-night'].forEach(function(id) {document.getElementById(id).disabled=on;});
+    document.getElementById('t-labels').disabled=!on;document.getElementById('rc-info').hidden=!on;
+    var damping=controls.enableDamping;controls.enableDamping=false;controls.update();positionView();controls.enableDamping=damping;
+  }
+  var rcButton=bind('t-internals',showRC);
+  bind('t-labels',function(on) {rcLabels.visible=on;});
   bind('t-water', function (on) { water.visible = on; });
   bind('t-seams', function (on) { seams.visible = on; });
   bind('t-lift', function (on) { liftTarget = on ? 14 : 0; });
@@ -1009,7 +1120,7 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
   if (reduce) spinBtn.setAttribute('aria-pressed', 'false');
   controls.addEventListener('start', function () { if (controls.autoRotate) { controls.autoRotate = false; spinBtn.setAttribute('aria-pressed', 'false'); } });
 
-  var viewDirections = {three:[0.8,0.42,1],starboard:[0,0.09,1],port:[0,0.09,-1],bow:[1,0.08,0],stern:[-1,0.38,0.28],plan:[0,1,0.001],middle:[0.12,0.18,-1],hangar:[-1,0.16,0.18]};
+  var viewDirections = {three:[0.8,0.42,1],starboard:[0,0.09,1],port:[0,0.09,-1],bow:[1,0.08,0],stern:[-1,0.38,0.28],plan:[0,1,0.001],middle:[0.12,0.18,-1],hangar:[-1,0.16,0.18],internals:[0.35,1,0.7]};
   var activeView = 'three';
   function positionView() {
     var d = new THREE.Vector3().fromArray(viewDirections[activeView]).normalize();
@@ -1018,12 +1129,13 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
     var minDistance = detailView ? 38 : endView ? 78 : 125;
     var halfSpan = detailView ? 15 : endView ? 24 : 53;
     var distance = Math.max(minDistance, halfSpan / (Math.tan(camera.fov*Math.PI/360)*camera.aspect));
-    controls.target.set(activeView === 'middle' ? 51.8 : activeView === 'hangar' ? 20 : activeView === 'bow' ? 68 : activeView === 'stern' ? 22 : 45,activeView === 'hangar' ? 18.5 : activeView === 'middle' ? 18.3 : 17,0);
+    controls.target.set(activeView === 'middle' ? 51.8 : activeView === 'hangar' ? 20 : activeView === 'bow' ? 68 : activeView === 'stern' ? 22 : 45,activeView === 'hangar' ? 18.5 : activeView === 'middle' ? 18.3 : activeView === 'internals' ? 4.5 : 17,0);
     camera.position.copy(controls.target).addScaledVector(d,distance);
     controls.update();
   }
   document.querySelectorAll('[data-view]').forEach(function(button) {
     button.addEventListener('click',function() {
+      if(rcButton.getAttribute('aria-pressed')==='true') {rcButton.setAttribute('aria-pressed','false');showRC(false);}
       activeView=button.dataset.view; controls.autoRotate=false; spinBtn.setAttribute('aria-pressed','false');
       document.querySelectorAll('[data-view]').forEach(function(b) {b.setAttribute('aria-pressed',String(b===button));});
       // Eerst de opgebouwde demping wegwerken voor een exact vast aanzicht.
@@ -1040,6 +1152,7 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
     camera.aspect = w / h; camera.updateProjectionMatrix(); if(activeView)positionView();
   }
   new ResizeObserver(resize).observe(cv.parentElement); resize();
+  if(new URLSearchParams(location.search).get('rc')==='1')rcButton.click();
 
   (function loop() {
     requestAnimationFrame(loop);

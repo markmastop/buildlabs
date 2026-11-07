@@ -26,6 +26,28 @@ Het model begint stil. Met **Water** uit zie je het geschatte onderwaterschip.
 | [`beelden/hangar-v3.jpg`](beelden/hangar-v3.jpg) | Detail van de open hangar |
 | `cad/`, `print/` | Gereserveerd voor de latere CAD- en printuitwerking |
 
+## RC-inbouw bekijken
+
+Met **RC-inbouw** verschijnt een open rompweergave met motor, koppeling,
+stevenbuis, roerservo en stangen, een lage accu op de middenlijn, twee
+regelaars, ontvanger, zekering/schakelaar, ballastbakken en een boegschroef.
+**Labels** toont of verbergt de namen. Een van de vaste buitenaanzichten
+herstelt het schip. Draai en zoom ook in de RC-weergave.
+
+De boegschroef heeft een dwarstunnel van 20 mm binnendiameter en een apart
+motorvolume voorin bij x = 76 cm. Dit zijn ruimtereserveringen; het exacte
+Raboesch-type, zijn buitenmaten en de doorvoer moeten nog worden vastgelegd.
+Hetzelfde geldt voor de motor, accu, ontvanger en servo. De motormantel
+reserveert Ø 60 × 100 mm; de accu 140 × 48 × 28 mm. Ze zijn geen exacte
+productmodellen. Kabels tonen alleen routes, geen elektrisch aansluitschema.
+
+De twee regelaarbehuizingen volgen de maat 36,5 × 32 × 18 mm uit de
+[Hobbywing-handleiding](https://www.hobbywing.com/en/uploads/file/20240315/4806bbdbab8eb9fea0bb26da87d81b00.pdf).
+Kabels, stekkers en montage vragen extra ruimte. Er is nog geen controle van
+gewicht, zwaartepunt, koelbehoefte of productcompatibiliteit uitgevoerd.
+
+Bekijk ook het [voorbeeld van de RC-inbouw](beelden/rc-inbouw.jpg).
+
 ## Origineel
 
 | | Echt schip | Model 1:100 |
