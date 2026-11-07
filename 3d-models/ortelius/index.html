@@ -104,9 +104,11 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
       <button data-view="stern" aria-pressed="false">Achterschip</button>
       <button data-view="plan" aria-pressed="false">Bovenaanzicht</button>
       <button data-view="middle" aria-pressed="false">Middenschip</button>
+      <button data-view="helicopter" aria-pressed="false">Helikopter</button>
       <button data-view="hangar" aria-pressed="false">Hangar</button>
     </div>
     <div class="controls" role="group" aria-label="Weergave">
+      <button id="t-helis" aria-pressed="false">Heli’s in hangar</button>
       <button id="t-internals" aria-pressed="false">RC-inbouw</button>
       <button id="t-labels" aria-pressed="true" disabled>Labels</button>
       <button id="t-water" aria-pressed="true">Water</button>
@@ -117,6 +119,7 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
     </div>
   </section>
 
+  <p class="note" id="heli-info" hidden>Twee gele helikopters, geïnspireerd op AS350/H125, schaal 1:100. In de hangar zijn de hoofdrotorbladen verwijderd en in rekken geplaatst. Vorm en stallingsruimte zijn modelmatig gecontroleerd; exacte vliegtuigvariant en echte hangarmaten zijn niet bevestigd.</p>
   <aside id="rc-info" class="note" hidden>
     <strong>RC-inbouwvoorstel · centimeters op modelschaal</strong>
     <p>Motor, accu en overige onderdelen zijn neutrale ruimtemodellen. Alleen de maat van de regelaars volgt een fabrikantopgave; de overige maten zijn voorlopige reserveringen. Dit toont de indeling, geen bevestigde passing, motorselectie of aansluitschema.</p>
@@ -989,6 +992,79 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
   [rTop, rTopDark, rTopWhite, rTopOrange].forEach(function (r) { top.add(r.build()); });
   fg.add(rBlack.build());
 
+  // ---------- Twee neutrale gele helikopters; AS350/H125 als maat- en vormreferentie ----------
+  // Centimeters bij 1:100: romp 10,93; stabilisator 2,53; hoofdrotor Ø 10,69.
+  var helis=new THREE.Group();helis.name='helikopters';top.add(helis);
+  var heliYellow=new THREE.MeshStandardMaterial({color:'#efce27',roughness:0.52});
+  var heliGlass=new THREE.MeshStandardMaterial({color:'#163a49',roughness:0.17,metalness:0.2,side:THREE.DoubleSide});
+  function helicopter() {
+    var g=new THREE.Group();
+    var sections=[[-3.335,1.35,0.08,0.10],[-3.0,1.42,0.60,0.62],[-2.2,1.52,0.88,1.0],
+      [-1.0,1.55,0.90,1.085],[0.6,1.58,0.78,0.91],[1.7,1.75,0.52,0.59],[2.5,1.9,0.28,0.32]];
+    function section(x) {
+      for(var k=1;k<sections.length;k++)if(x<=sections[k][0]) {
+        var a=sections[k-1],b=sections[k],t=(x-a[0])/(b[0]-a[0]);return [x,a[1]+(b[1]-a[1])*t,a[2]+(b[2]-a[2])*t,a[3]+(b[3]-a[3])*t];
+      }return sections[sections.length-1];
+    }
+    function surface(x,a,offset) {var s=section(x);return [x,s[1]+(s[2]+offset)*Math.cos(a),(s[3]+offset)*Math.sin(a)];}
+    var pos=[],idx=[],N=32;
+    sections.forEach(function(s) {for(var k=0;k<N;k++)pos.push.apply(pos,surface(s[0],k*2*Math.PI/N,0));});
+    for(var j=0;j<sections.length-1;j++)for(var k=0;k<N;k++) {
+      var a=j*N+k,b=j*N+(k+1)%N,c=b+N,d=a+N;idx.push(a,b,c,a,c,d);
+    }
+    [0,sections.length-1].forEach(function(r) {
+      var center=pos.length/3;pos.push(sections[r][0],sections[r][1],0);
+      for(var k=0;k<N;k++){var a=r*N+k,b=r*N+(k+1)%N;if(r===0)idx.push(center,b,a);else idx.push(center,a,b);}
+    });
+    var geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));geo.setIndex(idx);geo.computeVertexNormals();g.add(new THREE.Mesh(geo,heliYellow));
+    function glassPatch(x0,x1,a0,a1) {
+      var p=[],ix=[],nx=8,na=8;
+      for(var i=0;i<=nx;i++)for(var j=0;j<=na;j++)p.push.apply(p,surface(x0+(x1-x0)*i/nx,a0+(a1-a0)*j/na,0.018));
+      for(var i=0;i<nx;i++)for(var j=0;j<na;j++){var a=i*(na+1)+j,b=a+1,c=b+na+1,d=a+na+1;ix.push(a,b,c,a,c,d);}
+      var q=new THREE.BufferGeometry();q.setAttribute('position',new THREE.Float32BufferAttribute(p,3));q.setIndex(ix);q.computeVertexNormals();g.add(new THREE.Mesh(q,heliGlass));
+    }
+    [-1,1].forEach(function(side) {
+      glassPatch(-3.05,-1.85,side*0.08,side*1.35);
+      glassPatch(-1.7,-0.55,side*0.56,side*1.5);glassPatch(-0.38,0.65,side*0.62,side*1.5);
+      g.add(box(0.45,0.05,0.06,blackMat,-0.45,1.35,side*1.04));
+      var intake=new THREE.Mesh(new THREE.SphereGeometry(0.24,16,10),darkMat);intake.scale.set(1,0.75,0.25);intake.position.set(1.05,2.32,side*0.57);g.add(intake);
+    });
+    var cowling=new THREE.Mesh(new THREE.SphereGeometry(1,24,16),heliYellow);cowling.scale.set(1.12,0.39,0.60);cowling.position.set(0.7,2.35,0);g.add(cowling);
+    var boom=new THREE.Mesh(new THREE.CylinderGeometry(0.10,0.36,5.3,20),heliYellow);
+    boom.quaternion.setFromUnitVectors(V(0,1,0),V(5.3,0.15,0).normalize());boom.position.set(4.2,1.93,0);g.add(boom);
+    g.add(sidePanel([[6.3,1.85],[7.595,1.85],[7.3,3.05],[6.9,3.05]],0.13,heliYellow,0));
+    g.add(box(0.72,0.08,2.53,heliYellow,5.8,1.85,0));
+    var exhaust=new THREE.Mesh(new THREE.CylinderGeometry(0.16,0.19,0.65,16),steelMat);exhaust.rotation.z=-Math.PI/2;exhaust.position.set(1.7,2.4,0);g.add(exhaust);
+    var skid=new Rods(darkMat,10);
+    [-1,1].forEach(function(side) {
+      skid.add(V(-2.85,0.09,side*1.12),V(1.9,0.09,side*1.12),0.09);
+      skid.add(V(-2.85,0.09,side*1.12),V(-3.02,0.34,side*1.12),0.07);
+      [-1.85,0.8].forEach(function(x) {skid.add(V(x,0.9,side*0.65),V(x,0.16,side*1.12),0.065);});
+    });g.add(skid.build());
+    var mast=new THREE.Mesh(new THREE.CylinderGeometry(0.095,0.12,0.55,12),steelMat);mast.position.set(0,2.815,0);g.add(mast);
+    var hub=new THREE.Mesh(new THREE.CylinderGeometry(0.22,0.22,0.10,16),darkMat);hub.position.y=3.09;g.add(hub);
+    var blades=new THREE.Group();blades.name='hoofdrotorbladen';g.add(blades);
+    for(var k=0;k<3;k++) {var blade=box(5.10,0.045,0.23,darkMat,0,0,0);blade.geometry.translate(2.795,3.09,0);blade.rotation.y=k*2*Math.PI/3;blades.add(blade);}
+    var tailRotor=new THREE.Group();tailRotor.position.set(6.665,2.03,0.25);g.add(tailRotor);
+    for(var k=0;k<2;k++){var b=box(0.12,1.86,0.04,darkMat,0,0,0);b.rotation.z=k*Math.PI/2;tailRotor.add(b);}
+    g.userData.blades=blades;return g;
+  }
+  var helicopterA=helicopter(),helicopterB=helicopter();helicopterA.name='gele-heli-1';helicopterB.name='gele-heli-2';helis.add(helicopterA,helicopterB);
+  var bladeRacks=new THREE.Group();bladeRacks.name='rotorbladenrekken';bladeRacks.visible=false;top.add(bladeRacks);
+  [-1,1].forEach(function(side) {
+    bladeRacks.add(box(5.8,0.2,0.65,greyMat,22.4,HD+0.18,side*6.9));
+    for(var j=0;j<3;j++)bladeRacks.add(box(5.1,0.045,0.23,darkMat,22.4,HD+0.32+j*0.09,side*6.9));
+  });
+  // De losse werkbok stond op de middenlijn; beide toestellen staan ernaast.
+  function positionHelicopters(stowed) {
+    [helicopterA,helicopterB].forEach(function(h,i) {
+      h.userData.blades.visible=!stowed;
+      if(stowed){h.position.set(21.3,HD+0.06,i===0?-3.2:3.2);h.rotation.set(0,0,0);}
+      else {h.position.set(8.3,i===0?HD+0.06:29,i===0?0:-15);h.rotation.set(0,i===0?Math.PI:Math.PI+0.2,0);}
+    });bladeRacks.visible=stowed;
+  }
+  positionHelicopters(false);
+
   // ---------- RC-inbouw: ruimtereserveringen, geen product-CAD of printgeometrie ----------
   var rc = new THREE.Group();rc.name='RC-inbouw';rc.visible=false;ship.add(rc);
   var rcLabels=new THREE.Group();rcLabels.name='RC-labels';rc.add(rcLabels);
@@ -1103,10 +1179,14 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
       savedVisibility.forEach(function(pair) {pair[0].visible=pair[1];});rc.visible=false;rcContext.visible=false;water.visible=waterBeforeRC;document.getElementById('t-water').setAttribute('aria-pressed',String(waterBeforeRC));activeView='three';
       document.querySelectorAll('[data-view]').forEach(function(b) {b.setAttribute('aria-pressed',String(b.dataset.view==='three'));});
     }
-    ['t-water','t-seams','t-lift','t-night'].forEach(function(id) {document.getElementById(id).disabled=on;});
+    ['t-water','t-seams','t-lift','t-night','t-helis'].forEach(function(id) {document.getElementById(id).disabled=on;});
     document.getElementById('t-labels').disabled=!on;document.getElementById('rc-info').hidden=!on;
     var damping=controls.enableDamping;controls.enableDamping=false;controls.update();positionView();controls.enableDamping=damping;
   }
+  var heliButton=bind('t-helis',function(on) {
+    positionHelicopters(on);document.getElementById('heli-info').hidden=!on;
+    document.querySelector(on?'[data-view="hangar"]':'[data-view="helicopter"]').click();
+  });
   var rcButton=bind('t-internals',showRC);
   bind('t-labels',function(on) {rcLabels.visible=on;});
   bind('t-water', function (on) { water.visible = on; });
@@ -1120,22 +1200,23 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
   if (reduce) spinBtn.setAttribute('aria-pressed', 'false');
   controls.addEventListener('start', function () { if (controls.autoRotate) { controls.autoRotate = false; spinBtn.setAttribute('aria-pressed', 'false'); } });
 
-  var viewDirections = {three:[0.8,0.42,1],starboard:[0,0.09,1],port:[0,0.09,-1],bow:[1,0.08,0],stern:[-1,0.38,0.28],plan:[0,1,0.001],middle:[0.12,0.18,-1],hangar:[-1,0.16,0.18],internals:[0.35,1,0.7]};
+  var viewDirections = {three:[0.8,0.42,1],starboard:[0,0.09,1],port:[0,0.09,-1],bow:[1,0.08,0],stern:[-1,0.38,0.28],plan:[0,1,0.001],middle:[0.12,0.18,-1],hangar:[-1,0.16,0.18],internals:[0.35,1,0.7],helicopter:[0.6,0.35,1]};
   var activeView = 'three';
   function positionView() {
     var d = new THREE.Vector3().fromArray(viewDirections[activeView]).normalize();
-    var detailView = activeView === 'middle' || activeView === 'hangar';
+    var detailView = activeView === 'middle' || activeView === 'hangar' || activeView === 'helicopter';
     var endView = activeView === 'bow' || activeView === 'stern';
-    var minDistance = detailView ? 38 : endView ? 78 : 125;
-    var halfSpan = detailView ? 15 : endView ? 24 : 53;
+    var minDistance = activeView === 'helicopter' ? 33 : detailView ? 38 : endView ? 78 : 125;
+    var halfSpan = activeView === 'helicopter' ? 11 : detailView ? 15 : endView ? 24 : 53;
     var distance = Math.max(minDistance, halfSpan / (Math.tan(camera.fov*Math.PI/360)*camera.aspect));
-    controls.target.set(activeView === 'middle' ? 51.8 : activeView === 'hangar' ? 20 : activeView === 'bow' ? 68 : activeView === 'stern' ? 22 : 45,activeView === 'hangar' ? 18.5 : activeView === 'middle' ? 18.3 : activeView === 'internals' ? 4.5 : 17,0);
+    controls.target.set(activeView === 'helicopter' ? 8.3 : activeView === 'middle' ? 51.8 : activeView === 'hangar' ? 20 : activeView === 'bow' ? 68 : activeView === 'stern' ? 22 : 45,activeView === 'helicopter' ? 18.4 : activeView === 'hangar' ? 18.5 : activeView === 'middle' ? 18.3 : activeView === 'internals' ? 4.5 : 17,0);
     camera.position.copy(controls.target).addScaledVector(d,distance);
     controls.update();
   }
   document.querySelectorAll('[data-view]').forEach(function(button) {
     button.addEventListener('click',function() {
       if(rcButton.getAttribute('aria-pressed')==='true') {rcButton.setAttribute('aria-pressed','false');showRC(false);}
+      if(button.dataset.view==='helicopter'){positionHelicopters(false);heliButton.setAttribute('aria-pressed','false');document.getElementById('heli-info').hidden=true;}
       activeView=button.dataset.view; controls.autoRotate=false; spinBtn.setAttribute('aria-pressed','false');
       document.querySelectorAll('[data-view]').forEach(function(b) {b.setAttribute('aria-pressed',String(b===button));});
       // Eerst de opgebouwde demping wegwerken voor een exact vast aanzicht.
@@ -1153,6 +1234,7 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
   }
   new ResizeObserver(resize).observe(cv.parentElement); resize();
   if(new URLSearchParams(location.search).get('rc')==='1')rcButton.click();
+  if(new URLSearchParams(location.search).get('helis')==='hangar')heliButton.click();
 
   (function loop() {
     requestAnimationFrame(loop);

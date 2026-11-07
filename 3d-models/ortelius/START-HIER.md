@@ -17,6 +17,11 @@ De viewer bevat ook **RC-inbouw**: motor, accu, as, roerservo, twee regelaars,
 ontvanger en een boegschroef als ruimtereserveringen. Zie de RC-secties in
 README en ONTWERP voor maten en onzekerheden. Het is geen gevalideerde inbouw.
 
+Er zijn ook twee gele helikoptervormstudies (AS350/H125 als referentie),
+met een helidek-/luchtstand en een gecontroleerde modelstalling naast
+elkaar zonder hoofdrotorbladen. Gebruik **Heli’s in hangar** en
+**Helikopter**; zie README/ONTWERP voor maten en beperkingen.
+
 ## Bestanden om te lezen
 
 1. [`README.md`](README.md): status, hoofdmaten, bronnen en voorbeeldbeeld.

@@ -24,7 +24,28 @@ Het model begint stil. Met **Water** uit zie je het geschatte onderwaterschip.
 | [`beelden/render.jpg`](beelden/render.jpg) | Browserweergave van het hele model |
 | [`beelden/middenschip-v3.jpg`](beelden/middenschip-v3.jpg) | Detail van de open galerijen en dekuitrusting |
 | [`beelden/hangar-v3.jpg`](beelden/hangar-v3.jpg) | Detail van de open hangar |
+| [`beelden/helikopter-detail.jpg`](beelden/helikopter-detail.jpg) | Gele helikopter op het helidek |
 | `cad/`, `print/` | Gereserveerd voor de latere CAD- en printuitwerking |
+
+## Twee gele helikopters
+
+Twee neutrale modellen met gele romp, cockpitramen, staartboom, stabilisator,
+landingsski's en rotoren. Ze zijn geïnspireerd op de lokale foto's en de
+AS350/H125-vorm; de exacte vliegtuigvariant op de foto's is niet bevestigd.
+De hoofdmaten volgen de [Airbus-maattekening](https://www.airbus.com/sites/g/files/jlcbta136/files/2025-01/master-ground-rescue-booklet-h125.pdf):
+romplengte 10,93 cm, stabilisatorbreedte 2,53 cm en rotor Ø 10,69 cm op 1:100.
+De gekozen modelhoogte is circa 3,14 cm.
+
+Normaal staat één toestel op het helidek en hangt het andere naast het schip.
+**Helikopter** zoomt in op het toestel op het dek. Met **Heli’s in hangar**
+worden ze naast elkaar gestald en worden de hoofdrotorbladen apart in rekken
+gelegd. Dit volgt het principe beschreven in het
+[Oceanwide-logboek](https://oceanwide-expeditions.com/trip-log/otl22-24-trip-log-weddell-sea-in-search-of-the-emperor-penguin-incl-helicopters).
+
+De stallingsstand is tegen de geometrie van deze modelhangar gecontroleerd.
+Boven de rotornaaf blijft circa 2 mm tot de rechte bovenkant van de ingang.
+Dit is geen bevestiging van echte hangarmaten of fysieke printpassing.
+Dit is alleen het 3D-model; de printuitwerking volgt later.
 
 ## RC-inbouw bekijken
 

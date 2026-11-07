@@ -205,3 +205,32 @@ gecontroleerd. De bedrading is geen elektrisch schema.
 
 Bron van de regelaarmaat: [Hobbywing-handleiding](https://www.hobbywing.com/en/uploads/file/20240315/4806bbdbab8eb9fea0bb26da87d81b00.pdf).
 De bestaande productnamen krijgen in het model geen logo of merkopschrift.
+
+## Gele helikopters en hangarpassing
+
+De twee helikopters zijn neutrale fotogebaseerde AS350/H125-vormstudies op
+1:100, geen exact geïdentificeerde of gecertificeerde vliegtuigmodellen.
+De [Airbus-maattekening](https://www.airbus.com/sites/g/files/jlcbta136/files/2025-01/master-ground-rescue-booklet-h125.pdf)
+geeft romplengte 10,93 m, rompbreedte 2,17 m, stabilisatorbreedte 2,53 m en
+rotordiameter 10,69 m; dezelfde getallen zijn centimeters in het model.
+De modelhoogte tot de rotornaaf is 3,14 cm. Uitvoering en kleurdetails zijn
+vereenvoudigd en zonder registraties of logo's.
+
+In de stallingsstand liggen de hoofdrotorbladen los in twee rekken langs de
+hangarwanden. Er is geen fictief vouwmechanisme gemodelleerd.
+[Oceanwide beschrijft bladverwijdering vóór stalling](https://oceanwide-expeditions.com/trip-log/otl22-24-trip-log-weddell-sea-in-search-of-the-emperor-penguin-incl-helicopters).
+
+Beide helikopters hebben dezelfde maat: oorsprong x 21,3; z −3,2 / +3,2;
+landingsvlak y = 16,81. Zonder hoofdrotorbladen beslaan ze ongeveer x 17,965
+tot 28,895, y 16,81 tot 19,95 en z −4,465 tot −1,935 / +1,935 tot +4,465.
+De opening is op deze plaatsen vrij tot y 20,15; de modelmarge erboven is
+dus circa 0,20 cm (2 mm). De achterwand begint bij x 29,535. De modellen
+kruisen elkaar en de bestaande hangarinrichting niet volgens de uitgevoerde
+begrenzingsboxcontrole. Dit controleert statische modelruimte, geen echte
+hangarmaten, rij-/draaibeweging of printtoleranties.
+
+In de buitenstand staat één toestel met rotorbladen op het helidek en is
+het andere op enige afstand in de lucht geplaatst, naar de referentiefoto.
+De knoppen **Helikopter** en **Heli’s in hangar** geven detailweergaven.
+De functie `helicopter()` maakt beide identieke modellen;
+`positionHelicopters()` wisselt tussen buiten- en stallingsstand.
