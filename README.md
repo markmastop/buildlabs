@@ -1,5 +1,7 @@
 # Build Labs
 
+**[Open de startpagina met alle 3D-modellen →](index.html)**
+
 Verzamelrepository voor Marks bouwprojecten. Elk project krijgt een eigen map
 in de categorie waar het bij hoort, met een README die uitlegt wat het is en
 hoe je ermee verder werkt.
@@ -12,11 +14,13 @@ hoe je ermee verder werkt.
 
 ### 3D-modellen
 
-| Project | Status | Beschrijving |
-|---|---|---|
-| [Ortelius RC](3d-models/ortelius/README.md) | Concept | RC-model van het poolexpeditieschip Ortelius, schaal 1:100, 91 cm |
-| [Smit-Lloyd 109](3d-models/smit-lloyd-109/README.md) | Printbaar prototype (v17) | Afneembare bovenbouw voor een bestaande RC-romp, STEP en STL |
-| [Porsche 911 Targa 1971](3d-models/porsche-911-targa-1971/README.md) | In voorbereiding | Nieuw project; doel en schaal volgen |
+| Project | Status | Beschrijving | Documentatie |
+|---|---|---|---|
+| [Ortelius RC](3d-models/ortelius/index.html) | Concept | RC-model van het poolexpeditieschip Ortelius, schaal 1:100, 91 cm | [README](3d-models/ortelius/README.md) |
+| [Smit-Lloyd 109](3d-models/smit-lloyd-109/index.html) | Printbaar prototype (v17) | Afneembare bovenbouw voor een bestaande RC-romp, STEP en STL | [README](3d-models/smit-lloyd-109/README.md) |
+| Porsche 911 Targa 1971 | In voorbereiding | Nieuw project; doel en schaal volgen | [README](3d-models/porsche-911-targa-1971/README.md) |
+
+De projectnaam opent het draaibare 3D-model.
 
 ## Online bekijken
 
