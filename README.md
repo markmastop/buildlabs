@@ -20,7 +20,7 @@ hoe je ermee verder werkt.
 
 ## Online bekijken
 
-Via GitHub Pages: **https://markmastop.github.io/buildlabs/** — de startpagina
+Via GitHub Pages: **https://markmastop.github.io/buildlabs/index.html** — de startpagina
 (`index.html` in de root) linkt naar alle modellen.
 
 ## Werken met de modellen
