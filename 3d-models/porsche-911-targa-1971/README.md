@@ -4,8 +4,8 @@
 
 Decoratief 3D-printmodel van Marks eigen **Porsche 911 Targa uit 1971**.
 
-**Status: eerste bewerkbare 3D-vormconcept v1; gelijkenis nog te beoordelen.**
-Er is een nieuw 3D-vormconcept met afzonderlijke onderdelen. De vorm is nog niet goedgekeurd. Mark wees de eerste geometrie af
+**Status: visueel Targa-voorstel; een passend 3D-model moet nog worden gemaakt.**
+De eerste grotere 3D-uitwerking week volgens Mark te veel af van het voorstel en wordt niet op de projectpagina getoond. Mark wees de eerste geometrie af
 op gelijkenis. Op zijn verzoek is de mini met alle bijbehorende bestanden buiten
 deze overdracht gelaten.
 
@@ -30,15 +30,16 @@ deze overdracht gelaten.
 
 | Map of bestand | Betekenis |
 |---|---|
-| [index.html](index.html) | Referentiepagina met fotowissel, kleurvoorstel en bewaarde vormchecklist |
+| [index.html](index.html) | Het Targa-voorstel, eigen referentiefoto’s en vormchecklist |
 | [ONTWERPBRIEF.md](ONTWERPBRIEF.md) | Vorm, gemaakte keuzes en criteria voor de volgende versie |
 | [OVERDRACHT.md](OVERDRACHT.md) | Herkomst, bronkandidaten, beperkingen en vervolg |
 | [referentie/](referentie/README.md) | Echte foto’s van voorzijde, achterzijde en interieur |
 | [concept/](concept/README.md) | Historisch beeldvoorstel van 20 cm en generatieprompt; geen bijbehorende CAD |
 | [overdrachtsbestanden.json](overdrachtsbestanden.json) | Herkomst, hashes en Git-status van gekopieerde bestanden |
 
-De originele AI-visualisatie staat lokaal in `concept/renders/`; renders zijn
-volgens de repo-afspraken uitgesloten van Git. De bronnen in het iCloud-project
+De originele AI-visualisatie staat lokaal in `concept/renders/`. Een bytegelijke
+weergavekopie staat in `concept/ontwerpvoorstel.png` en is opgenomen in Git, zodat
+het beeld op de projectpagina beschikbaar is. De bronnen in het iCloud-project
 zijn behouden; er zijn kopieën gemaakt. Er staan hier geen bestanden uit de afgewezen poging. De nieuwe Blender-bron staat in `cad/`.
 
 ## Volgende stap
@@ -48,18 +49,12 @@ uit. Beoordeel zijaanzicht, vooraanzicht en beide driekwartaanzichten van de
 werkelijke CAD-geometrie voordat dunne details worden aangepast voor het printen.
 De technische printcontrole volgt op een herkenbare carrosserievorm.
 
-De zelfstandige `index.html` bevat het 3D-kijkmodel als ingebedde GLB, three.js
-0.160.1 via CDN, vaste aanzichten en de echte referentiefoto’s. Het model is ook
-los beschikbaar als `model/911-targa-concept-v1.glb`. De bron staat in
-`cad/911-targa-concept-v1.blend` en het reproduceerbare `cad/maak_concept.py`.
+De zelfstandige `index.html` toont het oorspronkelijke grotere Targa-voorstel
+en de drie echte referentiefoto’s. Het voorstel is een AI-visualisatie, geen
+CAD-render of bewijs van printbaarheid. Het grote beeld is ook los te openen.
 
-Blender-coördinaten zijn centimeters; de GLB-export gebruikt de standaard
-glTF-eenheden. De viewer normaliseert de carrosserielengte naar 20 cm op
-modelschaal. Dit is een ontwerpmaat, geen vastgestelde schaal of maatvaste scan.
-De vorm is handmatig opgebouwd naar de drie eigen foto’s en het grotere
-beeldvoorstel. Zie `cad/modelgegevens.json`. Er zijn geen merklogo’s toegevoegd.
-
-Dit concept bestaat uit losse oppervlakken en overlappende onderdelen. Er is
-nog geen controle op gesloten printvolumes, minimale diktes, passing of support.
-Er worden daarom geen STL/3MF-printbestanden aangeboden. Beoordeel eerst de
-herkenbaarheid vanuit de drie aanzichten en vergelijk met de foto’s.
+De afgewezen grotere 3D-uitwerking is alleen als historie bewaard in `cad/` en
+`model/`; zij wordt niet meer in de pagina geladen en niet aangeboden als
+passend model. De afgewezen mini is niet opgenomen. Voor toekomstige
+browsergeometrie gelden centimeters op modelschaal en voor printbestanden
+millimeters. Er is nog geen passende, goedgekeurde geometrie of printuitwerking.

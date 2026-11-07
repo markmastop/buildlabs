@@ -8,6 +8,8 @@ De oorspronkelijke ontwerpbrief, volledige prompt, kleurkeuzes en maten staan in
 [ontwerpbrief-en-prompt-v1.txt](ontwerpbrief-en-prompt-v1.txt). Dat bestand is
 ongewijzigd overgenomen. Het lokale beeld staat in
 `renders/911-targa-1971-voorstel-v1.png`; renders zijn uitgesloten van Git.
+De bytegelijke kopie [ontwerpvoorstel.png](ontwerpvoorstel.png) is als pagina-asset
+opgenomen in Git en wordt bovenaan de projectpagina getoond.
 
 Ontwerprichting: geel-oranje carrosserie, zwart interieur/banden/ramen en
 zilvergrijze beugel en accenten. Mark heeft een AMS. De auto was circa 20 cm lang;
