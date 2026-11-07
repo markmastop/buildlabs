@@ -29,6 +29,25 @@ zijn **schattingen uit foto's**, geen opgemeten of goedgekeurde bouwmaten.
 Het eerder genoemde vaargewicht van circa 4 kg blijft een doel, geen uit dit
 browsermodel berekende waterverplaatsing of stabiliteitscontrole.
 
+## Materiaal: PETG
+
+Mark heeft op 08-11-2026 gekozen voor **PETG** in plaats van ASA, voor romp,
+opbouw en details. Gevolgen voor de bouw:
+
+- **Waterdicht en taai:** PETG hecht goed tussen de lagen en breekt minder snel
+  bij een stoot. De binnenkant van de romp krijgt toch een dunne laag epoxy.
+- **Warmte:** PETG wordt zacht rond 75–80 °C (ASA rond 95–100 °C). Laat de
+  donkerblauwe romp niet in een hete auto of in de volle zon liggen.
+- **Zonlicht:** PETG vergeelt en verbrost op den duur in UV. Verf of blanke lak
+  beschermt; het model wordt binnen bewaard.
+- **Gewicht:** PETG is ca. 18% zwaarder (1,27 tegen 1,07 g/cm³). Dat gaat af
+  van de ballast; het vaargewichtdoel van circa 4 kg blijft.
+- **Lijmen en afwerken:** geen aceton. Lijm naden en lasstroken met epoxy;
+  secondelijm alleen voor kleine details. Licht opschuren en een primer
+  gebruiken voordat je verft.
+- **Printen:** 3–4 wanden of meer, lage onderdeelkoeling voor de laaghechting,
+  Textured PEI (op gladde PEI eerst lijmstift als scheidingslaag).
+
 ## Fotocontrole en wijzigingen
 
 De 34 beeldbestanden staan lokaal in `images/`: 33 genummerde JPG's en

@@ -40,7 +40,8 @@ ze niet als actuele bestellijst. CAD p1 bevat generieke houders en een
 - [ ] Mini-motortje voor draaiende radar
 
 ## Bouwmateriaal
-- [ ] ASA ca. 3,5 kg: marineblauw, wit, groen, rood-oranje, zwart (AMS)
+- [ ] PETG ca. 4 kg: marineblauw, wit, groen, rood-oranje, zwart (AMS)
+  (PETG is ca. 18% zwaarder dan ASA; dat gaat af van de ballast)
 - [ ] Laminerepoxy ca. 300 g (naden + binnencoating romp)
 - [ ] M3-bouten, moeren en dunne afdichtingsband voor dekborging en serviceluik
   (p1 gebruikt losse schroefsteunen; geen magneetkamers)

@@ -34,7 +34,8 @@ elkaar zonder hoofdrotorbladen. Gebruik **Heli’s in hangar** en
 - Lengte over alles circa 91 cm, rompbreedte 17,2 cm; waterlijn 5,4 cm boven de kiel.
 - Centimeters in de vormstudie; CAD/print in millimeters.
 - Eén schroef, roer en voorgenomen boegschroef; afneembare opbouw.
-- Bestaande materiaalrichting: ASA, epoxy aan de binnenkant, 2S LiPo.
+- Materiaal: PETG (gekozen 08-11-2026, in plaats van ASA), epoxy aan de binnenkant, 2S LiPo.
+  Zie de materiaalnotitie in `ONTWERP.md`.
 - Dekhoogtes, raampatronen en onderwatervorm zijn schattingen uit foto’s.
 - Uitgewerkte rompsneden op 227,5 / 455 / 682,5 mm met losse interne lasstroken.
 - Geen rederijlogo's. Referentiefoto's niet publiceren.

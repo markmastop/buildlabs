@@ -20,6 +20,7 @@ De twee JSON-bestanden in `profielen/` zijn eigen procesinstellingen die
 erven van het officiële P2S-profiel in Bambu Studio; ze regelen geen
 filamenttemperatuur of printerhardware. De slicercontrole gebruikt tijdelijke,
 volledig opgeloste officiële printer- en ASA-profielen met Textured PEI Plate.
+Die controle is gedaan vóór de overstap naar PETG; herhaal haar met een PETG-profiel.
 
 ![De CAD-onderdelen uit elkaar](../beelden/cad-p1-exploded.jpg)
 
@@ -45,8 +46,9 @@ assemblage-STEP staat in scheepscoördinaten.
 Dit zijn **startwaarden voor proefprints**, geen materiaalrecept of
 gekalibreerd machineprofiel. Gebruik in Bambu Studio je eigen P2S met
 0,4 mm nozzle en het officiële profiel voor jouw filament. De bestaande
-materiaalkeuze is ASA voor romp en buitendelen; bevestig temperatuur,
-bedhechting en krimp met je eigen filamentprofiel.
+materiaalkeuze is PETG voor romp, opbouw en buitendelen; bevestig temperatuur,
+bedhechting en krimp met je eigen filamentprofiel. Houd de onderdeelkoeling laag
+voor goede laaghechting, gebruik Textured PEI en lijm met epoxy (geen aceton).
 
 | Onderdelen | Laag | Wanden | Vulling | Ondersteuning en stand |
 |---|---:|---:|---:|---|
@@ -154,7 +156,7 @@ bereikbare afdichtingen en controleer de uitlijning met de echte motorbeugel.
 `55_boegschroef_proeftunnel` is alleen een maattest van ID20/OD23 mm, geen
 werkende thruster. De roerbladbron heeft een gat voor een metalen Ø4 mm as
 met circa 0,2 mm diameterspeling. Gebruik voor het functionele roersysteem
-handelslagers, hevel en afdichting; druk geen as of lager uit ASA.
+handelslagers, hevel en afdichting; druk geen as of lager uit PETG.
 
 De digitale controle toetst de houders tegen de romp. Bevestigingsschroeven,
 kabels, motorbeugel, koelruimte en bereikbaarheid vragen daarna een inbouwproef.
@@ -163,6 +165,7 @@ kabels, motorbeugel, koelruimte en bereikbaarheid vragen daarna een inbouwproef.
 
 `onderdelen.json` bevat een **geometrische massabovengrens bij volledig
 solide ASA** voor de hele printlijst, inclusief voorraadstroken en proefstukken.
+Voor PETG ligt die grens ca. 18% hoger (dichtheid 1,27 tegen 1,07 g/cm³).
 De slicer berekent de werkelijke extrusiemassa met jouw instellingen.
 Hydrostatica bij drie waterlijnen volgt uit de geschatte buitenromp; dit is
 geen bewijs dat het echte schip dezelfde onderwatervorm heeft.

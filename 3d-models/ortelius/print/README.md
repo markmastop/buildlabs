@@ -19,7 +19,7 @@ De kopieën en losse reling-/montagestrips staan in de onderdelenlijst.
 Print op 100% en schaal niet automatisch naar de plaat. De grootste delen
 zijn 240 mm lang; geometrie ≤246 mm in alle assen. Slicerhulpgeometrie,
 krimp, hechting en ondersteuningen moeten ook bij jouw instellingen passen.
-Kies Textured PEI Plate of een andere ASA-geschikte plaat die je zelf gebruikt.
+Print in PETG op Textured PEI Plate (op gladde PEI eerst lijmstift als scheidingslaag).
 
 De romp blijft bij technische doorvoeren dicht totdat je de echte hardware
 hebt gekozen. De proeftunnel is geen werkende boegschroef. Ramen, dekmarkeringen,
