@@ -19,3 +19,5 @@ Mappen die nog niet nodig zijn, mogen ontbreken.
 | [ortelius](ortelius/index.html) | Concept |
 | [smit-lloyd-109](smit-lloyd-109/index.html) | Printbaar prototype (v17) |
 | [porsche-911-targa-1971](porsche-911-targa-1971/index.html) | Referentiepagina; herkenbaar 3D-ontwerp volgt |
+| [porsche-911-f-model-dash-subwoofer](porsche-911-f-model-dash-subwoofer/index.html) | Printklaar (v2.5.1) |
+| [porsche-911-f-model-dash-double-front-speaker](porsche-911-f-model-dash-double-front-speaker/README.md) | In voorbereiding |
