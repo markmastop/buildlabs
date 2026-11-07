@@ -462,8 +462,7 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
     [62.5,65.4,68.6].forEach(function(x) {
       top.add(box(0.55,0.7,0.07,glassMat,x,20.1,side*7.4));
     });
-    // Schuin oplopende zijwangen bij het brugfront en de buitenste trappen.
-    top.add(sidePanel([[69.9,A1],[74.3,A1],[72.6,21.2],[71.4,21.2]],0.2,whiteMat,side*7.75));
+    // Schuin oplopende zijwangen bij de buitenste trappen.
     top.add(sidePanel([[45,A1],[46.4,A1],[51.4,A2],[50,A2]],0.18,whiteMat,side*7.65));
     var door = box(0.05,1.65,0.8,whiteMat,60.05,20.3,side*4.3); top.add(door);
   });
