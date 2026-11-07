@@ -360,7 +360,7 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
   // Boven de achterste werkvloer stopt de gesloten romp bij x = 24.
   function forwardLevel(y) { var L = hullLevel(y); L.x0 = 24; L.ts = (HTS * (bowX(y) - hullX0(y)) + hullX0(y) - 24) / (bowX(y) - 24); L.ss = 0; return L; }
   ship.add(loft(upperYs.map(forwardLevel), 90));
-  ship.add(loft([MAIN, MAIN + 0.12].map(function (y) { var L = forwardLevel(MAIN); L.y = y; L.hw -= 0.12; L.x1 -= 0.15; L.color = GREEN; return L; }), 90));
+  ship.add(loft([MAIN, MAIN + 0.12].map(function (y) { var L = forwardLevel(MAIN); L.y = y; L.hw -= 0.04; L.x1 -= 0.05; L.color = GREEN; return L; }), 90));
   var aftPlan = plan(0.2, 24.2, 8.3, 1.7, 0.3);
   ship.add(slab(aftPlan, AFT, AFT + 0.12, greenMat));
 
@@ -391,39 +391,78 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
     var hp = box(1.7, 1.5, 0.25, darkMat, 81.8, 7.6, hz); hp.rotation.y = s * 0.45; ship.add(hp);
     var an = box(0.5, 1.5, 0.18, blackMat, 81.8, 6.9, hz * 1.01); an.rotation.y = s * 0.45; ship.add(an);
     var fl = box(1.2, 0.35, 0.22, blackMat, 81.8, 6.2, hz * 1.01); fl.rotation.y = s * 0.45; ship.add(fl);
-    var mk = new THREE.Mesh(new THREE.RingGeometry(0.45, 0.6, 20), whiteMat); mk.position.set(75.8, 6.6, s * (hwAt(75.8, 6.6) + 0.04)); if (s < 0) mk.rotation.y = Math.PI; ship.add(mk);
+    [75.8, 13.0].forEach(function (mx) {
+      var zz = s * (hwAt(mx, 6.6) + 0.04);
+      var mk = new THREE.Mesh(new THREE.RingGeometry(0.45, 0.6, 20), whiteMat); mk.position.set(mx, 6.6, zz); if (s < 0) mk.rotation.y = Math.PI; ship.add(mk);
+      [-1, 1].forEach(function (r) { var xb = box(0.85, 0.12, 0.02, whiteMat, mx, 6.6, zz); xb.rotation.z = r * Math.PI / 4; ship.add(xb); });
+    });
     for (var d = 0; d < 4; d++) { var dy = 3.6 + d, dx = bowX(dy) - 0.7; ship.add(box(0.12, 0.25, 0.1, whiteMat, dx, dy, s * (hwAt(dx, dy) + 0.02))); }
   });
 
-  // white bulwark around the short foredeck
-  var bw = [];
-  for (var bx = 71.6; bx < bowX(MAIN) - 0.3; bx += 0.9) bw.push(bx);
-  var bwl = [];
-  for (var i = 0; i < bw.length - 1; i++) {
-    var a = bw[i], b = bw[i + 1], za = hwAt(a, MAIN) - 0.08, zb = hwAt(b, MAIN) - 0.08, ang = -Math.atan2(zb - za, b - a);
-    bwl.push([(a + b) / 2, MAIN + 0.6, (za + zb) / 2, ang], [(a + b) / 2, MAIN + 0.6, -(za + zb) / 2, -ang]);
+  // Doorlopende verschansing als één wand op de dekrand: onderrand exact op de romp,
+  // bovenrand waaiert naar buiten uit (fl). Gebruikt voor de bak voor en het achterschip.
+  function wallStrip(pts, cx, yb, hFn, flFn, th, mat) {
+    var n = pts.length, nr = [], pos = [];
+    for (var i = 0; i < n; i++) {
+      var a = pts[Math.max(0, i - 1)], b = pts[Math.min(n - 1, i + 1)], tx = b[0] - a[0], tz = b[1] - a[1], l = Math.hypot(tx, tz) || 1;
+      var nx = tz / l, nz = -tx / l;
+      if (nx * (pts[i][0] - cx) + nz * pts[i][1] < 0) { nx = -nx; nz = -nz; }
+      nr.push([nx, nz]);
+    }
+    function P(i, out, top) {
+      var p = pts[i], f = top ? flFn(p[0]) : 0, d = out ? 0 : -th;
+      return [p[0] + nr[i][0] * (f + d), yb + (top ? hFn(p[0]) : 0), p[1] + nr[i][1] * (f + d)];
+    }
+    function quad(a, b, c, d) { pos.push.apply(pos, a.concat(b, c, a, c, d)); }
+    for (var k = 0; k < n - 1; k++) {
+      quad(P(k,1,0), P(k+1,1,0), P(k+1,1,1), P(k,1,1));
+      quad(P(k,0,0), P(k,0,1), P(k+1,0,1), P(k+1,0,0));
+      quad(P(k,1,1), P(k+1,1,1), P(k+1,0,1), P(k,0,1));
+    }
+    [0, n - 1].forEach(function (e) { quad(P(e,1,0), P(e,1,1), P(e,0,1), P(e,0,0)); });
+    var g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.computeVertexNormals();
+    var m = mat.clone(); m.side = THREE.DoubleSide;
+    return new THREE.Mesh(g, m);
   }
-  // Witte, bijna vlakke verschansing (~1,1 cm) op de blauwe romp; licht oplopend en naar voren
-  // uitwaaierend tot x 91 (zijfoto 07-11). Ronde verhaalgaten en een meerpoort aan beide zijden.
-  var bwEnd = bowX(MAIN) - 0.3;
-  function sheerH(x) { var t = Math.max(0, (x - 74) / (bwEnd - 74)); return 1.1 + 0.45 * t * t; }
-  bwl.forEach(function (it) {
-    var h = sheerH(it[0]), fl = Math.max(0, it[0] - 84) * 0.06, w = box(1.05, h, 0.16, whiteMat, it[0], MAIN + h / 2, it[2] + Math.sign(it[2]) * fl); w.rotation.y = it[3]; ship.add(w);
-  });
-  var hs = sheerH(bwEnd);
-  // Twee schuine stukken sluiten de verschansing tot een punt op x 90,9.
+
+  // Witte, bijna vlakke verschansing (~1,1 cm) om de bak, sluit naadloos aan op de dekrand en
+  // waaiert naar de punt uit tot x 91 (zijfoto 07-11). Ronde verhaalgaten en een meerpoort.
+  var bwStem = bowX(MAIN) - 0.01;
+  function sheerH(x) { var t = Math.max(0, (x - 74) / (bwStem - 74)); return 1.1 + 0.45 * t * t; }
+  function bowFlare(x) { var t = Math.max(0, (x - 80) / (bwStem - 80)); return 0.9 * t * t; }
   (function () {
-    var lx = bw[bw.length - 1], lz = hwAt(lx, MAIN) - 0.08 + Math.max(0, lx - 84) * 0.06, tx = 90.9;
-    [-1, 1].forEach(function (s) {
-      var dx = tx - lx, dz = -s * lz, len = Math.hypot(dx, dz);
-      var p = box(len + 0.1, hs, 0.16, whiteMat, (lx + tx) / 2, MAIN + hs / 2, s * lz / 2); p.rotation.y = -Math.atan2(dz, dx); ship.add(p);
+    var side = [];
+    for (var x = 71.6; x < bwStem - 1.2; x += 0.3) side.push(x);
+    for (var u = 0; u < 1; u += 0.08) side.push(bwStem - 1.2 + 1.2 * Math.sin(u * Math.PI / 2));
+    var pts = side.map(function (x) { return [x, -(hwAt(x, MAIN) + 0.01)]; });
+    pts.push([bwStem, 0]);
+    side.slice().reverse().forEach(function (x) { pts.push([x, hwAt(x, MAIN) + 0.01]); });
+    ship.add(wallStrip(pts, 70, MAIN - 0.03, function (x) { return sheerH(x) + 0.03; }, bowFlare, 0.16, whiteMat));
+  })();
+  var holeGeo = new THREE.CylinderGeometry(0.22, 0.22, 0.3, 14); holeGeo.rotateX(Math.PI / 2);
+  var holes = [];
+  [84.6, 83.3].forEach(function (x) { [-1, 1].forEach(function (s) { holes.push([x, MAIN + 0.55, s * (hwAt(x, MAIN) + bowFlare(x) * 0.5 - 0.07)]); }); });
+  ship.add(instances(holeGeo, darkMat, holes));
+  [-1, 1].forEach(function (s) { ship.add(box(0.9, 0.5, 0.26, darkMat, 74.6, MAIN + 0.5, s * (hwAt(74.6, MAIN) - 0.07))); });
+
+  // Achterschip: blauwe romp loopt door tot ~11,9 met daarboven open poorten tot het dek
+  // (zijfoto 07-11). Opening aan bakboord voor de valreep.
+  (function () {
+    var yTop = 11.9, gate = [13.0, 14.6];
+    function sidePts(sgn, xa, xb) { var o = []; for (var x = xa; x <= xb + 0.001; x += 0.4) o.push([x, sgn * (hwAt(Math.max(x, 0.05), AFT) + 0.01)]); return o; }
+    var h = function () { return yTop - AFT + 0.03; }, nofl = function () { return 0; };
+    var navyWall = navyMat;
+    // bakboord: 24 → gate einde, gate begin → spiegel → stuurboord → 24
+    ship.add(wallStrip(sidePts(-1, gate[1], 24).reverse(), 12, AFT - 0.03, h, nofl, 0.16, navyWall));
+    var aft = sidePts(-1, 0.05, gate[0]).reverse();
+    aft = aft.concat(sidePts(1, 0.05, 24));
+    ship.add(wallStrip(aft, 12, AFT - 0.03, h, nofl, 0.16, navyWall));
+    // Witte, teruggezette wand met ramen op het onderste achterdek (x 10–23,7).
+    [-1, 1].forEach(function (sd) {
+      top.add(box(13.7, MAIN - 0.48 - AFT - 0.12, 0.12, whiteMat, 16.85, (AFT + 0.12 + MAIN - 0.48) / 2, sd * 7.3));
+      [11.4, 13.8, 17.2, 19.6, 22.0].forEach(function (x) { top.add(box(0.8, 0.6, 0.05, glassMat, x, 12.55, sd * 7.38)); });
     });
   })();
-  var holeGeo = new THREE.CylinderGeometry(0.22, 0.22, 0.2, 14); holeGeo.rotateX(Math.PI / 2);
-  var holes = [];
-  [84.6, 83.3].forEach(function (x) { [-1, 1].forEach(function (s) { var z = hwAt(x, MAIN) - 0.08 + Math.max(0, x - 84) * 0.06; holes.push([x, MAIN + 0.55, s * (z + 0.03)]); }); });
-  ship.add(instances(holeGeo, darkMat, holes));
-  [-1, 1].forEach(function (s) { ship.add(box(0.9, 0.5, 0.2, darkMat, 74.6, MAIN + 0.5, s * (hwAt(74.6, MAIN) - 0.02))); });
 
   // underwater: single shaft, 4-blade prop, rudder, skeg
   var sh = new Rods(bronze, 8); sh.add(V(19, 3.7, 0), V(3.5, 2.2, 0), 0.3); ship.add(sh.build());
@@ -505,7 +544,7 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
 
   // ---------- Achterdekken en hangar, naar foto's 07/11/14/15 ----------
   var promenadePlan = plan(0.2,24.2,8.7,1.65,0.4);
-  top.add(slab(promenadePlan, MAIN - 0.48, MAIN, whiteMat));
+  top.add(slab(promenadePlan, MAIN - 0.48, MAIN, navyMat));
   top.add(slab(plan(0.35,24,8.45,1.65,0.4), MAIN, MAIN + 0.06, greenMat));
   // Twee open niveaus met kolommen, in plaats van een volle hoge spiegel.
   [[1.9,7.3],[7.2,8.1],[12.6,8.1]].forEach(function(p) {
@@ -723,13 +762,34 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
   });
   ship.add(box(3, 0.6, 3.2, new THREE.MeshStandardMaterial({ color: '#2f5a43' }), 75.5, fd + 0.3, 0));
 
-  // ---------- Gestuwde valreep langs het open achterdek ----------
-  [-1,1].forEach(function(side) {
-    var z=side*8.7;
-    for(var i=0;i<25;i++) ship.add(box(0.09,0.5,0.6,steelMat,5+i*0.48,12.0,z));
-    rShip.add(V(4.7,11.7,z-0.3),V(17,11.7,z-0.3),0.055);
-    rShip.add(V(4.7,12.3,z+0.3),V(17,12.3,z+0.3),0.055);
-  });
+  // ---------- Valreep: bakboord uitgezet zoals op de zijfoto, stuurboord gestuwd ----------
+  (function () {
+    var t0 = [13.8, AFT + 0.25], t1 = [19.9, 6.55], n = 16;
+    function zAt(x, y, off) { return -(hwAt(x, Math.max(y, 5.5)) + off); }
+    var steps = [];
+    for (var i = 0; i <= n; i++) {
+      var f = i / n, x = t0[0] + (t1[0] - t0[0]) * f, y = t0[1] + (t1[1] - t0[1]) * f;
+      steps.push([x, y, zAt(x, y, 0.62)]);
+    }
+    ship.add(instances(new THREE.BoxGeometry(0.28, 0.05, 0.84), steelMat, steps));
+    [0.18, 1.06].forEach(function (off, k) {
+      var a = V(t0[0], t0[1], zAt(t0[0], t0[1], off)), b = V(t1[0], t1[1], zAt(t1[0], t1[1], off));
+      rShip.add(a, b, 0.06);
+      rShip.add(a.clone().setY(a.y + 0.85), b.clone().setY(b.y + 0.85), 0.04);
+      for (var i = 0; i <= 6; i++) { var p = a.clone().lerp(b, i / 6); rShip.add(p, p.clone().setY(p.y + 0.85), 0.03); }
+    });
+    var pz = zAt(20.6, 6.5, 0.62);
+    ship.add(box(1.5, 0.12, 0.95, steelMat, 20.6, 6.5, pz));
+    rShip.add(V(21.3, 6.5, pz - 0.45), V(21.3, 7.35, pz - 0.45), 0.04); rShip.add(V(21.3, 6.5, pz + 0.45), V(21.3, 7.35, pz + 0.45), 0.04);
+    rShip.add(V(21.3, 7.35, pz - 0.45), V(21.3, 7.35, pz + 0.45), 0.04);
+    var buoy = new THREE.Mesh(new THREE.SphereGeometry(0.3, 12, 8), new THREE.MeshStandardMaterial({ color: '#e8452c', roughness: 0.6 })); buoy.position.set(20.0, 7.0, pz - 0.55); ship.add(buoy);
+    // Ophangtakel van de valreep naar de dekrand.
+    rShipDark.add(V(19.9, 6.7, zAt(19.9, 6.7, 0.62)), V(19.6, MAIN - 0.4, -(hwAt(19.6, MAIN) + 0.15)), 0.02);
+    // Stuurboord: horizontaal gestuwd tegen de romp.
+    var z = hwAt(10, AFT) + 0.2;
+    for (var j = 0; j < 22; j++) ship.add(box(0.09, 0.5, 0.25, steelMat, 6 + j * 0.48, 11.3, z));
+    rShip.add(V(5.7, 11.05, z), V(16.3, 11.05, z), 0.05); rShip.add(V(5.7, 11.55, z), V(16.3, 11.55, z), 0.05);
+  })();
 
   // ---------- Railings: stanchions, top rail and two knee rails as real tubes ----------
   function sample(pts, step) {
@@ -749,7 +809,6 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
       [0.66, 0.33].forEach(function (f) { rods.add(V(a[0], y + h * f, a[1]), V(b[0], y + h * f, b[1]), 0.03); });
     }
   }
-  railing(rShip, lowerPts, AFT + 0.12, 0.9);
   var promenadeRail=plan(0.6,17.3,8.35,1.6,0.4);promenadeRail.push(promenadeRail[0]);
   railing(rTop,promenadeRail,MAIN+0.06,0.95);
   [-1,1].forEach(function(side) {
@@ -771,6 +830,7 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
   }
   [-1, 1].forEach(function (s) {
     stairs(top, rTop, 40.3, 41.2, A1, A2, s * 3.9, s * 6.3);
+    stairs(top, rTop, 37.0, 37.9, A1, HG, s * 1.4, s * 4.2);
     stairs(top, rTop, 57.4, 58.3, A2, CD + BL, s * 1.0, s * 4.5);
     stairs(top, rTop, 15.9, 16.8, MAIN + 0.1, HD, s * 2.0, s * 5.0);
   });

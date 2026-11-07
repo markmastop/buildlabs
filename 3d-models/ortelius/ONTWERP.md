@@ -38,14 +38,15 @@ vormstudie op basis van die verzameling, geen vastgelegde historische toestand.
 | 02, 06, 08, 09 | Zijprofiel, dekniveaus, schoorsteen en sloepen | Posities herverdeeld; lage accommodatie met kleinere patrijspoorten, smaller hoger dekhuis en open gangboorden |
 | 13, 18, 19 + zijfoto 07-11 | Brug, dekhoogtes en positie voorste opbouw | Precies drie witte lagen boven de romp (dek 1, dek 2, brug, elk ~3 cm); de hele voorste opbouw ~5 cm naar achteren. De brug is recht en bijna even breed als het schip, met één rij van 11 frontramen. Erachter staat een smaller dekhuis met het naambord op het kompasdek en een schuine mantel achter de radarmast. Gecontroleerd met een overlay op de zijfoto |
 | Zijfoto 07-11 (ronde 5) | Achterschip, schoorsteen en voorsteven | Schoorsteen 4,5 cm naar achteren met een naar achteren oplopende kap, de mast tegen het front en drie uitlaten op een rij. Hangar loopt van 17,5 tot 36,5 en is 3,9 cm hoog. Helidek ingekort tot 0–17,5. Dek 1 loopt door tot de hangar en dek 2 eindigt met een rechte achterwand op x 41,4. Sloepen en davits 1,8 lager. Voorsteven sterker hellend (waterlijn x 84,6, dek x 90); witte, bijna vlakke verschansing met verhaalgaten tot de punt op x 91; ankerkuil lager in de boeg |
+| Zijfoto 07-11 (ronde 6) | Bakverschansing, achterschip en valreep | Verschansing voor is nu één doorlopende wand precies op de dekrand die naar de punt toe naar buiten uitwaaiert, zonder losse blokken of naden. Achterschip: blauwe romp tot 11,9 met daarboven open poorten tot het dek en een teruggezette witte wand met ramen; de dekrand is blauw. Valreep aan bakboord uitgezet (x 13,8 → 19,9) met bordes en rode boei, aan stuurboord gestuwd. Boegschroefmerken met kruis voor en achter. Trap van het sloependek naar het hangardak teruggezet |
 | 03, 07, 11, 15 | Getrapte spiegel en open achterdekken | Lagere achterromp en twee open niveaus met kolommen en witte randliggers |
 | 05, 14 | Helidek, hangaringang en veiligheidsnetten | Groter, afgeschuind helidek met open netstructuur en zichtbare hangaringang |
 | 06, 09, 14 | Schoorsteenkap, uitlaten, mast en davits | Schuine witte mantel, oplopende zwarte kap, drie mastarmen en geknikte sloepdavits |
 | 07, 16 | Droogdok en boeg | Oplopend onderwaterschip achter en smallere kiel; verdere onderwatervorm blijft onzeker |
 
 De scheepsnaam is behouden. Het gekleurde embleem op de schoorsteen is
-verwijderd; het model heeft geen rederijlogo's. De valreep is horizontaal
-gestuwd in plaats van schuin door het water getekend.
+verwijderd; het model heeft geen rederijlogo's. De valreep hangt aan bakboord uitgezet
+boven het water (zoals op de zijfoto); aan stuurboord ligt hij gestuwd tegen de romp.
 
 ## Assen en belangrijkste stations
 
@@ -120,6 +121,7 @@ als printbaar gevalideerd.
 - `loft`: doorlopende, afgeronde rompdoorsnedes en sloepen.
 - `tier`, `plan`, `slab`: hoekige dekken en corresponderende gevelvlakken.
 - `sidePanel`: zijwangen en schoorsteenkap uit profielpolygonen.
+- `wallStrip`: doorlopende verschansing langs een polylijn, met uitwaaiering aan de bovenrand.
 - `bridgeRing`, `bridgeAft`, `facadeWindows`: brug en glasvakken. De brug-groep `bg` gebruikt lokale x; `BDX` (−5) en `BL` verschuiven haar naar de wereldpositie.
 - `Rods`, `railing`, `stairs`: masten, kolommen, relingen, davits en trappen.
 - `viewDirections`, `positionView`: vaste camera-aanzichten.
