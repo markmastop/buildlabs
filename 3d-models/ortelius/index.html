@@ -400,8 +400,16 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
     var a = bw[i], b = bw[i + 1], za = hwAt(a, MAIN) - 0.08, zb = hwAt(b, MAIN) - 0.08, ang = -Math.atan2(zb - za, b - a);
     bwl.push([(a + b) / 2, MAIN + 0.6, (za + zb) / 2, ang], [(a + b) / 2, MAIN + 0.6, -(za + zb) / 2, -ang]);
   }
-  ship.add(instances(new THREE.BoxGeometry(1.05, 1.2, 0.14), whiteMat, bwl));
-  ship.add(box(0.9, 1.2, 0.5, whiteMat, bowX(MAIN) - 0.2, MAIN + 0.6, 0));
+  // Zeeg: de verschansing loopt op naar de boeg (foto's 04/13), blauw met witte kap.
+  var bwEnd = bowX(MAIN) - 0.3;
+  function sheerH(x) { var t = Math.max(0, (x - 74) / (bwEnd - 74)); return 1.0 + 1.5 * t * t; }
+  bwl.forEach(function (it) {
+    var h = sheerH(it[0]), lo = box(1.05, h - 0.3, 0.14, navyMat, it[0], MAIN + (h - 0.3) / 2, it[2]); lo.rotation.y = it[3]; ship.add(lo);
+    var cap = box(1.08, 0.3, 0.18, whiteMat, it[0], MAIN + h - 0.15, it[2]); cap.rotation.y = it[3]; ship.add(cap);
+  });
+  var hs = sheerH(bwEnd);
+  ship.add(box(0.9, hs - 0.3, 0.5, navyMat, bwEnd + 0.1, MAIN + (hs - 0.3) / 2, 0));
+  ship.add(box(0.95, 0.3, 0.55, whiteMat, bwEnd + 0.1, MAIN + hs - 0.15, 0));
 
   // underwater: single shaft, 4-blade prop, rudder, skeg
   var sh = new Rods(bronze, 8); sh.add(V(19, 3.7, 0), V(3.5, 2.2, 0), 0.3); ship.add(sh.build());
@@ -422,32 +430,42 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
     var tr = new THREE.Mesh(new THREE.PlaneGeometry(8, 2.8), new THREE.MeshBasicMaterial({ map: textTex([['ORTELIUS', 110, 70], ['VLISSINGEN', 54, 165]], 512, 210, '#ffffff'), transparent: true }));
     tr.rotation.y = -Math.PI / 2; tr.position.set(-0.04, 8.5, 0); ship.add(tr);
     var board = new THREE.Mesh(new THREE.PlaneGeometry(4.4, 0.75), new THREE.MeshBasicMaterial({ map: textTex([['ORTELIUS', 70, 46]], 512, 90, '#1b2a4f', '#ffffff') }));
-    board.rotation.y = Math.PI / 2; board.position.set(74.6, 23.58, 0); top.add(board);
+    board.rotation.y = Math.PI / 2; board.position.set(75.87, 23.58 + LIFT, 0); top.add(board);
   }
   if (document.fonts && document.fonts.load) document.fonts.load('700 40px "Saira Extra Condensed"').then(names, names); else names();
 
   // ---------- Bovenbouw: lage accommodatie, open promenades en gefacetteerde brug ----------
   var A1 = 16.6, A2 = 19.3, B2 = 23.5, CD = 23.8, HG = 19.2, HD = 16.75;
+  // Extra accommodatiedek onder de brug (foto's 09/13): brug, kompasdek en masten liggen LIFT hoger.
+  var LIFT = 2.6, A3 = A2 + LIFT;
+  var bg = new THREE.Group(); bg.position.y = LIFT; top.add(bg);
   top.add(slab(plan(22, 76, 8.2, 0.4, 3.0), MAIN, A1, whiteMat));
   // Een smaller dekhuis laat naast de bovenste ramen een open gangboord vrij.
   top.add(tier([
     {y:A1,pts:plan(46,74.8,6.8,0.5,2.2)},
-    {y:A2,pts:plan(50,72.8,6.6,0.5,2.2)}
+    {y:A2,pts:plan(50,74.8,6.6,0.5,2.2)}
   ], whiteMat));
   var boatDeck = plan(44.5,75.2,8.25,0.3,2.5);
   top.add(slab(boatDeck, A1 - 0.16, A1 + 0.06, whiteMat));
   top.add(slab(plan(44.7,75.0,8.1,0.3,2.5), A1 + 0.06, A1 + 0.09, greenMat));
-  top.add(slab(plan(49.8,73.2,7.05,0.4,2.1), A2 - 0.16, A2 + 0.08, whiteMat));
-  top.add(slab(plan(49.9,73.0,6.9,0.4,2.1), A2 + 0.08, A2 + 0.11, greenMat));
+  top.add(slab(plan(49.8,75.2,7.05,0.4,2.1), A2 - 0.16, A2 + 0.08, whiteMat));
+  top.add(slab(plan(49.9,75.0,6.9,0.4,2.1), A2 + 0.08, A2 + 0.11, greenMat));
 
   function bridgeRing(y) {
     var t = (y - A2) / (B2 - A2);
-    return plan(60.2 - t*0.6, 73.4 + t*0.8, 7.2 + t*0.75, 0.8, 2.5);
+    return plan(60.2 - t*0.6, 74.6 + t*0.8, 7.2 + t*0.75, 0.8, 2.5);
   }
+  // Extra dek met een rij ramen; het front staat recht boven de lagere dekken.
+  var deck3 = bridgeRing(A2);
+  top.add(tier([{y:A2,pts:deck3}, {y:A3,pts:deck3}], whiteMat));
+  facadeWindows(deck3, deck3, A2 + 0.95, A2 + 1.75, [4,2,6,2,4,1,2,1]);
+  top.add(slab(plan(59.9,74.95,7.4,0.8,2.5), A3 - 0.12, A3, whiteMat));
+  var topS = top; top = bg;
   top.add(tier([{y:A2,pts:bridgeRing(A2)}, {y:B2,pts:bridgeRing(B2)}], whiteMat));
   facadeWindows(bridgeRing(21.85), bridgeRing(23.15), 21.85, 23.15, [5,2,7,2,5,1,2,1]);
-  top.add(slab(plan(59.3,74.65,8.3,0.8,2.55), B2, CD, whiteMat));
-  top.add(slab(plan(59.5,74.45,8.1,0.8,2.55), CD, CD + 0.04, greyMat));
+  top.add(slab(plan(59.3,75.85,8.3,0.8,2.55), B2, CD, whiteMat));
+  top.add(slab(plan(59.5,75.65,8.1,0.8,2.55), CD, CD + 0.04, greyMat));
+  top = topS;
 
   // Kleine, onregelmatige ramen en patrijspoorten; geen twee grote uniforme raamrijen.
   var cabinPorts = [], cabinGeo = new THREE.CylinderGeometry(0.19,0.19,0.09,14); cabinGeo.rotateX(Math.PI/2);
@@ -460,14 +478,14 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
       top.add(box(0.9,0.72,0.07,glassMat,x,18.05,side*6.74));
     });
     [62.5,65.4,68.6].forEach(function(x) {
-      top.add(box(0.55,0.7,0.07,glassMat,x,20.1,side*7.4));
+      top.add(box(0.55,0.7,0.07,glassMat,x,20.1+LIFT,side*7.4));
     });
     // Schuin oplopende zijwangen bij de buitenste trappen.
     top.add(sidePanel([[45,A1],[46.4,A1],[51.4,A2],[50,A2]],0.18,whiteMat,side*7.65));
-    var door = box(0.05,1.65,0.8,whiteMat,60.05,20.3,side*4.3); top.add(door);
+    var door = box(0.05,1.65,0.8,whiteMat,60.05,20.3+LIFT,side*4.3); top.add(door);
   });
   [-4.7,-2.8,-0.9,1.0,2.9,4.8].forEach(function(z) {
-    top.add(box(0.07,0.5,0.42,glassMat,73.57,20.1,z));
+    top.add(box(0.07,0.5,0.42,glassMat,74.77,20.1+LIFT,z));
   });
   [-4,-1.3,1.3,4].forEach(function(z) {
     top.add(box(0.07,0.42,0.34,glassMat,76.04,15.1,z));
@@ -560,7 +578,7 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
     return g;
   }
   [-1, 1].forEach(function (side) {
-    var x=40.5,k=1.45,zc=side*8.9,by=19.45,hookY=by+1.98*k;
+    var x=34.6,k=1.45,zc=side*8.9,by=19.45,hookY=by+1.98*k;
     var lb=lifeboat();lb.scale.setScalar(k);lb.position.set(x,by,zc);top.add(lb);
     [-3.3,3.3].forEach(function(dx) {
       var px=x+dx;
@@ -614,6 +632,8 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
   });
 
   // ---------- Masts: white radar mast aft on the bridge, small fore mast on the bridge, tall foremast ----------
+  var topS2 = top, rSaved = [rTop, rTopWhite, rTopDark]; top = bg;
+  rTop = new Rods(greyMat); rTopWhite = new Rods(whiteMat, 8); rTopDark = new Rods(darkMat);
   function platform(rods, x, y, w, d, mat) {
     top.add(box(w, 0.15, d, mat || whiteMat, x, y, 0));
     railing(rods, [[x - w / 2, -d / 2], [x + w / 2, -d / 2], [x + w / 2, d / 2], [x - w / 2, d / 2], [x - w / 2, -d / 2]], y + 0.07, 0.55, 0.7);
@@ -652,12 +672,14 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
   });
   [[60.8, -6.5, 5.5], [60.6, 6.6, 4.6], [70, -6.8, 3.4], [70, 6.8, 3.4], [66, -1.5, 3]].forEach(function (a) { rTop.add(V(a[0], CD, a[1]), V(a[0], CD + a[2], a[1]), 0.04); });
   [-6.6, 6.6].forEach(function (z) {
-    var lamp = new THREE.Mesh(new THREE.CylinderGeometry(0.36, 0.36, 0.7, 14), greyMat); lamp.rotation.z = Math.PI / 2; lamp.position.set(73.4, CD + 0.6, z); top.add(lamp);
-    var lens = new THREE.Mesh(new THREE.CylinderGeometry(0.31, 0.31, 0.05, 14), lampMat); lens.rotation.z = Math.PI / 2; lens.position.set(73.78, CD + 0.6, z); top.add(lens);
-    rTop.add(V(73.4, CD, z), V(73.4, CD + 0.3, z), 0.12);
+    var lamp = new THREE.Mesh(new THREE.CylinderGeometry(0.36, 0.36, 0.7, 14), greyMat); lamp.rotation.z = Math.PI / 2; lamp.position.set(74.6, CD + 0.6, z); top.add(lamp);
+    var lens = new THREE.Mesh(new THREE.CylinderGeometry(0.31, 0.31, 0.05, 14), lampMat); lens.rotation.z = Math.PI / 2; lens.position.set(74.98, CD + 0.6, z); top.add(lens);
+    rTop.add(V(74.6, CD, z), V(74.6, CD + 0.3, z), 0.12);
   });
   var horn = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.3, 1, 12), steelMat); horn.rotation.z = -Math.PI / 2; horn.position.set(66.2, 29, 0.9); top.add(horn);
-  [-1, 1].forEach(function (s) { var nl = new THREE.Mesh(new THREE.SphereGeometry(0.28, 10, 8), new THREE.MeshStandardMaterial({ color: s < 0 ? '#ff3b30' : '#30d158', emissive: s < 0 ? '#ff3b30' : '#30d158', emissiveIntensity: 0.6 })); nl.position.set(73.2, 22, s * 8.1); top.add(nl); });
+  [-1, 1].forEach(function (s) { var nl = new THREE.Mesh(new THREE.SphereGeometry(0.28, 10, 8), new THREE.MeshStandardMaterial({ color: s < 0 ? '#ff3b30' : '#30d158', emissive: s < 0 ? '#ff3b30' : '#30d158', emissiveIntensity: 0.6 })); nl.position.set(74.4, 22, s * 8.1); top.add(nl); });
+  bg.add(rTop.build()); bg.add(rTopWhite.build()); bg.add(rTopDark.build());
+  top = topS2; rTop = rSaved[0]; rTopWhite = rSaved[1]; rTopDark = rSaved[2];
 
   // ---------- Foredeck: foremast with stays, windlasses, bitts, vents, jackstaff ----------
   var fd = MAIN + 0.1;
@@ -723,8 +745,8 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
     railing(rTop,[[45,side*8.0],[72,side*8.0]],A1+0.1,0.95);
     railing(rTop,[[50.1,side*6.9],[59.6,side*6.9]],A2+0.11,0.95);
   });
-  var compassRail=plan(59.5,74.45,8.1,0.8,2.55);compassRail.push(compassRail[0]);
-  railing(rTop,compassRail,CD+0.04,0.9);
+  var compassRail=plan(59.5,75.65,8.1,0.8,2.55);compassRail.push(compassRail[0]);
+  railing(rTop,compassRail,CD+LIFT+0.04,0.9);
   var hangarRail=plan(21.1,36.8,6.15,0.25,0.4);hangarRail.push(hangarRail[0]);
   railing(rTop,hangarRail,HG+0.2,0.9);
 
@@ -738,7 +760,7 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
   [-1, 1].forEach(function (s) {
     stairs(top, rTop, 46.5, 47.4, A1, A2, s * 4.1, s * 6.5);
     stairs(top, rTop, 22.5, 23.4, A1, HG, s * 5.3, s * 3.2);
-    stairs(top, rTop, 59.0, 59.9, A2, CD, s * 1.0, s * 4.5);
+    stairs(top, rTop, 59.0, 59.9, A2, CD + LIFT, s * 1.0, s * 4.5);
     stairs(top, rTop, 18.0, 18.9, MAIN + 0.1, HD, s * 2.0, s * 5.0);
   });
 
