@@ -39,7 +39,7 @@ helikopterdek en hangar toegevoegd in 2007.
 - Voorstel: romp in vier delen van 22,75 cm voor de Bambu Lab P2S.
   Deelvlakken en afneembare bovenbouw zijn nu alleen visueel getoond;
   verbindingen en magneten moeten nog in CAD worden uitgewerkt.
-- Eén schroef en één roer zoals het origineel, plus een boegschroef voor
+- Eén schroef (MFA Torpedo 850, langzaamlopend) en één roer zoals het origineel, plus een boegschroef voor
   wendbaarheid.
 - Kenmerken uit de foto's: hoge voorromp met beplatingsvlakken en open achterdekken, witte
   hoekige schoorsteen met zwarte vakwerkmast, grote oranje geknikte davits, laag
