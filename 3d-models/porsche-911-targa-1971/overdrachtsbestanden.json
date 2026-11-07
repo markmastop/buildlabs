@@ -1,0 +1,57 @@
+{
+  "datum": "2026-11-07",
+  "bron": "Bestaand lokaal iCloud-project @911-Porsche; geen nieuwe downloads",
+  "bestanden": [
+    {
+      "bestand": "referentie/voor-driekwart.jpeg",
+      "bron_in_porsche_project": "Foto/WhatsApp Image 2026-04-08 at 14.18.25.jpeg",
+      "rol": "Echte auto: neus, koplampen, spatborden, voorruit en velgen",
+      "in_git": true,
+      "bytes": 298080,
+      "sha256_bron": "d247007ca643f6602f7050e7873a541d2ba84a353a40837235e1e695089c8671",
+      "sha256_overdracht": "d247007ca643f6602f7050e7873a541d2ba84a353a40837235e1e695089c8671",
+      "bytes_bron": 298080
+    },
+    {
+      "bestand": "referentie/achter-driekwart.jpeg",
+      "bron_in_porsche_project": "Foto/WhatsApp Image 2026-04-08 at 14.18.23.jpeg",
+      "rol": "Echte auto: Targabeugel, achterruit, schouders, motorklep en bumper",
+      "in_git": true,
+      "bytes": 277533,
+      "sha256_bron": "3474046faa332613699d529971522a56ddaa91b3760c5b9b23f5a26a847ac2b2",
+      "sha256_overdracht": "3474046faa332613699d529971522a56ddaa91b3760c5b9b23f5a26a847ac2b2",
+      "bytes_bron": 277533
+    },
+    {
+      "bestand": "referentie/interieur.jpeg",
+      "bron_in_porsche_project": "Foto/WhatsApp Image 2026-04-08 at 14.18.24.jpeg",
+      "rol": "Echte auto: dashboard, stuur en stoelen",
+      "in_git": true,
+      "bytes": 340656,
+      "sha256_bron": "5fdf788459da1c1c04a0b6fedc9a0bb54f07fcbcf5d2ecf952f7987d9387a558",
+      "sha256_overdracht": "5fdf788459da1c1c04a0b6fedc9a0bb54f07fcbcf5d2ecf952f7987d9387a558",
+      "bytes_bron": 340656
+    },
+    {
+      "bestand": "concept/ontwerpbrief-en-prompt-v1.txt",
+      "bron_in_porsche_project": "Print bestanden/911 Targa decoratief/ontwerpbrief-en-prompt-v1.txt",
+      "rol": "Historische ontwerpbrief en volledige beeldprompt",
+      "in_git": true,
+      "bytes": 6449,
+      "sha256_bron": "4218c3ff60cbedef765d9f08f8506b8c874f8b86dfb4224b3eb8761b2e4be74d",
+      "sha256_overdracht": "4218c3ff60cbedef765d9f08f8506b8c874f8b86dfb4224b3eb8761b2e4be74d",
+      "bytes_bron": 6449
+    },
+    {
+      "bestand": "concept/renders/911-targa-1971-voorstel-v1.png",
+      "bron_in_porsche_project": "Print bestanden/911 Targa decoratief/911-targa-1971-voorstel-v1.png",
+      "rol": "AI-conceptbeeld, geen CAD-render; lokaal bewaard",
+      "in_git": false,
+      "bytes": 2176743,
+      "sha256_bron": "5f709f1f1430bd1a8dbad5afaa99e748acc3ea33594f79fc15545df54b6f0bbd",
+      "sha256_overdracht": "5f709f1f1430bd1a8dbad5afaa99e748acc3ea33594f79fc15545df54b6f0bbd",
+      "bytes_bron": 2176743
+    }
+  ],
+  "niet_overgenomen": "Mini en alle bijbehorende bestanden, op uitdrukkelijk verzoek van Mark."
+}

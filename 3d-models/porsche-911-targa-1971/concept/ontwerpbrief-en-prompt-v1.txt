@@ -1,0 +1,43 @@
+911 TARGA 1971 – DECORATIEF MODEL – VOORSTEL V1
+Datum: 31 oktober 2026
+Status: ontwerpvisualisatie, nog geen CAD, STL of 3MF.
+
+Ontwerprichting
+- Referentie: Marks eigen Porsche 911 Targa uit 1971, projectfoto's.
+- Auto: circa 200 mm lang, 80 mm breed, 60–65 mm hoog; ontwerpmaat, geen gemeten CAD-afmetingen.
+- Optionele losse sokkel: circa 225 × 105 × 8 mm. De maatlijn in de conceptafbeelding is illustratief: 200 mm is de beoogde lengte van de auto, niet de sokkel.
+- Geel-oranje carrosserie; zwart interieur, banden en ondoorzichtige raaminzetten; zilvergrijze Targabeugel, wielharten en accenten.
+- Open Targadak, eenvoudig interieur en herkenbare vroege 911-vormen.
+- Mark heeft een AMS, bevestigd op 31 oktober 2026. Het voorstel gaat uit van kleurtoewijzing via de AMS met geel-oranje, zwart en zilvergrijs.
+- Bij de CAD-uitwerking bepalen welke kleuraccenten in één onderdeel kunnen worden geprint. Wielen, bodemplaat/interieur en eventueel de Targabeugel blijven losse montagedelen waar dat de printoriëntatie, ondersteuning of hoeveelheid kleurwissels verbetert.
+- Wielen vast gemonteerd. Het beoogde eindbestand is een 3MF met afzonderlijk toewijsbare kleurdelen voor Bambu Studio; de definitieve onderdeelindeling volgt uit CAD en slicercontrole.
+- Dunne details in het beeld worden bij de CAD-uitwerking vereenvoudigd of verdikt.
+
+Printuitgangspunten
+- Printer: Bambu Lab P2S, standaard nozzle van 0,4 mm als uitgangspunt.
+- Bouwvolume volgens fabrikant: 256 × 256 × 256 mm.
+- Materiaalvoorstel: PLA voor een decoratief model binnenshuis.
+- Ontwerpdoelen, nader te controleren: carrosseriewanden circa 1,6–2 mm; vrijstaande beugel/raamranden circa 2–3 mm.
+- Passing, ondersteuning, oriëntatie, printtijd en filamentmassa zijn nog niet vastgesteld.
+- Voor printbestanden zijn CAD-uitwerking, meshcontrole, controle in Bambu Studio en een pasproef nodig.
+- De afbeelding is een met AI gegenereerd concept en geen rendering van gecontroleerde geometrie. Details en verhoudingen kunnen bij uitwerking veranderen.
+
+Bron printergegevens
+https://blog.bambulab.com/the-icon-redefined-meet-the-p2s-a-completely-reengineered-version-of-the-ultra-productive-p1-series/
+
+Beeldgeneratie
+Gemaakt met de ingebouwde image_gen-tool; drie eigen foto's als referentie.
+Onderstaande volledige prompt hoort bij 911-targa-1971-voorstel-v1.png.
+
+Use case: product-mockup
+Asset type: visual design proposal for a future 3D printed decorative desk model, landscape presentation board.
+Primary request: Design ONE tasteful, sculptural, simplified 200 mm long model of the owner's actual 1971 Porsche 911 T Targa, based on the reference photographs. This is an original decorative concept rendering, not a scan, not a CAD screenshot, not a claim of an existing printable file.
+Input images: Image 1 front three-quarter photograph is reference for the actual car's long hood, round headlights, narrow body, warm Bahama-yellow/orange paint and simple early chrome bumper. Image 2 rear three-quarter photograph is reference for the correct open Targa hoop and curved rear window, sloping rear deck, vent grille and early rear bumper. Image 3 interior photograph is reference only for open cabin, two seats and dashboard; simplify the cabin rather than reproducing upholstery.
+Subject and style: a restrained adult design object, recognizably an EARLY long-hood 911 Targa from 1971. Faithful overall silhouette but simplified surfaces, gently faceted sculptural body, crisp broad details, slightly robust geometry suitable as a design target for filament 3D printing. NOT a cartoon, not a toy with oversized wheels, not a full-detail die-cast miniature. Narrow fenders, normal modest five-petal silver wheel centers in black tires, long low hood with two raised round headlight forms, tiny integrated door-handle relief, narrow black bumper strips with matte silver trim. Smooth sloping engine lid with a few broad recessed grille slots. No ducktail, no whale-tail spoiler, no wide wheel arches, no modern LED lights.
+Targa geometry: open roof between windshield and a thick continuous silver-gray Targa hoop behind the two black seats. Hoop visually sturdy with rounded ends blended into the body and broad connected pillars; not thin wire geometry. Dark CHARCOAL OPAQUE front windshield insert and dark charcoal OPAQUE curved rear window insert, clearly solid plastic decorative representations, NO transparent glass. Side window spaces are open. Small mirror can be a sturdy simplified stub on driver side only, no fine stalk. Steering wheel simplified and connected to dashboard.
+Materials/colors: fine visible FDM layer texture on matte plastic throughout. Body warm Bahama-yellow tending to rich golden orange, matching references. Tires, interior, windshield and rear window charcoal black. Targa hoop, wheel centers and headlight discs matte silver-gray printed plastic, NOT shiny real chrome. Three filament colors total. Rear lights may be understated dark raised relief, no fourth red color.
+Composition: premium industrial-design board on warm ivory background with generous whitespace. One large front-left three-quarter hero view occupies left 65%, facing toward lower left. A smaller consistent rear-left three-quarter view of the SAME identical object is in the upper right, showing the Targa hoop, opaque dark rear window and sloping rear deck. Both must match exactly in style, color and proportions. Hero car sits on a very thin matte charcoal removable rectangular display plinth with softly rounded corners, slightly larger than the car, without a bulky pedestal. The rear view can stand directly on ivory surface to show silhouette. No exploded parts, no tools, no printer, no human hands, no surrounding real cars.
+Lighting: soft studio light, natural grounding shadows, restrained editorial product rendering.
+Text: only top-left heading "911 TARGA / 1971" with smaller subtitle "ONTWERPVOORSTEL"; beneath hero a simple fine dimension line labeled "200 mm"; bottom-right small footer "GEEL-ORANJE · ZWART · ZILVERGRIJS". Optional plaque on stand may read "911 TARGA · 1971". No other text, no invented logos or watermark.
+Constraints: All shown visible details should look robust and plausible at 200 mm overall length. No delicate meshes, no floating parts, no impossibly thin pillars, no photo-real transparent glass or shiny painted metal. The goal is a beautiful decorative object to be engineered in CAD afterward.
+
