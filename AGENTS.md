@@ -25,6 +25,32 @@ Deze afspraken gelden voor de hele repository.
   later aangepast kunnen worden.
 - Gebruik geen logo's of merkuitingen van derden in modellen; houd die neutraal.
 
+## Projectpagina's (GitHub Pages)
+
+- Elk project met een model heeft een `index.html` in de projectmap. Link op
+  de startpagina en in de README's altijd expliciet naar `.../index.html`.
+- Elke projectpagina begint met de **Build Labs-knop** terug naar de
+  startpagina: direct na `<body>` (binnen de buitenste wrapper), vóór de
+  `<header>`. Gebruik exact deze code, zodat de knop overal gelijk is en het
+  licht- en donkerthema van de pagina volgt:
+
+  CSS, in de `<head>`:
+
+  ```html
+<style>.bl-home{justify-self:start;align-self:start;display:inline-flex;align-items:center;gap:8px;width:max-content;margin:0 0 4px;padding:7px 14px 7px 11px;border:1px solid rgba(127,140,150,.45);border-radius:999px;font:500 14px/1 "IBM Plex Sans",system-ui,sans-serif;color:inherit;text-decoration:none;background:transparent;transition:border-color .15s,background .15s}.bl-home:hover{border-color:currentColor;background:rgba(127,140,150,.12)}.bl-home:focus-visible{outline:2px solid currentColor;outline-offset:2px}.bl-home svg{width:15px;height:15px;flex:none}</style>
+  ```
+
+  HTML:
+
+  ```html
+<a class="bl-home" href="../../index.html" aria-label="Terug naar het Build Labs-overzicht"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/></svg>Build Labs</a>
+  ```
+
+- Pas `href` alleen aan als de pagina dieper ligt dan `3d-models/<project>/`.
+- Gebruik geen andere terugkoppelingen (zoals losse tekstlinks) naast deze knop.
+- Een projectpagina is een volledig HTML-document: `<!doctype html>`,
+  `<meta charset="utf-8">` en een viewport-meta.
+
 ## Automatisch committen
 
 - Commit na iedere afgeronde wijzigingsopdracht automatisch alle wijzigingen
