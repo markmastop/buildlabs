@@ -36,7 +36,7 @@ vormstudie op basis van die verzameling, geen vastgelegde historische toestand.
 | Referentie | Zichtbare kenmerken | Aanpassing in v2 |
 |---|---|---|
 | 02, 06, 08, 09 | Zijprofiel, dekniveaus, schoorsteen en sloepen | Posities herverdeeld; lage accommodatie met kleinere patrijspoorten, smaller hoger dekhuis en open gangboorden |
-| 09, 10, 13 | Brugfront en brugvleugels | Kortere, gefacetteerde brug; naar boven uitlopende gevel, losse raamvakken met witte stijlen en schuine zijwangen |
+| 13, 18, 19 + zijfoto 07-11 | Brug, dekhoogtes en positie voorste opbouw | Precies drie witte lagen boven de romp (dek 1, dek 2, brug, elk ~3 cm); de hele voorste opbouw ~5 cm naar achteren. De brug is recht en bijna even breed als het schip, met één rij van 11 frontramen. Erachter staat een smaller dekhuis met het naambord op het kompasdek en een schuine mantel achter de radarmast. Gecontroleerd met een overlay op de zijfoto |
 | 03, 07, 11, 15 | Getrapte spiegel en open achterdekken | Lagere achterromp en twee open niveaus met kolommen en witte randliggers |
 | 05, 14 | Helidek, hangaringang en veiligheidsnetten | Groter, afgeschuind helidek met open netstructuur en zichtbare hangaringang |
 | 06, 09, 14 | Schoorsteenkap, uitlaten, mast en davits | Schuine witte mantel, oplopende zwarte kap, drie mastarmen en geknikte sloepdavits |
@@ -57,34 +57,18 @@ gestuwd in plaats van schuin door het water getekend.
 | Achterste werkvloer | 0,2–24,2 | 10,7 | Max. 16,6; afgeschuinde hoeken |
 | Promenadedek achter | 0,2–24,2 | 13,9 | Max. 17,4; open ruimte eronder |
 | Hoofddek voor | 24–91 | 13,9 | Volgt de rompvorm |
-| Lage accommodatie | 22–76 | 13,9–16,6 | Max. 16,4 |
-| Hoger dekhuis | 46–74,8 onder / 50–74,8 boven | 16,6–19,3 | Smaller; recht front, schuin oplopende achterwand |
-| Extra dek onder de brug | 60,2–74,6 | 19,3–21,9 | Eén rij ramen; recht boven de lagere dekken |
-| Brug | ca. 60–75,4 | 21,9–26,1 | Naar boven uitlopend; vlak front met afgeschuinde hoeken |
-| Kompasdek | 59,3–75,85 | 26,4 | Max. 16,6 |
+| Lage accommodatie (dek 1) | 22–71,4 | 13,9–16,6 | Max. 16,4 |
+| Hoger dekhuis (dek 2) | 46–69,8 onder / 50–69,8 boven | 16,6–19,3 | Smaller; schuin oplopende achterwand |
+| Brug | 64,1–69,6 stuurhuis, 58,5–64,3 dekhuis | 19,3–22,3 | Recht front, stuurhuis max. 16,0 breed, dekhuis 12,0 |
+| Kompasdek | 58,3–69,9 | 22,6 | Max. 16,5 voor, 12,4 achter; naambord ORTELIUS aan beide zijden |
 | Hangar | 21–36,5 | 16,6–19,2 | Max. 11,8 |
 | Helidek | 0–21,1 | 16,75 | Max. 17,8 zonder netten |
 | Schoorsteen | ca. 30,4–39,7 | 19,4–26,3 | Schuine mantel en overstekende kap |
-| Sloepen | middelpunt 34,6 (naast de schoorsteen) | onderzijde 19,45 | Twee gesloten sloepen met geknikte davits |
+| Sloepen | middelpunt 40,5 | onderzijde 19,45 | Twee gesloten sloepen met geknikte davits |
 | Zodiacs / knikarmkranen | ca. 53 / 55,2 | op dek 19,3 | Stapels en losse oranje kranen |
 | Zwarte mast | ca. 37,6 | top 38,2 | Vakwerk met drie ra's |
-| Witte radarmast | ca. 64,8 | top 40,0 | Twee draaiende radars |
-| Voormast | 82 | top 27,2 | Slanker en lager dan de radarmast |
-| Verschansing voordek | 74–boeg | 1,0 → 2,5 boven dek | Zeeg naar de boeg; blauw met witte kap |
-
-## Ronde 3: vergelijking met de foto's (7 november 2026)
-
-Het model is vanuit dezelfde hoeken als foto's 04, 09, 10, 13 en 14 gerenderd
-en ernaast gelegd. Doorgevoerd:
-
-- Extra accommodatiedek onder de brug: brug, kompasdek en masten 2,6 hoger
-  (in de code `LIFT`, groep `bg`). De bovenbouw staat nu in verhouding tot de romp.
-- Recht, vlak front van de bovenbouw; de schuine zijwangen voor de brug zijn weg.
-- Sloepen naast de schoorsteen in plaats van ervoor.
-- Zeeg op het voordek: de verschansing loopt op naar de boeg.
-
-Nog open: helidek iets breder dan de romp, minder opvallende dekzeilen,
-exacte raamindeling per dek.
+| Witte radarmast | 58,9 | top 36,2 | Twee draaiende radars, schuine mantel tot dek 2 |
+| Voormast | 80,6 | top 27,2 | Slanker en lager dan de radarmast |
 
 ## Rompvorm
 
@@ -135,7 +119,7 @@ als printbaar gevalideerd.
 - `loft`: doorlopende, afgeronde rompdoorsnedes en sloepen.
 - `tier`, `plan`, `slab`: hoekige dekken en corresponderende gevelvlakken.
 - `sidePanel`: zijwangen en schoorsteenkap uit profielpolygonen.
-- `bridgeRing`, `facadeWindows`: schuine bruggevel en losse glasvakken.
+- `bridgeRing`, `bridgeAft`, `facadeWindows`: brug en glasvakken. De brug-groep `bg` gebruikt lokale x; `BDX` (−5) en `BL` verschuiven haar naar de wereldpositie.
 - `Rods`, `railing`, `stairs`: masten, kolommen, relingen, davits en trappen.
 - `viewDirections`, `positionView`: vaste camera-aanzichten.
 
