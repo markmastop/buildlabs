@@ -52,3 +52,5 @@ GitHub Releases als dat nodig is.
 ## Visuele voorbeeldromp
 
 De 3D-kijkversie heeft een aan/uit-schakelbare, eenvoudige donkere romp met groen dek. Dit is uitsluitend context, geen gereconstrueerde romp en geen pascontrole. Aangenomen afmetingen: circa 1080 × 244 × 128,5 mm; dek gelijk met de onderrand van de opbouw. De werkelijke rompmaat en positie zijn niet vastgesteld. De voorbeeldromp staat uitsluitend in `bekijken.html`; CAD, STEP, STL en maataanzichten blijven ongewijzigd.
+
+Het actuele kijkmodel is direct ingebed in `index.html` en wordt bij openen geladen, zonder eerst op een kijklink te klikken. Bij wijzigingen aan `bekijken.html` moet ook de ingebedde kijkversie worden bijgewerkt.
