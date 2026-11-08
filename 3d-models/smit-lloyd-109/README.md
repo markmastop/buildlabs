@@ -47,7 +47,7 @@ GitHub Releases als dat nodig is.
 
 ## Maatcontrole
 
-[Boven- en zijaanzicht met maten](beelden/maataanzichten-v17.svg) staan ook op de projectpagina. Afmetingen in mm; geen afdruk op schaal. De positie van het pasframe is voorlopig. Oude wijzigingsverslagen en het oude kijkmodel zijn opgeruimd. `inputs/` bevat noodzakelijke bouwafhankelijkheden en blijft behouden.
+[Bovenaanzicht met maten](beelden/bovenaanzicht-maten-v17.svg) en [zijaanzicht met maten](beelden/zijaanzicht-maten-v17.svg) staan ook op de projectpagina. Afmetingen in mm; geen afdruk op schaal. De positie van het pasframe is voorlopig. Oude wijzigingsverslagen en het oude kijkmodel zijn opgeruimd. `inputs/` bevat noodzakelijke bouwafhankelijkheden en blijft behouden.
 
 ## Visuele voorbeeldromp
 
