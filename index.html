@@ -33,22 +33,33 @@ h1 span { color: var(--hull); }
 .group-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-bottom: 1px solid var(--rule); padding-bottom: 8px; }
 .group-head h3 { font: 700 30px/1 var(--display); margin: 0; }
 .group-head span { font: 500 12px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 24px; }
 .card { background: var(--card); border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; }
 .shot { aspect-ratio: 16 / 9; max-width: 100%; background: var(--stage); display: grid; place-items: center; overflow: hidden; }
 .shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .shot svg { width: 88%; height: auto; }
-.body { padding: 18px 20px 20px; display: grid; gap: 10px; align-content: start; }
+.body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
 .meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .tag { font: 500 11px var(--mono); padding: 2px 8px; border-radius: 999px; border: 1px solid var(--rule); color: var(--muted); }
 .tag.status { border-color: var(--accent); color: var(--accent); }
 h2 { font: 700 32px/1 var(--display); margin: 0; }
 .body p { margin: 0; color: var(--muted); font-size: 15px; }
-.links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 6px; }
 .links a { font: 500 14px var(--body); text-decoration: none; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--rule); color: var(--ink); }
 .links a.primary { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 .links a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 footer { font: 12px var(--mono); color: var(--muted); }
+/* Shared row tracks keep metadata, titles, descriptions and actions aligned,
+   including when tags or titles wrap. Cards retain their natural content height. */
+@supports (grid-template-rows: subgrid) {
+  .card { grid-row: span 5; grid-template-rows: subgrid; row-gap: 0; min-width: 0; }
+  .body { display: grid; grid-row: span 4; grid-template-rows: subgrid; row-gap: 10px; }
+  .meta { align-content: start; align-items: start; }
+  .links { align-self: end; margin-top: 0; }
+}
+.shot { width: 100%; min-width: 0; min-height: 0; }
+.shot iframe { min-width: 0; min-height: 0; }
+.body h2, .body p, .tag { overflow-wrap: anywhere; }
 </style>
 </head>
 <body>
