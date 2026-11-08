@@ -54,3 +54,7 @@ GitHub Releases als dat nodig is.
 De 3D-kijkversie heeft een aan/uit-schakelbare, eenvoudige donkere romp met groen dek. Dit is uitsluitend context, geen gereconstrueerde romp en geen pascontrole. Aangenomen afmetingen: circa 1080 × 244 × 128,5 mm; dek gelijk met de onderrand van de opbouw. De werkelijke rompmaat en positie zijn niet vastgesteld. De voorbeeldromp staat uitsluitend in `bekijken.html`; CAD, STEP, STL en maataanzichten blijven ongewijzigd.
 
 Het actuele kijkmodel is direct ingebed in `index.html` en wordt bij openen geladen, zonder eerst op een kijklink te klikken. Bij wijzigingen aan `bekijken.html` moet ook de ingebedde kijkversie worden bijgewerkt.
+
+## Nieuw maatvoorstel
+
+[Bovenaanzicht 380 × 200 mm](beelden/voorstel-380x200-bovenaanzicht.svg): totale lengte inclusief voorblok en maximale breedte bij de schoorstenen bevestigd door gebruiker. Voorgesteld: achterdeel 30 mm inkorten en schoorstenen 30 mm naar voren. Schets is een plaatsingsvoorstel, geen bijgewerkte CAD. Stuurhutvoet en pasframe behouden hun maat. Positie pasframe en verbrede achtercontour nog afstemmen.
