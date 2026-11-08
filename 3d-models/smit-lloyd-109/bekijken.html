@@ -1869,7 +1869,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-view=&quot;top&quot;&gt;Bovenaanzicht&lt;/button&gt;
 &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-view=&quot;logo&quot;&gt;Logo bekijken&lt;/button&gt;
 &lt;button type=&quot;button&quot; class=&quot;btn&quot; data-view=&quot;funnel-detail&quot;&gt;Schoorsteendetail&lt;/button&gt;
-    &lt;label class=&quot;form-check&quot;&gt;&lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot; data-bridge&gt;&lt;span class=&quot;form-check-label&quot;&gt;Stuurhut dichtbij&lt;/span&gt;&lt;/label&gt;
+    &lt;label class=&quot;form-check&quot;&gt;&lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot; data-hull checked&gt;&lt;span class=&quot;form-check-label&quot;&gt;Voorbeeldromp tonen&lt;/span&gt;&lt;/label&gt;&lt;label class=&quot;form-check&quot;&gt;&lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot; data-bridge&gt;&lt;span class=&quot;form-check-label&quot;&gt;Stuurhut dichtbij&lt;/span&gt;&lt;/label&gt;
 &lt;label class=&quot;form-check&quot;&gt;&lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot; data-funnels&gt;&lt;span class=&quot;form-check-label&quot;&gt;Alleen schoorstenen&lt;/span&gt;&lt;/label&gt;
     &lt;label class=&quot;form-check&quot;&gt;&lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot; data-clear&gt;&lt;span class=&quot;form-check-label&quot;&gt;Schoorstenen verbergen&lt;/span&gt;&lt;/label&gt;
     &lt;label class=&quot;form-check&quot;&gt;
@@ -1960,6 +1960,21 @@ html&gt;body{padding:0}&lt;/style&gt;
     const logoLines=[];for(let i=0;i&lt;(part.logoEdges?.length||0);i+=3)logoLines.push(...part.logoEdges.slice(i,i+3),0,0,1);
     return {highlightBuffer:buffer(highlights),highlightCount:highlights.length/6,name:part.name,base:part.base,logoBuffer:buffer(logoLines),logoCount:logoLines.length/6,buffer:buffer(vertices),count:vertices.length/6,lines:buffer(lines),lineCount:lines.length/6,roof:part.roof};
   })]));
+
+  // Alleen visuele context: deze romp maakt geen deel uit van de CAD of exports.
+  const hullInput=root.querySelector(&#x27;[data-hull]&#x27;);
+  const hullTriangles=[]; const deckTriangles=[];
+  function contextTriangle(out,a,b,c){const n=normalize(cross(b.map((v,i)=&gt;v-a[i]),c.map((v,i)=&gt;v-a[i])));for(const p of [a,b,c])out.push(...p,...n);}
+  const stations=[[-430,1],[-395,53],[-340,99],[-250,120],[-100,122],[100,122],[350,119],[550,110],[650,91]];
+  const rings=stations.map(([x,w])=&gt;[[x,-w,-95.5],[x,-w*.96,-142],[x,-w*.7,-205],[x,0,-224],[x,w*.7,-205],[x,w*.96,-142],[x,w,-95.5]]);
+  for(let i=0;i&lt;rings.length-1;i++){
+    const a=rings[i],b=rings[i+1];
+    for(let j=0;j&lt;6;j++){contextTriangle(hullTriangles,a[j],b[j],b[j+1]);contextTriangle(hullTriangles,a[j],b[j+1],a[j+1]);}
+    contextTriangle(deckTriangles,a[0],a[6],b[6]);contextTriangle(deckTriangles,a[0],b[6],b[0]);
+  }
+  for(const ring of [rings[0],rings[rings.length-1]])for(let j=1;j&lt;6;j++)contextTriangle(hullTriangles,ring[0],ring[j],ring[j+1]);
+  const contextHullBuffer=buffer(hullTriangles),contextDeckBuffer=buffer(deckTriangles);
+  hullInput.addEventListener(&#x27;change&#x27;,()=&gt;requestDraw());
   let meshes=meshesByVariant[variant];
   const grid=[];
   for(let i=-200;i&lt;=200;i+=20){grid.push(-200,i,-101.4,0,0,1,200,i,-101.4,0,0,1,i,-200,-101.4,0,0,1,i,200,-101.4,0,0,1);}
@@ -1995,14 +2010,16 @@ html&gt;body{padding:0}&lt;/style&gt;
     const z=normalize(eye),x=normalize(cross([0,0,1],z)),y=cross(z,x);
     for(let i=0;i&lt;3;i++)eye[i]+=focus[i];
     const view=[x[0],y[0],z[0],0,x[1],y[1],z[1],0,x[2],y[2],z[2],0,-dot(x,eye),-dot(y,eye),-dot(z,eye),1];
-    const aspect=w/h;const corners=[];for(const a of (bridgeOnly?[-194,-26]:(funnelOnly?[107,193]:[-218,193])))for(const b of (bridgeOnly?[-97,97]:(funnelOnly?[-92,99]:[-103,103])))for(const c of (bridgeOnly?[-10,66]:(funnelOnly?[-35,102]:(baseOnly?[-102,-9]:[-102,102]))))corners.push([a,b,c]);const px=corners.map(p=&gt;dot(x,p)),py=corners.map(p=&gt;dot(y,p));const span=Math.max(bridgeOnly?100:(funnelOnly?150:(baseOnly?90:350)),(Math.max(...py)-Math.min(...py))*1.12,(Math.max(...px)-Math.min(...px))/aspect*1.12)/zoom,halfHeight=span/2,halfWidth=halfHeight*aspect;
+    const contextVisible=hullInput.checked&amp;&amp;!bridgeOnly&amp;&amp;!funnelOnly&amp;&amp;!baseOnly; const aspect=w/h;const corners=[];for(const a of (bridgeOnly?[-194,-26]:(funnelOnly?[107,193]:[-218,193])))for(const b of (bridgeOnly?[-97,97]:(funnelOnly?[-92,99]:[-103,103])))for(const c of (bridgeOnly?[-10,66]:(funnelOnly?[-35,102]:(baseOnly?[-102,-9]:[-102,102]))))corners.push([a,b,c]);if(contextVisible)for(const a of [-430,650])for(const b of [-123,123])for(const c of [-224,102])corners.push([a,b,c]);const px=corners.map(p=&gt;dot(x,p)),py=corners.map(p=&gt;dot(y,p));const span=Math.max(bridgeOnly?100:(funnelOnly?150:(baseOnly?90:350)),(contextVisible?2*Math.max(...py.map(Math.abs)):Math.max(...py)-Math.min(...py))*1.12,(contextVisible?2*Math.max(...px.map(Math.abs)):Math.max(...px)-Math.min(...px))/aspect*1.12)/zoom,halfHeight=span/2,halfWidth=halfHeight*aspect;
     const near=.1,far=2000;
     const proj=[1/halfWidth,0,0,0,0,1/halfHeight,0,0,0,0,-2/(far-near),0,0,0,-(far+near)/(far-near),1];
     gl.uniformMatrix4fv(loc.view,false,view);gl.uniformMatrix4fv(loc.projection,false,proj);
     gl.uniform1f(loc.paint,0);gl.uniform4fv(loc.dark,highlightColor);gl.uniform4fv(loc.base,bodyColor);gl.uniform4fv(loc.deck,deckColor);gl.uniform4fv(loc.walk,walkColor);
     gl.uniform1f(loc.lit,0);gl.uniform4fv(loc.color,gridColor);bind(gridBuffer);gl.drawArrays(gl.LINES,0,grid.length/6);
     gl.enable(gl.POLYGON_OFFSET_FILL);gl.polygonOffset(1,1);
-    gl.uniform1f(loc.lit,1);gl.uniform4fv(loc.color,bodyColor);
+    gl.uniform1f(loc.lit,1);
+    if(contextVisible){gl.uniform1f(loc.paint,0);gl.uniform4fv(loc.color,[.09,.13,.16,1]);bind(contextHullBuffer);gl.drawArrays(gl.TRIANGLES,0,hullTriangles.length/6);gl.uniform4fv(loc.color,[.18,.29,.23,1]);bind(contextDeckBuffer);gl.drawArrays(gl.TRIANGLES,0,deckTriangles.length/6);}
+    gl.uniform4fv(loc.color,bodyColor);
     for(const m of meshes){if((bridgeOnly&amp;&amp;!/^(07_|10_|11_|12_|13_)/.test(m.name))||(m.roof&amp;&amp;roofHidden)||(baseOnly&amp;&amp;/^(10_|11_|12_|13_|14_|15_|16_)/.test(m.name))||(funnelOnly&amp;&amp;!/^(14_|15_|16_)/.test(m.name))||(clearAft&amp;&amp;/^(14_|15_|16_)/.test(m.name)))continue;gl.uniform4fv(loc.color,bodyColor);gl.uniform1f(loc.paint,m.name.startsWith(&#x27;07_&#x27;)?4:0);bind(m.buffer);gl.drawArrays(gl.TRIANGLES,0,m.count);}
     gl.uniform1f(loc.paint,0);gl.uniform4fv(loc.color,highlightColor);for(const m of meshes){if((bridgeOnly&amp;&amp;!/^(07_|10_|11_|12_|13_)/.test(m.name))||(m.roof&amp;&amp;roofHidden)||(baseOnly&amp;&amp;/^(10_|11_|12_|13_|14_|15_|16_)/.test(m.name))||(funnelOnly&amp;&amp;!/^(14_|15_|16_)/.test(m.name))||(clearAft&amp;&amp;/^(14_|15_|16_)/.test(m.name))||!m.highlightCount)continue;bind(m.highlightBuffer);gl.drawArrays(gl.TRIANGLES,0,m.highlightCount);}
     gl.disable(gl.POLYGON_OFFSET_FILL);gl.depthFunc(gl.LEQUAL);gl.uniform1f(loc.lit,0);gl.uniform4fv(loc.color,edgeColor);
@@ -2016,7 +2033,7 @@ html&gt;body{padding:0}&lt;/style&gt;
       window.openai.setWidgetState({modelContent:{model:&#x27;Smit-Lloyd 109 volledig model v17&#x27;,variant,sideView,bridgeOnly,roofRemoved:roofHidden,baseOnly,clearAft,funnelOnly},privateContent:{yaw,pitch,zoom,focus}}).catch(()=&gt;{});
     }
   }
-  function updateCaption(){root.querySelector(&#x27;.sl-caption&#x27;).textContent=(sideView===&#x27;A&#x27;||sideView===&#x27;B&#x27;?&#x27;Zijde &#x27;+sideView+&#x27; · &#x27;:&#x27;&#x27;)+(variant===&#x27;v17&#x27;?&#x27;Stuurhutwand 55 mm hoog · voet 90 mm lang · proefmaten&#x27;:&#x27;V16 · wand 42 mm hoog · voet 112 mm lang&#x27;);}
+  function updateCaption(){root.querySelector(&#x27;.sl-caption&#x27;).textContent=(sideView===&#x27;A&#x27;||sideView===&#x27;B&#x27;?&#x27;Zijde &#x27;+sideView+&#x27; · &#x27;:&#x27;&#x27;)+(variant===&#x27;v17&#x27;?&#x27;Stuurhutwand 55 mm · voet 90 mm · voorbeeldromp uitsluitend visueel, niet opgemeten&#x27;:&#x27;V16 · wand 42 mm hoog · voet 112 mm lang&#x27;);}
   function applyState(state){
     if(state?.modelContent?.model!==&#x27;Smit-Lloyd 109 volledig model v17&#x27;)state={};
     if([&#x27;A&#x27;,&#x27;B&#x27;,&#x27;overzicht&#x27;,&#x27;vrij&#x27;,&#x27;voorkant&#x27;,&#x27;stuurhut&#x27;].includes(state?.modelContent?.sideView))sideView=state.modelContent.sideView;

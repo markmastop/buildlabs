@@ -48,3 +48,7 @@ GitHub Releases als dat nodig is.
 ## Maatcontrole
 
 [Boven- en zijaanzicht met maten](beelden/maataanzichten-v17.svg) staan ook op de projectpagina. Afmetingen in mm; geen afdruk op schaal. De positie van het pasframe is voorlopig. Oude wijzigingsverslagen en het oude kijkmodel zijn opgeruimd. `inputs/` bevat noodzakelijke bouwafhankelijkheden en blijft behouden.
+
+## Visuele voorbeeldromp
+
+De 3D-kijkversie heeft een aan/uit-schakelbare, eenvoudige donkere romp met groen dek. Dit is uitsluitend context, geen gereconstrueerde romp en geen pascontrole. Aangenomen afmetingen: circa 1080 × 244 × 128,5 mm; dek gelijk met de onderrand van de opbouw. De werkelijke rompmaat en positie zijn niet vastgesteld. De voorbeeldromp staat uitsluitend in `bekijken.html`; CAD, STEP, STL en maataanzichten blijven ongewijzigd.
