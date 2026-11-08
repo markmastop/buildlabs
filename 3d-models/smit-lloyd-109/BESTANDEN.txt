@@ -4,7 +4,7 @@ Open index.html voor het 3D-model, alle downloadlinks, maatvoering en de onderde
 STL/: 31 printbestanden. STEP/: 31 losse delen plus de assemblage. CAD/: bewerkbare bron.
 inputs/: nodig voor herbouw; samen met CAD bewaren. HANDLEIDING.txt: printen en montage.
 Smit-Lloyd-109_v17_printpakket.zip: ongewijzigd volledig printpakket.
-bekijken.html: huidige volledige 3D-kijkversie. KIJKMODEL.html: kijkmodel uit het oorspronkelijke printpakket.
+bekijken.html: huidige volledige 3D-kijkversie.
 SHA256SUMS.txt controleert de oorspronkelijke pakketbestanden; nieuwe overzichtspagina en afbeeldingen vallen daarbuiten.
 
 Openbare kijkversie: https://smit-lloyd-109-vormstudie.mkram.chatgpt.site/

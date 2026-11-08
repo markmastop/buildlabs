@@ -32,7 +32,6 @@ Details: [`meetmaten.csv`](meetmaten.csv), [`AANNAMES.txt`](AANNAMES.txt),
 | `STEP/` | 31 losse delen + `SL109_v17_assemblage.step` |
 | `STL/` | 31 printbestanden; `onderdelen.csv` geeft aantal, maat en printstand |
 | `referentie_*/` | Foto's per detail, gebruikt bij de reconstructie |
-| `VERSCHILLEN_*.txt` | Wijzigingsgeschiedenis v5 → v17 |
 | `SHA256SUMS.txt` | Controlesommen van het oorspronkelijke printpakket |
 
 Het volledige printpakket (`Smit-Lloyd-109_v17_printpakket.zip`, 35 MB)
@@ -45,3 +44,7 @@ GitHub Releases als dat nodig is.
 2. Bepaal de definitieve lengtepositie van het pasframe (nu voorlopig X = 160 mm).
 3. Controleer de laagweergave in Bambu Studio en print de rest volgens
    `HANDLEIDING.txt`.
+
+## Maatcontrole
+
+[Boven- en zijaanzicht met maten](beelden/maataanzichten-v17.svg) staan ook op de projectpagina. Afmetingen in mm; geen afdruk op schaal. De positie van het pasframe is voorlopig. Oude wijzigingsverslagen en het oude kijkmodel zijn opgeruimd. `inputs/` bevat noodzakelijke bouwafhankelijkheden en blijft behouden.
