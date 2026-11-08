@@ -9,7 +9,7 @@
 :root{--bg:#f6f7f8;--fg:#17202a;--muted:#5d6b78;--line:#d8dde2;--card:#fff;--accent:#1d3d6e}
 @media (prefers-color-scheme:dark){:root{--bg:#11161c;--fg:#e6ebf0;--muted:#9aa8b5;--line:#2a333d;--card:#171e26;--accent:#8fb3e8}}
 body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 "IBM Plex Sans",system-ui,sans-serif}
-main{max-width:980px;margin:0 auto;padding:24px 16px 64px;display:grid;gap:18px}
+main{max-width:1180px;margin:0 auto;padding:24px 16px 64px;display:grid;gap:18px}
 h1{margin:4px 0 0;font-size:28px}h2{margin:18px 0 6px;font-size:19px}
 p{margin:0;color:var(--muted)}
 .wrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:10px}
@@ -26,36 +26,25 @@ a{color:var(--accent)}
 <main>
 <a class="bl-home" href="../../index.html" aria-label="Terug naar het Build Labs-overzicht"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/></svg>Build Labs</a>
 <h1>Ortelius: bestellijst</h1>
-<p>Zoveel mogelijk in één keer bij <a href="https://www.schiffsmodelle-shop.de/en/">schiffsmodelle-shop.de</a> (JOJO Modellbauvertrieb, Duitsland). Die winkel voert Raboesch, Krick, Graupner, Hobbywing, motoren, regelaars, accu's, laders en roeren. Prijzen zijn incl. btw, exclusief verzending, en gecontroleerd op 8 november 2026. Waar de winkel het niet heeft, staat een alternatief. Kijk vóór bestellen of je cijfers en maten nog kloppen met de CAD.</p>
-
-<h2>1. Schiffsmodelle-shop.de: aandrijving</h2>
+<p>Twee routes naast elkaar. <b>Duitsland:</b> <a href="https://www.schiffsmodelle-shop.de/en/">schiffsmodelle-shop.de</a> (JOJO Modellbauvertrieb). <b>Nederland:</b> <a href="https://kvmodelbouw.nl/">KV Modelbouw</a> (Steenwijk, alleen webshop), met Raboesch-aandrijving, motoren, roeren, regelaars, zenders en accu's. Prijzen incl. btw, excl. verzending, gecontroleerd op 8 november 2026. "Zie site" betekent dat de winkel de categorie voert maar dat ik geen productprijs kon openen. Kijk vóór bestellen of de maten nog kloppen met de CAD.</p>
 <div class="wrap"><table>
-<tr><th>Onderdeel</th><th>Keuze</th><th class="p">Prijs</th></tr>
-<tr><td>Schroefas</td><td><a href="https://www.schiffsmodelle-shop.de/en/raboesch/?p=2">Raboesch Ship Shaft 4×290 + M4×18</a></td><td class="p">€ 12,85</td></tr>
-<tr><td>Stevenbuis (alternatief, inkortbaar)</td><td><a href="https://www.schiffsmodelle-shop.de/en/raboesch/?p=2">Raboesch Stuffing Box 290/M4</a> <span class="tag">alleen als de as zonder buis komt</span></td><td class="p">€ 37,00</td></tr>
-<tr><td>Schroef</td><td><a href="https://www.schiffsmodelle-shop.de/en/raboesch/?p=2">Raboesch D-Type 3-blad 40 mm M4</a> <span class="tag">45 mm niet op voorraad; 40 mm is de dichtstbijzijnde. Kies L of R passend bij de motor</span></td><td class="p">€ 16,90</td></tr>
-<tr><td>Askoppeling</td><td><a href="https://www.schiffsmodelle-shop.de/en/raboesch/?p=2">Raboesch kardankoppeling (enkel)</a></td><td class="p">€ 8,10</td></tr>
-<tr><td>Roerarm</td><td><a href="https://www.schiffsmodelle-shop.de/en/raboesch/?p=2">Raboesch Tiller Arm T-Style Ø 4 mm</a></td><td class="p">€ 5,95</td></tr>
-<tr><td>Boegschroef</td><td><a href="https://www.schiffsmodelle-shop.de/en/bow-thrusters/15743-bow-thruster-22mm.html">Raboesch Bow Thruster 22 mm</a> <span class="tag">de CAD-proeftunnel is 20 mm: pas aan naar 22 mm</span></td><td class="p">€ 43,95</td></tr>
-<tr><td>Hoofdmotor</td><td><a href="https://www.schiffsmodelle-shop.de/en/">Categorie Motors</a> <span class="tag">MFA Torpedo 850 staat er niet; kies een vergelijkbare langzaamloper (500/600-klasse)</span></td><td class="p">ca. € 30–40</td></tr>
-<tr><td>Roerset</td><td><a href="https://www.schiffsmodelle-shop.de/en/">Categorie Rudders &amp; Linkages</a></td><td class="p">ca. € 10–20</td></tr>
-<tr><td>2× regelaar</td><td><a href="https://www.schiffsmodelle-shop.de/en/">Hobbywing (brushed)</a> <span class="tag">of de QuicRun 1060 bij <a href="https://shop.robitronic.com/en/hobbywing-quicrun-1060-hw30120203">Robitronic</a></span></td><td class="p">ca. € 2× 25</td></tr>
-<tr><td>Accu 2S LiPo 5000 + lader</td><td><a href="https://www.schiffsmodelle-shop.de/en/">Categorie Batteries &amp; Chargers</a></td><td class="p">ca. € 70–100</td></tr>
-<tr><td>Waterdichte roerservo</td><td><a href="https://www.schiffsmodelle-shop.de/en/">Categorie Servos</a></td><td class="p">ca. € 15–25</td></tr>
+<tr><th>Onderdeel</th><th>Duitsland</th><th class="p">Prijs</th><th>Nederland</th><th class="p">Prijs</th></tr>
+<tr><td>Schroefas M4 + stevenbuis</td><td><a href="https://www.schiffsmodelle-shop.de/en/raboesch/?p=2">Raboesch Ship Shaft 4×290 + M4</a></td><td class="p">€ 12,85</td><td><a href="https://kvmodelbouw.nl/">KV: Schroefassen (Raboesch)</a></td><td class="p">zie site</td></tr>
+<tr><td>Scheepsschroef</td><td><a href="https://www.schiffsmodelle-shop.de/en/raboesch/?p=2">Raboesch D-Type 3-blad 40 mm M4</a> <span class="tag">45 mm niet gevonden</span></td><td class="p">€ 16,90</td><td><a href="https://kvmodelbouw.nl/">KV: Scheepsschroeven (Raboesch-series)</a></td><td class="p">zie site</td></tr>
+<tr><td>Askoppeling</td><td><a href="https://www.schiffsmodelle-shop.de/en/raboesch/?p=2">Raboesch kardankoppeling</a></td><td class="p">€ 8,10</td><td><a href="https://kvmodelbouw.nl/">KV: Koppelingen</a></td><td class="p">zie site</td></tr>
+<tr><td>Roerarm / roer</td><td><a href="https://www.schiffsmodelle-shop.de/en/raboesch/?p=2">Raboesch Tiller Arm Ø 4 mm</a></td><td class="p">€ 5,95</td><td><a href="https://kvmodelbouw.nl/">KV: Roeren</a></td><td class="p">zie site</td></tr>
+<tr><td>Boegschroef</td><td><a href="https://www.schiffsmodelle-shop.de/en/bow-thrusters/15743-bow-thruster-22mm.html">Raboesch 22 mm</a></td><td class="p">€ 43,95</td><td><a href="https://kvmodelbouw.nl/boegschroef-19x16mm/">Raboesch 19×16 mm</a> <span class="tag">dichtst bij de 20 mm in de CAD; op bestelling</span> · of <a href="https://kvmodelbouw.nl/boegschroef-22x19mm/">22×19 mm</a> (op voorraad)</td><td class="p">€ 39,64</td></tr>
+<tr><td>Hoofdmotor</td><td><a href="https://www.schiffsmodelle-shop.de/MAX-Power-600-Brushed-Motor-12V">MAX Power 600 brushed 12 V</a> <span class="tag">alternatief voor MFA Torpedo 850</span></td><td class="p">€ 16,00</td><td><a href="https://kvmodelbouw.nl/">KV: Motoren</a></td><td class="p">zie site</td></tr>
+<tr><td>2× regelaar (brushed, vooruit/achteruit)</td><td><a href="https://shop.robitronic.com/en/hobbywing-quicrun-1060-hw30120203">Hobbywing QuicRun 1060</a> (Robitronic)</td><td class="p">ca. 2× € 25</td><td><a href="https://kvmodelbouw.nl/">KV: Regelaars</a></td><td class="p">zie site</td></tr>
+<tr><td>Zender + ontvanger</td><td><a href="https://www.ebay.de/itm/157514012921">FlySky FS-i6X + FS-iA10B</a> (eBay.de)</td><td class="p">ca. € 55</td><td><a href="https://kvmodelbouw.nl/">KV: Zenders en ontvangers</a></td><td class="p">zie site</td></tr>
+<tr><td>Accu 2S LiPo 5000 + lader</td><td><a href="https://www.schiffsmodelle-shop.de/en/">Batteries &amp; Chargers</a></td><td class="p">ca. € 70–100</td><td><a href="https://kvmodelbouw.nl/">KV: Accu's</a></td><td class="p">zie site</td></tr>
+<tr><td>Waterdichte roerservo</td><td><a href="https://www.schiffsmodelle-shop.de/en/">Servos</a></td><td class="p">ca. € 15–25</td><td><a href="https://www.toemen.nl/product/maverick-ms-15mgwr-servo-water-resistant-6-0v-15-0kg-metal-geared">Maverick MS-15MGWR 15 kg</a> (Toemen)</td><td class="p">zie site</td></tr>
+<tr><td>Geluidsmodule</td><td>Benedini TBS Micro, via Benedini of een dealer</td><td class="p">ca. € 150</td><td>Niet gevonden in NL; zelfde route</td><td class="p">ca. € 150</td></tr>
+<tr><td>PETG ca. 4 kg</td><td><a href="https://eu.store.bambulab.com/">Bambu Lab EU-store</a></td><td class="p">ca. € 80–100</td><td>zelfde</td><td class="p">ca. € 80–100</td></tr>
 </table></div>
-
-<h2>2. Elders</h2>
-<div class="wrap"><table>
-<tr><th>Onderdeel</th><th>Waar</th><th class="p">Prijs</th></tr>
-<tr><td>FlySky FS-i6X + FS-iA10B</td><td><a href="https://www.ebay.de/itm/157514012921">eBay.de (set met iA10B)</a> <span class="tag">of de Futaba/FrSky-sets bij schiffsmodelle-shop</span></td><td class="p">ca. € 55</td></tr>
-<tr><td>Benedini TBS Micro</td><td>Direct bij Benedini of een Duitse dealer</td><td class="p">ca. € 150</td></tr>
-<tr><td>PETG ca. 4 kg (AMS-kleuren)</td><td><a href="https://eu.store.bambulab.com/">Bambu Lab EU-store</a></td><td class="p">ca. € 80–100</td></tr>
-<tr><td>Laminerepoxy ca. 300 g, M3-boutjes, messingdraad 0,8 mm</td><td>Bouwmarkt of modelbouwzaak</td><td class="p">ca. € 30</td></tr>
-</table></div>
-
 <h2>Totaal</h2>
 <p class="tot">Basis (aandrijving, besturing, stroom, filament): ca. € 450–550. Met geluid ca. € 600–700.</p>
-<p>De prijzen met "ca." zijn schattingen uit de onderdelenlijst. Controleer op de productpagina of het artikel nog leverbaar is en wat verzending naar Nederland kost.</p>
+<p>Laminerepoxy (ca. 300 g), M3-boutjes en messingdraad 0,8 mm: bouwmarkt of modelbouwzaak, samen ca. € 30.</p>
 </main>
 </body>
 </html>
