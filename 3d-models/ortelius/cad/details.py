@@ -232,14 +232,15 @@ def enrich(a):
  pieces.extend([beam((492.8,0,204.9),(548.3,0,204.9),1.2),beam((492.8,-29,198),(548.3,-29,198),1.2),beam((492.8,29,198),(548.3,29,198),1.2)])
  add('77_lichtkap_roeden',join(pieces),white)
  # Radardomes en antennevoetjes op het kompasdek.
- for i,(x,y,r) in enumerate([(656,-52,10.5),(656,52,8.5),(612,-34,5.5),(612,34,5.5)]):
+ # Y = bakboord positief: de grote dome staat in de vormstudie aan bakboord (was gespiegeld).
+ for i,(x,y,r) in enumerate([(656,52,10.5),(656,-52,8.5),(612,34,5.5),(612,-34,5.5)]):
   dome=cq.Workplane('XY').sphere(r).translate((x,y,235+r*.7)).union(rod((x,y,226),(x,y,235),3.5))
   add('78_satcom_'+str(i+1),dome,white)
  add('78_brugdomes',join([box(12,20,1.2,690,0,256),cq.Workplane('XY').sphere(4.5).translate((690,-6,261.5)),cq.Workplane('XY').sphere(4.5).translate((690,6,261.5))]),white)
- for i,(x,y) in enumerate([(668,18),(668,-18),(600,45)]):
+ for i,(x,y) in enumerate([(668,-18),(668,18),(600,-45)]):
   gps=join([rod((x,y,226),(x,y,234),1),rod((x,y,233),(x,y,237),2.5)])
   add('78_GPS_'+str(i+1),gps,white)
- for i,(x,y,h) in enumerate([(590,-55,55),(592,55,46),(650,-68,34),(650,68,34),(616,-15,30)]):
+ for i,(x,y,h) in enumerate([(590,55,55),(592,-55,46),(650,68,34),(650,-68,34),(616,15,30)]):
   add('78_antenne_'+str(i+1),rod((x,y,226),(x,y,226+h),.65),'#c4cdd1',rotate=((1,0,0),90))
  lamp=join([box(5,5,2,0,0,0),rod((0,0,1),(0,0,5),1.5),rod((-3.5,0,6),(3.5,0,6),3.6)])
  add('78_zoeklicht',lamp,'#d2d9dc',qty=2,placements=[(692,-66,226),(692,66,226)])

@@ -15,6 +15,7 @@ verstaging en kettingen blijven modelbouwwerk met draad.
 - [`build.py`](build.py): geometrie, deling, export en viewer-generatie.
 - [`details.py`](details.py): echte relingen, trappen, masten, cockpitruiten en dekuitrusting.
 - [`DETAILS.md`](DETAILS.md): vergelijking met de vormstudie en bewuste printaanpassingen.
+- [`VERGELIJKING.md`](VERGELIJKING.md): silhouetvergelijking CAD tegen vormstudie, met de aanpassingen van 09-11.
 - [`parameters.json`](parameters.json): rompstations, wanddiktes, lijmspeling, sneden en maatreserveringen.
 - [`viewer.py`](viewer.py): bouwt de viewer rechtstreeks uit de georiënteerde STL-bestanden.
 - [`viewer-template.html`](viewer-template.html): zelfstandige viewer met ingebedde modeldata.

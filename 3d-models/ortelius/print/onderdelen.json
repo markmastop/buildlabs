@@ -16,6 +16,7 @@
       ],
       "volume_cm3": 295.7056,
       "asa_solid_mass_g": 316.4,
+      "petg_solid_mass_g": 375.55,
       "note": "Snijvlak op bed; buitenste overhangen controleren. Epoxy en glasband aan binnenzijde.",
       "rotation": [
         [
@@ -51,6 +52,7 @@
       ],
       "volume_cm3": 329.2783,
       "asa_solid_mass_g": 352.33,
+      "petg_solid_mass_g": 418.18,
       "note": "Snijvlak op bed; buitenste overhangen controleren. Epoxy en glasband aan binnenzijde.",
       "rotation": [
         [
@@ -86,6 +88,7 @@
       ],
       "volume_cm3": 317.8262,
       "asa_solid_mass_g": 340.07,
+      "petg_solid_mass_g": 403.64,
       "note": "Snijvlak op bed; buitenste overhangen controleren. Epoxy en glasband aan binnenzijde.",
       "rotation": [
         [
@@ -119,8 +122,9 @@
         155.653,
         217.5
       ],
-      "volume_cm3": 242.7886,
-      "asa_solid_mass_g": 259.78,
+      "volume_cm3": 244.7402,
+      "asa_solid_mass_g": 261.87,
+      "petg_solid_mass_g": 310.82,
       "note": "Snijvlak op bed; buitenste overhangen controleren. Epoxy en glasband aan binnenzijde.",
       "rotation": [
         [
@@ -156,6 +160,7 @@
       ],
       "volume_cm3": 20.9421,
       "asa_solid_mass_g": 22.41,
+      "petg_solid_mass_g": 26.6,
       "note": "24 mm breed; half in ieder rompdeel. Epoxylijmspeling 0,25 mm, niet klemmen.",
       "rotation": [
         [
@@ -191,6 +196,7 @@
       ],
       "volume_cm3": 20.9642,
       "asa_solid_mass_g": 22.43,
+      "petg_solid_mass_g": 26.62,
       "note": "24 mm breed; half in ieder rompdeel. Epoxylijmspeling 0,25 mm, niet klemmen.",
       "rotation": [
         [
@@ -226,6 +232,7 @@
       ],
       "volume_cm3": 20.3973,
       "asa_solid_mass_g": 21.83,
+      "petg_solid_mass_g": 25.9,
       "note": "24 mm breed; half in ieder rompdeel. Epoxylijmspeling 0,25 mm, niet klemmen.",
       "rotation": [
         [
@@ -261,6 +268,7 @@
       ],
       "volume_cm3": 79.2775,
       "asa_solid_mass_g": 84.83,
+      "petg_solid_mass_g": 100.68,
       "note": "Vast verlijmen; servo-/as-serviceluik met onderliggende oplegring.",
       "rotation": null,
       "bed_translation": [
@@ -289,6 +297,7 @@
       ],
       "volume_cm3": 56.1903,
       "asa_solid_mass_g": 60.12,
+      "petg_solid_mass_g": 71.36,
       "note": "Afneembaar: 4 × M3 met eigen moeren; dunne afdichtingsband op oplegring.",
       "rotation": null,
       "bed_translation": [
@@ -317,6 +326,7 @@
       ],
       "volume_cm3": 105.0098,
       "asa_solid_mass_g": 112.36,
+      "petg_solid_mass_g": 133.36,
       "note": "Afneembare module op romp-lip; rand met schuimband afdichten, niet onderdompelbaar.",
       "rotation": null,
       "bed_translation": [
@@ -345,6 +355,7 @@
       ],
       "volume_cm3": 110.1328,
       "asa_solid_mass_g": 117.84,
+      "petg_solid_mass_g": 139.87,
       "note": "Afneembare module op romp-lip; rand met schuimband afdichten, niet onderdompelbaar.",
       "rotation": null,
       "bed_translation": [
@@ -367,18 +378,19 @@
       "group": "dek",
       "color": "#477d60",
       "print_mm": [
-        213.277,
+        213.987,
         149.062,
         3.0
       ],
-      "volume_cm3": 67.5866,
-      "asa_solid_mass_g": 72.32,
+      "volume_cm3": 68.1026,
+      "asa_solid_mass_g": 72.87,
+      "petg_solid_mass_g": 86.49,
       "note": "Afneembare module op romp-lip; rand met schuimband afdichten, niet onderdompelbaar.",
       "rotation": null,
       "bed_translation": [
         -682.75,
         74.5312204244265,
-        -135.99999999999972
+        -135.99999999999966
       ],
       "assembly_translations": [
         [
@@ -401,6 +413,7 @@
       ],
       "volume_cm3": 0.8796,
       "asa_solid_mass_g": 15.06,
+      "petg_solid_mass_g": 17.87,
       "note": "16 universele lijmsteunen. M3-moer/bout zelf toevoegen; pas bij proefmontage positioneren.",
       "rotation": null,
       "bed_translation": [
@@ -423,6 +436,7 @@
       ],
       "volume_cm3": 1.44,
       "asa_solid_mass_g": 12.33,
+      "petg_solid_mass_g": 14.63,
       "note": "Voeg de drie hoofddekpanelen tot één afneembare unit; vier strips per naad onder het dek.",
       "rotation": null,
       "bed_translation": [
@@ -439,18 +453,19 @@
       "group": "bovenbouw",
       "color": "#eeeeea",
       "print_mm": [
-        194.0,
+        194.391,
         147.556,
-        13.5
+        16.106
       ],
-      "volume_cm3": 9.0375,
-      "asa_solid_mass_g": 9.67,
-      "note": "Buitenrand op bestaande romp; top vereenvoudigd, geen fotometrisch exacte uitwaaiering.",
+      "volume_cm3": 8.4922,
+      "asa_solid_mass_g": 9.09,
+      "petg_solid_mass_g": 10.79,
+      "note": "Buitenrand op bestaande romp; met zeeg (11 naar 15,5 mm) en ronde steven volgens de vormstudie.",
       "rotation": null,
       "bed_translation": [
         -715.9999999,
-        73.77804409438426,
-        -138.9999999
+        73.77804409438427,
+        -138.99999989999995
       ],
       "assembly_translations": [
         [
@@ -473,6 +488,7 @@
       ],
       "volume_cm3": 22.7087,
       "asa_solid_mass_g": 24.3,
+      "petg_solid_mass_g": 28.84,
       "note": "Raamgaten; donker schilderen of transparante folie achterlijmen.",
       "rotation": null,
       "bed_translation": [
@@ -501,6 +517,7 @@
       ],
       "volume_cm3": 16.5416,
       "asa_solid_mass_g": 17.7,
+      "petg_solid_mass_g": 21.01,
       "note": "Raamgaten; donker schilderen of transparante folie achterlijmen.",
       "rotation": null,
       "bed_translation": [
@@ -529,6 +546,7 @@
       ],
       "volume_cm3": 21.1192,
       "asa_solid_mass_g": 22.6,
+      "petg_solid_mass_g": 26.82,
       "note": "Raamgaten; donker schilderen of transparante folie achterlijmen.",
       "rotation": null,
       "bed_translation": [
@@ -557,6 +575,7 @@
       ],
       "volume_cm3": 36.454,
       "asa_solid_mass_g": 39.01,
+      "petg_solid_mass_g": 46.3,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -585,6 +604,7 @@
       ],
       "volume_cm3": 70.7919,
       "asa_solid_mass_g": 75.75,
+      "petg_solid_mass_g": 89.91,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -613,6 +633,7 @@
       ],
       "volume_cm3": 72.8335,
       "asa_solid_mass_g": 77.93,
+      "petg_solid_mass_g": 92.5,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -641,6 +662,7 @@
       ],
       "volume_cm3": 21.4172,
       "asa_solid_mass_g": 22.92,
+      "petg_solid_mass_g": 27.2,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -669,6 +691,7 @@
       ],
       "volume_cm3": 17.2001,
       "asa_solid_mass_g": 18.4,
+      "petg_solid_mass_g": 21.84,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -697,6 +720,7 @@
       ],
       "volume_cm3": 73.8668,
       "asa_solid_mass_g": 79.04,
+      "petg_solid_mass_g": 93.81,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -725,6 +749,7 @@
       ],
       "volume_cm3": 63.4911,
       "asa_solid_mass_g": 67.94,
+      "petg_solid_mass_g": 80.63,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -753,6 +778,7 @@
       ],
       "volume_cm3": 5.1916,
       "asa_solid_mass_g": 5.55,
+      "petg_solid_mass_g": 6.59,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -781,6 +807,7 @@
       ],
       "volume_cm3": 5.1916,
       "asa_solid_mass_g": 5.55,
+      "petg_solid_mass_g": 6.59,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -809,6 +836,7 @@
       ],
       "volume_cm3": 20.1412,
       "asa_solid_mass_g": 21.55,
+      "petg_solid_mass_g": 25.58,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -837,6 +865,7 @@
       ],
       "volume_cm3": 50.301,
       "asa_solid_mass_g": 53.82,
+      "petg_solid_mass_g": 63.88,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -865,6 +894,7 @@
       ],
       "volume_cm3": 124.4152,
       "asa_solid_mass_g": 133.12,
+      "petg_solid_mass_g": 158.01,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -893,6 +923,7 @@
       ],
       "volume_cm3": 0.174,
       "asa_solid_mass_g": 1.49,
+      "petg_solid_mass_g": 1.77,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -956,6 +987,7 @@
       ],
       "volume_cm3": 0.141,
       "asa_solid_mass_g": 1.21,
+      "petg_solid_mass_g": 1.43,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -1015,10 +1047,11 @@
       "print_mm": [
         137.0,
         146.0,
-        25.0
+        29.0
       ],
-      "volume_cm3": 21.4725,
-      "asa_solid_mass_g": 22.98,
+      "volume_cm3": 25.031,
+      "asa_solid_mass_g": 26.78,
+      "petg_solid_mass_g": 31.79,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -1047,6 +1080,7 @@
       ],
       "volume_cm3": 151.1799,
       "asa_solid_mass_g": 161.76,
+      "petg_solid_mass_g": 192.0,
       "note": "Met uitsparingen voor gele cirkel en witte H; inzetstukken circa 0,15 mm lijmspeling.",
       "rotation": null,
       "bed_translation": [
@@ -1075,6 +1109,7 @@
       ],
       "volume_cm3": 1.6555,
       "asa_solid_mass_g": 1.77,
+      "petg_solid_mass_g": 2.1,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -1103,6 +1138,7 @@
       ],
       "volume_cm3": 0.432,
       "asa_solid_mass_g": 0.46,
+      "petg_solid_mass_g": 0.55,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -1131,6 +1167,7 @@
       ],
       "volume_cm3": 39.7686,
       "asa_solid_mass_g": 42.55,
+      "petg_solid_mass_g": 50.51,
       "note": "Dunne ramenfolie niet nodig. Schilder binnenwanden vóór dakmontage.",
       "rotation": null,
       "bed_translation": [
@@ -1159,6 +1196,7 @@
       ],
       "volume_cm3": 39.3313,
       "asa_solid_mass_g": 42.08,
+      "petg_solid_mass_g": 49.95,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -1187,6 +1225,7 @@
       ],
       "volume_cm3": 59.576,
       "asa_solid_mass_g": 63.75,
+      "petg_solid_mass_g": 75.66,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -1215,6 +1254,7 @@
       ],
       "volume_cm3": 21.8035,
       "asa_solid_mass_g": 23.33,
+      "petg_solid_mass_g": 27.69,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -1243,6 +1283,7 @@
       ],
       "volume_cm3": 20.4959,
       "asa_solid_mass_g": 21.93,
+      "petg_solid_mass_g": 26.03,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -1271,6 +1312,7 @@
       ],
       "volume_cm3": 34.751,
       "asa_solid_mass_g": 37.18,
+      "petg_solid_mass_g": 44.13,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -1299,6 +1341,7 @@
       ],
       "volume_cm3": 0.5012,
       "asa_solid_mass_g": 0.54,
+      "petg_solid_mass_g": 0.64,
       "note": "Vier taps toelopende vlakken tot een ruimtelijke mast verlijmen; breedte onder 15, boven 3,6 mm.",
       "rotation": [
         [
@@ -1334,6 +1377,7 @@
       ],
       "volume_cm3": 0.5012,
       "asa_solid_mass_g": 0.54,
+      "petg_solid_mass_g": 0.64,
       "note": "Vier taps toelopende vlakken tot een ruimtelijke mast verlijmen; breedte onder 15, boven 3,6 mm.",
       "rotation": [
         [
@@ -1369,6 +1413,7 @@
       ],
       "volume_cm3": 0.5012,
       "asa_solid_mass_g": 0.54,
+      "petg_solid_mass_g": 0.64,
       "note": "Vier taps toelopende vlakken tot een ruimtelijke mast verlijmen; breedte onder 15, boven 3,6 mm.",
       "rotation": [
         [
@@ -1404,6 +1449,7 @@
       ],
       "volume_cm3": 0.5012,
       "asa_solid_mass_g": 0.54,
+      "petg_solid_mass_g": 0.64,
       "note": "Vier taps toelopende vlakken tot een ruimtelijke mast verlijmen; breedte onder 15, boven 3,6 mm.",
       "rotation": [
         [
@@ -1439,6 +1485,7 @@
       ],
       "volume_cm3": 0.0822,
       "asa_solid_mass_g": 0.09,
+      "petg_solid_mass_g": 0.1,
       "note": "",
       "rotation": [
         [
@@ -1474,6 +1521,7 @@
       ],
       "volume_cm3": 0.1728,
       "asa_solid_mass_g": 0.18,
+      "petg_solid_mass_g": 0.22,
       "note": "Lijmen op de dwarsbanden van de vier vakwerkvlakken.",
       "rotation": null,
       "bed_translation": [
@@ -1502,6 +1550,7 @@
       ],
       "volume_cm3": 0.1536,
       "asa_solid_mass_g": 0.16,
+      "petg_solid_mass_g": 0.2,
       "note": "Lijmen op de dwarsbanden van de vier vakwerkvlakken.",
       "rotation": null,
       "bed_translation": [
@@ -1530,6 +1579,7 @@
       ],
       "volume_cm3": 0.1216,
       "asa_solid_mass_g": 0.13,
+      "petg_solid_mass_g": 0.15,
       "note": "Lijmen op de dwarsbanden van de vier vakwerkvlakken.",
       "rotation": null,
       "bed_translation": [
@@ -1558,6 +1608,7 @@
       ],
       "volume_cm3": 6.2796,
       "asa_solid_mass_g": 6.72,
+      "petg_solid_mass_g": 7.98,
       "note": "",
       "rotation": [
         [
@@ -1593,6 +1644,7 @@
       ],
       "volume_cm3": 16.4025,
       "asa_solid_mass_g": 17.55,
+      "petg_solid_mass_g": 20.83,
       "note": "",
       "rotation": [
         [
@@ -1628,6 +1680,7 @@
       ],
       "volume_cm3": 3.0747,
       "asa_solid_mass_g": 3.29,
+      "petg_solid_mass_g": 3.9,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -1656,6 +1709,7 @@
       ],
       "volume_cm3": 0.2695,
       "asa_solid_mass_g": 0.29,
+      "petg_solid_mass_g": 0.34,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -1684,6 +1738,7 @@
       ],
       "volume_cm3": 0.7464,
       "asa_solid_mass_g": 0.8,
+      "petg_solid_mass_g": 0.95,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -1712,6 +1767,7 @@
       ],
       "volume_cm3": 1.5627,
       "asa_solid_mass_g": 1.67,
+      "petg_solid_mass_g": 1.98,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -1740,6 +1796,7 @@
       ],
       "volume_cm3": 0.2695,
       "asa_solid_mass_g": 0.29,
+      "petg_solid_mass_g": 0.34,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -1768,6 +1825,7 @@
       ],
       "volume_cm3": 0.5347,
       "asa_solid_mass_g": 0.57,
+      "petg_solid_mass_g": 0.68,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -1796,6 +1854,7 @@
       ],
       "volume_cm3": 0.2465,
       "asa_solid_mass_g": 0.26,
+      "petg_solid_mass_g": 0.31,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -1824,6 +1883,7 @@
       ],
       "volume_cm3": 1.2046,
       "asa_solid_mass_g": 1.29,
+      "petg_solid_mass_g": 1.53,
       "note": "",
       "rotation": [
         [
@@ -1853,25 +1913,26 @@
       "group": "bovenbouw",
       "color": "#eeeeea",
       "print_mm": [
-        12.0,
-        133.0,
-        2.599
+        134.1,
+        32.0,
+        9.0
       ],
-      "volume_cm3": 0.7251,
-      "asa_solid_mass_g": 0.78,
-      "note": "",
+      "volume_cm3": 2.0753,
+      "asa_solid_mass_g": 2.22,
+      "petg_solid_mass_g": 2.64,
+      "note": "Liggend printen, ra vlak op het bed. Stagen van dun garen boven de kraag vastknopen en naar de verschansing spannen.",
       "rotation": [
         [
-          1,
           0,
+          1,
           0
         ],
         90
       ],
       "bed_translation": [
-        -799.9999999,
-        272.0000001,
-        1.3000000999999848
+        -139.00000000000009,
+        16.0000001,
+        810.5
       ],
       "assembly_translations": [
         [
@@ -1883,34 +1944,83 @@
       "included": true
     },
     {
-      "name": "39_sloepenplatform",
+      "name": "39_sloepbok_BB",
       "quantity": 2,
       "group": "bovenbouw",
       "color": "#eeeeea",
       "print_mm": [
-        94.0,
-        32.0,
-        3.0
+        20.5,
+        19.0,
+        4.0
       ],
-      "volume_cm3": 9.024,
-      "asa_solid_mass_g": 19.31,
-      "note": "",
-      "rotation": null,
+      "volume_cm3": 0.6905,
+      "asa_solid_mass_g": 1.48,
+      "petg_solid_mass_g": 1.75,
+      "note": "Console onder de sloep; vlak tegen de accommodatiewand lijmen, boven de raamrij en buiten de reling.",
+      "rotation": [
+        [
+          0,
+          1,
+          0
+        ],
+        90
+      ],
       "bed_translation": [
-        47.0,
-        16.0,
-        -0.0
+        -156.0,
+        -82.0,
+        1.9999999999999827
       ],
       "assembly_translations": [
         [
-          346,
-          -89,
-          173.5
+          326,
+          0,
+          0
         ],
         [
-          346,
-          89,
-          173.5
+          360,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "39_sloepbok_SB",
+      "quantity": 2,
+      "group": "bovenbouw",
+      "color": "#eeeeea",
+      "print_mm": [
+        20.5,
+        19.0,
+        4.0
+      ],
+      "volume_cm3": 0.6905,
+      "asa_solid_mass_g": 1.48,
+      "petg_solid_mass_g": 1.75,
+      "note": "Console onder de sloep; vlak tegen de accommodatiewand lijmen, boven de raamrij en buiten de reling.",
+      "rotation": [
+        [
+          0,
+          1,
+          0
+        ],
+        90
+      ],
+      "bed_translation": [
+        -156.0,
+        101.0,
+        1.9999999999999827
+      ],
+      "assembly_translations": [
+        [
+          326,
+          0,
+          0
+        ],
+        [
+          360,
+          0,
+          0
         ]
       ],
       "included": true
@@ -1927,7 +2037,8 @@
       ],
       "volume_cm3": 41.1669,
       "asa_solid_mass_g": 88.1,
-      "note": "Ramen zwart schilderen; ondersteunt romp buitenzijde.",
+      "petg_solid_mass_g": 104.56,
+      "note": "Ramen zwart schilderen; rust op twee bokken 39 per zijde.",
       "rotation": null,
       "bed_translation": [
         42.0000001,
@@ -1960,6 +2071,7 @@
       ],
       "volume_cm3": 0.6983,
       "asa_solid_mass_g": 1.49,
+      "petg_solid_mass_g": 1.77,
       "note": "Dubbele geknikte armen met dwarsverbindingen, volgens vormstudie v3.",
       "rotation": [
         [
@@ -2000,6 +2112,7 @@
       ],
       "volume_cm3": 0.1058,
       "asa_solid_mass_g": 0.23,
+      "petg_solid_mass_g": 0.27,
       "note": "",
       "rotation": [
         [
@@ -2040,6 +2153,7 @@
       ],
       "volume_cm3": 2.6754,
       "asa_solid_mass_g": 2.86,
+      "petg_solid_mass_g": 3.4,
       "note": "",
       "rotation": [
         [
@@ -2075,6 +2189,7 @@
       ],
       "volume_cm3": 0.0811,
       "asa_solid_mass_g": 0.09,
+      "petg_solid_mass_g": 0.1,
       "note": "",
       "rotation": [
         [
@@ -2110,6 +2225,7 @@
       ],
       "volume_cm3": 0.6983,
       "asa_solid_mass_g": 1.49,
+      "petg_solid_mass_g": 1.77,
       "note": "Dubbele geknikte armen met dwarsverbindingen, volgens vormstudie v3.",
       "rotation": [
         [
@@ -2150,6 +2266,7 @@
       ],
       "volume_cm3": 0.1058,
       "asa_solid_mass_g": 0.23,
+      "petg_solid_mass_g": 0.27,
       "note": "",
       "rotation": [
         [
@@ -2190,6 +2307,7 @@
       ],
       "volume_cm3": 2.6754,
       "asa_solid_mass_g": 2.86,
+      "petg_solid_mass_g": 3.4,
       "note": "",
       "rotation": [
         [
@@ -2225,6 +2343,7 @@
       ],
       "volume_cm3": 0.0811,
       "asa_solid_mass_g": 0.09,
+      "petg_solid_mass_g": 0.1,
       "note": "",
       "rotation": [
         [
@@ -2260,6 +2379,7 @@
       ],
       "volume_cm3": 25.0639,
       "asa_solid_mass_g": 26.82,
+      "petg_solid_mass_g": 31.83,
       "note": "Glasvlakken schilderen; solide detail om vlakke browserruiten printbaar te maken.",
       "rotation": null,
       "bed_translation": [
@@ -2288,6 +2408,7 @@
       ],
       "volume_cm3": 1.6856,
       "asa_solid_mass_g": 3.61,
+      "petg_solid_mass_g": 4.28,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -2321,6 +2442,7 @@
       ],
       "volume_cm3": 0.5244,
       "asa_solid_mass_g": 1.12,
+      "petg_solid_mass_g": 1.33,
       "note": "Twee reservestroken; de juiste relingen staan als eigen delen in de CAD-assemblage.",
       "rotation": [
         [
@@ -2350,6 +2472,7 @@
       ],
       "volume_cm3": 43.284,
       "asa_solid_mass_g": 46.31,
+      "petg_solid_mass_g": 54.97,
       "note": "Binnenruimte 154 × 62 mm; klittenband door sleuven, montagevoet op maat uitvullen.",
       "rotation": null,
       "bed_translation": [
@@ -2378,6 +2501,7 @@
       ],
       "volume_cm3": 34.016,
       "asa_solid_mass_g": 36.4,
+      "petg_solid_mass_g": 43.2,
       "note": "Voor metalen motorbeugel; M3-sleuven. Motortype, ashoogte en uitlijning eerst vastleggen.",
       "rotation": null,
       "bed_translation": [
@@ -2406,6 +2530,7 @@
       ],
       "volume_cm3": 3.4168,
       "asa_solid_mass_g": 3.66,
+      "petg_solid_mass_g": 4.34,
       "note": "Proefmaat 41 × 21 mm opening, M3-hartafstand 48 mm; aanpassen aan werkelijke servo.",
       "rotation": null,
       "bed_translation": [
@@ -2434,6 +2559,7 @@
       ],
       "volume_cm3": 8.0935,
       "asa_solid_mass_g": 25.98,
+      "petg_solid_mass_g": 30.84,
       "note": "Voor regelaar/ontvanger met klittenband; neutrale M3-plaat.",
       "rotation": null,
       "bed_translation": [
@@ -2472,6 +2598,7 @@
       ],
       "volume_cm3": 10.7,
       "asa_solid_mass_g": 22.9,
+      "petg_solid_mass_g": 27.18,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -2505,6 +2632,7 @@
       ],
       "volume_cm3": 12.6593,
       "asa_solid_mass_g": 13.55,
+      "petg_solid_mass_g": 16.08,
       "note": "Alleen maattest ID20/OD23 ×125; geen functionele boegschroef, geen gaten in romp.",
       "rotation": null,
       "bed_translation": [
@@ -2527,6 +2655,7 @@
       ],
       "volume_cm3": 6.1661,
       "asa_solid_mass_g": 6.6,
+      "petg_solid_mass_g": 7.83,
       "note": "Metalen roeras Ø4 met epoxy verlijmen; koker/lager en afdichting uit handelsdelen.",
       "rotation": [
         [
@@ -2562,6 +2691,7 @@
       ],
       "volume_cm3": 0.104,
       "asa_solid_mass_g": 0.22,
+      "petg_solid_mass_g": 0.26,
       "note": "Gebogen inzetruit, circa 1 mm dik; rondom 0,12–0,15 mm lijmspeling. Ook als schildermal te gebruiken.",
       "rotation": null,
       "bed_translation": [
@@ -2584,6 +2714,7 @@
       ],
       "volume_cm3": 0.0884,
       "asa_solid_mass_g": 0.19,
+      "petg_solid_mass_g": 0.22,
       "note": "Gebogen inzetruit, circa 1 mm dik; rondom 0,12–0,15 mm lijmspeling. Ook als schildermal te gebruiken.",
       "rotation": null,
       "bed_translation": [
@@ -2606,6 +2737,7 @@
       ],
       "volume_cm3": 0.0667,
       "asa_solid_mass_g": 0.14,
+      "petg_solid_mass_g": 0.17,
       "note": "Gebogen inzetruit, circa 1 mm dik; rondom 0,12–0,15 mm lijmspeling. Ook als schildermal te gebruiken.",
       "rotation": null,
       "bed_translation": [
@@ -2628,6 +2760,7 @@
       ],
       "volume_cm3": 0.104,
       "asa_solid_mass_g": 0.22,
+      "petg_solid_mass_g": 0.26,
       "note": "Gebogen inzetruit, circa 1 mm dik; rondom 0,12–0,15 mm lijmspeling. Ook als schildermal te gebruiken.",
       "rotation": null,
       "bed_translation": [
@@ -2650,6 +2783,7 @@
       ],
       "volume_cm3": 0.0884,
       "asa_solid_mass_g": 0.19,
+      "petg_solid_mass_g": 0.22,
       "note": "Gebogen inzetruit, circa 1 mm dik; rondom 0,12–0,15 mm lijmspeling. Ook als schildermal te gebruiken.",
       "rotation": null,
       "bed_translation": [
@@ -2672,6 +2806,7 @@
       ],
       "volume_cm3": 0.0667,
       "asa_solid_mass_g": 0.14,
+      "petg_solid_mass_g": 0.17,
       "note": "Gebogen inzetruit, circa 1 mm dik; rondom 0,12–0,15 mm lijmspeling. Ook als schildermal te gebruiken.",
       "rotation": null,
       "bed_translation": [
@@ -2694,6 +2829,7 @@
       ],
       "volume_cm3": 6.5522,
       "asa_solid_mass_g": 14.02,
+      "petg_solid_mass_g": 16.64,
       "note": "Twee exemplaren per zijde; middenvlak op bed, vlak verlijmen. Losse ruiten 64 in de uitgespaarde cockpit lijmen.",
       "rotation": [
         [
@@ -2723,6 +2859,7 @@
       ],
       "volume_cm3": 6.5575,
       "asa_solid_mass_g": 14.03,
+      "petg_solid_mass_g": 16.66,
       "note": "Twee exemplaren per zijde; middenvlak op bed, vlak verlijmen. Losse ruiten 64 in de uitgespaarde cockpit lijmen.",
       "rotation": [
         [
@@ -2752,6 +2889,7 @@
       ],
       "volume_cm3": 0.388,
       "asa_solid_mass_g": 0.83,
+      "petg_solid_mass_g": 0.99,
       "note": "0,8–0,9 mm radius; geprint vanaf rails met steun onder dwarsbalkjes.",
       "rotation": null,
       "bed_translation": [
@@ -2774,6 +2912,7 @@
       ],
       "volume_cm3": 0.1408,
       "asa_solid_mass_g": 0.9,
+      "petg_solid_mass_g": 1.07,
       "note": "Drie per heli, lijmen op hub op 120 graden; voor hangar loslaten. 1,2 mm dik voor FDM.",
       "rotation": null,
       "bed_translation": [
@@ -2796,6 +2935,7 @@
       ],
       "volume_cm3": 0.0518,
       "asa_solid_mass_g": 0.11,
+      "petg_solid_mass_g": 0.13,
       "note": "",
       "rotation": [
         [
@@ -2825,6 +2965,7 @@
       ],
       "volume_cm3": 1.3427,
       "asa_solid_mass_g": 1.44,
+      "petg_solid_mass_g": 1.71,
       "note": "Eerst printen. Controleer las en lijmspeling vóór de vier grote rompdelen.",
       "rotation": [
         [
@@ -2854,6 +2995,7 @@
       ],
       "volume_cm3": 1.3427,
       "asa_solid_mass_g": 1.44,
+      "petg_solid_mass_g": 1.71,
       "note": "Eerst printen. Controleer las en lijmspeling vóór de vier grote rompdelen.",
       "rotation": [
         [
@@ -2883,6 +3025,7 @@
       ],
       "volume_cm3": 1.7543,
       "asa_solid_mass_g": 1.88,
+      "petg_solid_mass_g": 2.23,
       "note": "",
       "rotation": [
         [
@@ -2912,6 +3055,7 @@
       ],
       "volume_cm3": 1.3321,
       "asa_solid_mass_g": 1.43,
+      "petg_solid_mass_g": 1.69,
       "note": "Inzet achter accommodatievensters; transparant printen of als snijmal voor folie gebruiken.",
       "rotation": null,
       "bed_translation": [
@@ -2940,6 +3084,7 @@
       ],
       "volume_cm3": 1.3321,
       "asa_solid_mass_g": 1.43,
+      "petg_solid_mass_g": 1.69,
       "note": "Inzet achter accommodatievensters; transparant printen of als snijmal voor folie gebruiken.",
       "rotation": null,
       "bed_translation": [
@@ -2968,6 +3113,7 @@
       ],
       "volume_cm3": 0.936,
       "asa_solid_mass_g": 1.0,
+      "petg_solid_mass_g": 1.19,
       "note": "Inzet achter accommodatievensters; transparant printen of als snijmal voor folie gebruiken.",
       "rotation": null,
       "bed_translation": [
@@ -2996,6 +3142,7 @@
       ],
       "volume_cm3": 0.936,
       "asa_solid_mass_g": 1.0,
+      "petg_solid_mass_g": 1.19,
       "note": "Inzet achter accommodatievensters; transparant printen of als snijmal voor folie gebruiken.",
       "rotation": null,
       "bed_translation": [
@@ -3024,6 +3171,7 @@
       ],
       "volume_cm3": 1.2477,
       "asa_solid_mass_g": 1.34,
+      "petg_solid_mass_g": 1.58,
       "note": "Inzet achter accommodatievensters; transparant printen of als snijmal voor folie gebruiken.",
       "rotation": null,
       "bed_translation": [
@@ -3052,6 +3200,7 @@
       ],
       "volume_cm3": 1.2477,
       "asa_solid_mass_g": 1.34,
+      "petg_solid_mass_g": 1.58,
       "note": "Inzet achter accommodatievensters; transparant printen of als snijmal voor folie gebruiken.",
       "rotation": null,
       "bed_translation": [
@@ -3080,6 +3229,7 @@
       ],
       "volume_cm3": 4.8373,
       "asa_solid_mass_g": 5.18,
+      "petg_solid_mass_g": 6.14,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -3108,6 +3258,7 @@
       ],
       "volume_cm3": 2.3594,
       "asa_solid_mass_g": 2.52,
+      "petg_solid_mass_g": 3.0,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -3136,6 +3287,7 @@
       ],
       "volume_cm3": 2.0808,
       "asa_solid_mass_g": 2.23,
+      "petg_solid_mass_g": 2.64,
       "note": "Twee passende brug-inzetstukken; circa 0,2 mm vrij van het tussenschot. Ook als foliesjabloon te gebruiken.",
       "rotation": null,
       "bed_translation": [
@@ -3164,6 +3316,7 @@
       ],
       "volume_cm3": 2.7755,
       "asa_solid_mass_g": 2.97,
+      "petg_solid_mass_g": 3.52,
       "note": "Twee passende brug-inzetstukken; circa 0,2 mm vrij van het tussenschot. Ook als foliesjabloon te gebruiken.",
       "rotation": null,
       "bed_translation": [
@@ -3192,6 +3345,7 @@
       ],
       "volume_cm3": 0.7518,
       "asa_solid_mass_g": 0.8,
+      "petg_solid_mass_g": 0.95,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -3227,6 +3381,7 @@
       ],
       "volume_cm3": 0.7518,
       "asa_solid_mass_g": 0.8,
+      "petg_solid_mass_g": 0.95,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -3262,6 +3417,7 @@
       ],
       "volume_cm3": 0.6864,
       "asa_solid_mass_g": 0.73,
+      "petg_solid_mass_g": 0.87,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -3297,6 +3453,7 @@
       ],
       "volume_cm3": 0.6691,
       "asa_solid_mass_g": 0.72,
+      "petg_solid_mass_g": 0.85,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -3332,6 +3489,7 @@
       ],
       "volume_cm3": 0.6518,
       "asa_solid_mass_g": 0.7,
+      "petg_solid_mass_g": 0.83,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -3367,6 +3525,7 @@
       ],
       "volume_cm3": 0.6518,
       "asa_solid_mass_g": 0.7,
+      "petg_solid_mass_g": 0.83,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -3402,6 +3561,7 @@
       ],
       "volume_cm3": 0.7518,
       "asa_solid_mass_g": 0.8,
+      "petg_solid_mass_g": 0.95,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -3437,6 +3597,7 @@
       ],
       "volume_cm3": 0.7518,
       "asa_solid_mass_g": 0.8,
+      "petg_solid_mass_g": 0.95,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -3472,6 +3633,7 @@
       ],
       "volume_cm3": 0.6864,
       "asa_solid_mass_g": 0.73,
+      "petg_solid_mass_g": 0.87,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -3507,6 +3669,7 @@
       ],
       "volume_cm3": 0.6691,
       "asa_solid_mass_g": 0.72,
+      "petg_solid_mass_g": 0.85,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -3542,6 +3705,7 @@
       ],
       "volume_cm3": 0.6518,
       "asa_solid_mass_g": 0.7,
+      "petg_solid_mass_g": 0.83,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -3577,6 +3741,7 @@
       ],
       "volume_cm3": 0.6518,
       "asa_solid_mass_g": 0.7,
+      "petg_solid_mass_g": 0.83,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -3612,6 +3777,7 @@
       ],
       "volume_cm3": 0.3352,
       "asa_solid_mass_g": 0.36,
+      "petg_solid_mass_g": 0.43,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -3647,6 +3813,7 @@
       ],
       "volume_cm3": 0.1292,
       "asa_solid_mass_g": 0.14,
+      "petg_solid_mass_g": 0.16,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -3682,6 +3849,7 @@
       ],
       "volume_cm3": 0.301,
       "asa_solid_mass_g": 0.32,
+      "petg_solid_mass_g": 0.38,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -3717,6 +3885,7 @@
       ],
       "volume_cm3": 0.0609,
       "asa_solid_mass_g": 0.07,
+      "petg_solid_mass_g": 0.08,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -3752,6 +3921,7 @@
       ],
       "volume_cm3": 0.8464,
       "asa_solid_mass_g": 0.91,
+      "petg_solid_mass_g": 1.07,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -3787,6 +3957,7 @@
       ],
       "volume_cm3": 0.0609,
       "asa_solid_mass_g": 0.07,
+      "petg_solid_mass_g": 0.08,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -3822,6 +3993,7 @@
       ],
       "volume_cm3": 0.301,
       "asa_solid_mass_g": 0.32,
+      "petg_solid_mass_g": 0.38,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -3857,6 +4029,7 @@
       ],
       "volume_cm3": 0.1292,
       "asa_solid_mass_g": 0.14,
+      "petg_solid_mass_g": 0.16,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -3892,6 +4065,7 @@
       ],
       "volume_cm3": 0.3352,
       "asa_solid_mass_g": 0.36,
+      "petg_solid_mass_g": 0.43,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -3927,6 +4101,7 @@
       ],
       "volume_cm3": 0.679,
       "asa_solid_mass_g": 0.73,
+      "petg_solid_mass_g": 0.86,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -3962,6 +4137,7 @@
       ],
       "volume_cm3": 0.7088,
       "asa_solid_mass_g": 0.76,
+      "petg_solid_mass_g": 0.9,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -3997,6 +4173,7 @@
       ],
       "volume_cm3": 0.1206,
       "asa_solid_mass_g": 0.13,
+      "petg_solid_mass_g": 0.15,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -4032,6 +4209,7 @@
       ],
       "volume_cm3": 0.4061,
       "asa_solid_mass_g": 0.43,
+      "petg_solid_mass_g": 0.52,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -4067,6 +4245,7 @@
       ],
       "volume_cm3": 0.7088,
       "asa_solid_mass_g": 0.76,
+      "petg_solid_mass_g": 0.9,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -4102,6 +4281,7 @@
       ],
       "volume_cm3": 0.4061,
       "asa_solid_mass_g": 0.43,
+      "petg_solid_mass_g": 0.52,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -4137,6 +4317,7 @@
       ],
       "volume_cm3": 0.1206,
       "asa_solid_mass_g": 0.13,
+      "petg_solid_mass_g": 0.15,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -4172,6 +4353,7 @@
       ],
       "volume_cm3": 0.7088,
       "asa_solid_mass_g": 0.76,
+      "petg_solid_mass_g": 0.9,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -4207,6 +4389,7 @@
       ],
       "volume_cm3": 0.9022,
       "asa_solid_mass_g": 0.97,
+      "petg_solid_mass_g": 1.15,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -4242,6 +4425,7 @@
       ],
       "volume_cm3": 0.1877,
       "asa_solid_mass_g": 0.2,
+      "petg_solid_mass_g": 0.24,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -4277,6 +4461,7 @@
       ],
       "volume_cm3": 0.3936,
       "asa_solid_mass_g": 0.42,
+      "petg_solid_mass_g": 0.5,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -4312,6 +4497,7 @@
       ],
       "volume_cm3": 0.1877,
       "asa_solid_mass_g": 0.2,
+      "petg_solid_mass_g": 0.24,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -4347,6 +4533,7 @@
       ],
       "volume_cm3": 0.3936,
       "asa_solid_mass_g": 0.42,
+      "petg_solid_mass_g": 0.5,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -4382,6 +4569,7 @@
       ],
       "volume_cm3": 0.1424,
       "asa_solid_mass_g": 0.15,
+      "petg_solid_mass_g": 0.18,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -4417,6 +4605,7 @@
       ],
       "volume_cm3": 0.2781,
       "asa_solid_mass_g": 0.3,
+      "petg_solid_mass_g": 0.35,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -4452,6 +4641,7 @@
       ],
       "volume_cm3": 0.1424,
       "asa_solid_mass_g": 0.15,
+      "petg_solid_mass_g": 0.18,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -4487,6 +4677,7 @@
       ],
       "volume_cm3": 0.2781,
       "asa_solid_mass_g": 0.3,
+      "petg_solid_mass_g": 0.35,
       "note": "Op maat gemaakt relingpaneel; plaats zie CAD-assemblage. Rails 1,2 / staanders 1,4 mm.",
       "rotation": [
         [
@@ -4522,6 +4713,7 @@
       ],
       "volume_cm3": 0.6161,
       "asa_solid_mass_g": 0.66,
+      "petg_solid_mass_g": 0.78,
       "note": "Treden en leuningen in één deel. Boomsteunen controleren.",
       "rotation": [
         [
@@ -4557,6 +4749,7 @@
       ],
       "volume_cm3": 0.8205,
       "asa_solid_mass_g": 0.88,
+      "petg_solid_mass_g": 1.04,
       "note": "Treden en leuningen in één deel. Boomsteunen controleren.",
       "rotation": [
         [
@@ -4592,6 +4785,7 @@
       ],
       "volume_cm3": 0.7734,
       "asa_solid_mass_g": 0.83,
+      "petg_solid_mass_g": 0.98,
       "note": "Treden en leuningen in één deel. Boomsteunen controleren.",
       "rotation": [
         [
@@ -4627,6 +4821,7 @@
       ],
       "volume_cm3": 0.6882,
       "asa_solid_mass_g": 0.74,
+      "petg_solid_mass_g": 0.87,
       "note": "Treden en leuningen in één deel. Boomsteunen controleren.",
       "rotation": [
         [
@@ -4662,6 +4857,7 @@
       ],
       "volume_cm3": 0.6161,
       "asa_solid_mass_g": 0.66,
+      "petg_solid_mass_g": 0.78,
       "note": "Treden en leuningen in één deel. Boomsteunen controleren.",
       "rotation": [
         [
@@ -4697,6 +4893,7 @@
       ],
       "volume_cm3": 0.8205,
       "asa_solid_mass_g": 0.88,
+      "petg_solid_mass_g": 1.04,
       "note": "Treden en leuningen in één deel. Boomsteunen controleren.",
       "rotation": [
         [
@@ -4732,6 +4929,7 @@
       ],
       "volume_cm3": 0.7734,
       "asa_solid_mass_g": 0.83,
+      "petg_solid_mass_g": 0.98,
       "note": "Treden en leuningen in één deel. Boomsteunen controleren.",
       "rotation": [
         [
@@ -4767,6 +4965,7 @@
       ],
       "volume_cm3": 0.6882,
       "asa_solid_mass_g": 0.74,
+      "petg_solid_mass_g": 0.87,
       "note": "Treden en leuningen in één deel. Boomsteunen controleren.",
       "rotation": [
         [
@@ -4802,6 +5001,7 @@
       ],
       "volume_cm3": 1.049,
       "asa_solid_mass_g": 1.12,
+      "petg_solid_mass_g": 1.33,
       "note": "Roosterframe 1,2 mm, vlak voorgedraaid. Aan rand helidek verlijmen.",
       "rotation": [
         [
@@ -4837,6 +5037,7 @@
       ],
       "volume_cm3": 1.049,
       "asa_solid_mass_g": 1.12,
+      "petg_solid_mass_g": 1.33,
       "note": "Roosterframe 1,2 mm, vlak voorgedraaid. Aan rand helidek verlijmen.",
       "rotation": [
         [
@@ -4872,6 +5073,7 @@
       ],
       "volume_cm3": 0.201,
       "asa_solid_mass_g": 0.22,
+      "petg_solid_mass_g": 0.26,
       "note": "Roosterframe 1,2 mm, vlak voorgedraaid. Aan rand helidek verlijmen.",
       "rotation": [
         [
@@ -4907,6 +5109,7 @@
       ],
       "volume_cm3": 1.0103,
       "asa_solid_mass_g": 1.08,
+      "petg_solid_mass_g": 1.28,
       "note": "Roosterframe 1,2 mm, vlak voorgedraaid. Aan rand helidek verlijmen.",
       "rotation": [
         [
@@ -4942,6 +5145,7 @@
       ],
       "volume_cm3": 0.201,
       "asa_solid_mass_g": 0.22,
+      "petg_solid_mass_g": 0.26,
       "note": "Roosterframe 1,2 mm, vlak voorgedraaid. Aan rand helidek verlijmen.",
       "rotation": [
         [
@@ -4977,6 +5181,7 @@
       ],
       "volume_cm3": 7.8141,
       "asa_solid_mass_g": 8.36,
+      "petg_solid_mass_g": 9.92,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -5005,6 +5210,7 @@
       ],
       "volume_cm3": 10.3461,
       "asa_solid_mass_g": 11.07,
+      "petg_solid_mass_g": 13.14,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -5033,6 +5239,7 @@
       ],
       "volume_cm3": 1.8048,
       "asa_solid_mass_g": 1.93,
+      "petg_solid_mass_g": 2.29,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -5061,6 +5268,7 @@
       ],
       "volume_cm3": 11.3828,
       "asa_solid_mass_g": 12.18,
+      "petg_solid_mass_g": 14.46,
       "note": "",
       "rotation": [
         [
@@ -5096,6 +5304,7 @@
       ],
       "volume_cm3": 0.688,
       "asa_solid_mass_g": 0.74,
+      "petg_solid_mass_g": 0.87,
       "note": "",
       "rotation": [
         [
@@ -5131,6 +5340,7 @@
       ],
       "volume_cm3": 0.688,
       "asa_solid_mass_g": 0.74,
+      "petg_solid_mass_g": 0.87,
       "note": "",
       "rotation": [
         [
@@ -5166,6 +5376,7 @@
       ],
       "volume_cm3": 0.688,
       "asa_solid_mass_g": 0.74,
+      "petg_solid_mass_g": 0.87,
       "note": "",
       "rotation": [
         [
@@ -5201,6 +5412,7 @@
       ],
       "volume_cm3": 0.688,
       "asa_solid_mass_g": 0.74,
+      "petg_solid_mass_g": 0.87,
       "note": "",
       "rotation": [
         [
@@ -5236,6 +5448,7 @@
       ],
       "volume_cm3": 3.0402,
       "asa_solid_mass_g": 6.51,
+      "petg_solid_mass_g": 7.72,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -5269,6 +5482,7 @@
       ],
       "volume_cm3": 1.2516,
       "asa_solid_mass_g": 1.34,
+      "petg_solid_mass_g": 1.59,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -5297,6 +5511,7 @@
       ],
       "volume_cm3": 1.414,
       "asa_solid_mass_g": 3.03,
+      "petg_solid_mass_g": 3.59,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -5330,6 +5545,7 @@
       ],
       "volume_cm3": 2.24,
       "asa_solid_mass_g": 2.4,
+      "petg_solid_mass_g": 2.84,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -5358,6 +5574,7 @@
       ],
       "volume_cm3": 0.0858,
       "asa_solid_mass_g": 0.18,
+      "petg_solid_mass_g": 0.22,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -5391,6 +5608,7 @@
       ],
       "volume_cm3": 0.0858,
       "asa_solid_mass_g": 0.18,
+      "petg_solid_mass_g": 0.22,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -5424,6 +5642,7 @@
       ],
       "volume_cm3": 0.2394,
       "asa_solid_mass_g": 0.51,
+      "petg_solid_mass_g": 0.61,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -5457,6 +5676,7 @@
       ],
       "volume_cm3": 0.5732,
       "asa_solid_mass_g": 0.61,
+      "petg_solid_mass_g": 0.73,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -5485,11 +5705,12 @@
       ],
       "volume_cm3": 5.0771,
       "asa_solid_mass_g": 5.43,
+      "petg_solid_mass_g": 6.45,
       "note": "",
       "rotation": null,
       "bed_translation": [
         -645.5,
-        62.5,
+        -41.5,
         -226.0
       ],
       "assembly_translations": [
@@ -5513,11 +5734,12 @@
       ],
       "volume_cm3": 2.8303,
       "asa_solid_mass_g": 3.03,
+      "petg_solid_mass_g": 3.59,
       "note": "",
       "rotation": null,
       "bed_translation": [
         -647.5,
-        -43.5,
+        60.5,
         -226.0
       ],
       "assembly_translations": [
@@ -5541,11 +5763,12 @@
       ],
       "volume_cm3": 1.0017,
       "asa_solid_mass_g": 1.07,
+      "petg_solid_mass_g": 1.27,
       "note": "",
       "rotation": null,
       "bed_translation": [
         -606.5,
-        39.5,
+        -28.5,
         -226.0
       ],
       "assembly_translations": [
@@ -5569,11 +5792,12 @@
       ],
       "volume_cm3": 1.0017,
       "asa_solid_mass_g": 1.07,
+      "petg_solid_mass_g": 1.27,
       "note": "",
       "rotation": null,
       "bed_translation": [
         -606.5,
-        -28.5,
+        39.5,
         -226.0
       ],
       "assembly_translations": [
@@ -5597,6 +5821,7 @@
       ],
       "volume_cm3": 1.0489,
       "asa_solid_mass_g": 1.12,
+      "petg_solid_mass_g": 1.33,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -5625,11 +5850,12 @@
       ],
       "volume_cm3": 0.1005,
       "asa_solid_mass_g": 0.11,
+      "petg_solid_mass_g": 0.13,
       "note": "",
       "rotation": null,
       "bed_translation": [
         -665.5,
-        -15.5,
+        20.5,
         -226.0
       ],
       "assembly_translations": [
@@ -5653,11 +5879,12 @@
       ],
       "volume_cm3": 0.1005,
       "asa_solid_mass_g": 0.11,
+      "petg_solid_mass_g": 0.13,
       "note": "",
       "rotation": null,
       "bed_translation": [
         -665.5,
-        20.5,
+        -15.5,
         -226.0
       ],
       "assembly_translations": [
@@ -5681,11 +5908,12 @@
       ],
       "volume_cm3": 0.1005,
       "asa_solid_mass_g": 0.11,
+      "petg_solid_mass_g": 0.13,
       "note": "",
       "rotation": null,
       "bed_translation": [
         -597.5,
-        -42.5,
+        47.5,
         -226.0
       ],
       "assembly_translations": [
@@ -5709,6 +5937,7 @@
       ],
       "volume_cm3": 0.073,
       "asa_solid_mass_g": 0.08,
+      "petg_solid_mass_g": 0.09,
       "note": "",
       "rotation": [
         [
@@ -5721,7 +5950,7 @@
       "bed_translation": [
         -589.35,
         281.0,
-        55.64999999999997
+        -54.35000000000003
       ],
       "assembly_translations": [
         [
@@ -5744,6 +5973,7 @@
       ],
       "volume_cm3": 0.061,
       "asa_solid_mass_g": 0.07,
+      "petg_solid_mass_g": 0.08,
       "note": "",
       "rotation": [
         [
@@ -5756,7 +5986,7 @@
       "bed_translation": [
         -591.35,
         272.0,
-        -54.35000000000003
+        55.64999999999997
       ],
       "assembly_translations": [
         [
@@ -5779,41 +6009,7 @@
       ],
       "volume_cm3": 0.0451,
       "asa_solid_mass_g": 0.05,
-      "note": "",
-      "rotation": [
-        [
-          1,
-          0,
-          0
-        ],
-        90
-      ],
-      "bed_translation": [
-        -649.35,
-        260.0,
-        68.64999999999998
-      ],
-      "assembly_translations": [
-        [
-          0,
-          0,
-          0
-        ]
-      ],
-      "included": true
-    },
-    {
-      "name": "78_antenne_4",
-      "quantity": 1,
-      "group": "bovenbouw",
-      "color": "#c4cdd1",
-      "print_mm": [
-        1.3,
-        34.0,
-        1.3
-      ],
-      "volume_cm3": 0.0451,
-      "asa_solid_mass_g": 0.05,
+      "petg_solid_mass_g": 0.06,
       "note": "",
       "rotation": [
         [
@@ -5838,6 +6034,42 @@
       "included": true
     },
     {
+      "name": "78_antenne_4",
+      "quantity": 1,
+      "group": "bovenbouw",
+      "color": "#c4cdd1",
+      "print_mm": [
+        1.3,
+        34.0,
+        1.3
+      ],
+      "volume_cm3": 0.0451,
+      "asa_solid_mass_g": 0.05,
+      "petg_solid_mass_g": 0.06,
+      "note": "",
+      "rotation": [
+        [
+          1,
+          0,
+          0
+        ],
+        90
+      ],
+      "bed_translation": [
+        -649.35,
+        260.0,
+        68.64999999999998
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
       "name": "78_antenne_5",
       "quantity": 1,
       "group": "bovenbouw",
@@ -5849,6 +6081,7 @@
       ],
       "volume_cm3": 0.0398,
       "asa_solid_mass_g": 0.04,
+      "petg_solid_mass_g": 0.05,
       "note": "",
       "rotation": [
         [
@@ -5861,7 +6094,7 @@
       "bed_translation": [
         -615.35,
         256.0,
-        15.649999999999975
+        -14.350000000000025
       ],
       "assembly_translations": [
         [
@@ -5884,6 +6117,7 @@
       ],
       "volume_cm3": 0.3383,
       "asa_solid_mass_g": 0.72,
+      "petg_solid_mass_g": 0.86,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -5917,6 +6151,7 @@
       ],
       "volume_cm3": 2.256,
       "asa_solid_mass_g": 2.41,
+      "petg_solid_mass_g": 2.87,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -5945,6 +6180,7 @@
       ],
       "volume_cm3": 0.529,
       "asa_solid_mass_g": 1.7,
+      "petg_solid_mass_g": 2.02,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -5983,6 +6219,7 @@
       ],
       "volume_cm3": 2.4937,
       "asa_solid_mass_g": 16.01,
+      "petg_solid_mass_g": 19.0,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -6036,6 +6273,7 @@
       ],
       "volume_cm3": 2.4937,
       "asa_solid_mass_g": 5.34,
+      "petg_solid_mass_g": 6.33,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -6069,6 +6307,7 @@
       ],
       "volume_cm3": 1.9188,
       "asa_solid_mass_g": 2.05,
+      "petg_solid_mass_g": 2.44,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -6097,6 +6336,7 @@
       ],
       "volume_cm3": 0.7089,
       "asa_solid_mass_g": 0.76,
+      "petg_solid_mass_g": 0.9,
       "note": "",
       "rotation": [
         [
@@ -6132,6 +6372,7 @@
       ],
       "volume_cm3": 1.9188,
       "asa_solid_mass_g": 2.05,
+      "petg_solid_mass_g": 2.44,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -6160,6 +6401,7 @@
       ],
       "volume_cm3": 0.7089,
       "asa_solid_mass_g": 0.76,
+      "petg_solid_mass_g": 0.9,
       "note": "",
       "rotation": [
         [
@@ -6195,6 +6437,7 @@
       ],
       "volume_cm3": 1.1087,
       "asa_solid_mass_g": 4.75,
+      "petg_solid_mass_g": 5.63,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -6238,6 +6481,7 @@
       ],
       "volume_cm3": 0.1002,
       "asa_solid_mass_g": 0.64,
+      "petg_solid_mass_g": 0.76,
       "note": "",
       "rotation": [
         [
@@ -6298,6 +6542,7 @@
       ],
       "volume_cm3": 0.0804,
       "asa_solid_mass_g": 0.09,
+      "petg_solid_mass_g": 0.1,
       "note": "",
       "rotation": [
         [
@@ -6333,6 +6578,7 @@
       ],
       "volume_cm3": 0.2349,
       "asa_solid_mass_g": 0.25,
+      "petg_solid_mass_g": 0.3,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -6361,6 +6607,7 @@
       ],
       "volume_cm3": 0.0703,
       "asa_solid_mass_g": 0.08,
+      "petg_solid_mass_g": 0.09,
       "note": "",
       "rotation": [
         [
@@ -6396,6 +6643,7 @@
       ],
       "volume_cm3": 0.1024,
       "asa_solid_mass_g": 0.11,
+      "petg_solid_mass_g": 0.13,
       "note": "",
       "rotation": [
         [
@@ -6431,6 +6679,7 @@
       ],
       "volume_cm3": 0.1024,
       "asa_solid_mass_g": 0.11,
+      "petg_solid_mass_g": 0.13,
       "note": "",
       "rotation": [
         [
@@ -6466,6 +6715,7 @@
       ],
       "volume_cm3": 0.1024,
       "asa_solid_mass_g": 0.11,
+      "petg_solid_mass_g": 0.13,
       "note": "",
       "rotation": [
         [
@@ -6501,6 +6751,7 @@
       ],
       "volume_cm3": 1.8141,
       "asa_solid_mass_g": 3.88,
+      "petg_solid_mass_g": 4.61,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -6534,6 +6785,7 @@
       ],
       "volume_cm3": 0.209,
       "asa_solid_mass_g": 0.45,
+      "petg_solid_mass_g": 0.53,
       "note": "",
       "rotation": [
         [
@@ -6574,6 +6826,7 @@
       ],
       "volume_cm3": 0.2832,
       "asa_solid_mass_g": 1.21,
+      "petg_solid_mass_g": 1.44,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -6617,6 +6870,7 @@
       ],
       "volume_cm3": 0.2327,
       "asa_solid_mass_g": 1.0,
+      "petg_solid_mass_g": 1.18,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -6660,6 +6914,7 @@
       ],
       "volume_cm3": 5.76,
       "asa_solid_mass_g": 6.16,
+      "petg_solid_mass_g": 7.32,
       "note": "",
       "rotation": null,
       "bed_translation": [
@@ -6688,6 +6943,7 @@
       ],
       "volume_cm3": 0.0073,
       "asa_solid_mass_g": 0.39,
+      "petg_solid_mass_g": 0.46,
       "note": "Optionele gesloten opzetplaatjes; schilderen kan ook. Geen gaten onder de waterlijn maken.",
       "rotation": [
         [
@@ -6968,6 +7224,7 @@
       ],
       "volume_cm3": 0.261,
       "asa_solid_mass_g": 0.28,
+      "petg_solid_mass_g": 0.33,
       "note": "",
       "rotation": [
         [
@@ -7003,6 +7260,7 @@
       ],
       "volume_cm3": 0.261,
       "asa_solid_mass_g": 0.28,
+      "petg_solid_mass_g": 0.33,
       "note": "",
       "rotation": [
         [
@@ -7038,6 +7296,7 @@
       ],
       "volume_cm3": 1.2747,
       "asa_solid_mass_g": 1.36,
+      "petg_solid_mass_g": 1.62,
       "note": "",
       "rotation": [
         [
@@ -7073,6 +7332,7 @@
       ],
       "volume_cm3": 0.4257,
       "asa_solid_mass_g": 0.46,
+      "petg_solid_mass_g": 0.54,
       "note": "",
       "rotation": [
         [
@@ -7108,6 +7368,7 @@
       ],
       "volume_cm3": 0.2929,
       "asa_solid_mass_g": 0.31,
+      "petg_solid_mass_g": 0.37,
       "note": "Gegraveerde scheepsnaam; letters donker inwassen. Twee steunpootjes op het kompasdek.",
       "rotation": [
         [
@@ -7143,6 +7404,7 @@
       ],
       "volume_cm3": 0.2929,
       "asa_solid_mass_g": 0.31,
+      "petg_solid_mass_g": 0.37,
       "note": "Gegraveerde scheepsnaam; letters donker inwassen. Twee steunpootjes op het kompasdek.",
       "rotation": [
         [
@@ -7167,10 +7429,12 @@
       "included": true
     }
   ],
-  "unique_parts": 214,
-  "print_quantity": 355,
+  "unique_parts": 215,
+  "print_quantity": 357,
   "maximum_part_dimension_mm": 241.639,
-  "solid_ASA_mass_g": 3448.0,
+  "solid_ASA_mass_g": 3439.0,
+  "material": "PETG",
+  "solid_PETG_mass_g": 4081.6,
   "limitations": [
     "Fotogebaseerde onderwatervorm",
     "Geen fysieke pas-/water-/vaartest",
@@ -7210,15 +7474,15 @@
   "hydrostatics": [
     {
       "waterline_mm": 44,
-      "displacement_freshwater_kg": 3.4
+      "displacement_freshwater_kg": 3.407
     },
     {
       "waterline_mm": 54,
-      "displacement_freshwater_kg": 4.618
+      "displacement_freshwater_kg": 4.628
     },
     {
       "waterline_mm": 64,
-      "displacement_freshwater_kg": 5.902
+      "displacement_freshwater_kg": 5.915
     }
   ]
 }

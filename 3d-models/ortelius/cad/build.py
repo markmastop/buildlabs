@@ -82,7 +82,7 @@ def add(name,shape,color=WHITE,qty=1,note='',rotate=None,include=True,placements
   assert len(poses)==qty
   for i,p in enumerate(poses):
    assembly.add(s.translate(cq.Vector(*p)),name=name+'_'+str(i+1),color=cq.Color(color))
- rec=dict(name=name,quantity=qty,group=group,color=color,print_mm=np.round(m.extents,3).tolist(),volume_cm3=round(m.volume/1000,4),asa_solid_mass_g=round(m.volume/1000*P['asa_density_g_cm3']*qty,2),note=note,rotation=rotate,bed_translation=shift,assembly_translations=poses if include else [],included=include)
+ rec=dict(name=name,quantity=qty,group=group,color=color,print_mm=np.round(m.extents,3).tolist(),volume_cm3=round(m.volume/1000,4),asa_solid_mass_g=round(m.volume/1000*P['asa_density_g_cm3']*qty,2),petg_solid_mass_g=round(m.volume/1000*P['petg_density_g_cm3']*qty,2),note=note,rotation=rotate,bed_translation=shift,assembly_translations=poses if include else [],included=include)
  records.append(rec);print(name,rec['print_mm'],'OK',flush=True)
  return shape
 
@@ -101,6 +101,10 @@ def contour(z,fore=False):
   if t<ss:f*=sf+(1-sf)*math.sqrt(max(0,1-((ss-t)/ss)**2))
   return hw*f
  xs=np.linspace(start,b,P['hull_samples_per_side'])
+ # De laatste twee vakken tot de steven fijner en sinusvormig verdelen: met gelijke stappen
+ # werd de boeg een wig van circa 26 mm lang en 62 mm breed in plaats van een ronde steven.
+ # Alle punten vóór xs[-3] blijven gelijk, dus de rompdelen 1-3 veranderen niet.
+ xs=np.concatenate([xs[:-3],xs[-3]+(b-xs[-3])*np.sin(np.linspace(0,1,P['bow_tip_samples']+1)*math.pi/2)])
  return [(float(x),-width(x)) for x in xs[:-1]]+[(b,0)]+[(float(x),width(x)) for x in xs[-2::-1]]
 def hull_solid(zs,inset=0,fore=False):
  wires=[wire(contour(z,fore),z) for z in zs]
@@ -148,11 +152,15 @@ add('05_deklijmstrip',box(60,12,2),WHITE,qty=8,include=False,group='montage',not
 # Doorlopende bakverschansing: eenvoudig maar fysiek gesloten geprint paneel.
 bow_pts=contour(139,True)
 # De bovenrand waaiert uit tot X=910 mm, overeenkomstig de totale modellengte.
-bow_top=[(x+10*(max(0,x-800)/100)**2,y*(1+.025*(max(0,x-800)/100)**2)) for x,y in bow_pts]
-bowring=loft([(139,bow_pts),(152.5,bow_top)])
-inner_bow=cq.Workplane(obj=cq.Solid.makeLoft([offset(wire(bow_pts,138.9),1.6),offset(wire(bow_top,152.6),1.6)],ruled=True))
-bowring=clip(bowring.cut(inner_bow),716,911)
-add('06_bakverschansing',bowring,WHITE,note='Buitenrand op bestaande romp; top vereenvoudigd, geen fotometrisch exacte uitwaaiering.')
+# Zeeg zoals in de vormstudie: 11 mm hoog tot X=740, oplopend naar 15,5 mm aan de steven.
+BW_TOP=16.5
+def sheer(x):return 11+4.5*min(1.1,max(0,(x-740)/160))**2
+bow_top=[(x+10*BW_TOP/15.5*(max(0,x-800)/100)**2,y*(1+.025*BW_TOP/15.5*(max(0,x-800)/100)**2)) for x,y in bow_pts]
+bowring=loft([(139,bow_pts),(139+BW_TOP,bow_top)])
+inner_bow=cq.Workplane(obj=cq.Solid.makeLoft([offset(wire(bow_pts,138.9),1.6),offset(wire(bow_top,139.1+BW_TOP),1.6)],ruled=True))
+sheer_cut=xz_panel([(700,139+sheer(700))]+[(float(x),139+sheer(float(x))) for x in np.linspace(740,916,23)]+[(916,170),(700,170)],150,300)
+bowring=clip(bowring.cut(inner_bow).cut(sheer_cut),716,912)
+add('06_bakverschansing',bowring,WHITE,note='Buitenrand op bestaande romp; met zeeg (11 naar 15,5 mm) en ronde steven volgens de vormstudie.')
 # Lagere accommodatie: open onder- en bovenzijde; raamopeningen echt uitgesneden.
 lowpts=plan(175,714,82,4,30);house=hollow_plan(lowpts,139,27)
 for sd,xs in [(-1,[192,221,254,280,312,341,372,421.1,428.9,467.1,474.9,510.1,517.9,556.1,563.9,600.1,607.9,647.1,654.9,692]),(1,[194,223,253,284,313,342,376,424.1,431.9,469.1,476.9,513.1,520.9,556.1,563.9,603.1,610.9,648.1,655.9,692])]:
@@ -198,7 +206,8 @@ add('21_kolom_onder',post,qty=8,placements=poses)
 poses2=[(x,sd*y,139) for x,y in [(19,73),(72,81),(126,81),(164,81)] for sd in [-1,1]]
 add('22_kolom_helidek',box(2.4,2.5,23.5),qty=8,placements=poses2)
 # Terugliggende ramenwand onder achterdek.
-cab=hollow_plan(plan(100,237,73,2,2),107,25)
+# 29 hoog: sluit aan op de onderzijde van het promenadedek (was 25, met 4 mm open kier).
+cab=hollow_plan(plan(100,237,73,2,2),107,29)
 for sd in [-1,1]:
  for x in [114,138,172,196,220]:cab=cab.cut(box(8,8,6,x,sd*73,122.5))
 add('23_achterkajuit',cab)
@@ -227,11 +236,20 @@ cap=xz_panel([(250,260),(344,255),(342,251),(254,251)],29.5,59)
 add('31_schoorsteenkap',cap,BLACK)
 # Ruimtelijke mast en gedetailleerde radarinstallatie uit de vormstudie.
 masts(globals())
-add('34_voormast',join([rod((806,0,139),(806,0,272),1.3),rod((800,0,257),(812,0,257),.8)]),WHITE,rotate=((1,0,0),90))
+# Voormast volgens de vormstudie: taps (Ø5,2 naar Ø3,2), ra dwarsscheeps op 248, toplicht op 271.
+# De kraag op 262 houdt de stagen van garen op hun plaats; de voet geeft lijmvlak op het bakdek.
+foremast=cq.Workplane(obj=cq.Solid.makeCone(2.6,1.6,131,cq.Vector(806,0,139),cq.Vector(0,0,1)))
+foremast=join([foremast,rod((806,0,139),(806,0,140.6),4.5),rod((806,0,261.3),(806,0,262.7),3.3),
+ box(1.8,32,1.8,806,0,247.1),cq.Workplane('XY').sphere(2.1).translate((806,0,271))])
+add('34_voormast',foremast,WHITE,rotate=((0,1,0),90),note='Liggend printen, ra vlak op het bed. Stagen van dun garen boven de kraag vastknopen en naar de verschansing spannen.')
 # Dekuitrusting: twee sloepen (maat/kleur browser), davits, kranen, lichtkap en banken.
-add('39_sloepenplatform',box(94,32,3),WHITE,qty=2,placements=[(346,-89,173.5),(346,89,173.5)])
+# Twee bokken per sloep tegen de zijwand van de accommodatie, buiten de reling om.
+# Vervangt het platform van 94 x 32 mm dat 6,6 mm boven het dek zweefde en de reling doorsneed.
+for sd,label in [(1,'BB'),(-1,'SB')]:
+ chock=yz_panel([(sd*82,156),(sd*84.5,156),(sd*84.5,162),(sd*97,173.5),(sd*101,173.5),(sd*101,176.5),(sd*82,176.5)],-2,4)
+ add('39_sloepbok_'+label,chock,WHITE,qty=2,placements=[(326,0,0),(360,0,0)],rotate=((0,1,0),90),note='Console onder de sloep; vlak tegen de accommodatiewand lijmen, boven de raamrij en buiten de reling.')
 boat=loft([(0,plan(-35,36,9,6,8)),(12,plan(-42,43,14.2,8,12)),(26,plan(-30,29,8.3,6,6.5))])
-add('40_reddingsboot',boat,ORANGE,qty=2,placements=[(346,-89,176.5),(346,89,176.5)],note='Ramen zwart schilderen; ondersteunt romp buitenzijde.')
+add('40_reddingsboot',boat,ORANGE,qty=2,placements=[(346,-89,176.5),(346,89,176.5)],note='Ramen zwart schilderen; rust op twee bokken 39 per zijde.')
 davits_cranes(globals())
 skylight=loft([(194.1,plan(492,550,30,1,1)),(198,plan(492,550,30,1,1)),(204.4,plan(492,550,1,0.5,0.5))])
 add('43_lichtkap',skylight,'#62939a',note='Glasvlakken schilderen; solide detail om vlakke browserruiten printbaar te maken.')
@@ -323,13 +341,13 @@ for folder,ext in [(STEP,'.step'),(STL,'.stl'),(MF,'.3mf')]:
 # OCCT schrijft spaties aan regeleinden; normaliseer de tekstexports voor Git.
 for f in STEP.glob('*.step'):
  f.write_text('\n'.join(line.rstrip() for line in f.read_text().splitlines())+'\n')
-report=dict(revision='p2',units='mm',scale=100,printer='Bambu Lab P2S 256³; modelmarge 5 mm per zijde',parts=records,unique_parts=len(records),print_quantity=sum(q['quantity'] for q in records),maximum_part_dimension_mm=max(max(q['print_mm']) for q in records),solid_ASA_mass_g=round(sum(q['asa_solid_mass_g'] for q in records),1),limitations=['Fotogebaseerde onderwatervorm','Geen fysieke pas-/water-/vaartest','RC-hardware niet gekozen; doorvoeren niet geboord','Slicerprofielen en ondersteuning apart controleren'])
+report=dict(revision='p2',units='mm',scale=100,printer='Bambu Lab P2S 256³; modelmarge 5 mm per zijde',parts=records,unique_parts=len(records),print_quantity=sum(q['quantity'] for q in records),maximum_part_dimension_mm=max(max(q['print_mm']) for q in records),solid_ASA_mass_g=round(sum(q['asa_solid_mass_g'] for q in records),1),material='PETG',solid_PETG_mass_g=round(sum(q['petg_solid_mass_g'] for q in records),1),limitations=['Fotogebaseerde onderwatervorm','Geen fysieke pas-/water-/vaartest','RC-hardware niet gekozen; doorvoeren niet geboord','Slicerprofielen en ondersteuning apart controleren'])
 report['details']=detail_report
 report['hydrostatics']=[dict(waterline_mm=z,displacement_freshwater_kg=round(outer.intersect(box(1100,300,z,450,0,0)).val().Volume()/1e6,3)) for z in [44,54,64]]
 (R/'print/onderdelen.json').write_text(json.dumps(report,indent=2,ensure_ascii=False)+'\n')
 with (R/'print/onderdelen.csv').open('w') as f:
- writer=csv.writer(f,lineterminator="\n");writer.writerow(['onderdeel','aantal','groep','X_mm','Y_mm','Z_mm','volledig_solide_ASA_g','opmerking'])
- for q in records:writer.writerow([q['name'],q['quantity'],q['group'],*q['print_mm'],q['asa_solid_mass_g'],q['note']])
+ writer=csv.writer(f,lineterminator="\n");writer.writerow(['onderdeel','aantal','groep','X_mm','Y_mm','Z_mm','volledig_solide_ASA_g','volledig_solide_PETG_g','opmerking'])
+ for q in records:writer.writerow([q['name'],q['quantity'],q['group'],*q['print_mm'],q['asa_solid_mass_g'],q['petg_solid_mass_g'],q['note']])
 # De viewer gebruikt dezelfde meshes als de printbestanden.
 from viewer import create_viewer
 create_viewer(R,records)

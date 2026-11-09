@@ -94,7 +94,8 @@ foto en model hebben niet automatisch dezelfde camerahoek of verticale schaal.
   De opening is 12,4 cm breed onderaan, met afgeschuinde bovenhoeken.
   De zichtbare binnendiepte is circa 12 cm. Spanten, kasten en een eenvoudige
   werkbok zijn ter ondersteuning van het beeld toegevoegd; hun maten zijn
-  niet gemeten. De reddingsboten staan buiten de hangar op losse zijplatforms.
+  niet gemeten. De reddingsboten hangen buiten de hangar en rusten elk op twee
+  consoles tegen de accommodatiewand.
 - **Dekdetails:** glazen lichtkap en houten banken achter de witte mast naar
   foto's 24–26. De zodiacs liggen in de achterste galerijen; reddingsvlotten
   zijn naar het lagere gangboord verplaatst. De knikarmkranen zijn compacter.
@@ -135,7 +136,7 @@ browsermodel aangepast. De latere CAD-uitwerking p1 staat onderaan dit document.
 | Glazen lichtkap | 49,2–55,0 | vanaf 19,41 | Breedte 6,0; schuin glas en banken ernaast |
 | Zwarte mast | 33,3 | top 37,4 | Vakwerk met drie ra's, tegen het schoorsteenfront |
 | Witte radarmast | 58,9 | top 36,2 | Twee draaiende radars, schuine mantel tot dek 2 |
-| Voormast | 80,6 | top 27,2 | Slanker en lager dan de radarmast |
+| Voormast | 80,6 | top 27,2 | Slanker en lager dan de radarmast; ra dwarsscheeps op 24,8 |
 
 ## Rompvorm
 

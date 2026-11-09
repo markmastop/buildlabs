@@ -83,6 +83,7 @@
     900
   ],
   "hull_samples_per_side": 36,
+  "bow_tip_samples": 12,
   "splice_length": 24,
   "splice_wall": 2.4,
   "max_print_size": 246,
@@ -103,6 +104,7 @@
   "nozzle": 0.4,
   "minimum_detail": 1.2,
   "asa_density_g_cm3": 1.07,
+  "petg_density_g_cm3": 1.27,
   "helicopter": {
     "body_length": 109.3,
     "stabilizer_width": 25.3,

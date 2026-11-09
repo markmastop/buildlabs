@@ -122,7 +122,9 @@ De relingen `70_*` zijn op maat gemaakt en staan op hun montageplek in de
 CAD-assemblage. Twee rechte stroken blijven als reserve beschikbaar.
 Messing draad kan de kleinste geprinte antennes vervangen.
 
-Sloepen, platforms, davits, kranen, banken en lichtkap zijn losse kleuronderdelen.
+Sloepen, sloepbokken, davits, kranen, banken en lichtkap zijn losse kleuronderdelen.
+Lijm per sloep twee bokken `39_sloepbok_*` tegen de accommodatiewand, boven de raamrij.
+Span de stagen van de voormast met dun garen: boven de kraag vastknopen en naar de verschansing.
 P2 bevat ook de vijf helideknetten, zodiacs, RIB-davits, ramen, vlotkokers,
 reddingsboeien, achtertank, vlag, windsok, dekbeslag en naamplaten. Zie
 [`../cad/DETAILS.md`](../cad/DETAILS.md) voor de volledige vergelijking.
