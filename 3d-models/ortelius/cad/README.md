@@ -12,6 +12,7 @@ verstaging en kettingen blijven modelbouwwerk met draad.
 - [`index.html`](index.html): zelfstandige Three.js-viewer van de echte CAD-geometrie.
 - [`step/ortelius-p2-assemblage.step`](step/ortelius-p2-assemblage.step): complete, benoemde STEP-assemblage.
 - `step/`: bewerkbaar STEP per printonderdeel, in dezelfde printstand als het STL.
+- [Motorsteun en aandrijving p3](aandrijving/README.md): afzonderlijke Fusion-assemblage en pasdelen voor de eerste montage.
 - [`build.py`](build.py): geometrie, deling, export en viewer-generatie.
 - [`details.py`](details.py): echte relingen, trappen, masten, cockpitruiten en dekuitrusting.
 - [`DETAILS.md`](DETAILS.md): vergelijking met de vormstudie en bewuste printaanpassingen.

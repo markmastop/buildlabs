@@ -1,0 +1,21 @@
+{
+  "motor": {"diameter": 36, "lengte": 57, "asdiameter": 3.17, "aslengte": 8, "bouthartafstand": 25},
+  "stevenbuis": {"begin_u": 14.5, "lengte": 200, "diameter": 6, "lagerdiameter": 10.5, "lagerlengte": 14},
+  "doorvoerbus": {"begin_u": 7.5, "lengte": 12.5, "diameter": 12, "boring": 6.2, "verzinkdiameter": 10, "verzinkdiepte": 7.3},
+  "schroefas": {"begin_u": -1.5, "lengte": 236, "draadlengte": 16, "borgmoer_ruimte": 3},
+  "koppeling": {"diameter": 9, "lengte": 23, "insteek_as": 6, "afstand_motorvlak": 2},
+  "schroef": {"diameter": 40, "naafdiameter": 9, "naaflengte": 16, "naafcentrum_u": 2.5, "voorlopige_bladzone": 8},
+  "steun": {
+    "flensdikte": 5,
+    "vrije_diameter_flens": 16,
+    "as_boven_voet": 27,
+    "bodemdikte": 5,
+    "boutposities_vanaf_motorvlak": [12, 51],
+    "halve_railafstand": 23,
+    "railbreedte": 12,
+    "slag_per_richting": 5,
+    "lijmspleet": 0.35,
+    "inzetboring": 4.2,
+    "inzetdiepte": 6
+  }
+}
