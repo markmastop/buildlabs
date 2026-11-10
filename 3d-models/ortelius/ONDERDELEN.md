@@ -9,7 +9,8 @@ ze niet als actuele bestellijst. CAD p2 bevat generieke houders en een
 - [ ] MFA Torpedo 850, langzaamlopende motor (één schroef, zoals het origineel) — ca. € 30–40.
   Selectie, voeding, belasting en motortoerental zijn nog niet doorgerekend.
 - [ ] Raboesch schroefas M4 met stevenbuis, ca. 20 cm — ca. € 20
-- [ ] Raboesch messing schroef Ø 45 mm, M4 — ca. € 15
+- [ ] Raboesch messing schroef Ø 40 mm, M4 — ca. € 17
+  (Ø 40 is de grootste die in het achterschip past, met circa 4 mm speling; zie `cad/VERGELIJKING.md`)
 - [ ] Flexibele askoppeling — ca. € 5
 - [ ] Roer met roerkoning (messing/RVS 3 mm) en roerarm
 - [ ] Raboesch boegschroef met 20 mm tunnel — ca. € 30–40
@@ -62,4 +63,4 @@ printmassa en trim moeten eerst worden gewogen/getest. Zie de
 ## Bronnen
 - [Hobbywing QuicRun 1060 – EuroRC](https://www.eurorc.com/product/7871/hobbywing-quicrun-1060-waterproof-brushed-60a-speed-controller)
 - [FlySky FS-i6X met FS-iA10B – Racer.lt](https://racer.lt/item/flysky-fs-i6x-i6x-10ch-2-4ghz-afhds-2a-rc-transmitter-with-fs-ia10b-receiver-for-fpv-rc-drone-26447.html)
-- [Raboesch schroef Ø 45 mm M4 – Tecnimodel](https://www.tecnimodel.com/en/m4-thread/11665-three-blade-brass-propeller-o45mm-m4-range-156-type-d-raboesch-straight.html)
+- [Raboesch schroef Ø 45 mm M4 – Tecnimodel (te groot voor het achterschip; zelfde serie in Ø 40)](https://www.tecnimodel.com/en/m4-thread/11665-three-blade-brass-propeller-o45mm-m4-range-156-type-d-raboesch-straight.html)

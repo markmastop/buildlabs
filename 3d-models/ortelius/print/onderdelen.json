@@ -14,9 +14,9 @@
         172.0,
         227.5
       ],
-      "volume_cm3": 295.7056,
-      "asa_solid_mass_g": 316.4,
-      "petg_solid_mass_g": 375.55,
+      "volume_cm3": 280.5401,
+      "asa_solid_mass_g": 300.18,
+      "petg_solid_mass_g": 356.29,
       "note": "Snijvlak op bed; buitenste overhangen controleren. Epoxy en glasband aan binnenzijde.",
       "rotation": [
         [
@@ -2534,9 +2534,9 @@
       "note": "Proefmaat 41 × 21 mm opening, M3-hartafstand 48 mm; aanpassen aan werkelijke servo.",
       "rotation": null,
       "bed_translation": [
-        -82.0,
-        -22.0,
-        -40.0
+        -122.0,
+        -17.0,
+        -58.0
       ],
       "assembly_translations": [
         [
@@ -2649,26 +2649,55 @@
       "group": "RC",
       "color": "#163b70",
       "print_mm": [
-        24.0,
-        40.0,
-        7.0
+        22.0,
+        6.596,
+        40.0
       ],
-      "volume_cm3": 6.1661,
-      "asa_solid_mass_g": 6.6,
-      "petg_solid_mass_g": 7.83,
-      "note": "Metalen roeras Ø4 met epoxy verlijmen; koker/lager en afdichting uit handelsdelen.",
+      "volume_cm3": 3.4143,
+      "asa_solid_mass_g": 3.65,
+      "petg_solid_mass_g": 4.34,
+      "note": "Staand printen, voet op het bed. Metalen roeras Ø4 met epoxy verlijmen; roerkoker van de toonbank tot boven de waterlijn uit handelsdelen.",
+      "rotation": null,
+      "bed_translation": [
+        -7.0,
+        3.2979393372431507,
+        -3.0
+      ],
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
+    },
+    {
+      "name": "57_schroefmal_40",
+      "quantity": 1,
+      "group": "RC",
+      "color": "#b8873a",
+      "print_mm": [
+        39.988,
+        40.0,
+        6.0
+      ],
+      "volume_cm3": 7.4536,
+      "asa_solid_mass_g": 7.98,
+      "petg_solid_mass_g": 9.47,
+      "note": "Geen schroef: mal van de schroefcirkel Ø40 × 6. Op de as schuiven en controleren dat er rondom circa 4 mm speling naar de romp is.",
       "rotation": [
         [
-          1,
           0,
+          1,
           0
         ],
         90
       ],
       "bed_translation": [
-        2.0,
-        44.0,
-        3.4999999999999996
+        -0.5000000000000036,
+        20.0,
+        39.0
       ],
       "assembly_translations": [
         [
@@ -7429,12 +7458,12 @@
       "included": true
     }
   ],
-  "unique_parts": 215,
-  "print_quantity": 357,
+  "unique_parts": 216,
+  "print_quantity": 358,
   "maximum_part_dimension_mm": 241.639,
-  "solid_ASA_mass_g": 3439.0,
+  "solid_ASA_mass_g": 3427.8,
   "material": "PETG",
-  "solid_PETG_mass_g": 4081.6,
+  "solid_PETG_mass_g": 4068.3,
   "limitations": [
     "Fotogebaseerde onderwatervorm",
     "Geen fysieke pas-/water-/vaartest",
@@ -7474,15 +7503,18 @@
   "hydrostatics": [
     {
       "waterline_mm": 44,
-      "displacement_freshwater_kg": 3.407
+      "displacement_freshwater_kg": 3.353,
+      "centre_of_buoyancy_x_mm": 416.6
     },
     {
       "waterline_mm": 54,
-      "displacement_freshwater_kg": 4.628
+      "displacement_freshwater_kg": 4.571,
+      "centre_of_buoyancy_x_mm": 411.4
     },
     {
       "waterline_mm": 64,
-      "displacement_freshwater_kg": 5.915
+      "displacement_freshwater_kg": 5.859,
+      "centre_of_buoyancy_x_mm": 407.6
     }
   ]
 }

@@ -121,8 +121,59 @@ hull=lower.union(upper)
 # Binnenrand: de afneembare voorste dekmodules rusten op een ingelijmde 5 mm lip.
 w=wire(contour(136,True),133);ledge=prism(offset(w,1.5),3).cut(prism(offset(w,8.5),5).translate((0,0,-1)))
 hull=hull.union(ledge)
+# Achterschip met schroefopening: onder de toonbank (z 44-47) loopt de romp uit in een smalle
+# scheg met de stevenbuis, zodat een schroef van Ø40 en een roer erachter vrij draaien.
+# Vanaf x=212 is de buitenvorm exact gelijk aan de oorspronkelijke romp; rompdeel 1 sluit dus
+# ongewijzigd aan op rompdeel 2 en de lasstrook.
+ST=P['stern']
+def interp(tab,z,cols):
+ for a,b in zip(tab,tab[1:]):
+  if z<=b[0]:
+   t=max(0,(z-a[0])/(b[0]-a[0]));return [a[i]+t*(b[i]-a[i]) for i in cols]
+ return [tab[-1][i] for i in cols]
+def contour_aft(z,end=260):
+ hw,a,b=station(z);ax,ahw,L=interp(ST['aft_stations'],z,[1,2,3]);sf=ahw/hw
+ # Dichter bij het einde dichter bemonsteren: de afronding is daar het steilst.
+ xs=[ax+L*(1-math.cos(u*math.pi/2)) for u in np.linspace(0,1,ST['aft_samples'])]+[end]
+ def wd(x):
+  u=x-ax
+  if u>=L:return hw
+  v=(L-u)/L;return hw*(sf+(1-sf)*math.sqrt(max(0,1-v*v)))
+ return [(float(x),-wd(x)) for x in xs]+[(float(x),wd(x)) for x in xs[::-1]]
+def convex_inset(pts,d):
+ # Binnenoffset van een convexe contour: iedere zijde d naar binnen, hoekpunten als snijpunt
+ # (verstek). Zijden die daarbij omklappen vallen weg. OCCT offset2D faalt op enkele van deze ringen.
+ P=[np.array(q,float) for q in pts]
+ while True:
+  n=len(P);lines=[]
+  for i in range(n):
+   a,b=P[i],P[(i+1)%n];t=(b-a)/np.linalg.norm(b-a);nrm=np.array([-t[1],t[0]])
+   lines.append((a+nrm*d,t))
+  Q=[]
+  for i in range(n):
+   (p1,t1),(p2,t2)=lines[i-1],lines[i]
+   den=t1[0]*t2[1]-t1[1]*t2[0]
+   Q.append(p2 if abs(den)<1e-12 else p1+t1*(((p2-p1)[0]*t2[1]-(p2-p1)[1]*t2[0])/den))
+  bad=[i for i in range(n) if np.dot(Q[(i+1)%n]-Q[i],P[(i+1)%n]-P[i])<=0]
+  if not bad:return [tuple(q) for q in Q]
+  del P[bad[0]+1 if bad[0]+1<n else 0]
+def aft_solid(zs,inset=0):
+ wires=[]
+ for z in zs:
+  r=contour_aft(z)
+  if not inset:wires.append(wire(r,z));continue
+  try:wires.append(offset(wire(r,z),inset))
+  except ValueError:wires.append(wire(convex_inset(r,inset),z))  # zelfde resultaat, robuust
+ return cq.Workplane(obj=cq.Solid.makeLoft(wires,ruled=True))
+aft_z=ST['ring_heights']
+aft_outer=aft_solid(aft_z)
+aft_lower=aft_outer.cut(aft_solid(aft_z,W).translate((0,0,W)))
+# Buitenkant is vanaf x=212 identiek; de binnenwand van de afgeronde lofts wijkt daar nog
+# enkele tienden af. Daarom vanaf ST['join_x'] de oorspronkelijke wand gebruiken, zodat het
+# snijvlak en de lasstrook bij x=227,5 precies blijven zoals ze waren.
+aft_lower=clip(aft_lower,0,ST['join_x']).union(clip(lower,ST['join_x'],P['hull_cuts'][1]))
 for i,(a,b) in enumerate(zip(P['hull_cuts'],P['hull_cuts'][1:])):
- add(f'01_romp_{i+1}',clip(hull,a,b),NAVY,group='romp',rotate=((0,1,0),90 if i<3 else -90),note='Snijvlak op bed; buitenste overhangen controleren. Epoxy en glasband aan binnenzijde.')
+ add(f'01_romp_{i+1}',clip(aft_lower if i==0 else hull,a,b),NAVY,group='romp',rotate=((0,1,0),90 if i<3 else -90),note='Snijvlak op bed; buitenste overhangen controleren. Epoxy en glasband aan binnenzijde.')
 # Losse interne lasstroken volgen de binnenvorm; 0,25 mm lijmspeling.
 splice_outer=hull_solid(low_z,W+G).translate((0,0,W+G))
 splice_inner=hull_solid(low_z,W+G+P['splice_wall']).translate((0,0,W+G+P['splice_wall']))
@@ -268,8 +319,10 @@ add('50_accubak_2S',tray,BLACK,group='RC',note='Binnenruimte 154 × 62 mm; klitt
 motorplate=box(116,78,4,300,0,16)
 for y in [-26,26]:motorplate=motorplate.cut(box(80,3.4,8,300,y,14))
 add('51_motorplaat_verstelbaar',motorplate,BLACK,group='RC',note='Voor metalen motorbeugel; M3-sleuven. Motortype, ashoogte en uitlijning eerst vastleggen.')
-servotray=box(56,36,3,110,40,40).cut(box(41,21,6,110,40,39))
-for x in [86,134]:servotray=servotray.cut(cq.Workplane('XY').center(x,40).circle(1.6).extrude(7).translate((0,0,38)))
+# Verder naar voren en hoger dan in p2: de smallere afloop laat bij x=110 te weinig breedte.
+SV=ST['servo_plate'];sx,sy,sz=SV
+servotray=box(56,36,3,sx,sy,sz).cut(box(41,21,6,sx,sy,sz-1))
+for x in [sx-24,sx+24]:servotray=servotray.cut(cq.Workplane('XY').center(x,sy).circle(1.6).extrude(7).translate((0,0,sz-2)))
 add('52_servoplaat',servotray,BLACK,group='RC',note='Proefmaat 41 × 21 mm opening, M3-hartafstand 48 mm; aanpassen aan werkelijke servo.')
 plate=box(65,42,3)
 for x in [-24,24]:
@@ -281,8 +334,20 @@ add('54_ballastbak',ballast,BLACK,qty=2,placements=[(575,0,15),(635,0,15)],group
 tunnel=cq.Workplane('XY').circle(P['tunnel_outside_diameter']/2).circle(P['tunnel_inside_diameter']/2).extrude(125)
 add('55_boegschroef_proeftunnel',tunnel,BLACK,include=False,group='RC',note='Alleen maattest ID20/OD23 ×125; geen functionele boegschroef, geen gaten in romp.')
 # Rudder and metal-stock socket: no printed rotating shafts.
-rudder=box(24,7,40,10,0,4).cut(cq.Workplane('XY').center(10,0).circle((P['rudder_stock_diameter']+.2)/2).extrude(50))
-add('56_roerblad',rudder,NAVY,group='RC',rotate=((1,0,0),90),note='Metalen roeras Ø4 met epoxy verlijmen; koker/lager en afdichting uit handelsdelen.')
+# Gebalanceerd hangroer achter de schroef: profiel NACA 00xx, voorrand naar de schroef,
+# roerkoning op circa 27% van de koorde. Open achterrand 0,8 mm voor FDM.
+RD=ST['rudder'];le,c,th=RD['leading_edge_x'],RD['chord'],RD['thickness_ratio']
+def naca(xi):return 5*th*c*(.2969*math.sqrt(xi)-.1260*xi-.3516*xi**2+.2843*xi**3-.1036*xi**4)
+xi=[(1-math.cos(u*math.pi))/2 for u in np.linspace(0,1,40)]
+half=[max(naca(q),.4) if q>0 else 0 for q in xi]
+prof=[(le-q*c,h) for q,h in zip(xi,half)]+[(le-q*c,-h) for q,h in zip(xi[::-1],half[::-1])][1:-1]
+rudder=cq.Workplane('XY').polyline(prof).close().extrude(RD['top_z']-RD['bottom_z']).translate((0,0,RD['bottom_z']))
+rudder=rudder.cut(cq.Workplane('XY').center(RD['stock_x'],0).circle((P['rudder_stock_diameter']+.2)/2).extrude(60))
+add('56_roerblad',rudder,NAVY,group='RC',note='Staand printen, voet op het bed. Metalen roeras Ø4 met epoxy verlijmen; roerkoker van de toonbank tot boven de waterlijn uit handelsdelen.')
+# Schroefmal: omhullende van een Ø40 schroef (6 mm diep), als maatcontrole op de echte romp.
+PR=ST['propeller'];hx,hz=PR['hub_x'],PR['hub_z']
+gauge=cq.Workplane('YZ',origin=(hx-PR['sweep_depth']/2,0,0)).center(0,hz).circle(PR['diameter']/2).circle(2.1).extrude(PR['sweep_depth'])
+add('57_schroefmal_40',gauge,'#b8873a',group='RC',rotate=((0,1,0),90),note='Geen schroef: mal van de schroefcirkel Ø40 × 6. Op de as schuiven en controleren dat er rondom circa 4 mm speling naar de romp is.')
 # Twee helikopters. Romp in twee vlak printbare helften, losse skids en rotors.
 secs=[(-33.35,13.5,.8,1),(-30,14.2,6,6.2),(-22,15.2,8.8,10),(-10,15.5,9,10.85),(6,15.8,7.8,9.1),(17,17.5,5.2,5.9),(25,19,2.8,3.2)]
 wires=[]
@@ -343,7 +408,10 @@ for f in STEP.glob('*.step'):
  f.write_text('\n'.join(line.rstrip() for line in f.read_text().splitlines())+'\n')
 report=dict(revision='p2',units='mm',scale=100,printer='Bambu Lab P2S 256³; modelmarge 5 mm per zijde',parts=records,unique_parts=len(records),print_quantity=sum(q['quantity'] for q in records),maximum_part_dimension_mm=max(max(q['print_mm']) for q in records),solid_ASA_mass_g=round(sum(q['asa_solid_mass_g'] for q in records),1),material='PETG',solid_PETG_mass_g=round(sum(q['petg_solid_mass_g'] for q in records),1),limitations=['Fotogebaseerde onderwatervorm','Geen fysieke pas-/water-/vaartest','RC-hardware niet gekozen; doorvoeren niet geboord','Slicerprofielen en ondersteuning apart controleren'])
 report['details']=detail_report
-report['hydrostatics']=[dict(waterline_mm=z,displacement_freshwater_kg=round(outer.intersect(box(1100,300,z,450,0,0)).val().Volume()/1e6,3)) for z in [44,54,64]]
+outer_now=clip(aft_outer,0,227.5).union(clip(outer,227.5,900))
+def buoy(z):
+ v=outer_now.intersect(box(1100,300,z,450,0,0)).val();return dict(waterline_mm=z,displacement_freshwater_kg=round(v.Volume()/1e6,3),centre_of_buoyancy_x_mm=round(v.Center().x,1))
+report['hydrostatics']=[buoy(z) for z in [44,54,64]]
 (R/'print/onderdelen.json').write_text(json.dumps(report,indent=2,ensure_ascii=False)+'\n')
 with (R/'print/onderdelen.csv').open('w') as f:
  writer=csv.writer(f,lineterminator="\n");writer.writerow(['onderdeel','aantal','groep','X_mm','Y_mm','Z_mm','volledig_solide_ASA_g','volledig_solide_PETG_g','opmerking'])

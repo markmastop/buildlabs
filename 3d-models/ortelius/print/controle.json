@@ -1,8 +1,8 @@
 {
   "status": "PASS",
   "revision": "p2",
-  "unique_parts": 215,
-  "assembly_solids": 325,
+  "unique_parts": 216,
+  "assembly_solids": 326,
   "checks": [
     {
       "part": "01_romp_1",
@@ -10,7 +10,7 @@
       "STL_closed": true,
       "one_component": true,
       "P2S_margin_mm": 14.25,
-      "STEP_STL_volume_delta": 0.000266,
+      "STEP_STL_volume_delta": 0.000159,
       "geometry_3MF_matches_STL": true
     },
     {
@@ -739,7 +739,16 @@
       "STL_closed": true,
       "one_component": true,
       "P2S_margin_mm": 108.0,
-      "STEP_STL_volume_delta": 3.7e-05,
+      "STEP_STL_volume_delta": 6.7e-05,
+      "geometry_3MF_matches_STL": true
+    },
+    {
+      "part": "57_schroefmal_40",
+      "STEP_valid": true,
+      "STL_closed": true,
+      "one_component": true,
+      "P2S_margin_mm": 108.0,
+      "STEP_STL_volume_delta": 0.000415,
       "geometry_3MF_matches_STL": true
     },
     {
@@ -2010,6 +2019,24 @@
         635,
         0,
         15
+      ],
+      "intersection_mm3": 0.0
+    },
+    {
+      "part": "56_roerblad",
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "intersection_mm3": 0.0
+    },
+    {
+      "part": "57_schroefmal_40",
+      "translation": [
+        0,
+        0,
+        0
       ],
       "intersection_mm3": 0.0
     }

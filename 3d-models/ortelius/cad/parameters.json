@@ -110,5 +110,113 @@
     "stabilizer_width": 25.3,
     "rotor_diameter": 106.9,
     "stored_height": 31.4
+  },
+  "stern": {
+    "_toelichting": "Achterschip met schroefopening (10-11-2026). aft_stations: [z, achtereinde x, halve breedte achtereinde, afrondingslengte] in mm; daartussen lineair. Vanaf join_x=212 gelijk aan hull_stations.",
+    "aft_stations": [
+      [
+        0,
+        140,
+        5.1,
+        35
+      ],
+      [
+        4,
+        60,
+        6,
+        80
+      ],
+      [
+        8,
+        47,
+        9,
+        160
+      ],
+      [
+        20,
+        44,
+        9,
+        165
+      ],
+      [
+        35,
+        43,
+        9,
+        165
+      ],
+      [
+        44,
+        43,
+        9.5,
+        165
+      ],
+      [
+        47,
+        9,
+        63,
+        46
+      ],
+      [
+        52.5,
+        8,
+        64.35,
+        46
+      ],
+      [
+        54,
+        6,
+        64.74,
+        46.2
+      ],
+      [
+        70,
+        0,
+        67.1,
+        46.8
+      ],
+      [
+        107,
+        0,
+        67.1,
+        48.7
+      ]
+    ],
+    "ring_heights": [
+      0,
+      4,
+      8,
+      20,
+      35,
+      44,
+      47,
+      52.5,
+      54,
+      70,
+      90,
+      107
+    ],
+    "aft_samples": 17,
+    "propeller": {
+      "diameter": 40,
+      "hub_x": 36,
+      "hub_z": 20.5,
+      "sweep_depth": 6,
+      "shaft_exit_x": 44,
+      "shaft_slope": 0.103
+    },
+    "rudder": {
+      "leading_edge_x": 29,
+      "chord": 22,
+      "thickness_ratio": 0.3,
+      "stock_x": 23,
+      "bottom_z": 3,
+      "top_z": 43
+    },
+    "servo_plate": [
+      150,
+      35,
+      58
+    ],
+    "join_x": 212
   }
 }

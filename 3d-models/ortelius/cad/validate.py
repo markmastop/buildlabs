@@ -35,11 +35,13 @@ worlds={q['name']:world(q) for q in D['parts']}
 hull=[worlds['01_romp_'+str(i)] for i in range(1,5)]
 rc_collisions=[]
 for q in D['parts']:
- if q['group']!='RC' or not q['included'] or q['name']=='56_roerblad':continue
+ if q['group']!='RC' or not q['included']:continue
  for p in q['assembly_translations']:
   s=worlds[q['name']].translate(cq.Vector(*p));v=sum(s.intersect(h).Volume() for h in hull)
   assert v<.1,(q['name'],p,'RC raakt romp',v)
   rc_collisions.append(dict(part=q['name'],translation=p,intersection_mm3=round(v,6)))
+# Schroefmal en roer mogen elkaar niet raken (roer staat achter de schroef).
+assert worlds['57_schroefmal_40'].intersect(worlds['56_roerblad']).Volume()<.01,'roer raakt schroefcirkel'
 # Controleer lijmstroken versus romp en achterste vloer; raakvlakken hebben geen volume.
 for i in range(1,4):
  n='02_lasstrook_'+str(i);s=worlds[n]

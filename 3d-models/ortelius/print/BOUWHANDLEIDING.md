@@ -167,6 +167,22 @@ werkende thruster. De roerbladbron heeft een gat voor een metalen Ø4 mm as
 met circa 0,2 mm diameterspeling. Gebruik voor het functionele roersysteem
 handelslagers, hevel en afdichting; druk geen as of lager uit PETG.
 
+### Schroefas en roer in het achterschip
+
+Maten in mm vanaf de spiegel (x) en de kiellijn (z):
+
+1. **Schroefas.** Boor midden in het einde van de scheg, op x=44 en z≈21.
+   Boor schuin omhoog met helling 0,103 (5,9°) in de richting van de motor (x≈250, z≈42).
+   Lijm de stevenbuis pas in als de as recht op de motor ligt.
+2. **Schroefmal.** Schuif `57_schroefmal_40` op de as, op de plaats van de schroef (naaf op x=36).
+   Draai de mal rond. Er moet overal ongeveer 4 mm ruimte zijn tot de romp.
+   De mal mag niet onder de kiellijn uitsteken.
+3. **Roerkoker.** Boor verticaal op x=23, midden in het schip, door de toonbank (z≈46).
+   Laat de koker doorlopen tot ruim boven de waterlijn (z 54), zodat er geen afdichting nodig is.
+4. **Roer.** Print `56_roerblad` staand. Lijm de metalen Ø4-as erin met epoxy.
+   De voorrand wijst naar de schroef. Houd 3 mm vrij tussen de onderkant van het roer en de kiellijn.
+5. **Servo.** De servoplaat staat op x=150. Leg een stang van de servoarm naar de hevel op de roeras.
+
 De digitale controle toetst de houders tegen de romp. Bevestigingsschroeven,
 kabels, motorbeugel, koelruimte en bereikbaarheid vragen daarna een inbouwproef.
 

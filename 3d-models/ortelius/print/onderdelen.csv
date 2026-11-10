@@ -1,5 +1,5 @@
 onderdeel,aantal,groep,X_mm,Y_mm,Z_mm,volledig_solide_ASA_g,volledig_solide_PETG_g,opmerking
-01_romp_1,1,romp,107.0,172.0,227.5,316.4,375.55,Snijvlak op bed; buitenste overhangen controleren. Epoxy en glasband aan binnenzijde.
+01_romp_1,1,romp,107.0,172.0,227.5,300.18,356.29,Snijvlak op bed; buitenste overhangen controleren. Epoxy en glasband aan binnenzijde.
 01_romp_2,1,romp,139.0,172.0,227.5,352.33,418.18,Snijvlak op bed; buitenste overhangen controleren. Epoxy en glasband aan binnenzijde.
 01_romp_3,1,romp,139.0,172.0,227.5,340.07,403.64,Snijvlak op bed; buitenste overhangen controleren. Epoxy en glasband aan binnenzijde.
 01_romp_4,1,romp,139.0,155.653,217.5,261.87,310.82,Snijvlak op bed; buitenste overhangen controleren. Epoxy en glasband aan binnenzijde.
@@ -80,7 +80,8 @@ onderdeel,aantal,groep,X_mm,Y_mm,Z_mm,volledig_solide_ASA_g,volledig_solide_PETG
 53_elektronicaplaat,3,RC,65.0,42.0,3.0,25.98,30.84,Voor regelaar/ontvanger met klittenband; neutrale M3-plaat.
 54_ballastbak,2,RC,55.0,45.0,12.0,22.9,27.18,
 55_boegschroef_proeftunnel,1,RC,23.0,22.993,125.0,13.55,16.08,"Alleen maattest ID20/OD23 ×125; geen functionele boegschroef, geen gaten in romp."
-56_roerblad,1,RC,24.0,40.0,7.0,6.6,7.83,Metalen roeras Ø4 met epoxy verlijmen; koker/lager en afdichting uit handelsdelen.
+56_roerblad,1,RC,22.0,6.596,40.0,3.65,4.34,"Staand printen, voet op het bed. Metalen roeras Ø4 met epoxy verlijmen; roerkoker van de toonbank tot boven de waterlijn uit handelsdelen."
+57_schroefmal_40,1,RC,39.988,40.0,6.0,7.98,9.47,Geen schroef: mal van de schroefcirkel Ø40 × 6. Op de as schuiven en controleren dat er rondom circa 4 mm speling naar de romp is.
 64_heli_ruit_SB_1,2,heli,11.76,9.359,8.985,0.22,0.26,"Gebogen inzetruit, circa 1 mm dik; rondom 0,12–0,15 mm lijmspeling. Ook als schildermal te gebruiken."
 64_heli_ruit_SB_2,2,heli,11.26,5.759,7.158,0.19,0.22,"Gebogen inzetruit, circa 1 mm dik; rondom 0,12–0,15 mm lijmspeling. Ook als schildermal te gebruiken."
 64_heli_ruit_SB_3,2,heli,10.06,5.413,6.323,0.14,0.17,"Gebogen inzetruit, circa 1 mm dik; rondom 0,12–0,15 mm lijmspeling. Ook als schildermal te gebruiken."

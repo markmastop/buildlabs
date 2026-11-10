@@ -26,17 +26,24 @@ De verschillen die overbleven:
 Bewust niet aangepast: stagen en vlaggenstok voorop (garen en draad), de draaiende radarbalken
 (stand verschilt per moment) en de iets kleinere vlag.
 
-## Aandachtspunt: schroef onder het achterschip
+## Opgelost 10-11-2026: schroef onder het achterschip
 
-In de vormstudie staat de schroefnaaf op X=35, Z=22 mm. De romp laat daar een straal van
-14,5 mm vrij, dus hooguit een schroef van Ø29 mm. Voor de Ø40 mm uit de bestellijst:
+In p2 liet de romp bij de schroefnaaf maar een straal van 14,5 mm vrij, dus hooguit een
+schroef van Ø29 mm, en het roerblad zat waar de schroef had moeten draaien. Het achterschip
+is daarom opnieuw getekend (`stern` in `parameters.json`):
 
-| Naaf op X (mm vanaf de spiegel) | Naafhoogte Z | Vrije straal | Speling bij Ø40 |
-|---:|---:|---:|---:|
-| 35 | 22 | 14,5 | past niet |
-| 25 | 20 | 22,5 | 2,5 mm, bladpunt op de kiellijn |
-| 20 | 22 | 23,2 | 3,2 mm, bladpunt 2 mm boven de kiellijn |
+- Onder de toonbank (z 44–47 mm) loopt de romp uit in een smalle scheg, halve breedte 9 mm,
+  die bij x=44 eindigt. Daar komt de stevenbuis naar buiten.
+- Schroefnaaf op x=36, z=20,5. Een Ø40-schroef heeft rondom minstens 4,0 mm vrij naar de
+  romp en steekt niet onder de kiellijn uit.
+- Gebalanceerd hangroer met NACA-profiel (koorde 22, dikte 30 %), voorrand op x=29, koning
+  op x=23. Het roer raakt de schroefcirkel niet; `validate.py` controleert dat nu.
+- De schroefas stijgt met 5,9° (helling 0,103) naar de motor; de servoplaat schuift naar x=150.
+- De buitenkant is vanaf x=212 gelijk aan p2. Daarom zijn alleen `01_romp_1`, `52_servoplaat`,
+  `56_roerblad` en de nieuwe schroefmal `57_schroefmal_40` veranderd.
 
-Bij X=20 tot 25 zit de schroef in het huidige roerblad (X=-2 tot 22). Leg schroefaslijn,
-schroefmaat en roer dus samen vast voordat de doorvoeren in de romp komen. Ø45 mm past nergens
-zonder onder de kiel uit te steken.
+Waterverplaatsing bij de ontwerpwaterlijn (54 mm): 4,571 kg (was 4,628); drukkingspunt op
+x=411 mm.
+
+![Achterschip voor en na in de vormstudie](../beelden/cad-voor-na-achterschip.jpg)
+![Rompdeel 1 voor en na in de CAD](../beelden/cad-achterschip-romp.jpg)

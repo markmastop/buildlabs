@@ -142,9 +142,9 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
     </div>
     <div class="groups" id="parts">
       <div class="group"><h3>Aandrijving</h3><ul>
-        <li><label><input type="checkbox" id="o1"><span class="name">MFA Torpedo 850 (langzaamlopend)</span><span class="tag">basis</span><span class="detail">Laag toerental met veel koppel, dus een schaalechte vaart met de 45 mm-schroef. Een 540 draait hiervoor te snel. Ca. € 30–40.</span></label></li>
+        <li><label><input type="checkbox" id="o1"><span class="name">MFA Torpedo 850 (langzaamlopend)</span><span class="tag">basis</span><span class="detail">Laag toerental met veel koppel, dus een schaalechte vaart met de 40 mm-schroef. Een 540 draait hiervoor te snel. Ca. € 30–40.</span></label></li>
         <li><label><input type="checkbox" id="o2"><span class="name">Raboesch schroefas M4 met stevenbuis</span><span class="tag">basis</span><span class="detail">Ca. 20 cm lang, met oliebuisje tegen lekkage. Ca. € 20.</span></label></li>
-        <li><label><input type="checkbox" id="o3"><span class="name">Raboesch messing schroef Ø 45 mm, M4</span><span class="tag">basis</span><span class="detail">Eén schroef, zoals het origineel. Ca. € 15.</span></label></li>
+        <li><label><input type="checkbox" id="o3"><span class="name">Raboesch messing schroef Ø 40 mm, M4</span><span class="tag">basis</span><span class="detail">Eén schroef, zoals het origineel. Ca. € 15.</span></label></li>
         <li><label><input type="checkbox" id="o4"><span class="name">Flexibele askoppeling</span><span class="tag">basis</span><span class="detail">Vangt kleine uitlijnfouten tussen motor en as op. Ca. € 5.</span></label></li>
         <li><label><input type="checkbox" id="o5"><span class="name">Roer met roerkoning en roerarm</span><span class="tag">basis</span><span class="detail">Roerblad zelf printen, iets groter dan schaal voor betere wendbaarheid.</span></label></li>
         <li><label><input type="checkbox" id="o6"><span class="name">Raboesch boegschroef, 20 mm tunnel</span><span class="tag">basis</span><span class="detail">Bij één schroef echt aan te raden: zonder draait het schip traag. Ca. € 30–40.</span></label></li>
@@ -223,6 +223,11 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
     var pos = [], col = [], idx = [], P = 2 * M, c = new THREE.Color();
     levels.forEach(function (L) {
       c.set(L.color);
+      if (L.xs) {
+        for (var i0 = 0; i0 < M; i0++) { pos.push(L.xs[i0], L.y, -L.wf(L.xs[i0])); col.push(c.r, c.g, c.b); }
+        for (var j0 = M - 1; j0 >= 0; j0--) { pos.push(L.xs[j0], L.y, L.wf(L.xs[j0])); col.push(c.r, c.g, c.b); }
+        return;
+      }
       for (var i = 0; i < M; i++) { var t = i / (M - 1); pos.push(L.x0 + t * (L.x1 - L.x0), L.y, -L.hw * taper(t, L.ts, L.ss, L.sf)); col.push(c.r, c.g, c.b); }
       for (var j = M - 1; j >= 0; j--) { var t2 = j / (M - 1); pos.push(L.x0 + t2 * (L.x1 - L.x0), L.y, L.hw * taper(t2, L.ts, L.ss, L.sf)); col.push(c.r, c.g, c.b); }
     });
@@ -400,14 +405,44 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
   function bowX(y) { return station(y, 3); }
   function hullCol(y) { return y < WL ? BOTTOM : NAVY; }
   function hullLevel(y) { return {y:y, x0:hullX0(y), x1:bowX(y), hw:hullHW(y), ts:HTS, ss:HSS, sf:HSF, color:hullCol(y)}; }
+  // Achterschip met schroefopening (10-11): onder de toonbank (y 4,4-4,7) loopt de romp uit in een
+  // smalle scheg met de stevenbuis, zodat een schroef van Ø 4 cm en het roer erachter vrij draaien.
+  // [y, achtereinde x, halve breedte daar, afrondingslengte]; vanaf y 5,25 gelijk aan de oude vorm.
+  var sternStations = [[0,14,0.51,3.5],[0.4,6,0.6,8],[0.8,4.7,0.9,16],[2,4.4,0.9,16.5],[3.5,4.3,0.9,16.5],
+    [4.4,4.3,0.95,16.5],[4.7,0.9,6.3,4.6],[5.25,0.8,6.435,4.6]];
+  function sternAt(y, col) {
+    if (y >= 5.25) return [hullX0(y), HSF * hullHW(y), HSS * (bowX(y) - hullX0(y))][col - 1];
+    for (var i = 1; i < sternStations.length; i++) if (y <= sternStations[i][0]) {
+      var a = sternStations[i - 1], b = sternStations[i], t = Math.max(0, (y - a[0]) / (b[0] - a[0]));
+      return a[col] + (b[col] - a[col]) * t;
+    }
+  }
   function hwAt(x, y) {
-    var x0 = hullX0(y), x1 = bowX(y);
-    if (x < x0 || x > x1) return 0;
-    return hullHW(y) * taper((x - x0) / (x1 - x0), HTS, HSS, HSF);
+    var x0 = hullX0(y), x1 = bowX(y), ax = sternAt(y, 1);
+    if (x < ax || x > x1) return 0;
+    var hw = hullHW(y), t = (x - x0) / (x1 - x0), f = 1;
+    if (t > HTS) { var u = (t - HTS) / (1 - HTS); f = Math.sqrt(Math.max(0, 1 - u * u)); }
+    var L = sternAt(y, 3), d = x - ax;
+    if (d < L) { var sf = sternAt(y, 2) / hw, v = (L - d) / L; f *= sf + (1 - sf) * Math.sqrt(Math.max(0, 1 - v * v)); }
+    return hw * f;
+  }
+  function sternLevel(y) {
+    var ax = sternAt(y, 1), L = sternAt(y, 3), x1 = bowX(y), xs = [];
+    for (var k = 0; k < 17; k++) xs.push(ax + L * (1 - Math.cos(k / 16 * Math.PI / 2)));
+    for (var m = 1; m <= 83; m++) xs.push(ax + L + (x1 - ax - L) * m / 83);
+    return {y:y, xs:xs, wf:function (x) { return hwAt(x, y); }, color:hullCol(y)};
   }
   var hullYs = hullStations.map(function (s) { return s[0]; });
-  var lowerYs = hullYs.filter(function (y) { return y <= AFT; });
-  var lowerHull = loft(lowerYs.map(hullLevel),100);ship.add(lowerHull);
+  var lowerYs = [0, 0.4, 0.8, 2, 3.5, 4.4, 4.7, 5.25, 5.4, 7, 9, 10.7];
+  var lowerHull = loft(lowerYs.map(sternLevel),100);ship.add(lowerHull);
+  // Vlakke kielplaat onder de laagste ring, anders blijft daar een open spleet van 1,3 cm.
+  (function () {
+    var L0 = sternLevel(0), sk = new THREE.Shape();
+    L0.xs.forEach(function (x, i) { if (i === 0) sk.moveTo(x, -L0.wf(x)); else sk.lineTo(x, -L0.wf(x)); });
+    L0.xs.slice().reverse().forEach(function (x) { sk.lineTo(x, L0.wf(x)); });
+    var kg = new THREE.ShapeGeometry(sk); kg.rotateX(Math.PI / 2);
+    ship.add(new THREE.Mesh(kg, new THREE.MeshStandardMaterial({ color: BOTTOM, roughness: 0.8, side: THREE.DoubleSide })));
+  })();
   var upperYs = [AFT, 11.4, MAIN];
   // Boven de achterste werkvloer stopt de gesloten romp bij x = 24.
   function forwardLevel(y) { var L = hullLevel(y); L.x0 = 24; L.ts = (HTS * (bowX(y) - hullX0(y)) + hullX0(y) - 24) / (bowX(y) - 24); L.ss = 0; return L; }
@@ -519,12 +554,22 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
     top.add(box(0.15,MAIN-0.6-AFT,14.6,recessMat,23.65,(AFT+MAIN-0.6)/2,0));
   })();
 
-  // underwater: single shaft, 4-blade prop, rudder, skeg
-  var sh = new Rods(bronze, 8); sh.add(V(23.5, 4.1, 0), V(3.5, 2.2, 0), 0.4); ship.add(sh.build());
-  ship.add(box(10, 1.4, 0.6, new THREE.MeshStandardMaterial({ color: BOTTOM }), 8, 0.6, 0));
-  var hub = new THREE.Mesh(new THREE.SphereGeometry(0.55, 12, 8), bronze); hub.position.set(3.5, 2.2, 0); ship.add(hub);
-  for (var bl = 0; bl < 4; bl++) { var bb = box(0.15, 2.1, 0.9, bronze, 3.5, 2.2, 0); bb.geometry.translate(0, 1.05, 0); bb.rotation.x = bl * Math.PI / 2; bb.rotation.y = 0.35; ship.add(bb); }
-  ship.add(box(2.4, 4, 0.35, new THREE.MeshStandardMaterial({ color: BOTTOM }), 1.0, 2.4, 0));
+  // Onderwater: schroef Ø 4 cm in de opening achter de scheg (naaf x 3,6 / y 2,05), as komt uit
+  // de scheg op x 4,4 en loopt onder 5,9° naar de motor. Gebalanceerd roer met NACA-profiel erachter.
+  var sh = new Rods(bronze, 8); sh.add(V(4.4, 2.12, 0), V(3.6, 2.05, 0), 0.2); ship.add(sh.build());
+  var hub = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.3, 0.8, 16), bronze); hub.rotation.z = Math.PI / 2; hub.position.set(3.6, 2.05, 0); ship.add(hub);
+  for (var bl = 0; bl < 4; bl++) { var bb = box(0.12, 1.6, 0.85, bronze, 3.6, 2.05, 0); bb.geometry.translate(0, 0.38 + 0.8, 0); bb.rotation.x = bl * Math.PI / 2 + 0.4; bb.rotation.y = 0.35; ship.add(bb); }
+  (function () {
+    var c = 2.2, th = 0.30, le = 2.9, sh2 = new THREE.Shape();
+    function half(q) { return Math.max(5 * th * c * (0.2969 * Math.sqrt(q) - 0.1260 * q - 0.3516 * q * q + 0.2843 * q * q * q - 0.1036 * q * q * q * q), q > 0 ? 0.04 : 0); }
+    var top = [], bot = [];
+    for (var k = 0; k <= 30; k++) { var q = (1 - Math.cos(k / 30 * Math.PI)) / 2; top.push([le - q * c, half(q)]); bot.push([le - q * c, -half(q)]); }
+    sh2.moveTo(top[0][0], top[0][1]); top.slice(1).forEach(function (p) { sh2.lineTo(p[0], p[1]); });
+    bot.reverse().forEach(function (p) { sh2.lineTo(p[0], p[1]); });
+    var g = new THREE.ExtrudeGeometry(sh2, { depth: 4.0, bevelEnabled: false, curveSegments: 4 }); g.rotateX(-Math.PI / 2);
+    var rud = new THREE.Mesh(g, new THREE.MeshStandardMaterial({ color: BOTTOM, roughness: 0.7 })); rud.position.y = 0.3; ship.add(rud);
+    var stock = new Rods(steelMat, 8); stock.add(V(2.3, 4.3, 0), V(2.3, 4.6, 0), 0.2); ship.add(stock.build());
+  })();
 
   // names: bow, stern quarter, transom
   function names() {
@@ -1097,9 +1142,9 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
     var line=new THREE.Line(new THREE.BufferGeometry().setFromPoints([V(x,y-0.5,z),V.apply(null,anchor)]),new THREE.LineBasicMaterial({color:'#7799a7',depthTest:false}));rcLabels.add(line);
   }
   // Motoras en stevenbuis liggen op één lijn. Voorlopige motormantel Ø 60 × 100 mm.
-  component('stevenbuis',cylinderBetween(V(3.5,2.2,0),V(23.5,4.1,0),0.4,steelMat));
-  component('askoppeling',cylinderBetween(V(23.5,4.1,0),V(25,4.2425,0),0.6,rcMat.motor));
-  component('motor',cylinderBetween(V(25,4.2425,0),V(35,5.1925,0),3.0,rcMat.motor));
+  component('stevenbuis',cylinderBetween(V(4.2,2.1,0),V(23.5,4.1,0),0.4,steelMat));
+  component('askoppeling',cylinderBetween(V(23.5,4.1,0),V(25,4.2545,0),0.6,rcMat.motor));
+  component('motor',cylinderBetween(V(25,4.2545,0),V(35,5.2847,0),3.0,rcMat.motor));
   component('motorsteun',box(11.2,0.3,7.0,greyMat,30,1.45,0));
   [-2.4,2.4].forEach(function(z) {rc.add(box(0.4,1.4,0.4,greyMat,30,2.2,z));});
   // Accu laag op de hartlijn, in een uitneembare bak met bandjes.
@@ -1115,11 +1160,13 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
   component('zekering',box(2.5,1.0,1.5,orange,43,7,4));
   component('hoofdschakelaar',box(2.0,1.2,1.5,darkMat,49,7,4));
   // Roerservo en stangen: visuele mechanische route, nog geen gekozen servohevel.
-  component('roerservo',box(4.2,4.0,2.0,rcMat.servo,11,6.5,3.5));
-  rc.add(box(0.8,0.2,3.0,greyMat,11,8.6,3.5));
-  rcShafts.add(V(1,2.4,0),V(1,8.6,0),0.15);
-  rcShafts.add(V(1,8.6,0),V(1,8.6,2),0.12);
-  rcShafts.add(V(1,8.6,2),V(11,8.6,2),0.07);
+  // Roerkoning op x 2,3 door de toonbank; koker tot boven de waterlijn, roerarm op 7,2.
+  component('roerservo',box(4.2,4.0,2.0,rcMat.servo,15,5.0,3.5));
+  rc.add(box(0.8,0.2,3.0,greyMat,15,7.2,3.5));
+  component('roerkoker',cylinderBetween(V(2.3,4.58,0),V(2.3,6.9,0),0.35,steelMat));
+  rcShafts.add(V(2.3,0.3,0),V(2.3,7.4,0),0.2);
+  rcShafts.add(V(2.3,7.2,0),V(2.3,7.2,1.8),0.12);
+  rcShafts.add(V(2.3,7.2,1.8),V(15,7.2,2.2),0.07);
   // Boegschroef: 20 mm dwarstunnel plus generieke verticale motorruimte.
   var tunnelHalf=hwAt(76,5.0)+0.3;
   var tunnelProfile=[new THREE.Vector2(1,-tunnelHalf),new THREE.Vector2(1.15,-tunnelHalf),new THREE.Vector2(1.15,tunnelHalf),new THREE.Vector2(1,tunnelHalf),new THREE.Vector2(1,-tunnelHalf)];
@@ -1134,18 +1181,18 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
   route(rcWires,[[67,7.3,3.5],[73,7.0,3.5],[76,8,0]],0.07);
   route(rcWires,[[55.5,8,-4],[55.5,9,-5.5],[11,9,-5.5],[11,8.5,3.5]],0.035);
   rc.add(rcPower.build());rc.add(rcWires.build());rc.add(rcShafts.build());
-  label('1 Roerservo',10,11,-7,[11,8.5,3.5]);
+  label('1 Roerservo',13,11,-7,[15,7.0,3.5]);
   label('2 Motorruimte',29,11,-10,[30,6,0]);
   label('3 Accu 2S',46,11,-10,[46,4.1,0]);
   label('4 Hoofdregelaar',32,11,11,[37,8,4]);
   label('5 Ontvanger',56,13,-10,[55.5,8.3,-4]);
   label('6 Boegregelaar',65,11,11,[67,8,3.5]);
   label('7 Boegschroef',77,11,-10,[76,8,0]);
-  var rcParts=[['1 Roerservo','4,2 × 2,0 × 4,0 cm (reserve)','11 cm'],
+  var rcParts=[['1 Roerservo','4,2 × 2,0 × 4,0 cm (reserve)','15 cm'],
     ['2 Motor','Ø 6 × 10 cm (reserve)','25–35 cm'],['3 Accu 2S','14 × 4,8 × 2,8 cm (reserve)','39–53 cm'],
     ['4/6 Regelaars','3,65 × 3,2 × 1,8 cm (fabrikant, zonder kabelruimte)','37 / 67 cm'],
     ['5 Ontvanger','5,5 × 3 × 2 cm (reserve)','55,5 cm'],['7 Boegschroef','Ø 2 cm tunnel; motor Ø 2,4 × 3 cm (reserve)','76 cm'],
-    ['Stevenbuis / koppeling','ca. 20 cm / 1,5 cm (reserve)','3,5–25 cm'],['Ballastbakken','2 × 4,8 × 4 × 0,65 cm; gewicht nog bepalen','57 / 63 cm']];
+    ['Schroef / roer','Ø 4 cm, naaf op 3,6 cm / NACA-roer 2,2 × 4 cm','2,3–4 cm'],['Stevenbuis / koppeling','ca. 19,5 cm / 1,5 cm (reserve)','4–25 cm'],['Ballastbakken','2 × 4,8 × 4 × 0,65 cm; gewicht nog bepalen','57 / 63 cm']];
   var rows=document.getElementById('rc-parts');rcParts.forEach(function(part) {var tr=document.createElement('tr');part.forEach(function(value) {var td=document.createElement('td');td.textContent=value;tr.appendChild(td);});rows.appendChild(tr);});
 
   // ---------- Print seams, water, controls ----------

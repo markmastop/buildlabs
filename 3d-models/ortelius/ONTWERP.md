@@ -70,6 +70,7 @@ vormstudie op basis van die verzameling, geen vastgelegde historische toestand.
 | 05, 14 | Helidek, hangaringang en veiligheidsnetten | Groter, afgeschuind helidek met open netstructuur en zichtbare hangaringang |
 | 06, 09, 14 | Schoorsteenkap, uitlaten, mast en davits | Schuine witte mantel, oplopende zwarte kap, drie mastarmen en geknikte sloepdavits |
 | 07, 16 | Droogdok en boeg | Oplopend onderwaterschip achter en smallere kiel; verdere onderwatervorm blijft onzeker |
+| Ontwerp 10-11 | Schroefopening achter | Onder de toonbank (y 4,4–4,7) loopt de romp uit in een smalle scheg die bij x 4,4 eindigt. Daarachter draait een schroef van Ø 4 cm (naaf x 3,6, y 2,05) met rondom 4 mm vrij naar de romp, en een gebalanceerd profielroer (koorde 2,2, voorrand x 2,9). Vanaf x 21,2 is de romp ongewijzigd |
 
 De scheepsnaam is behouden. Het gekleurde embleem op de schoorsteen is
 verwijderd; het model heeft geen rederijlogo's. De valreep hangt aan bakboord uitgezet
@@ -203,9 +204,10 @@ blijven behouden. De CAD- en printbestanden zijn apart uitgewerkt in p1.
 
 | Onderdeel | Positie x (cm) | Keuze |
 |---|---|---|
-| Stevenbuis / koppeling | 3,5–23,5 / 23,5–25 | Loopt van y 2,2 naar y 4,1; motor ligt op dezelfde aslijn |
+| Schroef / roer | 3,6 / 0,7–2,9 | Schroef Ø 4 achter de scheg; profielroer met koning op x 2,3, koker door de toonbank tot boven de waterlijn |
+| Stevenbuis / koppeling | 4,2–23,5 / 23,5–25 | Verlaat de scheg op y 2,1 en stijgt 5,9° naar y 4,1; motor ligt op dezelfde aslijn |
 | Motor | 25–35 | Reserve Ø 6 × 10; schuine aslijn, neutrale mantel |
-| Roerservo | 11 | Reserve 4,2 × 2 × 4; naast de as, met roerkoker/hefboom en stang |
+| Roerservo | 15 | Reserve 4,2 × 2 × 4; naast de as, met hefboom en stang naar de roerkoning |
 | Accu 2S | 39–53 | Reserve 14 × 4,8 × 2,8; bak 16 × 6, laag op y 1,25 |
 | Regelaars | 37 / 67 | Behuizingen 3,65 × 3,2 × 1,8; extra stekkerruimte niet meegerekend |
 | Ontvanger | 55,5 | Reserve 5,5 × 3 × 2; op verhoogde montageplaat |
