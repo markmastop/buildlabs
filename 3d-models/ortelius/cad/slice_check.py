@@ -22,7 +22,11 @@ machine=resolve(PROFILES/'machine/Bambu Lab P2S 0.4 nozzle.json')
 machine['curr_bed_type']='Textured PEI Plate'
 assert machine['printable_height']=='256'
 assert any('256' in s for s in machine['printable_area'])
-filament=resolve(PROFILES/'filament/Generic ASA @BBL P2S.json')
+# PETG (zie ONTWERP.md). Profielnamen verschillen per Bambu Studio-versie: neem de eerste die bestaat.
+FILAMENTS=['Generic PETG @BBL P2S','Generic PETG HF @BBL P2S','Generic PETG @BBL X1C','Generic PETG']
+name=next((n for n in FILAMENTS if (PROFILES/'filament'/(n+'.json')).exists()),None)
+assert name,('Geen PETG-profiel gevonden in '+str(PROFILES/'filament'),FILAMENTS)
+filament=resolve(PROFILES/'filament'/(name+'.json'))
 for n,d in [('machine',machine),('filament',filament)]:
  (tmp/(n+'.json')).write_text(json.dumps(d))
 for n in ['romp','details']:

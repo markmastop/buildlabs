@@ -54,6 +54,7 @@ Zie [de vergelijking](../cad/VERGELIJKING.md#opgelost-10-11-2026-schroef-onder-h
 
 `01_romp_2` t/m `01_romp_4`, de lasstroken en alle overige delen zijn ongewijzigd.
 
-**Nog te doen:** de slicercontrole draaien voor deze vier delen. Doe dit op de Mac:
-`cad/slice_check.py 01_romp_1 52_servoplaat 56_roerblad 57_schroefmal_40`
+**Nog te doen:** de slicercontrole rekent nu met PETG in plaats van ASA. Omdat het filamentprofiel
+anders is, kan het script de oude uitslagen niet hergebruiken. Draai daarom één keer de volledige
+controle op de Mac: `python3 cad/slice_check.py` (zonder onderdeelnamen).
 
