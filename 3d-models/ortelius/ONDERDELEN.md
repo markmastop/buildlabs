@@ -1,24 +1,29 @@
 # Onderdelen
 
-Dit is de eerdere, **niet bevestigde selectielijst** voor de RC-hardware.
-Prijzen en modelkeuzes hieronder zijn niet opnieuw geverifieerd; gebruik
-ze niet als actuele bestellijst. CAD p2 bevat generieke houders en een
-Ø4 mm roerbladboring. Pas die aan de daadwerkelijk gekozen hardware aan.
+De vier onderdelen voor de mechanische pasproef volgen de
+[maatbasis van de p3-aandrijving](cad/aandrijving/README.md).
+Op de [bestellijst](bestellen.html) staan de directe bestellinks.
+De overige hardware is voorlopig en de genoemde prijzen zijn richtprijzen.
 
 ## Aandrijving
-- [ ] MFA Torpedo 850, langzaamlopende motor (één schroef, zoals het origineel) — ca. € 30–40.
-  Selectie, voeding, belasting en motortoerental zijn nog niet doorgerekend.
-- [ ] Raboesch schroefas M4 met stevenbuis, ca. 20 cm — ca. € 20
-- [ ] Raboesch messing schroef Ø 40 mm, M4 — ca. € 17
-  (Ø 40 is de grootste die in het achterschip past, met circa 4 mm speling; zie `cad/VERGELIJKING.md`)
-- [ ] Flexibele askoppeling — ca. € 5
-- [ ] Roer met roerkoning (messing/RVS 3 mm) en roerarm
-- [ ] Raboesch boegschroef met 20 mm tunnel — ca. € 30–40
+- [ ] Raboesch 301-24 schroefas, Ø4 × 236 mm, stevenbuis Ø6 × 200 mm, M4
+- [ ] Raboesch 156-05 messing driebladsschroef, Ø40 mm, M4, rechtsdraaiend
+- [ ] Krick MAX Power 600, artikel 42124, motoras Ø3,17 mm
+- [ ] Navy 1482 askoppeling, Ø3,17 mm motorzijde en Ø4 mm aszijde
+
+De p3-motorsteun is uitgewerkt met de 236 mm-as. Controleer de echte
+schroef bij het roer en de kiel vóór het boren, lijmen of maken van de
+messing doorvoerbus.
+
+## Stuurwerk en latere uitbreiding
+- [ ] Metalen roerkoning Ø4 mm met bijpassende roerarm voor het p2-roerblad.
+- [ ] Raboesch boegschroef met eigen regelaar. Controleer de tunnelmaat en
+  koop deze pas na de mechanische pasproef.
 
 ## Besturing en stroom
 - [ ] FlySky FS-i6X zender + FS-iA10B ontvanger, 10 kanalen — ca. € 55
 - [ ] Hobbywing QuicRun 1060 voor de hoofdmotor (waterdicht, vooruit/achteruit, BEC) — ca. € 25
-- [ ] Tweede Hobbywing QuicRun 1060 voor de boegschroef — ca. € 25
+- [ ] Tweede Hobbywing QuicRun 1060 voor de boegschroef, als latere uitbreiding — ca. € 25
 - [ ] Waterdichte roerservo, ca. 10 kg·cm — ca. € 15–25
 - [ ] Accu 2S LiPo 5000 mAh, hardcase — ca. € 30–40
   (alternatief: 6 V loodaccu, ca. 0,8 kg, goedkoper en meteen ballast)
@@ -55,12 +60,13 @@ printmassa en trim moeten eerst worden gewogen/getest. Zie de
 [bouwbeschrijving](print/BOUWHANDLEIDING.md).
 
 ## Bestelvolgorde
-1. Zender, motor, as, schroef, ESC en servo: daarmee kun je testen zodra het
-   eerste rompdeel geprint is.
-2. Boegschroef, accu en lader.
-3. Geluid en verlichting als het schip vaart.
+
+1. Schroefas en schroef voor de eerste mechanische pasproef.
+2. Motor en koppeling voor de volledige droge pasproef. Deze kunnen
+   desgewenst bij de eerste bestelling mee.
+3. Na de pasproef volgen één hoofdregelaar, accu, lader, zender en stuurwerk.
+4. Boegschroef met eigen regelaar, geluid en verlichting volgen later.
 
 ## Bronnen
 - [Hobbywing QuicRun 1060 – EuroRC](https://www.eurorc.com/product/7871/hobbywing-quicrun-1060-waterproof-brushed-60a-speed-controller)
 - [FlySky FS-i6X met FS-iA10B – Racer.lt](https://racer.lt/item/flysky-fs-i6x-i6x-10ch-2-4ghz-afhds-2a-rc-transmitter-with-fs-ia10b-receiver-for-fpv-rc-drone-26447.html)
-- [Raboesch schroef Ø 45 mm M4 – Tecnimodel (te groot voor het achterschip; zelfde serie in Ø 40)](https://www.tecnimodel.com/en/m4-thread/11665-three-blade-brass-propeller-o45mm-m4-range-156-type-d-raboesch-straight.html)

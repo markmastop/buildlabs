@@ -32,7 +32,7 @@ Het model begint stil. Met **Water** uit zie je het geschatte onderwaterschip.
 |---|---|
 | [`START-HIER.md`](START-HIER.md) | Actuele status en werkvolgorde |
 | [`ONTWERP.md`](ONTWERP.md) | Maten, fotokoppeling, aannames en bronfuncties |
-| [`ONDERDELEN.md`](ONDERDELEN.md) | Voorlopige onderdelenlijst voor de latere RC-uitwerking |
+| [`bestellen.html`](bestellen.html) en [`ONDERDELEN.md`](ONDERDELEN.md) | Bestelvolgorde, winkellinks en onderdelen voor de p3-pasproef |
 | [`referentie/README.md`](referentie/README.md) | Overzicht van 34 lokale beeldbestanden in `images/` (buiten Git) |
 | [`beelden/render.jpg`](beelden/render.jpg) | Browserweergave van het hele model |
 | [`beelden/middenschip-v3.jpg`](beelden/middenschip-v3.jpg) | Detail van de open galerijen en dekuitrusting |
@@ -102,8 +102,9 @@ helikopterdek en hangar toegevoegd in 2007.
   losse lasstroken met lijmspeling en afneembare dek-/opbouwunit. Alle
   printdelen blijven binnen 246 mm per as. Er zijn geen magneetverbindingen.
 - Het achterste werkdek heeft een apart serviceluik met vier M3-borgpunten.
-- Eén schroef (MFA Torpedo 850, langzaamlopend) en één roer zoals het origineel, plus een boegschroef voor
-  wendbaarheid.
+- Eén schroef en één roer zoals het origineel. De
+  [p3-aandrijving](cad/aandrijving/README.md) gebruikt de Krick MAX Power 600
+  als uitgangspunt voor de pasproef. De boegschroef volgt later.
 - Kenmerken uit de foto's: hoge voorromp met beplatingsvlakken en open achterdekken, witte
   hoekige schoorsteen met zwarte vakwerkmast, grote oranje geknikte davits, laag
   helidek achter op kolommen, groene dekken.
