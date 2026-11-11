@@ -6,8 +6,8 @@ dek en de plaats van de opbouw te beoordelen.
 
 | Printbestand | Buitenmaten |
 | --- | --- |
-| [Voorste helft](pasmal-voor.stl) | 190 × 196,25 × 2,9 mm |
-| [Achterste helft](pasmal-achter.stl) | 190 × 200 × 2,9 mm |
+| [Voorste helft](01_dekmal_voor.stl) | 190 × 196,25 × 2,9 mm |
+| [Achterste helft](02_dekmal_achter.stl) | 190 × 200 × 2,9 mm |
 | [Losse pasproef voor de dekopening](00_pasproef.stl) | 212 × 160 × 8 mm inclusief flens |
 
 1. Print de twee helften vlak zoals ze openen, op 100% schaal. Gebruik
@@ -38,7 +38,7 @@ De CAD-bron voor de mal staat in [maak_pasmal.py](maak_pasmal.py).
 
 ## Hoogtemal voor de stuurhut
 
-Print de [hoogtemal](hoogtemal-stuurhut.stl) en de [losse voet](hoogtemal-voet.stl)
+Print de [hoogtemal](03_hoogtemal_stuurhut.stl) en de [losse voet](04_hoogtemal_voet.stl)
 plat op 100%, zonder supports. De mal is 157 × 34 mm en de voet 46 × 40 mm.
 Steek het onderste uiteinde door de voet tot het gelijk ligt met de onderkant.
 Zet de voet direct op het rompdek, naast de gemarkeerde stuurhutpositie.

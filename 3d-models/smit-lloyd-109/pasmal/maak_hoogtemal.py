@@ -20,7 +20,7 @@ foot = cq.Workplane("XY").box(46, 40, 8, centered=(True, True, False))
 slot = cq.Workplane("XY").box(34.5, 3.3, 10, centered=(True, True, False))
 foot = foot.cut(slot)
 
-for name, part in [("hoogtemal-stuurhut", gauge), ("hoogtemal-voet", foot)]:
+for name, part in [("03_hoogtemal_stuurhut", gauge), ("04_hoogtemal_voet", foot)]:
     assert part.val().isValid() and len(part.solids().vals()) == 1
     bounds = part.val().BoundingBox()
     part = part.translate((-bounds.xmin, -bounds.ymin, -bounds.zmin))
@@ -29,6 +29,6 @@ for name, part in [("hoogtemal-stuurhut", gauge), ("hoogtemal-voet", foot)]:
     mesh = trimesh.load_mesh(path)
     assert mesh.is_watertight and len(mesh.split()) == 1
     assert max(mesh.extents) < 246
-    if name.endswith("stuurhut"):
+    if name == "03_hoogtemal_stuurhut":
         assert abs(mesh.extents[1] - 157) < .01
     print(name, mesh.extents.round(2).tolist())

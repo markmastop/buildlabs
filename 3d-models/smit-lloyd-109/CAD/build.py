@@ -423,13 +423,7 @@ for i,(an,a,_,_) in enumerate(parts):
         volume=a.intersect(b).Volume()
         if volume>.05:validation['collisions'].append(dict(a=an,b=bn,volume_mm3=round(volume,5)))
 (ROOT/'controle.json').write_text(json.dumps(dict(validation=validation,parts=records),ensure_ascii=False,indent=2))
-(ROOT/'interferenties.json').write_text(json.dumps(validation['collisions'],indent=2))
 cq.exporters.export(assembly,str(ROOT/'STEP/SL109_v17_assemblage.step'))
-# Assembly meshes stay centred at the same world reference for meaningful version comparisons.
-def mesh(s,name='',roof=False,base=False):
-    v,f=s.tessellate(.22,.22)
-    return dict(name=name,v=[a for q in v for a in [round(q.x-192.5,3),round(q.y,3),round(q.z-95,3)]],f=[j for tri in f for j in tri],roof=roof,base=base)
-(ROOT/'viewer_mesh.json').write_text(json.dumps({'v4':[mesh(s,'v4_'+str(i),i in [12,13],i<11 or i in [22,23]) for i,s in enumerate(OLD)],'v17':[mesh(s,n,r,b) for n,s,r,b in parts]},separators=(',',':')))
 with (ROOT/'onderdelen.csv').open('w') as f:
     w=csv.writer(f);w.writerow(['onderdeel','aantal','X_mm','Y_mm','Z_mm','volume_cm3','printstand','in_assemblage','opmerking'])
     for r in records:w.writerow([r['part'],r['qty'],*r['print_mm'],r['volume_cm3'],r['orientation'],r['assembled'],r['note']])

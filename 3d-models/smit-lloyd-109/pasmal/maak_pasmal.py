@@ -48,13 +48,13 @@ for x in (295, 379):
         for a, b in [(y0, y0 + 5), (y1 - 5, y1)]:
             template = template.union(box(x - .5, x + .5, a, b, .6, THICKNESS - .1))
 
-for label, x0, x1 in [("voor", 0, 190), ("achter", 190, 380)]:
+for number, label, x0, x1 in [(1, "voor", 0, 190), (2, "achter", 190, 380)]:
     piece = template.intersect(box(x0, x1, -105, 105, 6))
     shape = piece.val()
     assert len(piece.solids().vals()) == 1 and shape.isValid(), label
     bounds = shape.BoundingBox()
     piece = piece.translate((-bounds.xmin, -bounds.ymin, -bounds.zmin))
-    filename = OUTPUT / f"pasmal-{label}.stl"
+    filename = OUTPUT / f"{number:02d}_dekmal_{label}.stl"
     cq.exporters.export(piece, str(filename), tolerance=.03, angularTolerance=.1)
     mesh = trimesh.load_mesh(filename)
     assert mesh.is_watertight and mesh.is_winding_consistent and len(mesh.split()) == 1
