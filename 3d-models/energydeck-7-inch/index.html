@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="3D-printbare EnergyDeck-behuizing voor het ELECROW CrowPanel Advance 7.0 ESP32-S3-display (DIS02170A), met STL, STEP en pasproeven.">
+<title>EnergyDeck 7-inch behuizing · Build Labs</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #edf2f5;
+  --card: #f8fafb;
+  --ink: #14212c;
+  --muted: #475c6b;
+  --rule: #c9d5dd;
+  --accent: #135c7f;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1720;
+    --card: #142330;
+    --ink: #e4ecf1;
+    --muted: #aabcc8;
+    --rule: #344a5a;
+    --accent: #87cce9;
+  }
+}
+* { box-sizing: border-box }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 "IBM Plex Sans", system-ui, sans-serif }
+.wrap { width: min(1100px, 100% - 36px); margin: 24px auto 56px; display: grid; gap: 28px }
+.hero > div { display: grid; gap: 12px; align-content: start }
+h1, h2, h3, p, figure, dl { margin: 0 }
+h1 { font-size: clamp(2.5rem, 7vw, 5.4rem); line-height: .98; letter-spacing: -.055em }
+h2 { font-size: 1.55rem; line-height: 1.25 }
+h3 { font-size: 1.05rem }
+p, li { max-width: 66ch }
+a { color: var(--accent); text-underline-offset: .18em }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px }
+.hero, .files { display: grid; gap: 22px }
+.hero { grid-template-columns: 1.05fr 1fr; align-items: start }
+.files { grid-template-columns: repeat(2, minmax(0, 1fr)) }
+.stage, .panel { background: var(--card); border: 1px solid var(--rule); border-radius: 14px; overflow: hidden }
+.stage img { display: block; width: 100%; height: auto }
+.panel { padding: 20px }
+.panel h3 + ul, .panel h2 + ol { margin-top: 8px }
+.panel ul, .panel ol { padding-left: 1.3em; margin-bottom: 0 }
+.panel li + li { margin-top: 5px }
+.muted, dt { color: var(--muted) }
+.specs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 18px; padding-top: 16px; border-top: 1px solid var(--rule) }
+dt { font-size: .875rem }
+dd { margin: 0; font-weight: 600 }
+.action { display: inline-flex; width: fit-content; padding: 9px 16px; border-radius: 999px; background: var(--ink); color: var(--bg); text-decoration: none; font-weight: 650 }
+main { display: grid; gap: 28px }
+.panel ol + p { margin-top: 12px }
+section > h2 { margin-bottom: 12px }
+@media (max-width: 740px) {
+  .hero, .files { grid-template-columns: 1fr }
+}
+</style>
+<style>.bl-home{justify-self:start;align-self:start;display:inline-flex;align-items:center;gap:8px;width:max-content;margin:0 0 4px;padding:7px 14px 7px 11px;border:1px solid rgba(127,140,150,.45);border-radius:999px;font:500 14px/1 "IBM Plex Sans",system-ui,sans-serif;color:inherit;text-decoration:none;background:transparent;transition:border-color .15s,background .15s}.bl-home:hover{border-color:currentColor;background:rgba(127,140,150,.12)}.bl-home:focus-visible{outline:2px solid currentColor;outline-offset:2px}.bl-home svg{width:15px;height:15px;flex:none}</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="bl-home" href="../../index.html" aria-label="Terug naar het Build Labs-overzicht"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/></svg>Build Labs</a>
+  <header class="hero">
+    <div>
+      <p class="muted">Printprototype v9</p>
+      <h1>EnergyDeck<br>7-inch behuizing</h1>
+      <p>Voor het <strong>ELECROW CrowPanel Advance 7.0 HMI ESP32-S3 IPS-touchdisplay</strong> (DIS02170A, 800 × 480).</p>
+      <p>Het display staat rechtop in portretstand en helt 18° achterover. Het voorframe schuift vanaf rechts op de behuizing en klikt vast met een losse borgclip.</p>
+      <dl class="specs">
+        <div><dt>Voet</dt><dd>126 × 120 mm</dd></div>
+        <div><dt>Hoogte</dt><dd>circa 232 mm</dd></div>
+        <div><dt>Steunbalkjes</dt><dd>10 mm hoog</dd></div>
+        <div><dt>USB-doorgang</dt><dd>30 mm breed</dd></div>
+      </dl>
+      <a class="action" href="#printbestanden">Naar de printbestanden</a>
+    </div>
+    <figure class="stage">
+      <img src="beelden/overzicht-v9.png" width="1900" height="2200" alt="Ontwerprender met voor- en achteraanzicht, schuifbaar voorframe en de meegetekende afbreeksteunen">
+    </figure>
+  </header>
+
+  <main>
+    <section id="printbestanden" aria-labelledby="printtitel">
+      <h2 id="printtitel">Printbestanden</h2>
+      <div class="files">
+        <div class="panel">
+          <h3>Behuizing en montage</h3>
+          <ul>
+            <li><a href="print/02_case_schuifframe.stl" download>Behuizing v9 met afbreeksteunen · STL</a></li>
+            <li><a href="print/03_voorframe_schuif.stl" download>Schuifbaar voorframe · STL</a></li>
+            <li><a href="print/04_borgclip.stl" download>Borgclip · STL</a></li>
+            <li><a href="cad/02_case_schuifframe.step" download>Behuizing v9 · STEP</a></li>
+            <li><a href="cad/05_assemblage.step" download>Assemblage · STEP</a></li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Pasproeven</h3>
+          <ul>
+            <li><a href="print/00a_pasproef_schuif_case.stl" download>Schuifgeleider van de behuizing · STL</a></li>
+            <li><a href="print/00b_pasproef_schuif_frame.stl" download>Rail van het voorframe · STL</a></li>
+            <li><a href="print/00c_pasproef_borgclip_case.stl" download>Opname voor de borgclip · STL</a></li>
+            <li><a href="print/01_pasproef_USB_10mm.stl" download>Steunbalkjes en USB-doorgang · STL</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="montagetitel">
+      <h2 id="montagetitel">Printen en monteren</h2>
+      <div class="panel">
+        <ol>
+          <li>Test eerst de geleiders, de clip en je haakse USB-C-adapter met de pasproeven. De fysieke pasvorm van v9 is nog niet bevestigd.</li>
+          <li>Print de behuizing rechtop op de voet. Knip de 48 meegetekende steunen na het printen aan beide uiteinden los.</li>
+          <li>Plaats het display en de adapter via de open voorkant. Schuif het frame van rechts op de behuizing en plaats de borgclip bovenaan.</li>
+        </ol>
+        <p><a href="documentatie/LEESMIJ.txt">Lees de oorspronkelijke print- en montagehandleiding</a></p>
+      </div>
+    </section>
+  </main>
+</div>
+</body>
+</html>

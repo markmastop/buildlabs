@@ -21,3 +21,4 @@ Mappen die nog niet nodig zijn, mogen ontbreken.
 | [porsche-911-targa-1971](porsche-911-targa-1971/index.html) | Visueel ontwerpvoorstel; passende 3D-uitwerking volgt |
 | [porsche-911-f-model-dash-subwoofer](porsche-911-f-model-dash-subwoofer/index.html) | Printklaar (v2.5.1) |
 | [porsche-911-f-model-dash-double-front-speaker](porsche-911-f-model-dash-double-front-speaker/index.html) | Ontwerp klaar (v7) |
+| [EnergyDeck 7-inch behuizing](energydeck-7-inch/index.html) | Printprototype v9 voor het ELECROW CrowPanel Advance 7.0 (DIS02170A) |

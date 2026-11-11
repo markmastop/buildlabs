@@ -1,0 +1,28 @@
+{
+  "change": "only missing floor below USB pocket closed",
+  "added_volume_mm3": 4290.3,
+  "removed_volume_mm3": 0.0,
+  "changes_outside_requested_bottom_mm3": 0,
+  "first_layer_connected_solids": {
+    "old": 2,
+    "closed": 1
+  },
+  "byte_identical_unchanged_parts": [
+    "00a_pasproef_schuif_case.stl",
+    "00a_pasproef_schuif_case.step",
+    "00b_pasproef_schuif_frame.stl",
+    "00b_pasproef_schuif_frame.step",
+    "00c_pasproef_borgclip_case.stl",
+    "00c_pasproef_borgclip_case.step",
+    "03_voorframe_schuif.stl",
+    "03_voorframe_schuif.step",
+    "04_borgclip.stl",
+    "04_borgclip.step"
+  ],
+  "frame_and_clip_intersections_mm3": 0,
+  "continuous_slide_intersections_mm3": 0,
+  "screen_and_reserved_adapter_intersections_mm3": 0,
+  "front_loading_case_only_intersections_mm3": 0,
+  "adapter_clearance_above_floor_mm": 1.0000000000000004,
+  "physical_test": false
+}

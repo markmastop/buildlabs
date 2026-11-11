@@ -1,0 +1,37 @@
+{
+  "version": "v6.1 closed bottom; all other geometry unchanged",
+  "assembly_intersections_mm3": {
+    "case_frame": 0.0,
+    "case_clip": 0.0,
+    "frame_clip": 0.0
+  },
+  "official_model_solids": 60,
+  "official_module_intersections": [],
+  "continuous_slide_travel_mm": 120.0,
+  "continuous_slide_intersections_mm3": 0,
+  "physical_stops_interference_mm3": {
+    "right_slide_1mm_into_key": 2.044,
+    "left_slide_1mm_into_stop": 15.4719,
+    "front_pull_1mm": 152.061
+  },
+  "reserved_plug_intersections_mm3": {
+    "adapter": 0.0,
+    "usb_male": 0.0,
+    "jst_0": 0.0,
+    "jst_1": 0.0,
+    "jst_2": 0.0,
+    "usb_front_loading_case_only": 0
+  },
+  "slide_clearance_per_side_mm": 0.25,
+  "frame_case_shadow_gap_mm": 0.2,
+  "front_surface_has_fastener_holes": false,
+  "support_height_mm": 10,
+  "usb_width_mm": 30.0,
+  "latch": "separate rear detent clip",
+  "clip_nominal_leg_thickness_mm": 1,
+  "clip_required_deflection_per_leg_mm": 0.2,
+  "physical_test": false,
+  "note": "Bottom closure verified by exact CAD difference; front/clip/test parts unchanged byte for byte. Printed fit and exact adapter still require physical testing.",
+  "bottom_closed": true,
+  "assembly_method": "screen and USB adapter load through open front before sliding frame"
+}

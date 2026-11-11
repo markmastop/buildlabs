@@ -1,0 +1,100 @@
+[
+  {
+    "file": "00a_pasproef_schuif_case.stl",
+    "valid_brep": true,
+    "solid_count": 1,
+    "triangles": 44,
+    "boundary_or_nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "signed_mesh_volume_mm3": 3391.74,
+    "cad_volume_mm3": 3391.74,
+    "envelope_mm": [
+      22.0,
+      9.0,
+      19.4
+    ]
+  },
+  {
+    "file": "00b_pasproef_schuif_frame.stl",
+    "valid_brep": true,
+    "solid_count": 1,
+    "triangles": 44,
+    "boundary_or_nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "signed_mesh_volume_mm3": 661.76,
+    "cad_volume_mm3": 661.76,
+    "envelope_mm": [
+      22.0,
+      9.0,
+      5.0
+    ]
+  },
+  {
+    "file": "00c_pasproef_borgclip_case.stl",
+    "valid_brep": true,
+    "solid_count": 1,
+    "triangles": 246,
+    "boundary_or_nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "signed_mesh_volume_mm3": 1021.84,
+    "cad_volume_mm3": 1021.94,
+    "envelope_mm": [
+      8.0,
+      9.0,
+      19.4
+    ]
+  },
+  {
+    "file": "01_pasproef_USB_10mm.stl",
+    "valid_brep": true,
+    "solid_count": 1,
+    "triangles": 780,
+    "boundary_or_nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "signed_mesh_volume_mm3": 32591.04,
+    "cad_volume_mm3": 32591.3,
+    "envelope_mm": [
+      116.36,
+      31.4,
+      19.4
+    ]
+  },
+  {
+    "file": "02_case_schuifframe.stl",
+    "valid_brep": true,
+    "solid_count": 1,
+    "triangles": 20170,
+    "boundary_or_nonmanifold_edges": 0,
+    "breakaway_supports": 48
+  },
+  {
+    "file": "03_voorframe_schuif.stl",
+    "valid_brep": true,
+    "solid_count": 1,
+    "triangles": 1052,
+    "boundary_or_nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "signed_mesh_volume_mm3": 23974.11,
+    "cad_volume_mm3": 23974.15,
+    "envelope_mm": [
+      116.36,
+      208.66,
+      5.0
+    ]
+  },
+  {
+    "file": "04_borgclip.stl",
+    "valid_brep": true,
+    "solid_count": 1,
+    "triangles": 496,
+    "boundary_or_nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "signed_mesh_volume_mm3": 125.83,
+    "cad_volume_mm3": 125.83,
+    "envelope_mm": [
+      10.37,
+      20.45,
+      5.5
+    ]
+  }
+]

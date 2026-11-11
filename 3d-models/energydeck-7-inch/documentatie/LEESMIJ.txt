@@ -1,0 +1,165 @@
+CROWPANEL 7 · V9
+
+CrowPanel Advance 7 inch — 4 november 2026
+
+WIJZIGING V9
+Onder de zwevende onderrand zitten 24 afbreeksteunen. Onder de bovenrand staan 24 extra staanders in acht groepen.
+
+EERDERE WIJZIGING · GESLOTEN USB-BODEM
+Alleen het ontbrekende bodemstuk onder de USB-ruimte is gesloten, op
+het bestaande bodemniveau. Dit zit in 01_pasproef_USB_10mm en in de
+complete case 02_case_schuifframe. De eerste printlaag van het bakje
+vormt nu één verbonden geheel.
+Het voorframe, de borgclip, de geleiders, de steunhoogte en de kleine
+schuif- en clippasstukken zijn niet gewijzigd. USB en scherm worden
+via de open voorkant geplaatst voordat het schuifframe erop gaat.
+
+HET NIEUWE SYSTEEM
+Het voorframe schuift vanaf rechts op de case, gezien vanaf de voorkant
+van het scherm. Verborgen geleiders boven en onder houden het tegen de
+case. Links zit een aanslag. Een klein uitneembaar borgclipje achteraan
+voorkomt dat het frame naar rechts terugschuift. Er zijn geen boutjes,
+moertjes of magneten nodig. De voorkant is glad.
+
+Het borgclipje zit bovenaan aan de invoerzijde van het frame: rechts
+gezien vanaf de voorkant, links wanneer je naar de achterkant kijkt.
+Het is een los printonderdeel en kan apart worden vervangen.
+
+De vaste hoek, schermpositie, 10 mm hoge steunbalkjes en ruime doorgang
+voor de achterwaartse USB-C-adapter uit v5 zijn meegenomen.
+
+EERST KLEINE PROEVEN PRINTEN
+1. Print 00a_pasproef_schuif_case en 00b_pasproef_schuif_frame.
+   Hiermee test je de geleiding met weinig filament. Ze moeten zonder
+   klemmen in elkaar schuiven. Ontbraam eerst de contactvlakken.
+2. Print 00c_pasproef_borgclip_case en 04_borgclip.
+   Probeer de clip in het kleine case-deel. De twee veerpootjes geven
+   mee tijdens het indrukken en uittrekken. De clip hoort vast te zitten,
+   maar moet via het uitstekende kopje weer uitgenomen kunnen worden.
+3. Print 01_pasproef_USB_10mm als de steunhoogte en de eigen USB-adapter
+   nog niet fysiek zijn geprobeerd. Het scherm moet op beide balkjes
+   rusten; de adapter mag geen steunpunt zijn.
+4. Print daarna de complete case en het complete schuifframe.
+
+De twee railpasstukjes testen een kort gedeelte van de echte geleiding.
+De volledige rail is langer; ook die moet na het printen vrij van bramen
+en supportresten zijn. De nominale speling is 0,25 mm per zijde.
+
+BESTANDEN
+00a_pasproef_schuif_case.stl / .step
+00b_pasproef_schuif_frame.stl / .step
+    Kleine bij elkaar horende passtukken van de bovenste geleiding.
+00c_pasproef_borgclip_case.stl / .step
+    Klein deel van de echte case met de opname voor de borgclip.
+01_pasproef_USB_10mm.stl / .step
+    Onderste deel van de case met de twee steunbalkjes en USB-doorgang.
+02_case_schuifframe.stl / .step
+    Complete vaste houder en case met geleiders en clipopname.
+03_voorframe_schuif.stl / .step
+    Glad voorframe met de bijbehorende verborgen rails.
+04_borgclip.stl / .step
+    Losse uitneembare clip met twee veerpootjes.
+05_assemblage.step
+    Case, voorframe en clip in hun gemonteerde positie.
+CrowPanel7_schuifframe_ontwerp.png
+    Compleet ontwerp en een aanzicht tijdens het opschuiven.
+Schuifsysteem_detail.png
+    Echte CAD-doorsnede van de geleiding en een vergroot clipaanzicht.
+Steunbalkjes_detail.png
+    De twee steunvlakken van 10 mm.
+modelcontrole.json / passing_en_schuifcontrole.json / bodemcontrole.json
+    Digitale controles van de STL's, passing en schuifbeweging.
+broncode/build_schuifframe.py en broncode/cad_common.py
+    Parametrische bewerkbare broncode.
+
+PRINTEN
+- Nozzle 0,4 mm, laaghoogte 0,20 mm als uitgangspunt.
+- 4 wandlussen, 5 boven-/onderlagen, 15% gyroid.
+- Alle STL's zijn al georiënteerd voor het printen.
+- Voorframe: zichtzijde op de bouwplaat, rails omhoog. Geen supports
+  onder de rails nodig; de overgang is onder 45 graden getekend.
+- Borgclip: vlak op de zijkant, zodat beide veerpootjes op de bouwplaat
+  liggen. Houd deze oriëntatie aan. Print bij voorkeur in PETG voor
+  herhaald openen; PLA is ook bruikbaar voor een eerste pasproef.
+- Rail- en clip-casepasstukken: achterzijde op de bouwplaat.
+- USB-pasproef: achterzijde op de bouwplaat. De bodem onder de USB-ruimte
+  is gesloten. Controleer de laagweergave.
+- Complete case v9: rechtop op de voet. De afbreeksteunen zitten in
+  STL en STEP en ondersteunen de zwevende onder- en bovenrand. Controleer de
+  laagweergave voor eventuele extra supports in de smalle geleiders. Knip de steuntjes aan beide uiteinden los na het printen.
+- Gebruik geen supportmateriaal in de nauwe railkanalen wanneer de
+  slicer dat vermijdbaar maakt. Controleer de laagweergave vóór printen.
+- Gebruik het profiel voor je eigen filament en printer.
+
+MONTAGE
+De CrowPanel blijft in zijn oorspronkelijke zwarte acrylbehuizing.
+1. Verwijder bramen en supportresten uit de case en de geleiders.
+2. Steek de USB-adapter in het scherm en plaats het geheel vanaf de open
+   voorkant op de twee steunbalkjes, USB-C onder.
+3. Houd het voorframe vlak voor de case en voer beide geleiders vanaf
+   rechts in. Schuif het frame naar links tot de aanslag en de buitenranden
+   netjes tegenover elkaar liggen. Duw op de rand, niet op het glas.
+4. Druk het borgclipje vanaf de achterkant in de opening bovenaan aan de
+   invoerzijde. Het kopje blijft bereikbaar aan de achterkant.
+5. Sluit de USB-kabel op de adapter aan en controleer de vrije ruimte.
+6. Optioneel: vier zelfklevende rubber voetjes van circa Ø12 mm.
+
+OPENEN
+Trek het clipje aan het achterste kopje uit de case. Schuif daarna het
+voorframe naar rechts van de case af. Ondersteun het scherm zodra het
+voorframe wordt verwijderd.
+
+COMPATIBILITEIT
+Deze v6-case en dit v6-schuifframe horen bij elkaar. Een eerdere case
+met boutgaten heeft geen schuifkanalen; oudere frames hebben geen rails.
+Gebruik dus de nieuwe case én het nieuwe frame uit deze set.
+
+MATEN
+- Voet: nominaal 126 × 120 mm.
+- Casehoogte circa 230,9 mm; samengesteld met voorframe circa 232 mm.
+- Buitenmaat case/frame in het schermvlak: 116,36 × 208,66 mm.
+- Vaste hoek: 18 graden achterover, geschat uit de eerste foto.
+- Steunen: 25 mm breed × 15 mm diep × 10 mm boven de bodemlijn.
+- Vrij tussen de steunbalkjes: 35 mm. USB-doorgang: 30 mm breed.
+- Onderste rail heeft in de eindpositie een middenopening van 36 mm.
+- Voorframeplaat: 2,4 mm dik; inclusief rails maximaal 5 mm.
+- Naad tussen frame en case: nominaal 0,2 mm.
+- Geleidingsspeling: 0,25 mm per zijde; achter de rail 0,3 mm.
+- Alle printonderdelen passen binnen 256 × 256 × 256 mm.
+
+VERIFICATIE EN PASPROEF
+Alle geleverde STL's zijn één gesloten verbonden volume, zonder open of
+niet-manifold randen. De meshvolumes wijken minder dan 0,2% van CAD af.
+Het officiële 60-delige Elecrow-model heeft in de eindpositie geen overlap
+met case, frame of clip. Het touchvenster en beide steunvlakken zijn vrij.
+
+De volledige rechtlijnige schuifbeweging van 120 mm is gecontroleerd met
+het door de rails bestreken volume, niet alleen met enkele eindstanden.
+Ook zijn de aanslag links, het tegenhouden naar voren door de geleiders
+en het blokkeren naar rechts door het ingestoken clipje gecontroleerd.
+De gereserveerde ruimte voor USB-adapter en overige stekkers is vrij.
+
+De foto's bepalen de richting van de haakse USB-adapter. De gereserveerde
+stekkermaat blijft een ontwerpaanname, geen exacte meting van de adapter.
+De nominale 10 mm steunhoogte volgt Marks opgave.
+
+Deze set is digitaal gecontroleerd, nog niet fysiek geprint of beproefd.
+CAD-controles bewijzen geen schuifweerstand of levensduur van een geprinte
+clip. Test daarom eerst de kleine passtukken en de losse clip.
+
+BRONNEN
+Marks foto's, inclusief IMG_0119.jpeg en IMG_0120.jpeg.
+Product: Amazon ASIN B0F2TB4ZHL
+https://www.amazon.nl/dp/B0F2TB4ZHL
+Fabrikantmodel DIS02170A, CrowPanel Advance 7.0-HMI ESP32 AI Display:
+https://github.com/Elecrow-RD/CrowPanel-Advance-7-HMI-ESP32-S3-AI-Powered-IPS-Touch-Screen-800x480
+3D file / 00-7_0-view-v2_12_10.stp
+Het fabrikantmodel wordt niet in dit pakket herverdeeld.
+
+BRONCODE
+Python 3.11+, cadquery 2.8.0, numpy, Pillow. Bewaar beide scripts bij
+elkaar in broncode/. Uitvoeren: python broncode/build_schuifframe.py
+De bestanden worden opnieuw gemaakt in de map boven broncode/.
+STEP-bestanden kunnen direct als solide model in Fusion worden geopend.
+
+05_assemblage.step toont de gemonteerde houder na verwijderen van de afbreeksteunen.
