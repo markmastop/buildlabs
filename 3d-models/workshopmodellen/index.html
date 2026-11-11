@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Een printcollectie met een robot, sleutel, boogbrug, kompas, huis en boom met takken. Elk model is maximaal 8 cm in zijn grootste maat.">
+<title>Zes geometrische workshopmodellen · Build Labs</title>
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #edf2f5;
+  --card: #f8fafb;
+  --ink: #14212c;
+  --muted: #475c6b;
+  --rule: #c9d5dd;
+  --accent: #135c7f;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1720;
+    --card: #142330;
+    --ink: #e4ecf1;
+    --muted: #aabcc8;
+    --rule: #344a5a;
+    --accent: #87cce9;
+  }
+}
+* { box-sizing: border-box }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 "IBM Plex Sans", system-ui, sans-serif }
+.wrap { width: min(1100px, 100% - 36px); margin: 24px auto 56px; display: grid; gap: 28px }
+.hero > div { display: grid; gap: 12px; align-content: start }
+h1, h2, h3, p, figure, dl { margin: 0 }
+h1 { font-size: clamp(2.5rem, 7vw, 5.4rem); line-height: .98; letter-spacing: -.055em }
+h2 { font-size: 1.55rem; line-height: 1.25 }
+h3 { font-size: 1.05rem }
+p, li { max-width: 66ch }
+a { color: var(--accent); text-underline-offset: .18em }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px }
+.hero, .files { display: grid; gap: 22px }
+.hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); align-items: start }
+.files { grid-template-columns: repeat(2, minmax(0, 1fr)) }
+.stage, .panel { background: var(--card); border: 1px solid var(--rule); border-radius: 14px; overflow: hidden }
+.stage img { display: block; width: 100%; height: auto }
+.panel { padding: 20px }
+.panel h3 + ul { margin-top: 8px }
+.panel ul { padding-left: 1.3em; margin-bottom: 0 }
+.panel li + li { margin-top: 5px }
+.action { display: inline-flex; width: fit-content; padding: 9px 16px; border-radius: 999px; background: var(--ink); color: var(--bg); text-decoration: none; font-weight: 650 }
+main { display: grid; gap: 28px }
+section > h2 { margin-bottom: 12px }
+@media (max-width: 740px) {
+  .hero, .files { grid-template-columns: 1fr }
+}
+</style>
+<style>.bl-home{justify-self:start;align-self:start;display:inline-flex;align-items:center;gap:8px;width:max-content;margin:0 0 4px;padding:7px 14px 7px 11px;border:1px solid rgba(127,140,150,.45);border-radius:999px;font:500 14px/1 "IBM Plex Sans",system-ui,sans-serif;color:inherit;text-decoration:none;background:transparent;transition:border-color .15s,background .15s}.bl-home:hover{border-color:currentColor;background:rgba(127,140,150,.12)}.bl-home:focus-visible{outline:2px solid currentColor;outline-offset:2px}.bl-home svg{width:15px;height:15px;flex:none}</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="bl-home" href="../../index.html" aria-label="Terug naar het Build Labs-overzicht"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/></svg>Build Labs</a>
+  <header class="hero">
+    <div>
+      <h1>Zes geometrische workshopmodellen</h1>
+      <p>Een printcollectie met een robot, sleutel, boogbrug, kompas, huis en boom met takken. Elk model is maximaal 8 cm in zijn grootste maat.</p>
+      <p>De STL’s zijn digitaal gecontroleerd en staan in printoriëntatie. De herziene boom heeft duidelijke takken en drie hoekige kruinen.</p>
+      <a class="action" href="#printbestanden">Naar de printbestanden</a>
+    </div>
+    <figure class="stage"><img src="beelden/voorbeelden.png" alt="Overzicht van de zes oorspronkelijke modellen"><figcaption style="padding: 8px 14px">Oorspronkelijke collectie</figcaption></figure>
+  </header>
+  <main>
+    <section id="printbestanden" aria-labelledby="printtitel">
+      <h2 id="printtitel">Bestanden</h2>
+      <div class="files">
+        <div class="panel">
+          <h3>Printbestanden · STL</h3>
+          <ul>
+            <li><a href="print/01_robot.stl" download>Robot</a></li>
+            <li><a href="print/02_sleutel.stl" download>Sleutel</a></li>
+            <li><a href="print/03_brug.stl" download>Boogbrug</a></li>
+            <li><a href="print/04_kompas.stl" download>Kompas</a></li>
+            <li><a href="print/05_huis.stl" download>Huis</a></li>
+            <li><a href="print/06_boom_met_takken.stl" download>Boom met takken</a></li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Bronbestanden en documentatie</h3>
+          <ul>
+            <li><a href="cad/collectie.blend" download>Oorspronkelijke collectie · Blender</a></li>
+            <li><a href="cad/boom_met_takken.blend" download>Herziene boom · Blender</a></li>
+            <li><a href="README.md">Projectinformatie</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section aria-labelledby="boomtitel">
+      <h2 id="boomtitel">Herziene boom met takken</h2>
+      <figure class="stage" style="max-width: 380px"><img src="beelden/boom_met_takken.png" alt="Geometrische boom met takken en drie kruinen" loading="lazy"></figure>
+    </section>
+  </main>
+</div>
+</body>
+</html>

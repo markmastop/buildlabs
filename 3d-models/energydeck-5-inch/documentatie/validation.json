@@ -1,0 +1,116 @@
+{
+  "front": {
+    "watertight": true,
+    "consistent_normals": true,
+    "connected_solids": 1,
+    "bounds_mm": [
+      [
+        -50.0,
+        -0.0,
+        0.0
+      ],
+      [
+        50.0,
+        182.0,
+        24.0
+      ]
+    ],
+    "fits_P2S_256mm": true,
+    "sha256": "779fdcbd9869926cd6342431e95049bc38ff42b95987841ddc9d3e39d68dbf01"
+  },
+  "back": {
+    "watertight": true,
+    "consistent_normals": true,
+    "connected_solids": 1,
+    "bounds_mm": [
+      [
+        -50.0,
+        -0.0,
+        0.0
+      ],
+      [
+        50.0,
+        182.0,
+        2.4
+      ]
+    ],
+    "fits_P2S_256mm": true,
+    "sha256": "18300930c25ca40357f3bc988d780a7adea6b9f2d334b406d6d9f1335459c566"
+  },
+  "foot": {
+    "watertight": true,
+    "consistent_normals": true,
+    "connected_solids": 1,
+    "bounds_mm": [
+      [
+        -54.0,
+        -0.0,
+        0.0
+      ],
+      [
+        54.0,
+        80.0,
+        35.0
+      ]
+    ],
+    "fits_P2S_256mm": true,
+    "sha256": "d4bfdff3c12812d85775bbf9fa0eae7b81c4d1917716bc392ab41144e5092f4e"
+  },
+  "fit_test": {
+    "watertight": true,
+    "consistent_normals": true,
+    "connected_solids": 1,
+    "bounds_mm": [
+      [
+        -50.0,
+        -0.0,
+        0.0
+      ],
+      [
+        50.0,
+        182.0,
+        5.0
+      ]
+    ],
+    "fits_P2S_256mm": true,
+    "sha256": "b63b985f2bc101340128e76748d4b4fe4aed28632f61ca10fa793a59277040b6"
+  },
+  "device_front_overlap_mm3": 0,
+  "device_back_overlap_mm3": 0,
+  "front_foot_overlap_mm3": 0,
+  "back_foot_overlap_mm3": 0,
+  "plug_envelope_front_overlap_mm3": 0,
+  "6mm_cable_bend_max_overlap_mm3": 0,
+  "physical_fit_test": "Not performed; print fit_test first. Factory black plates retained.",
+  "slicer": {
+    "application": "Bambu Studio 2.8.2.61",
+    "printer": "Bambu Lab P2S 0.4 nozzle",
+    "material": "Bambu PLA Matte @BBL P2S",
+    "layer_mm": 0.2,
+    "walls": 4,
+    "infill": "20% gyroid",
+    "support": false,
+    "parts": {
+      "front": {
+        "exit_code": 0,
+        "time": "2h 25m 4s; total estimated time: 2h 32m 6s",
+        "material_g": 94.18
+      },
+      "back": {
+        "exit_code": 0,
+        "time": "1h 3m 5s; total estimated time: 1h 10m 7s",
+        "material_g": 50.65
+      },
+      "foot": {
+        "exit_code": 0,
+        "time": "2h 28m 25s; total estimated time: 2h 35m 27s",
+        "material_g": 89.91
+      },
+      "fit_test": {
+        "exit_code": 0,
+        "time": "48m 10s; total estimated time: 55m 12s",
+        "material_g": 34.06
+      }
+    }
+  }
+}

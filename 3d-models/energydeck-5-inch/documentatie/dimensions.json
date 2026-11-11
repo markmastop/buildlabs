@@ -1,0 +1,69 @@
+{
+  "parameters": {
+    "panel_w": 84.7,
+    "panel_h": 136.4,
+    "clearance": 0.5,
+    "case_w": 100.0,
+    "case_h": 182.0,
+    "tray_depth": 24.0,
+    "lid_t": 2.4,
+    "wall": 2.4,
+    "corner_r": 6.0,
+    "panel_bottom": 40.0,
+    "window_w": 79.4,
+    "window_h": 122.8,
+    "window_x": -0.2475,
+    "window_y": 106.9933,
+    "lean": 15.0,
+    "foot_w": 108.0,
+    "foot_d": 80.0,
+    "foot_h": 35.0,
+    "usb_x": 0.0,
+    "usb_y": 41.055,
+    "usb_z": 12.705,
+    "straight": 22.0,
+    "bend_r": 10.0,
+    "cable_d": 10.0,
+    "plug_w": 20.0,
+    "pilot_d": 2.6,
+    "clearance_d": 3.4
+  },
+  "parts": {
+    "front": {
+      "dimensions_mm": [
+        100.0,
+        182.0,
+        24.0
+      ],
+      "solid_volume_mm3": 93477.242,
+      "watertight": true
+    },
+    "back": {
+      "dimensions_mm": [
+        100.0,
+        182.0,
+        2.4
+      ],
+      "solid_volume_mm3": 41650.665,
+      "watertight": true
+    },
+    "foot": {
+      "dimensions_mm": [
+        108.0,
+        80.0,
+        35.0
+      ],
+      "solid_volume_mm3": 143544.743,
+      "watertight": true
+    },
+    "fit_test": {
+      "dimensions_mm": [
+        100.0,
+        182.0,
+        5.0
+      ],
+      "solid_volume_mm3": 29343.546,
+      "watertight": true
+    }
+  }
+}

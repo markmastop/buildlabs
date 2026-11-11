@@ -22,6 +22,9 @@ hoe je ermee verder werkt.
 | [Dashboard: subwoofer](3d-models/porsche-911-f-model-dash-subwoofer/index.html) | Printklaar (v2.5.1) | Cup voor een Visaton W 100 X onder het dashboard van de 911 F-Model | [README](3d-models/porsche-911-f-model-dash-subwoofer/README.md) |
 | [Dashboard: dubbele voorspeakers](3d-models/porsche-911-f-model-dash-double-front-speaker/index.html) | Ontwerp klaar (v7) | Adapterplaat voor twee Audison APX 4 in het dashboard van de 911 F-Model | [README](3d-models/porsche-911-f-model-dash-double-front-speaker/README.md) |
 | [EnergyDeck 7-inch behuizing](3d-models/energydeck-7-inch/index.html) | Printprototype (v9) | Bureaustandaard voor het ELECROW CrowPanel Advance 7.0 (DIS02170A), met STL en STEP | [README](3d-models/energydeck-7-inch/README.md) |
+| [EnergyDeck 5-inch behuizing](3d-models/energydeck-5-inch/index.html) | Printprototype | Bureaustandaard voor het ELECROW CrowPanel Advance 5.0 HMI ESP32-S3 IPS-touchdisplay (800 × 480), met de zwarte fabrieksplaten gemonteerd. | [README](3d-models/energydeck-5-inch/README.md) |
+| [Zes geometrische workshopmodellen](3d-models/workshopmodellen/index.html) | 6 STL | Een printcollectie met een robot, sleutel, boogbrug, kompas, huis en boom met takken. Elk model is maximaal 8 cm in zijn grootste maat. | [README](3d-models/workshopmodellen/README.md) |
+| [Truma Therme-montageplaat](3d-models/truma-therme-montageplaat/index.html) | Printprototype v17 | Montageplaat voor de bediening van een Truma Therme. Versie 17 heeft een halfronde kabeluitsparing aan de zijde tegenover de knop. | [README](3d-models/truma-therme-montageplaat/README.md) |
 
 De projectnaam opent de projectpagina met het draaibare model of, zolang de
 geometrie nog in ontwikkeling is, de referenties en ontwerpkeuzes.
