@@ -47,7 +47,7 @@ python CAD/build.py en python CAD/validate.py vanuit deze map.
 De meegeleverde inputs blijven nodig om de overgenomen referentievormen te lezen.
 
 PRINTVOLGORDE / ORIENTATIE
-1. Print eerst 00_pasproef met de flenszijde op het bed (voorgeoriënteerd). Pas in de echte
+1. Print eerst pasmal/00_pasproef.stl met de flenszijde op het bed (voorgeoriënteerd). Pas in de echte
    rechte dekopening 205 x 153. Nominaal 0,5 mm ruimte rondom, zonder garantie
    voor verf, printerafwijking of een niet helemaal rechthoekige opening.
 2. Daarna 01_pasframe; bovenzijde/flens op het bed (voorgeoriënteerd). Insteekdiepte 6 mm.

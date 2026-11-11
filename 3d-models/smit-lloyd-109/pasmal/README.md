@@ -8,7 +8,7 @@ dek en de plaats van de opbouw te beoordelen.
 | --- | --- |
 | [Voorste helft](pasmal-voor.stl) | 190 × 196,25 × 2,9 mm |
 | [Achterste helft](pasmal-achter.stl) | 190 × 200 × 2,9 mm |
-| [Losse pasproef voor de dekopening](../STL/00_pasproef.stl) | 212 × 160 × 8 mm inclusief flens |
+| [Losse pasproef voor de dekopening](00_pasproef.stl) | 212 × 160 × 8 mm inclusief flens |
 
 1. Print de twee helften vlak zoals ze openen, op 100% schaal. Gebruik
    bijvoorbeeld PLA, laaghoogte 0,2 mm, drie wanden en 15% vulling. De vlakke

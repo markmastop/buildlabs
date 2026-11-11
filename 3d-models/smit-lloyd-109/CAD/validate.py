@@ -6,8 +6,10 @@ import trimesh
 R=Path(__file__).resolve().parents[1]
 d=json.loads((R/'controle.json').read_text());rechecks=[]
 for r in d['parts']:
- name=r['part'];m=trimesh.load_mesh(R/'STL'/(name+'.stl'),process=True)
- s=cq.importers.importStep(str(R/'STEP'/(name+'.step')))
+ name=r['part']
+ stl_dir, step_dir = ('pasmal', 'pasmal') if name == '00_pasproef' else ('STL', 'STEP')
+ m=trimesh.load_mesh(R/stl_dir/(name+'.stl'),process=True)
+ s=cq.importers.importStep(str(R/step_dir/(name+'.step')))
  assert len(s.solids().vals())==1 and s.val().isValid(),name
  assert m.is_watertight and m.is_winding_consistent and len(m.split())==1 and m.volume>0,name
  delta=abs(s.val().Volume()-m.volume)/m.volume
@@ -280,11 +282,11 @@ rep['checks']['small_recess_depth_doubled_to_8_mm']=True
 rep['checks']['anchor_nominal_depth_doubled_to_24_mm']=True
 rep['anchor_niche']=d['validation']['anchor_niche']
 (R/'STEP_hercontrole.json').write_text(json.dumps(rep,ensure_ascii=False,indent=2)+'\n')
-files=[p for p in sorted(R.rglob('*')) if p.is_file() and '__pycache__' not in p.parts and p.name!='SHA256SUMS.txt']
+files=[p for p in sorted(R.rglob('*')) if p.is_file() and '__pycache__' not in p.parts and p.name not in ('SHA256SUMS.txt', 'Smit-Lloyd-109_v17_printpakket.zip')]
 (R/'SHA256SUMS.txt').write_text(''.join(hashlib.sha256(p.read_bytes()).hexdigest()+'  '+str(p.relative_to(R))+'\n' for p in files))
 archive=R.parent/'Smit-Lloyd-109_v17_printpakket.zip'
 with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED) as z:
- for p in sorted(R.rglob('*')):
-  if p.is_file() and '__pycache__' not in p.parts:z.write(p,'smit_lloyd_109_v17/'+str(p.relative_to(R)))
+ for p in files + [R/'SHA256SUMS.txt']:
+  z.write(p,'smit_lloyd_109_v17/'+str(p.relative_to(R)))
 with zipfile.ZipFile(archive) as z:assert z.testzip() is None
 print('RECHECK PASSED',len(rechecks),'STL/STEP pairs;',len(sh),'assembly solids;',archive.stat().st_size,'ZIP bytes')

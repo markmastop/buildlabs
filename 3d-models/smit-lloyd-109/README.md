@@ -29,18 +29,19 @@ Details: [`meetmaten.csv`](meetmaten.csv), [`AANNAMES.txt`](AANNAMES.txt),
 |---|---|
 | `CAD/` | Bewerkbare bron: `build.py` met `parameters.json` en `metingen.json` |
 | `inputs/` | Nodig om de CAD opnieuw te bouwen (v4-bron, logo-SVG) |
-| `STEP/` | 31 losse delen + `SL109_v17_assemblage.step` |
-| `STL/` | 31 printbestanden; `onderdelen.csv` geeft aantal, maat en printstand |
+| `STEP/` | 30 losse delen + `SL109_v17_assemblage.step` |
+| `STL/` | 30 printbestanden; `onderdelen.csv` geeft aantal, maat en printstand |
+| `pasmal/` | Pasproeven voor dekopening, buitenmaat en stuurhuthoogte |
 | `referentie_*/` | Foto's per detail, gebruikt bij de reconstructie |
 | `SHA256SUMS.txt` | Controlesommen van het oorspronkelijke printpakket |
 
-Het volledige printpakket (`Smit-Lloyd-109_v17_printpakket.zip`, 35 MB)
+Het volledige printpakket (`Smit-Lloyd-109_v17_printpakket.zip`)
 bevat dezelfde STL- en STEP-bestanden en blijft buiten Git; verspreid het via
 GitHub Releases als dat nodig is.
 
 ## Volgende stappen
 
-1. Print `00_pasproef` en pas hem in de dekopening van de romp.
+1. Print [de pasproef](pasmal/00_pasproef.stl) en pas hem in de dekopening van de romp.
 2. Bepaal de definitieve lengtepositie van het pasframe (nu voorlopig X = 160 mm).
 3. Controleer de laagweergave in Bambu Studio en print de rest volgens
    `HANDLEIDING.txt`.

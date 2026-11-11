@@ -34,7 +34,14 @@ def add(name,shape,*,roof=False,base=False,flip=False,qty=1,include=True,note=''
     out=aswp(print_shape) if print_shape is not None else shape
     if flip:out=out.rotate((0,0,0),(1,0,0),180)
     b=out.val().BoundingBox();out=out.translate((-b.xmin,-b.ymin,-b.zmin))
-    stl=ROOT/'STL'/(name+'.stl');step=ROOT/'STEP'/(name+'.step')
+    if name == '00_pasproef':
+        folder = ROOT / 'pasmal'
+        folder.mkdir(exist_ok=True)
+        stl = folder / (name + '.stl')
+        step = folder / (name + '.step')
+    else:
+        stl = ROOT / 'STL' / (name + '.stl')
+        step = ROOT / 'STEP' / (name + '.step')
     cq.exporters.export(out,str(stl),tolerance=.035,angularTolerance=.12);cq.exporters.export(out,str(step))
     mesh=trimesh.load_mesh(stl,process=True)
     assert mesh.is_watertight and mesh.is_winding_consistent and mesh.volume>0 and len(mesh.split())==1,(name,'STL topology')
