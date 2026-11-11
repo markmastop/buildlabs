@@ -1,12 +1,11 @@
 # Pasmal Smit-Lloyd 109 voor de Bambu Lab P2S
 
-De vlakke mal volgt het plaatsingsvoorstel van 380 × 200 mm. De grondvorm rond
-de neus en achteruitsparing is schematisch. Gebruik de mal om de ruimte op het
+De vlakke mal volgt het plaatsingsvoorstel van 380 × 200 mm. De achteruitsparing volgt de v17-CAD met asymmetrische armen, een knik en afgeronde uiteinden. De achterste stations zijn 30 mm naar voren geplaatst en de achtercontour is naar buiten verbreed tot 200 mm. De voorblokjes hebben schematische verbindingsbruggetjes. Gebruik de mal om de ruimte op het
 dek en de plaats van de opbouw te beoordelen.
 
 | Printbestand | Buitenmaten |
 | --- | --- |
-| [Voorste helft](01_dekmal_voor.stl) | 190 × 196,25 × 2,9 mm |
+| [Voorste helft](01_dekmal_voor.stl) | 190 × 180 × 2,9 mm |
 | [Achterste helft](02_dekmal_achter.stl) | 190 × 200 × 2,9 mm |
 | [Losse pasproef voor de dekopening](00_pasproef.stl) | 212 × 160 × 8 mm inclusief flens |
 
