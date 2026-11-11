@@ -35,3 +35,20 @@ digitaal gecontroleerd op afmetingen, gesloten geometrie en één aaneengesloten
 deel per bestand. De fysieke pasproef gebeurt op jouw romp.
 
 De CAD-bron voor de mal staat in [maak_pasmal.py](maak_pasmal.py).
+
+## Hoogtemal voor de stuurhut
+
+Print de [hoogtemal](hoogtemal-stuurhut.stl) en de [losse voet](hoogtemal-voet.stl)
+plat op 100%, zonder supports. De mal is 157 × 34 mm en de voet 46 × 40 mm.
+Steek het onderste uiteinde door de voet tot het gelijk ligt met de onderkant.
+Zet de voet direct op het rompdek, naast de gemarkeerde stuurhutpositie.
+De vlakke pasmal eronder zou de meting verhogen.
+
+- **86 mm** bij de onderste inkeping is de bovenkant van het verhoogde voordek.
+- **141 mm** bij de bovenste inkeping is de bovenkant van de stuurhutwand.
+- **157 mm** aan de bovenrand is het hoogste punt van het stuurhutdak.
+
+Dit zijn de huidige v17-hoogtes. De stuurhut inclusief dak steekt daarmee
+71 mm boven het verhoogde voordek uit. De maatvoering gaat uit van een vlak
+rompdek ter hoogte van de stuurhut. Beide STL's zijn digitaal gecontroleerd.
+De bewerkbare bron is [maak_hoogtemal.py](maak_hoogtemal.py).
