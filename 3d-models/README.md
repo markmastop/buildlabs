@@ -16,6 +16,7 @@ Mappen die nog niet nodig zijn, mogen ontbreken.
 
 | Project | Status |
 |---|---|
+| [Oasis of the Seas RC](oasis-of-the-seas-rc/index.html) | RC-inbouwconcept, 100 cm, onderdelenlijst en 3D-model |
 | [ortelius](ortelius/index.html) | Gedetailleerd CAD- en printprototype p2, met relingen, dekuitrusting en helikopters |
 | [smit-lloyd-109](smit-lloyd-109/index.html) | Printbaar prototype (v17) |
 | [porsche-911-targa-1971](porsche-911-targa-1971/index.html) | Visueel ontwerpvoorstel; passende 3D-uitwerking volgt |
