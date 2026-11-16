@@ -24,7 +24,8 @@ messing doorvoerbus.
   koop deze pas na de mechanische pasproef.
 
 ## Besturing en stroom
-- [ ] FlySky FS-i6S zender met FS-iA6B ontvanger (6 kanalen) — ca. € 98, plus 4× AA
+- [ ] FlySky FS-i6S zender, 10 kanalen — ca. € 98, plus 4× AA (de meegeleverde FS-iA6B is reserve)
+- [ ] FlySky FS-iA10B ontvanger, 10 kanalen — ca. € 29
 - [ ] Hobbywing QuicRun 1060 voor de hoofdmotor (waterdicht, vooruit/achteruit, BEC) — ca. € 25
   Begrens het gas in de zender eerst tot ca. 40 %: op 2S draait de motor veel sneller dan nodig.
 - [ ] Tweede Hobbywing QuicRun 1060 voor de boegschroef, als latere uitbreiding — ca. € 25
