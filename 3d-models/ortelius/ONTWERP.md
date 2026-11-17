@@ -211,7 +211,7 @@ blijven behouden. De CAD- en printbestanden zijn apart uitgewerkt in p1.
 | Accu 2S | 39–53 | Reserve 14 × 4,8 × 2,8; bak 16 × 6, laag op y 1,25 |
 | Regelaars | 37 / 67 | Behuizingen 3,65 × 3,2 × 1,8; extra stekkerruimte niet meegerekend |
 | Ontvanger | 55,5 | Reserve 5,5 × 3 × 2; op verhoogde montageplaat |
-| Boegschroef | 76 | Open dwarstunnel ID 2, OD 2,3; generiek motorvolume Ø 2,4 × 3 |
+| Boegschroef | 76 | Raboesch 108-03, buis 1,9/2,2; midden 3 cm boven de kiel; gaten Ø 2,24 met kraag in rompdeel 4 |
 | Ballastbakken | 57 / 63 | Twee lage bakken; gewicht nog te bepalen |
 
 Alle maten behalve de regelaarbehuizing zijn voorlopige reserveringen. De

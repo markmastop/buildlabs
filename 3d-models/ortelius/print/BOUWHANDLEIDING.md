@@ -158,14 +158,26 @@ sleuven voor een eigen metalen motorbeugel. De accubak heeft ruimte voor
 de eerder getoonde 140 × 48 × 28 mm accu en klittenband. Servo- en
 regelaarplaten zijn voorlopige adapters; controleer je daadwerkelijke hardware.
 
-De romp is bewust **dicht bij as, roerkoker en boegschroef**. Kies eerst de
-stevenbuis, metalen as, koppeling, roerkoker, lagers en boegschroef, pas daarna
+De romp is bewust **dicht bij as en roerkoker**. Kies eerst de
+stevenbuis, metalen as, koppeling, roerkoker en lagers, pas daarna
 de gaten en montages aan in de CAD-bron. Lijm kokers waterdicht in, zorg voor
 bereikbare afdichtingen en controleer de uitlijning met de echte motorbeugel.
-`55_boegschroef_proeftunnel` is alleen een maattest van ID20/OD23 mm, geen
-werkende thruster. De roerbladbron heeft een gat voor een metalen Ø4 mm as
+De boegschroef (Raboesch 108-03, buis 19/22 mm) heeft wel al gaten: zie hieronder. De roerbladbron heeft een gat voor een metalen Ø4 mm as
 met circa 0,2 mm diameterspeling. Gebruik voor het functionele roersysteem
 handelslagers, hevel en afdichting; druk geen as of lager uit PETG.
+
+### Boegschroef
+
+`01_romp_4` heeft aan beide kanten een gat van Ø22,4 mm op x=760 en z=30
+(76 cm van de spiegel, 3 cm boven de kiel), met binnenin een kraag van Ø30 mm.
+
+1. Print eerst `55_boegschroef_pasring` en schuif de buis erdoor. Hij moet er
+   met een klein beetje speling in passen. Past hij niet, pas dan `hole_diameter`
+   in `parameters.json` aan en genereer `01_romp_4` opnieuw.
+2. Schuur de buis en de kraag op en lijm de buis met UHU plus endfest 90 of
+   dikgemaakte epoxy, met de motor recht omhoog.
+3. Zaag de buis aan beide kanten gelijk met de romp (hij wordt ca. 8–10 cm)
+   en vul de naad buiten met plamuur.
 
 ### Schroefas en roer in het achterschip
 

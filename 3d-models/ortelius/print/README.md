@@ -22,8 +22,9 @@ zijn circa 241.6 mm lang; geometrie ≤246 mm in alle assen. Slicerhulpgeometrie
 krimp, hechting en ondersteuningen moeten ook bij jouw instellingen passen.
 Print in PETG op Textured PEI Plate (op gladde PEI eerst lijmstift als scheidingslaag).
 
-De romp blijft bij technische doorvoeren dicht totdat je de echte hardware
-hebt gekozen. De proeftunnel is geen werkende boegschroef. Ramen, dekmarkeringen,
+De romp blijft bij as en roerkoker dicht totdat je de echte hardware hebt
+gekozen. De gaten voor de boegschroef zitten al in `01_romp_4`; test de maat
+eerst met `55_boegschroef_pasring`. Ramen, dekmarkeringen,
 relingen en kleine aankleding vragen schilder- en modelbouwwerk. Geen
 geprinte motoren, accu's, elektronica, assen of lagers inbouwen als functionele
 onderdelen; de geprinte RC-delen zijn montagevoorzieningen.

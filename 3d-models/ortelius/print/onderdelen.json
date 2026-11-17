@@ -122,9 +122,9 @@
         155.653,
         217.5
       ],
-      "volume_cm3": 244.7402,
-      "asa_solid_mass_g": 261.87,
-      "petg_solid_mass_g": 310.82,
+      "volume_cm3": 241.233,
+      "asa_solid_mass_g": 258.12,
+      "petg_solid_mass_g": 306.37,
       "note": "Snijvlak op bed; buitenste overhangen controleren. Epoxy en glasband aan binnenzijde.",
       "rotation": [
         [
@@ -2621,27 +2621,33 @@
       "included": true
     },
     {
-      "name": "55_boegschroef_proeftunnel",
+      "name": "55_boegschroef_pasring",
       "quantity": 1,
       "group": "RC",
       "color": "#242b30",
       "print_mm": [
-        23.0,
-        22.993,
-        125.0
+        34.0,
+        34.0,
+        4.0
       ],
-      "volume_cm3": 12.6593,
-      "asa_solid_mass_g": 13.55,
-      "petg_solid_mass_g": 16.08,
-      "note": "Alleen maattest ID20/OD23 ×125; geen functionele boegschroef, geen gaten in romp.",
+      "volume_cm3": 3.0483,
+      "asa_solid_mass_g": 3.26,
+      "petg_solid_mass_g": 3.87,
+      "note": "Proefstuk met hetzelfde gat als de romp (Ø22.4). Schuif de echte boegschroefbuis erdoor vóór je 01_romp_4 print.",
       "rotation": null,
       "bed_translation": [
-        11.5,
-        11.5,
+        17.0,
+        17.0,
         -0.0
       ],
-      "assembly_translations": [],
-      "included": false
+      "assembly_translations": [
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      "included": true
     },
     {
       "name": "56_roerblad",
@@ -7461,9 +7467,9 @@
   "unique_parts": 216,
   "print_quantity": 358,
   "maximum_part_dimension_mm": 241.639,
-  "solid_ASA_mass_g": 3427.8,
+  "solid_ASA_mass_g": 3413.7,
   "material": "PETG",
-  "solid_PETG_mass_g": 4068.3,
+  "solid_PETG_mass_g": 4051.6,
   "limitations": [
     "Fotogebaseerde onderwatervorm",
     "Geen fysieke pas-/water-/vaartest",

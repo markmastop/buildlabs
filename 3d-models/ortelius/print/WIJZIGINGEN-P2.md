@@ -58,3 +58,12 @@ Zie [de vergelijking](../cad/VERGELIJKING.md#opgelost-10-11-2026-schroef-onder-h
 anders is, kan het script de oude uitslagen niet hergebruiken. Draai daarom één keer de volledige
 controle op de Mac: `python3 cad/slice_check.py` (zonder onderdeelnamen).
 
+## Aanvulling 17-11-2026: gaten voor de boegschroef
+
+- `01_romp_4`: aan beide kanten een gat van Ø22,4 mm voor de Raboesch 108-03 (buis 19/22),
+  op x=760 en z=30, met een kraag van Ø30 aan de binnenkant als lijmvlak.
+- `55_boegschroef_pasring` (nieuw): plaatje van 34 × 34 × 4 mm met hetzelfde gat. Het vervangt
+  `55_boegschroef_proeftunnel`.
+
+Alle andere delen zijn ongewijzigd. Draai op de Mac
+`python3 cad/slice_check.py 01_romp_4 55_boegschroef_pasring` (of de volledige controle).

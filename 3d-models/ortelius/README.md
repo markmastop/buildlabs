@@ -70,10 +70,9 @@ regelaars, ontvanger, zekering/schakelaar, ballastbakken en een boegschroef.
 **Labels** toont of verbergt de namen. Een van de vaste buitenaanzichten
 herstelt het schip. Draai en zoom ook in de RC-weergave.
 
-De boegschroef heeft een dwarstunnel van 20 mm binnendiameter en een apart
-motorvolume voorin bij x = 76 cm. Dit zijn ruimtereserveringen; het exacte
-Raboesch-type, zijn buitenmaten en de doorvoer moeten nog worden vastgelegd.
-Hetzelfde geldt voor de motor, accu, ontvanger en servo. De motormantel
+De boegschroef is een Raboesch 108-03 (buis 19/22 mm) op x = 76 cm, met het
+midden van de tunnel 3 cm boven de kiel. De gaten zitten in `01_romp_4`.
+De maten van de motor, accu, ontvanger en servo. De motormantel
 reserveert Ø 60 × 100 mm; de accu 140 × 48 × 28 mm. Ze zijn geen exacte
 productmodellen. Kabels tonen alleen routes, geen elektrisch aansluitschema.
 

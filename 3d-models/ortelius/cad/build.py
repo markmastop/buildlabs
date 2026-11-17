@@ -172,8 +172,20 @@ aft_lower=aft_outer.cut(aft_solid(aft_z,W).translate((0,0,W)))
 # enkele tienden af. Daarom vanaf ST['join_x'] de oorspronkelijke wand gebruiken, zodat het
 # snijvlak en de lasstrook bij x=227,5 precies blijven zoals ze waren.
 aft_lower=clip(aft_lower,0,ST['join_x']).union(clip(lower,ST['join_x'],P['hull_cuts'][1]))
+# Boegschroef: dwarsgat voor de Raboesch-buis met een kraag aan de binnenzijde als lijmvlak.
+BT=P['bow_thruster']
+def bt_cyl(d):return cq.Workplane('XZ').center(BT['x'],BT['z']).circle(d/2).extrude(200,both=True)
+# Binnengrens van de kraag: romp W+collar_depth naar binnen verschoven, alleen over de ringen rond
+# de tunnel (de kielring is te smal voor deze offset).
+bt_z=[z for z in low_z if 8<=z<=BT['z']+25]
+bt_collar=bt_cyl(BT['collar_outer_diameter']).intersect(outer).cut(hull_solid(bt_z,W+BT['collar_depth']))
+def hull_part(i,a,b):
+ if i==0:return clip(aft_lower,a,b)
+ s=clip(hull,a,b)
+ if a<BT['x']<b:s=s.union(clip(bt_collar,a,b)).cut(bt_cyl(BT['hole_diameter']))
+ return s
 for i,(a,b) in enumerate(zip(P['hull_cuts'],P['hull_cuts'][1:])):
- add(f'01_romp_{i+1}',clip(aft_lower if i==0 else hull,a,b),NAVY,group='romp',rotate=((0,1,0),90 if i<3 else -90),note='Snijvlak op bed; buitenste overhangen controleren. Epoxy en glasband aan binnenzijde.')
+ add(f'01_romp_{i+1}',hull_part(i,a,b),NAVY,group='romp',rotate=((0,1,0),90 if i<3 else -90),note='Snijvlak op bed; buitenste overhangen controleren. Epoxy en glasband aan binnenzijde.')
 # Losse interne lasstroken volgen de binnenvorm; 0,25 mm lijmspeling.
 splice_outer=hull_solid(low_z,W+G).translate((0,0,W+G))
 splice_inner=hull_solid(low_z,W+G+P['splice_wall']).translate((0,0,W+G+P['splice_wall']))
@@ -331,8 +343,8 @@ add('53_elektronicaplaat',plate,BLACK,qty=3,placements=[(370,43,30),(555,0,25),(
 ballast=box(55,45,12).cut(box(50,40,15,0,0,2.5))
 add('54_ballastbak',ballast,BLACK,qty=2,placements=[(575,0,15),(635,0,15)],group='RC')
 # Tunnel als afzonderlijke proefbuis. Gesloten romp blijft dicht tot de echte hardware gekozen is.
-tunnel=cq.Workplane('XY').circle(P['tunnel_outside_diameter']/2).circle(P['tunnel_inside_diameter']/2).extrude(125)
-add('55_boegschroef_proeftunnel',tunnel,BLACK,include=False,group='RC',note='Alleen maattest ID20/OD23 ×125; geen functionele boegschroef, geen gaten in romp.')
+pasring=cq.Workplane('XY').rect(34,34).extrude(4).faces('>Z').workplane().hole(BT['hole_diameter'])
+add('55_boegschroef_pasring',pasring,BLACK,group='RC',note='Proefstuk met hetzelfde gat als de romp (Ø%.1f). Schuif de echte boegschroefbuis erdoor vóór je 01_romp_4 print.'%BT['hole_diameter'])
 # Rudder and metal-stock socket: no printed rotating shafts.
 # Gebalanceerd hangroer achter de schroef: profiel NACA 00xx, voorrand naar de schroef,
 # roerkoning op circa 27% van de koorde. Open achterrand 0,8 mm voor FDM.

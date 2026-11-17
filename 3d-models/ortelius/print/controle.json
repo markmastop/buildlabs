@@ -2,7 +2,7 @@
   "status": "PASS",
   "revision": "p2",
   "unique_parts": 216,
-  "assembly_solids": 326,
+  "assembly_solids": 327,
   "checks": [
     {
       "part": "01_romp_1",
@@ -37,7 +37,7 @@
       "STL_closed": true,
       "one_component": true,
       "P2S_margin_mm": 19.25,
-      "STEP_STL_volume_delta": 0.000236,
+      "STEP_STL_volume_delta": 0.000265,
       "geometry_3MF_matches_STL": true
     },
     {
@@ -725,12 +725,12 @@
       "geometry_3MF_matches_STL": true
     },
     {
-      "part": "55_boegschroef_proeftunnel",
+      "part": "55_boegschroef_pasring",
       "STEP_valid": true,
       "STL_closed": true,
       "one_component": true,
-      "P2S_margin_mm": 65.5,
-      "STEP_STL_volume_delta": 0.000415,
+      "P2S_margin_mm": 111.0,
+      "STEP_STL_volume_delta": 0.000214,
       "geometry_3MF_matches_STL": true
     },
     {
@@ -2019,6 +2019,15 @@
         635,
         0,
         15
+      ],
+      "intersection_mm3": 0.0
+    },
+    {
+      "part": "55_boegschroef_pasring",
+      "translation": [
+        0,
+        0,
+        0
       ],
       "intersection_mm3": 0.0
     },

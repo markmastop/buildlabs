@@ -98,8 +98,6 @@
   ],
   "motor_envelope_diameter": 60,
   "motor_envelope_length": 100,
-  "tunnel_outside_diameter": 23,
-  "tunnel_inside_diameter": 20,
   "rudder_stock_diameter": 4,
   "nozzle": 0.4,
   "minimum_detail": 1.2,
@@ -218,5 +216,13 @@
       58
     ],
     "join_x": 212
+  },
+  "bow_thruster": {
+    "_toelichting": "Raboesch 108-03 (buis 19/22 × 154 mm). Gat met 0,2 mm lijmspeling rondom; kraag aan de binnenzijde.",
+    "x": 760,
+    "z": 30,
+    "hole_diameter": 22.4,
+    "collar_outer_diameter": 30,
+    "collar_depth": 4
   }
 }
