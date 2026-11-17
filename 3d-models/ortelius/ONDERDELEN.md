@@ -2,7 +2,7 @@
 
 De vier onderdelen voor de mechanische pasproef volgen de
 [maatbasis van de p3-aandrijving](cad/aandrijving/README.md).
-Op de [bestellijst](bestellen.html) staat alles bij Schiffsmodelle-Shop (JOJO), inclusief lijm en plamuur; alleen de zender komt van Amazon.de.
+Op de [bestellijst](bestellen.html) staat alles bij Schiffsmodelle-Shop (JOJO), inclusief lijm en plamuur; alleen de zender komt van Droneshop.nl.
 De overige hardware is voorlopig en de genoemde prijzen zijn richtprijzen.
 
 ## Aandrijving
@@ -20,14 +20,13 @@ messing doorvoerbus.
 ## Stuurwerk en latere uitbreiding
 - [ ] Roeras Ø4 mm (RVS of messing) met een messing buisje 5 × 4,1 mm als roerkoker
 - [ ] Roerhevel T-vorm nylon Ø4 mm, stuurstang 200 mm M2 en twee gaffelkoppen 2 mm
-- [ ] Raboesch boegschroef met eigen regelaar. Controleer de tunnelmaat en
-  koop deze pas na de mechanische pasproef.
+- [ ] Raboesch boegschroef 19/22 × 154 mm (rb108-03, "Bow Thruster 22mm"), met 7,2 V-motor; buis inkorten tot de rompbreedte
 
 ## Besturing en stroom
-- [ ] FlySky FS-i6X zender met FS-iA10B ontvanger, 10 kanalen (Amazon.de) — ca. € 55–70, plus 4× AA
+- [ ] FlySky i6S zender met FS-iA6B ontvanger (Droneshop.nl) — € 74,95, plus 4× AA; later eventueel FS-iA10B voor 10 kanalen
 - [ ] Hobbywing QuicRun 1060 voor de hoofdmotor (waterdicht, vooruit/achteruit, BEC) — ca. € 25
   Begrens het gas in de zender eerst tot ca. 40 %: op 2S draait de motor veel sneller dan nodig.
-- [ ] Tweede Hobbywing QuicRun 1060 voor de boegschroef, als latere uitbreiding — ca. € 25
+- [ ] Tweede Hobbywing QuicRun 1060 voor de boegschroef — ca. € 25 (rode BEC-draad doorknippen)
 - [ ] Roerservo 15 kg met metalen tandwielen (S0150 MG) — ca. € 20
 - [ ] Accu 2S LiPo 5000 mAh hardcase, 138 × 47 × 25 mm (Ro-Power, T-stekker) — ca. € 26
   (alternatief: 6 V loodaccu, ca. 0,8 kg, goedkoper en meteen ballast)
@@ -71,8 +70,8 @@ printmassa en trim moeten eerst worden gewogen/getest. Zie de
 1. Schroefas en schroef voor de eerste mechanische pasproef.
 2. Motor en koppeling voor de volledige droge pasproef. Deze kunnen
    desgewenst bij de eerste bestelling mee.
-3. Na de pasproef volgen één hoofdregelaar, accu, lader, zender en stuurwerk.
-4. Boegschroef met eigen regelaar en verlichting volgen later.
+3. Na de pasproef volgen de regelaars, boegschroef, accu, lader, zender en stuurwerk.
+4. Verlichting volgt later.
 
 ## Bronnen
 - [Hobbywing QuicRun 1060 boat – Schiffsmodelle-Shop](https://schiffsmodelle-shop.de/en/speed-controller-brushed/23169-boat-esc-quicrun-1060-brushed-60a.html)
