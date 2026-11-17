@@ -2,7 +2,7 @@
 
 De vier onderdelen voor de mechanische pasproef volgen de
 [maatbasis van de p3-aandrijving](cad/aandrijving/README.md).
-Op de [bestellijst](bestellen.html) staat alles als één bestelling bij Schiffsmodelle-Shop (JOJO), inclusief lijm en plamuur.
+Op de [bestellijst](bestellen.html) staat alles bij Schiffsmodelle-Shop (JOJO), inclusief lijm en plamuur; alleen de zender komt van Amazon.de.
 De overige hardware is voorlopig en de genoemde prijzen zijn richtprijzen.
 
 ## Aandrijving
@@ -24,8 +24,7 @@ messing doorvoerbus.
   koop deze pas na de mechanische pasproef.
 
 ## Besturing en stroom
-- [ ] FlySky FS-i6S zender, 10 kanalen — ca. € 98, plus 4× AA (de meegeleverde FS-iA6B is reserve)
-- [ ] FlySky FS-iA10B ontvanger, 10 kanalen — ca. € 29
+- [ ] FlySky FS-i6X zender met FS-iA10B ontvanger, 10 kanalen (Amazon.de) — ca. € 55–70, plus 4× AA
 - [ ] Hobbywing QuicRun 1060 voor de hoofdmotor (waterdicht, vooruit/achteruit, BEC) — ca. € 25
   Begrens het gas in de zender eerst tot ca. 40 %: op 2S draait de motor veel sneller dan nodig.
 - [ ] Tweede Hobbywing QuicRun 1060 voor de boegschroef, als latere uitbreiding — ca. € 25
