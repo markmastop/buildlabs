@@ -23,7 +23,7 @@ messing doorvoerbus.
 - [ ] Raboesch boegschroef 19/22 × 154 mm (rb108-03, "Bow Thruster 22mm"), met 7,2 V-motor; buis inkorten tot de rompbreedte
 
 ## Besturing en stroom
-- [ ] FlySky i6S zender met FS-iA6B ontvanger (Droneshop.nl) — € 74,95, plus 4× AA; later eventueel FS-iA10B voor 10 kanalen
+- [ ] FlySky ST8 zender met FS-SR8 ontvanger, 8 kanalen, ANT (Droneshop.nl) — € 89, plus 4× AA
 - [ ] Hobbywing QuicRun 1060 voor de hoofdmotor (waterdicht, vooruit/achteruit, BEC) — ca. € 25
   Begrens het gas in de zender eerst tot ca. 40 %: op 2S draait de motor veel sneller dan nodig.
 - [ ] Tweede Hobbywing QuicRun 1060 voor de boegschroef — ca. € 25 (rode BEC-draad doorknippen)
@@ -75,5 +75,5 @@ printmassa en trim moeten eerst worden gewogen/getest. Zie de
 
 ## Bronnen
 - [Hobbywing QuicRun 1060 boat – Schiffsmodelle-Shop](https://schiffsmodelle-shop.de/en/speed-controller-brushed/23169-boat-esc-quicrun-1060-brushed-60a.html)
-- [FlySky FS-i6S met FS-iA6B – Schiffsmodelle-Shop](https://www.schiffsmodelle-shop.de/en/remote-controls/30606-fs-i6s-2.4-ghz-10-channel-radio-control.html)
+- [FlySky FS-ST8 met SR8 – Flying Tech](https://www.flyingtech.co.uk/product/flysky-fs-st8-2-4ghz-radio-transmitter-receiver-set/)
 - [Raboesch-catalogus 2024](https://raboeschmodels.com/wp-content/uploads/2024/07/RABOESCH_CATALOGUS-2024-WEB.pdf)
