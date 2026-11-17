@@ -1167,17 +1167,17 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
   rcShafts.add(V(2.3,7.2,0),V(2.3,7.2,1.8),0.12);
   rcShafts.add(V(2.3,7.2,1.8),V(15,7.2,2.2),0.07);
   // Boegschroef: 20 mm dwarstunnel plus generieke verticale motorruimte.
-  var tunnelHalf=hwAt(76,5.0)+0.3;
+  var tunnelHalf=hwAt(76,3.0)+0.3;
   var tunnelProfile=[new THREE.Vector2(1,-tunnelHalf),new THREE.Vector2(1.15,-tunnelHalf),new THREE.Vector2(1.15,tunnelHalf),new THREE.Vector2(1,tunnelHalf),new THREE.Vector2(1,-tunnelHalf)];
-  var tunnel=new THREE.Mesh(new THREE.LatheGeometry(tunnelProfile,32),rcMat.thruster);tunnel.rotation.x=Math.PI/2;tunnel.position.set(76,5,0);component('boegschroeftunnel',tunnel);
-  component('boegschroefmotor',cylinderBetween(V(76,6.1,0),V(76,9.1,0),1.2,rcMat.thruster));
-  rc.add(box(2.8,0.3,3.2,greyMat,76,6.0,0));
+  var tunnel=new THREE.Mesh(new THREE.LatheGeometry(tunnelProfile,32),rcMat.thruster);tunnel.rotation.x=Math.PI/2;tunnel.position.set(76,3,0);component('boegschroeftunnel',tunnel);
+  component('boegschroefmotor',cylinderBetween(V(76,4.1,0),V(76,7.1,0),1.2,rcMat.thruster));
+  rc.add(box(2.8,0.3,3.2,greyMat,76,4.0,0));
   // Ballastbakken tonen beschikbare lage ruimte; geen vast ballastgewicht.
   [57,63].forEach(function(x) {component('ballastbak-'+x,box(4.8,0.65,4.0,darkMat,x,1.6,0));});
   route(rcPower,[[46,4.1,2.2],[43,5,4],[43,7,4],[49,7,4],[49,6.7,5.5],[37,6.7,5.5],[37,7.5,4]],0.07);
   route(rcPower,[[49,7,4],[49,6.7,5.5],[67,6.7,5.5],[67,7.5,3.5]],0.07);
   route(rcWires,[[37,7.3,4],[35.5,6.3,2],[35,5.2,0]],0.08);
-  route(rcWires,[[67,7.3,3.5],[73,7.0,3.5],[76,8,0]],0.07);
+  route(rcWires,[[67,7.3,3.5],[73,7.0,3.5],[76,6,0]],0.07);
   route(rcWires,[[55.5,8,-4],[55.5,9,-5.5],[11,9,-5.5],[11,8.5,3.5]],0.035);
   rc.add(rcPower.build());rc.add(rcWires.build());rc.add(rcShafts.build());
   label('1 Roerservo',13,11,-7,[15,7.0,3.5]);
@@ -1186,7 +1186,7 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
   label('4 Hoofdregelaar',32,11,11,[37,8,4]);
   label('5 Ontvanger',56,13,-10,[55.5,8.3,-4]);
   label('6 Boegregelaar',65,11,11,[67,8,3.5]);
-  label('7 Boegschroef',77,11,-10,[76,8,0]);
+  label('7 Boegschroef',77,11,-10,[76,6,0]);
   var rcParts=[['1 Roerservo','4,2 × 2,0 × 4,0 cm (reserve)','15 cm'],
     ['2 Motor','Ø 6 × 10 cm (reserve)','25–35 cm'],['3 Accu 2S','14 × 4,8 × 2,8 cm (reserve)','39–53 cm'],
     ['4/6 Regelaars','3,65 × 3,2 × 1,8 cm (fabrikant, zonder kabelruimte)','37 / 67 cm'],
