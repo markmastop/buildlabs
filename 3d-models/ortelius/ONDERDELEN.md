@@ -30,7 +30,7 @@ messing doorvoerbus.
 - [ ] Roerservo 15 kg met metalen tandwielen (S0150 MG) — ca. € 20
 - [ ] Accu 2S LiPo 5000 mAh hardcase, 138 × 47 × 25 mm (Ro-Power, T-stekker) — ca. € 26
   (alternatief: 6 V loodaccu, ca. 0,8 kg, goedkoper en meteen ballast)
-- [ ] Balanslader SkyRC S65 AC, als je er nog geen hebt — ca. € 41
+- [ ] Balanslader SkyRC S65 AC, als je er nog geen hebt — ca. € 40
 - [ ] Schakelaar, XT60-stekkers, zekering 20 A
 
 ## Kanaalindeling (voorstel)
