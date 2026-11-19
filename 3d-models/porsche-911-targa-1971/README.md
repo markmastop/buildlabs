@@ -40,8 +40,8 @@ goedgekeurd.
   227 mm op 1/10. De kit bevat motor (540), regelaar (TEU-105BK), banden en
   velgen en een Kever-body, die niet wordt gebruikt.
 - **Elektronica:** Mark heeft een FlySky ST8-zender. Nog te kopen: servo,
-  ontvanger (controleer of er een bij de zender zit en of die compatibel is),
-  accu en lader.
+  ontvanger, accu en lader. Zie de [RC-bestellijst](RC-BESTELLIJST.md). De
+  regelaar van de kit werkt volgens Tamiya op 6,6–7,2 V: kies 6-cels NiMH.
 - **Body:** wordt los van het chassis ontworpen en past op de M-06. Op 1/10 is
   de body langer dan het bouwvolume van de P2S (256 mm), dus verdeel hem in
   twee of drie delen met pasranden of lijmvlakken.
@@ -60,6 +60,7 @@ goedgekeurd.
 |---|---|
 | [index.html](index.html) | Het Targa-voorstel, eigen referentiefoto’s en vormchecklist |
 | [ONTWERPBRIEF.md](ONTWERPBRIEF.md) | Vorm, gemaakte keuzes en criteria voor de volgende versie |
+| [RC-BESTELLIJST.md](RC-BESTELLIJST.md) | Bestellijst voor de RC-versie op Tamiya M-06 |
 | [OVERDRACHT.md](OVERDRACHT.md) | Herkomst, bronkandidaten, beperkingen en vervolg |
 | [referentie/](referentie/README.md) | Echte foto’s van voorzijde, achterzijde en interieur |
 | [concept/](concept/README.md) | Historisch beeldvoorstel van 20 cm en generatieprompt; geen bijbehorende CAD |
