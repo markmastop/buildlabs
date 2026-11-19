@@ -15,7 +15,7 @@ compatibiliteit voor je bestelt. De lijst is niet bij een winkel afgestemd.
 
 | | Onderdeel | Richtprijs | Opmerking |
 |---|---|---|---|
-| [ ] | **Ontvanger** voor de ST8 (FlySky ANT-protocol) | € 10–30 | Zit de FS-SR8 al in je ST8-set en is die vrij? De SR8 van de [Ortelius](../ortelius/ONDERDELEN.md) kan niet in beide projecten tegelijk. Een kleine ontvanger past beter in de auto, bijvoorbeeld de FS-SRM, die volgens de winkelbeschrijving met de ST8 werkt. Controleer koppeling en uitgang (PWM). |
+| [ ] | **Ontvanger FlySky FS-SR8C** (ANT-protocol, 8 kanalen PWM) | € 10–25 | De FS-SR8 van je ST8-set is voor de [Ortelius](../ortelius/ONDERDELEN.md). De SR8C is een compacte variant: ca. 22 × 15 × 3 mm en 1 g, werkt met de ST8 en heeft gewone PWM-uitgangen voor servo en regelaar. Koppel hem aan een apart modelgeheugen in de zender. Niet de FS-SRM: die heeft volgens de specificaties één kanaal. |
 | [ ] | **Servo, standaardmaat, bij voorkeur metalen tandwielen** | € 15–30 | Controleer in de bouwhandleiding de servomaat en de hoorn (25-spline Futaba bij Tamiya's High Torque-servosaver). |
 | [ ] | **Accu 6-cels NiMH 7,2 V met Tamiya-stekker** | € 25–40 | Volgens Tamiya's specificatie werkt de regelaar op 6,6–7,2 V. Controleer of de vorm in de accubak past. |
 | [ ] | **Lader voor NiMH** | € 15–40 | Is er al een lader? De SkyRC S65 uit de Ortelius-lijst laadt ook NiMH. |
