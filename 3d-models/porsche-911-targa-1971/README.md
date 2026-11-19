@@ -26,6 +26,34 @@ deze overdracht gelaten.
 - De nozzle van 0,4 mm en PLA zijn eerdere werkuitgangspunten, niet door Mark
   apart bevestigde instellingen. P2S-bouwvolume: 25,6 × 25,6 × 25,6 cm.
 
+## RC-versie (plan)
+
+Mark wil van de Targa ook een bestuurbare RC-versie maken. Dit is een plan; er
+is nog geen RC-geometrie en de vorm van de carrosserie moet eerst worden
+goedgekeurd.
+
+- **Schaal:** 1/10. Lengte circa 416 mm, wielbasis circa 227 mm. Een grote
+  schaal is bewust gekozen; kleiner hoeft niet.
+- **Chassis:** Tamiya M-06 (achterwielaandrijving, motor achterin, zoals de 911).
+  Mark koopt de Volkswagen Beetle-kit (58572, circa €110,83). Wielbasis
+  variabel: 210, 225 of 239 mm. **Instelling: 225 mm**, circa 2 mm onder de
+  227 mm op 1/10. De kit bevat motor (540), regelaar (TEU-105BK), banden en
+  velgen en een Kever-body, die niet wordt gebruikt.
+- **Elektronica:** Mark heeft een FlySky ST8-zender. Nog te kopen: servo,
+  ontvanger (controleer of er een bij de zender zit en of die compatibel is),
+  accu en lader.
+- **Body:** wordt los van het chassis ontworpen en past op de M-06. Op 1/10 is
+  de body langer dan het bouwvolume van de P2S (256 mm), dus verdeel hem in
+  twee of drie delen met pasranden of lijmvlakken.
+- **Sterkte:** het open Targadak maakt de body minder stijf. Gebruik dikkere
+  wanden (circa 1,2–1,6 mm), een versterkte beugel en dakrand en eventueel een
+  interieurplaat.
+- **Later:** een eigen geprint chassis is mogelijk, maar vraagt PETG of nylon,
+  proefprints en een eigen geometrie. Eerst rijden op de M-06.
+- **Nog vast te stellen:** werkelijke wielbasis en spoorbreedte van de 1971
+  Targa, bodymontage (bodyclips), ruimte rond de wielkasten en de verdeling in
+  delen. Prijzen en voorraad zijn niet vastgelegd.
+
 ## Bestanden
 
 | Map of bestand | Betekenis |

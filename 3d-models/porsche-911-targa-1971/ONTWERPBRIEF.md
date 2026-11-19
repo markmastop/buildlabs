@@ -59,6 +59,23 @@ Geslaagde mesh- en slicecontroles bewijzen technische geometrie, niet gelijkenis
 5. Controleer gesloten volumes, losse delen, minimumdiktes, passing en de slice.
    Een fysieke proefprint blijft nodig om de werkelijke print te beoordelen.
 
+## RC-versie
+
+Mark wil ook een bestuurbare uitvoering. Uitgangspunten, na goedkeuring van de
+vorm:
+
+- Schaal 1/10 op een Tamiya M-06 (Volkswagen Beetle-kit, 58572), 2WD
+  achterwielaandrijving met motor achterin. Wielbasis instellen op **225 mm**;
+  de 911 F-modellen hebben circa 2268 mm, dus circa 227 mm op 1/10. Controleer
+  de wielbasis van de 1971 Targa.
+- De body wordt los van het chassis ontworpen. Hij is circa 416 mm lang en past
+  niet in één keer op de P2S (256 mm): verdeel hem met pasranden of lijmvlakken.
+- Houd rekening met het open dak: dikkere wanden, versterkte beugel en dakrand
+  en eventueel een interieurplaat. Bodymontage met bodyclips; maak ruimte voor
+  wielkasten en bandenspel.
+- Zender: FlySky ST8 (van Mark). Servo, ontvanger, accu en lader nog te kopen.
+- Een eigen chassis kan later; eerst rijden op de M-06.
+
 ## Printuitgangspunten
 
 De nozzle van 0,4 mm en PLA zijn eerdere aannames die bij de uitwerking moeten
