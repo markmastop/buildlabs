@@ -182,10 +182,35 @@ footer { padding-top:16px; border-top:1px solid var(--rule); color:var(--muted);
     <p class="status">De body wordt los van het chassis ontworpen en in delen geprint. De vorm moet eerst worden goedgekeurd.</p>
   </section>
 
+  <section aria-labelledby="parts-heading">
+    <div class="section-head"><h2 id="parts-heading">Onderdelenlijst RC-versie</h2><p>Vink af wat je al hebt. Zie de <a href="bestellen.html">bestelvolgorde en winkellinks</a>.</p></div>
+    <div class="groups">
+      <div class="group"><h3>Chassis en aandrijving</h3><ul>
+        <li><label><input type="checkbox" id="part-chassis" data-part><span class="name">Tamiya M-06 chassis (Beetle-kit 58572)</span><span class="detail">Bevat 540-motor, regelaar TEU-105BK, banden en velgen en een Kever-body. Besteld voor € 100. Wielbasis instellen op 225 mm.</span></label></li>
+      </ul></div>
+      <div class="group"><h3>Besturing en stroom</h3><ul>
+        <li><label><input type="checkbox" id="part-zender" data-part><span class="name">FlySky FS-ST8 zender</span><span class="detail">Al in bezit. De meegeleverde FS-SR8 ontvanger blijft voor de Ortelius.</span></label></li>
+        <li><label><input type="checkbox" id="part-ontvanger" data-part><span class="name">FlySky FS-SR8C ontvanger</span><span class="detail">Compact (ca. 22 × 15 × 3 mm), 8 kanalen PWM, ANT-protocol. Niet de FS-SRM: die heeft één kanaal.</span></label></li>
+        <li><label><input type="checkbox" id="part-servo" data-part><span class="name">Standaardservo met metalen tandwielen</span><span class="detail">Bijvoorbeeld een Savox digitaal, 10,5 kg. Controleer de servomaat en hoorn in de M-06-handleiding.</span></label></li>
+        <li><label><input type="checkbox" id="part-accu" data-part><span class="name">Accu 6-cels NiMH 7,2 V, 3000 mAh</span><span class="detail">De regelaar werkt volgens Tamiya op 6,6–7,2 V. Een 2S LiPo valt erbuiten. Controleer de accubak.</span></label></li>
+        <li><label><input type="checkbox" id="part-lader" data-part><span class="name">Lader voor NiMH</span><span class="detail">Alleen nodig als je er nog geen hebt, bijvoorbeeld de SkyRC S65 van de Ortelius (controleer NiMH).</span></label></li>
+      </ul></div>
+      <div class="group"><h3>Body (later)</h3><ul>
+        <li><label><input type="checkbox" id="part-filament" data-part><span class="name">PETG of PLA</span><span class="detail">Body in delen op 1/10 (circa 416 mm); verbruik volgt na het ontwerp.</span></label></li>
+        <li><label><input type="checkbox" id="part-clips" data-part><span class="name">Bodyclips en bodyhouder</span><span class="detail">Controleer wat in de kit zit.</span></label></li>
+        <li><label><input type="checkbox" id="part-verf" data-part><span class="name">Primer, verf en lijm</span><span class="detail">Geel-oranje, zwart en zilvergrijs; lijm voor de pasranden tussen de delen.</span></label></li>
+      </ul></div>
+    </div>
+    <p class="status">Je vinkjes worden op dit apparaat bewaard.</p>
+  </section>
+
   <section aria-labelledby="files-heading">
     <div class="section-head"><h2 id="files-heading">Projectbestanden</h2><p>Referenties, keuzes en de stand van het ontwerp.</p></div>
     <div class="downloads">
-      <a class="primary" href="ONTWERPBRIEF.md">Ontwerpbrief</a>
+      <a class="primary" href="START-HIER.md">Start hier</a>
+      <a href="ONTWERPBRIEF.md">Ontwerpbrief</a>
+      <a href="ONDERDELEN.md">Onderdelen</a>
+      <a href="RC-BESTELLIJST.md">RC-bestellijst</a>
       <a href="referentie/README.md">Referentiefoto’s en herkomst</a>
       <a href="OVERDRACHT.md">Overdracht en bronkandidaten</a>
       <a href="concept/ontwerpbrief-en-prompt-v1.txt">Eerdere conceptbeschrijving</a>
@@ -278,6 +303,13 @@ footer { padding-top:16px; border-top:1px solid var(--rule); color:var(--muted);
     updateChecklist();
   });
   updateChecklist();
+  const partBoxes = [...document.querySelectorAll('[data-part]')];
+  for (const box of partBoxes) {
+    try { box.checked = localStorage.getItem('porsche-911-targa-1971-onderdeel-' + box.id) === '1'; } catch {}
+    box.addEventListener('change', () => {
+      try { localStorage.setItem('porsche-911-targa-1971-onderdeel-' + box.id, box.checked ? '1' : '0'); } catch {}
+    });
+  }
 })();
 </script>
 </body>
