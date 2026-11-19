@@ -5,8 +5,8 @@
 Mark heeft een visueel Targa-voorstel, drie echte referentiefoto's en een plan
 voor een RC-versie. Er is **nog geen goedgekeurde 3D-geometrie**. Een eerdere
 3D-uitwerking is afgewezen op gelijkenis; de bestanden staan alleen als
-historie in `cad/` en `model/`. Mark gaf aan dat er zometeen een **3D-render**
-komt; die is nog niet gemaakt.
+historie in `cad/` en `model/`. Daarnaast staat op de projectpagina nu een **eerste 3D-vormstudie** (three.js, schaal 1:10,
+parametrisch, met open of gesloten Targadak). Die is nog niet beoordeeld op gelijkenis.
 
 De RC-versie is 1/10 op een Tamiya M-06 (wielbasis 225 mm). Het chassis is
 besteld voor € 100; de zender is een FlySky ST8. De ontvanger, servo, accu en
@@ -30,7 +30,7 @@ lader moeten nog worden gekocht.
 
 ## Volgorde hierna
 
-1. De 3D-render van de Targa maken en laten beoordelen op gelijkenis.
+1. De 3D-vormstudie van de Targa laten beoordelen op gelijkenis met de foto's en bijstellen.
 2. Daarna de body uitwerken en verdelen in printbare delen met pasranden.
 3. Het M-06-chassis bouwen en rijden met de Kever-body.
 4. De 911-body passend maken en monteren met bodyclips.

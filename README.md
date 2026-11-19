@@ -19,7 +19,7 @@ hoe je ermee verder werkt.
 | [Ortelius RC](3d-models/ortelius/index.html) | Concept | RC-model van het poolexpeditieschip Ortelius, schaal 1:100, 91 cm | [README](3d-models/ortelius/README.md) |
 | [Smit-Lloyd 109](3d-models/smit-lloyd-109/index.html) | Printbaar prototype (v17) | Afneembare bovenbouw voor een bestaande RC-romp, STEP en STL | [README](3d-models/smit-lloyd-109/README.md) |
 | [Oasis of the Seas RC](3d-models/oasis-of-the-seas-rc/index.html) | Inbouwconcept | Cruiseschip van 100 cm met tweeschroefs aandrijving en onderdelenlijst | [README](3d-models/oasis-of-the-seas-rc/README.md) |
-| [Porsche 911 Targa 1971](3d-models/porsche-911-targa-1971/index.html) | Ontwerpvoorstel | Visueel Targa-voorstel, eigen foto’s en ontwerpkeuzes | [README](3d-models/porsche-911-targa-1971/README.md) |
+| [Porsche 911 Targa 1971](3d-models/porsche-911-targa-1971/index.html) | Vormstudie | Eerste 3D-vormstudie 1:10, Targa-voorstel, eigen foto’s en RC-plan | [README](3d-models/porsche-911-targa-1971/README.md) |
 | [Dashboard: subwoofer](3d-models/porsche-911-f-model-dash-subwoofer/index.html) | Printklaar (v2.5.1) | Cup voor een Visaton W 100 X onder het dashboard van de 911 F-Model | [README](3d-models/porsche-911-f-model-dash-subwoofer/README.md) |
 | [Dashboard: dubbele voorspeakers](3d-models/porsche-911-f-model-dash-double-front-speaker/index.html) | Ontwerp klaar (v7) | Adapterplaat voor twee Audison APX 4 in het dashboard van de 911 F-Model | [README](3d-models/porsche-911-f-model-dash-double-front-speaker/README.md) |
 | [EnergyDeck 7-inch behuizing](3d-models/energydeck-7-inch/index.html) | Printprototype (v9) | Bureaustandaard voor het ELECROW CrowPanel Advance 7.0 (DIS02170A), met STL en STEP | [README](3d-models/energydeck-7-inch/README.md) |

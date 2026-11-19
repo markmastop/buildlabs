@@ -86,4 +86,4 @@ De afgewezen grotere 3D-uitwerking is alleen als historie bewaard in `cad/` en
 `model/`; zij wordt niet meer in de pagina geladen en niet aangeboden als
 passend model. De afgewezen mini is niet opgenomen. Voor toekomstige
 browsergeometrie gelden centimeters op modelschaal en voor printbestanden
-millimeters. Er is nog geen passende, goedgekeurde geometrie of printuitwerking.
+millimeters. De nieuwe 3D-vormstudie op de projectpagina is een eerste, nog niet beoordeelde uitwerking; er is nog geen goedgekeurde geometrie of printuitwerking.

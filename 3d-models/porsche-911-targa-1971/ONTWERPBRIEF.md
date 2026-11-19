@@ -59,6 +59,23 @@ Geslaagde mesh- en slicecontroles bewijzen technische geometrie, niet gelijkenis
 5. Controleer gesloten volumes, losse delen, minimumdiktes, passing en de slice.
    Een fysieke proefprint blijft nodig om de werkelijke print te beoordelen.
 
+## Eerste 3D-vormstudie (november 2026)
+
+Op de projectpagina staat een parametrische vormstudie in three.js (r128,
+vastgepind), schaal 1:10, in `index.html`. Ze is niet door Mark beoordeeld.
+
+- Maten (ware grootte): lengte 4163 mm, breedte 1610 mm, hoogte 1320 mm,
+  wielbasis 2268 mm, wielstraal 322 mm. Op 1:10 is dat 41,6 × 16,1 × 13,2 cm.
+- De carrosserie is een dwarsdoorsnede-loft: per station (circa elke 25 mm)
+  bepalen breedte, bovenrand, motorkap- of dakhoogte en wielkasten de vorm.
+  Ruiten, Targabeugel, rooster, lampen, bumpers en wielen zijn losse onderdelen.
+- Alle doorsneden en hoogtes zijn **schattingen** uit de eigen foto's en
+  gangbare 911-hoofdmaten, geen scan en geen exacte reconstructie.
+- Bewuste vereenvoudigingen: de motorkap en deuren zijn geen aparte delen,
+  het interieur is een eenvoudige indicatie, merkplaatjes ontbreken.
+- Zwakke punten om te beoordelen: de vorm van de neus en de koplampen, de
+  staart en achterschouders, het kozijn en de bolle achterruit.
+
 ## RC-versie
 
 Mark wil ook een bestuurbare uitvoering. Uitgangspunten, na goedkeuring van de
