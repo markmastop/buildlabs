@@ -127,12 +127,12 @@ footer { padding-top:16px; border-top:1px solid var(--rule); color:var(--muted);
       <button type="button" id="vw-spin" aria-pressed="false">Draaien</button>
     </div>
     <dl class="specs">
-      <div class="spec"><dt>Lengte</dt><dd>41,6<small>cm</small></dd></div>
+      <div class="spec"><dt>Lengte</dt><dd>40,1<small>cm</small></dd></div>
       <div class="spec"><dt>Breedte</dt><dd>16,1<small>cm</small></dd></div>
-      <div class="spec"><dt>Hoogte</dt><dd>13,2<small>cm</small></dd></div>
+      <div class="spec"><dt>Hoogte</dt><dd>12,6<small>cm</small></dd></div>
       <div class="spec"><dt>Wielbasis</dt><dd>22,7<small>cm</small></dd></div>
     </dl>
-    <p class="viewer-note"><strong>Let op:</strong> dit is een vormstudie op schaal 1:10 uit de eigen foto’s en gangbare 911-maten, nog geen printbestand. Hoofdmaten: lengte 4163 mm, breedte 1610 mm, hoogte 1320 mm, wielbasis 2268 mm. Dwarsdoorsneden, ruiten en details zijn geschat en moeten nog met de echte auto worden vergeleken.</p>
+    <p class="viewer-note"><strong>Let op:</strong> dit is een vormstudie op schaal 1:10, nog geen printbestand. De vorm is opgebouwd uit het profiel van een zijfoto van een vroege 911 Targa, geschaald op de wielbasis van 2268 mm. Daardoor wijken lengte (circa 4010 mm) en hoogte (circa 1260 mm) iets af van de gangbare opgave (4163 en 1320 mm). Breedte, dwarsdoorsneden, ruiten en details zijn nog schattingen en moeten met Marks auto worden vergeleken.</p>
   </section>
 
   <section aria-labelledby="proposal-heading">
@@ -272,7 +272,7 @@ var T = THREE, PI = Math.PI;
    de hele auto wordt aan het eind met 0,01 geschaald naar schaal 1:10 in cm.
    s = afstand vanaf de voorkant (mm), x = (2014 - s): de auto kijkt naar +x,
    y = omhoog, z = rechterkant. De maten zijn schattingen uit de eigen foto's
-   en de gangbare 911-hoofdmaten (L 4163, B 1610, H 1320, wielbasis 2268).
+   en de wielbasis (2268 mm): een zijfoto van een vroege Targa is uitgemeten en op de wielbasis geschaald.
 ------------------------------------------------------------------- */
 function pchip(pts) {
   var n = pts.length, xs = pts.map(function (p) { return p[0]; }), ys = pts.map(function (p) { return p[1]; });
@@ -290,25 +290,25 @@ function pchip(pts) {
 }
 function lerp(a, b, t) { return a + (b - a) * t; }
 function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
-function X(s) { return 2014 - s; }
+function X(s) { return 1937 - s; }
 function hex(h) { return new T.Color(h).convertSRGBToLinear(); }
 
-var S_NOSE = 40, S_END = 4120, S_COWL = 1380, S_RW = 3148;
-var AXLES = [{ s: 880, tr: 670, w: 165 }, { s: 3148, tr: 676, w: 175 }];
-var WHEEL_R = 322, ARCH_R = 372;
+var S_NOSE = 60, S_END = 3975, S_COWL = 1340, S_RW = 3450;
+var AXLES = [{ s: 803, tr: 670, w: 165 }, { s: 3071, tr: 676, w: 175 }];
+var WHEEL_R = 322, ARCH_A = 375, ARCH_B = 347;
 
-var tWs = pchip([[40,590],[80,680],[150,735],[300,768],[600,780],[900,780],[1300,782],[1600,772],[2000,765],[2400,775],[2800,792],[3148,805],[3500,792],[3800,740],[4000,655],[4120,560]]);
-var tTuck = pchip([[40,30],[1300,30],[1500,70],[2400,70],[2700,35],[4120,30]]);
-var tFr = pchip([[40,.72],[300,.80],[900,.80],[1300,.85],[1450,.93],[2700,.93],[3000,.9],[3148,.84],[3600,.82],[4120,.78]]);
-var tYt = pchip([[40,560],[70,650],[110,735],[160,780],[240,800],[400,808],[800,812],[1300,835],[1450,880],[2700,885],[3000,930],[3148,945],[3500,925],[3800,860],[4000,785],[4120,690]]);
-var tYc = pchip([[40,545],[150,600],[300,660],[500,712],[900,775],[1380,830],[3148,945],[3400,930],[3700,875],[3950,790],[4120,705]]);
-var tYlb = pchip([[40,330],[300,225],[500,195],[3600,195],[4000,260],[4120,330]]);
+var tWs = pchip([[60,600],[120,660],[195,700],[260,735],[330,760],[500,775],[803,780],[1300,782],[1600,770],[2000,762],[2400,770],[2700,785],[3071,805],[3400,800],[3700,770],[3900,690],[3975,620]]);
+var tTuck = pchip([[60,30],[1300,30],[1500,60],[2500,60],[2800,35],[3975,30]]);
+var tFr = pchip([[60,.8],[300,.8],[900,.8],[1300,.86],[1450,.9],[2700,.9],[3000,.88],[3200,.85],[3450,.83],[3975,.78]]);
+var tYt = pchip([[60,400],[190,405],[212,590],[254,685],[296,765],[340,783],[423,796],[550,803],[760,822],[1000,838],[1340,860],[1500,848],[2000,840],[2700,842],[2900,860],[3071,895],[3300,915],[3400,912],[3500,850],[3600,805],[3700,775],[3800,690],[3900,610],[3975,540]]);
+var tYc = pchip([[60,400],[190,405],[212,560],[300,650],[500,715],[800,790],[1100,832],[1340,862],[3450,885],[3600,790],[3800,680],[3975,530]]);
+var tYlb = pchip([[60,300],[190,300],[330,320],[440,310],[3400,310],[3700,360],[3975,390]]);
 
 function yLow(s) {
   var base = tYlb(s);
   for (var i = 0; i < AXLES.length; i++) {
     var dx = Math.abs(s - AXLES[i].s);
-    if (dx < ARCH_R) return Math.max(base, WHEEL_R + Math.sqrt(ARCH_R * ARCH_R - dx * dx));
+    if (dx < ARCH_A) return Math.max(base, WHEEL_R + ARCH_B * Math.sqrt(1 - (dx / ARCH_A) * (dx / ARCH_A)));
   }
   return base;
 }
@@ -320,11 +320,11 @@ function sideZ(s, y) {
 }
 
 /* Kleuren per punt: 0 = onderzijde/wielkast, 1 = lak, 2 = interieur */
-var CV = [hex('#17191c'), hex('#f07a0a'), hex('#0e1012')];
+var CV = [hex('#17191c'), hex('#ee6804'), hex('#0e1012')];
 
 function ring(s, c) {
   var W = tWs(s), WO = W - tTuck(s), WT = W * tFr(s), YT = tYt(s), YCc = tYc(s), YL = yLow(s);
-  var YF = Math.max(140, tYlb(s) - 55), WF = Math.min(560, WO - 40), YIN = 330, p = [], i;
+  var YF = Math.max(140, tYlb(s) - 45), WF = Math.min(560, WO - 40), YIN = 330, p = [], i;
   p.push([0, YF, 0], [WF, YF, 0], [WF, YL, 0], [WO, YL, 0], [WO, YL, 1]);
   var K = 8;
   for (i = 1; i <= K; i++) {
@@ -350,8 +350,8 @@ function stations() {
   for (s = S_NOSE; s <= S_END; s += 25) vals.push(s);
   vals.push(S_END);
   AXLES.forEach(function (a) {
-    for (k = 0; k <= 28; k++) vals.push(a.s + ARCH_R * Math.cos(k / 28 * PI));
-    vals.push(a.s - ARCH_R - .5, a.s - ARCH_R + .5, a.s + ARCH_R - .5, a.s + ARCH_R + .5);
+    for (k = 0; k <= 28; k++) vals.push(a.s + ARCH_A * Math.cos(k / 28 * PI));
+    vals.push(a.s - ARCH_A - .5, a.s - ARCH_A + .5, a.s + ARCH_A - .5, a.s + ARCH_A + .5);
   });
   vals.sort(function (a, b) { return a - b; });
   var out = [], last = -1e9;
@@ -474,12 +474,12 @@ function makeEnv() {
   return env;
 }
 scene.environment = makeEnv();
-scene.add(new T.HemisphereLight(0xdbe8f4, 0x39414a, .35));
+scene.add(new T.HemisphereLight(0xdbe8f4, 0x39414a, .3));
 var key = new T.DirectionalLight(0xffffff, 1.1); key.position.set(40, 80, 55); scene.add(key);
 var fill = new T.DirectionalLight(0xbcd2ea, .5); fill.position.set(-60, 30, -40); scene.add(fill);
 
 /* ----------------------------- materialen ---------------------------- */
-var mBody = new T.MeshPhysicalMaterial({ vertexColors: true, color: 0xffffff, roughness: .4, metalness: 0, clearcoat: .8, clearcoatRoughness: .12, side: T.DoubleSide, envMapIntensity: .55 });
+var mBody = new T.MeshPhysicalMaterial({ vertexColors: true, color: 0xffffff, roughness: .42, metalness: 0, clearcoat: .7, clearcoatRoughness: .14, side: T.DoubleSide, envMapIntensity: .38 });
 var mChrome = new T.MeshStandardMaterial({ color: hex('#dfe3e7'), metalness: 1, roughness: .16, envMapIntensity: 1.3 });
 var mSteel = new T.MeshStandardMaterial({ color: hex('#b7bcc2'), metalness: .85, roughness: .3, envMapIntensity: 1.1 });
 var mBlack = new T.MeshStandardMaterial({ color: hex('#16181a'), roughness: .55, metalness: .1 });
@@ -543,33 +543,35 @@ function sweep(points, w, h, mat, steps) {
   return mesh(new T.ExtrudeGeometry(sh, { steps: steps || 90, bevelEnabled: false, extrudePath: curve }), mat);
 }
 function plan(pairs, y) { return pairs.map(function (p) { return [X(p[0]), y, p[1]]; }); }
-var fb = [[330,-775],[220,-768],[120,-728],[52,-620],[20,-430],[12,-200],[10,0],[12,200],[20,430],[52,620],[120,728],[220,768],[330,775]];
-add(sweep(plan(fb, 395), 34, 74, mRubber));
-var rb = [[3850,-742],[3980,-716],[4090,-645],[4140,-500],[4156,-250],[4160,0],[4156,250],[4140,500],[4090,645],[3980,716],[3850,742]];
-add(sweep(plan(rb, 400), 34, 74, mRubber));
+var fb = [[300,-790],[210,-770],[130,-720],[60,-620],[22,-430],[12,-200],[10,0],[12,200],[22,430],[60,620],[130,720],[210,770],[300,790]];
+add(sweep(plan(fb, 425), 26, 58, mChrome));
+add(sweep(plan(fb, 462), 30, 20, mRubber));
+var rb = [[3730,-775],[3850,-740],[3940,-690],[3990,-560],[4008,-300],[4012,0],[4008,300],[3990,560],[3940,690],[3850,740],[3730,775]];
+add(sweep(plan(rb, 425), 26, 58, mChrome));
+add(sweep(plan(rb, 462), 30, 20, mRubber));
 [-1, 1].forEach(function (sg) {
-  var o = mesh(new T.CylinderGeometry(15, 15, 300, 10), mChrome); o.position.set(X(4150), 480, sg * 640); add(o);
+  var o = mesh(new T.CylinderGeometry(15, 15, 300, 10), mChrome); o.position.set(X(3995), 500, sg * 640); add(o);
   var ex = mesh(new T.CylinderGeometry(30, 30, 120, 16), mChrome); ex.rotation.z = PI / 2;
-  if (sg < 0) { ex.position.set(X(4175), 190, -420); add(ex); }
+  if (sg < 0) { ex.position.set(X(4020), 250, -420); add(ex); }
 });
 
 /* koplampen, richtingaanwijzers, claxon, achterlichten */
 [-1, 1].forEach(function (sg) {
-  var g = new T.Group(); g.position.set(X(66), 688, sg * 528); g.rotation.z = .22;
-  var bucket = mesh(new T.CylinderGeometry(86, 86, 90, 32, 1, true), mChrome); bucket.rotation.z = PI / 2; bucket.position.x = -45; g.add(bucket);
-  var ring2 = mesh(new T.TorusGeometry(90, 9, 10, 40), mChrome); ring2.rotation.y = PI / 2; g.add(ring2);
-  var lens = mesh(new T.SphereGeometry(84, 28, 14, 0, PI * 2, 0, PI / 2), mLens); lens.rotation.z = -PI / 2; lens.scale.set(.38, 1, 1); lens.position.x = -8; g.add(lens);
-  var back = mesh(new T.CircleGeometry(86, 28), mBlack); back.rotation.y = -PI / 2; back.position.x = -88; g.add(back);
+  var g = new T.Group(); g.position.set(X(255), 692, sg * 545); g.rotation.z = .2;
+  var bucket = mesh(new T.CylinderGeometry(96, 96, 90, 32, 1, true), mChrome); bucket.rotation.z = PI / 2; bucket.position.x = -45; g.add(bucket);
+  var ring2 = mesh(new T.TorusGeometry(100, 10, 10, 40), mChrome); ring2.rotation.y = PI / 2; g.add(ring2);
+  var lens = mesh(new T.SphereGeometry(94, 28, 14, 0, PI * 2, 0, PI / 2), mLens); lens.rotation.z = -PI / 2; lens.scale.set(.38, 1, 1); lens.position.x = -8; g.add(lens);
+  var back = mesh(new T.CircleGeometry(96, 28), mBlack); back.rotation.y = -PI / 2; back.position.x = -88; g.add(back);
   car.add(g);
-  var sig = box(30, 56, 150, mAmber, X(78), 468, sg * 520); sig.rotation.y = 0; add(sig);
-  var rim = box(36, 66, 164, mChrome, X(80), 468, sg * 520); rim.scale.set(.6, 1, 1); add(rim);
-  var horn = box(26, 50, 120, mSteel, X(86), 468, sg * 330); add(horn);
-  var tl = box(26, 70, 130, mAmber, X(4114), 612, sg * 440); add(tl);
-  var tr = box(26, 70, 110, mRed, X(4114), 612, sg * 305); add(tr);
+  var sig = box(30, 56, 150, mAmber, X(200), 500, sg * 530); sig.rotation.y = 0; add(sig);
+  var rim = box(36, 66, 164, mChrome, X(202), 500, sg * 530); rim.scale.set(.6, 1, 1); add(rim);
+  var horn = box(26, 50, 120, mSteel, X(204), 500, sg * 330); add(horn);
+  var tl = box(26, 70, 130, mAmber, X(3970), 470, sg * 440); add(tl);
+  var tr = box(26, 70, 110, mRed, X(3970), 470, sg * 305); add(tr);
 });
 
 /* ruiten, kozijn en targabeugel */
-var WB = { s: 1400, y: 848, w: 655 }, WT_ = { s: 1930, y: 1200, w: 545 };
+var WB = { s: 1350, y: 880, w: 650 }, WT_ = { s: 1880, y: 1253, w: 530 };
 function windscreen(u, t) {
   var w = lerp(WB.w, WT_.w, t);
   return [X(lerp(WB.s, WT_.s, t) - 26 * (1 - u * u)), lerp(WB.y, WT_.y, t), u * w];
@@ -582,47 +584,49 @@ add(mesh(gridGeometry(16, 14, windscreen), mGlass));
   for (i = 1; i <= 20; i++) pts.push(windscreen(1 - i / 10, 1));
   for (i = 1; i <= 13; i++) pts.push(windscreen(-1, 1 - i / 14));
   var vs = pts.map(function (p) { return new T.Vector3(p[0], p[1], p[2]); });
-  add(mesh(new T.TubeGeometry(new T.CatmullRomCurve3(vs, true, 'catmullrom', .1), 160, 11, 8, true), mSteel));
+  add(mesh(new T.TubeGeometry(new T.CatmullRomCurve3(vs, true, 'catmullrom', .1), 160, 15, 8, true), mSteel));
 })();
 
-var BAR_S = 2490;
+/* Targabeugel: een gebogen band die ca. 22 graden naar achteren leunt */
+var BAR_S = 2520, BAR_H = 435;
 (function () {
   var pts = [], n = 40, i;
   for (i = 0; i <= n; i++) {
     var z = -650 + 1300 * i / n, f = Math.abs(z) / 650;
-    pts.push(new T.Vector3(X(BAR_S), 880 + 400 * Math.pow(Math.max(0, 1 - Math.pow(f, 3.2)), .5), z));
+    pts.push(new T.Vector3(0, BAR_H * Math.pow(Math.max(0, 1 - Math.pow(f, 3.2)), .5), z));
   }
-  var curve = new T.CatmullRomCurve3(pts);
-  var sh = new T.Shape(), hw = 125, ht = 34; sh.moveTo(-ht, -hw); sh.lineTo(ht, -hw); sh.lineTo(ht, hw); sh.lineTo(-ht, hw); sh.closePath();
-  add(mesh(new T.ExtrudeGeometry(sh, { steps: 90, bevelEnabled: false, extrudePath: curve }), mSteel));
+  var sh = new T.Shape(), hw = 105, ht = 26; sh.moveTo(-ht, -hw); sh.lineTo(ht, -hw); sh.lineTo(ht, hw); sh.lineTo(-ht, hw); sh.closePath();
+  var bar = new T.Group(); bar.position.set(X(BAR_S), 842, 0); bar.rotation.z = .38; car.add(bar);
+  bar.add(mesh(new T.ExtrudeGeometry(sh, { steps: 90, bevelEnabled: false, extrudePath: new T.CatmullRomCurve3(pts) }), mSteel));
   [-1, 1].forEach(function (sg) {
-    for (var k = 0; k < 5; k++) add(box(14, 190, 5, mBlack, X(BAR_S) + (k - 2) * 38, 975, sg * 688));
+    for (var k = 0; k < 5; k++) bar.add(box(14, 190, 5, mBlack, (k - 2) * 38, 150, sg * 690));
   });
 })();
 
-var RW0 = BAR_S + 140;
+var RW0 = 2650;
+var tRwTop = pchip([[2650,1246],[2704,1239],[2790,1197],[2915,1148],[3084,1070],[3253,993],[3380,936],[3450,892]]);
 function rearGlass(u, t) {
-  var s = lerp(RW0, S_RW, t), yb = tYt(s) - 6, ytop = lerp(1262, yb, Math.pow(t, 1.15));
+  var s = lerp(RW0, S_RW, t), yb = tYt(s) - 6, ytop = Math.max(yb, tRwTop(s));
   var wz = tWs(s) * tFr(s) - 42;
   return [X(s), yb + (ytop - yb) * Math.pow(1 - Math.pow(Math.abs(u), 2.4), .6), u * wz];
 }
-add(mesh(gridGeometry(24, 18, rearGlass), mGlass));
+add(mesh(gridGeometry(24, 22, rearGlass), mGlass));
 
 var roofPanel = new T.Group(); roofPanel.visible = false; car.add(roofPanel);
-function roofTop(u, t) { return [X(lerp(1935, BAR_S - 140, t)), lerp(1203, 1275, t) - 38 * u * u, u * lerp(545, 600, t)]; }
+function roofTop(u, t) { return [X(lerp(1900, 2560, t)), lerp(1257, 1262, t) - 40 * u * u, u * lerp(530, 580, t)]; }
 function roofBottom(u, t) { var p = roofTop(u, t); p[1] -= 26; return p; }
 roofPanel.add(mesh(gridGeometry(14, 10, roofTop), mRoof));
 roofPanel.add(mesh(gridGeometry(14, 10, roofBottom), mRoof));
 
 /* interieur */
-add(box(260, 540, 1180, mBlack, X(1520), 600, 0));
+add(box(260, 520, 1180, mBlack, X(1480), 590, 0));
 [-1, 1].forEach(function (sg) {
   var cush = box(380, 100, 440, mPepita, X(2090), 400, sg * 310); add(cush);
   var back = box(90, 470, 420, mPepita, X(2300), 640, sg * 310); back.rotation.z = .24; add(back);
   var side = box(110, 480, 40, mBlack, X(2290), 640, sg * 310); side.visible = false; add(side);
 });
 add(box(760, 130, 150, mBlack, X(1950), 395, 0));
-var wheelG = new T.Group(); wheelG.position.set(X(1760), 700, -310);
+var wheelG = new T.Group(); wheelG.position.set(X(1700), 690, -310);
 var sw = mesh(new T.TorusGeometry(190, 10, 10, 40), mWood); sw.rotation.y = PI / 2; wheelG.add(sw);
 var hubS = mesh(new T.CylinderGeometry(34, 34, 18, 16), mBlack); hubS.rotation.z = PI / 2; wheelG.add(hubS);
 wheelG.rotation.z = .5; car.add(wheelG);
@@ -633,25 +637,25 @@ function tube(pts, r, mat) {
 }
 [-1, 1].forEach(function (sg) {
   var sill = [], s;
-  for (s = 1270; s <= 2760; s += 60) sill.push([X(s), 228, sg * (sideZ(s, 228) + 3)]);
+  for (s = 1200; s <= 2690; s += 60) sill.push([X(s), 322, sg * (sideZ(s, 322) + 3)]);
   add(tube(sill, 7, mChrome));
   var d = [], y;
-  for (y = tYt(1520) - 6; y >= 262; y -= 70) d.push([X(1520), y, sg * (sideZ(1520, y) + 1)]);
-  for (s = 1560; s <= 2400; s += 60) d.push([X(s), 258, sg * (sideZ(s, 258) + 1)]);
-  for (y = 300; y <= tYt(2440) - 6; y += 70) d.push([X(2440), y, sg * (sideZ(2440, y) + 1)]);
+  for (y = tYt(1330) - 6; y >= 340; y -= 70) d.push([X(1330), y, sg * (sideZ(1330, y) + 1)]);
+  for (s = 1380; s <= 2440; s += 60) d.push([X(s), 345, sg * (sideZ(s, 345) + 1)]);
+  for (y = 380; y <= tYt(2495) - 6; y += 70) d.push([X(2495), y, sg * (sideZ(2495, y) + 1)]);
   add(tube(d, 2.6, mLine));
-  var hz = sideZ(2330, 818) + 9; add(box(110, 20, 16, mChrome, X(2330), 818, sg * hz));
-  var mir = mesh(new T.SphereGeometry(40, 16, 10), mChrome); mir.scale.set(.4, 1, 1); mir.position.set(X(1560), 905, sg * (sideZ(1560, 880) + 28)); add(mir);
+  var hz = sideZ(2370, 740) + 9; add(box(110, 20, 16, mChrome, X(2370), 740, sg * hz));
+  var mir = mesh(new T.SphereGeometry(40, 16, 10), mChrome); mir.scale.set(.4, 1, 1); mir.position.set(X(1470), 880, sg * (sideZ(1470, 850) + 28)); add(mir);
 });
 
 /* motorklep: rooster met lamellen */
 (function () {
-  for (var k = 0; k < 16; k++) {
-    var s = 3270 + k * 28, dy = (tYc(s + 5) - tYc(s - 5)) / 10;
+  for (var k = 0; k < 14; k++) {
+    var s = 3520 + k * 26, dy = (tYc(s + 5) - tYc(s - 5)) / 10;
     var sl = box(10, 8, 600, mSteel, X(s), tYc(s) + 3, 0); sl.rotation.z = -Math.atan(dy); add(sl);
   }
-  add(box(470, 4, 14, mSteel, X(3490), tYc(3490) + 2, 305));
-  add(box(470, 4, 14, mSteel, X(3490), tYc(3490) + 2, -305));
+  add(box(380, 4, 14, mSteel, X(3680), tYc(3680) + 2, 305));
+  add(box(380, 4, 14, mSteel, X(3680), tYc(3680) + 2, -305));
 })();
 
 car.scale.setScalar(.01);

@@ -64,8 +64,11 @@ Geslaagde mesh- en slicecontroles bewijzen technische geometrie, niet gelijkenis
 Op de projectpagina staat een parametrische vormstudie in three.js (r128,
 vastgepind), schaal 1:10, in `index.html`. Ze is niet door Mark beoordeeld.
 
-- Maten (ware grootte): lengte 4163 mm, breedte 1610 mm, hoogte 1320 mm,
-  wielbasis 2268 mm, wielstraal 322 mm. Op 1:10 is dat 41,6 × 16,1 × 13,2 cm.
+- Maten (ware grootte): het profiel (hoogtes, neus, dorpel, wielkasten, Targabeugel,
+  achterruit en staart) is uitgemeten aan een zijfoto van een vroege 911 Targa en
+  geschaald op de wielbasis van 2268 mm. Zo komt de lengte op circa 4010 mm en de
+  hoogte op circa 1260 mm, tegen de gangbare opgave 4163 en 1320 mm. Breedte
+  1610 mm en wielstraal 322 mm. Op 1:10: circa 40,1 × 16,1 × 12,6 cm.
 - De carrosserie is een dwarsdoorsnede-loft: per station (circa elke 25 mm)
   bepalen breedte, bovenrand, motorkap- of dakhoogte en wielkasten de vorm.
   Ruiten, Targabeugel, rooster, lampen, bumpers en wielen zijn losse onderdelen.
