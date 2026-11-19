@@ -1,6 +1,7 @@
 # RC-bestellijst: 911 Targa op Tamiya M-06
 
 Onderdelen voor de bestuurbare 1/10-uitvoering ([plan in de README](README.md#rc-versie-plan)).
+De [bestelpagina met winkellinks](bestellen.html) staat naast deze checklist.
 Prijzen zijn richtprijzen of zoals opgegeven; controleer maat, voorraad en
 compatibiliteit voor je bestelt. De lijst is niet bij een winkel afgestemd.
 

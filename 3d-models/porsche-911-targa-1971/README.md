@@ -60,7 +60,7 @@ goedgekeurd.
 |---|---|
 | [index.html](index.html) | Het Targa-voorstel, eigen referentiefoto’s en vormchecklist |
 | [ONTWERPBRIEF.md](ONTWERPBRIEF.md) | Vorm, gemaakte keuzes en criteria voor de volgende versie |
-| [RC-BESTELLIJST.md](RC-BESTELLIJST.md) | Bestellijst voor de RC-versie op Tamiya M-06 |
+| [bestellen.html](bestellen.html) en [RC-BESTELLIJST.md](RC-BESTELLIJST.md) | Bestellijst met winkellinks en checklist voor de RC-versie op Tamiya M-06 |
 | [OVERDRACHT.md](OVERDRACHT.md) | Herkomst, bronkandidaten, beperkingen en vervolg |
 | [referentie/](referentie/README.md) | Echte foto’s van voorzijde, achterzijde en interieur |
 | [concept/](concept/README.md) | Historisch beeldvoorstel van 20 cm en generatieprompt; geen bijbehorende CAD |
