@@ -297,11 +297,11 @@ var S_NOSE = 60, S_END = 3975, S_COWL = 1340, S_RW = 3450;
 var AXLES = [{ s: 803, tr: 670, w: 165 }, { s: 3071, tr: 676, w: 175 }];
 var WHEEL_R = 322, ARCH_A = 375, ARCH_B = 347;
 
-var tWs = pchip([[60,600],[120,660],[195,700],[260,735],[330,760],[500,775],[803,780],[1300,782],[1600,770],[2000,762],[2400,770],[2700,785],[3071,805],[3400,800],[3700,770],[3900,690],[3975,620]]);
+var tWs = pchip([[60,540],[120,590],[195,645],[260,700],[330,745],[500,775],[803,780],[1300,782],[1600,770],[2000,762],[2400,770],[2700,785],[3071,805],[3400,800],[3700,770],[3900,690],[3975,620]]);
 var tTuck = pchip([[60,30],[1300,30],[1500,60],[2500,60],[2800,35],[3975,30]]);
 var tFr = pchip([[60,.8],[300,.8],[900,.8],[1300,.86],[1450,.9],[2700,.9],[3000,.88],[3200,.85],[3450,.83],[3975,.78]]);
 var tYt = pchip([[60,400],[190,405],[212,590],[254,685],[296,765],[340,783],[423,796],[550,803],[760,822],[1000,838],[1340,860],[1500,848],[2000,840],[2700,842],[2900,860],[3071,895],[3300,915],[3400,912],[3500,850],[3600,805],[3700,775],[3800,690],[3900,610],[3975,540]]);
-var tYc = pchip([[60,400],[190,405],[212,560],[300,650],[500,715],[800,790],[1100,832],[1340,862],[3450,885],[3600,790],[3800,680],[3975,530]]);
+var tYc = pchip([[60,400],[190,405],[212,560],[300,630],[500,700],[800,790],[1100,832],[1340,862],[3450,885],[3600,790],[3800,680],[3975,530]]);
 var tYlb = pchip([[60,300],[190,300],[330,320],[440,310],[3400,310],[3700,360],[3975,390]]);
 
 function yLow(s) {
@@ -334,7 +334,7 @@ function ring(s, c) {
   }
   if (c === 0) {
     [.12, .24, .24, .38, .52, .66, .82, 1].forEach(function (v) {
-      p.push([WT * (1 - v), YCc + (YT - YCc) * Math.pow(1 - v, 2.2), 1]);
+      p.push([WT * (1 - v), YCc + (YT - YCc) * Math.pow(1 - v, 2.6), 1]);
     });
   } else {
     var zi = WT - 75;
@@ -557,7 +557,7 @@ add(sweep(plan(rb, 462), 30, 20, mRubber));
 
 /* koplampen, richtingaanwijzers, claxon, achterlichten */
 [-1, 1].forEach(function (sg) {
-  var g = new T.Group(); g.position.set(X(255), 692, sg * 545); g.rotation.z = .2;
+  var g = new T.Group(); g.position.set(X(222), 694, sg * 545); g.rotation.z = .24;
   var bucket = mesh(new T.CylinderGeometry(96, 96, 90, 32, 1, true), mChrome); bucket.rotation.z = PI / 2; bucket.position.x = -45; g.add(bucket);
   var ring2 = mesh(new T.TorusGeometry(100, 10, 10, 40), mChrome); ring2.rotation.y = PI / 2; g.add(ring2);
   var lens = mesh(new T.SphereGeometry(94, 28, 14, 0, PI * 2, 0, PI / 2), mLens); lens.rotation.z = -PI / 2; lens.scale.set(.38, 1, 1); lens.position.x = -8; g.add(lens);
@@ -647,6 +647,24 @@ function tube(pts, r, mat) {
   var hz = sideZ(2370, 740) + 9; add(box(110, 20, 16, mChrome, X(2370), 740, sg * hz));
   var mir = mesh(new T.SphereGeometry(40, 16, 10), mChrome); mir.scale.set(.4, 1, 1); mir.position.set(X(1470), 880, sg * (sideZ(1470, 850) + 28)); add(mir);
 });
+
+/* motorkaplijn: voorrand en zijnaden op het bolle bovenvlak */
+function hoodY(s, z) {
+  var wt = tWs(s) * tFr(s), v = Math.min(1, Math.abs(z) / wt);
+  return tYc(s) + (tYt(s) - tYc(s)) * Math.pow(v, 2.6);
+}
+function hoodZ(s) { return lerp(450, 575, clamp((s - 212) / (S_COWL - 212), 0, 1)); }
+(function () {
+  var side = function (sg) {
+    var pts = [], s;
+    for (s = 214; s <= 1330; s += 70) pts.push([X(s), hoodY(s, hoodZ(s)) + 2, sg * hoodZ(s)]);
+    return pts;
+  };
+  add(tube(side(1), 2.4, mLine)); add(tube(side(-1), 2.4, mLine));
+  var front = [], k;
+  for (k = -4; k <= 4; k++) front.push([X(214), hoodY(214, k * hoodZ(214) / 4) + 2, k * hoodZ(214) / 4]);
+  add(tube(front, 2.4, mLine));
+})();
 
 /* motorklep: rooster met lamellen */
 (function () {
