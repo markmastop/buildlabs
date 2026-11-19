@@ -297,11 +297,11 @@ var S_NOSE = 60, S_END = 3935, S_COWL = 1340, S_RW = 3450;
 var AXLES = [{ s: 803, tr: 670, w: 165 }, { s: 3071, tr: 676, w: 175 }];
 var WHEEL_R = 322, ARCH_A = 375, ARCH_B = 347;
 
-var tWs = pchip([[60,540],[120,590],[195,645],[260,700],[330,745],[500,775],[803,780],[1300,782],[1600,770],[2000,762],[2400,770],[2700,785],[3071,805],[3400,800],[3600,782],[3750,745],[3850,695],[3900,650],[3935,590]]);
+var tWs = pchip([[60,540],[120,590],[195,645],[260,700],[330,745],[500,775],[803,780],[1300,782],[1600,770],[2000,762],[2400,770],[2700,785],[3071,805],[3400,800],[3600,785],[3750,758],[3850,718],[3900,680],[3935,630]]);
 var tTuck = pchip([[60,30],[1300,30],[1500,60],[2500,60],[2800,40],[3071,55],[3500,55],[3935,40]]);
 var tFr = pchip([[60,.8],[300,.8],[900,.8],[1300,.86],[1450,.9],[2700,.9],[3000,.88],[3200,.85],[3450,.83],[3935,.78]]);
 var tYt = pchip([[60,400],[190,405],[212,590],[254,685],[296,765],[340,783],[423,796],[550,803],[760,822],[1000,838],[1340,860],[1500,848],[2000,840],[2700,842],[2900,860],[3071,895],[3300,915],[3400,912],[3500,850],[3600,805],[3700,765],[3800,715],[3880,650],[3935,545]]);
-var tYc = pchip([[60,400],[190,405],[212,560],[300,630],[500,700],[800,790],[1100,832],[1340,862],[3450,885],[3600,795],[3750,705],[3880,625],[3935,520]]);
+var tYc = pchip([[60,400],[190,405],[212,560],[300,630],[500,700],[800,790],[1100,832],[1340,862],[3450,872],[3600,765],[3750,675],[3880,600],[3935,500]]);
 var tYlb = pchip([[60,300],[190,300],[330,320],[440,310],[3400,310],[3700,345],[3935,335]]);
 
 function yLow(s) {
@@ -451,7 +451,7 @@ var renderer = new T.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
 renderer.outputEncoding = T.sRGBEncoding;
 renderer.toneMapping = T.ACESFilmicToneMapping;
-renderer.toneMappingExposure = .85;
+renderer.toneMappingExposure = 1.0;
 host.appendChild(renderer.domElement);
 renderer.domElement.setAttribute('aria-label', '3D-vormstudie van de 911 Targa; sleep om te draaien');
 var scene = new T.Scene();
@@ -550,8 +550,8 @@ var rb = [[3740,-770],[3850,-735],[3940,-660],[3988,-540],[4008,-300],[4013,0],[
 add(sweep(plan(rb, 425), 26, 58, mChrome));
 add(sweep(plan(rb, 462), 30, 20, mRubber));
 [-1, 1].forEach(function (sg) {
-  var o = mesh(new T.CylinderGeometry(14, 14, 230, 10), mChrome); o.position.set(X(4000), 520, sg * 585); add(o);
-  var oc = mesh(new T.SphereGeometry(18, 10, 8), mChrome); oc.position.set(X(4000), 405, sg * 585); add(oc);
+  add(box(20, 220, 64, mChrome, X(4003), 505, sg * 345));
+  add(box(34, 40, 78, mChrome, X(3998), 425, sg * 345));
 });
 (function () {
   var ex = mesh(new T.CylinderGeometry(30, 30, 170, 16), mChrome); ex.rotation.z = PI / 2; ex.position.set(X(3975), 300, -300); add(ex);
@@ -568,9 +568,10 @@ add(sweep(plan(rb, 462), 30, 20, mRubber));
   var sig = box(30, 56, 150, mAmber, X(200), 500, sg * 530); sig.rotation.y = 0; add(sig);
   var rim = box(36, 66, 164, mChrome, X(202), 500, sg * 530); rim.scale.set(.6, 1, 1); add(rim);
   var horn = box(26, 50, 120, mSteel, X(204), 500, sg * 330); add(horn);
-  add(box(24, 94, 220, mChrome, X(3934), 510, sg * 450));
-  add(box(22, 64, 156, mRed, X(3942), 510, sg * 422));
-  add(box(22, 64, 50, mAmber, X(3942), 510, sg * 528));
+  add(box(24, 94, 215, mChrome, X(3934), 530, sg * 512));
+  add(box(22, 66, 70, mRed, X(3942), 530, sg * 445));
+  add(box(22, 66, 120, mAmber, X(3942), 530, sg * 545));
+  add(box(14, 30, 64, mRed, X(3936), 395, sg * 545));
 });
 
 /* ruiten, kozijn en targabeugel */
@@ -614,6 +615,13 @@ function rearGlass(u, t) {
   return [X(s), yb + (ytop - yb) * Math.pow(1 - Math.pow(Math.abs(u), 2.4), .6), u * wz];
 }
 add(mesh(gridGeometry(24, 22, rearGlass), mGlass));
+(function () {
+  var pts = [], i;
+  for (i = 0; i <= 12; i++) pts.push(rearGlass(-1, i / 12));
+  for (i = 1; i <= 24; i++) pts.push(rearGlass(-1 + i / 12, 1));
+  for (i = 1; i <= 12; i++) pts.push(rearGlass(1, 1 - i / 12));
+  add(tube(pts.map(function (q) { return [q[0], q[1] + 4, q[2]]; }), 7, mChrome));
+})();
 
 var roofPanel = new T.Group(); roofPanel.visible = false; car.add(roofPanel);
 function roofTop(u, t) { return [X(lerp(1900, 2560, t)), lerp(1257, 1262, t) - 40 * u * u, u * lerp(530, 580, t)]; }
@@ -671,12 +679,12 @@ function hoodZ(s) { return lerp(450, 575, clamp((s - 212) / (S_COWL - 212), 0, 1
 
 /* motorklep: rooster met lamellen */
 (function () {
-  for (var k = 0; k < 14; k++) {
-    var s = 3520 + k * 26, dy = (tYc(s + 5) - tYc(s - 5)) / 10;
-    var sl = box(10, 8, lerp(620, 470, k / 13), mSteel, X(s), tYc(s) + 3, 0); sl.rotation.z = -Math.atan(dy); add(sl);
+  for (var k = 0; k < 11; k++) {
+    var s = 3480 + k * 23, dy = (tYc(s + 5) - tYc(s - 5)) / 10;
+    var sl = box(10, 8, lerp(700, 560, k / 10), mSteel, X(s), tYc(s) + 3, 0); sl.rotation.z = -Math.atan(dy); add(sl);
   }
-  add(box(380, 4, 14, mSteel, X(3680), tYc(3680) + 2, 305));
-  add(box(380, 4, 14, mSteel, X(3680), tYc(3680) + 2, -305));
+  add(box(260, 4, 14, mSteel, X(3595), tYc(3595) + 2, 360));
+  add(box(260, 4, 14, mSteel, X(3595), tYc(3595) + 2, -360));
   add(box(12, 58, 260, new T.MeshStandardMaterial({ color: hex('#d9dbd6'), roughness: .6 }), X(3928), 440, 0));
 })();
 
