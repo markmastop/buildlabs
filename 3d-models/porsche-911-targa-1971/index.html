@@ -321,7 +321,9 @@ function skinX(s,z,y) {
     // naar het schuine montagevlak van de koplamp.
     var projectedHeight=headlamp.radius*headlamp.aspect/Math.sqrt(1+headlamp.rake**2);
     var radial=Math.hypot((width-headlamp.z)/headlamp.radius,(y-headlamp.y)/projectedHeight);
-    var wing=smoothStep(405,524,width)*(1-smoothStep(729,780,width));
+    // Boven het knipperlicht begint de ronding eerder dan naast de koplampring.
+    var cornerStart=lerp(605,723,smoothStep(525,headlamp.y,y));
+    var wing=smoothStep(405,524,width)*(1-smoothStep(cornerStart,773,width));
     var plane=headlamp.s+headlamp.rake*(y-headlamp.y);
     var basePlane=headlamp.s+headlamp.rake*(445-headlamp.y);
     var rise=smoothStep(445,578,y);
@@ -506,32 +508,51 @@ function bodyGeometry() {
       var c = CV[p[2]]; col.push(c.r, c.g, c.b);
     });
   });
-  for (i = 0; i < st.length - 1; i++) for (j = 0; j < M - 1; j++) {
-    var a = i * M + j, b = a + 1, c2 = a + M, d = c2 + 1;
-    idx.push(a, b, c2, b, d, c2);
-  }
+  // De neus heeft meer punten dan de flank. Gebruik de punten langs de
+  // buitenrand straks ook in de eerste strook van het spatbord.
+  var noseEdges=Array.from({length:M-1},()=>[]);
   [0, st.length - 1].forEach(function (n) {
     // Verticale stroken volgen ook de lage klep tussen de twee lampkruinen.
     var outline=rings[n], station=st[n].s;
     var columns=Array.from(new Set(outline.map(([z])=>z))).sort((a,b)=>a-b);
     var samples=[columns[0]];
     for (var k=1;k<columns.length;k++) {
-      var steps=Math.ceil((columns[k]-columns[k-1])/8);
+      var spacing=n===0 && Math.abs((columns[k]+columns[k-1])/2)>headlamp.z ? 4 : 8;
+      var steps=Math.ceil((columns[k]-columns[k-1])/spacing);
       for (var h=1;h<=steps;h++) samples.push(h===steps ? columns[k] : lerp(columns[k-1],columns[k],h/steps));
     }
     var heightSteps=36;
     samples.forEach(function (z,column) {
-      var ys=[];
+      var ys=[], cuts=[];
       for (var k=1;k<outline.length;k++) {
         var [za,ya]=outline[k-1], [zb,yb]=outline[k];
         if (z<Math.min(za,zb) || z>Math.max(za,zb)) continue;
-        if (za===zb) ys.push(ya,yb);
-        else ys.push(lerp(ya,yb,(z-za)/(zb-za)));
+        if (za===zb) {
+          ys.push(ya,yb);
+        } else {
+          var t=(z-za)/(zb-za);
+          var height=lerp(ya,yb,t);
+          ys.push(height);
+          if (n===0 && t>0 && t<1 && Math.abs(z)>headlamp.z && outline[k-1][2]===1 && outline[k][2]===1) {
+            cuts.push([k-1,height]);
+          }
+        }
       }
       var low=Math.min(...ys), high=Math.max(...ys), row=pos.length/3;
+      for (var [edge,height] of cuts) {
+        if (height===low || height===high) noseEdges[edge].push(row+(height===low ? 0 : heightSteps));
+      }
       for (var k=0;k<=heightSteps;k++) {
         var y=lerp(low,high,k/heightSteps);
-        pos.push(skinX(station,z,y),y,z); col.push(CV[1].r,CV[1].g,CV[1].b);
+        var cornerZ=z;
+        if (n===0 && Math.abs(z)>headlamp.z && y>470 && y<725) {
+          // Laat het laatste stukje van het frontvlak rakend in de flank lopen.
+          var band=47, across=clamp(1-(sideZ(station,y)-Math.abs(z))/band,0,1);
+          var blend=smoothStep(470,511,y)*(1-smoothStep(652,725,y));
+          cornerZ+=Math.sign(z)*band*across*across*(1-across)*blend;
+        }
+        pos.push(skinX(station,z,y),y,cornerZ);
+        col.push(CV[1].r,CV[1].g,CV[1].b);
         if (column===0 || k===0) continue;
         var d=row+k,c=d-1,b=d-heightSteps-1,a=b-1;
         if (n===0) idx.push(a,b,d,a,d,c);
@@ -539,6 +560,23 @@ function bodyGeometry() {
       }
     });
   });
+  for (i=0;i<st.length-1;i++) for (j=0;j<M-1;j++) {
+    var a=i*M+j,b=a+1,c=a+M,d=c+1;
+    if (i!==0 || !noseEdges[j].length) {
+      idx.push(a,b,c,b,d,c);
+      continue;
+    }
+    var edge=noseEdges[j];
+    if (rings[0][j][0]>rings[0][j+1][0]) edge.reverse();
+    var anchor=rings[0][j][0]>0 ? c : d;
+    var previous=a;
+    for (var cut of edge) {
+      idx.push(previous,cut,anchor);
+      previous=cut;
+    }
+    idx.push(previous,b,anchor);
+    idx.push(anchor===c ? b : a,d,c);
+  }
   var g = new T.BufferGeometry();
   g.setAttribute('position', new T.Float32BufferAttribute(pos, 3));
   g.setAttribute('color', new T.Float32BufferAttribute(col, 3));
