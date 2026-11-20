@@ -26,11 +26,20 @@ deze overdracht gelaten.
 - De nozzle van 0,4 mm en PLA zijn eerdere werkuitgangspunten, niet door Mark
   apart bevestigde instellingen. P2S-bouwvolume: 25,6 × 25,6 × 25,6 cm.
 
-## RC-versie (plan)
+## RC-versie op het M-06M-chassis
 
-Mark wil van de Targa ook een bestuurbare RC-versie maken. Dit is een plan; er
-is nog geen RC-geometrie en de vorm van de carrosserie moet eerst worden
-goedgekeurd.
+De [projectpagina](index.html) toont de Targa, het losse chassis en de Targa op het chassis.
+In de gecombineerde weergave staan de kitwielen onder de carrosserie. De twee
+wielbasissen zijn rond hetzelfde midden uitgelijnd. De Targa heeft een wielbasis
+van 226,8 mm, waardoor de kitassen aan beide uiteinden 0,9 mm verder naar binnen liggen.
+De ashoogte bepaalt de voorlopige montagehoogte.
+
+De chassislaag gebruikt centimeters op modelschaal. De wielbasis is 22,5 cm,
+de spoorbreedte voor en achter 13,8 cm en de banden zijn 5,9 cm in diameter en
+2,5 cm breed. Deze maten komen uit de [Tamiya-specificatie voor kit 58572](https://www.tamiya.com/japan/products/58572/index.html).
+De vorm en plaats van frame, accu, ophanging, achterste motorunit en montagepennen
+zijn benaderd aan de hand van de foto's in `beelden/chasis/`. De fysieke montagehoogte,
+penposities en vrije ruimte bij insturen en inveren moeten aan de gebouwde kit worden gemeten.
 
 - **Schaal:** 1/10. Lengte circa 416 mm, wielbasis circa 227 mm. Een grote
   schaal is bewust gekozen; kleiner hoeft niet.
@@ -42,7 +51,7 @@ goedgekeurd.
 - **Elektronica:** Mark heeft een FlySky ST8-zender. Nog te kopen: servo,
   ontvanger, accu en lader. Zie de [RC-bestellijst](RC-BESTELLIJST.md). De
   regelaar van de kit werkt volgens Tamiya op 6,6–7,2 V: kies 6-cels NiMH.
-- **Body:** wordt los van het chassis ontworpen en past op de M-06. Op 1/10 is
+- **Body:** wordt los van het chassis ontworpen voor de M-06. Op 1/10 is
   de body langer dan het bouwvolume van de P2S (256 mm), dus verdeel hem in
   twee of drie delen met pasranden of lijmvlakken.
 - **Sterkte:** het open Targadak maakt de body minder stijf. Gebruik dikkere
@@ -58,7 +67,7 @@ goedgekeurd.
 
 | Map of bestand | Betekenis |
 |---|---|
-| [index.html](index.html) | Het Targa-voorstel, eigen referentiefoto’s en vormchecklist |
+| [index.html](index.html) | Het Targa-voorstel, de 3D-viewer met afzonderlijke chassislaag en de vormchecklist |
 | [ONTWERPBRIEF.md](ONTWERPBRIEF.md) | Vorm, gemaakte keuzes en criteria voor de volgende versie |
 | [bestellen.html](bestellen.html) en [RC-BESTELLIJST.md](RC-BESTELLIJST.md) | Bestellijst met winkellinks en checklist voor de RC-versie op Tamiya M-06 |
 | [OVERDRACHT.md](OVERDRACHT.md) | Herkomst, bronkandidaten, beperkingen en vervolg |
@@ -79,7 +88,7 @@ werkelijke CAD-geometrie voordat dunne details worden aangepast voor het printen
 De technische printcontrole volgt op een herkenbare carrosserievorm.
 
 De zelfstandige `index.html` toont het oorspronkelijke grotere Targa-voorstel
-en de drie echte referentiefoto’s. Het voorstel is een AI-visualisatie, geen
+en de interactieve vormstudie. Het voorstel is een AI-visualisatie, geen
 CAD-render of bewijs van printbaarheid. Het grote beeld is ook los te openen.
 
 De afgewezen grotere 3D-uitwerking is alleen als historie bewaard in `cad/` en

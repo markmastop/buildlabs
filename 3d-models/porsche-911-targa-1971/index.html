@@ -84,6 +84,10 @@ footer { padding-top:16px; border-top:1px solid var(--rule); color:var(--muted);
 .viewer { position:relative; aspect-ratio:16/10; background:var(--stage); border:1px solid var(--rule); border-radius:6px; overflow:hidden; touch-action:none; }
 .viewer canvas { display:block; width:100%; height:100%; }
 .viewer-note { margin:0; color:var(--muted); font-size:14px; }
+.model-layers { margin:0; padding:0; border:0; min-width:0; }
+.model-layers legend { padding:0; margin-bottom:7px; font-weight:500; }
+.model-layers label { display:inline-flex; gap:7px; align-items:center; padding:8px 12px; min-height:44px; border:1px solid var(--rule); border-radius:6px; cursor:pointer; }
+.model-layers input { margin:0; accent-color:var(--accent); }
 [hidden] { display:none!important; }
 @media(max-width:620px) {
   .wrap { gap:24px; padding-top:22px; }
@@ -119,6 +123,14 @@ footer { padding-top:16px; border-top:1px solid var(--rule); color:var(--muted);
 
   <section aria-labelledby="viewer-heading">
     <div class="section-head"><h2 id="viewer-heading">3D-vormstudie</h2><p>Schaal 1:10 · sleep om te draaien, scroll om te zoomen</p></div>
+    <fieldset class="model-layers" id="model-layers" hidden>
+      <legend>Modelweergave</legend>
+      <div class="controls">
+        <label><input type="radio" name="model-layer" value="targa" checked> Targa</label>
+        <label><input type="radio" name="model-layer" value="chassis"> Alleen chassis</label>
+        <label><input type="radio" name="model-layer" value="samen"> Targa op chassis</label>
+      </div>
+    </fieldset>
     <div id="viewer" class="viewer" role="img" aria-label="Driedimensionale vormstudie van de 911 Targa uit 1971"></div>
     <div class="controls" id="viewer-controls">
       <button type="button" data-vw="drie" aria-pressed="true">Voor</button>
@@ -130,13 +142,14 @@ footer { padding-top:16px; border-top:1px solid var(--rule); color:var(--muted);
       <button type="button" id="vw-roof" aria-pressed="false">Dak open</button>
       <button type="button" id="vw-spin" aria-pressed="false">Draaien</button>
     </div>
-    <dl class="specs">
+    <p class="viewer-note" id="chassis-note" hidden><strong>M-06M · 225 mm wielbasis.</strong> De spoorbreedte is 138 mm en de banden zijn 59 mm in diameter en 25 mm breed. De vorm van het frame, de motorpositie en de montagepennen zijn geschat uit referentiefoto’s. De rijhoogte en de passing onder de Targa moeten nog worden gemeten.</p>
+    <dl class="specs" id="body-specs" aria-label="Afmetingen van de Targa-vormstudie">
       <div class="spec"><dt>Lengte</dt><dd>40,1<small>cm</small></dd></div>
       <div class="spec"><dt>Breedte</dt><dd>16,1<small>cm</small></dd></div>
       <div class="spec"><dt>Hoogte</dt><dd>12,6<small>cm</small></dd></div>
       <div class="spec"><dt>Wielbasis</dt><dd>22,7<small>cm</small></dd></div>
     </dl>
-    <p class="viewer-note"><strong>Let op:</strong> dit is een vormstudie op schaal 1:10, nog geen printbestand. De vorm is opgebouwd uit het profiel van een zijfoto van een vroege 911 Targa, geschaald op de wielbasis van 2268 mm. Daardoor wijken lengte (circa 4010 mm) en hoogte (circa 1260 mm) iets af van de gangbare opgave (4163 en 1320 mm). Breedte, dwarsdoorsneden, ruiten en details zijn nog schattingen en moeten met Marks auto worden vergeleken.</p>
+    <p class="viewer-note" id="body-note"><strong>Let op:</strong> dit is een vormstudie op schaal 1:10, nog geen printbestand. De vorm is opgebouwd uit het profiel van een zijfoto van een vroege 911 Targa, geschaald op de wielbasis van 2268 mm. Daardoor wijken lengte (circa 4010 mm) en hoogte (circa 1260 mm) iets af van de gangbare opgave (4163 en 1320 mm). Breedte, dwarsdoorsneden, ruiten en details zijn nog schattingen en moeten met Marks auto worden vergeleken.</p>
   </section>
 
   <dl class="specs">
@@ -480,6 +493,8 @@ var mPepita = new T.MeshStandardMaterial({ map: seatTexture(), roughness: .85 })
 
 /* ------------------------------ auto ---------------------------------- */
 var car = new T.Group(); scene.add(car);
+car.name = 'Targa';
+var studyWheels = new T.Group(); car.add(studyWheels);
 function add(mesh, parent) { (parent || car).add(mesh); return mesh; }
 function mesh(geo, mat) { return new T.Mesh(geo, mat); }
 function box(w, h, d, mat, x, y, z) { var m = mesh(new T.BoxGeometry(w, h, d), mat); m.position.set(x, y, z); return m; }
@@ -507,7 +522,7 @@ AXLES.forEach(function (a) {
   [1, -1].forEach(function (sg) {
     var w = makeWheel(a.w); w.position.set(X(a.s), WHEEL_R, sg * a.tr);
     if (sg < 0) w.rotation.y = PI;
-    add(w);
+    studyWheels.add(w);
   });
 });
 
@@ -665,6 +680,92 @@ function hoodZ(s) { return lerp(450, 575, clamp((s - 212) / (S_COWL - 212), 0, 1
 
 car.scale.setScalar(.01);
 
+/* Los M-06M-referentiemodel in centimeters op modelschaal.
+   De asmiddens liggen rond hetzelfde midden als die van de vormstudie.
+   Frame, ophanging, elektronica en montagepennen zijn naar foto geschat. */
+var rcWheel = { radius: 2.95, width: 2.5 };
+function makeChassis() {
+  var chassis = new T.Group();
+  chassis.name = 'M-06M';
+  var wheelbase = 22.5, track = 13.8;
+  var plastic = new T.MeshStandardMaterial({ color: hex('#363c40'), roughness: .7 });
+  var blue = new T.MeshStandardMaterial({ color: hex('#305780'), roughness: .48 });
+
+  function rod(start, end, radius, material) {
+    var a = new T.Vector3(...start), b = new T.Vector3(...end);
+    var direction = b.clone().sub(a);
+    var part = mesh(new T.CylinderGeometry(radius, radius, direction.length(), 16), material);
+    part.position.copy(a).lerp(b, .5);
+    part.quaternion.setFromUnitVectors(new T.Vector3(0, 1, 0), direction.normalize());
+    chassis.add(part);
+  }
+
+  // De kuip versmalt bij de draagarmen en omsluit het accuvak in het midden.
+  var outline = [[14,1.7],[10.5,2.3],[6.6,4.8],[-6.5,4.8],[-10.4,3],[-13,2.4]];
+  var contour = outline.concat(outline.slice().reverse().map(([x,z]) => [x,-z]));
+  var shape = new T.Shape(contour.map(([x,z]) => new T.Vector2(x,-z)));
+  var pan = mesh(new T.ExtrudeGeometry(shape, { depth:.42, bevelEnabled:false }), plastic);
+  pan.rotation.x = -PI/2;
+  pan.position.y = .65;
+  chassis.add(pan);
+  for (var side of [-1, 1]) {
+    chassis.add(box(13.8,1.5,.35,plastic,0,1.7,side*4.55));
+    rod([10.7,2.8,side*1.45],[6.4,2.05,side*4.3],.24,plastic);
+    rod([-7.1,2.05,side*4.3],[-11.2,3.6,side*1.65],.24,plastic);
+  }
+  chassis.add(box(13.2,2.1,4.45,blue,-.35,2.15,0));      // Accupakket
+  chassis.add(box(1.1,.32,5,plastic,-.35,3.34,0));         // Accubeugel
+  chassis.add(box(3.5,2,1.8,plastic,5.4,2.2,3.05));        // Stuurservo
+  chassis.add(box(3,1.4,2.1,mBlack,-3,2.3,-3.35));         // Regelaar
+  for (var i=0; i<6; i++) chassis.add(box(.2,.48,1.85,mSteel,-4.15+i*.45,3.2,-3.35));
+
+  // Dwarsgeplaatste motor achter de achteras en tandwielkast.
+  var rear = -wheelbase/2;
+  chassis.add(box(5.5,3.7,3.9,plastic,rear-1.7,3,0));
+  rod([rear-3.8,3.1,-2.3],[rear-3.8,3.1,2.7],1.8,mSteel);
+  rod([rear-3.8,3.1,2.7],[rear-3.8,3.1,3.1],1.55,mBlack);
+  chassis.add(tube([[rear-3.8,3.6,3.1],[rear-2,4.6,3.8],[-7,3.7,3.7],[-3.3,3.3,-2.8]],.09,blue));
+
+  // Doorsnede van de kitband met afgeronde schouder en open velg.
+  var r = rcWheel.radius, half = rcWheel.width/2;
+  var profile = [[1.86,-half],[r-.25,-half],[r,-half+.22],[r,half-.22],
+                 [r-.25,half],[1.86,half],[1.86,-half]];
+  var tyre = new T.LatheGeometry(profile.map(([radius,z]) => new T.Vector2(radius,z)),48);
+  tyre.rotateX(PI/2);
+  var rim = new T.CylinderGeometry(1.87,1.87,2*half-.16,40,1,true);
+  rim.rotateX(PI/2);
+
+  for (var axleX of [wheelbase/2, rear]) {
+    chassis.add(box(2,1.2,5.5,plastic,axleX,3.9,0));
+    for (var sign of [-1, 1]) {
+      var hubZ = sign*track/2;
+      var wheel = new T.Group();
+      wheel.name = 'Kitwiel';
+      wheel.position.set(axleX,r,hubZ);
+      wheel.add(mesh(tyre,mTyre),mesh(rim,mSteel));
+      for (var spoke=0; spoke<3; spoke++) {
+        var bar = box(3.72,.35,.3,plastic,0,0,sign*(half-.27));
+        bar.rotation.z = spoke*PI/3;
+        wheel.add(bar);
+      }
+      chassis.add(wheel);
+      rod([axleX,r,hubZ],[axleX,r,hubZ+sign*(half-.06)],.46,mSteel);
+      for (var fore of [-1, 1]) {
+        rod([axleX+fore*1.35,1.5,sign*1.7],[axleX,1.85,hubZ-sign],.22,plastic);
+      }
+      rod([axleX,3.65,sign*2.1],[axleX,3.15,hubZ-sign],.16,plastic);
+      rod([axleX+.48,2,hubZ-sign*1.3],[axleX+.48,4.9,sign*2.1],.16,mSteel);
+      rod([axleX+.48,3.35,sign*3.95],[axleX+.48,4.9,sign*2.1],.35,plastic);
+    }
+  }
+  chassis.add(box(1.6,1.3,7.2,mRubber,14.2,1.85,0));     // Voorbumper
+  rod([11.25,4.45,0],[11.25,7,0],.21,mBlack);
+  for (var mountZ of [-2,2]) rod([rear,4.45,mountZ],[rear,8.1,mountZ],.21,mBlack);
+  return chassis;
+}
+var chassis = makeChassis();
+scene.add(chassis);
+
 /* ondergrond met zachte schaduw */
 (function () {
   var c = document.createElement('canvas'); c.width = c.height = 256;
@@ -700,6 +801,24 @@ viewButtons.forEach(function (b) {
   });
 });
 var roofBtn = document.getElementById('vw-roof');
+var layerControls = document.getElementById('model-layers');
+function setModelLayer(mode) {
+  car.visible = mode !== 'chassis';
+  chassis.visible = mode !== 'targa';
+  studyWheels.visible = !chassis.visible;
+  // Bij montage vallen de hoogtes van de beide wielmiddens samen.
+  car.position.y = mode === 'samen' ? rcWheel.radius - WHEEL_R * car.scale.y : 0;
+  roofBtn.disabled = !car.visible;
+  document.getElementById('body-specs').hidden = mode !== 'targa';
+  document.getElementById('body-note').hidden = mode !== 'targa';
+  document.getElementById('chassis-note').hidden = !chassis.visible;
+  var label = layerControls.querySelector('input:checked').parentElement.textContent.trim();
+  host.setAttribute('aria-label', '3D-weergave · ' + label);
+  renderer.domElement.setAttribute('aria-label', '3D-weergave · ' + label);
+}
+layerControls.addEventListener('change', function (event) { setModelLayer(event.target.value); });
+setModelLayer(layerControls.querySelector('input:checked').value);
+layerControls.hidden = false;
 if (roofBtn) roofBtn.addEventListener('click', function () {
   roofPanel.visible = !roofPanel.visible;
   roofBtn.setAttribute('aria-pressed', String(roofPanel.visible));
