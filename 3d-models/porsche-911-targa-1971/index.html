@@ -310,7 +310,8 @@ var frontCrest=pchip([[60,779],[175,791],[365,807],[530,820],[803,839],[1090,858
 function wingRidge(s,width) {
   return lerp(headlamp.z,width-24,smoothStep(200,1120,s));
 }
-var tailStation = pchip([[0,3998],[260,3989],[458,3964],[590,3926],[680,3872],[733,3794],[758,3740],[790,3715]]);
+// Het gespiegelde profielpunt legt de raaklijn op de middenlijn dwars op de auto.
+var tailStation = pchip([[-260,3989],[0,3998],[260,3989],[458,3964],[590,3926],[680,3872],[733,3794],[758,3740],[790,3715]]);
 function smoothStep(lo,hi,value) {
   var t=clamp((value-lo)/(hi-lo),0,1);
   return t*t*(3-2*t);
@@ -629,14 +630,17 @@ function bodyGeometry() {
           var height=lerp(ya,yb,t);
           ys.push(height);
           if (refine) xs.push(lerp(pos[3*(n*M+k-1)],pos[3*(n*M+k)],t));
-          if (refine && t>0 && t<1 && outline[k-1][2]===1 && outline[k][2]===1) {
+          var rearFloor=n!==0 && (k===1 || k===outline.length-1);
+          if (refine && t>0 && t<1 && (rearFloor || (outline[k-1][2]===1 && outline[k][2]===1))) {
             cuts.push([k-1,height]);
           }
         }
       }
       var low=Math.min(...ys), high=Math.max(...ys), row=pos.length/3;
-      // Leg extra randpunten exact op de lijn tussen twee punten van het spatbord.
-      var dxLow=refine ? xs[ys.indexOf(low)]-skinX(station,z,low) : 0;
+      // Volg tussen de achterste vloerhoeken de boog van de achterwand.
+      // De overige randpunten sluiten aan op de rechte segmenten van de huid.
+      var curvedFloor=n!==0 && Math.abs(z)<=outline[1][0];
+      var dxLow=refine && !curvedFloor ? xs[ys.indexOf(low)]-skinX(station,z,low) : 0;
       var dxHigh=refine ? xs[ys.indexOf(high)]-skinX(station,z,high) : 0;
       for (var [edge,height] of cuts) {
         if (height===low || height===high) {
