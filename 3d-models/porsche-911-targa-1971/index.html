@@ -407,6 +407,39 @@ function sideZ(s, y) {
   return lerp(arc,upperFlank,smoothStep(1140,S_COWL,s));
 }
 
+// De buitenwang gaat per horizontale doorsnede over van het schuine
+// montagevlak in een kwartellips die rakend aansluit op de flank.
+var wingDepth=95, wingBreadth=29;
+function wingWeight(s,y,w) {
+  if (s>=790 || w<=649 || y<=518 || y>=785) return 0;
+  var lampHeight=headlamp.radius*headlamp.aspect/Math.sqrt(1+headlamp.rake**2);
+  var radial=Math.hypot((w-headlamp.z)/headlamp.radius,(y-headlamp.y)/lampHeight);
+  return smoothStep(649,690,w)*smoothStep(.84,.99,radial)*smoothStep(518,587,y)
+    *(1-smoothStep(752,785,y))*(1-smoothStep(590,790,s));
+}
+function wingSection(s,y,w) {
+  var end=headlamp.s+headlamp.rake*(y-headlamp.y)+wingDepth;
+  return new T.Vector2(Math.max(0,(end-s)/wingDepth),
+    Math.max(0,1+(w-sideZ(s,y))/wingBreadth));
+}
+function wingCorner(x,y,z,weight) {
+  if (!weight) return [x,y,z];
+  var s=1937-x, width=Math.abs(z), section=wingSection(s,y,width);
+  var radius=section.length();
+  if (radius===0) return [x,y,z];
+  var delta=1/radius-1;
+  var station=s-wingDepth*section.x*delta;
+  if (section.y>0) width=sideZ(station,y)+wingBreadth*(section.y/radius-1);
+  return [lerp(x,X(station),weight),y,lerp(z,Math.sign(z)*width,weight)];
+}
+function wingNormal(x,y,z) {
+  var s=1937-x, section=wingSection(s,y,Math.abs(z));
+  var fore=section.x/wingDepth, side=section.y/wingBreadth;
+  // Neem de raaklijn van ditzelfde profiel, ook bij ongelijk verdeelde driehoeken.
+  var ds=sideZ(s+.5,y)-sideZ(s-.5,y), dy=sideZ(s,y+.5)-sideZ(s,y-.5);
+  return new T.Vector3(fore+side*ds,fore*headlamp.rake-side*dy,Math.sign(z)*side).normalize();
+}
+
 // De omtrek van de ruit ligt aan de binnenzijde van de opbollende schouder.
 var bandRearFoot = 2708;
 var glassEndWidth = tWs(S_RW)*tFr(S_RW);
@@ -431,7 +464,16 @@ function ring(s, c) {
          [sideZ(s,YL)-fold*.68,YL,0],[sideZ(s,outside),outside,1]);
   var K = 16;
   for (i = 1; i <= K; i++) {
-    var y = lerp(outside,YT,(1-Math.cos(PI*i/K))/2);
+    var t=(1-Math.cos(PI*i/K))/2;
+    var y=lerp(outside,YT,t);
+    if (s>=AXLES[0].s-ARCH_A && s<AXLES[0].s) {
+      // Houd de hogere rijen op hun eigen hoogte wanneer de wielopening
+      // begint. Anders trekt de eerste korte strook het hele zijvlak scheef.
+      var sill=tYlb(s), datum=lerp(sill+frontHem(s,sill),YT,t);
+      var floor=lerp(outside,YT,t*t*t);
+      var stable=Math.max(datum,floor);
+      y=lerp(stable,y,smoothStep(600,AXLES[0].s,s));
+    }
     p.push([sideZ(s, y), y, 1]);
   }
   if (c === 0) {
@@ -613,11 +655,29 @@ function bodyGeometry() {
     idx.push(previous,b,anchor);
     idx.push(anchor===c ? b : a,d,c);
   }
+  var cornerNormals=[];
+  for (var i=0;i<pos.length;i+=3) {
+    var x=pos[i],y=pos[i+1],z=pos[i+2],weight=wingWeight(1937-x,y,Math.abs(z));
+    if (!weight) continue;
+    var point=wingCorner(x,y,z,weight);
+    pos[i]=point[0]; pos[i+2]=point[2];
+    if (col[i]===CV[1].r) cornerNormals[i/3]={normal:wingNormal(...point),weight:weight};
+  }
   var g = new T.BufferGeometry();
   g.setAttribute('position', new T.Float32BufferAttribute(pos, 3));
   g.setAttribute('color', new T.Float32BufferAttribute(col, 3));
   g.setIndex(idx);
-  return creaseGeometry(g, 42);
+  var shell=creaseGeometry(g,42), normals=shell.attributes.normal;
+  var mixed=new T.Vector3();
+  for (var i=0;i<idx.length;i++) {
+    var info=cornerNormals[idx[i]];
+    if (!info) continue;
+    mixed.fromBufferAttribute(normals,i);
+    if (mixed.dot(info.normal)<.35) continue;
+    mixed.lerp(info.normal,info.weight).normalize();
+    normals.setXYZ(i,mixed.x,mixed.y,mixed.z);
+  }
+  return shell;
 }
 
 /* Een glad rooster (u,t) als dun vlak. */
@@ -1266,8 +1326,11 @@ AXLES.forEach(function (axle) {
       var angle=(u+1)*PI/2;
       var s=axle.s+ARCH_A*Math.cos(angle), edge=yLow(s);
       var y=edge+frontHem(s,edge)+17*t;
-      var z=sign*(sideZ(s,y)+4.8*Math.sin(PI*t)*Math.sin(angle));
-      return [skinX(s,z,y),y,z];
+      var z=sign*sideZ(s,y);
+      var lipOffset=sign*4.8*Math.sin(PI*t)*Math.sin(angle), x=skinX(s,z+lipOffset,y);
+      var point=wingCorner(x,y,z,wingWeight(1937-x,y,Math.abs(z)));
+      point[2]+=lipOffset;
+      return point;
     });
     var archLip=mesh(lip,mPaint); archLip.name="Wielkastrand"; add(archLip);
   }
