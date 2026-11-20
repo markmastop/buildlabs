@@ -168,7 +168,7 @@ footer { padding-top:16px; border-top:1px solid var(--rule); color:var(--muted);
       <li><span class="swatch black" aria-hidden="true"></span><div><strong>Zwart</strong><small>Banden, interieur en raaminzetten</small></div></li>
       <li><span class="swatch silver" aria-hidden="true"></span><div><strong>Zilvergrijs</strong><small>Targaband, velgdetails en accenten</small></div></li>
     </ul>
-    <p class="status">De wanddiktes en de verdeling in printdelen volgen bij de uitwerking voor de P2S.</p>
+    <p class="status">De printdelen zijn per onderdeel te kleuren. Kleine accenten zoals de zilveren spaakbladen kun je na het printen schilderen.</p>
   </section>
 
   <section aria-labelledby="shape-heading">
@@ -195,7 +195,14 @@ footer { padding-top:16px; border-top:1px solid var(--rule); color:var(--muted);
       <a class="primary" href="bestellen.html">Bestellijst RC-versie</a>
       <a href="README.md#rc-versie-plan">RC-plan</a>
     </div>
-    <p class="status">De body wordt los van het chassis ontworpen en in delen geprint. De vorm moet eerst worden goedgekeurd.</p>
+    <div class="section-head"><h2>Printbestanden voor de P2S</h2><p>Schaal 1:10 · millimeters</p></div>
+    <div class="downloads">
+      <a class="primary" href="print/README.md">Bouwhandleiding en alle printdelen</a>
+      <a href="print/3mf/00-pasblok.3mf" download>Pasblok · 3MF</a>
+      <a href="print/3mf/01-pasveer.3mf" download>Pasveer · 3MF</a>
+      <a href="cad/step/targa-assemblage.step" download>Assemblage · STEP</a>
+    </div>
+    <p class="status">De kap bestaat uit een voor- en achterdeel met twee pasveren. Bepaal de montagegaten op het gebouwde chassis.</p>
   </section>
 
   <section aria-labelledby="parts-heading">
@@ -211,8 +218,8 @@ footer { padding-top:16px; border-top:1px solid var(--rule); color:var(--muted);
         <li><label><input type="checkbox" id="part-accu" data-part><span class="name">Accu 6-cels NiMH 7,2 V, 3000 mAh</span><span class="detail">De regelaar werkt volgens Tamiya op 6,6–7,2 V. Een 2S LiPo valt erbuiten. Controleer de accubak.</span></label></li>
         <li><label><input type="checkbox" id="part-lader" data-part><span class="name">Lader voor NiMH</span><span class="detail">Alleen nodig als je er nog geen hebt, bijvoorbeeld de SkyRC S65 van de Ortelius (controleer NiMH).</span></label></li>
       </ul></div>
-      <div class="group"><h3>Body (later)</h3><ul>
-        <li><label><input type="checkbox" id="part-filament" data-part><span class="name">PETG of PLA</span><span class="detail">Carrosserie in delen op schaal 1:10. Het filamentverbruik volgt bij het slicen.</span></label></li>
+      <div class="group"><h3>Carrosserie</h3><ul>
+        <li><label><input type="checkbox" id="part-filament" data-part><span class="name">PETG of PLA</span><span class="detail">Carrosserie in delen op schaal 1:10. De printset bevat het geschatte filamentverbruik per onderdeel.</span></label></li>
         <li><label><input type="checkbox" id="part-clips" data-part><span class="name">Bodyclips en bodyhouder</span><span class="detail">Controleer wat in de kit zit.</span></label></li>
         <li><label><input type="checkbox" id="part-verf" data-part><span class="name">Primer, verf en lijm</span><span class="detail">Geel-oranje, zwart en zilvergrijs; lijm voor de pasranden tussen de delen.</span></label></li>
       </ul></div>
@@ -237,9 +244,9 @@ footer { padding-top:16px; border-top:1px solid var(--rule); color:var(--muted);
     <ol class="steps">
       <li><strong>De carrosserie opbouwen.</strong> Een passende vroege 911-basis kiezen of betrouwbare profielen uitwerken, met de eigen foto’s als vergelijking.</li>
       <li><strong>Van alle kanten beoordelen.</strong> Dezelfde geometrie bekijken van voren, opzij en in beide driekwartaanzichten.</li>
-      <li><strong>Geschikt maken voor het printen.</strong> Daarna de details, onderdelen, wanddiktes en printoriëntatie uitwerken voor de P2S.</li>
+      <li><strong>Droog passen.</strong> Print de pasproef en controleer daarna de wielkasten en de montagehoogte op de M-06M.</li>
     </ol>
-    <p class="note"><strong>Carrosserie in beoordeling.</strong> Vergelijk de vorm vanuit beide driekwartaanzichten en van opzij met de foto’s van Marks Targa. Na goedkeuring volgen de printdelen en de montage op het chassis.</p>
+    <p class="note"><strong>Eerste fysieke controle.</strong> Controleer de ruimte voor de motor, accu en besturing met de interieurbak op zijn plaats.</p>
   </section>
   <footer>911 Targa 1971 · decoratief model in ontwikkeling · <a href="README.md">Projectdocumentatie</a></footer>
 </main>
@@ -852,7 +859,7 @@ var mRoof=new T.MeshStandardMaterial({color:hex('#4b4947'),map:roofGrain,roughne
 /* ------------------------------ auto ---------------------------------- */
 var car = new T.Group(); scene.add(car);
 car.name = 'Targa';
-var studyRunningGear = new T.Group(); car.add(studyRunningGear);
+var studyRunningGear = new T.Group(); studyRunningGear.name="Studieonderstel"; car.add(studyRunningGear);
 function add(mesh, parent) { (parent || car).add(mesh); return mesh; }
 function mesh(geo, mat) { return new T.Mesh(geo, mat); }
 function box(w, h, d, mat, x, y, z) { var m = mesh(new T.BoxGeometry(w, h, d), mat); m.position.set(x, y, z); return m; }
@@ -1167,7 +1174,7 @@ var mouth = mesh(new T.CircleGeometry(26,32),mTrim);
 mouth.rotation.y=-PI/2; mouth.position.x=-78; outlet.add(mouth);
 var rolledTip = mesh(new T.TorusGeometry(27.6,2.3,8,36),mSteel);
 rolledTip.rotation.y=PI/2; rolledTip.position.x=-86; outlet.add(rolledTip);
-car.add(outlet);
+outlet.userData.printPart="uitlaat"; car.add(outlet);
 
 /* Koplampen. De glaskoepel steekt vóór de brede chromen vatting uit. */
 
@@ -1292,14 +1299,14 @@ function cowlPoint(u,t) {
 add(mesh(gridGeometry(48,10,cowlPoint),mPaint));
 // Bij een blik langs gebogen glas is de verre binnenkant door de nabije
 // buitenkant zichtbaar. Teken ze in die volgorde, ook dwars op de auto.
-function curvedGlass(geometry,material) {
+function curvedGlass(geometry,material,part) {
   var inside=material.clone(), outside=material.clone();
   inside.side=T.BackSide; outside.side=T.FrontSide;
-  add(mesh(geometry,inside));
+  add(mesh(geometry,inside)).userData.printPart="overslaan";
   var front=add(mesh(geometry,outside));
-  front.renderOrder=1;
+  front.userData.printPart=part; front.renderOrder=1;
 }
-curvedGlass(gridGeometry(40,24,windscreen),mGlass);
+curvedGlass(gridGeometry(40,24,windscreen),mGlass,"voorruit");
 function headerBack(u) {
   var front=windscreen(u,1), side=Math.abs(u);
   return [front[0]-43-24*side,front[1]+4-7*u*u,front[2]+17*u];
@@ -1336,7 +1343,7 @@ glazedEdge(windowEdge(windscreen,-1,1,1,1));
     var front=windscreen(side,t);
     return front.map((v,i)=>lerp(v,lerp(lowerBack[i],upperBack[i],t),across));
   }
-  add(mesh(gridGeometry(12,16,quarterlight),mGlass));
+  add(mesh(gridGeometry(12,16,quarterlight),mGlass)).userData.printPart=side<0 ? "tochtruit-links" : "tochtruit-rechts";
   glazedEdge(windowEdge(quarterlight,-1,0,1,0));
   glazedEdge(windowEdge(quarterlight,1,0,1,1));
   add(tube(windowEdge(quarterlight,-1,1,1,1),12,mTrim));
@@ -1400,7 +1407,7 @@ rearWindowMaterial.color.copy(hex('#263a3a'));
 rearWindowMaterial.clearcoat = 1;
 rearWindowMaterial.clearcoatRoughness = .08;
 rearWindowMaterial.opacity = .54;
-curvedGlass(gridGeometry(72,40,rearGlass),rearWindowMaterial);
+curvedGlass(gridGeometry(72,40,rearGlass),rearWindowMaterial,"achterruit");
 glazedEdge(windowEdge(rearGlass,-1,0,-1,1));
 glazedEdge(windowEdge(rearGlass,-1,1,1,1));
 glazedEdge(windowEdge(rearGlass,1,1,1,0));
@@ -1447,10 +1454,10 @@ function roundedMirror(width,height,depth,material,x,y) {
   outline.lineTo(w,h-r);outline.quadraticCurveTo(w,h,w-r,h);outline.lineTo(-w+r,h);
   outline.quadraticCurveTo(-w,h,-w,h-r);outline.lineTo(-w,-h+r);outline.quadraticCurveTo(-w,-h,-w+r,-h);
   var part=mesh(new T.ExtrudeGeometry(outline,{depth:depth,bevelEnabled:false,curveSegments:5}),material);
-  part.rotation.y=-PI/2;part.position.set(x,y,0);add(part);
+  part.rotation.y=-PI/2;part.position.set(x,y,0);add(part).userData.printPart="binnenspiegel";
 }
 var mirrorBase=windscreen(0,.91);
-add(tube([mirrorBase,[mirrorBase[0]-55,mirrorBase[1]-49,0]],6,mTrim));
+add(tube([mirrorBase,[mirrorBase[0]-55,mirrorBase[1]-49,0]],6,mTrim)).userData.printPart="binnenspiegel";
 roundedMirror(172,45,12,mTrim,mirrorBase[0]-53,mirrorBase[1]-51);
 roundedMirror(164,37,1,mSatin,mirrorBase[0]-66,mirrorBase[1]-51);
 
@@ -1731,7 +1738,7 @@ var rockerMetal = new T.MeshStandardMaterial({color:hex('#4b4b49'),roughness:.52
   var door=[[1460,874],[1382,854],[1337,811],[1320,719],[1319,498],[1331,353],
             [1350,332],[1480,328],[2010,328],[2235,333],[2312,365],[2362,444],
             [2458,656],[2500,789],[2504,869]];
-  add(tube(door.map(([s,y])=>[X(s),y,sg*(sideZ(s,y)+2)]),3,mLine));
+  add(tube(door.map(([s,y])=>[X(s),y,sg*(sideZ(s,y)+2)]),3,mLine)).userData.printPart="deurnaden";
   var hz=sideZ(2401,765);
   add(oval(X(2401),765,sg*(hz+4),72,18,7,mRubber));
   add(oval(X(2403),770,sg*(hz+11),64,10,10,mChrome));
@@ -1798,7 +1805,7 @@ for (var side of [-1,1]) {
     var s=lerp(60,1276,i/52);
     seam.push(hoodSeam(s,side*hoodWidth(s)));
   }
-  add(tube(seam,3.0,frontGap));
+  add(tube(seam,3.0,frontGap)).userData.printPart="klepnaden";
 }
 var leading=[], cowl=[];
 for (var k=-30;k<=30;k++) {
@@ -1806,7 +1813,8 @@ for (var k=-30;k<=30;k++) {
   leading.push(hoodSeam(60,u*hoodWidth(60)));
   cowl.push(hoodSeam(1283-7*u*u,u*hoodWidth(1276)));
 }
-add(tube(leading,3.5,frontGap)); add(tube(cowl,2.6,frontGap));
+add(tube(leading,3.5,frontGap)).userData.printPart="klepnaden";
+add(tube(cowl,2.6,frontGap)).userData.printPart="klepnaden";
 add(mesh(gridGeometry(48,10,function (u,t) {
   var s=lerp(1128,1160,t), z=u*(lerp(246,254,t)-4);
   return [skinX(s,z),hoodY(s,z)+2,z];
@@ -1848,7 +1856,8 @@ function panelRim(panel,radius,material,lift) {
     ...windowEdge(surface,-1,1,-1,0).slice(0,-1)
   ];
   var curve = new T.CatmullRomCurve3(loop.map(p=>new T.Vector3(...p)),true,'centripetal');
-  add(mesh(new T.TubeGeometry(curve,256,radius,8,true),material));
+  var rim=add(mesh(new T.TubeGeometry(curve,256,radius,8,true),material));
+  if (material===mLine) rim.userData.printPart="klepnaden";
 }
 panelRim(engineLid,3,mLine,1.6);
 var lip = gridGeometry(56,3,function (u,t) {

@@ -4,7 +4,10 @@
 
 Decoratief 3D-printmodel van Marks eigen **Porsche 911 Targa uit 1971**.
 
-**Status · Vijfde carrosseriestudie op schaal 1:10, ter beoordeling.**
+**Status · Eerste printset op schaal 1:10 voor de Bambu Lab P2S.**
+
+Begin met de [pasproef en bouwhandleiding](print/README.md). De [onderdelenlijst](print/onderdelen.csv) geeft de aantallen en plaatmaten. De [STEP-assemblage](cad/step/targa-assemblage.step) toont de montagepositie van alle modeldelen.
+
 De eerste grotere 3D-uitwerking week volgens Mark te veel af van het voorstel en wordt niet op de projectpagina getoond. Mark wees de eerste geometrie af
 op gelijkenis. Op zijn verzoek is de mini met alle bijbehorende bestanden buiten
 deze overdracht gelaten.
@@ -98,16 +101,13 @@ zijn behouden. De Blender-bron in `cad/` hoort bij de eerdere studie. De actuele
 
 ## Volgende stap
 
-Vergelijk het zijprofiel en beide driekwartaanzichten in de viewer met de foto’s
-van de vroege 911 en Marks eigen Targa. Gebruik die vergelijking om de vorm te
-beoordelen voordat de carrosserie voor het printen wordt uitgewerkt.
-De technische printcontrole volgt op een herkenbare carrosserievorm.
+Print twee pasblokken en één pasveer. Pas daarna beide carrosseriehelften droog op het gebouwde M-06M-chassis. Meet de montagepennen en de ruimte rond de voorwielen, motor, accu en interieurbak voordat je boort of lijmt.
 
 De zelfstandige `index.html` toont het oorspronkelijke grotere Targa-voorstel
 en de interactieve vormstudie. Het voorstel is een AI-visualisatie, geen
 CAD-render of bewijs van printbaarheid. Het grote beeld is ook los te openen.
 
-De afgewezen grotere 3D-uitwerking is alleen als historie bewaard in `cad/` en
+De afgewezen Blender-studie staat als historie direct onder `cad/` en in
 `model/`; zij wordt niet meer in de pagina geladen en niet aangeboden als
 passend model. De afgewezen mini is niet opgenomen. Voor toekomstige
 browsergeometrie gelden centimeters op modelschaal en voor printbestanden

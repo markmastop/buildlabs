@@ -5,8 +5,7 @@
 Op de [projectpagina](index.html) staat de **vijfde carrosseriestudie op
 schaal 1:10**, uitgewerkt naar de foto's van Marks auto en de aanvullende
 referenties in `images/porsche/`. De viewer toont de Targa met open of gesloten
-dak, het interieur en het losse M-06M-chassis. De bestanden in `cad/` en
-`model/` horen bij de eerdere, afgewezen studie.
+dak, het interieur en het losse M-06M-chassis. De actuele [printset met pasproef](print/README.md) hoort bij deze viewer. De oudere Blender-bron direct onder `cad/` hoort bij de eerdere studie.
 
 De RC-versie is 1/10 op een Tamiya M-06 (wielbasis 225 mm). Het chassis is
 besteld voor € 100; de zender is een FlySky ST8. De ontvanger, servo, accu en
@@ -30,7 +29,7 @@ lader moeten nog worden gekocht.
 
 ## Volgorde hierna
 
-1. De 3D-vormstudie van de Targa laten beoordelen op gelijkenis met de foto's en bijstellen.
-2. Daarna de body uitwerken en verdelen in printbare delen met pasranden.
+1. Twee pasblokken en één pasveer printen en droog passen.
+2. De carrosseriehelften printen en op de twee veren uitlijnen.
 3. Het M-06-chassis bouwen en rijden met de Kever-body.
 4. De 911-body passend maken en monteren met bodyclips.

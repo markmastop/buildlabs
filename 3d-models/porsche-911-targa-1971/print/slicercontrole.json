@@ -1,0 +1,162 @@
+{
+  "status": "PASS",
+  "slicer": "Bambu Studio 02.09.01.70",
+  "printer": "Bambu Lab P2S",
+  "filament": "Generic PLA @BBL P2S",
+  "nozzle_mm": 0.4,
+  "layer_mm": 0.2,
+  "checks": [
+    {
+      "part": "00-pasblok",
+      "profile": "targa-p2s",
+      "grams": 0.65,
+      "seconds": 805,
+      "warning": "",
+      "sha256": "cbad6b86d3867c3c8c06040f714b8d50078d77b470cd9f4627a4dfeee320fe79"
+    },
+    {
+      "part": "01-pasveer",
+      "profile": "targa-p2s",
+      "grams": 0.25,
+      "seconds": 528,
+      "warning": "",
+      "sha256": "7111dcc80c8fa11201abe6cba783699ed7afdc057565bf83ad82bca96bbe6ecf"
+    },
+    {
+      "part": "02-carrosserie-voor",
+      "profile": "targa-p2s",
+      "grams": 187.18,
+      "seconds": 30465,
+      "warning": "",
+      "sha256": "217fbc1111e2bcc653e4cadc831a194547a8f64b28c2aa454c21eee566852b1c"
+    },
+    {
+      "part": "03-carrosserie-achter",
+      "profile": "targa-p2s",
+      "grams": 151.24,
+      "seconds": 24988,
+      "warning": "",
+      "sha256": "5aa9b682b8e47aaf373e710847711025455a5200c1dee68748024e3fa45561c1"
+    },
+    {
+      "part": "04-interieurbak",
+      "profile": "targa-p2s",
+      "grams": 152.14,
+      "seconds": 38857,
+      "warning": "",
+      "sha256": "b43954a0ab988fb4a9e47800e76ad4c6622ef3444ca4d13947a8a505b2bfa58f"
+    },
+    {
+      "part": "05-voorstoel-links",
+      "profile": "targa-p2s",
+      "grams": 26.03,
+      "seconds": 6304,
+      "warning": "",
+      "sha256": "b003b562d925685e9d3b8297cb9819829855806da6989e31a7a1b31e021c9396"
+    },
+    {
+      "part": "05-voorstoel-rechts",
+      "profile": "targa-p2s",
+      "grams": 25.53,
+      "seconds": 6230,
+      "warning": "",
+      "sha256": "1c97ee1fb990e76583a486ff142d5816571ebee3326bb187ab1e6954d808787b"
+    },
+    {
+      "part": "06-targadak",
+      "profile": "targa-p2s",
+      "grams": 32.56,
+      "seconds": 9322,
+      "warning": "",
+      "sha256": "fd5d6258eb3ff91426b03c3aa26ea9f6ae6cb6c9fe08b51263409d4dc8bcedc9"
+    },
+    {
+      "part": "07-voorruit",
+      "profile": "targa-p2s",
+      "grams": 9.97,
+      "seconds": 2281,
+      "warning": "",
+      "sha256": "083502ef1e3c7295124cab1ed03e1c1b2a845bfae26a48ac39a330871a2253d8"
+    },
+    {
+      "part": "07-achterruit",
+      "profile": "targa-p2s",
+      "grams": 26.2,
+      "seconds": 8372,
+      "warning": "",
+      "sha256": "13f17926430b0df5b4d55485c1036c9d224d764af4d453fab8bc0c4553759d95"
+    },
+    {
+      "part": "07-tochtruit-links",
+      "profile": "targa-p2s",
+      "grams": 1.13,
+      "seconds": 1024,
+      "warning": "",
+      "sha256": "e4baeb2634f796a81ec9fc581345165a09943e4f7a9ab76445f0193552d49b55"
+    },
+    {
+      "part": "07-tochtruit-rechts",
+      "profile": "targa-p2s",
+      "grams": 1.11,
+      "seconds": 1015,
+      "warning": "",
+      "sha256": "624a771c3f6e66ec6dc940a5817e027cb83a81e84f964b4fec08c63a46d8a2ea"
+    },
+    {
+      "part": "08-binnenspiegel",
+      "profile": "targa-p2s",
+      "grams": 0.43,
+      "seconds": 644,
+      "warning": "",
+      "sha256": "46300794cc5e8b125bbba09010d210e1819f9538da2d95c8aa474d3e7ed20afd"
+    },
+    {
+      "part": "09-fuchs-voor",
+      "profile": "targa-kleine-overhangen-p2s",
+      "grams": 25.08,
+      "seconds": 4396,
+      "warning": "",
+      "sha256": "5cdf22e7d7bd2c805182b2bd3cc3dbeaee5b979eabfb8e46fbc50441d441029d"
+    },
+    {
+      "part": "09-fuchs-achter",
+      "profile": "targa-kleine-overhangen-p2s",
+      "grams": 26.06,
+      "seconds": 4487,
+      "warning": "",
+      "sha256": "0db341df890b7850209c1bd4eb0466437d53b983713af6a18ad367b0a6558892"
+    },
+    {
+      "part": "10-uitlaat",
+      "profile": "targa-kleine-overhangen-p2s",
+      "grams": 14.69,
+      "seconds": 3013,
+      "warning": "",
+      "sha256": "dd9f50764b229394400e963231331d845d221725a22e70bf0f49fd1657dced35"
+    },
+    {
+      "part": "11-asdrager-voor",
+      "profile": "targa-p2s",
+      "grams": 10.79,
+      "seconds": 3001,
+      "warning": "",
+      "sha256": "f44eb63dbd3e0259737288d73e220e1e3f0c4cbbfe34bfc7ccfb8d1cc0598a23"
+    },
+    {
+      "part": "11-asdrager-achter",
+      "profile": "targa-p2s",
+      "grams": 14.15,
+      "seconds": 3937,
+      "warning": "",
+      "sha256": "2a35f37afd63ac850f84701a31d3366b6123cdb59ad844164257de2e2dccbbeb"
+    }
+  ],
+  "model": {
+    "gram": 755.9,
+    "uren": 44.0
+  },
+  "proef": {
+    "gram": 1.3,
+    "uren": 0.4
+  }
+}
