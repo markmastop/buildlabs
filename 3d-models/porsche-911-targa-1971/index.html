@@ -307,7 +307,7 @@ var hoodWidth=pchip([[60,401],[78,415],[140,427],[360,450],[700,490],[1000,528],
 var innerWing=pchip([[0,0],[.15,.10],[.35,.36],[.5,.68],[.59,.82],[.73,.93],[.87,.983],[1,1]]);
 var frontCrest=pchip([[60,779],[175,791],[365,807],[530,820],[803,839],[1090,858],[1300,875]]);
 function wingRidge(s,width) {
-  return lerp(headlamp.z,width-.5,.93*smoothStep(200,1120,s));
+  return lerp(headlamp.z,width-24,smoothStep(200,1120,s));
 }
 var tailStation = pchip([[0,3998],[260,3989],[458,3964],[590,3926],[680,3872],[733,3794],[758,3740],[790,3715]]);
 function smoothStep(lo,hi,value) {
@@ -317,6 +317,12 @@ function smoothStep(lo,hi,value) {
 // Het claxonrooster en de zitting in het spatbord volgen hetzelfde schuine vlak.
 function hornGrilleStation(z,y) {
   return noseStation(Math.abs(z))+.78*(y-461);
+}
+// De lak draait bij de koplampring terug naar het schuine frontvlak.
+var wingRollLength=67;
+function wingRoll(s,z,y) {
+  return (1-clamp((s-S_NOSE)/wingRollLength,0,1))**2
+    *smoothStep(460,525,Math.abs(z))*smoothStep(620,705,y);
 }
 function skinX(s,z,y) {
   var width=Math.abs(z);
@@ -347,6 +353,9 @@ function skinX(s,z,y) {
     var inset=hornGrilleStation(z,y)+4-(s+nose);
     nose+=cover*.5*(inset+Math.hypot(inset,6))*(1-smoothStep(160,300,s));
   }
+  if (s>S_NOSE && s<S_NOSE+wingRollLength && y!==undefined) {
+    nose-=(s-S_NOSE)*(1-(end-S_NOSE)/(480-S_NOSE))*wingRoll(s,z,y);
+  }
   var tail=smoothStep(3510,S_END,s)*(tailStation(width)-S_END);
   var glass=smoothStep(2820,S_RW,s)*(1-smoothStep(S_RW,3740,s));
   if (y !== undefined) glass*=smoothStep(700,840,y);
@@ -373,20 +382,29 @@ function yLow(s) {
 function frontHem(s,y) {
   return 53*smoothStep(115,295,s)*(1-smoothStep(425,530,s))*(1-smoothStep(285,355,y));
 }
+// Flank en bovenzijde van het voorspatbord volgen dezelfde ellipsboog.
+function shoulderOrder(s) { return lerp(2.48,2,smoothStep(120,480,s)); }
+function doorBlend(s) { return smoothStep(900,1320,s)*(1-smoothStep(2490,2910,s)); }
+function shoulderTurn(s) { return lerp(.62,.75,doorBlend(s)); }
 /* Zijvlak: z van de buitenhuid op hoogte y (voor deurlijnen, kozijnen en details). */
 function sideZ(s, y) {
   var W = tWs(s), WO = W - tTuck(s), WT = W * tFr(s), YT = tYt(s), YL = tYlb(s);
   var u = clamp((y-YL)/(YT-YL),0,1);
   // De onderdorpel draait onder de deur, de schouder buigt naar binnen boven de band.
-  var doorWeight = smoothStep(900,1320,s)*(1-smoothStep(2490,2910,s));
-  var turn = lerp(.62,.75,doorWeight);
+  var turn = shoulderTurn(s);
   if (u<turn) {
     var round = Math.sin(u/turn*PI/2);
     var flank = 1-(1-u/turn)**3;
-    return lerp(WO,W,lerp(round,flank,doorWeight));
+    return lerp(WO,W,lerp(round,flank,doorBlend(s)));
   }
   var crown=(u-turn)/(1-turn);
-  return WT+(W-WT)*Math.sqrt(Math.max(0,1-crown*crown));
+  var upperFlank=WT+(W-WT)*Math.sqrt(Math.max(0,1-crown*crown));
+  if (s>=S_COWL) return upperFlank;
+  var ridge=wingRidge(s,WT), crest=frontCrest(s), base=lerp(YL,YT,turn);
+  var order=shoulderOrder(s);
+  var h=clamp((y-base)/(crest-base),0,1);
+  var arc=ridge+(W-ridge)*Math.max(0,1-h**order)**(1/order);
+  return lerp(arc,upperFlank,smoothStep(1140,S_COWL,s));
 }
 
 // De omtrek van de ruit ligt aan de binnenzijde van de opbollende schouder.
@@ -422,7 +440,7 @@ function ring(s, c) {
     var spans=s<=S_COWL
       ? [[wingRidge(s,WT),7],[hoodWidth(s)+8,8],[hoodWidth(s),2],[hoodWidth(s)-6,2],[0,13]]
       : [[0,32]];
-    var from=WT;
+    var from=p[p.length-1][0];
     for (var [to,steps] of spans) {
       for (var j=1;j<=steps;j++) {
         var z=lerp(from,to,j/steps);
@@ -440,6 +458,9 @@ function ring(s, c) {
       for (var j=1;j<=4;j++) p.push([lerp(a[0],b[0],j/4),lerp(a[1],b[1],j/4),b[2]]);
     }
   }
+  if (s<S_NOSE+wingRollLength) {
+    for (var point of p) point[1]-=17*wingRoll(s,point[0],point[1]);
+  }
   var full = p.slice();
   for (i = p.length - 2; i >= 0; i--) full.push([-p[i][0], p[i][1], p[i][2]]);
   return full;
@@ -448,7 +469,7 @@ function ring(s, c) {
 function stations() {
   var vals = [], s, k;
   for (s = S_NOSE; s <= S_END; s += 25) vals.push(s);
-  vals.push(S_END,69,79,94,112,1119,1125,1140,1149,1157,1163,1282);
+  vals.push(S_END,62.5,65,69,74,79,94,112,1119,1125,1140,1149,1157,1163,1282);
   for (var offset of [-20,-6,0,8,19]) {
     vals.push(engineGrille.start+offset,engineGrille.end-offset);
   }
@@ -524,28 +545,34 @@ function bodyGeometry() {
     var columns=Array.from(new Set(outline.map(([z])=>z))).sort((a,b)=>a-b);
     var samples=[columns[0]];
     for (var k=1;k<columns.length;k++) {
-      var spacing=n===0 && Math.abs((columns[k]+columns[k-1])/2)>headlamp.z ? 4 : 8;
+      var spacing=n===0 && Math.abs((columns[k]+columns[k-1])/2)>460 ? 4 : 8;
       var steps=Math.ceil((columns[k]-columns[k-1])/spacing);
       for (var h=1;h<=steps;h++) samples.push(h===steps ? columns[k] : lerp(columns[k-1],columns[k],h/steps));
     }
     var heightSteps=36;
     samples.forEach(function (z,column) {
-      var ys=[], cuts=[];
+      var refine=n===0 && Math.abs(z)>460;
+      var ys=[], xs=[], cuts=[];
       for (var k=1;k<outline.length;k++) {
         var [za,ya]=outline[k-1], [zb,yb]=outline[k];
         if (z<Math.min(za,zb) || z>Math.max(za,zb)) continue;
         if (za===zb) {
           ys.push(ya,yb);
+          if (refine) xs.push(pos[3*(k-1)],pos[3*k]);
         } else {
           var t=(z-za)/(zb-za);
           var height=lerp(ya,yb,t);
           ys.push(height);
-          if (n===0 && t>0 && t<1 && Math.abs(z)>headlamp.z && outline[k-1][2]===1 && outline[k][2]===1) {
+          if (refine) xs.push(lerp(pos[3*(k-1)],pos[3*k],t));
+          if (refine && t>0 && t<1 && outline[k-1][2]===1 && outline[k][2]===1) {
             cuts.push([k-1,height]);
           }
         }
       }
       var low=Math.min(...ys), high=Math.max(...ys), row=pos.length/3;
+      // Leg extra randpunten exact op de lijn tussen twee punten van het spatbord.
+      var dxLow=refine ? xs[ys.indexOf(low)]-skinX(station,z,low) : 0;
+      var dxHigh=refine ? xs[ys.indexOf(high)]-skinX(station,z,high) : 0;
       for (var [edge,height] of cuts) {
         if (height===low || height===high) noseEdges[edge].push(row+(height===low ? 0 : heightSteps));
       }
@@ -558,7 +585,9 @@ function bodyGeometry() {
           var blend=smoothStep(470,511,y)*(1-smoothStep(652,725,y));
           cornerZ+=Math.sign(z)*band*across*across*(1-across)*blend;
         }
-        pos.push(skinX(station,z,y),y,cornerZ);
+        var edgeWeight=refine ? 1-smoothStep(0,16,Math.min(y-low,high-y)) : 0;
+        var dx=lerp(dxLow,dxHigh,k/heightSteps)*edgeWeight;
+        pos.push(skinX(station,z,y)+dx,y,lerp(cornerZ,z,edgeWeight));
         col.push(CV[1].r,CV[1].g,CV[1].b);
         if (column===0 || k===0) continue;
         var d=row+k,c=d-1,b=d-heightSteps-1,a=b-1;
@@ -1313,9 +1342,13 @@ function hoodY(s,z) {
       var fraction=(across-seam)/(ridge-seam);
       return lerp(center-crown,crest,lerp(smoothStep(0,1,fraction),innerWing(fraction),bucket));
     }
-    var outer=clamp((across-ridge)/(width-ridge),0,1);
-    var arc=(1-Math.sqrt(1-.96*outer*outer))/.8;
-    return lerp(crest,shoulder,lerp(smoothStep(0,1,outer),arc,bucket));
+    var top=sideZ(s,shoulder);
+    var outer=clamp((across-ridge)/(top-ridge),0,1);
+    var base=lerp(tYlb(s),shoulder,shoulderTurn(s));
+    var order=shoulderOrder(s);
+    var h=clamp((shoulder-base)/(crest-base),0,1);
+    var y=base+(crest-base)*(1-(1-h**order)*outer**order)**(1/order);
+    return lerp(y,lerp(crest,shoulder,smoothStep(0,1,outer)),smoothStep(1140,S_COWL,s));
   }
   var blend=v*v*v*(4-3*v);
   var shoulderRoll = 24*Math.sin(PI*v)**2 * smoothStep(3350,3520,s)*(1-smoothStep(3830,S_END,s));
