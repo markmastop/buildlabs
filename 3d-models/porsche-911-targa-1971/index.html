@@ -140,6 +140,7 @@ footer { padding-top:16px; border-top:1px solid var(--rule); color:var(--muted);
       <button type="button" data-vw="voor" aria-pressed="false">Neus</button>
       <button type="button" data-vw="rug" aria-pressed="false">Staart</button>
       <button type="button" data-vw="boven" aria-pressed="false">Boven</button>
+      <button type="button" data-vw="interieur" aria-pressed="false">Interieur</button>
       <button type="button" id="vw-roof" aria-pressed="false">Dak open</button>
       <button type="button" id="vw-spin" aria-pressed="false">Draaien</button>
     </div>
@@ -800,19 +801,42 @@ var mBlack = new T.MeshStandardMaterial({ color: hex('#16181a'), roughness: .55,
 var mRubber = new T.MeshStandardMaterial({ color: hex('#222427'), roughness: .5, metalness: .2 });
 var mTyre = new T.MeshStandardMaterial({ color: hex('#121314'), roughness: .9, metalness: 0, side: T.DoubleSide });
 var mGlass = new T.MeshPhysicalMaterial({ color: hex('#35474c'), roughness: .04, metalness: 0, transparent: true, opacity: .28, envMapIntensity: .75, side: T.DoubleSide, depthWrite: false });
-var mWood = new T.MeshStandardMaterial({ color: hex('#8a5a2b'), roughness: .45 });
-var mRoof = new T.MeshStandardMaterial({ color: hex('#17191b'), roughness: .5, metalness: .1, side: T.DoubleSide });
+var mWood = new T.MeshPhysicalMaterial({ color: hex('#92552a'), roughness:.34, clearcoat:.65 });
 var mLine = new T.MeshBasicMaterial({ color: hex('#5a3205') });
+var mLeather = new T.MeshStandardMaterial({color:hex('#292827'),roughness:.52,side:T.DoubleSide});
+var mCarpet = new T.MeshStandardMaterial({color:hex('#282622'),roughness:1,side:T.DoubleSide});
 
-function seatTexture() {
-  var c = document.createElement('canvas'); c.width = c.height = 64;
-  var g = c.getContext('2d'); g.fillStyle = '#16181a'; g.fillRect(0, 0, 64, 64);
-  g.fillStyle = '#a8a7a0';
-  for (var y = 0; y < 8; y++) for (var x = 0; x < 8; x++) if ((x + y) % 2 === 0) g.fillRect(x * 8, y * 8, 8, 8);
-  var t = new T.CanvasTexture(c); t.wrapS = t.wrapT = T.RepeatWrapping; t.repeat.set(5, 5); t.encoding = T.sRGBEncoding;
-  return t;
+function repeatingCanvas(size,paint,repeatX,repeatY) {
+  var c=document.createElement('canvas'); c.width=c.height=size;
+  paint(c.getContext('2d'));
+  var tex=new T.CanvasTexture(c);
+  tex.wrapS=tex.wrapT=T.RepeatWrapping; tex.repeat.set(repeatX,repeatY);
+  tex.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());
+  return tex;
 }
-var mPepita = new T.MeshStandardMaterial({ map: seatTexture(), roughness: .85 });
+// Vier lichte en vier donkere draden kruisen in een tweedraadse keperbinding.
+var pepita=repeatingCanvas(64,function (ctx) {
+  for (var row=0;row<8;row++) for (var col=0;col<8;col++) {
+    var warp=(col-row+8)%4<2, dark=(warp ? col : row)<4;
+    ctx.fillStyle=dark ? '#292522' : '#e2d9c1';
+    ctx.fillRect(col*8,row*8,8,8);
+    ctx.fillStyle=dark ? '#484138' : '#c8bfa9';
+    ctx.fillRect(col*8,row*8,warp ? 2 : 8,warp ? 8 : 2);
+  }
+},23,30);
+pepita.encoding=T.sRGBEncoding;
+var mPepita=new T.MeshStandardMaterial({map:pepita,roughness:.94,side:T.DoubleSide});
+// Een herhaalbare fijne vinylkorrel vangt het strijklicht op het dakpaneel.
+var roofGrain=repeatingCanvas(128,function (ctx) {
+  var pixels=ctx.createImageData(128,128), seed=37;
+  for (var i=0;i<pixels.data.length;i+=4) {
+    seed=(Math.imul(seed,1664525)+1013904223)>>>0;
+    var tone=70+(seed>>>25);
+    pixels.data[i]=pixels.data[i+1]=pixels.data[i+2]=tone; pixels.data[i+3]=255;
+  }
+  ctx.putImageData(pixels,0,0);
+},9,6);
+var mRoof=new T.MeshStandardMaterial({color:hex('#343332'),roughness:.79,bumpMap:roofGrain,bumpScale:.00055,side:T.DoubleSide});
 
 /* ------------------------------ auto ---------------------------------- */
 var car = new T.Group(); scene.add(car);
@@ -1185,7 +1209,7 @@ function curvedGlass(geometry,material) {
 curvedGlass(gridGeometry(40,24,windscreen),mGlass);
 function headerBack(u) {
   var front=windscreen(u,1), side=Math.abs(u);
-  return [front[0]-43-34*side,front[1]-8-35*side,front[2]+22*u];
+  return [front[0]-43-24*side,front[1]+4-7*u*u,front[2]+17*u];
 }
 add(mesh(gridGeometry(48,3,function (u,t) {
   var front=windscreen(u,1), back=headerBack(u);
@@ -1283,20 +1307,45 @@ glazedEdge(windowEdge(rearGlass,-1,0,-1,1));
 glazedEdge(windowEdge(rearGlass,-1,1,1,1));
 glazedEdge(windowEdge(rearGlass,1,1,1,0));
 
-var roofPanel = new T.Group(); roofPanel.visible = false; car.add(roofPanel);
+var roofPanel=new T.Group(); roofPanel.name='Uitneembaar Targadak'; roofPanel.visible=false; car.add(roofPanel);
 function roofTop(u,t) {
-  var front=headerBack(u), back=bandPoint(u*.64,0);
-  return [lerp(front[0],back[0],t),lerp(front[1],back[1],t)+14*Math.sin(PI*t),lerp(front[2],back[2],t)];
+  var front=headerBack(u), back=bandPoint(u*.685,0), crown=Math.sin(PI*t);
+  return [lerp(front[0],back[0],t),lerp(front[1],back[1],t)+crown*(4+6*(1-u*u)),
+    lerp(front[2],back[2],t)+u*3*crown];
 }
-function roofBottom(u,t) { var p=roofTop(u,t); p[1]-=55-19*(1-u*u); return p; }
-roofPanel.add(mesh(gridGeometry(28,12,roofTop),mRoof),mesh(gridGeometry(28,12,roofBottom),mRoof));
+function roofBottom(u,t) {
+  var p=roofTop(u,t);
+  return [p[0],p[1]-22-7*Math.abs(u)**6,p[2]-3*u];
+}
+function uvGrid(nu,nt,point) {
+  var g=gridGeometry(nu,nt,point), uv=[];
+  for (var j=0;j<=nt;j++) for (var i=0;i<=nu;i++) uv.push(i/nu,j/nt);
+  g.setAttribute('uv',new T.Float32BufferAttribute(uv,2)); return g;
+}
+function betweenPoints(a,b,t) { return a.map((value,i)=>lerp(value,b[i],t)); }
+roofPanel.add(mesh(uvGrid(64,20,roofTop),mRoof),mesh(gridGeometry(64,20,(u,t)=>roofBottom(-u,t)),mCarpet));
+for (var end of [0,1]) {
+  roofPanel.add(mesh(gridGeometry(64,1,(u,t)=>betweenPoints(roofBottom(u,end),roofTop(u,end),t)),mTrim));
+  roofPanel.add(tube(windowEdge(roofTop,-1,end,1,end),3,mRubber));
+}
 for (var side of [-1,1]) {
-  var roofSide=gridGeometry(1,16,function (u,t) {
-    var top=roofTop(side,t), bottom=roofBottom(side,t);
-    return [top[0],lerp(bottom[1],top[1],(u+1)/2),top[2]];
-  });
-  roofPanel.add(mesh(roofSide,mRoof));
+  roofPanel.add(mesh(gridGeometry(1,20,(u,t)=>betweenPoints(roofBottom(side,t),roofTop(side,t),(u+1)/2)),mRubber));
+  var rail=windowEdge(roofTop,side,0,side,1).map(([x,y,z])=>[x,y-6,z+side*1.5]);
+  roofPanel.add(tube(rail,3.5,mSatin));
 }
+// De vangers zitten vast in de voorruitlijst en zijn bij afgenomen dak zichtbaar.
+add(mesh(gridGeometry(48,2,function (u,t) {
+  var p=headerBack(u); return [p[0]-2*t,p[1]-19*t,p[2]];
+}),mSatin));
+for (var side of [-1,1]) {
+  var p=headerBack(side*.71);
+  add(box(4,9,46,mTrim,p[0]-3,p[1]-11,p[2]));
+  var visor=oval(p[0]+28,p[1]-34,side*294,32,14,153,mLeather); add(visor);
+}
+var mirrorBase=windscreen(0,.91);
+add(tube([mirrorBase,[mirrorBase[0]-55,mirrorBase[1]-49,0]],6,mTrim));
+add(oval(mirrorBase[0]-60,mirrorBase[1]-51,0,13,27,97,mTrim));
+add(oval(mirrorBase[0]-69,mirrorBase[1]-51,0,6,21,87,mSatin));
 
 /* Cockpit binnen de lage raamrand, met de contour van de stoelen boven de deur. */
 function oval(x,y,z,rx,ry,rz,material) {
@@ -1304,55 +1353,187 @@ function oval(x,y,z,rx,ry,rz,material) {
   part.scale.set(rx,ry,rz); part.position.set(x,y,z);
   return part;
 }
-add(oval(X(1485),775,0,165,68,646,mBlack));
-add(oval(X(1525),794,-300,142,92,227,mRubber));
-for (var gauge of [[-500,33],[-420,43],[-322,51],[-224,42],[-140,33]]) {
-  var [z,r]=gauge;
-  var x=X(1638)-22*(1-Math.abs(z+322)/185);
-  add(oval(x,797,z,12,r,r,mSatin));
-  add(oval(x-5,797,z,10,r-3,r-3,mBlack));
-  add(tube([[x-16,797,z],[x-14,797+r*.5,z-r*.38]],2,mSatin));
+var cockpitGroup=new T.Group(); cockpitGroup.name='Interieur'; car.add(cockpitGroup);
+function inside(part) { cockpitGroup.add(part); return part; }
+
+// De beklede bovenrand loopt boven de vijf klokken op en rechts vlak uit.
+function dashFace(z,y) {
+  var s=1638+25*smoothStep(485,602,Math.abs(z));
+  return [X(s)+.19*(y-752),y,z];
 }
-var shelf = gridGeometry(32,12,function (u,t) {
-  var station = lerp(2805,3420-120*u*u,t);
-  return [X(station),lerp(735,821,t)-16*u*u,u*lerp(589,620,t)];
-});
-add(mesh(shelf,mTrim));
-for (var rearSeatZ of [-278,278]) {
-  var backrest = oval(X(2815),601,rearSeatZ,69,160,266,mBlack);
-  backrest.rotation.z=.22;
-  add(backrest);
+function dashBrow(z) { return 815+77*(1-smoothStep(160,285,Math.abs(z+311))); }
+function dashSection(u,row) {
+  var z=u*600, brow=dashBrow(z), nose=dashFace(z,brow), foot=windscreen(z/WB.w,0);
+  var profile=[[foot[0]-9,foot[1]-19],[lerp(foot[0],nose[0],.62),brow+8],
+    [nose[0]+8,brow+6],[nose[0]-7,brow],[nose[0]-11,brow-11],
+    [nose[0]+1,brow-19],dashFace(z,694),dashFace(z,632),[nose[0]+25,620]];
+  return [profile[row][0],profile[row][1],z];
 }
-[-1,1].forEach(function (side) {
-  var z=side*310;
-  add(oval(X(2203),460,z,235,76,222,mBlack));
-  add(oval(X(2184),506,z,182,36,136,mPepita));
-  var seatBack=oval(X(2389),696,z,72,240,217,mBlack);
-  seatBack.rotation.z=.20; add(seatBack);
-  var fabric=oval(X(2336),688,z,29,180,146,mPepita);
-  fabric.rotation.z=.20; add(fabric);
-  var rest=oval(X(2439),958,z,57,58,118,mBlack);
-  var positions=rest.geometry.attributes.position;
-  for (var i=0;i<positions.count;i++) {
-    var v=new T.Vector3().fromBufferAttribute(positions,i);
-    positions.setXYZ(i,...v.toArray().map(n=>Math.sign(n)*Math.pow(Math.abs(n),.61)));
+inside(mesh(gridGeometry(72,8,(u,t)=>dashSection(u,Math.round(t*8))),mLeather));
+for (var y of [686,632]) {
+  var trim=[];
+  for (var i=0;i<=40;i++) {
+    var p=dashFace(lerp(-582,582,i/40),y); trim.push([p[0]-3,p[1],p[2]]);
   }
-  rest.geometry.computeVertexNormals(); add(rest);
-  var rail=[];
-  for (var s=1390;s<=2520;s+=30) rail.push([X(s),tYt(s)+2,side*(tWs(s)*tFr(s)-25)]);
-  add(tube(rail,10,mRubber));
-});
-add(oval(X(1950),379,0,410,80,75,mBlack));
-var wheelG=new T.Group(); wheelG.position.set(X(1695),738,-310);
-var sw=mesh(new T.TorusGeometry(174,12,10,48),mWood); sw.rotation.y=PI/2;
-wheelG.add(sw);
-for (var spoke=0;spoke<3;spoke++) {
-  var angle=spoke*2*PI/3+PI/2;
-  var arm=box(13,22,151,mSatin,0,-81*Math.sin(angle),81*Math.cos(angle));
-  arm.rotation.x=angle; wheelG.add(arm);
+  inside(tube(trim,2.6,mSatin));
 }
-var hubS=mesh(new T.CylinderGeometry(42,42,25,24),mBlack); hubS.rotation.z=PI/2;
-wheelG.add(hubS); wheelG.rotation.z=.48; car.add(wheelG);
+// De lokaal getekende wijzerplaten blijven ook ingezoomd leesbaar.
+function instrumentFace(kind,range,divisions) {
+  var c=document.createElement('canvas'); c.width=c.height=256;
+  var g=c.getContext('2d'); g.fillStyle='#161817'; g.fillRect(0,0,256,256);
+  g.translate(128,128); g.strokeStyle=g.fillStyle='#dedac8'; g.textAlign='center'; g.textBaseline='middle';
+  g.font='16px Arial';
+  for (var i=0;i<=divisions*4;i++) {
+    var frac=i/(divisions*4), a=(.76+1.48*frac)*PI, major=i%4===0;
+    g.save(); g.rotate(a); g.beginPath(); g.moveTo(major?87:96,0); g.lineTo(104,0);
+    g.strokeStyle=kind==='U/min' && frac>.83 ? '#cb5739' : '#e4decd';
+    g.lineWidth=major?3.5:1.5; g.stroke(); g.restore();
+    if (major) g.fillText(String(Math.round(range*frac)),Math.cos(a)*75,Math.sin(a)*75);
+  }
+  g.font='12px Arial'; g.fillText(kind,0,50);
+  var a=kind==='U/min'?PI*.98:kind==='km/h'?PI*.78:PI*1.43;
+  g.rotate(a); g.fillStyle='#df8156';g.beginPath();g.moveTo(-15,-3);g.lineTo(91,0);g.lineTo(-15,3);g.fill();
+  g.fillStyle='#72736b';g.beginPath();g.arc(0,0,8,0,2*PI);g.fill();
+  var tex=new T.CanvasTexture(c); tex.encoding=T.sRGBEncoding;
+  return new T.MeshStandardMaterial({map:tex,roughness:.53});
+}
+for (var [z,y,r,kind,range,divisions] of [[-510,783,35,'Tank',4,4],[-422,795,45,'Öl',10,5],
+    [-316,809,55,'U/min',8,8],[-205,798,48,'km/h',240,8],[-112,783,36,'Zeit',12,6]]) {
+  var dial=new T.Group(); dial.name='Instrument '+kind;
+  dial.position.set(...dashFace(z,y)); dial.position.x-=5;
+  dial.rotation.set(0,-PI/2,-.188,'ZYX');
+  var face=mesh(new T.CircleGeometry(r-4,56),instrumentFace(kind,range,divisions)); dial.add(face);
+  var bezel=mesh(new T.TorusGeometry(r,3.5,8,64),mTrim);
+  bezel.position.z=2; dial.add(bezel);
+  var ring=mesh(new T.TorusGeometry(r-3,1.4,6,64),mSatin);ring.position.z=2;dial.add(ring);
+  inside(dial);
+}
+// Radio, verwarmingsschuiven en handschoenenkastje in het smalle onderpaneel.
+var fasciaX=dashFace(0,658)[0]-5;
+inside(box(8,36,171,mSatin,fasciaX,658,79));inside(box(9,26,130,mBlack,fasciaX-4,658,79));
+for (var dz of [-75,75]) inside(oval(fasciaX-9,658,79+dz,9,10,10,mTrim));
+for (var k=0;k<5;k++) inside(box(5,7,12,mSatin,fasciaX-9,649,53+k*13));
+inside(box(7,29,94,mTrim,fasciaX,658,-65));
+for (var k=0;k<2;k++) inside(box(6,2,74,mSatin,fasciaX-4,652+11*k,-65));
+inside(tube([dashFace(205,683),dashFace(205,637),dashFace(509,637)].map(([x,y,z])=>[x-2,y,z]),2,mTrim));
+inside(oval(fasciaX-3,664,456,5,6,13,mSatin));
+
+// Het tapijt loopt vanuit de voetenbak over de middentunnel naar de achterbank.
+inside(mesh(gridGeometry(40,32,function (u,t) {
+  var s=lerp(1460,3160,t), width=tWs(s)*tFr(s)-77, z=u*width;
+  var floor=338+165*(1-smoothStep(1460,1660,s))+75*smoothStep(2510,2740,s);
+  var tunnel=(65+81*smoothStep(2530,2850,s))*(1-smoothStep(46,119,Math.abs(z)));
+  return [X(s),floor+tunnel,z];
+}),mCarpet));
+
+// Drie aansluitende banen vormen één zitting: leer, pepita en leer.
+function upholsteredPad(surface,offset,insert,material) {
+  var reverse=(u,t)=>surface(u,t).map((v,i)=>v+offset[i]);
+  for (var [from,to,mat] of [[-1,-insert,mLeather],[-insert,insert,material],[insert,1,mLeather]]) {
+    inside(mesh(uvGrid(14,22,(u,t)=>surface(lerp(from,to,(u+1)/2),t)),mat));
+  }
+  inside(mesh(gridGeometry(16,10,reverse),mLeather));
+  for (var side of [-1,1]) {
+    inside(mesh(gridGeometry(1,22,(u,t)=>betweenPoints(surface(side,t),reverse(side,t),(u+1)/2)),mLeather));
+    inside(tube(windowEdge(surface,side*insert,0,side*insert,1),1.5,mLeather));
+  }
+  for (var end of [0,1]) inside(mesh(gridGeometry(32,1,(u,t)=>betweenPoints(surface(u,end),reverse(u,end),t)),mLeather));
+}
+function frontSeat(side) {
+  var z=side*307, insert=.69;
+  function pad(u,t) {
+    var a=Math.abs(u), round=a**5;
+    var s=lerp(1918,2372,t)+round*lerp(35,-21,t);
+    var width=lerp(206,200,t)+11*Math.sin(PI*t);
+    var roll=42*(smoothStep(.64,.86,a)-1.04*smoothStep(.88,1,a));
+    var y=lerp(479,453,t)+23*Math.sin(PI*t)+roll-18*(1-smoothStep(0,.10,t));
+    return [X(s),y,z+u*width];
+  }
+  function back(u,t) {
+    var a=Math.abs(u), width=lerp(199,169,t)+19*Math.sin(PI*t);
+    var y=lerp(460,895,t)-25*a**5*smoothStep(.82,1,t);
+    var bolster=(40+16*Math.sin(PI*t))*(smoothStep(.60,.88,a)-smoothStep(.89,1,a));
+    var s=lerp(2305,2416,t)-bolster-12*Math.sin(PI*t)+14*smoothStep(.91,1,t);
+    return [X(s),y,z+u*width];
+  }
+  upholsteredPad(pad,[0,-61,0],insert,mPepita);
+  upholsteredPad(back,[-57,0,0],insert,mPepita);
+  for (var dz of [-79,79]) inside(tube([[X(2430),885,z+dz],[X(2441),937,z+dz]],5,mSatin));
+  var head=oval(X(2446),959,z,58,53,133,mLeather);
+  // Het brede hoofdsteunkussen heeft vlakke zijden en afgeronde uiteinden.
+  var verts=head.geometry.attributes.position;
+  for (var i=0;i<verts.count;i++) {
+    var v=new T.Vector3().fromBufferAttribute(verts,i);
+    verts.setXYZ(i,...v.toArray().map(n=>Math.sign(n)*Math.abs(n)**.63));
+  }
+  head.geometry.computeVertexNormals();inside(head);
+}
+for (var side of [-1,1]) {
+  frontSeat(side);
+  var z=side*287;
+  // Twee afzonderlijke achterzitjes met lengteribben en een hoge middentunnel.
+  function rearFlute(u) { return (1-Math.cos(PI*10*u))**5/32; }
+  inside(mesh(gridGeometry(80,20,function (u,t) {
+    var y=lerp(476,444,t)+16*Math.abs(u)**3-4*rearFlute(u);
+    return [X(lerp(2550,2840,t)+18*Math.abs(u)**4*(1-t)),y,z+u*218];
+  }),mLeather));
+  inside(mesh(gridGeometry(80,20,function (u,t) {
+    var s=lerp(2834,2952,t)-21*Math.sin(PI*t)+6*rearFlute(u)+17*Math.abs(u)**5;
+    return [X(s),lerp(442,756,t)-14*u*u,z+u*lerp(222,246,t)];
+  }),mLeather));
+  inside(tube([[X(2841),445,z],[X(2883),437,z-side*155],[X(2850),449,z-side*204]],3,mTrim));
+  // De deurkaart ligt tegen de bestaande binnenwand van de carrosserie.
+  function doorLining(s,y) {
+    return [X(s),y,side*(tWs(s)*tFr(s)-82-6*Math.sin(PI*clamp((y-352)/506,0,1)))];
+  }
+  inside(mesh(gridGeometry(30,12,(u,t)=>doorLining(lerp(1490,2480,(u+1)/2),lerp(351,846,t))),mLeather));
+  var cap=[], chrome=[];
+  for (var s=1460;s<=2480;s+=30) {
+    cap.push(doorLining(s,tYt(s)-31)); chrome.push(doorLining(s,565));
+  }
+  inside(tube(cap,13,mLeather));inside(tube(chrome,3,mSatin));
+  var pull=[[1775,628],[1833,606],[2100,606],[2142,650]].map(([s,y])=>{
+    var p=doorLining(s,y);p[2]-=side*20;return p;
+  });
+  inside(tube(pull,13,mLeather));
+  var crank=doorLining(1630,600);
+  inside(tube([crank,[crank[0]-38,crank[1]+25,crank[2]-side*22]],5,mSatin));
+  inside(oval(crank[0]-38,crank[1]+25,crank[2]-side*27,9,9,9,mTrim));
+}
+inside(mesh(gridGeometry(32,12,function (u,t) {
+  return [X(lerp(2950,3380-124*u*u,t)),lerp(749,822,t)-15*u*u,u*lerp(570,609,t)];
+}),mCarpet));
+
+// Pook met geribde hoes en handrem tussen de voorstoelen.
+var bootProfile=[[0,0],[32,0],[33,6],[26,10],[29,15],[23,20],[25,25],[18,30],[19,35],[12,41],[9,43]];
+var boot=mesh(new T.LatheGeometry(bootProfile.map(([r,h])=>new T.Vector2(r,h)),36),mRubber);
+boot.position.set(X(1822),405,0);inside(boot);
+inside(tube([[X(1822),444,0],[X(1854),548,-4]],5,mSteel));
+inside(oval(X(1854),553,-4,18,19,18,mBlack));
+inside(tube([[X(2150),406,21],[X(2070),430,21],[X(1991),474,21]],9,mTrim));
+inside(tube([[X(2026),456,21],[X(1988),476,21]],11,mLeather));
+for (var [z,w] of [[-423,23],[-344,27],[-267,16]]) {
+  var pedal=box(12,46,w,mTrim,X(1533),463,z);pedal.rotation.z=-.24;inside(pedal);
+}
+
+// De houten krans draagt de brede, open claxonbeugel van de eigen auto.
+var wheelG=new T.Group(); wheelG.name='Houten stuur';
+wheelG.position.set(X(1841),729,-311); wheelG.rotation.set(0,-PI/2,-.39,'ZYX');
+inside(tube([[X(1632),650,-311],[X(1841),729,-311]],22,mTrim));
+wheelG.add(mesh(new T.TorusGeometry(173,10.5,16,96),mWood));
+var spider=new T.Shape();
+spider.moveTo(-165,61);spider.quadraticCurveTo(0,18,165,61);spider.lineTo(170,47);
+spider.lineTo(50,9);spider.lineTo(50,-7);spider.lineTo(168,-47);spider.lineTo(162,-62);
+spider.quadraticCurveTo(0,-20,-162,-62);spider.lineTo(-168,-47);spider.lineTo(-50,-7);
+spider.lineTo(-50,9);spider.lineTo(-170,47);spider.closePath();
+wheelG.add(mesh(new T.ExtrudeGeometry(spider,{depth:6,bevelEnabled:true,bevelSize:2,bevelThickness:2,bevelSegments:2}),mTrim));
+for (var side of [-1,1]) {
+  var arc=[];for (var i=0;i<=16;i++) {
+    var a=lerp(-.43,.43,i/16);arc.push([side*119*Math.cos(a),119*Math.sin(a),10]);
+  }
+  wheelG.add(tube(arc,4,mSatin));
+}
+var horn=oval(0,0,8,53,28,10,mLeather);wheelG.add(horn);inside(wheelG);
 
 /* Smalle omgezette rand langs de wielopening, vervloeiend in de zijwand. */
 AXLES.forEach(function (axle) {
@@ -1643,6 +1824,7 @@ var views = {
   zij:    { eye:[-.7,13.4,-355], targetX:-.7, fov:4.8 },
   voor:   { eye:[132,2.7,0], fov:7.4 },
   rug:    { eye:[-144,9.1,0], targetX:-2, fov:11 },
+  interieur: { eye:[-12,47,6], targetX:-1.2, targetY:6.6, fov:22 },
   boven:  { eye:[0,70,.1] }
 };
 var tween = null, orbitLimit=PI/2-.02;
@@ -1655,11 +1837,13 @@ function goTo(name) {
   viewButtons.forEach(function (button) {
     button.setAttribute('aria-pressed', String(button.dataset.vw===name));
   });
-  var target = new T.Vector3(view.targetX || 0,6.2,0);
+  var target = new T.Vector3(view.targetX || 0,view.targetY || 6.2,0);
   var start = new T.Spherical().setFromVector3(camera.position.clone().sub(controls.target));
   var end = new T.Spherical().setFromVector3(new T.Vector3(...view.eye).sub(target));
   var endFov = view.fov || 30;
-  if (modelLayer==='zwevend') {
+  if (name==='interieur') {
+    target.y+=bodyHeight;
+  } else if (modelLayer==='zwevend') {
     // Richt op het midden van de twee lagen. Van opzij vraagt de extra
     // hoogte meer beeldruimte dan van boven, waar beide lagen samenvallen.
     var halfLift=inspectionLift/2;
@@ -1686,6 +1870,7 @@ camera.position.set(...views.drie.eye);
 
 viewButtons.forEach(function (b) {
   b.addEventListener('click', function () {
+    if (b.dataset.vw==='interieur' && roofPanel.visible) roofBtn.click();
     goTo(b.dataset.vw);
   });
 });
@@ -1700,13 +1885,15 @@ function setModelLayer(mode) {
   // Bij montage vallen de hoogtes van de beide wielmiddens samen.
   bodyHeight = car.visible && chassis.visible ? rcWheel.radius - WHEEL_R * car.scale.y : 0;
   if (mode==='zwevend') bodyHeight+=inspectionLift;
-  if (mode==='zwevend' || wasSeparated) {
+  var chassisFromInterior=!car.visible && activeView==='interieur';
+  if (mode==='zwevend' || wasSeparated || chassisFromInterior) {
     if (!chassis.visible || !car.visible) car.position.y=bodyHeight;
-    goTo(mode==='zwevend' && activeView==='boven' ? 'drie' : activeView);
+    goTo(chassisFromInterior || (mode==='zwevend' && activeView==='boven') ? 'drie' : activeView);
   } else {
     car.position.y=bodyHeight;
   }
   roofBtn.disabled = !car.visible;
+  document.querySelector('[data-vw="interieur"]').disabled=!car.visible;
   renderer.shadowMap.needsUpdate = true;
   document.getElementById('body-specs').hidden = mode !== 'targa';
   document.getElementById('body-note').hidden = mode !== 'targa';
