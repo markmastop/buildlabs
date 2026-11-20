@@ -21,8 +21,8 @@ deze overdracht gelaten.
 - Doel: decoratief schaalmodel, met een herkenbare vroege 911-carrosserie.
 - Printer: Bambu Lab P2S **met AMS**.
 - Eerste grotere voorstel: circa **20 cm** lang, met geel-oranje, zwart en zilvergrijs.
-- Dit is een ontwerprichting. Een exacte schaal en definitieve maat zijn nog niet
-  vastgesteld; de vorm van het 20 cm-concept is niet goedgekeurd.
+- De interactieve RC-studie is uitgewerkt op schaal **1:10**, met 226,8 mm tussen de wielmiddens.
+  De velgen met vijf gewelfde spaakbladen en de ruststand van de wissers volgen de voor-driekwartfoto van Marks auto.
 - De nozzle van 0,4 mm en PLA zijn eerdere werkuitgangspunten, niet door Mark
   apart bevestigde instellingen. P2S-bouwvolume: 25,6 × 25,6 × 25,6 cm.
 
@@ -34,6 +34,8 @@ De aanvullende beelden `images-33.jpg` en `images-37.jpg` zijn gebruikt voor
 het dashboard en de achterzitjes. Met de dakknop plaats je het zwarte Targa-paneel
 op de voorruitlijst en de zilveren beugel. De vinylhuid en smalle zijlijst volgen
 `images-38.jpg`. De maten van de bekleding en de daksluitingen zijn geschat uit de foto's.
+
+<a id="rc-versie-plan"></a>
 
 ## RC-versie op het M-06M-chassis
 
@@ -52,10 +54,9 @@ De vorm en plaats van frame, accu, ophanging, achterste motorunit en montagepenn
 zijn benaderd aan de hand van de foto's in `images/chasis/`. De fysieke montagehoogte,
 penposities en vrije ruimte bij insturen en inveren moeten aan de gebouwde kit worden gemeten.
 
-- **Schaal:** 1/10. Lengte circa 416 mm, wielbasis circa 227 mm. Een grote
-  schaal is bewust gekozen; kleiner hoeft niet.
+- **Schaal:** 1:10. De huidige digitale auto is circa 406 mm lang, inclusief bumpers.
 - **Chassis:** Tamiya M-06 (achterwielaandrijving, motor achterin, zoals de 911).
-  Mark koopt de Volkswagen Beetle-kit (58572, circa €110,83). Wielbasis
+  Mark heeft de Volkswagen Beetle-kit (58572) voor € 100 besteld. Wielbasis
   variabel: 210, 225 of 239 mm. **Instelling: 225 mm**, circa 2 mm onder de
   227 mm op 1/10. De kit bevat motor (540), regelaar (TEU-105BK), banden en
   velgen en een Kever-body, die niet wordt gebruikt.
@@ -90,7 +91,7 @@ penposities en vrije ruimte bij insturen en inveren moeten aan de gebouwde kit w
 De originele AI-visualisatie staat lokaal in `concept/renders/`. Een bytegelijke
 weergavekopie staat in `concept/ontwerpvoorstel.png` en is opgenomen in Git, zodat
 het beeld op de projectpagina beschikbaar is. De bronnen in het iCloud-project
-zijn behouden; er zijn kopieën gemaakt. Er staan hier geen bestanden uit de afgewezen poging. De nieuwe Blender-bron staat in `cad/`.
+zijn behouden. De Blender-bron in `cad/` hoort bij de eerdere studie. De actuele geometrie staat in [index.html](index.html).
 
 ## Volgende stap
 
@@ -119,5 +120,5 @@ De indeling van de richtingaanwijzers en de rechthoekige lampen onder de bumper 
 De knop **Staart** toont de auto recht van achteren met een kleine beeldhoek.
 **Achter** toont de achterzijde schuin vanaf de bestuurderskant, zoals op de
 foto van Marks auto. Het digitale model met open dak meet circa
-40,6 × 16,4 × 12,9 cm inclusief spiegel en bumperhoorns. Gelijkenis en
+40,6 × 16,3 × 12,9 cm inclusief spiegel en bumperhoorns. Gelijkenis en
 fysieke passing op het chassis moeten nog worden beoordeeld.

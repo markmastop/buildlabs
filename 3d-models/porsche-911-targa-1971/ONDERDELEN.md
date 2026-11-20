@@ -15,7 +15,7 @@ richtprijzen uit zoekresultaten en niet op de winkelpagina gecontroleerd.
 - [ ] Lader voor NiMH, alleen als je er nog geen hebt
 
 ## Body (later)
-- [ ] PETG of PLA voor de carrosseriedelen (circa 416 mm lang, in delen)
+- [ ] PETG of PLA voor de carrosseriedelen op schaal 1:10
 - [ ] Bodyclips en eventueel een bodyhouder
 - [ ] Primer, verf en lijm voor de pasranden
 

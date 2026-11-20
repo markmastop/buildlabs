@@ -147,7 +147,7 @@ footer { padding-top:16px; border-top:1px solid var(--rule); color:var(--muted);
     <p class="viewer-note" id="chassis-note" hidden><strong>M-06M · 225 mm wielbasis.</strong> De spoorbreedte is 138 mm en de banden zijn 59 mm in diameter en 25 mm breed. De vorm van het frame, de motorpositie en de montagepennen zijn geschat uit referentiefoto’s. De rijhoogte en de passing onder de Targa moeten nog worden gemeten.</p>
     <dl class="specs" id="body-specs" aria-label="Afmetingen van de Targa-vormstudie">
       <div class="spec"><dt>Lengte</dt><dd>40,6<small>cm</small></dd></div>
-      <div class="spec"><dt>Breedte incl. spiegel</dt><dd>16,4<small>cm</small></dd></div>
+      <div class="spec"><dt>Breedte incl. spiegel</dt><dd>16,3<small>cm</small></dd></div>
       <div class="spec"><dt>Hoogte</dt><dd>12,9<small>cm</small></dd></div>
       <div class="spec"><dt>Wielbasis</dt><dd>22,7<small>cm</small></dd></div>
     </dl>
@@ -156,7 +156,7 @@ footer { padding-top:16px; border-top:1px solid var(--rule); color:var(--muted);
 
   <dl class="specs">
     <div class="spec"><dt>Bouwjaar auto</dt><dd>1971</dd></div>
-    <div class="spec"><dt>Richtlengte model</dt><dd>≈20<small>cm</small></dd></div>
+    <div class="spec"><dt>Schaal RC-model</dt><dd>1:10</dd></div>
     <div class="spec"><dt>Printer</dt><dd>P2S<small>+ AMS</small></dd></div>
     <div class="spec"><dt>Kleurvoorstel</dt><dd>3<small>kleuren</small></dd></div>
   </dl>
@@ -168,11 +168,11 @@ footer { padding-top:16px; border-top:1px solid var(--rule); color:var(--muted);
       <li><span class="swatch black" aria-hidden="true"></span><div><strong>Zwart</strong><small>Banden, interieur en raaminzetten</small></div></li>
       <li><span class="swatch silver" aria-hidden="true"></span><div><strong>Zilvergrijs</strong><small>Targaband, velgdetails en accenten</small></div></li>
     </ul>
-    <p class="status">De definitieve schaal, maat en onderdeelindeling volgen bij het uitwerken van de carrosserie.</p>
+    <p class="status">De wanddiktes en de verdeling in printdelen volgen bij de uitwerking voor de P2S.</p>
   </section>
 
   <section aria-labelledby="shape-heading">
-    <div class="section-head"><h2 id="shape-heading">De vorm moet kloppen</h2><p>Te beoordelen aan het volgende 3D-ontwerp.</p></div>
+    <div class="section-head"><h2 id="shape-heading">De vorm moet kloppen</h2><p>Vergelijk de aanzichten in de viewer met de foto's van de auto.</p></div>
     <div class="groups">
       <div class="group"><h3>Neus en silhouet</h3><ul>
         <li><label><input type="checkbox" id="shape-headlights" data-shape><span class="name">Koplampen in de spatborden</span><span class="detail">Schuin geplaatste lampen in doorlopende, hoge en afgeronde spatbordtoppen.</span></label></li>
@@ -212,7 +212,7 @@ footer { padding-top:16px; border-top:1px solid var(--rule); color:var(--muted);
         <li><label><input type="checkbox" id="part-lader" data-part><span class="name">Lader voor NiMH</span><span class="detail">Alleen nodig als je er nog geen hebt, bijvoorbeeld de SkyRC S65 van de Ortelius (controleer NiMH).</span></label></li>
       </ul></div>
       <div class="group"><h3>Body (later)</h3><ul>
-        <li><label><input type="checkbox" id="part-filament" data-part><span class="name">PETG of PLA</span><span class="detail">Body in delen op 1/10 (circa 416 mm); verbruik volgt na het ontwerp.</span></label></li>
+        <li><label><input type="checkbox" id="part-filament" data-part><span class="name">PETG of PLA</span><span class="detail">Carrosserie in delen op schaal 1:10. Het filamentverbruik volgt bij het slicen.</span></label></li>
         <li><label><input type="checkbox" id="part-clips" data-part><span class="name">Bodyclips en bodyhouder</span><span class="detail">Controleer wat in de kit zit.</span></label></li>
         <li><label><input type="checkbox" id="part-verf" data-part><span class="name">Primer, verf en lijm</span><span class="detail">Geel-oranje, zwart en zilvergrijs; lijm voor de pasranden tussen de delen.</span></label></li>
       </ul></div>
@@ -600,9 +600,10 @@ function bodyGeometry() {
       var c = CV[p[2]]; col.push(c.r, c.g, c.b);
     });
   });
-  // De neus heeft meer punten dan de flank. Gebruik de punten langs de
-  // buitenrand straks ook in de eerste strook van het spatbord.
+  // Sluit de fijnere kopvlakken en de grovere lengtestroken op dezelfde
+  // randpunten aan, ook boven het achterlicht en onder de motorklepnaad.
   var noseEdges=Array.from({length:M-1},()=>[]);
+  var tailEdges=Array.from({length:M-1},()=>[]);
   [0, st.length - 1].forEach(function (n) {
     // Verticale stroken volgen ook de lage klep tussen de twee lampkruinen.
     var outline=rings[n], station=st[n].s;
@@ -615,19 +616,19 @@ function bodyGeometry() {
     }
     var heightSteps=36;
     samples.forEach(function (z,column) {
-      var refine=n===0 && Math.abs(z)>460;
+      var refine=n!==0 || Math.abs(z)>460;
       var ys=[], xs=[], cuts=[];
       for (var k=1;k<outline.length;k++) {
         var [za,ya]=outline[k-1], [zb,yb]=outline[k];
         if (z<Math.min(za,zb) || z>Math.max(za,zb)) continue;
         if (za===zb) {
           ys.push(ya,yb);
-          if (refine) xs.push(pos[3*(k-1)],pos[3*k]);
+          if (refine) xs.push(pos[3*(n*M+k-1)],pos[3*(n*M+k)]);
         } else {
           var t=(z-za)/(zb-za);
           var height=lerp(ya,yb,t);
           ys.push(height);
-          if (refine) xs.push(lerp(pos[3*(k-1)],pos[3*k],t));
+          if (refine) xs.push(lerp(pos[3*(n*M+k-1)],pos[3*(n*M+k)],t));
           if (refine && t>0 && t<1 && outline[k-1][2]===1 && outline[k][2]===1) {
             cuts.push([k-1,height]);
           }
@@ -638,7 +639,9 @@ function bodyGeometry() {
       var dxLow=refine ? xs[ys.indexOf(low)]-skinX(station,z,low) : 0;
       var dxHigh=refine ? xs[ys.indexOf(high)]-skinX(station,z,high) : 0;
       for (var [edge,height] of cuts) {
-        if (height===low || height===high) noseEdges[edge].push(row+(height===low ? 0 : heightSteps));
+        if (height===low || height===high) {
+          (n===0 ? noseEdges : tailEdges)[edge].push(row+(height===low ? 0 : heightSteps));
+        }
       }
       for (var k=0;k<=heightSteps;k++) {
         var y=lerp(low,high,k/heightSteps);
@@ -662,13 +665,17 @@ function bodyGeometry() {
   });
   for (i=0;i<st.length-1;i++) for (j=0;j<M-1;j++) {
     var a=i*M+j,b=a+1,c=a+M,d=c+1;
-    if (i!==0 || !noseEdges[j].length) {
+    var nose=i===0, tail=i===st.length-2;
+    var edge=nose ? noseEdges[j] : tail ? tailEdges[j] : null;
+    if (!edge || !edge.length) {
       idx.push(a,b,c,b,d,c);
       continue;
     }
-    var edge=noseEdges[j];
-    if (rings[0][j][0]>rings[0][j+1][0]) edge.reverse();
-    var anchor=rings[0][j][0]>0 ? c : d;
+    // Door het viervlak een halve slag te draaien past dezelfde waaier
+    // op het achterste uiteinde, met de normalen naar buiten.
+    if (tail) [a,b,c,d]=[d,c,b,a];
+    if (pos[3*a+2]>pos[3*b+2]) edge.reverse();
+    var anchor=pos[3*a+2]>0 ? c : d;
     var previous=a;
     for (var cut of edge) {
       idx.push(previous,cut,anchor);
@@ -849,44 +856,78 @@ function box(w, h, d, mat, x, y, z) { var m = mesh(new T.BoxGeometry(w, h, d), m
 add(mesh(bodyGeometry(), mBody));
 
 /* wielen */
+// Eén gegoten velghart. De vijf bladen lopen vanuit de naaf uit tot aan de
+// velgrand. Tussen twee bladen buigt het metaal terug langs de wielmoer.
+function wheelFaceDepth(r,angle) {
+  var crown=lerp(9,-18,smoothStep(35,182,r));
+  var valley=(1-Math.cos(5*angle))/2;
+  return crown-27*valley*smoothStep(32,74,r);
+}
+function wheelCentre() {
+  var radius=pchip([[0,184],[.15,183],[.25,181],[.32,177],[.36,169],
+    [.39,147],[.42,110],[.49,93],[.62,81],[.80,74],[1,72]]);
+  var segments=320, positions=[], indices=[], faceRows=14;
+  var bevel=[[3,-1],[1,-3],[0,-6],[0,-11],[2,-15]];
+  function boundary(angle) {
+    var phase=Math.acos(clamp(Math.cos(5*angle),-1,1))/PI, r=radius(phase);
+    return new T.Vector2(r*Math.cos(angle),r*Math.sin(angle));
+  }
+  for (var j=0;j<segments;j++) {
+    var angle=2*PI*j/segments, edge=boundary(angle);
+    var tangent=boundary(angle+.0005).sub(boundary(angle-.0005)).normalize();
+    var normal=new T.Vector2(tangent.y,-tangent.x);
+    var shoulder=edge.clone().addScaledVector(normal,-5);
+    var inner=new T.Vector2(27*Math.cos(angle),27*Math.sin(angle));
+    for (var k=0;k<=faceRows;k++) {
+      var p=inner.clone().lerp(shoulder,k/faceRows);
+      positions.push(p.x,p.y,wheelFaceDepth(p.length(),Math.atan2(p.y,p.x)));
+    }
+    var height=wheelFaceDepth(shoulder.length(),Math.atan2(shoulder.y,shoulder.x));
+    for (var [inset,drop] of bevel) {
+      var p=edge.clone().addScaledVector(normal,-inset);
+      positions.push(p.x,p.y,height+drop);
+    }
+    positions.push(inner.x,inner.y,-35);
+  }
+  var rows=faceRows+bevel.length+2, top=positions.length/3;
+  positions.push(0,0,9,0,0,-35);
+  for (var j=0;j<segments;j++) {
+    var a=j*rows,b=((j+1)%segments)*rows;
+    indices.push(top,a,b,top+1,b+rows-1,a+rows-1);
+    for (var k=0;k<rows-1;k++) indices.push(a+k,a+k+1,b+k,b+k,a+k+1,b+k+1);
+  }
+  var g=new T.BufferGeometry();
+  g.setAttribute('position',new T.Float32BufferAttribute(positions,3));
+  g.setIndex(indices);g.computeVertexNormals();
+  return g;
+}
 function makeWheel(width) {
-  var g = new T.Group(), h = width / 2, i;
+  var g = new T.Group(), h = width / 2;
   var tp = [[198, -(h - 6)], [208, -h], [255, -h - 4], [298, -h], [318, -h * .7], [322, -h * .35], [322, h * .35], [318, h * .7], [298, h], [255, h + 4], [208, h], [198, h - 6]]
     .map(function (p) { return new T.Vector2(p[0], p[1]); });
   var tg = new T.LatheGeometry(tp, 48); tg.rotateX(PI / 2); g.add(mesh(tg, mTyre));
-  // Gepolijste velgrand en vijf afgeronde spaken over de donkere velgkom.
-  var rimProfile=[[0,h-37],[80,h-42],[157,h-46],[177,h-32],[188,h-7],
-                  [196,h-3],[204,h-4],[207,h-10],[201,h-16]];
   function rimSurface(points,material) {
-    var rim=new T.LatheGeometry(points.map(([r,z])=>new T.Vector2(r,z)),72);
+    var rim=new T.LatheGeometry(points.map(([r,depth])=>new T.Vector2(r,h+depth)),72);
     rim.rotateX(PI/2); g.add(mesh(rim,material));
   }
-  rimSurface(rimProfile.slice(0,6),mTrim);
-  rimSurface(rimProfile.slice(3),mSatin);
-  var spoke=new T.Shape();
-  spoke.moveTo(38,-22);
-  spoke.bezierCurveTo(74,-27,115,-25,149,-32);
-  spoke.bezierCurveTo(173,-37,185,-28,184,-14);
-  spoke.quadraticCurveTo(189,6,180,27);
-  spoke.bezierCurveTo(172,39,146,31,125,27);
-  spoke.quadraticCurveTo(79,20,38,24);
-  spoke.closePath();
-  var paddle=new T.ExtrudeGeometry(spoke,{depth:7,bevelEnabled:true,bevelThickness:5,bevelSize:5,bevelSegments:3,curveSegments:12});
-  var verts=paddle.attributes.position;
-  for (var j=0;j<verts.count;j++) verts.setZ(j,verts.getZ(j)-20*Math.pow(verts.getX(j)/190,1.4));
-  paddle.computeVertexNormals();
-  for (i=0;i<5;i++) {
-    var angle=i*2*PI/5+.30, petal=mesh(paddle,mSatin);
-    petal.rotation.z=angle; petal.position.z=h-11; g.add(petal);
-    g.add(oval(58*Math.cos(angle+.57),58*Math.sin(angle+.57),h-6,8,8,5,mTrim));
+  rimSurface([[183,-27],[174,-39],[155,-53],[108,-58],[70,-43],[0,-32]],mTrim);
+  rimSurface([[203,-14],[207,-7],[205,-2],[200,0],[196,-2],[190,-8],[183,-27]],mSteel);
+  var centre=mesh(wheelCentre(),mSatin);centre.position.z=h;centre.rotation.z=.30;g.add(centre);
+  var nut=new T.CylinderGeometry(7.3,8.4,8,6);
+  nut.rotateX(PI/2);
+  var boltZ=h+wheelFaceDepth(63,PI/5);
+  for (var i=0;i<5;i++) {
+    var angle=(i+.5)*2*PI/5+.30, x=63*Math.cos(angle), y=63*Math.sin(angle);
+    g.add(oval(x,y,boltZ,11,11,3,mTrim));
+    var bolt=mesh(nut,mSteel);bolt.position.set(x,y,boltZ+4);g.add(bolt);
   }
-  g.add(oval(0,0,h-12,65,65,17,mSatin));
-  g.add(oval(0,0,h,33,33,9,mSteel));
+  g.add(oval(0,0,h+9,34,34,7,mSteel));
   return g;
 }
 AXLES.forEach(function (a) {
+  var wheel=makeWheel(a.w);
   [1, -1].forEach(function (sg) {
-    var w = makeWheel(a.w); w.position.set(X(a.s), WHEEL_R, sg * a.tr);
+    var w = sg>0 ? wheel : wheel.clone(); w.position.set(X(a.s), WHEEL_R, sg * a.tr);
     if (sg < 0) w.rotation.y = PI;
     studyRunningGear.add(w);
   });
@@ -1191,12 +1232,13 @@ function windscreen(u,t) {
 }
 // De gelakte paravan vult de hoek tussen de rechte motorkapsluiting en
 // de voorruit, waarvan de onderste buitenhoeken verder naar achteren staan.
-add(mesh(gridGeometry(48,10,function (u,t) {
+function cowlPoint(u,t) {
   var edge = windscreen(u,0);
   var z = lerp(u*tWs(S_COWL)*tFr(S_COWL),edge[2],t);
   var y = lerp(hoodY(S_COWL,u*tWs(S_COWL)*tFr(S_COWL)),edge[1],t);
   return [lerp(X(S_COWL),edge[0],t),y,z];
-}),mPaint));
+}
+add(mesh(gridGeometry(48,10,cowlPoint),mPaint));
 // Bij een blik langs gebogen glas is de verre binnenkant door de nabije
 // buitenkant zichtbaar. Teken ze in die volgorde, ook dwars op de auto.
 function curvedGlass(geometry,material) {
@@ -1718,14 +1760,22 @@ add(mesh(gridGeometry(48,10,function (u,t) {
   var s=lerp(1128,1160,t), z=u*(lerp(246,254,t)-4);
   return [skinX(s,z),hoodY(s,z)+2,z];
 }),mTrim));
-for (var pivot of [-.46,.43]) {
-  var blade=[];
-  for (var i=0;i<=12;i++) {
-    var t=i/12, point=windscreen(pivot-.44+t*.63,.062+.052*t);
-    blade.push([point[0]+6,point[1]+3,point[2]]);
+// Beide wissers rusten richting bestuurderskant. De voet zit op de paravan,
+// de arm grijpt in het midden van het blad aan en het rubber volgt het glas.
+for (var pivot of [.29,-.27]) {
+  var base=cowlPoint(pivot,.22), blade=[], bridge=[];
+  add(oval(...base,12,6,12,mRubber));
+  for (var i=0;i<=16;i++) {
+    var t=i/16, p=windscreen(pivot-.35+lerp(.265,-.265,t),lerp(.073,.104,t));
+    blade.push([p[0]+3,p[1]+2,p[2]]);
+    if (i>=3 && i<=13) {
+      var arch=Math.sin(PI*(i-3)/10);
+      bridge.push([p[0]+5+7*arch,p[1]+4+5*arch,p[2]]);
+    }
   }
-  add(tube([windscreen(pivot,.007),blade[8]],4,mTrim));
-  add(tube(blade,5,mTrim));
+  var joint=bridge[5], hinge=[base[0]+2,base[1]+13,base[2]-15];
+  add(tube(blade,3.2,mRubber)); add(tube(bridge,3.3,mTrim));
+  add(tube([base,hinge,betweenPoints(hinge,joint,.41),joint],4.1,mTrim));
 }
 
 /* Onder de ruit blijft een strook lak zichtbaar. De klep volgt de bolling

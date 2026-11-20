@@ -2,11 +2,11 @@
 
 ## Actuele status
 
-Mark heeft een visueel Targa-voorstel, drie echte referentiefoto's en een plan
-voor een RC-versie. Er is **nog geen goedgekeurde 3D-geometrie**. Een eerdere
-3D-uitwerking is afgewezen op gelijkenis; de bestanden staan alleen als
-historie in `cad/` en `model/`. Daarnaast staat op de projectpagina nu een **eerste 3D-vormstudie** (three.js, schaal 1:10,
-parametrisch, met open of gesloten Targadak). Die is nog niet beoordeeld op gelijkenis.
+Op de [projectpagina](index.html) staat de **vijfde carrosseriestudie op
+schaal 1:10**, uitgewerkt naar de foto's van Marks auto en de aanvullende
+referenties in `images/porsche/`. De viewer toont de Targa met open of gesloten
+dak, het interieur en het losse M-06M-chassis. De bestanden in `cad/` en
+`model/` horen bij de eerdere, afgewezen studie.
 
 De RC-versie is 1/10 op een Tamiya M-06 (wielbasis 225 mm). Het chassis is
 besteld voor € 100; de zender is een FlySky ST8. De ontvanger, servo, accu en
@@ -14,7 +14,7 @@ lader moeten nog worden gekocht.
 
 ## Waar te beginnen
 
-1. [`index.html`](index.html): projectpagina met voorstel, referentiefoto's, vormchecklist, RC-onderdelenlijst en bestellijst.
+1. [`index.html`](index.html) bevat het voorstel, de interactieve viewer, de vormchecklist en de RC-onderdelenlijst.
 2. [`README.md`](README.md): status, bevestigde gegevens en RC-plan.
 3. [`ONTWERPBRIEF.md`](ONTWERPBRIEF.md): vorm, vormkritiek en RC-uitgangspunten.
 4. [`ONDERDELEN.md`](ONDERDELEN.md): onderdelen met afvinklijst, zoals bij de Ortelius.
@@ -25,7 +25,7 @@ lader moeten nog worden gekocht.
 
 - Auto: Porsche 911 Targa, bouwjaar 1971. Gebruik de echte foto's als vormreferentie.
 - Maten in centimeters op modelschaal voor de browsermodellen; millimeters voor printbestanden.
-- Printer: Bambu Lab P2S met AMS (256 × 256 × 256 mm). De body op 1/10 is circa 416 mm lang en wordt in delen geprint.
+- Printer: Bambu Lab P2S met AMS (256 × 256 × 256 mm). De digitale auto is inclusief bumpers circa 406 mm lang. De carrosserie wordt in delen geprint.
 - Geen logo's of merkuitingen van derden in modellen.
 
 ## Volgorde hierna
