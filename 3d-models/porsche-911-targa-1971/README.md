@@ -12,7 +12,7 @@ deze overdracht gelaten.
 ## Begin hier
 
 1. Lees de [ontwerpbrief](ONTWERPBRIEF.md), inclusief de concrete vormkritiek.
-2. Gebruik de drie lokale referentiefoto’s in `images/porsche/` voor de vorm.
+2. Gebruik de foto's van Marks auto en de aanvullende referenties in `images/porsche/` voor de vorm.
 3. Lees de [overdracht en bronkandidaten](OVERDRACHT.md) voordat je een basis kiest.
 
 ## Bevestigde gegevens en keuzes
@@ -25,6 +25,15 @@ deze overdracht gelaten.
   vastgesteld; de vorm van het 20 cm-concept is niet goedgekeurd.
 - De nozzle van 0,4 mm en PLA zijn eerdere werkuitgangspunten, niet door Mark
   apart bevestigde instellingen. P2S-bouwvolume: 25,6 × 25,6 × 25,6 cm.
+
+## Interieur en Targa-dak
+
+Met **Interieur** gaat het dak open en kijkt de camera in de cockpit. Het houten
+stuur en de pepita-stoelen volgen Marks foto `images/porsche/interieur.jpeg`.
+De aanvullende beelden `images-33.jpg` en `images-37.jpg` zijn gebruikt voor
+het dashboard en de achterzitjes. Met de dakknop plaats je het zwarte Targa-paneel
+op de voorruitlijst en de zilveren beugel. De vinylhuid en smalle zijlijst volgen
+`images-38.jpg`. De maten van de bekleding en de daksluitingen zijn geschat uit de foto's.
 
 ## RC-versie op het M-06M-chassis
 
