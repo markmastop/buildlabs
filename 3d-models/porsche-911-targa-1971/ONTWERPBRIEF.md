@@ -122,6 +122,22 @@ De vorm van het glas, de dwarsdoorsneden en de diepte van de uitsparing voor
 de nummerplaat zijn visueel geschat. De wielbasis van de carrosseriestudie is
 22,68 cm. De aparte M-06M-laag heeft een wielbasis van 22,5 cm.
 
+## Vierde carrosseriestudie · open zijprofiel
+
+De zijfoto van de rode Targa is met beide wielmiddens op de vorige en nieuwe
+modelweergave uitgelijnd. Boven de achteras kwam de vorige achterruit in die
+projectie circa 5 mm te hoog uit op modelschaal. De nieuwe ruit loopt vanaf
+de beugel vrijwel recht naar de motorklep. Dwars blijft het glas gekromd. De
+kruin van elk voorspatbord stijgt vanaf de koplamp geleidelijk naar de voorruit.
+De basis van de voorruit buigt in bovenaanzicht naar achteren bij de stijlen.
+Het driehoekige zijruitje sluit daar aan op de bovenlijst.
+
+De wielopeningen, de onderrand van de deur en de trede van de dorpel volgen
+het zijaanzicht. Voor de uitrusting van de neus zijn Marks eigen foto’s
+aangehouden. Met open dak meet het digitale model circa 40,5 × 16,4 × 12,9 cm.
+De wielbasis van de carrosseriestudie is 22,68 cm. De dwarsdoorsneden blijven
+geschat uit de andere foto’s.
+
 ## RC-versie
 
 Mark wil ook een bestuurbare uitvoering. Uitgangspunten, na goedkeuring van de
