@@ -129,6 +129,7 @@ footer { padding-top:16px; border-top:1px solid var(--rule); color:var(--muted);
         <label><input type="radio" name="model-layer" value="targa" checked> Targa</label>
         <label><input type="radio" name="model-layer" value="chassis"> Alleen chassis</label>
         <label><input type="radio" name="model-layer" value="samen"> Targa op chassis</label>
+        <label><input type="radio" name="model-layer" value="zwevend"> Carrosserie boven chassis</label>
       </div>
     </fieldset>
     <div id="viewer" class="viewer" role="img" aria-label="Driedimensionale vormstudie van de 911 Targa uit 1971"></div>
@@ -1422,18 +1423,32 @@ var views = {
   boven:  { eye:[0,70,.1] }
 };
 var tween = null, orbitLimit=PI/2-.02;
+var modelLayer='targa', activeView='drie', bodyHeight=0;
+var inspectionLift=18; // cm boven de gemonteerde stand
+var viewButtons = [].slice.call(document.querySelectorAll('[data-vw]'));
 function goTo(name) {
   var view = views[name]; if (!view) return;
+  activeView=name;
+  viewButtons.forEach(function (button) {
+    button.setAttribute('aria-pressed', String(button.dataset.vw===name));
+  });
   var target = new T.Vector3(view.targetX || 0,6.2,0);
   var start = new T.Spherical().setFromVector3(camera.position.clone().sub(controls.target));
   var end = new T.Spherical().setFromVector3(new T.Vector3(...view.eye).sub(target));
+  var endFov = view.fov || 30;
+  if (modelLayer==='zwevend') {
+    // Richt op het midden van de twee lagen. Van opzij vraagt de extra
+    // hoogte meer beeldruimte dan van boven, waar beide lagen samenvallen.
+    var halfLift=inspectionLift/2;
+    target.y+=halfLift;
+    end.radius+=halfLift*(Math.abs(Math.cos(end.phi))+Math.sin(end.phi)/Math.tan(endFov*PI/360));
+  }
   var turn = end.theta - start.theta;
   end.theta = start.theta + Math.atan2(Math.sin(turn),Math.cos(turn));
-  var endFov = view.fov || 30;
   // Het lage frontaanzicht kijkt licht omhoog, zoals op de frontfoto.
   orbitLimit=Math.max(PI/2-.02,start.phi,end.phi);
   tween = {
-    t0: performance.now(), start, end, fromTarget: controls.target.clone(), target,
+    t0: performance.now(), start, end, fromTarget: controls.target.clone(), target, fromBodyY:car.position.y,
     startFrame: start.radius*Math.tan(camera.fov*PI/360),
     endFrame: end.radius*Math.tan(endFov*PI/360)
   };
@@ -1446,21 +1461,28 @@ if (window.ResizeObserver) new ResizeObserver(setSize).observe(host); else windo
 setSize();
 camera.position.set(...views.drie.eye);
 
-var viewButtons = [].slice.call(document.querySelectorAll('[data-vw]'));
 viewButtons.forEach(function (b) {
   b.addEventListener('click', function () {
     goTo(b.dataset.vw);
-    viewButtons.forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
   });
 });
 var roofBtn = document.getElementById('vw-roof');
 var layerControls = document.getElementById('model-layers');
 function setModelLayer(mode) {
+  var wasSeparated=modelLayer==='zwevend';
+  modelLayer=mode;
   car.visible = mode !== 'chassis';
   chassis.visible = mode !== 'targa';
   studyRunningGear.visible = !chassis.visible;
   // Bij montage vallen de hoogtes van de beide wielmiddens samen.
-  car.position.y = mode === 'samen' ? rcWheel.radius - WHEEL_R * car.scale.y : 0;
+  bodyHeight = car.visible && chassis.visible ? rcWheel.radius - WHEEL_R * car.scale.y : 0;
+  if (mode==='zwevend') bodyHeight+=inspectionLift;
+  if (mode==='zwevend' || wasSeparated) {
+    if (!chassis.visible || !car.visible) car.position.y=bodyHeight;
+    goTo(mode==='zwevend' && activeView==='boven' ? 'drie' : activeView);
+  } else {
+    car.position.y=bodyHeight;
+  }
   roofBtn.disabled = !car.visible;
   renderer.shadowMap.needsUpdate = true;
   document.getElementById('body-specs').hidden = mode !== 'targa';
@@ -1495,6 +1517,10 @@ function frame(now) {
     var k = clamp((now - tween.t0) / 700, 0, 1), e = k * k * (3 - 2 * k);
     var start=tween.start, end=tween.end, radius=lerp(start.radius,end.radius,e);
     controls.target.lerpVectors(tween.fromTarget,tween.target,e);
+    if (car.position.y!==bodyHeight) {
+      car.position.y=lerp(tween.fromBodyY,bodyHeight,e);
+      renderer.shadowMap.needsUpdate=true;
+    }
     camera.position.setFromSphericalCoords(radius,lerp(start.phi,end.phi,e),lerp(start.theta,end.theta,e)).add(controls.target);
     var halfFrame=lerp(tween.startFrame,tween.endFrame,e)/radius;
     camera.fov=360/PI*Math.atan(halfFrame);

@@ -28,8 +28,10 @@ deze overdracht gelaten.
 
 ## RC-versie op het M-06M-chassis
 
-De [projectpagina](index.html) toont de Targa, het losse chassis en de Targa op het chassis.
-In de gecombineerde weergave staan de kitwielen onder de carrosserie. De twee
+Op de [projectpagina](index.html) kun je de Targa en het chassis afzonderlijk of gemonteerd bekijken.
+Met **Carrosserie boven chassis** komt de carrosserie 18 cm recht omhoog, zodat je de
+ophanging, de accu en de montagepennen kunt bekijken. De vier kitwielen blijven aan het chassis.
+In de gemonteerde weergave staan de kitwielen onder de carrosserie. De twee
 wielbasissen zijn rond hetzelfde midden uitgelijnd. De Targa heeft een wielbasis
 van 226,8 mm, waardoor de kitassen aan beide uiteinden 0,9 mm verder naar binnen liggen.
 De ashoogte bepaalt de voorlopige montagehoogte.
