@@ -289,11 +289,11 @@ var engineLid = {start:3450,end:3932,frontWidth:526,backWidth:469,radius:32};
 var engineGrille = {start:3516,end:3718,frontWidth:469,backWidth:449,radius:29};
 var WHEEL_R = 322, ARCH_A = 382, ARCH_B = 362;
 
-var tWs = pchip([[60,756],[120,757],[200,757],[320,758],[540,770],[803,784],[1220,773],[1630,750],[2150,749],[2470,762],[2770,790],[3071,805],[3300,804],[3500,796],[3750,768],[3880,748],[3935,738]]);
+var tWs = pchip([[60,756],[120,757],[200,757],[320,758],[540,770],[803,784],[1220,773],[1630,750],[2150,749],[2470,762],[2770,790],[3071,805],[3300,804],[3500,792],[3750,763],[3880,748],[3935,738]]);
 var tTuck = pchip([[60,116],[240,124],[425,112],[525,61],[650,30],[1250,42],[1600,64],[2350,65],[2600,43],[3071,24],[3520,44],[3750,64],[3935,88]]);
-var tFr = pchip([[60,.959],[270,.884],[800,.82],[1340,.87],[2000,.91],[2600,.90],[3050,.868],[3300,.845],[3570,.80],[3790,.82],[3935,.89]]);
+var tFr = pchip([[60,.959],[270,.884],[800,.82],[1340,.87],[2000,.91],[2600,.90],[3050,.868],[3300,.845],[3570,.812],[3790,.82],[3935,.89]]);
 // Hoogtelijnen op de spatbordkruin en midden op de kleppen, uit het open zijaanzicht.
-var tYt = pchip([[60,726],[125,743],[175,758],[215,769],[280,784],[365,798],[530,812],[805,829],[1090,849],[1300,874],[1630,873],[2230,869],[2485,873],[2708,877],[2970,900],[3230,920],[3385,933],[3450,910],[3560,857],[3730,752],[3860,665],[3935,566]]);
+var tYt = pchip([[60,726],[125,743],[175,758],[215,769],[280,784],[365,798],[530,812],[805,829],[1090,849],[1300,874],[1630,873],[2230,869],[2485,873],[2708,877],[2970,900],[3160,918],[3290,926],[3385,925],[3450,906],[3560,856],[3730,758],[3860,656],[3935,566]]);
 var tYc = pchip([[60,465],[79,495],[112,535],[165,577],[245,627],[395,693],[565,747],[790,803],[1050,852],[1300,890],[3200,1071],[3385,985],[3450,955],[3560,904],[3730,804],[3860,693],[3935,575]]);
 
 var tYlb = pchip([[60,315],[240,273],[400,255],[1175,211],[1550,201],[2450,201],[2710,218],[3430,250],[3670,305],[3935,305]]);
@@ -356,18 +356,27 @@ function skinX(s,z,y) {
   if (s>S_NOSE && s<S_NOSE+wingRollLength && y!==undefined) {
     nose-=(s-S_NOSE)*(1-(end-S_NOSE)/(480-S_NOSE))*wingRoll(s,z,y);
   }
-  var tail=smoothStep(3510,S_END,s)*(tailStation(width)-S_END);
-  var glass=smoothStep(2820,S_RW,s)*(1-smoothStep(S_RW,3740,s));
-  if (y !== undefined) glass*=smoothStep(700,840,y);
-  var u=clamp(width/(tWs(s)*tFr(s)),0,1);
-  var curvedBase=(1-Math.sqrt(1-.94*u*u))/(1-Math.sqrt(.06));
+  // Vanaf de achterruit trekt de staart geleidelijk naar binnen. Een
+  // doorlopende lengterichting voorkomt een knik boven het achterlicht.
+  var tailT=clamp((s-S_RW)/(S_END-S_RW),0,1);
+  var tail=tailT*tailT*(2-tailT)*(tailStation(width)-S_END);
+  var glass=smoothStep(2820,S_RW,s)*(1-smoothStep(S_RW,3780,s));
+  if (glass>0) {
+    var u=clamp(width/(tWs(s)*tFr(s)),0,1);
+    var curvedBase=(1-Math.sqrt(1-.94*u*u))/(1-Math.sqrt(.06));
+    glass*=lerp(curvedBase,1,smoothStep(.76,1,u));
+    if (y!==undefined) {
+      var flank=smoothStep(shoulderBase(s),tYt(s),y);
+      glass*=lerp(smoothStep(700,840,y),flank,smoothStep(.65,.98,u));
+    }
+  }
   // Het nummerplaatveld valt tussen de hoorns onder de onderlip van de klep.
   var recess = 0;
   if (y !== undefined && s > 3800) {
     recess = 55 * smoothStep(3800,S_END,s) * (1-smoothStep(370,460,width))
       * smoothStep(288,360,y) * (1-smoothStep(486,554,y));
   }
-  return X(s+nose+tail-225*curvedBase*glass-recess);
+  return X(s+nose+tail-225*glass-recess);
 }
 
 function yLow(s) {
@@ -386,6 +395,7 @@ function frontHem(s,y) {
 function shoulderOrder(s) { return lerp(2.48,2,smoothStep(120,480,s)); }
 function doorBlend(s) { return smoothStep(900,1320,s)*(1-smoothStep(2490,2910,s)); }
 function shoulderTurn(s) { return lerp(.62,.75,doorBlend(s)); }
+function shoulderBase(s) { return lerp(tYlb(s),tYt(s),shoulderTurn(s)); }
 /* Zijvlak: z van de buitenhuid op hoogte y (voor deurlijnen, kozijnen en details). */
 function sideZ(s, y) {
   var W = tWs(s), WO = W - tTuck(s), WT = W * tFr(s), YT = tYt(s), YL = tYlb(s);
@@ -455,6 +465,7 @@ function rearSill(s) {
 /* Kleuren per punt: 0 = onderzijde/wielkast, 1 = lak, 2 = interieur */
 var CV = [hex('#17191c'), hex('#ee7204'), hex('#0e1012')];
 
+var flankSteps=16;
 function ring(s, c) {
   var W = tWs(s), WO = W - tTuck(s), WT = W * tFr(s), YT = tYt(s), YL = yLow(s);
   var endRound=1-smoothStep(200,450,s)+smoothStep(3510,3900,s);
@@ -462,17 +473,17 @@ function ring(s, c) {
   var fold=frontHem(s,YL), outside=YL+fold;
   p.push([0,YF,0],[WF,YF,0],[WF,YL,0],
          [sideZ(s,YL)-fold*.68,YL,0],[sideZ(s,outside),outside,1]);
-  var K = 16;
-  for (i = 1; i <= K; i++) {
-    var t=(1-Math.cos(PI*i/K))/2;
+  // Aan het uiteinde van een wielopening blijven de hogere rijen op hun
+  // eigen hoogte terwijl de onderste rijen met de wielboog meelopen.
+  var steady=0, sillHeight=tYlb(s);
+  if (s>=AXLES[0].s-ARCH_A && s<AXLES[0].s) steady=1-smoothStep(600,AXLES[0].s,s);
+  if (s>AXLES[1].s && s<=AXLES[1].s+ARCH_A) steady=smoothStep(AXLES[1].s,3300,s);
+  for (i=1;i<=flankSteps;i++) {
+    var t=(1-Math.cos(PI*i/flankSteps))/2;
     var y=lerp(outside,YT,t);
-    if (s>=AXLES[0].s-ARCH_A && s<AXLES[0].s) {
-      // Houd de hogere rijen op hun eigen hoogte wanneer de wielopening
-      // begint. Anders trekt de eerste korte strook het hele zijvlak scheef.
-      var sill=tYlb(s), datum=lerp(sill+frontHem(s,sill),YT,t);
-      var floor=lerp(outside,YT,t*t*t);
-      var stable=Math.max(datum,floor);
-      y=lerp(stable,y,smoothStep(600,AXLES[0].s,s));
+    if (steady>0) {
+      var datum=lerp(sillHeight+frontHem(s,sillHeight),YT,t), floor=lerp(outside,YT,t*t*t);
+      y=lerp(y,Math.max(datum,floor),steady);
     }
     p.push([sideZ(s, y), y, 1]);
   }
@@ -569,6 +580,16 @@ function creaseGeometry(indexed, deg) {
   return g;
 }
 
+// De lichtlijn volgt hetzelfde elliptische zijvlak als de carrosserie.
+function rearArcPoint(s,angle) {
+  var y=lerp(shoulderBase(s),tYt(s),Math.sin(angle)), z=sideZ(s,y);
+  return new T.Vector3(skinX(s,z,y),y,z);
+}
+function rearArcNormal(s,angle) {
+  var along=rearArcPoint(s+.4,angle).sub(rearArcPoint(s-.4,angle));
+  var up=rearArcPoint(s,Math.min(PI/2,angle+.001)).sub(rearArcPoint(s,Math.max(0,angle-.001)));
+  return up.cross(along).normalize();
+}
 function bodyGeometry() {
   var st = stations(), rings = st.map(function (r) { return ring(r.s, r.c); });
   var M = rings[0].length, pos = [], col = [], idx = [], i, j;
@@ -656,6 +677,19 @@ function bodyGeometry() {
     idx.push(anchor===c ? b : a,d,c);
   }
   var cornerNormals=[];
+  st.forEach(function (station,i) {
+    var s=station.s;
+    if (s<=2820 || s>=S_END) return;
+    var low=shoulderBase(s), rise=tYt(s)-low;
+    var fade=smoothStep(2820,3120,s)*(1-smoothStep(3890,S_END,s));
+    for (var j=4;j<=4+flankSteps;j++) {
+      var h=clamp((rings[i][j][1]-low)/rise,0,1);
+      if (h===0) continue;
+      var weight=fade*smoothStep(0,.24,h), normal=rearArcNormal(s,Math.asin(h));
+      cornerNormals[i*M+j]={normal:normal,weight:weight};
+      cornerNormals[i*M+M-1-j]={normal:new T.Vector3(normal.x,normal.y,-normal.z),weight:weight};
+    }
+  });
   for (var i=0;i<pos.length;i+=3) {
     var x=pos[i],y=pos[i+1],z=pos[i+2],weight=wingWeight(1937-x,y,Math.abs(z));
     if (!weight) continue;
@@ -934,21 +968,22 @@ function frontSignals(side) {
 // Het eerste punt ligt onder de klepnaad, het laatste bij de wielopening.
 function rearCorner(height) {
   var width = sideZ(S_END,height);
-  var points = [461,537,615,lerp(615,width,.48),width-16,width].map(function (z) {
+  var points = [461,537,615,lerp(615,width,.67)].map(function (z) {
     return new T.Vector3(skinX(S_END,z,height),height,z);
   });
-  for (var station of [3885,3810,3700,3575,3470]) {
-    var z = sideZ(station,height);
+  for (var station of [3920,3860,3770,3650,3470]) {
+    var z=sideZ(station,height);
     points.push(new T.Vector3(skinX(station,z,height),height,z));
   }
   return new T.CatmullRomCurve3(points);
 }
 function rearBand(side,from,to,profile,material,tipSlope=0) {
+  // Elke hoogte volgt dezelfde fractie van de booglengte rond de hoek.
   var paths = profile.map(([y])=>rearCorner(y));
   var geom = gridGeometry(64,profile.length-1,function (u,t) {
     var row = Math.round(t*(profile.length-1));
     var f = lerp(from,to-tipSlope*t,(u+1)/2);
-    var point = paths[row].getPoint(f), tangent = paths[row].getTangent(f);
+    var point = paths[row].getPointAt(f), tangent = paths[row].getTangentAt(f);
     var endBlend = smoothStep(.91,1,f);
     var offset = profile[row][1]*(1-.65*endBlend);
     point.y = lerp(point.y,402,.45*endBlend);
@@ -987,12 +1022,12 @@ for (var side of [-1,1]) {
   rearBand(side,0,1,[[348,0],[365,14],[394,35],[425,40],[443,34],[457,15],[460,3]],mPaint);
   rearBand(side,0,.99,[[378,27],[385,39],[395,44],[409,45],[423,40],[429,34]],mSatin);
   rearBand(side,0,.98,[[390,42],[395,46],[409,46],[415,43]],mTrim);
-  rearBand(side,0,.81,[[455,4],[463,8],[547,7],[554,2]],mTrim,.052);
-  rearBand(side,.008,.14,[[463,9],[478,13],[514,15],[545,8]],smokedRed);
-  rearBand(side,.145,.232,[[463,9],[478,13],[514,15],[545,8]],reverseLens);
-  rearBand(side,.237,.803,[[463,9],[478,13],[514,15],[545,8]],smokedAmber,.052);
-  rearBand(side,.035,.24,[[357,30],[360,43],[396,48],[399,42]],mTrim);
-  rearBand(side,.048,.227,[[361,45],[366,48],[392,49],[395,47]],smokedRed);
+  rearBand(side,0,.778,[[455,4],[463,8],[547,7],[554,2]],mTrim,.052);
+  rearBand(side,.009,.167,[[463,9],[478,13],[514,15],[545,8]],smokedRed);
+  rearBand(side,.173,.273,[[463,9],[478,13],[514,15],[545,8]],reverseLens);
+  rearBand(side,.278,.772,[[463,9],[478,13],[514,15],[545,8]],smokedAmber,.052);
+  rearBand(side,.041,.276,[[357,30],[360,43],[396,48],[399,42]],mTrim);
+  rearBand(side,.056,.266,[[361,45],[366,48],[392,49],[395,47]],smokedRed);
   bumperGuard(side);
   frontSignals(side);
   auxiliaryLamp(side);
