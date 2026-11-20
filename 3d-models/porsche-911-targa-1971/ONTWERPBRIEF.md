@@ -138,6 +138,23 @@ aangehouden. Met open dak meet het digitale model circa 40,5 × 16,4 × 12,9 cm.
 De wielbasis van de carrosseriestudie is 22,68 cm. De dwarsdoorsneden blijven
 geschat uit de andere foto’s.
 
+## Vijfde carrosseriestudie · voorkant
+
+De acht toegevoegde frontbeelden staan lokaal in `images/porsche/` als
+`images-19.jpg` tot en met `images-26.jpg`. De lage oranje auto op
+`images-21.jpg` geeft de onderlinge positie van de koplampen, het bumperblad en
+de twee claxonroosters. De hogere standpunten op `images-20.jpg` en
+`images-22.jpg` laten de welving van de kofferklep en de brede, ondiepe
+persing voor de luchtinlaat onder de ruitenwissers zien.
+
+De voorkant van de klep rondt af tot aan de smalle kier boven de bumper. De
+zijnaden volgen de binnenrand van de claxonroosters. De koplampen liggen
+verder uit elkaar en hebben een chromen vatting en geribbeld glas. Voor de
+indeling van de richtingaanwijzers en de rechthoekige lampen onder de bumper
+is de foto van Marks oranje Targa aangehouden. Het lampenpaar is symmetrisch
+gemodelleerd. De exacte diepte van de voorklep en de lampvattingen is uit
+de foto's geschat.
+
 ## RC-versie
 
 Mark wil ook een bestuurbare uitvoering. Uitgangspunten, na goedkeuring van de
