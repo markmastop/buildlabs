@@ -22,7 +22,10 @@ deze overdracht gelaten.
 - Printer: Bambu Lab P2S **met AMS**.
 - Eerste grotere voorstel: circa **20 cm** lang, met geel-oranje, zwart en zilvergrijs.
 - De interactieve RC-studie is uitgewerkt op schaal **1:10**, met 226,8 mm tussen de wielmiddens.
-  De velgen met vijf gewelfde spaakbladen en de ruststand van de wissers volgen de voor-driekwartfoto van Marks auto.
+  De ruststand van de wissers volgt de voor-driekwartfoto van Marks auto.
+- De Fuchs-velgen in de stand **Targa** volgen de voor- en achterfoto van Marks auto.
+  De zijfoto van de rode Targa geeft de contour van de vijf zilveren spaakbladen en de openingen in het zwarte velghart.
+  De diepte van de velgrand en de plaats van de remschijf zijn uit de foto's geschat.
 - De nozzle van 0,4 mm en PLA zijn eerdere werkuitgangspunten, niet door Mark
   apart bevestigde instellingen. P2S-bouwvolume: 25,6 × 25,6 × 25,6 cm.
 
