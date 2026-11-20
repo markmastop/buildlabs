@@ -628,28 +628,34 @@ controls.target.set(0, 6.2, 0);
 function makeEnv(optics=false) {
   var c = document.createElement('canvas'); c.width = 1024; c.height = 512;
   var g = c.getContext('2d'), gr = g.createLinearGradient(0, 0, 0, 512);
-  gr.addColorStop(0, '#b9d0e4'); gr.addColorStop(.42, '#e3e9ee'); gr.addColorStop(.49, '#626e77'); gr.addColorStop(.54, '#343b41'); gr.addColorStop(.67, '#879096'); gr.addColorStop(1, '#424b51');
-  g.fillStyle = gr; g.fillRect(0, 0, 1024, 512);
-  g.fillStyle = '#ffffff';
-  g.fillRect(90, 50, 240, 80); g.fillRect(430, 30, 330, 70); g.fillRect(800, 60, 160, 90); g.fillRect(560, 180, 120, 26);
   if (optics) {
-    // Contrasterende vlakken in de reflectie maken de bolling van chroom en glas zichtbaar.
-    g.fillStyle='#536779'; g.fillRect(0,166,1024,32);
-    g.fillStyle='#18232d'; g.fillRect(0,248,1024,21);
-    g.fillStyle='#eddfc8'; g.fillRect(0,245,1024,3);
-    g.fillStyle='#0f1823'; g.fillRect(84,92,127,143); g.fillRect(574,111,179,148);
-    g.fillStyle='#797269'; g.fillRect(285,253,206,77); g.fillRect(800,254,131,90);
-    g.fillStyle='#29313d'; g.fillRect(315,211,174,30); g.fillRect(864,208,130,37);
-    g.fillStyle='#eef4f3'; g.fillRect(245,80,21,136); g.fillRect(769,75,29,140);
-    g.fillStyle='#fff6dc'; g.fillRect(301,246,171,14); g.fillRect(787,242,122,13);
+    // Een buitenomgeving voor blank metaal: lucht boven, een donkere
+    // horizon en licht wegdek onder. Bij draaien verplaatst de weerspiegeling.
+    for (var [level,colour] of [[0,'#5681bd'],[.34,'#779bd0'],[.43,'#afc2d8'],
+      [.50,'#454a42'],[.57,'#2c2d29'],[.64,'#a59585'],[.78,'#c6c9c4'],[1,'#dddcd3']]) {
+      gr.addColorStop(level,colour);
+    }
+    g.fillStyle=gr; g.fillRect(0,0,1024,512);
+    g.fillStyle='#202827'; g.beginPath(); g.moveTo(0,268);
+    for (var x=0;x<=1024;x+=4) {
+      var a=2*PI*x/1024;
+      g.lineTo(x,226-24*Math.sin(a)**4+11*Math.sin(3*a)+9*Math.cos(7*a)+3*Math.sin(21*a));
+    }
+    g.lineTo(1024,268); g.closePath(); g.fill();
+    g.fillStyle='#f6f3e6'; g.fillRect(108,199,96,12); g.fillRect(591,218,133,8);
+  } else {
+    gr.addColorStop(0,'#b9d0e4'); gr.addColorStop(.42,'#e3e9ee'); gr.addColorStop(.49,'#626e77'); gr.addColorStop(.54,'#343b41'); gr.addColorStop(.67,'#879096'); gr.addColorStop(1,'#424b51');
+    g.fillStyle=gr; g.fillRect(0,0,1024,512);
+    g.fillStyle='#ffffff';
+    g.fillRect(90,50,240,80); g.fillRect(430,30,330,70); g.fillRect(800,60,160,90); g.fillRect(560,180,120,26);
   }
-  var tex = new T.CanvasTexture(c); tex.mapping = T.EquirectangularReflectionMapping; tex.encoding = T.sRGBEncoding;
-  if (optics) tex.encoding=T.sRGBEncoding;
+  var tex=new T.CanvasTexture(c); tex.mapping=T.EquirectangularReflectionMapping; tex.encoding=T.sRGBEncoding;
   var pm = new T.PMREMGenerator(renderer), env = pm.fromEquirectangular(tex).texture;
   tex.dispose(); pm.dispose();
   return env;
 }
 scene.environment = makeEnv();
+var lampEnvironment=makeEnv(true);
 scene.add(new T.HemisphereLight(0xdbe8f4, 0x39414a, .3));
 var key = new T.DirectionalLight(0xffffff, 1.1); key.position.set(40, 80, 55); scene.add(key);
 key.castShadow=true;
@@ -780,7 +786,8 @@ function signalPoint(side,u,t,offset) {
   var w=hoodWidth(seamStation), seamHeight=hoodY(seamStation,w);
   var edge=frontPoint(inner,seamHeight,0);
   var inset=1-u;
-  var point=frontPoint(f,lerp(seamHeight,lerp(448,514,t),u),
+  // Het uiteinde van de unit draait mee de flank in en sluit aan boven de bumper.
+  var point=frontPoint(f,lerp(seamHeight,lerp(451,536,t),u),
     offset+4*Math.sin(PI*t));
   point[0]+=inset*(skinX(seamStation,w,seamHeight)-edge[0]);
   point[2]=side*(point[2]+inset*(w+5-edge[2]));
@@ -791,18 +798,41 @@ function signalPoint(side,u,t,offset) {
 function signalFace(side,from,to,bottom,top,depth,mat,ribbed) {
   add(mesh(gridGeometry(ribbed?72:40,ribbed?12:5,function (u,t) {
     var along=lerp(from,to,(u+1)/2), up=lerp(bottom,top,t);
-    var rib=ribbed ? 1.3*Math.cos(2*PI*(u+1)*9)*Math.sin(PI*t) : 0;
-    return signalPoint(side,along,up,depth+rib);
+    var rib=ribbed ? 1.05*Math.cos(2*PI*(u+1)*9)*Math.sin(PI*t) : 0;
+    var edge=ribbed ? 2.4*(2*t-1)**4+1.2*u**8 : 0;
+    return signalPoint(side,along,up,depth+rib-edge);
   }),mat));
 }
-var indicatorAmber=new T.MeshPhysicalMaterial({color:hex('#9f4a0a'),roughness:.18,clearcoat:.95,side:T.DoubleSide});
-var clearSignal=new T.MeshPhysicalMaterial({color:hex('#d4d0bf'),roughness:.21,metalness:.23,clearcoat:.9,side:T.DoubleSide});
+var indicatorAmber=new T.MeshPhysicalMaterial({color:hex('#b86220'),roughness:.18,clearcoat:1,
+  transparent:true,opacity:.46,depthWrite:false,side:T.DoubleSide});
+var clearSignal=new T.MeshPhysicalMaterial({color:hex('#d4c2a3'),roughness:.13,clearcoat:1,
+  transparent:true,opacity:.24,depthWrite:false,side:T.DoubleSide});
+var signalMirror=new T.MeshStandardMaterial({vertexColors:true,metalness:.83,roughness:.21,
+  envMap:lampEnvironment,envMapIntensity:1.0,side:T.DoubleSide});
 function frontSignals(side) {
   signalFace(side,0,1,0,1,1,mTrim,false);
   signalFace(side,.008,.993,.055,.954,3.5,mSatin,false);
   signalFace(side,.018,.31,.105,.91,4.5,mTrim,false);
-  signalFace(side,.319,.475,.105,.91,6,clearSignal,true);
-  signalFace(side,.485,.982,.105,.91,6,indicatorAmber,true);
+  // Een gewelfde reflector schijnt door beide glazen van de richtingaanwijzer.
+  var colours=[], tint=new T.Color(), silver=hex('#bc9a72'), amber=hex('#c57627');
+  var backing=gridGeometry(72,16,function (u,t) {
+    var f=(u+1)/2, along=lerp(.319,.982,f), up=lerp(.105,.91,t);
+    tint.copy(silver).lerp(amber,smoothStep(.32,.55,along));
+    colours.push(tint.r,tint.g,tint.b);
+    var cell=along<.454 ? (along-.319)/(.454-.319) : (along-.454)/(.982-.454);
+    var dish=Math.min(1,(2*cell-1)**2+(2*t-1)**2);
+    var depth=4.4+4.2*dish+.38*Math.cos(2*PI*(t*4+f*.35));
+    return signalPoint(side,along,up,depth);
+  });
+  backing.setAttribute('color',new T.Float32BufferAttribute(colours,3));
+  add(mesh(backing,signalMirror));
+  // De bolle lensrand valt in de smalle zitting om de twee glazen.
+  signalFace(side,.310,.990,.055,.109,8.8,mSatin,false);
+  signalFace(side,.310,.990,.907,.955,8.8,mSatin,false);
+  signalFace(side,.309,.320,.10,.91,8.8,mSatin,false);
+  signalFace(side,.980,.992,.10,.91,8.8,mSatin,false);
+  signalFace(side,.319,.454,.105,.91,12.4,clearSignal,true);
+  signalFace(side,.457,.982,.105,.91,12.4,indicatorAmber,true);
   for (var h of [.25,.50,.75]) {
     var bar=gridGeometry(28,3,function (u,t) {
       var offsets=[5,10,11,6], along=lerp(.022,.307,(u+1)/2);
@@ -900,9 +930,9 @@ rolledTip.rotation.y=PI/2; rolledTip.position.x=-86; outlet.add(rolledTip);
 car.add(outlet);
 
 /* Koplampen. De glaskoepel steekt vóór de brede chromen vatting uit. */
-var lampEnvironment=makeEnv(true);
-var mLens=new T.MeshPhysicalMaterial({color:hex('#c6d0cb'),roughness:.10,metalness:.15,
-  transparent:true,opacity:.21,depthWrite:false,envMap:lampEnvironment,clearcoat:1,clearcoatRoughness:.07});
+
+var mLens=new T.MeshPhysicalMaterial({color:hex('#bac1c1'),roughness:.09,metalness:.26,
+  transparent:true,opacity:.12,depthWrite:false,envMap:lampEnvironment,clearcoat:1,clearcoatRoughness:.07});
 var reflectorMetal=new T.MeshStandardMaterial({color:hex('#ced0cb'),metalness:1,roughness:.12,
   envMap:lampEnvironment,envMapIntensity:1});
 var lampChrome=mChrome.clone();
@@ -912,22 +942,26 @@ lampChrome.envMapIntensity=1;
 function lampRing(group,profile,aspect,mat) {
   var geometry=gridGeometry(96,profile.length-1,function (u,t) {
     var [r,x,offsetY=0]=profile[Math.round(t*(profile.length-1))], angle=PI*u;
-    return [x,r*aspect*Math.cos(angle)+offsetY,-r*Math.sin(angle)];
+    var z=Math.abs(u)===1 ? 0 : -r*Math.sin(angle);
+    return [x,r*aspect*Math.cos(angle)+offsetY,z];
   });
   group.add(mesh(geometry,mat));
 }
+// Genormaliseerd grijswaardenpatroon uit het glas op de frontreferentie (images-21.jpg).
+var opticPattern=new T.TextureLoader().load('data:image/webp;base64,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');
+opticPattern.encoding=T.sRGBEncoding;
 function makeHeadlight() {
   var lamp=new T.Group(), r=headlamp.radius;
   lamp.name='Koplamp';
-  // Het pakrubber zit achter de omgerolde chroomrand. De glasrand ligt
+  // Het rubber zit achter de omgerolde chroomrand. De glasrand ligt
   // iets lager in de vatting, zoals op de frontfoto van de oranje Targa.
   lampRing(lamp,[[r-3,-10],[r+3,-7],[r+3,-3],[r+1,0]],headlamp.aspect,mRubber);
-  lampRing(lamp,[[r+1,-6],[r+2,-1],[r+1,5,-1],[r-2,11,-4],[r-7,17,-8],
-    [r-12,20,-12],[r-14,18,-12]],headlamp.aspect,lampChrome);
-  var optic=new T.Group(); optic.position.y=-12; lamp.add(optic);
-  var radius=96;
-  lampRing(optic,[[98,16],[97.5,19],[96.2,19.7],[95.1,19.4]],headlamp.aspect,mTrim);
-  lampRing(optic,[[96.5,19],[96,20.5],[94.5,20]],headlamp.aspect,lampChrome);
+  lampRing(lamp,[[r+1,-6],[r+2,0],[r+1,5],[r-1,10,-1],[r-6,16,-5],
+    [r-13,20,-9],[r-16,21,-10],[r-17,17,-10]],headlamp.aspect,lampChrome);
+  var optic=new T.Group(); optic.position.y=-10; lamp.add(optic);
+  var radius=90;
+  lampRing(optic,[[94.5,16],[94.5,19],[92.5,20.5],[90,20],[89.5,17]],headlamp.aspect,mTrim);
+  lampRing(optic,[[90.6,19],[90.5,21],[89.6,21.5],[89,19]],headlamp.aspect,lampChrome);
   var screwY=-headlamp.aspect*(r-5)-6;
   lamp.add(oval(15,screwY,0,2.2,3.6,3.6,mSteel));
   lamp.add(box(.7,1,4.8,mTrim,17,screwY,0));
@@ -939,22 +973,35 @@ function makeHeadlight() {
       return [depthAt(y,z,r2),headlamp.aspect*y,z];
     });
   }
-  // De optische banen breken het spiegelbeeld op. Het middenveld is grover
-  // geribd dan de schouder van de reflector en rond het brandpunt.
-  var bowl=opticalSurface(160,68,function (y,z,r2) {
-    var r=Math.sqrt(r2), centre=1-smoothStep(.29,.50,r);
-    var middle=(1-smoothStep(.29,.65,Math.abs(y/radius+.08)))
-      *(1-smoothStep(.52,.84,Math.abs(z/radius)));
-    var fine=.69*Math.cos(2*PI*z/6.3), wide=1.08*Math.cos(2*PI*z/9.8);
-    var vertical=lerp(fine,wide,middle)*(1-.50*centre);
-    var horizontal=lerp(.15*Math.cos(2*PI*y/10),.72*Math.cos(2*PI*(y+3)/42),centre);
-    var focus=6.5*Math.max(0,1-r2/.19)**2+1.4*Math.exp(-((r-.43)**2)/.0036);
-    return -27+44*r2+focus+(vertical+horizontal)*smoothStep(0,.13,1-r2);
-  });
+  // Een echte spiegelkom en afschermkap liggen achter het persglas.
+  var bowl=opticalSurface(96,44,function (y,z,r2) { return -29+45*r2; });
   optic.add(mesh(bowl,reflectorMetal));
-  // De gladde buitenkoepel vangt een eigen reflectie vóór de geribde optiek.
-  var lens=opticalSurface(72,32,function (y,z,r2) { return 19+24*(1-r2); });
-  optic.add(mesh(lens,mLens));
+  var shield=new T.MeshStandardMaterial({color:hex('#888278'),metalness:.75,roughness:.29,envMap:lampEnvironment});
+  lampRing(optic,[[13,-27],[12,-13],[11,-5]],1,mSteel);
+  lampRing(optic,[[10,-6],[21,-1],[28,3],[29,7],[27,11],[22,15],[14,18],[0,20]],.96,shield);
+  optic.add(box(5,19,11,mSteel,-2,-28,0));
+
+  // Optisch reliëf aan de binnenkant, met een gladde glaskoepel ervoor.
+  var insert=opticalSurface(128,56,function (y,z,r2) {
+    var central=1-smoothStep(.12,.32,r2);
+    var fine=.44*Math.cos(2*PI*z/5.8), coarse=.7*Math.cos(2*PI*z/9);
+    return 17+21*(1-r2)+lerp(fine,coarse,central)*smoothStep(0,.10,1-r2);
+  });
+  var uv=[], points=insert.attributes.position;
+  for (var i=0;i<points.count;i++) uv.push(.5-points.getZ(i)/(2*radius),.5+points.getY(i)/(2*radius*headlamp.aspect));
+  insert.setAttribute('uv',new T.Float32BufferAttribute(uv,2));
+  var pressedGlass=new T.MeshStandardMaterial({map:opticPattern,transparent:true,opacity:.76,
+    roughness:.24,metalness:.26,depthWrite:false,envMapIntensity:.48});
+  // Schuin door het glas wordt de spiegelkom naast de lampkap beter zichtbaar.
+  pressedGlass.onBeforeCompile=function (shader) {
+    shader.vertexShader='varying float lensFacing;\n'+shader.vertexShader.replace('#include <project_vertex>',
+      '#include <project_vertex>\n lensFacing=dot(normalize(mat3(modelViewMatrix)*vec3(1.,0.,0.)),-normalize(mvPosition.xyz));');
+    shader.fragmentShader='varying float lensFacing;\n'+shader.fragmentShader.replace('#include <alphamap_fragment>',
+      '#include <alphamap_fragment>\n diffuseColor.a*=mix(.48,1.,smoothstep(.54,.94,lensFacing));');
+  };
+  var inside=mesh(insert,pressedGlass); inside.name='Persglas'; inside.renderOrder=1; optic.add(inside);
+  var lens=opticalSurface(72,32,function (y,z,r2) {return 21+23*(1-r2);});
+  var outside=mesh(lens,mLens); outside.name='Glaskoepel'; outside.renderOrder=2; optic.add(outside);
   return lamp;
 }
 var leftHeadlight=makeHeadlight();

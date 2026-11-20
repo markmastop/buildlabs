@@ -103,8 +103,10 @@ Targa op de aangeleverde foto. De voorste spatborden lopen geleidelijk op en de
 achterruit loopt vrijwel recht af naar de motorklep. **Zijkant** toont de auto
 met de neus naar links en weinig perspectief, zoals op de foto.
 De vijfde studie bevat de herziene voorkant. **Neus** toont deze vanuit een
-laag standpunt voor vergelijking met de nieuwe oranje frontfoto. De rechthoekige lampen onder de
-bumper komen van Marks eigen Targa.
+laag standpunt voor vergelijking met de oranje frontfoto. Elke koplamp heeft een spiegelkom,
+een afschermkap en een bolle glasplaat. Het grijswaardenpatroon in het persglas is afgeleid van
+het koplampglas op de lokale frontreferentie `images-21.jpg` en is opgenomen in de viewer.
+De indeling van de richtingaanwijzers en de rechthoekige lampen onder de bumper volgen Marks eigen Targa.
 De knop **Staart** toont de auto recht van achteren met een kleine beeldhoek.
 **Achter** toont de achterzijde schuin vanaf de bestuurderskant, zoals op de
 foto van Marks auto. Het digitale model met open dak meet circa
