@@ -12,7 +12,7 @@ deze overdracht gelaten.
 ## Begin hier
 
 1. Lees de [ontwerpbrief](ONTWERPBRIEF.md), inclusief de concrete vormkritiek.
-2. Gebruik de [drie echte referentiefoto’s](referentie/README.md) voor de vorm.
+2. Gebruik de drie lokale referentiefoto’s in `images/porsche/` voor de vorm.
 3. Lees de [overdracht en bronkandidaten](OVERDRACHT.md) voordat je een basis kiest.
 
 ## Bevestigde gegevens en keuzes
@@ -38,7 +38,7 @@ De chassislaag gebruikt centimeters op modelschaal. De wielbasis is 22,5 cm,
 de spoorbreedte voor en achter 13,8 cm en de banden zijn 5,9 cm in diameter en
 2,5 cm breed. Deze maten komen uit de [Tamiya-specificatie voor kit 58572](https://www.tamiya.com/japan/products/58572/index.html).
 De vorm en plaats van frame, accu, ophanging, achterste motorunit en montagepennen
-zijn benaderd aan de hand van de foto's in `beelden/chasis/`. De fysieke montagehoogte,
+zijn benaderd aan de hand van de foto's in `images/chasis/`. De fysieke montagehoogte,
 penposities en vrije ruimte bij insturen en inveren moeten aan de gebouwde kit worden gemeten.
 
 - **Schaal:** 1/10. Lengte circa 416 mm, wielbasis circa 227 mm. Een grote
@@ -71,7 +71,8 @@ penposities en vrije ruimte bij insturen en inveren moeten aan de gebouwde kit w
 | [ONTWERPBRIEF.md](ONTWERPBRIEF.md) | Vorm, gemaakte keuzes en criteria voor de volgende versie |
 | [bestellen.html](bestellen.html) en [RC-BESTELLIJST.md](RC-BESTELLIJST.md) | Bestellijst met winkellinks en checklist voor de RC-versie op Tamiya M-06 |
 | [OVERDRACHT.md](OVERDRACHT.md) | Herkomst, bronkandidaten, beperkingen en vervolg |
-| [referentie/](referentie/README.md) | Echte foto’s van voorzijde, achterzijde en interieur |
+| `images/porsche/` | Lokale foto’s van de eigen auto en het interieur |
+| `images/chasis/` | Lokale referentiebeelden van het Tamiya M-06-chassis |
 | [concept/](concept/README.md) | Historisch beeldvoorstel van 20 cm en generatieprompt; geen bijbehorende CAD |
 | [overdrachtsbestanden.json](overdrachtsbestanden.json) | Herkomst, hashes en Git-status van gekopieerde bestanden |
 

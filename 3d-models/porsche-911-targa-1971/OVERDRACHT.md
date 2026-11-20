@@ -42,11 +42,11 @@ silhouet-wandkunst in plaats van een volledige auto.
 
 - Bevestigd model en bouwjaar komen uit `Porsche.md` in het iCloud-project.
 - De drie echte foto’s, met oorspronkelijke bestandsnamen en hun rol, staan in
-  [referentie/README.md](referentie/README.md).
+  de lokale beeldinventaris `images/README.md`. De foto’s zelf staan in `images/porsche/`.
 - Het historische grotere beeldvoorstel en de volledige generatieprompt zijn
   beschreven in [concept/README.md](concept/README.md).
 - [overdrachtsbestanden.json](overdrachtsbestanden.json) bevat de SHA-256-hashes
-  van de vijf bytegelijk gekopieerde bronbestanden.
+  en de bestandspaden van de vijf bronbestanden ten tijde van de overdracht.
 - De originele AI-visualisatie is lokaal gekopieerd naar `concept/renders/` en
   is volgens de repo-afspraken uitgesloten van Git.
 
