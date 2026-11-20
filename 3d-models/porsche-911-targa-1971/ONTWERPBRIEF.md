@@ -62,7 +62,8 @@ Geslaagde mesh- en slicecontroles bewijzen technische geometrie, niet gelijkenis
 ## Eerste 3D-vormstudie (november 2026)
 
 Op de projectpagina staat een parametrische vormstudie in three.js (r128,
-vastgepind), schaal 1:10, in `index.html`. Ze is niet door Mark beoordeeld.
+vastgepind), schaal 1:10, in `index.html`. Mark vond de gelijkenis van deze eerste
+vormstudie met zijn Targa over de hele carrosserie te gering.
 
 - Maten (ware grootte): het profiel (hoogtes, neus, dorpel, wielkasten, Targabeugel,
   achterruit en staart) is uitgemeten aan een zijfoto van een vroege 911 Targa en
@@ -78,6 +79,27 @@ vastgepind), schaal 1:10, in `index.html`. Ze is niet door Mark beoordeeld.
   het interieur is een eenvoudige indicatie, merkplaatjes ontbreken.
 - Zwakke punten om te beoordelen: de vorm van de neus en de koplampen, de
   staart en achterschouders, het kozijn en de bolle achterruit.
+
+## Tweede carrosseriestudie (november 2026)
+
+De geometrie op de projectpagina is opnieuw uitgewerkt met de lokale foto's in
+`images/porsche/`. Op de zijfoto `images-12.jpg` bepalen de twee wielcentra de
+schaal voor de vergelijking. De dorpels zijn verlaagd. De deur heeft een gebogen
+onderrand en loopt achter schuin op naar de voet van de beugel. De kruin van
+het dak is verlaagd en beide ruitkaders sluiten daarop aan.
+
+De frontfoto `images-14.jpg` en Marks eigen voor-driekwartfoto geven de hoge
+lampkruinen en de lage, licht bolle voorklep aan. De lampopeningen zijn in de
+spatbordhuid gevormd. De detailfoto `images-6.jpg`, het achteraanzicht
+`images-13.jpg` en Marks achter-driekwartfoto geven de breedte van de
+Targabeugel, de gebogen onderrand van de achterruit en het verloop van de
+schouders naar de achterlichten aan.
+
+De volledige digitale auto meet met open dak circa 40,7 × 16,3 × 12,5 cm.
+De wielbasis van de vormstudie is 22,68 cm en die van het M-06M-chassis is
+22,5 cm. De referentieauto's verschillen in uitrusting en de foto's hebben
+perspectief. Dwarsdoorsneden, ruitbolling en uiteindelijke passing blijven
+schattingen tot ze met de auto en het chassis zijn vergeleken.
 
 ## RC-versie
 

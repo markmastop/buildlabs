@@ -4,7 +4,7 @@
 
 Decoratief 3D-printmodel van Marks eigen **Porsche 911 Targa uit 1971**.
 
-**Status: visueel Targa-voorstel; een passend 3D-model moet nog worden gemaakt.**
+**Status · Tweede carrosseriestudie op schaal 1:10, ter beoordeling.**
 De eerste grotere 3D-uitwerking week volgens Mark te veel af van het voorstel en wordt niet op de projectpagina getoond. Mark wees de eerste geometrie af
 op gelijkenis. Op zijn verzoek is de mini met alle bijbehorende bestanden buiten
 deze overdracht gelaten.
@@ -83,9 +83,9 @@ zijn behouden; er zijn kopieën gemaakt. Er staan hier geen bestanden uit de afg
 
 ## Volgende stap
 
-Kies een correcte vroege 911-carrosserie als basis en werk de Targa-uitvoering
-uit. Beoordeel zijaanzicht, vooraanzicht en beide driekwartaanzichten van de
-werkelijke CAD-geometrie voordat dunne details worden aangepast voor het printen.
+Vergelijk het zijprofiel en beide driekwartaanzichten in de viewer met de foto’s
+van de vroege 911 en Marks eigen Targa. Gebruik die vergelijking om de vorm te
+beoordelen voordat de carrosserie voor het printen wordt uitgewerkt.
 De technische printcontrole volgt op een herkenbare carrosserievorm.
 
 De zelfstandige `index.html` toont het oorspronkelijke grotere Targa-voorstel
@@ -96,4 +96,4 @@ De afgewezen grotere 3D-uitwerking is alleen als historie bewaard in `cad/` en
 `model/`; zij wordt niet meer in de pagina geladen en niet aangeboden als
 passend model. De afgewezen mini is niet opgenomen. Voor toekomstige
 browsergeometrie gelden centimeters op modelschaal en voor printbestanden
-millimeters. De nieuwe 3D-vormstudie op de projectpagina is een eerste, nog niet beoordeelde uitwerking; er is nog geen goedgekeurde geometrie of printuitwerking.
+millimeters. De huidige viewer bevat de tweede carrosseriestudie. Het zijaanzicht is vergeleken op gelijke wielbasis. De hoogte van de dorpels, de deurvorm, de spatborden, de daklijn en de aansluiting van de achterruit zijn herzien. De digitale studie meet circa 40,7 × 16,3 × 12,5 cm met het dak open. Gelijkenis, technische uitwerking en fysieke passing op het chassis staan nog open.
