@@ -101,6 +101,27 @@ De wielbasis van de vormstudie is 22,68 cm en die van het M-06M-chassis is
 perspectief. Dwarsdoorsneden, ruitbolling en uiteindelijke passing blijven
 schattingen tot ze met de auto en het chassis zijn vergeleken.
 
+## Derde carrosseriestudie · achterzijde
+
+De vijf nieuwe foto's staan lokaal in `images/porsche/`. Het rechte aanzicht
+`Porsche-911-E-Targa-2.2-LWB-4.jpg` en de beelden `images-15.jpg` en
+`images-16.jpg` tonen de onderrand van de motorklep boven de lichten, het
+terugliggende nummerplaatveld en de positie van de bumperhoorns. De close-ups
+`images-17.jpg` en `images-18.jpg` tonen de vakken in het lampglas, de
+afzonderlijke rode reflectoren en de rubberstrip op het bumperblad.
+
+Voor de bolling van de ruit en de overgang naar de spatborden is ook Marks
+eigen achter-driekwartfoto gebruikt. In de viewer volgen het glas en de lak
+dezelfde onderrand. De motorklep heeft een omlopende naad en een afgerond,
+verzonken rooster. De bumperbladen volgen de achterhoeken tot bij de
+wielkasten. Het aanzicht met de knop **Staart** heeft een kleine beeldhoek
+om vergelijking met de rechte referentiefoto gemakkelijker te maken.
+
+De digitale buitenmaten met open dak zijn circa 40,5 × 16,4 × 12,5 cm.
+De vorm van het glas, de dwarsdoorsneden en de diepte van de uitsparing voor
+de nummerplaat zijn visueel geschat. De wielbasis van de carrosseriestudie is
+22,68 cm. De aparte M-06M-laag heeft een wielbasis van 22,5 cm.
+
 ## RC-versie
 
 Mark wil ook een bestuurbare uitvoering. Uitgangspunten, na goedkeuring van de

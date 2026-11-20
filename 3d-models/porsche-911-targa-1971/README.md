@@ -4,7 +4,7 @@
 
 Decoratief 3D-printmodel van Marks eigen **Porsche 911 Targa uit 1971**.
 
-**Status · Tweede carrosseriestudie op schaal 1:10, ter beoordeling.**
+**Status · Derde carrosseriestudie op schaal 1:10, ter beoordeling.**
 De eerste grotere 3D-uitwerking week volgens Mark te veel af van het voorstel en wordt niet op de projectpagina getoond. Mark wees de eerste geometrie af
 op gelijkenis. Op zijn verzoek is de mini met alle bijbehorende bestanden buiten
 deze overdracht gelaten.
@@ -96,4 +96,9 @@ De afgewezen grotere 3D-uitwerking is alleen als historie bewaard in `cad/` en
 `model/`; zij wordt niet meer in de pagina geladen en niet aangeboden als
 passend model. De afgewezen mini is niet opgenomen. Voor toekomstige
 browsergeometrie gelden centimeters op modelschaal en voor printbestanden
-millimeters. De huidige viewer bevat de tweede carrosseriestudie. Het zijaanzicht is vergeleken op gelijke wielbasis. De hoogte van de dorpels, de deurvorm, de spatborden, de daklijn en de aansluiting van de achterruit zijn herzien. De digitale studie meet circa 40,7 × 16,3 × 12,5 cm met het dak open. Gelijkenis, technische uitwerking en fysieke passing op het chassis staan nog open.
+millimeters. De derde carrosseriestudie bevat de herziene achterzijde.
+De knop **Staart** toont de auto recht van achteren met een kleine beeldhoek.
+**Achter** toont de achterzijde schuin vanaf de bestuurderskant, zoals op de
+foto van Marks auto. Het digitale model met open dak meet circa
+40,5 × 16,4 × 12,5 cm inclusief spiegel en bumperhoorns. Gelijkenis en
+fysieke passing op het chassis moeten nog worden beoordeeld.
