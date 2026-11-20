@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Marks Porsche 911 Targa uit 1971: echte referentiefoto’s, ontwerpkeuzes en vormcriteria voor een decoratief 3D-printmodel.">
+<meta name="description" content="Marks Porsche 911 Targa uit 1971: ontwerpvoorstel, 3D-vormstudie en vormcriteria voor een decoratief 3D-printmodel.">
 <title>911 Targa 1971 · decoratief model</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,24 +34,18 @@ header { display:grid; gap:7px; }
 h1 { font:700 clamp(52px,10vw,82px)/.92 var(--display); letter-spacing:.01em; margin:0; }
 h1 span { color:var(--gold); }
 .lede { color:var(--muted); max-width:65ch; margin:5px 0 0; }
-.status { margin:0; color:var(--muted); font-size:14px; }
 .phase { display:flex; align-items:center; gap:8px; margin-top:5px; font:500 12px var(--mono); color:var(--accent); }
 .phase::before { content:""; width:7px; height:7px; border-radius:50%; background:currentColor; flex:none; }
 section { display:grid; gap:16px; min-width:0; }
-.reference { gap:12px; }
 figure { margin:0; border:1px solid var(--rule); border-radius:6px; overflow:hidden; background:var(--sheet); }
-.photo-frame { width:100%; aspect-ratio:4/3; background:var(--stage); overflow:hidden; }
-.photo-frame img { display:block; width:100%; height:100%; object-fit:contain; }
 figcaption { padding:12px 16px; color:var(--muted); font-size:14px; border-top:1px solid var(--rule); }
 figcaption strong { color:var(--ink); font-weight:500; }
-.reference-tools { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px 18px; }
 .controls { display:flex; flex-wrap:wrap; gap:8px; }
 button { cursor:pointer; }
 .controls button { font:500 14px var(--body); padding:9px 14px; min-height:44px; color:var(--ink); background:var(--sheet); border:1px solid var(--rule); border-radius:999px; display:inline-flex; align-items:center; gap:8px; }
 .controls button::before { content:""; width:9px; height:9px; border-radius:50%; border:1.5px solid var(--muted); flex:none; }
 .controls button[aria-pressed="true"] { border-color:var(--accent); }
 .controls button[aria-pressed="true"]::before { background:var(--accent); border-color:var(--accent); }
-.original { font-size:14px; min-height:44px; display:inline-flex; align-items:center; }
 .specs { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border-top:2px solid var(--ink); border-bottom:1px solid var(--rule); margin:0; }
 .spec { padding:13px 12px 15px 0; }
 .spec dt { color:var(--muted); font:500 11px/1.5 var(--mono); text-transform:uppercase; letter-spacing:.05em; }
@@ -113,6 +107,16 @@ footer { padding-top:16px; border-top:1px solid var(--rule); color:var(--muted);
     <p class="phase">Eerste 3D-vormstudie 1:10 · gelijkenis nog te beoordelen</p>
   </header>
 
+  <section aria-labelledby="proposal-heading">
+    <div class="section-head"><h2 id="proposal-heading">Het Targa-voorstel</h2><p>Geel-oranje · zwart · zilvergrijs</p></div>
+    <figure>
+      <a href="concept/ontwerpvoorstel.png" target="_blank" rel="noopener" aria-label="Open het Targa-ontwerpvoorstel op groot formaat">
+        <img id="proposal-image" src="concept/ontwerpvoorstel.png" width="1536" height="1024" style="display:block;width:100%;height:auto" alt="Visueel ontwerpvoorstel van een geel-oranje 911 Targa uit 1971, met zilvergrijze Targaband, zwarte wielen en een zwarte sokkel; voor- en achteraanzicht" fetchpriority="high">
+      </a>
+      <figcaption>Visueel voorstel voor een decoratief model van circa 20 cm. Dit beeld is met AI gemaakt. De 3D-vormstudie hieronder is een afzonderlijke, eerste uitwerking van dezelfde richting.</figcaption>
+    </figure>
+  </section>
+
   <section aria-labelledby="viewer-heading">
     <div class="section-head"><h2 id="viewer-heading">3D-vormstudie</h2><p>Schaal 1:10 · sleep om te draaien, scroll om te zoomen</p></div>
     <div id="viewer" class="viewer" role="img" aria-label="Driedimensionale vormstudie van de 911 Targa uit 1971"></div>
@@ -133,34 +137,6 @@ footer { padding-top:16px; border-top:1px solid var(--rule); color:var(--muted);
       <div class="spec"><dt>Wielbasis</dt><dd>22,7<small>cm</small></dd></div>
     </dl>
     <p class="viewer-note"><strong>Let op:</strong> dit is een vormstudie op schaal 1:10, nog geen printbestand. De vorm is opgebouwd uit het profiel van een zijfoto van een vroege 911 Targa, geschaald op de wielbasis van 2268 mm. Daardoor wijken lengte (circa 4010 mm) en hoogte (circa 1260 mm) iets af van de gangbare opgave (4163 en 1320 mm). Breedte, dwarsdoorsneden, ruiten en details zijn nog schattingen en moeten met Marks auto worden vergeleken.</p>
-  </section>
-
-  <section aria-labelledby="proposal-heading">
-    <div class="section-head"><h2 id="proposal-heading">Het Targa-voorstel</h2><p>Geel-oranje · zwart · zilvergrijs</p></div>
-    <figure>
-      <a href="concept/ontwerpvoorstel.png" target="_blank" rel="noopener" aria-label="Open het Targa-ontwerpvoorstel op groot formaat">
-        <img id="proposal-image" src="concept/ontwerpvoorstel.png" width="1536" height="1024" style="display:block;width:100%;height:auto" alt="Visueel ontwerpvoorstel van een geel-oranje 911 Targa uit 1971, met zilvergrijze Targaband, zwarte wielen en een zwarte sokkel; voor- en achteraanzicht" fetchpriority="high">
-      </a>
-      <figcaption>Visueel voorstel voor een decoratief model van circa 20 cm. Dit beeld is met AI gemaakt. De 3D-vormstudie hierboven is een afzonderlijke, eerste uitwerking van dezelfde richting.</figcaption>
-    </figure>
-  </section>
-  <section class="reference" aria-label="Referentiefoto’s van de echte auto">
-    <figure>
-      <div class="photo-frame">
-        <img id="reference-image" src="referentie/voor-driekwart.jpeg" width="1600" height="1200" alt="Marks geel-oranje 911 Targa uit 1971, schuin van voren gefotografeerd, met ronde koplampen in de spatborden en open Targadak" loading="lazy">
-      </div>
-      <figcaption id="reference-caption"><strong>Voorzijde.</strong> De lage voorklep ligt tussen de hoge, afgeronde spatbordtoppen. De koplampen zijn onderdeel van die vorm.</figcaption>
-    </figure>
-    <div class="reference-tools">
-      <div class="controls" role="group" aria-label="Kies een referentiefoto">
-        <button type="button" data-view="front" aria-pressed="true" aria-controls="reference-image">Voorzijde</button>
-        <button type="button" data-view="rear" aria-pressed="false" aria-controls="reference-image">Achterzijde</button>
-        <button type="button" data-view="interior" aria-pressed="false" aria-controls="reference-image">Interieur</button>
-      </div>
-      <a id="original-photo" class="original" href="referentie/voor-driekwart.jpeg" target="_blank" rel="noopener">Foto groot openen ↗</a>
-    </div>
-    <p id="photo-error" class="status" role="status" hidden>De foto kon niet worden geladen. Gebruik ‘Foto groot openen’ om het bestand te bekijken.</p>
-    <noscript><p class="status">Bekijk ook de <a href="referentie/achter-driekwart.jpeg">achterzijde</a> en het <a href="referentie/interieur.jpeg">interieur</a>.</p></noscript>
   </section>
 
   <dl class="specs">
@@ -236,7 +212,6 @@ footer { padding-top:16px; border-top:1px solid var(--rule); color:var(--muted);
       <a href="ONTWERPBRIEF.md">Ontwerpbrief</a>
       <a href="ONDERDELEN.md">Onderdelen</a>
       <a href="RC-BESTELLIJST.md">RC-bestellijst</a>
-      <a href="referentie/README.md">Referentiefoto’s en herkomst</a>
       <a href="OVERDRACHT.md">Overdracht en bronkandidaten</a>
       <a href="concept/ontwerpbrief-en-prompt-v1.txt">Eerdere conceptbeschrijving</a>
     </div>
@@ -249,7 +224,7 @@ footer { padding-top:16px; border-top:1px solid var(--rule); color:var(--muted);
       <li><strong>Van alle kanten beoordelen.</strong> Dezelfde geometrie bekijken van voren, opzij en in beide driekwartaanzichten.</li>
       <li><strong>Geschikt maken voor het printen.</strong> Daarna de details, onderdelen, wanddiktes en printoriëntatie uitwerken voor de P2S.</li>
     </ol>
-    <p class="note"><strong>Huidige fase: eerste vormstudie.</strong> De 3D-weergave bovenaan is een parametrische studie op schaal 1:10 uit de eigen foto’s. Of de vorm genoeg lijkt, moet Mark beoordelen; pas daarna volgen onderdelen en printbestanden.</p>
+    <p class="note"><strong>Huidige fase: eerste vormstudie.</strong> De 3D-weergave is een parametrische studie op schaal 1:10 uit de eigen foto’s. Of de vorm genoeg lijkt, moet Mark beoordelen; pas daarna volgen onderdelen en printbestanden.</p>
   </section>
   <footer>911 Targa 1971 · decoratief model in ontwikkeling · <a href="README.md">Projectdocumentatie</a></footer>
 </main>
@@ -759,59 +734,6 @@ window.__targa = { camera: camera, controls: controls, goTo: goTo, scene: scene,
 </script>
 <script>
 (() => {
-  const photos = {
-    front: {
-      src: 'referentie/voor-driekwart.jpeg',
-      alt: 'Marks geel-oranje 911 Targa uit 1971, schuin van voren gefotografeerd, met ronde koplampen in de spatborden en open Targadak',
-      title: 'Voorzijde.',
-      caption: 'De lage voorklep ligt tussen de hoge, afgeronde spatbordtoppen. De koplampen zijn onderdeel van die vorm.'
-    },
-    rear: {
-      src: 'referentie/achter-driekwart.jpeg',
-      alt: 'Marks 911 Targa uit 1971 schuin van achteren, met zilverkleurige Targaband, grote gebogen achterruit en aflopende motorklep',
-      title: 'Achterzijde.',
-      caption: 'De brede Targaband, bolle achterruit en ronde schouders lopen over in de aflopende motorklep en staart.'
-    },
-    interior: {
-      src: 'referentie/interieur.jpeg',
-      alt: 'Interieur van Marks 911 Targa, met zwart dashboard, houten stuur en zwarte stoelen met pepita-bekleding',
-      title: 'Interieur.',
-      caption: 'De zitplaatsen, het stuur en dashboard geven de open cockpit zijn indeling. De geometrie wordt vereenvoudigd op modelschaal.'
-    }
-  };
-  const image = document.getElementById('reference-image');
-  const caption = document.getElementById('reference-caption');
-  const original = document.getElementById('original-photo');
-  const error = document.getElementById('photo-error');
-  const buttons = [...document.querySelectorAll('[data-view]')];
-  function showPhoto(key) {
-    const photo = photos[key];
-    if (!photo) return;
-    error.hidden = true;
-    image.alt = photo.alt;
-    image.src = photo.src;
-    original.href = photo.src;
-    const title = document.createElement('strong');
-    title.textContent = photo.title;
-    caption.replaceChildren(title, document.createTextNode(' ' + photo.caption));
-    for (const button of buttons) button.setAttribute('aria-pressed', String(button.dataset.view === key));
-  }
-  image.addEventListener('error', () => { error.hidden = false; });
-  image.addEventListener('load', () => { error.hidden = true; });
-  for (const [index, button] of buttons.entries()) {
-    button.addEventListener('click', () => showPhoto(button.dataset.view));
-    button.addEventListener('keydown', event => {
-      let next;
-      if (event.key === 'ArrowRight') next = (index + 1) % buttons.length;
-      if (event.key === 'ArrowLeft') next = (index + buttons.length - 1) % buttons.length;
-      if (event.key === 'Home') next = 0;
-      if (event.key === 'End') next = buttons.length - 1;
-      if (next === undefined) return;
-      event.preventDefault();
-      buttons[next].focus();
-      showPhoto(buttons[next].dataset.view);
-    });
-  }
   const boxes = [...document.querySelectorAll('[data-shape]')];
   const progress = document.getElementById('shape-progress');
   const storageKey = 'porsche-911-targa-1971-vormcriteria-v1';
