@@ -51,6 +51,14 @@ Deze afspraken gelden voor de hele repository.
 - Een projectpagina is een volledig HTML-document: `<!doctype html>`,
   `<meta charset="utf-8">` en een viewport-meta.
 
+## Projectinformatie bijhouden
+
+- Werk bij wijzigingen in projectstatus, versie, hoofdmaten, printbestanden of bouwafhankelijkheden de projectpagina, project-README, tabel in de hoofd-README en homepagekaart samen bij.
+- Gebruik op homepagekaarten dezelfde volgorde: status, schaal of hoofdmaat en beschikbare bestanden of, bij een concept, de belangrijkste ontwerpmaat of indeling. Vermeld in de omschrijving wat de maat betreft, zoals de romp, bovenbouw of voet.
+- Baseer status en bestandsformaten op de actuele projectdocumentatie en bestanden in Git. Maak onderscheid tussen een concept, beschikbare printset of printprototype, digitale controles en fysiek bevestigde passing of werking. Tel alleen bestanden van de vermelde versie en geef aan of pasproefbestanden meetellen.
+- Vermeld benodigde bestaande onderdelen, zoals een RC-romp of chassis, inclusief de relevante aansluitmaat. Als een project meerdere uitvoeringen heeft, geef per uitvoering aan wat nodig is.
+- Link bij een printset waar mogelijk rechtstreeks naar de printbestanden of de handleiding die ze ontsluit.
+
 ## Automatisch committen
 
 - Commit na iedere afgeronde wijzigingsopdracht automatisch alle wijzigingen
