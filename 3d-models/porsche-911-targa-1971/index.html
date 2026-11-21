@@ -132,7 +132,7 @@ footer { padding-top:16px; border-top:1px solid var(--rule); color:var(--muted);
       <button type="button" data-vw="rug" aria-pressed="false">Staart</button>
       <button type="button" data-vw="boven" aria-pressed="false">Boven</button>
       <button type="button" data-vw="interieur" aria-pressed="false">Interieur</button>
-      <button type="button" id="vw-roof" aria-pressed="false">Dak open</button>
+      <button type="button" id="vw-roof" aria-pressed="true">Dak dicht</button>
       <button type="button" id="vw-spin" aria-pressed="false">Draaien</button>
     </div>
     <p class="viewer-note" id="chassis-note" hidden><strong>M-06M · 225 mm wielbasis.</strong> De spoorbreedte is 138 mm en de banden zijn 59 mm in diameter en 25 mm breed. De vorm van het frame, de motorpositie en de montagepennen zijn geschat uit referentiefoto’s. De rijhoogte en de passing onder de Targa moeten nog worden gemeten.</p>
@@ -1413,7 +1413,7 @@ glazedEdge(windowEdge(rearGlass,-1,0,-1,1));
 glazedEdge(windowEdge(rearGlass,-1,1,1,1));
 glazedEdge(windowEdge(rearGlass,1,1,1,0));
 
-var roofPanel=new T.Group(); roofPanel.name='Uitneembaar Targadak'; roofPanel.visible=false; car.add(roofPanel);
+var roofPanel=new T.Group(); roofPanel.name='Uitneembaar Targadak'; roofPanel.visible=true; car.add(roofPanel);
 function roofTop(u,t) {
   var front=headerSurface(u,.18,5.5), back=bandPoint(u*.685,0), crown=Math.sin(PI*t);
   return [lerp(front[0],back[0],t),lerp(front[1],back[1],t)+crown*(4+10*(1-u*u)),
