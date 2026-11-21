@@ -208,7 +208,7 @@ blijven behouden. De CAD- en printbestanden zijn apart uitgewerkt in p1.
 | Stevenbuis / koppeling | 4,2–23,5 / 23,5–25 | Verlaat de scheg op y 2,1 en stijgt 5,9° naar y 4,1; motor ligt op dezelfde aslijn |
 | Motor | 25–35 | Reserve Ø 6 × 10; schuine aslijn, neutrale mantel |
 | Roerservo | 15 | Reserve 4,2 × 2 × 4; naast de as, met hefboom en stang naar de roerkoning |
-| Accu 2S | 39–53 | Reserve 14 × 4,8 × 2,8; bak 16 × 6, laag op y 1,25 |
+| Accu 7,2 V NiMH | 39–53 | Reserve 14 × 4,8 × 2,8; bak 16 × 6, laag op y 1,25 |
 | Regelaars | 37 / 67 | Behuizingen 3,65 × 3,2 × 1,8; extra stekkerruimte niet meegerekend |
 | Ontvanger | 55,5 | Reserve 5,5 × 3 × 2; op verhoogde montageplaat |
 | Boegschroef | 76 | Raboesch 108-03, buis 1,9/2,2; midden 3 cm boven de kiel; gaten Ø 2,24 met kraag in rompdeel 4 |

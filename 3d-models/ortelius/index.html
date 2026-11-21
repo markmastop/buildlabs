@@ -155,9 +155,9 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
         <li><label><input type="checkbox" id="o8"><span class="name">Hobbywing QuicRun 1060 (hoofdmotor)</span><span class="tag">basis</span><span class="detail">Waterdicht, vooruit en achteruit, 2–3S LiPo of NiMH, ingebouwde BEC voor de ontvanger. Ca. € 25.</span></label></li>
         <li><label><input type="checkbox" id="o9"><span class="name">Tweede QuicRun 1060 (boegschroef)</span><span class="tag">basis</span><span class="detail">Zelfde regelaar, apart kanaal voor de boegschroef. Ca. € 25.</span></label></li>
         <li><label><input type="checkbox" id="o10"><span class="name">Waterdichte roerservo, ca. 10 kg·cm</span><span class="tag">basis</span><span class="detail">Achterin, boven de waterlijn. Ca. € 15–25.</span></label></li>
-        <li><label><input type="checkbox" id="o11"><span class="name">Accu 2S LiPo 5000 mAh, hardcase</span><span class="tag">basis</span><span class="detail">Laag en midscheeps. Alternatief: 6 V loodaccu (ca. 0,8 kg), goedkoper en meteen ballast. Ca. € 30–40.</span></label></li>
+        <li><label><input type="checkbox" id="o11"><span class="name">Accu NiMH 7,2 V 5000 mAh, stickpack</span><span class="tag">basis</span><span class="detail">Laag en midscheeps. Robitronic SC5000T, 132 × 46,5 × 24 mm, T-stekker; hetzelfde pack als de 911. € 34,90.</span></label></li>
         <li><label><input type="checkbox" id="o12"><span class="name">Schakelaar, XT60-stekkers, zekering 20 A</span><span class="tag">basis</span><span class="detail">Zekering direct na de accu.</span></label></li>
-        <li><label><input type="checkbox" id="o22"><span class="name">Balanslader voor LiPo</span><span class="tag">basis</span><span class="detail">Alleen nodig als je er nog geen hebt. Ca. € 40–60.</span></label></li>
+        <li><label><input type="checkbox" id="o22"><span class="name">Lader voor NiMH</span><span class="tag">basis</span><span class="detail">SkyRC S65 met laadkabel XT60 naar Tamiya; laadt ook de 911-accu. Alleen nodig als je er nog geen hebt. € 43,40.</span></label></li>
       </ul></div>
 
       <div class="group"><h3>Extra's</h3><ul>
@@ -1182,13 +1182,13 @@ li:has(input:checked) .name { text-decoration: line-through; color: var(--muted)
   rc.add(rcPower.build());rc.add(rcWires.build());rc.add(rcShafts.build());
   label('1 Roerservo',13,11,-7,[15,7.0,3.5]);
   label('2 Motorruimte',29,11,-10,[30,6,0]);
-  label('3 Accu 2S',46,11,-10,[46,4.1,0]);
+  label('3 Accu 7,2 V',46,11,-10,[46,4.1,0]);
   label('4 Hoofdregelaar',32,11,11,[37,8,4]);
   label('5 Ontvanger',56,13,-10,[55.5,8.3,-4]);
   label('6 Boegregelaar',65,11,11,[67,8,3.5]);
   label('7 Boegschroef',77,11,-10,[76,6,0]);
   var rcParts=[['1 Roerservo','4,2 × 2,0 × 4,0 cm (reserve)','15 cm'],
-    ['2 Motor','Ø 6 × 10 cm (reserve)','25–35 cm'],['3 Accu 2S','14 × 4,8 × 2,8 cm (reserve)','39–53 cm'],
+    ['2 Motor','Ø 6 × 10 cm (reserve)','25–35 cm'],['3 Accu 7,2 V','14 × 4,8 × 2,8 cm (reserve)','39–53 cm'],
     ['4/6 Regelaars','3,65 × 3,2 × 1,8 cm (fabrikant, zonder kabelruimte)','37 / 67 cm'],
     ['5 Ontvanger','5,5 × 3 × 2 cm (reserve)','55,5 cm'],['7 Boegschroef','Ø 2 cm tunnel; motor Ø 2,4 × 3 cm (reserve)','76 cm'],
     ['Schroef / roer','Ø 4 cm, naaf op 3,6 cm / NACA-roer 2,2 × 4 cm','2,3–4 cm'],['Stevenbuis / koppeling','ca. 19,5 cm / 1,5 cm (reserve)','4–25 cm'],['Ballastbakken','2 × 4,8 × 4 × 0,65 cm; gewicht nog bepalen','57 / 63 cm']];

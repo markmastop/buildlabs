@@ -36,7 +36,7 @@ ruimte tot het roer te houden. De axiale positie van de schroefas, de lengte
 van het lagerhuis, de ruimte voor borging en de insteekdiepten zijn ook
 ontwerpwaarden. Controleer ze op de geleverde onderdelen. Het motorvlak komt nominaal op X≈288 mm,
 met de koppeling voor het vaste achterdek en onder de afneembare
-vooropbouw. Het gedrag van de motor op 2S met deze schroef vraagt een proef
+vooropbouw. Het gedrag van de motor op 7,2 V met deze schroef vraagt een proef
 onder belasting in het water.
 
 De stevenbuis begint net binnen de scheg. De assemblage bevat daarom een

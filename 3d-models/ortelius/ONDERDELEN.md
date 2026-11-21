@@ -25,12 +25,15 @@ messing doorvoerbus.
 ## Besturing en stroom
 - [ ] FlySky ST8 zender met FS-SR8 ontvanger, 8 kanalen, ANT (Droneshop.nl) — € 89, plus 4× AA
 - [ ] Hobbywing QuicRun 1060 voor de hoofdmotor (waterdicht, vooruit/achteruit, BEC) — ca. € 25
-  Begrens het gas in de zender eerst tot ca. 40 %: op 2S draait de motor veel sneller dan nodig.
+  Begrens het gas in de zender eerst tot ca. 40 %: op 7,2 V draait de motor veel sneller dan nodig.
+  Zet beide regelaars op NiMH (jumper of programmering).
 - [ ] Tweede Hobbywing QuicRun 1060 voor de boegschroef — ca. € 25 (rode BEC-draad doorknippen)
 - [ ] Roerservo 15 kg met metalen tandwielen (S0150 MG) — ca. € 20
-- [ ] Accu 2S LiPo 5000 mAh hardcase, 138 × 47 × 25 mm (Ro-Power, T-stekker) — ca. € 26
-  (alternatief: 6 V loodaccu, ca. 0,8 kg, goedkoper en meteen ballast)
-- [ ] Balanslader SkyRC S65 AC, als je er nog geen hebt — ca. € 40
+- [ ] Accu NiMH 7,2 V 5000 mAh stickpack, 132 × 46,5 × 24 mm (Robitronic SC5000T, T-stekker met Tamiya-adapter) — € 34,90
+  Hetzelfde pack als de [911 Targa](../porsche-911-targa-1971/ONDERDELEN.md). Gekozen in plaats van een 2S LiPo:
+  minder kwetsbaar bij water en het extra gewicht telt als ballast.
+- [ ] Lader SkyRC S65 AC (ook NiMH, 6–8 cellen), als je er nog geen hebt — € 39,90
+- [ ] Laadkabel XT60 naar Tamiya — € 3,50
 - [ ] Schakelaar, XT60-stekkers, zekering 20 A
 
 ## Kanaalindeling (voorstel)

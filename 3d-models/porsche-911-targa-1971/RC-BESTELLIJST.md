@@ -3,7 +3,7 @@
 Onderdelen voor de bestuurbare 1/10-uitvoering ([plan in de README](README.md#rc-versie-plan)).
 De [bestelpagina met winkellinks](bestellen.html) staat naast deze checklist.
 Prijzen zijn richtprijzen of zoals opgegeven; controleer maat, voorraad en
-compatibiliteit voor je bestelt. De lijst is niet bij een winkel afgestemd.
+compatibiliteit voor je bestelt. Accu en servo zijn afgestemd op Schiffsmodelle-Shop (21-11-2026).
 
 ## Al aanwezig of besteld
 
@@ -17,13 +17,14 @@ compatibiliteit voor je bestelt. De lijst is niet bij een winkel afgestemd.
 | | Onderdeel | Richtprijs | Opmerking |
 |---|---|---|---|
 | [ ] | **Ontvanger FlySky FS-SR8C** (ANT-protocol, 8 kanalen PWM) | € 10–25 | De FS-SR8 van je ST8-set is voor de [Ortelius](../ortelius/ONDERDELEN.md). De SR8C is een compacte variant: ca. 22 × 15 × 3 mm en 1 g, werkt met de ST8 en heeft gewone PWM-uitgangen voor servo en regelaar. Koppel hem aan een apart modelgeheugen in de zender. Niet de FS-SRM: die heeft volgens de specificaties één kanaal. |
-| [ ] | **Servo, standaardmaat, bij voorkeur metalen tandwielen** | € 15–30 | Controleer in de bouwhandleiding de servomaat en de hoorn (25-spline Futaba bij Tamiya's High Torque-servosaver). |
-| [ ] | **Accu 6-cels NiMH 7,2 V met Tamiya-stekker** | € 25–40 | Volgens Tamiya's specificatie werkt de regelaar op 6,6–7,2 V. Controleer of de vorm in de accubak past. |
-| [ ] | **Lader voor NiMH** | € 15–40 | Is er al een lader? De SkyRC S65 uit de Ortelius-lijst laadt ook NiMH. |
+| [ ] | **Servo S0150 MG BB HV, 15 kg** (Schiffsmodelle-Shop) | € 19,95 | Standaardmaat, metalen tandwielen; dezelfde servo als de Ortelius. Controleer in de bouwhandleiding de servomaat en de hoorn (25-spline Futaba bij Tamiya's High Torque-servosaver). |
+| [ ] | **Accu NiMH 7,2 V 5000 mAh, Robitronic SC5000T** (Schiffsmodelle-Shop) | € 34,90 | 132 × 46,5 × 24 mm, T-stekker met Tamiya-adapter; hetzelfde pack als de Ortelius. Volgens Tamiya's specificatie werkt de regelaar op 6,6–7,2 V. Controleer of de vorm in de accubak past. |
+| [ ] | **Lader voor NiMH** | – | De SkyRC S65 en de laadkabel XT60 naar Tamiya staan op de [Ortelius-lijst](../ortelius/ONDERDELEN.md); de S65 laadt NiMH van 6–8 cellen. |
 | [ ] | **Ontvangerbatterij of voeding** | – | De regelaar heeft een BEC; een aparte ontvangeraccu is niet nodig. |
 
-**Basis voor rijden: ca. € 65–140** boven op het chassis, afhankelijk van wat je
-al hebt.
+**Basis voor rijden: € 54,85 plus de ontvanger** boven op het chassis. Bestel de
+accu en servo in dezelfde Schiffsmodelle-Shop-bestelling als de Ortelius, dan
+betaal je één keer € 17,95 verzending. Die winkel heeft geen ANT-ontvanger.
 
 ## Keuze: NiMH of LiPo
 
