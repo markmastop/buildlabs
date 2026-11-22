@@ -14,7 +14,7 @@ Op 22-11-2026 is de eerste bestelling bij Schiffsmodelle-Shop geplaatst (leverin
 - [x] Krick MAX Power 600, artikel 42124, motoras Ø3,17 mm
 - [x] Navy 1482 askoppeling, Ø3,17 mm motorzijde en Ø4 mm aszijde
 - [x] Ontstoorset voor de motor (de MAX-motoren worden zonder geleverd)
-- [ ] M4-borgmoer, messing, voor de schroef
+- [x] M4-borgmoer voor de schroef: RVS A2 met nylon ring, DIN 985 (PARCO, 50 stuks, Amazon, besteld 22-11-2026)
 
 De p3-motorsteun is uitgewerkt met de 236 mm-as. Controleer de echte
 schroef bij het roer en de kiel vóór het boren, lijmen of maken van de
@@ -62,7 +62,10 @@ messing doorvoerbus.
 - [ ] CA secondelijm dun en activator
 - [ ] Plastic Putty 40 ml, 2 tubes (naden en printlijnen buiten)
   PETG lost niet op in plastic lijm: altijd opschuren (korrel 120) en ontvetten.
-- [ ] M3-bouten, moeren en dunne afdichtingsband voor dekborging en serviceluik
+- [x] M3-bouten en moeren, RVS 304 cilinderkop-inbus (set van 1800 stuks, Amazon, besteld 22-11-2026)
+- [x] M3-inzetmoeren voor de lijmvoeten en het serviceluik (Bolatus-set M2–M6, Amazon, besteld 22-11-2026);
+  stem de proefboring van Ø4,2 × 6 mm af op deze inzetmoeren
+- [ ] Dunne afdichtingsband voor dekborging en serviceluik
   (p1 gebruikt losse schroefsteunen; geen magneetkamers)
 - [ ] Ballast: hoeveelheid pas bepalen na wegen en drijfproef; houd deze laag en verstelbaar
 - [ ] Messingdraad 0,8 mm voor relingen en antennes
