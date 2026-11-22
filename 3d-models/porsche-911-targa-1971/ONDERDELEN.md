@@ -11,9 +11,9 @@ bestelling van de Ortelius.
 ## Besturing en stroom
 - [x] FlySky FS-ST8 zender (al in bezit)
 - [ ] FlySky FS-SR8C ontvanger, ANT, 8 kanalen PWM, ca. 22 × 15 × 3 mm (niet de FS-SRM)
-- [ ] Servo S0150 MG BB HV 15 kg, metalen tandwielen (Schiffsmodelle-Shop, € 19,95); servomaat en hoorn controleren
-- [ ] Accu NiMH 7,2 V 5000 mAh, Robitronic SC5000T, 132 × 46,5 × 24 mm, T-stekker met Tamiya-adapter (Schiffsmodelle-Shop, € 34,90; regelaar: 6,6–7,2 V)
-- [ ] Lader: de SkyRC S65 van de [Ortelius](../ortelius/ONDERDELEN.md) laadt ook NiMH
+- [x] Servo S0150 MG BB HV 15 kg, metalen tandwielen (Schiffsmodelle-Shop, € 19,95, besteld 22-11-2026); servomaat en hoorn controleren
+- [x] Accu NiMH 7,2 V 5000 mAh, Robitronic SC5000T, 132 × 46,5 × 24 mm, T-stekker met Tamiya-adapter (Schiffsmodelle-Shop, € 34,90, besteld 22-11-2026; regelaar: 6,6–7,2 V)
+- [x] Lader: de SkyRC S65 van de [Ortelius](../ortelius/ONDERDELEN.md) laadt ook NiMH (besteld met de Ortelius-bestelling)
 
 ## Body (later)
 - [ ] PETG of PLA voor de carrosseriedelen op schaal 1:10

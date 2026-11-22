@@ -5,12 +5,15 @@ De vier onderdelen voor de mechanische pasproef volgen de
 Op de [bestellijst](bestellen.html) staat alles bij Schiffsmodelle-Shop (JOJO), inclusief lijm en plamuur; alleen de zender komt van Droneshop.nl.
 De overige hardware is voorlopig en de genoemde prijzen zijn richtprijzen.
 
+Op 22-11-2026 is de eerste bestelling bij Schiffsmodelle-Shop geplaatst (levering
+27-11 t/m 1-12-2026). De bestelde onderdelen zijn afgevinkt.
+
 ## Aandrijving
-- [ ] Raboesch 301-24 schroefas, Ø4 × 236 mm, stevenbuis Ø6 × 200 mm, M4
-- [ ] Raboesch 156-05 messing driebladsschroef, Ø40 mm, M4, rechtsdraaiend
-- [ ] Krick MAX Power 600, artikel 42124, motoras Ø3,17 mm
-- [ ] Navy 1482 askoppeling, Ø3,17 mm motorzijde en Ø4 mm aszijde
-- [ ] Ontstoorset voor de motor (de MAX-motoren worden zonder geleverd)
+- [x] Raboesch 301-24 schroefas, Ø4 × 236 mm, stevenbuis Ø6 × 200 mm, M4
+- [x] Raboesch 156-05 messing driebladsschroef, Ø40 mm, M4, rechtsdraaiend
+- [x] Krick MAX Power 600, artikel 42124, motoras Ø3,17 mm
+- [x] Navy 1482 askoppeling, Ø3,17 mm motorzijde en Ø4 mm aszijde
+- [x] Ontstoorset voor de motor (de MAX-motoren worden zonder geleverd)
 - [ ] M4-borgmoer, messing, voor de schroef
 
 De p3-motorsteun is uitgewerkt met de 236 mm-as. Controleer de echte
@@ -18,8 +21,8 @@ schroef bij het roer en de kiel vóór het boren, lijmen of maken van de
 messing doorvoerbus.
 
 ## Stuurwerk en latere uitbreiding
-- [ ] Roeras Ø4 mm (RVS of messing) met een messing buisje 5 × 4,1 mm als roerkoker
-- [ ] Roerhevel T-vorm nylon Ø4 mm, stuurstang 200 mm M2 en twee gaffelkoppen 2 mm
+- [x] Roeras: messingstaaf Ø4 mm × 1 m, met een messing buisje 5 × 4,1 mm × 1 m als roerkoker
+- [x] Roerhevel T-vorm nylon Ø4 mm, stuurstang 200 mm M2 en twee gaffelkoppen 2 mm
 - [ ] Raboesch boegschroef 19/22 × 154 mm (rb108-03, "Bow Thruster 22mm"), met 7,2 V-motor; buis inkorten tot de rompbreedte
 
 ## Besturing en stroom
@@ -28,12 +31,12 @@ messing doorvoerbus.
   Begrens het gas in de zender eerst tot ca. 40 %: op 7,2 V draait de motor veel sneller dan nodig.
   Zet beide regelaars op NiMH (jumper of programmering).
 - [ ] Tweede Hobbywing QuicRun 1060 voor de boegschroef — ca. € 25 (rode BEC-draad doorknippen)
-- [ ] Roerservo 15 kg met metalen tandwielen (S0150 MG) — ca. € 20
+- [x] Roerservo 15 kg met metalen tandwielen (S0150 MG) — ca. € 20
 - [ ] Accu NiMH 7,2 V 5000 mAh stickpack, 132 × 46,5 × 24 mm (Robitronic SC5000T, T-stekker met Tamiya-adapter) — € 34,90
-  Hetzelfde pack als de [911 Targa](../porsche-911-targa-1971/ONDERDELEN.md). Gekozen in plaats van een 2S LiPo:
+  Nog niet besteld: het eerste pack is voor de 911. Hetzelfde pack als de [911 Targa](../porsche-911-targa-1971/ONDERDELEN.md). Gekozen in plaats van een 2S LiPo:
   minder kwetsbaar bij water en het extra gewicht telt als ballast.
-- [ ] Lader SkyRC S65 AC (ook NiMH, 6–8 cellen), als je er nog geen hebt — € 39,90
-- [ ] Laadkabel XT60 naar Tamiya — € 3,50
+- [x] Lader SkyRC S65 AC (ook NiMH, 6–8 cellen), als je er nog geen hebt — € 39,90
+- [x] Laadkabel XT60 naar Tamiya — € 3,50
 - [ ] Schakelaar, XT60-stekkers, zekering 20 A
 
 ## Kanaalindeling (voorstel)
@@ -55,7 +58,8 @@ messing doorvoerbus.
 - [ ] Epoxyhars L + harder S, 280 ml (naden, lasstroken en binnencoating romp)
 - [ ] Glasweefsel 80 g/m², 1 × 1 m (stroken over de naden binnenin)
 - [ ] UHU plus endfest 90 (roeras, stevenbuis, lijmvoeten motorsteun)
-- [ ] CA secondelijm medium en dun, met activator (opbouw en details)
+- [x] CA secondelijm medium, 20 g (opbouw en details; gratis bij de eerste bestelling)
+- [ ] CA secondelijm dun en activator
 - [ ] Plastic Putty 40 ml, 2 tubes (naden en printlijnen buiten)
   PETG lost niet op in plastic lijm: altijd opschuren (korrel 120) en ontvetten.
 - [ ] M3-bouten, moeren en dunne afdichtingsband voor dekborging en serviceluik

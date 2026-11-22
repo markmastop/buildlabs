@@ -215,9 +215,9 @@ footer { padding-top:16px; border-top:1px solid var(--rule); color:var(--muted);
       <div class="group"><h3>Besturing en stroom</h3><ul>
         <li><label><input type="checkbox" id="part-zender" data-part><span class="name">FlySky FS-ST8 zender</span><span class="detail">Al in bezit. De meegeleverde FS-SR8 ontvanger blijft voor de Ortelius.</span></label></li>
         <li><label><input type="checkbox" id="part-ontvanger" data-part><span class="name">FlySky FS-SR8C ontvanger</span><span class="detail">Compact (ca. 22 × 15 × 3 mm), 8 kanalen PWM, ANT-protocol. Niet de FS-SRM: die heeft één kanaal.</span></label></li>
-        <li><label><input type="checkbox" id="part-servo" data-part><span class="name">Servo S0150 MG BB HV, 15 kg</span><span class="detail">Standaardmaat, metalen tandwielen, € 19,95 bij Schiffsmodelle-Shop. Controleer de servomaat en hoorn in de M-06-handleiding.</span></label></li>
-        <li><label><input type="checkbox" id="part-accu" data-part><span class="name">Accu NiMH 7,2 V, 5000 mAh</span><span class="detail">Robitronic SC5000T, 132 × 46,5 × 24 mm, € 34,90; hetzelfde pack als de Ortelius. De regelaar werkt volgens Tamiya op 6,6–7,2 V. Controleer de accubak.</span></label></li>
-        <li><label><input type="checkbox" id="part-lader" data-part><span class="name">Lader voor NiMH</span><span class="detail">De SkyRC S65 van de Ortelius laadt NiMH (6–8 cellen).</span></label></li>
+        <li><label><input type="checkbox" id="part-servo" data-part checked><span class="name">Servo S0150 MG BB HV, 15 kg</span><span class="detail">Besteld op 22-11-2026. Standaardmaat, metalen tandwielen, € 19,95 bij Schiffsmodelle-Shop. Controleer de servomaat en hoorn in de M-06-handleiding.</span></label></li>
+        <li><label><input type="checkbox" id="part-accu" data-part checked><span class="name">Accu NiMH 7,2 V, 5000 mAh</span><span class="detail">Besteld op 22-11-2026. Robitronic SC5000T, 132 × 46,5 × 24 mm, € 34,90; hetzelfde pack als de Ortelius. De regelaar werkt volgens Tamiya op 6,6–7,2 V. Controleer de accubak.</span></label></li>
+        <li><label><input type="checkbox" id="part-lader" data-part checked><span class="name">Lader voor NiMH</span><span class="detail">Besteld: de SkyRC S65 van de Ortelius laadt NiMH (6–8 cellen).</span></label></li>
       </ul></div>
       <div class="group"><h3>Carrosserie</h3><ul>
         <li><label><input type="checkbox" id="part-filament" data-part><span class="name">PETG of PLA</span><span class="detail">Carrosserie in delen op schaal 1:10. De printset bevat het geschatte filamentverbruik per onderdeel.</span></label></li>
@@ -2153,7 +2153,7 @@ window.__targa = { camera: camera, controls: controls, goTo: goTo, scene: scene,
   updateChecklist();
   const partBoxes = [...document.querySelectorAll('[data-part]')];
   for (const box of partBoxes) {
-    try { box.checked = localStorage.getItem('porsche-911-targa-1971-onderdeel-' + box.id) === '1'; } catch {}
+    try { const v = localStorage.getItem('porsche-911-targa-1971-onderdeel-' + box.id); if (v !== null) box.checked = v === '1'; } catch {}
     box.addEventListener('change', () => {
       try { localStorage.setItem('porsche-911-targa-1971-onderdeel-' + box.id, box.checked ? '1' : '0'); } catch {}
     });
