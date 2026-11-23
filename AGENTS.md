@@ -51,6 +51,65 @@ Deze afspraken gelden voor de hele repository.
 - Een projectpagina is een volledig HTML-document: `<!doctype html>`,
   `<meta charset="utf-8">` en een viewport-meta.
 
+### Ontwerp van projectpagina's
+
+Het ontwerpvoorbeeld is de Ortelius-pagina:
+[`3d-models/ortelius/index.html`](3d-models/ortelius/index.html). Alle
+projectpagina's, bestellijsten en kijkpagina's volgen die huisstijl. Kopieer
+bij een nieuwe pagina de opbouw en de stijl van dat voorbeeld; bedenk geen
+eigen kleuren, lettertypen of knopstijlen.
+
+- **Lettertypen:** Saira Extra Condensed (koppen en grote getallen), IBM Plex
+  Sans (tekst) en IBM Plex Mono (labels, hints, kleine kopjes), via
+  Google Fonts:
+
+  ```html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@500;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  ```
+
+- **Kleuren:** alleen deze variabelen, met de donkere variant voor
+  `prefers-color-scheme: dark` en `[data-theme="dark"]`:
+
+  ```css
+:root {
+  --ice: #edf2f5; --sheet: #f8fafb; --ink: #14212c; --muted: #536472; --rule: #d3dde4;
+  --hull: #b3261e; --polar: #1f6f94; --stage: #dfe8ee;
+  --display: "Saira Extra Condensed", "Arial Narrow", sans-serif;
+  --body: "IBM Plex Sans", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --ice: #0d1720; --sheet: #142330; --ink: #e4ecf1; --muted: #93a6b4; --rule: #263a4a;
+  --hull: #e0574d; --polar: #6cb8d9; --stage: #0f1e2a; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --ice: #0d1720; --sheet: #142330; --ink: #e4ecf1; --muted: #93a6b4; --rule: #263a4a;
+  --hull: #e0574d; --polar: #6cb8d9; --stage: #0f1e2a; color-scheme: dark }
+  ```
+
+- **Indeling:** één kolom in `.wrap` (maximaal 960 px, 28 px tussenruimte,
+  minimaal 16 px zijmarge). Volgorde: Build Labs-knop, `<header>` met
+  `.eyebrow` (mono, hoofdletters, `--polar`), `<h1>` in Saira met één
+  accentwoord in `<span>` (`--hull`) en een `.lede`. Daarna eventueel een
+  `.note` met de belangrijkste links, dan het model of beeld, de `.specs`-strook
+  en de secties met een `<h2>` in Saira.
+- **Kijkvlak:** model of beeld in `.viewer` (achtergrond `--stage`, rand
+  `--rule`, hoek 6 px) met een mono-hint onderin, bijvoorbeeld
+  "slepen = draaien · scrollen = zoomen".
+- **Knoppen:** pillen in `.controls` (14 px, opvulling 7 × 14 px, 8 px
+  tussenruimte, achtergrond `--sheet`, rand `--rule`). Aan/uit-knoppen hebben een
+  bolletje en `aria-pressed`; de actieve keuze krijgt een `--polar`-rand.
+  Gebruik geen gewone selectievakjes of schakelaars in het kijkgedeelte.
+- **Overige onderdelen:** `.specs` (mono-label, groot Saira-getal),
+  onderdelenlijsten in `.group` met een mono-kopje in `--polar`, notities en
+  panelen met `--sheet` en `--rule`, tabellen in een kaart met mono-kolomkoppen.
+- **Ingebedde kijkers** (iframes en `srcdoc`) krijgen dezelfde kleuren,
+  lettertypen en knoppen; zie het stijlblok `sl-paginastijl` in
+  `3d-models/smit-lloyd-109/index.html`.
+- Controleer een gewijzigde pagina in licht en donker en op telefoonbreedte,
+  zonder horizontaal scrollen.
+
 ## Projectinformatie bijhouden
 
 - Werk bij wijzigingen in projectstatus, versie, hoofdmaten, printbestanden of bouwafhankelijkheden de projectpagina, project-README, tabel in de hoofd-README en homepagekaart samen bij.

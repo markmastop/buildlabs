@@ -5,33 +5,83 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ortelius bestellijst</title>
 <style>.bl-home{justify-self:start;align-self:start;display:inline-flex;align-items:center;gap:8px;width:max-content;margin:0 0 4px;padding:7px 14px 7px 11px;border:1px solid rgba(127,140,150,.45);border-radius:999px;font:500 14px/1 "IBM Plex Sans",system-ui,sans-serif;color:inherit;text-decoration:none;background:transparent;transition:border-color .15s,background .15s}.bl-home:hover{border-color:currentColor;background:rgba(127,140,150,.12)}.bl-home:focus-visible{outline:2px solid currentColor;outline-offset:2px}.bl-home svg{width:15px;height:15px;flex:none}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@500;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-:root{--bg:#f6f7f8;--fg:#17202a;--muted:#5d6b78;--line:#d8dde2;--card:#fff;--accent:#1d3d6e}
-@media (prefers-color-scheme:dark){:root{--bg:#11161c;--fg:#e6ebf0;--muted:#9aa8b5;--line:#2a333d;--card:#171e26;--accent:#8fb3e8}}
-body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 "IBM Plex Sans",system-ui,sans-serif}
-main{max-width:1360px;margin:0 auto;padding:24px 16px 64px;display:grid;gap:18px}
-h1{margin:4px 0 0;font-size:28px}h2{margin:18px 0 6px;font-size:19px}
-p{margin:0;color:var(--muted)}
-.wrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:10px}
-table{width:100%;border-collapse:collapse;font-size:15px}
-th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
-th{font-weight:600;color:var(--muted);font-size:13px}
-td.p{white-space:nowrap;text-align:right;font-variant-numeric:tabular-nums}
-a{color:var(--accent)}
-.tag{font-size:12px;color:var(--muted)}
-.tot{font-weight:600}
-.besteld{display:inline-block;font-size:12px;font-weight:600;border:1px solid currentColor;border-radius:999px;padding:0 7px;margin-left:4px;white-space:nowrap}
+/* Build Labs-huisstijl, voorbeeld: 3d-models/ortelius/index.html */
+:root {
+  --ice: #edf2f5; --sheet: #f8fafb; --ink: #14212c; --muted: #536472; --rule: #d3dde4;
+  --hull: #b3261e; --polar: #1f6f94; --stage: #dfe8ee;
+  --display: "Saira Extra Condensed", "Arial Narrow", sans-serif;
+  --body: "IBM Plex Sans", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --ice: #0d1720; --sheet: #142330; --ink: #e4ecf1; --muted: #93a6b4; --rule: #263a4a;
+  --hull: #e0574d; --polar: #6cb8d9; --stage: #0f1e2a; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --ice: #0d1720; --sheet: #142330; --ink: #e4ecf1; --muted: #93a6b4; --rule: #263a4a;
+  --hull: #e0574d; --polar: #6cb8d9; --stage: #0f1e2a; color-scheme: dark }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--ice); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.55; }
+.wrap { max-width: 960px; margin: 0 auto; padding-block: 28px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 28px; }
+header { display: grid; gap: 4px; }
+.eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--polar); margin: 0; }
+h1 { font-family: var(--display); font-weight: 700; font-size: clamp(44px, 9vw, 76px); line-height: .9; margin: 0; letter-spacing: .01em; text-wrap: balance; }
+h1 span { color: var(--hull); }
+.lede { color: var(--muted); max-width: 60ch; margin: 6px 0 0; }
+h2 { font-family: var(--display); font-weight: 700; font-size: 34px; line-height: 1; margin: 0; }
+h3 { font-family: var(--mono); font-weight: 500; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--polar); margin: 0 0 6px; }
+a { color: var(--polar); text-underline-offset: .18em; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--polar); outline-offset: 2px; }
+.note { background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 16px; font-size: 14px; color: var(--muted); margin: 0; }
+.note strong { color: var(--ink); font-weight: 500; }
+.viewer { background: var(--stage); border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; position: relative; margin: 0; }
+.viewer img { display: block; width: 100%; height: auto; }
+.viewer figcaption { padding: 8px 14px; font: 12px var(--mono); color: var(--muted); }
+.panel { background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; padding: 16px 18px; }
+.panel ul, .panel ol { margin: 0; padding-left: 1.2em; }
+.panel li + li { margin-top: 5px; }
+.specs { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); border-top: 2px solid var(--ink); border-bottom: 1px solid var(--rule); margin: 0; }
+.spec { padding: 12px 12px 12px 0; display: grid; gap: 2px; }
+.spec dt { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.spec dd { margin: 0; font-family: var(--display); font-weight: 500; font-size: 30px; line-height: 1; font-variant-numeric: tabular-nums; }
+.spec dd small { font-family: var(--body); font-size: 13px; color: var(--muted); margin-left: 3px; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.controls button, .pill { font: 500 14px var(--body); color: var(--ink); background: var(--sheet); border: 1px solid var(--rule);
+  border-radius: 999px; padding: 7px 14px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; }
+.controls button[aria-pressed]::before { content: ""; width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid var(--muted); }
+.controls button[aria-pressed="true"] { border-color: var(--polar); }
+.controls button[aria-pressed="true"]::before { background: var(--polar); border-color: var(--polar); }
+.controls button:disabled { opacity: .45; cursor: default; }
+.pill.primary { background: var(--ink); color: var(--ice); border-color: var(--ink); }
+main.wrap { gap: 16px; }
+main.wrap > p { margin: 0; color: var(--muted); max-width: 75ch; }
+main.wrap > p strong { color: var(--ink); font-weight: 500; }
+main.wrap > h2 { margin-top: 18px; }
+.table-card { overflow-x: auto; background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; }
+th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+th { font: 500 11px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+td.p, th.p { white-space: nowrap; text-align: right; font-variant-numeric: tabular-nums; }
+.tag { font-size: 12px; color: var(--muted); }
+.tot { font-weight: 500; }
+.besteld { display: inline-block; font: 500 11px var(--mono); border: 1px solid var(--polar); color: var(--polar); border-radius: 999px; padding: 1px 8px; margin-left: 4px; white-space: nowrap; }
 </style>
 </head>
 <body>
-<main>
+<main class="wrap">
 <a class="bl-home" href="../../index.html" aria-label="Terug naar het Build Labs-overzicht"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/></svg>Build Labs</a>
-<h1>Ortelius · bestellijst</h1>
+<header><p class="eyebrow">Ortelius RC · onderdelen</p><h1>Ortelius <span>bestellijst</span></h1></header>
 <p>Alles voor de pasproef, de eerste vaarproef en het bouwen in <strong>één bestelling bij <a href="https://www.schiffsmodelle-shop.de/">Schiffsmodelle-Shop (JOJO)</a></strong>, Duitsland. Alleen de zender (Droneshop.nl) en het PETG (<a href="https://eu.store.bambulab.com/">Bambu Lab EU-store</a>) koop je ergens anders. Prijzen incl. btw, excl. verzending, gecontroleerd op 16 november 2026 (schroefas, koppeling, accu, lader en laadkabel op 21 november 2026); "—" betekent dat de winkelpagina geen prijs liet zien. De types volgen de <a href="cad/aandrijving/README.md">maatbasis van de p3-aandrijving</a>.</p>
 <p><strong>Eerste bestelling geplaatst op 22 november 2026:</strong> alles voor de pasproef, het stuurwerk, de lader en de onderdelen voor de <a href="../porsche-911-targa-1971/bestellen.html">911</a>, € 227,80 inclusief verzending. Verwachte levering 27 november – 1 december 2026. De bestelde onderdelen hebben het label <span class="besteld">✓ besteld</span>.</p>
 
 <h2>Aandrijving</h2>
-<div class="wrap"><table>
+<div class="table-card"><table>
 <tr><th>Aantal</th><th>Onderdeel</th><th class="p">Prijs</th></tr>
 <tr><td>1</td><td><a href="https://www.schiffsmodelle-shop.de/Schiffswelle-236mm-M4">Raboesch 301-24 schroefas</a> · RVS-as Ø4 × 236 mm, stevenbuis Ø6 × 200 mm, M4, onderhoudsvrij <span class="tag">leverbaar, levertijd 2–4 werkdagen</span> <span class="besteld">✓ besteld</span></td><td class="p">€ 36,00</td></tr>
 <tr><td>1</td><td><a href="https://www.schiffsmodelle-shop.de/D-Type-Propeller-3-Blatt-40mm-M4-R">Raboesch 156-05 schroef</a> · messing, 3 bladen, Ø40 mm, M4, rechtsdraaiend, spoed 35,6 mm <span class="besteld">✓ besteld</span></td><td class="p">€ 16,90</td></tr>
@@ -42,7 +92,7 @@ a{color:var(--accent)}
 
 <h2>Besturing en stroom om te testen</h2>
 <p>De zender koop je bij Droneshop.nl, zie hieronder.</p>
-<div class="wrap"><table>
+<div class="table-card"><table>
 <tr><th>Aantal</th><th>Onderdeel</th><th class="p">Prijs</th></tr>
 <tr><td>2</td><td><a href="https://schiffsmodelle-shop.de/en/speed-controller-brushed/23169-boat-esc-quicrun-1060-brushed-60a.html">Hobbywing QuicRun 1060 boat</a> · 60 A, 2–3S, vooruit/achteruit, BEC 6 V, waterdicht · één voor de hoofdmotor, één voor de boegschroef <span class="tag">zet beide op NiMH (jumper of programmering); knip bij de tweede regelaar de rode draad in de ontvangerstekker door, zodat er maar één BEC de ontvanger voedt</span></td><td class="p">€ 49,80</td></tr>
 <tr><td>1</td><td><a href="https://schiffsmodelle-shop.de/en/151-bow-thrusters">Raboesch boegschroef "Bow Thruster 22mm"</a> (rb108-03) · buis 19/22 × 154 mm, met gemonteerde 7,2 V-motor, draait direct op de 7,2 V-accu <span class="tag">buis inkorten tot de rompbreedte (ca. 9 cm)</span></td><td class="p">€ 43,95</td></tr>
@@ -58,7 +108,7 @@ a{color:var(--accent)}
 
 <h2>Lijm en plamuur voor PETG</h2>
 <p>PETG laat zich niet oplossen zoals ABS of styreen, dus plastic lijm (UHU allplast, Plastic Glue) werkt niet. Schuur de lijmvlakken altijd op (korrel 120) en ontvet ze met isopropylalcohol.</p>
-<div class="wrap"><table>
+<div class="table-card"><table>
 <tr><th>Aantal</th><th>Product</th><th>Waarvoor</th><th class="p">Prijs</th></tr>
 <tr><td>1</td><td><a href="https://www.schiffsmodelle-shop.de/Epoxy-resin-L-hardener-S-15-min-280ml">Epoxyhars L + harder S (15 min), 280 ml</a></td><td>Romp: de rompdelen en lasstroken verlijmen, de binnenkant coaten en het glasweefsel inleggen</td><td class="p">€ 11,00</td></tr>
 <tr><td>1</td><td><a href="https://www.schiffsmodelle-shop.de/GlueCoating">Glasweefsel 80 g/m², 1 × 1 m</a></td><td>Stroken over de naden aan de binnenkant <span class="tag">80 g/m² niet in de shop gevonden; de link opent de categorie. Alleen "Glass Filament Finish 24 g/m²" (€ 7,60) is er: veel lichter</span></td><td class="p">€ 8,00</td></tr>
@@ -71,7 +121,7 @@ a{color:var(--accent)}
 <p>Grotere oneffenheden op de romp vul je met het epoxyhars, dikgemaakt tot pasta. Daar is geen aparte plamuur voor nodig.</p>
 
 <h2>Bij Droneshop.nl: zender</h2>
-<div class="wrap"><table>
+<div class="table-card"><table>
 <tr><th>Aantal</th><th>Onderdeel</th><th class="p">Prijs</th></tr>
 <tr><td>1</td><td><a href="https://droneshop.nl/">FlySky ST8 zender met FS-SR8 ontvanger</a> (art.nr. 110794) · zender 10 kanalen, ontvanger 8: roer, gas, boegschroef, licht, kraan (2), radar en 1 reserve <span class="tag">ANT-protocol; kijk of het Mode 2 is (gas links); zelf 4× AA-batterij erbij</span></td><td class="p">€ 89,00</td></tr>
 </table></div>
