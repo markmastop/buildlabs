@@ -1,20 +1,27 @@
 # Pasmal Smit-Lloyd 109 voor de Bambu Lab P2S
 
-De vlakke mal volgt het plaatsingsvoorstel van 380 × 200 mm. De achteruitsparing volgt de v17-CAD met asymmetrische armen, een knik en afgeronde uiteinden. De achterste stations zijn 30 mm naar voren geplaatst en de achtercontour is naar buiten verbreed tot 200 mm. De voorblokjes hebben schematische verbindingsbruggetjes. Gebruik de mal om de ruimte op het
-dek en de plaats van de opbouw te beoordelen.
+De vlakke mal volgt de v17-voetafdruk uit `CAD/build.py`: 410 × 189 mm
+inclusief het voorblok. De achteruitsparing heeft de asymmetrische armen, de
+knikken, de inkeping en de afgeronde uiteinden van v17. De naad tussen de
+helften ligt op dezelfde plek als de naad tussen de onderdekhuisdelen 02 en 03.
+Gebruik de mal om de ruimte op het dek en de plaats van de opbouw te beoordelen.
 
 | Printbestand | Buitenmaten |
 | --- | --- |
-| [Voorste helft](01_dekmal_voor.stl) | 190 × 180 × 2,9 mm |
-| [Achterste helft](02_dekmal_achter.stl) | 190 × 200 × 2,9 mm |
+| [Voorste helft](01_dekmal_voor.stl) | 215 × 180 × 2,9 mm |
+| [Achterste helft](02_dekmal_achter.stl) | 195 × 189 × 2,9 mm |
 | [Losse pasproef voor de dekopening](00_pasproef.stl) | 212 × 160 × 8 mm inclusief flens |
+
+Het Bambu Studio-project [`pasmallen.3mf`](pasmallen.3mf) bevat nog de vorige
+dekmal van 380 × 200 mm. Vervang daarin de twee dekmalhelften door de STL's
+hierboven voordat je het project gebruikt.
 
 1. Print de twee helften vlak zoals ze openen, op 100% schaal. Gebruik
    bijvoorbeeld PLA, laaghoogte 0,2 mm, drie wanden en 15% vulling. De vlakke
    helften hebben geen supports nodig. Print ze ieder op een eigen plaat.
 2. Leg de rechte naden tegen elkaar met de verhoogde markeringen boven.
    Lijn de buitenranden bij de naad uit en plak de helften op een vlakke
-   ondergrond met schilderstape aan elkaar. Controleer 380 mm totaal.
+   ondergrond met schilderstape aan elkaar. Controleer 410 mm totaal.
 3. Test de losse pasproef in de opening van 205 × 153 mm met de insteekrand
    omlaag. Die rand meet 204 × 152 mm en steekt 6 mm onder de flens uit.
 4. Plaats de mal boven de pasproef met het voorblok naar de boeg. De vier
