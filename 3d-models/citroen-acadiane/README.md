@@ -1,6 +1,6 @@
 # Citroën Acadiane RC
 
-**Status: vormstudie v2.** Blauwe Acadiane-opbouw op het Tamiya M-05-chassis
+**Status: vormstudie v2.** Antracietgrijze Acadiane-opbouw op het Tamiya M-05-chassis
 met voorwielaandrijving. De opbouw gebruikt de lange wielbasis van 239 mm.
 De fysieke passing moet nog worden bepaald. V1 bevatte het losse chassis.
 
