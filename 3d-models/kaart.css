@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap");
+
 html.kaart, html.kaart body { margin: 0; overflow: hidden; }
 .kaart .wrap, .kaart .wrap > :has(> .viewer) {
   display: block !important;
@@ -22,19 +24,32 @@ html.kaart, html.kaart body { margin: 0; overflow: hidden; }
 .kaart .viewer canvas[hidden] { display: none; }
 .kaart .viewer canvas:active { cursor: grabbing; }
 .kaart-rotatie {
+  --rotatie-achtergrond: #f8fafb;
+  --rotatie-tekst: #14212c;
+  --rotatie-rand: #d3dde4;
+  --rotatie-focus: #1f6f94;
+  appearance: none;
   position: absolute;
   z-index: 1;
   right: 8px;
   bottom: 8px;
   padding: 5px 9px;
-  border: 1px solid var(--rule);
+  border: 1px solid var(--rotatie-rand);
   border-radius: 999px;
-  background: var(--sheet, #f8fafb);
-  color: var(--ink, #14212c);
-  font: 500 12px var(--mono, "IBM Plex Mono", monospace);
+  background: var(--rotatie-achtergrond);
+  color: var(--rotatie-tekst);
+  font: 500 12px/16px "IBM Plex Mono", monospace;
   cursor: pointer;
 }
-.kaart-rotatie:focus-visible { outline: 2px solid var(--polar); outline-offset: 2px; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .kaart-rotatie {
+    --rotatie-achtergrond: #142330;
+    --rotatie-tekst: #e4ecf1;
+    --rotatie-rand: #263a4a;
+    --rotatie-focus: #6cb8d9;
+  }
+}
+.kaart-rotatie:focus-visible { outline: 2px solid var(--rotatie-focus); outline-offset: 2px; }
 .kaart canvas#stage, .kaart .viewer > canvas { width: 100%; height: 100%; }
 
 /* De lucht en blauwe waterkleur van de Ortelius-kaart. */
