@@ -78,9 +78,9 @@ html.preview #stage { height: 100vh; touch-action: auto; }
 <div class="wrap">
   <a class="bl-home" href="../../index.html" aria-label="Terug naar het Build Labs-overzicht"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/></svg>Build Labs</a>
   <header>
-    <div class="eyebrow">Vormstudie v3 · RC-schaal 1:10</div>
+    <div class="eyebrow">Vormstudie v4 · RC-schaal 1:10</div>
     <h1>Citroën <span>Acadiane</span> RC</h1>
-    <p class="lede">Blauwgrijze Acadiane op het Tamiya M-05-chassis, met een gewelfde motorkap, bolle voorspatborden en een geribde laadbak met dubbele achterdeuren.</p>
+    <p class="lede">Blauwgrijze Acadiane Mixta op het Tamiya M-05-chassis, met breed schuifraam, geribde laadbak en een hoger uitgesneden voorste wielkast.</p>
   </header>
 
   <section class="model" aria-label="3D-kijker">
@@ -113,7 +113,7 @@ html.preview #stage { height: 100vh; touch-action: auto; }
     <div class="spec"><dt>Wielbasis</dt><dd><span id="wheelbase" aria-live="polite">239</span> <small>mm</small></dd></div>
     <div class="spec"><dt>Spoorbreedte</dt><dd>138 <small>mm</small></dd></div>
     <div class="spec"><dt>Band Ø × breedte</dt><dd>59 × 25 <small>mm</small></dd></div>
-    <div class="spec"><dt>Lengte opbouw</dt><dd>ca. 410 <small>mm</small></dd></div>
+    <div class="spec"><dt>Lengte opbouw</dt><dd>ca. 365 <small>mm</small></dd></div>
   </dl>
 
   <section>
@@ -164,12 +164,14 @@ html.preview #stage { height: 100vh; touch-action: auto; }
   const chassis = new T.Group();
   const rear = new T.Group();
   const spine = new T.Group();
+  const chassisUnderfloor = new T.Group();
   const frontX = 11.95;
   const track = 13.8;
   const radius = 2.95;
   const halfWidth = 1.25;
   scene.add(chassis);
-  chassis.add(rear, spine);
+  chassis.add(rear, chassisUnderfloor);
+  chassisUnderfloor.add(spine);
   const material = (color, roughness = .52) => new T.MeshStandardMaterial({ color, roughness });
   const plastic = material(0x323943);
   const rubber = material(0x20242a, .9);
@@ -202,19 +204,19 @@ html.preview #stage { height: 100vh; touch-action: auto; }
   // Lage kuip met accuvak en een uitschuifbare aansluiting voor de achtersectie.
   const outline = [[-7.3, 2.3], [-5, 3.4], [5.4, 3.4], [8.5, 2.6], [11, 1.8]];
   const contour = outline.concat(outline.slice().reverse().map(([x, z]) => [x, -z]));
-  const pan = add(chassis, new T.ExtrudeGeometry(new T.Shape(contour.map(([x, z]) =>
+  const pan = add(chassisUnderfloor, new T.ExtrudeGeometry(new T.Shape(contour.map(([x, z]) =>
     new T.Vector2(x, -z))), { depth: .48, bevelEnabled: false }), plastic, 0, .65, 0);
   pan.rotation.x = -Math.PI / 2;
   for (const side of [-1, 1]) {
-    box(chassis, [11.5, 1.45, .38], plastic, .1, 1.7, side * 3.13);
+    box(chassisUnderfloor, [11.5, 1.45, .38], plastic, .1, 1.7, side * 3.13);
     box(spine, [1, 1.2, .55], plastic, 0, 1.52, side * 1.65);
   }
-  rod(chassis, [-.3, 2.15, -3.45], [-.3, 2.15, 3.45], 1.23, battery);
-  box(chassis, [2.7, .28, 6.35], plastic, -.3, 3.5, 0);
-  box(chassis, [3.2, 1.6, 2.05], plastic, 4.5, 2.35, 0);
+  rod(chassisUnderfloor, [-.3, 2.15, -3.45], [-.3, 2.15, 3.45], 1.23, battery);
+  box(chassisUnderfloor, [2.7, .28, 6.35], plastic, -.3, 3.5, 0);
+  box(chassisUnderfloor, [3.2, 1.6, 2.05], plastic, 4.5, 2.35, 0);
 
   // Bij de M-05 liggen de motor en tandwielkast aan de aangedreven voorzijde.
-  rod(chassis, [8.65, 3.05, -2.65], [8.65, 3.05, 1.7], 1.78, steel);
+  rod(chassisUnderfloor, [8.65, 3.05, -2.65], [8.65, 3.05, 1.7], 1.78, steel);
   box(chassis, [3.1, 3.3, 3.35], plastic, 10.35, 3.05, 2.05);
   const chassisBumper = box(chassis, [1.2, 1, 7.4], rubber, 14, 1.6, 0);
   rod(chassis, [12.9, 2.1, 0], [12.9, 6.6, 0], .23, plastic);
@@ -380,22 +382,16 @@ html.preview #stage { height: 100vh; touch-action: auto; }
     line(outline.map(([x, y]) => project(x, y, .046)), .056, bumperRubber, true);
   }
 
-  function wheelhouse(axle, arch, side) {
-    surface(34, 7, (u, v) => {
-      const a = mix(Math.PI - .20, .20, u);
-      return [axle + arch * Math.cos(a), radius + arch * Math.sin(a) * v, side * 5.44];
-    }, seal);
-  }
-
-  const cargoStart = -20.52, cargoEnd = -4.55, cargoBelt = 10.75;
+  const cargoStart = -18.94, cargoEnd = -2.79, cargoBelt = 9.68;
+  const cargoSill = x => mix(4.75, 3.86, T.MathUtils.smoothstep(x, rearX - 3.0, rearX + 3.0));
   // X, breedte bij de sierlijst, schouderhoogte, dakrand en bolling van het dak.
   const cargoStations = [
-    [cargoStart, 7.73, 15.75, 17.44, .17],
-    [-20.25, 8.14, 15.98, 17.82, .21],
-    [-19.65, 8.45, 16.06, 18.04, .22],
-    [-6.10, 8.45, 16.06, 18.04, .22],
-    [-5.18, 8.35, 15.98, 17.94, .22],
-    [cargoEnd, 7.85, 15.72, 17.52, .16],
+    [cargoStart, 7.73, 14.29, 15.37, .17],
+    [-18.71, 8.14, 14.47, 15.58, .19],
+    [-18.11, 8.45, 14.65, 15.68, .19],
+    [-3.61, 8.45, 14.65, 15.68, .19],
+    [-3.09, 8.35, 14.57, 15.62, .19],
+    [cargoEnd, 7.85, 14.40, 15.48, .18],
   ];
   function cargoTop(x, v) {
     const [width, shoulder, edge, crown] = profile(cargoStations, x);
@@ -421,17 +417,27 @@ html.preview #stage { height: 100vh; touch-action: auto; }
     return [x, y, side * (width + .045 * Math.sin(t * Math.PI) - .22 * sill * sill + lift)];
   }
 
-  function wheelEdge(start, end, axle, arch, sill) {
-    const angle = Math.asin((sill - radius) / arch);
-    const left = axle - arch * Math.cos(angle);
-    const right = axle + arch * Math.cos(angle);
-    const edge = Array.from({length: 21}, (_, i) => [mix(start, left, i / 20), sill]);
-    for (let i = 1; i <= 48; i++) {
-      const t = mix(Math.PI - angle, angle, i / 48);
-      edge.push([axle + arch * Math.cos(t), radius + arch * Math.sin(t)]);
-    }
-    for (let i = 1; i <= 20; i++) edge.push([mix(right, end, i / 20), sill]);
-    return edge;
+  function wheelEdge(start, end, axle, opening, sill) {
+    const stations = opening.map(([offset, y]) => [axle + offset, y ?? sill(axle + offset)]);
+    const left = stations[0][0], right = stations.at(-1)[0];
+    const sample = (from, to, count, height) => Array.from({length: count}, (_, i) => {
+      const x = mix(from, to, i / count);
+      return [x, height(x)];
+    });
+    return [...sample(start, left, 24, sill),
+      ...sample(left, right, 64, x => profile(stations, x)[0]),
+      ...sample(right, end, 16, sill), [end, sill(end)]];
+  }
+
+  // De achterwand van de wielkast volgt de uitsparing, achter de binnenkant van de band.
+  function wheelhouse(axle, opening, sill, side) {
+    const stations = opening.map(([offset, y]) => [axle + offset, y ?? sill(axle + offset)]);
+    const start = stations[0][0], end = stations.at(-1)[0];
+    surface(48, 8, (u, v) => {
+      const x = mix(start, end, u);
+      const upper = Math.max(sill(x), profile(stations, x)[0]) + .31;
+      return [x, mix(sill(x) - .16, upper, v), side * 5.32];
+    }, seal);
   }
 
   function sampleEdge(edge, u) {
@@ -440,10 +446,12 @@ html.preview #stage { height: 100vh; touch-action: auto; }
     return edge[index].map((value, col) => mix(value, edge[index + 1][col], step));
   }
 
-  const rearArch = 3.26, rearSill = 3.92;
-  const wheelOpening = wheelEdge(cargoStart, cargoEnd, rearX, rearArch, rearSill);
+  const rearOpening = [[-3.30], [-2.64, 5.21], [-1.61, 5.90], [-.40, 6.16],
+    [.63, 6.08], [1.69, 5.60], [2.61, 4.80], [3.08, 4.02], [3.24]];
+  const wheelOpening = wheelEdge(cargoStart, cargoEnd, rearX, rearOpening, cargoSill);
+  const serviceSeam = -9.41;
   for (const side of [-1, 1]) {
-    wheelhouse(rearX, rearArch + .28, side);
+    wheelhouse(rearX, rearOpening, cargoSill, side);
     surface(wheelOpening.length - 1, 20, (u, v) => {
       const [x, y] = sampleEdge(wheelOpening, u);
       return cargoSide(x, mix(y, cargoBelt, v), side);
@@ -454,30 +462,49 @@ html.preview #stage { height: 100vh; touch-action: auto; }
     }, bumperRubber);
 
     const project = (x, y, lift) => cargoSide(x, y, side, lift);
-    glazedPanel([[-10.23, 11.15], [-5.97, 11.15], [-5.97, 15.74], [-10.23, 15.74]],
-      project, .6, [.10, .086]);
-    const rail = Array.from({length: 21}, (_, i) => project(mix(-20.28, -5.05, i / 20), cargoBelt, .03));
-    line(rail, .135, paint);
+    glazedPanel([[-13.10, 9.99], [-3.60, 9.99], [-3.60, 13.96], [-13.10, 13.96]],
+      project, .65, [.043, .085]);
+    line([project(-8.34, 10.18, .092), project(-8.34, 13.79, .092)], .102, satin);
+    const rail = Array.from({length: 23}, (_, i) => project(mix(cargoStart + .13, cargoEnd - .21, i / 22),
+      cargoBelt, .042));
+    line(rail, .164, paint);
+    const service = roundedOutline([[serviceSeam, 4.02], [-3.00, 4.02], [-3.00, 9.50],
+      [serviceSeam, 9.50]], .16);
+    line(service.map(([x, y]) => project(x, y, .018)), .044, seal, true);
 
-    for (let row = 0; row < 8; row++) {
-      const y = 4.96 + row * .66;
-      const cut = Math.sqrt(Math.max(0, (rearArch + .18) ** 2 - (y - radius) ** 2));
-      const runs = cut ? [[-19.7, rearX - cut], [rearX + cut, -5.31]] : [[-19.7, -5.31]];
-      for (const [start, end] of runs) {
-        surface(24, 6, (u, v) => project(mix(start, end, u), y + (v - .5) * .25,
-          .005 + .105 * Math.sin(v * Math.PI) * Math.min(1, u * 18, (1 - u) * 18)), paint);
+    for (let row = 0; row < 7; row++) {
+      const y = 4.39 + row * .70;
+      const spans = [[cargoStart + .22, serviceSeam - .10], [serviceSeam + .11, cargoEnd - .25]];
+      const crossing = wheelOpening.flatMap(([x, edgeY], i) => {
+        if (i === 0) return [];
+        const [px, py] = wheelOpening[i - 1];
+        const limit = y - .23;
+        if ((py < limit) === (edgeY < limit)) return [];
+        return [mix(px, x, (limit - py) / (edgeY - py))];
+      });
+      const limits = [cargoStart, ...crossing, cargoEnd];
+      for (let i = 1; i < limits.length; i++) {
+        const left = limits[i - 1], right = limits[i];
+        const edge = wheelOpening.find(([x]) => x >= (left + right) / 2);
+        if (edge[1] >= y - .23) continue;
+        for (const [spanStart, spanEnd] of spans) {
+          const start = Math.max(left, spanStart), end = Math.min(right, spanEnd);
+          if (end - start < .21) continue;
+          surface(28, 6, (u, v) => project(mix(start, end, u), y + (v - .5) * .31,
+            .005 + .14 * Math.sin(v * Math.PI) * Math.min(1, u * 19, (1 - u) * 19)), paint);
+        }
       }
     }
     if (side === 1) {
-      const [x, y, z] = project(-8.25, 9.57, .07);
-      rod(body, [x, y, z], [x, y, z + .1], .45, seal);
-      rod(body, [x, y, z + .1], [x, y, z + .16], .33, satin);
+      const [x, y, z] = project(-6.49, 8.41, .07);
+      rod(body, [x, y, z], [x, y, z + .14], .43, seal);
+      rod(body, [x, y, z + .14], [x, y, z + .20], .33, satin);
     }
   }
   // Licht geperste ribben in het lange, licht gewelfde dak.
   for (const v of [.33, .41, .5, .59, .67]) {
     const points = Array.from({length: 16}, (_, i) => {
-      const [x, y, z] = cargoTop(mix(-19.25, -5.68, i / 15), v);
+      const [x, y, z] = cargoTop(mix(cargoStart + 1.0, cargoEnd - .79, i / 15), v);
       return [x, y + .035, z];
     });
     line(points, .063, paint);
@@ -487,17 +514,17 @@ html.preview #stage { height: 100vh; touch-action: auto; }
   // en naar voren uit bij de onderrand van de voorruit.
   const cabStations = [
     // hoogte, achterzijde, voorzijde, halve breedte achter, halve breedte voor
-    [4.18, -4.91, 6.80, 6.74, 6.30],
-    [4.52, -4.98, 7.05, 7.02, 6.58],
-    [7.85, -4.96, 7.47, 7.21, 6.72],
-    [10.30, -4.93, 6.53, 7.23, 6.74],
-    [11.02, -4.91, 5.98, 7.19, 6.62],
-    [13.20, -4.87, 4.21, 7.00, 6.24],
-    [14.92, -4.79, 2.71, 6.75, 5.97],
-    [15.60, -4.69, 1.97, 6.42, 5.67],
-    [16.15, -4.56, 1.06, 5.78, 5.11],
-    [16.53, -4.36, -.10, 4.82, 4.42],
-    [16.62, -4.24, -.96, 3.76, 3.55],
+    [3.74, -3.01, 6.79, 6.74, 6.27],
+    [4.04, -3.04, 7.04, 7.02, 6.56],
+    [7.15, -3.04, 7.20, 7.21, 6.73],
+    [8.72, -3.03, 6.23, 7.23, 6.76],
+    [9.42, -3.03, 5.76, 7.21, 6.68],
+    [11.20, -3.03, 4.16, 7.03, 6.32],
+    [12.97, -3.00, 2.52, 6.79, 6.02],
+    [13.62, -2.96, 1.85, 6.52, 5.76],
+    [14.13, -2.87, 1.07, 5.90, 5.25],
+    [14.48, -2.76, .19, 5.07, 4.55],
+    [14.61, -2.63, -.68, 3.81, 3.58],
   ];
   const cabBottom = cabStations[0][0], cabRoof = cabStations.at(-1)[0];
   function cabSide(x, y, side, lift = 0) {
@@ -528,50 +555,56 @@ html.preview #stage { height: 100vh; touch-action: auto; }
       const [back, front] = profile(cabStations, y);
       return project(mix(back, front, u), y);
     }, paint);
-    glazedPanel([[-4.19, 10.46], [5.55, 10.46], [2.23, 14.87], [-4.19, 14.87]],
+    glazedPanel([[-1.35, 9.65], [4.74, 9.65], [1.93, 13.23], [-2.10, 13.23]],
       project, .66, [.065, .11]);
-    const split = [[3.78, 10.56], [2.68, 12.36], [1.58, 14.18], [1.15, 14.74]];
+    const split = [[2.89, 9.73], [2.24, 11.14], [1.56, 12.63], [1.30, 13.15]];
     line(split.map(([x, y]) => project(x, y, .094)), .142, seal);
 
-    const door = roundedOutline([[-4.43, 4.64], [5.58, 4.64],
-      [5.97, 10.50], [2.35, 15.08], [-4.43, 15.08]], .48);
-    line(door.map(([x, y]) => project(x, y, .023)), .059, seal, true);
-    line(Array.from({length: 14}, (_, i) => project(mix(-4.55, 5.64, i / 13), 4.82, .055)), .11, paint);
-    line(Array.from({length: 14}, (_, i) => project(mix(-4.28, 5.60, i / 13), 10.29, .039)), .079, paint);
-    const [hx, hy, hz] = project(-3.33, 9.87, .09);
+    const door = roundedOutline([[-1.47, 3.93], [5.94, 3.93],
+      [5.99, 8.78], [5.14, 9.95], [2.18, 13.49], [-2.35, 13.49]], .48);
+    const doorSeam = door.flatMap(([x, y], i) => {
+      const [nextX, nextY] = door[(i + 1) % door.length];
+      const count = Math.max(1, Math.ceil(Math.hypot(nextX - x, nextY - y) / .38));
+      return Array.from({length: count}, (_, step) =>
+        project(mix(x, nextX, step / count), mix(y, nextY, step / count), .027));
+    });
+    line(doorSeam, .059, seal, true);
+    line(Array.from({length: 14}, (_, i) => project(mix(-2.82, 5.95, i / 13), 4.31, .055)), .11, paint);
+    line(Array.from({length: 14}, (_, i) => project(mix(-2.78, 5.87, i / 13), 8.76, .039)), .079, paint);
+    const [hx, hy, hz] = project(-.93, 8.65, .09);
     rod(body, [hx - .70, hy, hz + side * .06], [hx + .47, hy, hz + side * .08], .10, satin);
     rod(body, [hx - .51, hy, hz], [hx - .51, hy, hz + side * .14], .17, seal);
 
-    const arm = [project(4.75, 10.23, .10), [4.42, 10.41, side * 8.02], [4.13, 10.60, side * 8.82]];
+    const arm = [project(4.91, 9.58, .10), [4.58, 9.76, side * 8.02], [4.29, 9.95, side * 8.82]];
     line(arm, .119, satin);
-    const mirrorCorners = roundedOutline([[8.40, 10.38], [9.55, 10.41], [9.57, 11.13], [8.48, 11.12]], .21);
-    const mirror = (z, y, lift) => [4.13 + .18 * (z - 8.85) - lift, y, side * z];
+    const mirrorCorners = roundedOutline([[8.40, 9.73], [9.55, 9.76], [9.57, 10.48], [8.48, 10.47]], .21);
+    const mirror = (z, y, lift) => [4.29 + .18 * (z - 8.85) - lift, y, side * z];
     decal(mirrorCorners, mirror, chrome, .035);
-    decal(roundedOutline([[8.55, 10.49], [9.44, 10.50], [9.44, 11.01], [8.59, 11.01]], .15), mirror, seal, .055);
+    decal(roundedOutline([[8.55, 9.84], [9.44, 9.85], [9.44, 10.36], [8.59, 10.36]], .15), mirror, seal, .055);
     line(mirrorCorners.map(([z, y]) => mirror(z, y, 0)), .195, chrome, true);
   }
 
-  glazedPanel([[-5.65, 11.14], [5.65, 11.14], [5.36, 14.88], [-5.36, 14.88]],
+  glazedPanel([[-5.65, 9.75], [5.65, 9.75], [5.36, 13.27], [-5.36, 13.27]],
     cabFront, .58, [.055, .075]);
   for (const z of [-2.91, 2.30]) {
-    const mount = cabFront(z, 11.16, .115);
-    const elbow = cabFront(z + .94, 12.58, .147);
-    const blade = cabFront(z + 2.04, 13.83, .118);
+    const mount = cabFront(z, 9.77, .115);
+    const elbow = cabFront(z + .94, 11.13, .147);
+    const blade = cabFront(z + 2.04, 12.33, .118);
     line([mount, elbow, blade], .078, satin);
-    line([cabFront(z + .93, 12.56, .117), cabFront(z + 2.35, 13.98, .112)], .106, seal);
+    line([cabFront(z + .93, 11.11, .117), cabFront(z + 2.35, 12.48, .112)], .106, seal);
   }
 
   // Afgeronde motorkap. De twee perslijnen vernauwen richting de grille.
   const bonnetStations = [
     // X, halve breedte, hoogte midden, hoogte naad, perslijnsterkte
-    [5.96, 6.89, 10.70, 10.10, .06],
-    [7.25, 6.91, 10.69, 9.97, .17],
-    [9.8, 6.58, 10.24, 9.24, .215],
-    [12.1, 6.15, 9.62, 8.60, .23],
-    [14.63, 5.59, 8.86, 7.76, .20],
-    [16.78, 4.99, 8.03, 7.02, .18],
-    [18.40, 4.44, 7.50, 6.40, .085],
-    [18.89, 4.10, 7.19, 6.12, 0],
+    [5.69, 6.89, 9.53, 8.86, .06],
+    [7.08, 6.91, 9.35, 8.69, .17],
+    [9.42, 6.58, 8.93, 8.41, .215],
+    [11.95, 6.15, 8.35, 7.92, .23],
+    [13.68, 5.55, 7.95, 7.55, .20],
+    [14.66, 4.99, 7.64, 7.11, .18],
+    [15.52, 4.44, 7.37, 6.42, .085],
+    [15.84, 4.10, 7.19, 6.12, 0],
   ];
   function bonnet(x, u, lift = 0) {
     const [width, peak, edge, press] = profile(bonnetStations, x);
@@ -580,7 +613,7 @@ html.preview #stage { height: 100vh; touch-action: auto; }
     const y = mix(peak, edge, .55 * t * t + .45 * t ** 6) + crease;
     return [x, y + lift, width * u];
   }
-  surface(64, 64, (u, v) => bonnet(mix(5.96, 18.89, u), v * 2 - 1), paint);
+  surface(64, 64, (u, v) => bonnet(mix(bonnetStations[0][0], bonnetStations.at(-1)[0], u), v * 2 - 1), paint);
   const cowlSlot = (z, x, lift) => bonnet(x, z / profile(bonnetStations, x)[0], lift);
   decal(roundedOutline([[-3.86, 6.66], [3.86, 6.66], [3.96, 7.21], [-3.96, 7.21]], .22),
     cowlSlot, seal, .036);
@@ -591,24 +624,31 @@ html.preview #stage { height: 100vh; touch-action: auto; }
 
   // De ronde voorschermen lopen vanuit de dorpel over de wielopening naar de
   // koplampen. De buitenrand volgt het wiel; de binnenrand sluit aan op de kap.
-  const frontWingStart = 4.72, frontWingEnd = 18.56, frontSill = 3.82;
-  const wingEdge = wheelEdge(frontWingStart, frontWingEnd, frontX, 3.56, frontSill);
+  const frontWingStart = 6.04, frontWingEnd = 15.51;
+  // De voorkant schuift als geheel mee met de kortere overhang.
+  const noseShift = 3.05;
+  const frontOpening = [[-4.61], [-4.02, 4.24], [-3.35, 5.46], [-2.57, 6.43],
+    [-1.57, 6.94], [-.35, 7.09], [.85, 6.97], [1.92, 6.50], [2.86, 5.55], [3.53]];
+  const frontSill = () => 3.75;
+  const wingEdge = wheelEdge(frontWingStart, frontWingEnd, frontX, frontOpening, frontSill);
   const wingStations = [
     // X, breedte wielrand, hoogte welving, hoogte aansluiting voor de motorkap
-    [frontWingStart, 6.94, 6.13, 7.96],
-    [6.23, 7.22, 8.60, 9.43],
-    [8.05, 8.06, 9.43, 9.72],
-    [10.41, 8.58, 9.23, 9.12],
-    [12.34, 8.72, 8.77, 8.44],
-    [14.47, 8.66, 8.12, 7.78],
-    [16.80, 8.40, 7.46, 7.02],
-    [18.03, 8.03, 7.25, 6.56],
-    [frontWingEnd, 7.66, 6.61, 6.35],
+    [frontWingStart, 6.94, 5.71, 8.27],
+    [6.23, 7.13, 7.12, 8.62],
+    [7.42, 7.45, 7.66, 8.59],
+    [8.66, 8.20, 8.12, 8.40],
+    [10.20, 8.57, 8.14, 8.23],
+    [11.95, 8.72, 7.95, 7.88],
+    [13.64, 8.65, 7.61, 7.50],
+    [14.84, 8.23, 7.25, 7.04],
+    [frontWingEnd, 7.66, 6.63, 6.35],
   ];
   function wingSection(x, rimHeight, side, v) {
-    const [width, crown, joinY] = profile(wingStations, x);
+    const [width, crown, joint] = profile(wingStations, x);
     const bonnetWidth = profile(bonnetStations, x)[0];
     const inner = Math.min(width - .10, bonnetWidth - .19);
+    const hoodEdge = bonnet(x, inner / bonnetWidth)[1];
+    const joinY = mix(joint, hoodEdge - .04, T.MathUtils.smoothstep(x, 5.69, 6.18));
     const k = 1 - v;
     const y = k ** 3 * rimHeight + 3 * k * k * v * mix(rimHeight, crown, .8) +
       3 * k * v * v * (crown + .72) + v ** 3 * joinY;
@@ -618,7 +658,7 @@ html.preview #stage { height: 100vh; touch-action: auto; }
   }
 
   for (const side of [-1, 1]) {
-    wheelhouse(frontX, 3.82, side);
+    wheelhouse(frontX, frontOpening, frontSill, side);
     surface(wingEdge.length - 1, 30, (u, v) => {
       const [x, y] = sampleEdge(wingEdge, u);
       return wingSection(x, y, side, v);
@@ -629,14 +669,14 @@ html.preview #stage { height: 100vh; touch-action: auto; }
       return [outer[0], outer[1] + .12 * Math.sin(Math.PI * v), outer[2] - side * .63 * v];
     }, bumperRubber);
 
-    const seam = Array.from({length: 32}, (_, i) => bonnet(mix(7.13, 18.42, i / 31), side, .025));
+    const seam = Array.from({length: 32}, (_, i) => bonnet(mix(6.12, 15.45, i / 31), side, .025));
     line(seam, .051, seal);
 
     // Afgerond plaatwerk rond de koplamp, aansluitend op de voorkant van het scherm.
     const lampZ = side * 6.84;
     const lampY = 6.62;
     const lampFace = (z, y, lift) => [
-      18.62 - .17 * (y - lampY) - .18 * (side * z - 6.84) + lift, y, z,
+      (18.62 - noseShift) - .17 * (y - lampY) - .18 * (side * z - 6.84) + lift, y, z,
     ];
     const wingFace = roundedOutline([[4.15, 3.83], [7.76, 3.89], [8.29, 4.46],
       [8.25, 6.18], [7.79, 7.21], [6.92, 7.63], [6.07, 7.51], [4.58, 6.46]],
@@ -670,7 +710,7 @@ html.preview #stage { height: 100vh; touch-action: auto; }
 
   // Het front buigt van de brede onderzijde naar de hogere, smallere grille.
   function nose(z, y, lift = 0) {
-    return [19.10 - .018 * z * z - .023 * (y - 5.3) ** 2 + lift, y, z];
+    return [(19.10 - noseShift) - .018 * z * z - .023 * (y - 5.3) ** 2 + lift, y, z];
   }
   decal(roundedOutline([[-7.67, 4.21], [7.67, 4.21], [7.94, 5.44], [5.82, 6.33],
     [4.04, 7.09], [-4.04, 7.09], [-5.82, 6.33], [-7.94, 5.44]], .52), nose, paint, -.10);
@@ -693,7 +733,8 @@ html.preview #stage { height: 100vh; touch-action: auto; }
     surface(30, 8, (u, v) => {
       const x = mix(-8.36, 6.0, u);
       const width = mix(6.78, 6.22, u);
-      return [x, mix(3.13, 4.59, v), side * (width - .45 * (1 - v) ** 2)];
+      const endTaper = .36 * Math.abs(2 * u - 1) ** 6;
+      return [x, mix(2.90 + endTaper, 4.26, v), side * (width - .45 * (1 - v) ** 2)];
     }, bumperRubber);
   }
   decal(roundedOutline([[-7.24, 3.45], [-5.72, 2.94], [5.72, 2.94], [7.24, 3.45],
@@ -701,7 +742,7 @@ html.preview #stage { height: 100vh; touch-action: auto; }
 
   // Chromen bumper met zwart stootprofiel en opstaande bumperbeugels.
   function frontBumper(z, lift = 0) {
-    return [19.33 - .0102 * z * z + lift, 4.73 + .0034 * z * z, z];
+    return [(19.33 - noseShift) - .0102 * z * z + lift, 4.73 + .0034 * z * z, z];
   }
   const bumperPoints = Array.from({length: 27}, (_, i) => frontBumper(mix(-8.0, 8.0, i / 26)));
   surface(44, 18, (u, v) => {
@@ -729,22 +770,22 @@ html.preview #stage { height: 100vh; touch-action: auto; }
     const [, y, z] = cargoTop(cargoStart, i / 64);
     return [-z, y];
   });
-  decal([...backEdge, [-7.57, 3.98], [7.57, 3.98]], cargoBack, paint, .005);
+  decal([...backEdge, [-7.57, cargoSill(cargoStart)], [7.57, cargoSill(cargoStart)]], cargoBack, paint, .005);
   const bulkhead = (z, y, lift) => [cargoEnd + lift, y, z];
   const bulkheadEdge = Array.from({length: 65}, (_, i) => {
     const [, y, z] = cargoTop(cargoEnd, i / 64);
     return [z, y];
   });
-  decal([...bulkheadEdge, [7.64, 4.04], [-7.64, 4.04]], bulkhead, paint, .011);
-  const doorFrame = roundedOutline([[-7.03, 4.27], [7.03, 4.27], [7.06, 15.39],
-    [6.17, 17.02], [-6.17, 17.02], [-7.06, 15.39]], .76);
+  decal([...bulkheadEdge, [7.64, cargoSill(cargoEnd)], [-7.64, cargoSill(cargoEnd)]], bulkhead, paint, .011);
+  const doorFrame = roundedOutline([[-7.03, 4.95], [7.03, 4.95], [7.06, 13.47],
+    [6.17, 15.10], [-6.17, 15.10], [-7.06, 13.47]], .76);
   line(doorFrame.map(([z, y]) => cargoBack(z, y, .032)), .107, seal, true);
-  line([cargoBack(0, 4.31, .036), cargoBack(0, 16.97, .036)], .102, seal);
+  line([cargoBack(0, 4.97, .036), cargoBack(0, 15.08, .036)], .102, seal);
   for (const side of [-1, 1]) {
     const z = side * 3.35;
-    glazedPanel([[z - 2.05, 9.68], [z + 2.05, 9.68], [z + 2.05, 15.83], [z - 2.05, 15.83]],
+    glazedPanel([[z - 2.05, 8.85], [z + 2.05, 8.85], [z + 2.05, 13.91], [z - 2.05, 13.91]],
       cargoBack, .74, [.12, .077]);
-    for (const y of [6.21, 14.73]) {
+    for (const y of [6.21, 13.02]) {
       const [x, , hingeZ] = cargoBack(side * 6.91, y, .15);
       rod(body, [x, y - .36, hingeZ], [x, y + .36, hingeZ], .16, paint);
       box(body, [.18, .49, .59], paint, x + .03, y, hingeZ);
@@ -753,7 +794,7 @@ html.preview #stage { height: 100vh; touch-action: auto; }
     const light = (color, y0, y1, w, lift) => decal(roundedOutline([
       [zLamp - w, y0], [zLamp + w, y0], [zLamp + w, y1], [zLamp - w, y1],
     ], .20), cargoBack, color, lift);
-    light(seal, 4.86, 6.93, .49, .038);
+    light(seal, 5.03, 6.93, .49, .038);
     light(amber, 6.14, 6.82, .38, .092);
     light(tail, 5.09, 6.12, .38, .091);
     const [x, y, handleZ] = cargoBack(side * .65, 8.66, .16);
@@ -764,10 +805,10 @@ html.preview #stage { height: 100vh; touch-action: auto; }
   surface(36, 18, (u, v) => {
     const z = mix(-7.79, 7.79, u);
     const a = v * Math.PI * 2;
-    return [-20.73 + .014 * z * z + .22 * Math.cos(a), 3.76 + .25 * Math.sin(a), z];
+    return [cargoStart - .21 + .014 * z * z + .22 * Math.cos(a), 4.48 + .25 * Math.sin(a), z];
   }, satin);
   for (const z of [-6.85, 6.85]) {
-    line([[-20.76, 3.04, z], [-20.94, 3.36, z], [-20.94, 4.26, z]], .70, bumperRubber);
+    line([[cargoStart - .24, 3.75, z], [cargoStart - .42, 4.07, z], [cargoStart - .42, 4.96, z]], .70, bumperRubber);
   }
 
   // Stalen schijfwielen voor de carrosserieweergave, over de M-05-velgen.
@@ -778,14 +819,16 @@ html.preview #stage { height: 100vh; touch-action: auto; }
   const wheelProfile = [[0, .37], [.44, .36], [.57, .32], [.67, .25], [.74, .18],
     [1.02, .13], [1.27, .15], [1.46, .23], [1.61, .30], [1.75, .31], [1.88, .24], [1.91, 0]];
   const dish = new T.LatheGeometry(wheelProfile.map(([r, y]) => new T.Vector2(r, y)), 60);
+  const wheelNut = material(0x2a3034, .5);
   for (const x of [rearX, frontX]) {
     for (const side of [-1, 1]) {
       const z = side * (track / 2 + .97);
       add(hubcaps, dish, wheelFinish, x, radius, z).rotation.x = side * Math.PI / 2;
-      for (let i = 0; i < 4; i++) {
-        const angle = (i + .5) * Math.PI / 2;
-        rod(hubcaps, [x + .99 * Math.cos(angle), radius + .99 * Math.sin(angle), z + side * .135],
-          [x + .99 * Math.cos(angle), radius + .99 * Math.sin(angle), z + side * .156], .115, satin);
+      for (let i = 0; i < 3; i++) {
+        const angle = .32 + i * 2 * Math.PI / 3;
+        const nutX = x + .86 * Math.cos(angle), nutY = radius + .86 * Math.sin(angle);
+        add(hubcaps, new T.CylinderGeometry(.087, .095, .044, 6), wheelNut,
+          nutX, nutY, z + side * .175).rotation.x = side * Math.PI / 2;
       }
     }
   }
@@ -823,9 +866,9 @@ html.preview #stage { height: 100vh; touch-action: auto; }
     for (const wheel of stockRims) wheel.visible = !body.visible;
     const assembled = layer === 'samen';
     chassisBumper.visible = !assembled;
+    chassisUnderfloor.visible = !assembled;
     plastic.color.setHex(assembled ? 0x090d12 : 0x323943);
     steel.color.setHex(assembled ? 0x1a222b : 0xb3bec5);
-    battery.color.setHex(assembled ? 0x0a0e14 : 0x365b80);
     body.position.y = layer === 'zwevend' ? 10 : 0;
     if (body.visible) setWheelbase(239);
     for (const button of document.querySelectorAll('[data-layer]')) {
@@ -854,10 +897,12 @@ html.preview #stage { height: 100vh; touch-action: auto; }
   function setView(view) {
     activeView = view;
     target.y = activeLayer === 'chassis' ? 2.5 : activeLayer === 'zwevend' ? 13 : 8.2;
+    target.x = view === 'zij' && activeLayer === 'samen' ? -1.45 : 0;
     camera.position.set(...views[view]);
+    camera.position.x += target.x;
     camera.position.y += target.y - 8.2;
     controls?.target.copy(target);
-    camera.zoom = view === 'voor' ? 1.35 : 1;
+    camera.zoom = view === 'voor' ? 1.35 : view === 'zij' && activeLayer === 'samen' ? 1.19 : 1;
     camera.lookAt(target);
     camera.updateProjectionMatrix();
     controls?.update();

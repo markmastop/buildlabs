@@ -1,20 +1,20 @@
 # Citroën Acadiane RC
 
-**Status: vormstudie v3.** Blauwgrijze Acadiane-opbouw op het Tamiya M-05-chassis
-met voorwielaandrijving en een wielbasis van 239 mm. V1 introduceerde het
-chassis en v2 de eerste opbouw.
+**Status: vormstudie v4.** Blauwgrijze Acadiane Mixta-opbouw op het Tamiya
+M-05-chassis met voorwielaandrijving en 239 mm wielbasis.
 
-De vooraanzichten en driekwartfoto’s in `images/` zijn gebruikt voor de
-gewelfde motorkap met twee perslijnen, bolle voorschermen, verzonken
-koplampen en gebogen bumper. Het zij- en achteraanzicht bepaalden de
-dakstap tussen cabine en laadbak, de kleinere achterste wielopening,
-de zijribben en de dubbele achterdeuren met verticale achterlichten.
-De kijker toont stalen schijfwielen bij de opbouw en M-05-velgen in de
-losse chassisweergave.
+Het zijprofiel is hertekend aan de hand van de twee Mixta-zijfoto’s in
+`images/`. De wielharten zijn gebruikt als schaalreferentie. De overhangen
+zijn korter, de cabine ligt verder naar voren en de daklijn ligt lager.
+De voorste wielopening is hoger en waaiert uit naar de dorpel. De kleinere
+achterste opening snijdt in de hogere onderrand achter het wiel. De laadbak
+heeft het brede Mixta-schuifraam, de horizontale ribben en het aparte
+zijpaneel met tankdop.
 
-De opbouw is circa 410 mm lang en 175 mm breed zonder spiegels. Het model
-is circa 183 mm hoog vanaf het grondvlak. Dit zijn ontwerpmaten op modelschaal.
-De fysieke passing moet nog worden bepaald.
+De opbouw is circa 365 mm lang inclusief bumpers en circa 175 mm breed
+zonder spiegels. De dakhoogte vanaf het grondvlak is circa 159 mm. Dit zijn
+uit de foto’s afgeleide ontwerpmaten op modelschaal. De fysieke passing moet
+nog worden bepaald.
 
 ## Maten en uitgangspunten
 
@@ -31,6 +31,8 @@ als referentie voor de indeling.
 
 - [index.html](index.html) bevat het model en de kijker, inclusief drie
   wielbases voor het losse chassis. Met **Kap erboven** zie je de onderzijde
-  van de opbouw en het chassis apart. Three.js 0.128.0 wordt via een CDN geladen.
+  van de opbouw en het chassis apart. In het samengestelde aanzicht zijn
+  enkele schematische chassisdelen onder de dorpel verborgen. Three.js 0.128.0
+  wordt via een CDN geladen.
 - Meet het eigen M-05-chassis op en bepaal de wielbasis, vrije hoogte,
   veer- en stuurruimte en bevestigingspunten voor de Acadiane-opbouw.
