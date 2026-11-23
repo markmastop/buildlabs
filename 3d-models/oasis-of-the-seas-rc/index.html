@@ -95,7 +95,7 @@ footer { font-size: 14px; }
   <button id="reset" type="button">Herstel camera</button>
   <button id="export" type="button" disabled>Download GLB</button>
 </div>
-<div class="viewer stage" id="stage" role="region" aria-label="3D-model van het cruiseschip"><p id="status" role="status">3D-model laden. Internetverbinding vereist voor three.js.</p></div>
+<div class="viewer stage waterachtergrond" id="stage" role="region" aria-label="3D-model van het cruiseschip"><p id="status" role="status">3D-model laden. Internetverbinding vereist voor three.js.</p></div>
 <div class="controls">
   <label><input type="checkbox" id="show-water"> Waterlijn</label>
   <label for="draft">Diepgang <input type="range" id="draft" min="10" max="30" value="22"><output id="displacement"></output></label>
@@ -140,12 +140,13 @@ const status = byId('status');
 const model = new T.Group();
 model.name = 'Oasis of the Seas RC – 100 cm';
 model.userData = { eenheid: 'centimeter', status: 'inbouwconcept' };
+const kaart = document.documentElement.classList.contains('kaart');
 const scene = new T.Scene();
-scene.background = new T.Color(0x192a38);
+if (!kaart) scene.background = new T.Color(0x192a38);
 scene.add(model);
 let renderer;
 try {
-  renderer = new T.WebGLRenderer({antialias:true});
+  renderer = new T.WebGLRenderer({antialias:true, alpha:kaart});
 } catch (error) {
   status.textContent = 'WebGL is niet beschikbaar in deze browser.';
   throw error;
@@ -155,7 +156,6 @@ stage.append(renderer.domElement);
 const camera = new T.PerspectiveCamera(40,1,0.1,600);
 const controls = new OrbitControls(camera,renderer.domElement);
 controls.enableDamping = true;
-const kaart = document.documentElement.classList.contains('kaart');
 const zichtbaar = kaart
   ? startKaartrotatie(renderer.domElement, on => { controls.autoRotate = on; })
   : () => true;
