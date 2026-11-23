@@ -217,7 +217,7 @@ def enrich(a):
  add('75_dakkast',box(14,16,10,196,0,207),white)
  # Sloepdetails: donkere afzonderlijke raamstroken, hutdakjes en stootranden.
  for sd,label in [(1,'BB'),(-1,'SB')]:
-  # Glazing strip follows the shoulder slope of the actual p1 lifeboat body.
+  # Glazing strip follows the shoulder slope of the actual v4 lifeboat body.
   z0,z1=17.5,20.5;y0=14.2-(z0-12)*5.9/14;y1=14.2-(z1-12)*5.9/14
   pl=cq.Plane(origin=(0,sd*y0,z0),xDir=(-sd,0,0),normal=(0,sd*3,y0-y1))
   strip=cq.Workplane(pl).rect(46,.7).extrude(.7)  # hidden connector along row

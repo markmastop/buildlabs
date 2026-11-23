@@ -1,10 +1,10 @@
-# Printbestanden — Ortelius p2
+# Printbestanden — Ortelius v5
 
 Gedetailleerd constructieprototype op 1:100 voor de Bambu Lab P2S, in millimeters.
 **Begin met de pasproef; dit pakket is nog niet fysiek geprint of gevaren.**
 
 - [`BOUWHANDLEIDING.md`](BOUWHANDLEIDING.md): printinstellingen, montage, RC-keuzes en proefvolgorde.
-- [`WIJZIGINGEN-P2.md`](WIJZIGINGEN-P2.md): verschil met p1 en herbruikbare eerdere prints.
+- [`WIJZIGINGEN-V5.md`](WIJZIGINGEN-V5.md): verschil met v4 en herbruikbare eerdere prints.
 - [`onderdelen.csv`](onderdelen.csv): uniek onderdeel, aantal en printmaten.
 - [`onderdelen.json`](onderdelen.json): montageposities, volumes, geometrische massa en geschatte waterverplaatsing.
 - [`controle.json`](controle.json): onafhankelijke CAD/mesh-hercontrole.

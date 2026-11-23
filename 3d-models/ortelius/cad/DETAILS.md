@@ -1,6 +1,6 @@
-# Detailherstel p2
+# Detailherstel v5
 
-P1 verloor bij de CAD-omzetting te veel van de vormstudie. P2 herstelt de
+V4 verloor bij de CAD-omzetting te veel van de vormstudie. V5 herstelt de
 zichtbare onderdelen als echte CAD- en printgeometrie. De buitenvorm en
 RC-constructie blijven gebaseerd op hetzelfde model op schaal 1:100.
 

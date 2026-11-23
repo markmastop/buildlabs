@@ -1,10 +1,10 @@
-# Verschil met p1
+# Verschil met v4
 
-P2 herstelt het detailniveau uit de vormstudie. De actuele lijst bevat 214 unieke onderdelen en 355 exemplaren, inclusief reserves en pasproeven.
+V5 herstelt het detailniveau uit de vormstudie. De actuele lijst bevat 214 unieke onderdelen en 355 exemplaren, inclusief reserves en pasproeven.
 
 ## Ongewijzigd en herbruikbaar
 
-56 STL-bestanden zijn byte-identiek aan p1, waaronder 01_romp_1, 01_romp_2, 01_romp_3, 01_romp_4. Deze rompdelen hoeven bij een bestaande p1-print niet opnieuw.
+56 STL-bestanden zijn byte-identiek aan v4, waaronder 01_romp_1, 01_romp_2, 01_romp_3, 01_romp_4. Deze rompdelen hoeven bij een bestaande v4-print niet opnieuw.
 
 ## Gewijzigde bestaande delen
 
@@ -46,7 +46,7 @@ Draai op de Mac `cad/slice_check.py 01_romp_4 04_hoofddek_3 06_bakverschansing 2
 Zie [de vergelijking](../cad/VERGELIJKING.md#opgelost-10-11-2026-schroef-onder-het-achterschip).
 
 - `01_romp_1`: nieuw achterschip met scheg en ruimte voor een schroef van Ø40.
-  Vanaf x=212 is het deel gelijk aan p2, dus het sluit ongewijzigd aan op `02_lasstrook_1` en `01_romp_2`.
+  Vanaf x=212 is het deel gelijk aan v5, dus het sluit ongewijzigd aan op `02_lasstrook_1` en `01_romp_2`.
 - `52_servoplaat`: verplaatst naar x=150, hoger (z=58), omdat het achterschip smaller afloopt.
   Het printbestand zelf is gelijk gebleven.
 - `56_roerblad`: profielroer, wordt staand geprint.

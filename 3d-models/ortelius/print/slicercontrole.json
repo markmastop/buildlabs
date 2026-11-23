@@ -1,5 +1,5 @@
 {
-  "revision": "p2",
+  "revision": "v5",
   "slicer": "Bambu Studio 02.09.01.70 macOS CLI",
   "printer": "Bambu Lab P2S",
   "nozzle_mm": 0.4,

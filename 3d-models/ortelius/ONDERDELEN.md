@@ -1,7 +1,7 @@
 # Onderdelen
 
 De vier onderdelen voor de mechanische pasproef volgen de
-[maatbasis van de p3-aandrijving](cad/aandrijving/README.md).
+[maatbasis van de v6-aandrijving](cad/aandrijving/README.md).
 Op de [bestellijst](bestellen.html) staat alles bij Schiffsmodelle-Shop (JOJO), inclusief lijm en plamuur; alleen de zender komt van Droneshop.nl.
 De overige hardware is voorlopig en de genoemde prijzen zijn richtprijzen.
 
@@ -16,7 +16,7 @@ Op 22-11-2026 is de eerste bestelling bij Schiffsmodelle-Shop geplaatst (leverin
 - [x] Ontstoorset voor de motor (de MAX-motoren worden zonder geleverd)
 - [x] M4-borgmoer voor de schroef: RVS A2 met nylon ring, DIN 985 (PARCO, 50 stuks, Amazon, besteld 22-11-2026)
 
-De p3-motorsteun is uitgewerkt met de 236 mm-as. Controleer de echte
+De v6-motorsteun is uitgewerkt met de 236 mm-as. Controleer de echte
 schroef bij het roer en de kiel vóór het boren, lijmen of maken van de
 messing doorvoerbus.
 
@@ -66,7 +66,7 @@ messing doorvoerbus.
 - [x] M3-inzetmoeren voor de lijmvoeten en het serviceluik (Bolatus-set M2–M6, Amazon, besteld 22-11-2026);
   stem de proefboring van Ø4,2 × 6 mm af op deze inzetmoeren
 - [ ] Dunne afdichtingsband voor dekborging en serviceluik
-  (p1 gebruikt losse schroefsteunen; geen magneetkamers)
+  (v4 gebruikt losse schroefsteunen; geen magneetkamers)
 - [ ] Ballast: hoeveelheid pas bepalen na wegen en drijfproef; houd deze laag en verstelbaar
 - [ ] Messingdraad 0,8 mm voor relingen en antennes
 

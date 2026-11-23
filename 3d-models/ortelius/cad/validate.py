@@ -94,9 +94,9 @@ for y in [-32,32]:
 for n in ['24_helidek_cirkel','24_helidek_H']:
  assert worlds[n].intersect(worlds['24_helidek']).Volume()<.03
 # Systeembrede assemblage herimporteren: ieder solid geldig.
-assy=cq.importers.importStep(str(R/'cad/step/ortelius-p2-assemblage.step')).solids().vals()
+assy=cq.importers.importStep(str(R/'cad/step/ortelius-v5-assemblage.step')).solids().vals()
 assert len(assy)>40 and all(s.isValid() for s in assy)
-report=dict(status='PASS',revision='p2',unique_parts=len(results),assembly_solids=len(assy),checks=results,RC_hull_clearance=rc_collisions,glazing_clearance=glass_checks,hangar_clearance=hangar_checks,detail_features=D.get('details',{}),helicopter_headroom_mm=round(201.5-168.1-b.zmax,3),limitations='Statische geometriecontrole, geen fysieke print-, lek- of vaartest. Slicercontrole apart.')
+report=dict(status='PASS',revision='v5',unique_parts=len(results),assembly_solids=len(assy),checks=results,RC_hull_clearance=rc_collisions,glazing_clearance=glass_checks,hangar_clearance=hangar_checks,detail_features=D.get('details',{}),helicopter_headroom_mm=round(201.5-168.1-b.zmax,3),limitations='Statische geometriecontrole, geen fysieke print-, lek- of vaartest. Slicercontrole apart.')
 (R/'print/controle.json').write_text(json.dumps(report,indent=2,ensure_ascii=False)+'\n')
 files=[p for d in ['cad/step','print/stl','print/3mf'] for p in sorted((R/d).glob('*')) if p.is_file()]
 (R/'print/SHA256SUMS.txt').write_text(''.join(hashlib.sha256(p.read_bytes()).hexdigest()+'  '+str(p.relative_to(R))+'\n' for p in files))

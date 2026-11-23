@@ -1,12 +1,12 @@
-# Ortelius p3 · motorsteun en aandrijving
+# Ortelius v6 · motorsteun en aandrijving
 
 Pasmodel op schaal 1:100, in millimeters. De maatvoering volgt de bestaande
-vormstudie v3 en de romp van p2. De as loopt 5,88° omhoog vanaf het
-schroefvlak op X=36 / Z=20,5. Dit is de eerste p3-uitwerking van de aandrijving.
+vormstudie v3 en de romp van v5. De as loopt 5,88° omhoog vanaf het
+schroefvlak op X=36 / Z=20,5. Dit is de eerste v6-uitwerking van de aandrijving.
 
 ## Bekijken in Fusion
 
-Open [ortelius-p3-aandrijving.step](ortelius-p3-aandrijving.step) via
+Open [ortelius-v6-aandrijving.step](ortelius-v6-aandrijving.step) via
 **File → Open → Open from my computer**. Gebruik de oogjes in de Browser om
 de referentieromp en het achterdek te verbergen. Kies **Inspect → Section
 Analysis** voor een doorsnede door de hartlijn. De assemblage bevat de

@@ -1,6 +1,6 @@
 {
   "type": "process",
-  "name": "Ortelius p2 romp 0.20 P2S",
+  "name": "Ortelius v5 romp 0.20 P2S",
   "inherits": "0.20mm Standard @BBL P2S",
   "from": "User",
   "instantiation": "true",

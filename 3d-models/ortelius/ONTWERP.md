@@ -1,6 +1,6 @@
 # Ontwerp Ortelius RC — vormstudie v3
 
-De vormstudie v3 is de visuele bron van het constructieprototype p2.
+De vormstudie v3 is de visuele bron van het constructieprototype v5.
 De CAD-bron en STEP staan in `cad/`, de STL/3MF en controles in `print/`.
 Zie [CAD-weergave](cad/index.html) en [bouwbeschrijving](print/BOUWHANDLEIDING.md).
 De onderstaande fotocontrole beschrijft de oorspronkelijke browserstudie.
@@ -110,7 +110,7 @@ foto en model hebben niet automatisch dezelfde camerahoek of verticale schaal.
 De invulling achter de galerijen, stuwage en kleinere uitrusting is een
 visuele reconstructie. Een foto'set uit verschillende toestanden levert
 nog geen exact gedateerde uitvoering of bouwtekening op. In die vormstudieronde is alleen het
-browsermodel aangepast. De latere CAD-uitwerking p1 staat onderaan dit document.
+browsermodel aangepast. De latere CAD-uitwerking v4 staat onderaan dit document.
 
 ## Assen en belangrijkste stations
 
@@ -168,7 +168,7 @@ linkt nu ook naar het aparte CAD-prototype en de printinstructies.
 
 ## Vervolg: printbare RC-constructie
 
-Het printprototype p1 is nu uitgewerkt. Vier holle rompdelen zijn gesneden
+Het printprototype v4 is nu uitgewerkt. Vier holle rompdelen zijn gesneden
 bij x = 227,5 / 455 / 682,5 mm. De laatste sectie is 217,5 mm lang; de
 uitwaaierende verschansing reikt als los deel tot x = 910 mm. Lasstroken,
 opleglip, serviceluik, losse dekdrager en RC-platen staan in de CAD-bron.
@@ -200,7 +200,7 @@ een transparante referentie van de romp en dek-/waterlijncontouren. De
 zichtbaarheid van buitenonderdelen en het water wordt bij terugschakelen
 hersteld. **Labels** kan apart uit; de uitklapbare tabel bij de viewer bevat
 alle ruimtematen. De bestaande vormstudie en fotogebaseerde hoofdposities
-blijven behouden. De CAD- en printbestanden zijn apart uitgewerkt in p1.
+blijven behouden. De CAD- en printbestanden zijn apart uitgewerkt in v4.
 
 | Onderdeel | Positie x (cm) | Keuze |
 |---|---|---|
@@ -253,7 +253,7 @@ De functie `helicopter()` maakt beide identieke modellen;
 `positionHelicopters()` wisselt tussen buiten- en stallingsstand.
 
 
-## CAD- en printprototype p1
+## CAD- en printprototype v4
 
 Bronnen: [`cad/build.py`](cad/build.py), [`cad/parameters.json`](cad/parameters.json).
 De STEP-assemblage en zelfstandige [CAD-viewer](cad/index.html) tonen dezelfde
@@ -278,7 +278,7 @@ naar mm in CAD/print; CAD-assen X naar de boeg, Y bakboord, Z omhoog.
 Bewuste FDM-keuzes: vlakke versterkte vakwerkmast met losse ra’s, verdikte
 staanders, solide lichtkap en sloepen, geschilderde ramen/markeringen en
 losse generieke relingstroken. Veiligheidsnetten, touwen, kleine antennes,
-zodiacs en ankerkettingen zijn modelbouwafwerking, geen losse p1-printdelen.
+zodiacs en ankerkettingen zijn modelbouwafwerking, geen losse v4-printdelen.
 De accubak en montageplaten zijn adapters; de functionele doorvoeren blijven
 dicht tot de echte as, roerkoker en boegschroef gekozen zijn.
 
@@ -287,9 +287,9 @@ dicht tot de echte as, roerkoker en boegschroef gekozen zijn.
 Bambu Studio. Geen van beide vervangt een fysieke lek-, drijf- of vaartest.
 
 
-## Detailherstel p2 na vergelijking met de vormstudie
+## Detailherstel v5 na vergelijking met de vormstudie
 
-P1 was visueel te ver vereenvoudigd. P2 behoudt de rompconstructie en
+V4 was visueel te ver vereenvoudigd. V5 behoudt de rompconstructie en
 herstelt de relingen op de juiste plekken, acht trappen, vijf helideknetten,
 de ruimtelijke vakwerkmast, radarplatforms/scanners, dubbele davits,
 dekkranen, zodiacs, RIB-davits, hangarinterieur, tank en dekbeslag.

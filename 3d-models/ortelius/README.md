@@ -3,13 +3,18 @@
 RC-model van het Nederlandse poolexpeditieschip **Ortelius** van Oceanwide
 Expeditions (thuishaven Vlissingen), op schaal 1:100.
 
-**Status: CAD- en printprototype p2 beschikbaar.** De holle romp bestaat uit
+**Status: printprototype v6.** Romp en opbouw komen uit v5; v6 voegt de
+motorsteun en aandrijving toe. De holle romp bestaat uit
 vier delen; de vooropbouw is afneembaar. Er zijn losse bovenbouwdelen,
 relingen, trappen, ruimtelijke masten, radarinstallatie, dekinrichting,
 RC-montageplaten, twee helikopters met inzetruiten en proefstukken.
 
+**Versies:** één doorlopende reeks. v1–v3 zijn de vormstudie (browsermodel),
+v4 is het eerste CAD- en printprototype, v5 het detailherstel en v6 de
+motorsteun en aandrijving. Tot november 2026 heetten v4–v6 p1–p3.
+
 - [Bekijk de daadwerkelijke CAD-onderdelen](cad/index.html), ook uit elkaar.
-- [Open de CAD-assemblage (STEP)](cad/step/ortelius-p2-assemblage.step).
+- [Open de CAD-assemblage (STEP)](cad/step/ortelius-v5-assemblage.step).
 - [Begin met de bouw- en printvolgorde](print/BOUWHANDLEIDING.md) en de [onderdelenlijst](print/onderdelen.csv).
 - Parametrische bron: [`cad/build.py`](cad/build.py) en [`cad/parameters.json`](cad/parameters.json).
 
@@ -24,15 +29,15 @@ Open [`index.html`](index.html) voor het draaibare model. Naast de zes
 overzichtsaanzichten zijn er detailknoppen voor **Middenschip**, **Helikopter** en **Hangar**.
 Het model begint stil. Met **Water** uit zie je het geschatte onderwaterschip.
 
-![Werkelijke CAD-assemblage p2](beelden/cad-p2.jpg)
+![Werkelijke CAD-assemblage v5](beelden/cad-v5.jpg)
 
-[Brug en radar in detail](beelden/cad-p2-brug.jpg) · [Hangar en helikopters](beelden/cad-p2-hangar.jpg) · [Onderdelen uit elkaar bekijken](beelden/cad-p2-exploded.jpg) · [Oorspronkelijke vormstudie v3](beelden/render.jpg)
+[Brug en radar in detail](beelden/cad-v5-brug.jpg) · [Hangar en helikopters](beelden/cad-v5-hangar.jpg) · [Onderdelen uit elkaar bekijken](beelden/cad-v5-exploded.jpg) · [Oorspronkelijke vormstudie v3](beelden/render.jpg)
 
 | Bestand | Inhoud |
 |---|---|
 | [`START-HIER.md`](START-HIER.md) | Actuele status en werkvolgorde |
 | [`ONTWERP.md`](ONTWERP.md) | Maten, fotokoppeling, aannames en bronfuncties |
-| [`bestellen.html`](bestellen.html) en [`ONDERDELEN.md`](ONDERDELEN.md) | Bestelvolgorde, winkellinks en onderdelen voor de p3-pasproef |
+| [`bestellen.html`](bestellen.html) en [`ONDERDELEN.md`](ONDERDELEN.md) | Bestelvolgorde, winkellinks en onderdelen voor de v6-pasproef |
 | [`referentie/README.md`](referentie/README.md) | Overzicht van 34 lokale beeldbestanden in `images/` (buiten Git) |
 | [`beelden/render.jpg`](beelden/render.jpg) | Browserweergave van het hele model |
 | [`beelden/middenschip-v3.jpg`](beelden/middenschip-v3.jpg) | Detail van de open galerijen en dekuitrusting |
@@ -59,7 +64,7 @@ gelegd. Dit volgt het principe beschreven in het
 De stallingsstand is tegen de geometrie van deze modelhangar gecontroleerd.
 Boven de rotornaaf blijft circa 2 mm tot de rechte bovenkant van de ingang.
 Dit is geen bevestiging van echte hangarmaten of fysieke printpassing.
-De printuitwerking in p2 heeft losse romphelften met echte raamuitsparingen,
+De printuitwerking in v5 heeft losse romphelften met echte raamuitsparingen,
 gebogen inzetruiten, skids, staartrotoren en losse hoofdrotorbladen.
 
 ## RC-inbouw bekijken
@@ -97,12 +102,12 @@ helikopterdek en hangar toegevoegd in 2007.
 
 ## Ontwerpkeuzes
 
-- CAD p2: vier holle rompdelen met sneden op 227,5 / 455 / 682,5 mm;
+- CAD v5: vier holle rompdelen met sneden op 227,5 / 455 / 682,5 mm;
   losse lasstroken met lijmspeling en afneembare dek-/opbouwunit. Alle
   printdelen blijven binnen 246 mm per as. Er zijn geen magneetverbindingen.
 - Het achterste werkdek heeft een apart serviceluik met vier M3-borgpunten.
 - Eén schroef en één roer zoals het origineel. De
-  [p3-aandrijving](cad/aandrijving/README.md) gebruikt de Krick MAX Power 600
+  [v6-aandrijving](cad/aandrijving/README.md) gebruikt de Krick MAX Power 600
   als uitgangspunt voor de pasproef. De boegschroef volgt later.
 - Kenmerken uit de foto's: hoge voorromp met beplatingsvlakken en open achterdekken, witte
   hoekige schoorsteen met zwarte vakwerkmast, grote oranje geknikte davits, laag

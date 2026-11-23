@@ -1,18 +1,18 @@
-# Bewerkbare CAD — Ortelius p2
+# Bewerkbare CAD — Ortelius v5
 
 De parametrische bron is [`build.py`](build.py), met hoofdparameters in
 [`parameters.json`](parameters.json). Eenheden zijn **millimeters**, schaal
 1:100. Vormbron: de fotogebaseerde vormstudie v3 in [`../index.html`](../index.html).
-P2 herstelt de details die in de eerste CAD-versie ontbraken. Raamstroken,
+V5 herstelt de details die in de eerste CAD-versie ontbraken. Raamstroken,
 cockpitruiten, relingen en dekinleg zijn nu echte onderdelen. Touwen,
 verstaging en kettingen blijven modelbouwwerk met draad.
 
 ## Bestanden
 
 - [`index.html`](index.html): zelfstandige Three.js-viewer van de echte CAD-geometrie.
-- [`step/ortelius-p2-assemblage.step`](step/ortelius-p2-assemblage.step): complete, benoemde STEP-assemblage.
+- [`step/ortelius-v5-assemblage.step`](step/ortelius-v5-assemblage.step): complete, benoemde STEP-assemblage.
 - `step/`: bewerkbaar STEP per printonderdeel, in dezelfde printstand als het STL.
-- [Motorsteun en aandrijving p3](aandrijving/README.md): afzonderlijke Fusion-assemblage en pasdelen voor de eerste montage.
+- [Motorsteun en aandrijving v6](aandrijving/README.md): afzonderlijke Fusion-assemblage en pasdelen voor de eerste montage.
 - [`build.py`](build.py): geometrie, deling, export en viewer-generatie.
 - [`details.py`](details.py): echte relingen, trappen, masten, cockpitruiten en dekuitrusting.
 - [`DETAILS.md`](DETAILS.md): vergelijking met de vormstudie en bewuste printaanpassingen.

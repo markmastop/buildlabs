@@ -9,7 +9,7 @@ BIN=APP/'MacOS/BambuStudio';PROFILES=APP/'Resources/profiles/BBL'
 D=json.loads((R/'print/onderdelen.json').read_text())
 previous_path=R/'print/slicercontrole.json'
 previous=json.loads(previous_path.read_text()) if previous_path.exists() else {}
-checks=[];tmp=Path(tempfile.mkdtemp(prefix='ortelius-p2-slice-'))
+checks=[];tmp=Path(tempfile.mkdtemp(prefix='ortelius-v5-slice-'))
 # De CLI lost inherits/include niet vanzelf op: maak tijdelijke volledige profielen.
 lookup={p.stem:p for p in PROFILES.rglob('*.json')}
 def resolve(path):
@@ -30,7 +30,7 @@ filament=resolve(PROFILES/'filament'/(name+'.json'))
 for n,d in [('machine',machine),('filament',filament)]:
  (tmp/(n+'.json')).write_text(json.dumps(d))
 for n in ['romp','details']:
- path=R/'print/profielen'/('ortelius-p2-'+n+'-p2s.json')
+ path=R/'print/profielen'/('ortelius-v5-'+n+'-p2s.json')
  d=resolve(path);d['curr_bed_type']='Textured PEI Plate'
  (tmp/(n+'.json')).write_text(json.dumps(d))
 selected=set(sys.argv[1:])

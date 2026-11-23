@@ -219,13 +219,13 @@ def main():
         assert sweep.distance(turned) > .1, (angle, 'voorlopige bladzone tegen roer')
         assert hub.intersect(turned).Volume() < .02, (angle, 'naaf tegen roer')
 
-    assembly = cq.Assembly(name='Ortelius p3 - aandrijving')
+    assembly = cq.Assembly(name='Ortelius v6 - aandrijving')
     parts = [
         ('REFERENTIE rompdeel 1 met virtuele boring', bored_hull, '#163b70', .30),
         ('REFERENTIE rompdeel 2', motor_hull, '#163b70', .30),
         ('REFERENTIE lasstrook 1', hull_joint, '#64758b', .45),
         ('REFERENTIE vast achterdek', rear_deck, '#477d60', .28),
-        ('REFERENTIE roer p2', rudder, '#88423a', 1),
+        ('REFERENTIE roer v5', rudder, '#88423a', 1),
         ('PRINT motorsteun', bracket_world, '#bf5d35', 1),
         ('PRINT lijmvoet stuurboord', rails[0][0], '#e5a654', 1),
         ('PRINT lijmvoet bakboord', rails[1][0], '#e5a654', 1),
@@ -242,7 +242,7 @@ def main():
     for name, solid, color, alpha in parts:
         tint = cq.Color(color).toTuple()
         assembly.add(solid, name=name, color=cq.Color(*tint[:3], alpha))
-    path = HERE / 'ortelius-p3-aandrijving.step'
+    path = HERE / 'ortelius-v6-aandrijving.step'
     assembly.export(str(path))
     normalize_step(path)
     reimported = cq.importers.importStep(str(path)).solids().vals()

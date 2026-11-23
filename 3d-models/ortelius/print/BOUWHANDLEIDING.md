@@ -1,4 +1,4 @@
-# Ortelius p2 — bouw- en printvolgorde
+# Ortelius v5 — bouw- en printvolgorde
 
 Dit is een **gedetailleerd printbaar constructieprototype** op schaal 1:100 voor
 het P2S-bouwvolume van 256 × 256 × 256 mm. De vorm volgt de browserstudie v3,
@@ -8,7 +8,7 @@ pasproef, lekproef of vaartest uitgevoerd. Print eerst de kleine proefstukken.
 ## Wat je opent
 
 - [`../cad/index.html`](../cad/index.html): de daadwerkelijke CAD-onderdelen, gemonteerd of uit elkaar.
-- [`../cad/step/ortelius-p2-assemblage.step`](../cad/step/ortelius-p2-assemblage.step): benoemde CAD-assemblage in millimeters.
+- [`../cad/step/ortelius-v5-assemblage.step`](../cad/step/ortelius-v5-assemblage.step): benoemde CAD-assemblage in millimeters.
 - `stl/`: één bestand per uniek onderdeel, al georiënteerd met de onderkant op Z = 0.
 - `3mf/`: dezelfde geometrie, expliciete millimetereenheid, op het midden van een 256 mm plaat geplaatst. **Geen machineprofiel of G-code.**
 - [`onderdelen.csv`](onderdelen.csv): aantallen, printmaten en aanwijzingen per onderdeel.
@@ -22,7 +22,7 @@ filamenttemperatuur of printerhardware. De slicercontrole gebruikt tijdelijke,
 volledig opgeloste officiële printer- en ASA-profielen met Textured PEI Plate.
 Die controle is gedaan vóór de overstap naar PETG; herhaal haar met een PETG-profiel.
 
-![De CAD-onderdelen uit elkaar](../beelden/cad-p2-exploded.jpg)
+![De CAD-onderdelen uit elkaar](../beelden/cad-v5-exploded.jpg)
 
 Alle kopieën zijn identiek: print een bestand zo vaak als de kolom **aantal**
 aangeeft. Eén `60_heli_romp_BB` en één `60_heli_romp_SB` vormen één helikopter;
@@ -71,7 +71,7 @@ bedoelde schilderafwerking.
 
 De actuele slicerschatting voor massa en tijd staat in
 [`slicercontrole.json`](slicercontrole.json), inclusief steunen en brims.
-De lijst bevat meer details dan p1; groepeer kleine delen per kleur in de
+De lijst bevat meer details dan v4; groepeer kleine delen per kleur in de
 slicer om platen en opstarttijd te besparen.
 
 ## Romp en toegang
@@ -125,7 +125,7 @@ Messing draad kan de kleinste geprinte antennes vervangen.
 Sloepen, sloepbokken, davits, kranen, banken en lichtkap zijn losse kleuronderdelen.
 Lijm per sloep twee bokken `39_sloepbok_*` tegen de accommodatiewand, boven de raamrij.
 Span de stagen van de voormast met dun garen: boven de kraag vastknopen en naar de verschansing.
-P2 bevat ook de vijf helideknetten, zodiacs, RIB-davits, ramen, vlotkokers,
+V5 bevat ook de vijf helideknetten, zodiacs, RIB-davits, ramen, vlotkokers,
 reddingsboeien, achtertank, vlag, windsok, dekbeslag en naamplaten. Zie
 [`../cad/DETAILS.md`](../cad/DETAILS.md) voor de volledige vergelijking.
 Touwen, verstaging, kettingen en verfafwerking blijven aanvullend

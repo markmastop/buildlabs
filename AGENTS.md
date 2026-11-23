@@ -118,6 +118,23 @@ eigen kleuren, lettertypen of knopstijlen.
 - Vermeld benodigde bestaande onderdelen, zoals een RC-romp of chassis, inclusief de relevante aansluitmaat. Als een project meerdere uitvoeringen heeft, geef per uitvoering aan wat nodig is.
 - Link bij een printset waar mogelijk rechtstreeks naar de printbestanden of de handleiding die ze ontsluit.
 
+### Versienummers
+
+- Elk project heeft één doorlopende versiereeks: `v1`, `v2`, `v3` … In lopende
+  tekst mag ook "versie 18". Gebruik geen andere voorvoegsels (zoals `p1` of
+  `r2`) en geen aparte reeksen voor concept, CAD, print of deelmodules: een
+  nieuw stadium telt gewoon door. Voorbeeld Ortelius: v1–v3 vormstudie, v4 en
+  v5 CAD- en printprototype, v6 aandrijving.
+- Verhoog het nummer wanneer geometrie of printbestanden veranderen ten
+  opzichte van de laatst gepubliceerde (gepushte) versie. Tekst, opmaak en
+  documentatie veranderen het nummer niet.
+- Gebruik hetzelfde nummer in bestandsnamen (`SL109_v18_assemblage.step`,
+  `ortelius-v5-assemblage.step`), op de projectpagina, in beide README's en op
+  de homepagekaart. Bestaat een deel uit een eerdere versie, noem dat erbij
+  ("romp en opbouw v5, aandrijving v6").
+- Hernoem je een oude reeks, vermeld de oude namen één keer in de
+  project-README, zodat oude verwijzingen te volgen blijven.
+
 ### Bevestigde eindstatussen
 
 De eigenaar heeft de volgende ontwerpen als Final bevestigd. Gebruik deze

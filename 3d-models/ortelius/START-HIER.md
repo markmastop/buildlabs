@@ -3,7 +3,7 @@
 ## Actuele opdracht en status
 
 De gebruiker heeft de vormstudie bekeken en vraagt nu CAD- en printbestanden.
-**Constructieprototype p2 is beschikbaar:** 214 unieke onderdelen met CAD-bron,
+**Printprototype v6 is beschikbaar** (romp en opbouw uit v5, aandrijving v6): 214 unieke onderdelen met CAD-bron,
 STEP, STL, geometrie-3MF, onderdelenlijst en bouwbeschrijving.
 
 Begin met [de CAD-weergave](cad/index.html) en

@@ -1,6 +1,6 @@
 {
   "type": "process",
-  "name": "Ortelius p2 details 0.16 P2S",
+  "name": "Ortelius v5 details 0.16 P2S",
   "inherits": "0.20mm Standard @BBL P2S",
   "from": "User",
   "instantiation": "true",

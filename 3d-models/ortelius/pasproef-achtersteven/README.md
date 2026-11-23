@@ -1,6 +1,6 @@
 # Ortelius · droge pasproef van de achtersteven
 
-Deze map gaat ervan uit dat rompdeel 1 (de achtersteven) al geprint is. De bestanden zijn kopieën uit het bestaande printpakket en de p3-aandrijving. Print elk gekozen onderdeel één keer.
+Deze map gaat ervan uit dat rompdeel 1 (de achtersteven) al geprint is. De bestanden zijn kopieën uit het bestaande printpakket en de v6-aandrijving. Print elk gekozen onderdeel één keer.
 
 ## Volledige mechanische pasproef
 
@@ -25,4 +25,4 @@ Deze map gaat ervan uit dat rompdeel 1 (de achtersteven) al geprint is. De besta
 
 Zet de rompdelen droog tegen elkaar met de lasstrook. Pas de stevenbuis en lijn de motoras uit met de mal. Vervang de mal door de echte koppeling en draai de echte schroef met de hand langs het roer bij verschillende roerstanden. Controleer de maten van de geleverde onderdelen voordat je boort of lijmt.
 
-Zie de [p3-montagehandleiding](../cad/aandrijving/README.md) voor de printstand, schroeven en inzetmoeren en de [onderdelenlijst](../ONDERDELEN.md) voor de bestelonderdelen.
+Zie de [v6-montagehandleiding](../cad/aandrijving/README.md) voor de printstand, schroeven en inzetmoeren en de [onderdelenlijst](../ONDERDELEN.md) voor de bestelonderdelen.

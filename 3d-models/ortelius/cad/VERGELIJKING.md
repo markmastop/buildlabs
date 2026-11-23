@@ -30,7 +30,7 @@ Bewust niet aangepast: stagen en vlaggenstok voorop (garen en draad), de draaien
 
 ## Opgelost 10-11-2026: schroef onder het achterschip
 
-In p2 liet de romp bij de schroefnaaf maar een straal van 14,5 mm vrij, dus hooguit een
+In v5 liet de romp bij de schroefnaaf maar een straal van 14,5 mm vrij, dus hooguit een
 schroef van Ø29 mm, en het roerblad zat waar de schroef had moeten draaien. Het achterschip
 is daarom opnieuw getekend (`stern` in `parameters.json`):
 
@@ -41,7 +41,7 @@ is daarom opnieuw getekend (`stern` in `parameters.json`):
 - Gebalanceerd hangroer met NACA-profiel (koorde 22, dikte 30 %), voorrand op x=29, koning
   op x=23. Het roer raakt de schroefcirkel niet; `validate.py` controleert dat nu.
 - De schroefas stijgt met 5,9° (helling 0,103) naar de motor; de servoplaat schuift naar x=150.
-- De buitenkant is vanaf x=212 gelijk aan p2. Daarom zijn alleen `01_romp_1`, `52_servoplaat`,
+- De buitenkant is vanaf x=212 gelijk aan v5. Daarom zijn alleen `01_romp_1`, `52_servoplaat`,
   `56_roerblad` en de nieuwe schroefmal `57_schroefmal_40` veranderd.
 
 Waterverplaatsing bij de ontwerpwaterlijn (54 mm): 4,571 kg (was 4,628); drukkingspunt op
@@ -129,7 +129,7 @@ ruimtemodel uit v3 tegen die houder en de romp gelegd.
 ### Printstatus en eerstvolgende ontwerpbeslissing
 
 De actuele onderdelenlijst en geometriecontrole tellen **216 unieke delen**.
-Het aanwezige lokale p2-ZIP en de opgeslagen slicercontrole tellen **214**.
+Het aanwezige lokale v5-ZIP en de opgeslagen slicercontrole tellen **214**.
 Het ZIP bevat het eerdere rompdeel 1 en mist de schroefmal. Het slicerrapport
 gebruikt voor rompdeel 1, de servoplaat en het roer andere 3MF-hashes dan
 de actuele exports en vermeldt de schroefmal nog niet. De passing hierboven

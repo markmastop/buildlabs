@@ -1,4 +1,4 @@
-"""Ortelius p2: parametrische CAD, millimeters, X naar boeg / Y bakboord / Z boven.
+"""Ortelius v5: parametrische CAD, millimeters, X naar boeg / Y bakboord / Z boven.
 python cad/build.py; bestanden worden uitsluitend in dit project geschreven.
 Vormbron: ../index.html v3. Constructiekeuzes staan in parameters.json.
 """
@@ -331,7 +331,7 @@ add('50_accubak_2S',tray,BLACK,group='RC',note='Binnenruimte 154 × 62 mm; klitt
 motorplate=box(116,78,4,300,0,16)
 for y in [-26,26]:motorplate=motorplate.cut(box(80,3.4,8,300,y,14))
 add('51_motorplaat_verstelbaar',motorplate,BLACK,group='RC',note='Voor metalen motorbeugel; M3-sleuven. Motortype, ashoogte en uitlijning eerst vastleggen.')
-# Verder naar voren en hoger dan in p2: de smallere afloop laat bij x=110 te weinig breedte.
+# Verder naar voren en hoger dan in v5: de smallere afloop laat bij x=110 te weinig breedte.
 SV=ST['servo_plate'];sx,sy,sz=SV
 servotray=box(56,36,3,sx,sy,sz).cut(box(41,21,6,sx,sy,sz-1))
 for x in [sx-24,sx+24]:servotray=servotray.cut(cq.Workplane('XY').center(x,sy).circle(1.6).extrude(7).translate((0,0,sz-2)))
@@ -409,16 +409,16 @@ enrich(globals())
 for y in [-69,69]:
  for k in range(3):assembly.add(blade.translate(cq.Vector(196.05,y,139.4+k*1.2)),name='opgeborgen_rotor_'+str(y)+'_'+str(k),color=cq.Color(BLACK))
 # Uitvoer, rapport, massa en modeldata voor de losse CAD-viewer.
-assembly.export(str(STEP/'ortelius-p2-assemblage.step'))
-# Verouderde eigen exports horen niet tussen de actuele printdelen. P1 blijft in Git/het eerdere ZIP.
+assembly.export(str(STEP/'ortelius-v5-assemblage.step'))
+# Verouderde eigen exports horen niet tussen de actuele printdelen. V4 blijft in Git/het eerdere ZIP.
 expected={q['name'] for q in records}
 for folder,ext in [(STEP,'.step'),(STL,'.stl'),(MF,'.3mf')]:
  for f in folder.glob('*'+ext):
-  if f.stem not in expected and f.name!='ortelius-p2-assemblage.step':f.unlink()
+  if f.stem not in expected and f.name!='ortelius-v5-assemblage.step':f.unlink()
 # OCCT schrijft spaties aan regeleinden; normaliseer de tekstexports voor Git.
 for f in STEP.glob('*.step'):
  f.write_text('\n'.join(line.rstrip() for line in f.read_text().splitlines())+'\n')
-report=dict(revision='p2',units='mm',scale=100,printer='Bambu Lab P2S 256³; modelmarge 5 mm per zijde',parts=records,unique_parts=len(records),print_quantity=sum(q['quantity'] for q in records),maximum_part_dimension_mm=max(max(q['print_mm']) for q in records),solid_ASA_mass_g=round(sum(q['asa_solid_mass_g'] for q in records),1),material='PETG',solid_PETG_mass_g=round(sum(q['petg_solid_mass_g'] for q in records),1),limitations=['Fotogebaseerde onderwatervorm','Geen fysieke pas-/water-/vaartest','RC-hardware niet gekozen; doorvoeren niet geboord','Slicerprofielen en ondersteuning apart controleren'])
+report=dict(revision='v5',units='mm',scale=100,printer='Bambu Lab P2S 256³; modelmarge 5 mm per zijde',parts=records,unique_parts=len(records),print_quantity=sum(q['quantity'] for q in records),maximum_part_dimension_mm=max(max(q['print_mm']) for q in records),solid_ASA_mass_g=round(sum(q['asa_solid_mass_g'] for q in records),1),material='PETG',solid_PETG_mass_g=round(sum(q['petg_solid_mass_g'] for q in records),1),limitations=['Fotogebaseerde onderwatervorm','Geen fysieke pas-/water-/vaartest','RC-hardware niet gekozen; doorvoeren niet geboord','Slicerprofielen en ondersteuning apart controleren'])
 report['details']=detail_report
 outer_now=clip(aft_outer,0,227.5).union(clip(outer,227.5,900))
 def buoy(z):
