@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="2 8 80 80">
+  <title>Build Labs</title>
+  <style>
+    .ink { fill: #14212c; }
+    .accent { fill: #b3261e; }
+    @media (prefers-color-scheme: dark) {
+      .ink { fill: #e4ecf1; }
+      .accent { fill: #e0574d; }
+    }
+  </style>
+  <path class="ink" d="M9 55l33 17 33-17v12L42 84 9 67Z"/>
+  <path fill="#1f6f94" d="M9 38l33 17 33-17v12L42 67 9 50Z"/>
+  <path fill="#6cb8d9" d="M9 38l33 17v12L9 50Z"/>
+  <path class="accent" d="M9 29l33-17 33 17-33 17Z"/>
+</svg>

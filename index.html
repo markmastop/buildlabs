@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Build Labs</title>
+<link rel="icon" href="assets/build-labs-icon.svg" type="image/svg+xml" sizes="any">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@500;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -25,8 +26,8 @@ body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 var(
 .wrap { max-width: 1040px; margin: 0 auto; padding: 40px max(16px, env(safe-area-inset-right)) 64px max(16px, env(safe-area-inset-left)); display: grid; gap: 36px; }
 header { display: grid; gap: 6px; border-bottom: 2px solid var(--ink); padding-bottom: 20px; }
 .eyebrow { font: 500 12px var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
-h1 { font: 700 clamp(48px, 10vw, 88px)/.9 var(--display); margin: 0; }
-h1 span { color: var(--hull); }
+h1 { margin: 0; }
+.brand-logo { display: block; width: 100%; max-width: 367px; height: auto; }
 .lede { margin: 6px 0 0; color: var(--muted); max-width: 62ch; }
 .sections { display: grid; gap: 44px; }
 .group { display: grid; gap: 16px; }
@@ -66,7 +67,7 @@ footer { font: 12px var(--mono); color: var(--muted); }
 <div class="wrap">
   <header>
     <div class="eyebrow">Werkplaats · Bambu Lab P2S · 256 × 256 × 256 mm</div>
-    <h1>Build <span>Labs</span></h1>
+    <h1><img class="brand-logo" src="assets/build-labs-logo.svg" alt="Build Labs" width="367" height="96"></h1>
     <p class="lede">3D-ontwerpen en printprojecten. Bekijk draaibare modellen, referenties en ontwerpkeuzes; de bronbestanden en documentatie staan in de repository.</p>
   </header>
 
