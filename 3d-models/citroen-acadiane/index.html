@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Citroën Acadiane RC · M-05</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@500;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one column like a shipyard drawing sheet — model viewer on top, spec strip, then the parts list grouped per system. */
+:root {
+  --ice: #edf2f5;
+  --sheet: #f8fafb;
+  --ink: #14212c;
+  --muted: #536472;
+  --rule: #d3dde4;
+  --hull: #b3261e;
+  --polar: #1f6f94;
+  --stage: #dfe8ee;
+  --display: "Saira Extra Condensed", "Arial Narrow", sans-serif;
+  --body: "IBM Plex Sans", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --ice: #0d1720; --sheet: #142330; --ink: #e4ecf1; --muted: #93a6b4; --rule: #263a4a;
+  --hull: #e0574d; --polar: #6cb8d9; --stage: #0f1e2a; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --ice: #0d1720; --sheet: #142330; --ink: #e4ecf1; --muted: #93a6b4; --rule: #263a4a;
+  --hull: #e0574d; --polar: #6cb8d9; --stage: #0f1e2a; color-scheme: dark }
+
+body { background: var(--ice); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.55; }
+.wrap { max-width: 960px; margin: 0 auto; padding-block: 28px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 28px; }
+header { display: grid; gap: 4px; }
+.eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--polar); }
+h1 { font-family: var(--display); font-weight: 700; font-size: clamp(44px, 9vw, 76px); line-height: .9; margin: 0; letter-spacing: .01em; text-wrap: balance; }
+h1 span { color: var(--hull); }
+.lede { color: var(--muted); max-width: 60ch; margin: 6px 0 0; }
+
+.viewer { background: var(--stage); border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; position: relative; }
+#stage { width: 100%; display: block; touch-action: none; }
+.hint { position: absolute; left: 12px; bottom: 10px; font-family: var(--mono); font-size: 11px; color: var(--muted); pointer-events: none; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; }
+.controls button { font: 500 14px var(--body); color: var(--ink); background: var(--sheet); border: 1px solid var(--rule);
+  border-radius: 999px; padding: 7px 14px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+.controls button::before { content: ""; width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid var(--muted); }
+.controls button[aria-pressed="true"] { border-color: var(--polar); }
+.controls button[aria-pressed="true"]::before { background: var(--polar); border-color: var(--polar); }
+.views button::before { display: none; }
+.controls button:disabled { opacity: .45; cursor: default; }
+[hidden] { display: none !important; }
+.controls button:focus-visible, input:focus-visible { outline: 2px solid var(--polar); outline-offset: 2px; }
+
+.specs { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); border-top: 2px solid var(--ink); border-bottom: 1px solid var(--rule); }
+.spec { padding: 12px 12px 12px 0; display: grid; gap: 2px; }
+.spec dt { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.spec dd { margin: 0; font-family: var(--display); font-weight: 500; font-size: 30px; line-height: 1; font-variant-numeric: tabular-nums; }
+.spec dd small { font-family: var(--body); font-size: 13px; color: var(--muted); margin-left: 3px; }
+
+h2 { font: 700 34px/1 var(--display); margin: 0; }
+.model { display: grid; gap: 12px; min-width: 0; }
+#stage { height: clamp(250px, 53vw, 490px); }
+#viewer-status { padding: 16px; color: var(--muted); }
+a { color: var(--polar); }
+html.preview .wrap { padding: 0; max-width: none; }
+html.preview .wrap > :not(.model), html.preview .model > :not(.viewer),
+html.preview .hint { display: none; }
+html.preview .viewer { border: 0; border-radius: 0; }
+html.preview #stage { height: 100vh; touch-action: auto; }
+</style>
+<script>if (new URLSearchParams(location.search).has('kaart')) document.documentElement.classList.add('preview');</script>
+<style>body{margin:0}.bl-home{justify-self:start;align-self:start;display:inline-flex;align-items:center;gap:8px;width:max-content;margin:0 0 4px;padding:7px 14px 7px 11px;border:1px solid rgba(127,140,150,.45);border-radius:999px;font:500 14px/1 "IBM Plex Sans",system-ui,sans-serif;color:inherit;text-decoration:none;background:transparent;transition:border-color .15s,background .15s}.bl-home:hover{border-color:currentColor;background:rgba(127,140,150,.12)}.bl-home:focus-visible{outline:2px solid currentColor;outline-offset:2px}.bl-home svg{width:15px;height:15px;flex:none}</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="bl-home" href="../../index.html" aria-label="Terug naar het Build Labs-overzicht"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/></svg>Build Labs</a>
+  <header>
+    <div class="eyebrow">Chassisstudie v1 · RC-schaal 1:10</div>
+    <h1>Citroën <span>Acadiane</span> RC</h1>
+    <p class="lede">Draaibaar model van het Tamiya M-05-chassis met voorwielaandrijving, als uitgangspunt voor de latere Acadiane-opbouw.</p>
+  </header>
+
+  <section class="model" aria-label="3D-kijker">
+    <div class="viewer">
+      <canvas id="stage" aria-label="3D-model van het M-05-chassis" hidden></canvas>
+      <div class="hint" id="hint" hidden>slepen = draaien · knijpen/scrollen = zoomen</div>
+      <p id="viewer-status" role="status">3D-model laden…</p>
+      <noscript>Schakel JavaScript in om het 3D-model te bekijken.</noscript>
+    </div>
+    <div class="controls" role="group" aria-label="Wielbasis">
+      <button type="button" data-wheelbase="210" aria-pressed="false" disabled>S · 210 mm</button>
+      <button type="button" data-wheelbase="225" aria-pressed="false" disabled>M · 225 mm</button>
+      <button type="button" data-wheelbase="239" aria-pressed="true" disabled>L · 239 mm</button>
+    </div>
+    <div class="controls views" role="group" aria-label="Vaste aanzichten">
+      <button type="button" data-view="schuin" disabled>Schuin</button>
+      <button type="button" data-view="boven" disabled>Boven</button>
+      <button type="button" data-view="zij" disabled>Zij</button>
+    </div>
+  </section>
+
+  <dl class="specs">
+    <div class="spec"><dt>Wielbasis</dt><dd><span id="wheelbase" aria-live="polite">239</span> <small>mm</small></dd></div>
+    <div class="spec"><dt>Spoorbreedte</dt><dd>138 <small>mm</small></dd></div>
+    <div class="spec"><dt>Band Ø × breedte</dt><dd>59 × 25 <small>mm</small></dd></div>
+  </dl>
+
+  <section>
+    <h2>Uitgangspunt voor de opbouw</h2>
+    <p>De kijker start op de lange wielbasis. Vorm, hoogtes en posities van de montagepennen zijn benaderd. Meet het eigen chassis op voordat de montagepunten en wielkasten van de opbouw worden vastgelegd.</p>
+    <p><a href="https://www.tamiya.com/japan/products/84359/index.html">Tamiya M-05-specificaties</a> · <a href="https://www.tamiya.com/cms/english/rc/rcmanual/m05.pdf">Montagehandleiding</a></p>
+  </section>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(() => {
+  const canvas = document.getElementById('stage');
+  const status = document.getElementById('viewer-status');
+  const T = window.THREE;
+  let renderer;
+  try {
+    if (!T || !T.OrbitControls) throw new Error('Three.js niet beschikbaar');
+    renderer = new T.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  } catch {
+    status.textContent = 'Het 3D-model kon niet worden geladen. Controleer je verbinding en WebGL-ondersteuning.';
+    return;
+  }
+  const preview = document.documentElement.classList.contains('preview');
+  const scene = new T.Scene();
+  const camera = new T.OrthographicCamera(-20, 20, 12, -12, .1, 200);
+  const controls = preview ? null : new T.OrbitControls(camera, canvas);
+  const target = new T.Vector3(0, 2.5, 0);
+  const views = { schuin: [34, 27, 34], boven: [0, 50, .01], zij: [0, 3, 50] };
+  if (controls) {
+    controls.target.copy(target);
+    controls.enablePan = false;
+    controls.minZoom = .7;
+    controls.maxZoom = 4;
+  }
+  renderer.outputEncoding = T.sRGBEncoding;
+  renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+  scene.add(new T.HemisphereLight(0xffffff, 0x8394a5, 1.25));
+  const key = new T.DirectionalLight(0xfff5e8, 1.55);
+  key.position.set(18, 30, 12);
+  scene.add(key);
+
+  // Centimeters op modelschaal. +X wijst naar de vooras, +Y omhoog.
+  const chassis = new T.Group();
+  const rear = new T.Group();
+  const spine = new T.Group();
+  const frontX = 11.95;
+  const track = 13.8;
+  const radius = 2.95;
+  const halfWidth = 1.25;
+  scene.add(chassis);
+  chassis.add(rear, spine);
+  const material = (color, roughness = .52) => new T.MeshStandardMaterial({ color, roughness });
+  const plastic = material(0x323943);
+  const rubber = material(0x20242a, .9);
+  const steel = material(0xb3bec5);
+  const rim = material(0xe2e6e7);
+  const battery = material(0x365b80);
+
+  function add(parent, geometry, finish, x, y, z) {
+    const mesh = new T.Mesh(geometry, finish);
+    mesh.position.set(x, y, z);
+    parent.add(mesh);
+    return mesh;
+  }
+
+  function box(parent, size, finish, x, y, z) {
+    return add(parent, new T.BoxGeometry(...size), finish, x, y, z);
+  }
+
+  function rod(parent, start, end, r, finish) {
+    const a = new T.Vector3(...start);
+    const b = new T.Vector3(...end);
+    const direction = b.clone().sub(a);
+    const middle = a.clone().lerp(b, .5);
+    const mesh = add(parent, new T.CylinderGeometry(r, r, direction.length(), 20), finish,
+      middle.x, middle.y, middle.z);
+    mesh.quaternion.setFromUnitVectors(new T.Vector3(0, 1, 0), direction.normalize());
+  }
+
+  // Lage kuip met accuvak en een uitschuifbare aansluiting voor de achtersectie.
+  const outline = [[-7.3, 2.3], [-5, 3.4], [5.4, 3.4], [8.5, 2.6], [11, 1.8]];
+  const contour = outline.concat(outline.slice().reverse().map(([x, z]) => [x, -z]));
+  const pan = add(chassis, new T.ExtrudeGeometry(new T.Shape(contour.map(([x, z]) =>
+    new T.Vector2(x, -z))), { depth: .48, bevelEnabled: false }), plastic, 0, .65, 0);
+  pan.rotation.x = -Math.PI / 2;
+  for (const side of [-1, 1]) {
+    box(chassis, [11.5, 1.45, .38], plastic, .1, 1.7, side * 3.13);
+    box(spine, [1, 1.2, .55], plastic, 0, 1.52, side * 1.65);
+  }
+  rod(chassis, [-.3, 2.15, -3.45], [-.3, 2.15, 3.45], 1.23, battery);
+  box(chassis, [2.7, .28, 6.35], plastic, -.3, 3.5, 0);
+  box(chassis, [3.2, 1.6, 2.05], plastic, 4.5, 2.35, 0);
+
+  // Bij de M-05 liggen de motor en tandwielkast aan de aangedreven voorzijde.
+  rod(chassis, [8.65, 3.05, -2.65], [8.65, 3.05, 1.7], 1.78, steel);
+  box(chassis, [3.1, 3.3, 3.35], plastic, 10.35, 3.05, 2.05);
+  box(chassis, [1.2, 1, 7.4], rubber, 14, 1.6, 0);
+  rod(chassis, [12.9, 2.1, 0], [12.9, 6.6, 0], .23, plastic);
+  for (const side of [-1, 1]) {
+    rod(rear, [-.7, 3.2, side * 2.2], [-.7, 7.2, side * 2.2], .23, plastic);
+  }
+
+  const tireProfile = [[1.9, -halfWidth], [2.68, -halfWidth], [radius, -.97],
+    [radius, .97], [2.68, halfWidth], [1.9, halfWidth], [1.9, -halfWidth]];
+  const tire = new T.LatheGeometry(tireProfile.map(([r, z]) => new T.Vector2(r, z)), 48);
+  tire.rotateX(Math.PI / 2);
+  const rimBarrel = new T.CylinderGeometry(1.91, 1.91, 2.25, 40, 1, true);
+  rimBarrel.rotateX(Math.PI / 2);
+
+  function addAxle(parent, x, driven) {
+    box(parent, [2.3, 1.4, 5.1], plastic, x, 3.7, 0);
+    for (const side of [-1, 1]) {
+      const z = side * track / 2;
+      const wheel = new T.Group();
+      wheel.position.set(x, radius, z);
+      parent.add(wheel);
+      add(wheel, tire, rubber, 0, 0, 0);
+      add(wheel, rimBarrel, rim, 0, 0, 0);
+      for (let spoke = 0; spoke < 3; spoke++) {
+        const bar = box(wheel, [3.8, .33, .28], rim, 0, 0, side * 1.02);
+        bar.rotation.z = spoke * Math.PI / 3;
+      }
+      rod(wheel, [0, 0, -.98], [0, 0, .98], .53, rim);
+      for (const pivot of [-1, 1]) {
+        rod(parent, [x + pivot * 1.24, 1.5, side * 1.7], [x, 1.9, z - side], .25, plastic);
+      }
+      rod(parent, [x, 3.65, side * 2.15], [x, 3.25, z - side], .19, plastic);
+      const top = [x + .5, 4.9, side * 2.25];
+      const bottom = [x + .5, 1.95, z - side * 1.45];
+      rod(parent, bottom, top, .16, steel);
+      // Gestapelde ringen geven de veer rondom de demper weer.
+      const a = new T.Vector3(...bottom);
+      const b = new T.Vector3(...top);
+      const direction = b.clone().sub(a).normalize();
+      for (let turn = 0; turn < 8; turn++) {
+        const point = a.clone().lerp(b, .27 + turn * .083);
+        const ring = add(parent, new T.TorusGeometry(.31, .055, 8, 16), steel, point.x, point.y, point.z);
+        ring.quaternion.setFromUnitVectors(new T.Vector3(0, 0, 1), direction);
+      }
+      if (driven) {
+        rod(parent, [x, radius, side * 1.5], [x, radius, z - side], .14, steel);
+        rod(parent, [x + 1, 3.45, 0], [x + .75, 3.15, z - side], .11, steel);
+      }
+    }
+  }
+  addAxle(chassis, frontX, true);
+  addAxle(rear, 0, false);
+
+  function render() {
+    renderer.render(scene, camera);
+  }
+
+  function setWheelbase(mm) {
+    rear.position.x = frontX - mm / 10;
+    spine.position.x = (rear.position.x - 7) / 2;
+    spine.scale.x = -7 - rear.position.x + 1.8;
+    chassis.position.x = -(frontX + rear.position.x) / 2;
+    document.getElementById('wheelbase').textContent = mm;
+    for (const button of document.querySelectorAll('[data-wheelbase]')) {
+      button.setAttribute('aria-pressed', Number(button.dataset.wheelbase) === mm);
+    }
+    render();
+  }
+
+  function setView(view) {
+    camera.position.set(...views[view]);
+    camera.zoom = 1;
+    camera.lookAt(target);
+    camera.updateProjectionMatrix();
+    controls?.update();
+    render();
+  }
+
+  function resize() {
+    const { clientWidth: width, clientHeight: height } = canvas;
+    const aspect = width / height;
+    const halfHeight = Math.max(10.5, 17.5 / aspect);
+    camera.left = -halfHeight * aspect;
+    camera.right = halfHeight * aspect;
+    camera.top = halfHeight;
+    camera.bottom = -halfHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(width, height, false);
+    render();
+  }
+
+  canvas.hidden = false;
+  status.hidden = true;
+  document.getElementById('hint').hidden = preview;
+  setWheelbase(239);
+  setView('schuin');
+  resize();
+  new ResizeObserver(resize).observe(canvas);
+  controls?.addEventListener('change', render);
+  for (const button of document.querySelectorAll('[data-wheelbase], [data-view]')) {
+    button.disabled = false;
+    button.addEventListener('click', () => {
+      if (button.dataset.view) setView(button.dataset.view);
+      else setWheelbase(Number(button.dataset.wheelbase));
+    });
+  }
+})();
+</script>
+</body>
+</html>
