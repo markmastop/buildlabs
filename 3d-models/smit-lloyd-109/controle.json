@@ -18,14 +18,14 @@
     "datum": "Z=0 is rompdek/onderrand huis; pasframe-insteek tot Z=-6. Exportassen: X naar achteren, Y naar foto-links, Z omhoog. Cross_sections gebruiken interne Y-as met tegengesteld teken.",
     "assembly_bounds": [
       -25.0,
-      385.0,
+      385.00000000000006,
       -91.50000000000003,
       97.5,
       -6.0,
       196.00000010000008
     ],
     "assembly_size": [
-      410.0,
+      410.00000000000006,
       189.00000000000003,
       202.00000010000008
     ],
@@ -41,10 +41,10 @@
       "280": [
         [
           -87.5,
-          -62.49919999999999
+          -62.5
         ],
         [
-          11.784285714285716,
+          17.5,
           87.5
         ]
       ],
@@ -75,20 +75,28 @@
         ],
         [
           17.5,
+          39.67844455285004
+        ],
+        [
+          54.32155544714999,
           91.00005000000003
         ]
       ],
-      "337": [
+      "325": [
         [
           -97.5,
           -62.5
         ],
         [
-          51.5,
-          90.5
+          17.5,
+          39.5
+        ],
+        [
+          54.5,
+          90.75005000000002
         ]
       ],
-      "350": [
+      "335": [
         [
           -97.5,
           -62.5
@@ -96,6 +104,36 @@
         [
           54.5,
           90.5
+        ]
+      ],
+      "350": [
+        [
+          -97.5,
+          -63.749750000000006
+        ],
+        [
+          55.37482499999997,
+          90.5
+        ]
+      ],
+      "370": [
+        [
+          -97.5,
+          -68.74975
+        ],
+        [
+          58.87482499999997,
+          90.5
+        ]
+      ],
+      "380": [
+        [
+          -96.9122411050613,
+          -71.3379879213821
+        ],
+        [
+          60.82045138884308,
+          89.91224110506134
         ]
       ]
     },
@@ -664,25 +702,22 @@
       "backing_bottom": 3,
       "frame_flange_clearance": 1
     },
-    "left_stair_transition": {
-      "kind": "inclined_stair_beside_cabinet",
-      "start_x": 288.15,
-      "end_x": 329.15000000000003,
-      "height_start": 60,
-      "height_end": 0,
-      "stair_width": 14,
-      "cabinet_width": 19.700000000000003,
-      "stair_internal_y": [
-        37.35,
-        51.35
-      ],
-      "angle_degrees": 55.653902599938455,
-      "status": "function confirmed by user; dimensions photographic assumptions"
-    },
     "funnel_revision": {
       "parts": [
         {
           "label": "L",
+          "inner_facet": {
+            "margin": 0.5,
+            "grille_center_x": 366,
+            "grille_origin": [
+              365.87873218748183,
+              -68.23507125007266
+            ],
+            "direction": [
+              0.9701425001453319,
+              -0.24253562503633297
+            ]
+          },
           "center_x": 342,
           "internal_center_y": -80,
           "base_z": 62,
@@ -699,6 +734,18 @@
         },
         {
           "label": "R",
+          "inner_facet": {
+            "margin": 0.5,
+            "grille_center_x": 366,
+            "grille_origin": [
+              365.91380983412387,
+              58.66751523357785
+            ],
+            "direction": [
+              0.9850304671557042,
+              0.17238033175224823
+            ]
+          },
           "center_x": 342,
           "internal_center_y": 72.5,
           "base_z": 62,
@@ -746,15 +793,31 @@
       },
       "status": "Photographic prototype; radii and dimensions not measured"
     },
-    "aft_photo_revision": {
-      "door_on_left_chamfer": true,
-      "stepped_cabinet_rear_photo_left": true,
-      "right_sloping_case_rear_photo_right": true,
-      "flat_rear_deck": true,
-      "detail_dimensions": "photographic assumptions; not measured",
-      "deepest_recess_x": 270,
-      "left_chamfer_mouth_x": 284,
-      "right_chamfer_mouth_x": 280
+    "aft_shape_revision": {
+      "source": "referentiefoto's echte opbouw (IMG_0297..0299)",
+      "flat_block_at_deck_height": true,
+      "stepped_cabinet_stair_and_aft_cabinets_removed": true,
+      "straight_U_back_wall_x": 270,
+      "U_corner_radius": 2,
+      "notch": {
+        "x": [
+          318,
+          330
+        ],
+        "internal_y": [
+          39.5,
+          54.5
+        ],
+        "corner_radius": 3
+      },
+      "arm_inner_taper": {
+        "start_x": 345,
+        "left_end_inner_y": -72.5,
+        "right_end_inner_y": 61.5
+      },
+      "arm_end_radius": 8,
+      "front_box_corner_radius": 6,
+      "detail_dimensions": "notch, taper and radii from photo ratios or chosen by user; measured v17 dimensions unchanged"
     },
     "collisions": []
   },
@@ -782,12 +845,12 @@
         189.0,
         57.6
       ],
-      "volume_cm3": 96.3888,
+      "volume_cm3": 93.9722,
       "orientation": "onderzijde op bed",
       "assembled": true,
       "roof": false,
       "measured_base": true,
-      "note": "V9 zijwand: twee kleine ramen per zijde achter de naad; ongelijke uitlopers en knikken. Rechtop printen."
+      "note": "V18: vlak blok aan de brede arm met inkeping, rechte U-bodem met R2, armuiteinden R8 die binnen schuin naar buiten lopen. Twee kleine ramen per zijde achter de naad. Rechtop printen."
     },
     {
       "part": "00_pasproef",
@@ -842,7 +905,7 @@
         189.0,
         2.4
       ],
-      "volume_cm3": 54.9121,
+      "volume_cm3": 56.5361,
       "orientation": "onderzijde op bed",
       "assembled": true,
       "roof": false,
@@ -887,12 +950,12 @@
         65.0,
         55.0
       ],
-      "volume_cm3": 18.0521,
+      "volume_cm3": 17.2952,
       "orientation": "onderzijde op bed",
       "assembled": true,
       "roof": false,
       "measured_base": true,
-      "note": "V11: gemeten 65 breed x 25 uitsteek x 55 hoog. Verticale groef over volle hoogte, voorlopig R4 met 2 mm gesloten rug. Holle onderzijde op bed; groef niet vullen."
+      "note": "V18: gemeten 65 breed x 25 uitsteek x 55 hoog, staande hoeken R6. Verticale groef over volle hoogte, voorlopig R4 met 2 mm gesloten rug. Holle onderzijde op bed; groef niet vullen."
     },
     {
       "part": "09_klein_blok_links_25x15x30",
@@ -902,12 +965,12 @@
         25.0,
         30.0
       ],
-      "volume_cm3": 3.8896,
+      "volume_cm3": 3.4767,
       "orientation": "onderzijde op bed",
       "assembled": true,
       "roof": false,
       "measured_base": true,
-      "note": "Gemeten breedte 25, uitsteek 15 en hoogte 30 mm. Links van middenblok zoals foto; onderkant Z=0 aangenomen."
+      "note": "V18: gemeten breedte 25, uitsteek 15 en hoogte 30 mm, staande hoeken R6. Links van middenblok zoals foto; onderkant Z=0 aangenomen."
     },
     {
       "part": "10_stuurhut_met_raamopeningen",
@@ -989,15 +1052,15 @@
       "qty": 1,
       "print_mm": [
         80.475,
-        32.599,
+        32.0,
         134.0
       ],
-      "volume_cm3": 41.8152,
+      "volume_cm3": 41.5628,
       "orientation": "onderzijde op bed",
       "assembled": true,
       "roof": false,
       "measured_base": false,
-      "note": "V8: rondingen R12/R10; lengte 80/62. SMIT en twee gebogen hoekroosters integraal. Afgeschuinde bovenrand; bovenzijde open. Foto-aannames. Brede onderrand op bed."
+      "note": "V18: achteraan binnen versmald met een vlak facet langs de schuine armrand; binnenrooster op het facet. Rondingen R12/R10; lengte 80/62. SMIT en twee hoekroosters integraal. Bovenzijde open. Foto-aannames. Brede onderrand op bed."
     },
     {
       "part": "14_schoorsteenvoet_L",
@@ -1007,27 +1070,27 @@
         34.0,
         2.0
       ],
-      "volume_cm3": 1.0831,
+      "volume_cm3": 1.0118,
       "orientation": "onderzijde op bed",
       "assembled": true,
       "roof": false,
       "measured_base": false,
-      "note": "V8: afgeronde voetplaat met bijna half ronde uiteinden, 84 lang. Zelfde montagecentrum als v7. Vlak op bed; bovenkant voet op Z=62."
+      "note": "V18: afgeronde voetplaat, 84 lang, achteraan binnen ingekort tot binnen de schuine armrand. Zelfde montagecentrum als v7. Vlak op bed; bovenkant voet op Z=62."
     },
     {
       "part": "15_schoorsteen_logo_roosters_R",
       "qty": 1,
       "print_mm": [
         80.475,
-        34.599,
+        34.0,
         134.0
       ],
-      "volume_cm3": 42.7544,
+      "volume_cm3": 42.6156,
       "orientation": "onderzijde op bed",
       "assembled": true,
       "roof": false,
       "measured_base": false,
-      "note": "V8: rondingen R12/R10; lengte 80/62. SMIT en twee gebogen hoekroosters integraal. Afgeschuinde bovenrand; bovenzijde open. Foto-aannames. Brede onderrand op bed."
+      "note": "V18: achteraan binnen versmald met een vlak facet langs de schuine armrand; binnenrooster op het facet. Rondingen R12/R10; lengte 80/62. SMIT en twee hoekroosters integraal. Bovenzijde open. Foto-aannames. Brede onderrand op bed."
     },
     {
       "part": "14_schoorsteenvoet_R",
@@ -1037,12 +1100,12 @@
         36.0,
         2.0
       ],
-      "volume_cm3": 1.055,
+      "volume_cm3": 0.9316,
       "orientation": "onderzijde op bed",
       "assembled": true,
       "roof": false,
       "measured_base": false,
-      "note": "V8: afgeronde voetplaat met bijna half ronde uiteinden, 84 lang. Zelfde montagecentrum als v7. Vlak op bed; bovenkant voet op Z=62."
+      "note": "V18: afgeronde voetplaat, 84 lang, achteraan binnen ingekort tot binnen de schuine armrand. Zelfde montagecentrum als v7. Vlak op bed; bovenkant voet op Z=62."
     },
     {
       "part": "16_dwarsverbinding_met_platform",
@@ -1058,51 +1121,6 @@
       "roof": false,
       "measured_base": false,
       "note": "V8: vlakke plaat met in bovenaanzicht verbreed, naar achter uitstekend middenplatform. Kleine ring met twee schoren. Brede vlakke onderzijde op bed; foto-aannames."
-    },
-    {
-      "part": "17_achterkast_getrapt",
-      "qty": 1,
-      "print_mm": [
-        41.58,
-        33.7,
-        60.0
-      ],
-      "volume_cm3": 22.5867,
-      "orientation": "onderzijde op bed",
-      "assembled": true,
-      "roof": false,
-      "measured_base": false,
-      "note": "Achterfoto LINKS: schuin trapvlak 14 mm breed naast smallere tweepanelenkast. Samen één printdeel. Vorm trap door gebruiker verduidelijkt; breedte/helling foto-aannames. Onderzijde op bed; kastdakbrug controleren."
-    },
-    {
-      "part": "18_achterkast_laag",
-      "qty": 1,
-      "print_mm": [
-        22.58,
-        44.0,
-        22.0
-      ],
-      "volume_cm3": 7.1658,
-      "orientation": "onderzijde op bed",
-      "assembled": true,
-      "roof": false,
-      "measured_base": false,
-      "note": "Onder de twee kleine ramen. Afgeronde kast met twee deurpanelen; hol, onderrand op bed. Foto-aannames 44 x 22 x 22."
-    },
-    {
-      "part": "19_achterkast_schuin",
-      "qty": 1,
-      "print_mm": [
-        20.53,
-        10.0,
-        32.0
-      ],
-      "volume_cm3": 3.5517,
-      "orientation": "onderzijde op bed",
-      "assembled": true,
-      "roof": false,
-      "measured_base": false,
-      "note": "Achterfoto RECHTS, tegen smalle arm. Schuin dak; onderrand op bed. Fotomaten 20 lang x 10 breed, hoogte 32 naar 25 mm."
     },
     {
       "part": "20_rooster_bovenhuis_1",
@@ -1187,12 +1205,12 @@
         79.7,
         2.4
       ],
-      "volume_cm3": 18.4829,
+      "volume_cm3": 21.9377,
       "orientation": "onderzijde op bed",
       "assembled": false,
       "roof": false,
       "measured_base": false,
-      "note": "Optioneel: centrale U-vloer, met vrije uitsparingen onder achterkasten 18/19. Niet in assemblage opgenomen. Werkelijk pasframe eerst passen."
+      "note": "Optioneel: centrale U-vloer tussen de armen. Niet in assemblage opgenomen; de echte opbouw is open. Werkelijk pasframe eerst passen."
     },
     {
       "part": "22_lijmstrip_4x",

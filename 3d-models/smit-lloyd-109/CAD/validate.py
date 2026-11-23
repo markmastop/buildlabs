@@ -21,8 +21,8 @@ for r in d['parts']:
  if name=='09_klein_blok_links_25x15x30':assert np.allclose(m.extents[1:],[25,30],atol=.01)
  rechecks.append(dict(part=name,STL_closed=True,STL_one_component=True,STEP_readback_valid=True,STEP_STL_volume_difference_fraction=round(delta,8)))
 assembled=[r for r in d['parts'] if r['assembled']]
-sh=cq.importers.importStep(str(R/'STEP/SL109_v17_assemblage.step')).solids().vals()
-assert len(sh)==len(assembled)==27
+sh=cq.importers.importStep(str(R/'STEP/SL109_v18_assemblage.step')).solids().vals()
+assert len(sh)==len(assembled)==24
 byname={r['part']:s for r,s in zip(assembled,sh)}
 for s in sh:assert s.isValid()
 for name,z in [('04_achterdek_voor',60),('05_achterdek_achter',60),('07_voordak_163mm',86)]:assert abs(byname[name].BoundingBox().zmax-z)<.001
@@ -31,41 +31,48 @@ assert abs(byname['02_onderdekhuis_voor'].BoundingBox().xmin)<.001
 assert abs(byname['03_onderdekhuis_achter'].BoundingBox().xmax-385)<.001
 # After the explicit export Y reflection, the small box must be on photo-left (positive Y).
 small=byname['09_klein_blok_links_25x15x30'].BoundingBox();assert small.ymin>0
-# The sloping stair is beside the cabinet and really reaches the lower-deck datum.
-stair=byname['17_achterkast_getrapt'];sr=d['validation']['left_stair_transition']
-ym=-sum(sr['stair_internal_y'])/2
-for fraction in [.2,.5,.8]:
- x=sr['start_x']+(sr['end_x']-sr['start_x'])*fraction;expected=60*(1-fraction)
- q=cq.Workplane('XY').box(.002,1,100,centered=(True,True,False)).translate((x,ym,0)).val()
- top=stair.intersect(q).BoundingBox().zmax
- assert abs(top-expected)<.003,(x,top,expected)
-# The separate neighbouring cabinet still has its flat 38 mm front roof.
-q=cq.Workplane('XY').box(.002,1,100,centered=(True,True,False)).translate((318,-27,0)).val()
-assert abs(stair.intersect(q).BoundingBox().zmax-38)<.003
-# Rear-photo handedness and physical door opening; this caught the v5 mirror error.
-assert byname['17_achterkast_getrapt'].BoundingBox().ymax<0
-assert byname['19_achterkast_schuin'].BoundingBox().ymin>0
-assert abs(byname['17_achterkast_getrapt'].BoundingBox().zmax-60)<.001
-assert abs(byname['18_achterkast_laag'].BoundingBox().zmax-22)<.001
-p=json.loads((R/'CAD/parameters.json').read_text());a=p['aft']
-h=a['left_chamfer_run'];k=a['left_chamfer_inset'];norm=(h*h+k*k)**.5
-# Internal yiR is +17.5; exported door plane is mirrored across XZ.
-origin=(270+h/2,-17.5+k/2,a['door_bottom']+a['door_height']*.75)
-pl=cq.Plane(origin=origin,xDir=(h/norm,-k/norm,0),normal=(k/norm,h/norm,0))
-probe=cq.Workplane(pl).circle(a['porthole_diameter']/2-.4).extrude(5,both=True)
-assert byname['03_onderdekhuis_achter'].intersect(probe.val()).Volume()<.001
-adj=cq.Workplane('XY').sphere(.8).translate((origin[0]-k/norm*.6,origin[1]-h/norm*.6,origin[2]+6))
-assert byname['03_onderdekhuis_achter'].intersect(adj.val()).Volume()>.1
-floor=cq.importers.importStep(str(R/'STEP/21_achtervloer_optioneel.step')).val()
-# Individual print files are moved to bed-origin, so verify optional floor against
-# assembly using the source sketch's original x/y bounds (UX+.15, internal mirrored Y).
-# Its front-left corner is retained by the cabinet clearances and defines its origin.
-orig_x=270.15;orig_y=-17.5+.15
-floor=floor.translate(cq.Vector(orig_x,orig_y,0))
-for name in ['18_achterkast_laag','19_achterkast_schuin']:
- assert byname[name].intersect(floor).Volume()<.001,name
+# V18: lower-house shape follows the real moulded part. All probes on the reloaded
+# assembly STEP; export Y is the mirrored internal Y.
+p=json.loads((R/'CAD/parameters.json').read_text());c=p['construction']
+import sys;sys.path.insert(0,str(R/'CAD'));import voetafdruk
+st=voetafdruk.stations(p)
+def occupied(solid,x,y,z,r=.3):
+ return solid.intersect(cq.Workplane('XY').sphere(r).translate((x,y,z)).val()).Volume()>.01
+house=byname['03_onderdekhuis_achter'];deck=byname['05_achterdek_achter']
+assembly_parts=list(byname.values())
+# Stepped cabinet, stair and aft cabinets are gone; the broad block is flat at deck height.
+assert set(byname).isdisjoint({'17_achterkast_getrapt','18_achterkast_laag','19_achterkast_schuin'})
+for xx in [285,300,325]:
+ assert occupied(deck,xx,-(st['yiR']+8),59), (xx,'flat block deck missing')
+ assert not any(occupied(s,xx,-(st['yiR']+8),61.5) for s in assembly_parts), (xx,'something on the flat block')
+# Straight U back wall: the old chamfer corners are open space, the wall itself is present.
+for yy in [st['yiR']-3,st['yiL']+3]:
+ assert not occupied(house,st['UX']+3,-yy,30),(yy,'U corner not open')
+ assert occupied(house,st['UX']-1,-yy,30),(yy,'U back wall missing')
+# Notch between block and arm: open over the full height, block continues on the U side.
+nx=(st['notch_x']+st['nt'])/2;ny=(st['notch_y']+st['rheadinner'])/2
+for zz in [5,30,59]:
+ assert not any(occupied(s,nx,-ny,zz) for s in (house,deck)),(zz,'notch not open')
+assert occupied(deck,nx,-(st['yiR']+6),59),'block beside notch missing'
+assert occupied(deck,st['notch_x']-3,-ny,59),'block ahead of notch missing'
+# Inner side of both arms tapers outward over the last part.
+for yy,inside in [(st['yiL']-2,False),(st['left_end_inner']-3,True),(st['rheadinner']+2,False),(st['right_end_inner']+3,True)]:
+ assert occupied(deck,383,-yy,59)==inside,(yy,'arm end taper')
+for yy in [st['yiL']-1,st['rheadinner']+1]:
+ assert occupied(deck,st['taper_x']-5,-yy,59),(yy,'arm before taper changed')
+# R8 arm ends (an R5 corner would still hold material at this probe).
+for yy in [st['lout']+1.5,st['rtaper']-1.5]:
+ assert not occupied(deck,383.5,-yy,59,.2),(yy,'arm end corner not R8')
+ assert occupied(deck,380,-yy,59,.2),(yy,'arm end wall missing')
+# R6 standing corners on both front boxes.
+rf=c['front_box_corner_radius'];assert rf==6
+for name,y_out in [('08_middenblok_65x25x55',32.5),('09_klein_blok_links_25x15x30',57.5)]:
+ bb=byname[name].BoundingBox();zc=(bb.zmin+bb.zmax)/2
+ assert not occupied(byname[name],bb.xmin+1,y_out-1,zc,.2),(name,'front corner not R6')
+ assert occupied(byname[name],bb.xmin+.8,y_out-rf-1,zc,.2),(name,'front face missing')
+shape_report=dict(flat_block=True,straight_U_back_wall=True,notch_open_full_height=True,arm_inner_taper=True,arm_end_radius=c['end_radius'],front_box_corner_radius=rf,U_corner_radius=c['U_corner_radius'],notch_corner_radius=c['notch_corner_radius'])
 # Round funnel cross-section and flat widened connector are geometric checks.
-p=json.loads((R/'CAD/parameters.json').read_text());u=p['upper'];co=p['connector']
+u=p['upper'];co=p['connector']
 for suffix,iy,bw in [('L',u['left_funnel_y'],u['left_funnel_width']),('R',u['right_funnel_y'],u['right_funnel_width'])]:
  s=byname['15_schoorsteen_logo_roosters_'+suffix]
  # Point inside the old square-ish corner but outside the new R12 outer contour.
@@ -258,7 +265,7 @@ pr=cq.Workplane('XY').box(29,160,20,centered=(False,True,False)).translate((97.2
 assert roofpart.intersect(pr).Volume()<.001,'hood still extends over enlarged aft ledge'
 # Roof/bulkhead contact is a surface, not overlapping material; build tested every pair already.
 assert d['validation']['collisions']==[]
-rep={'parts':rechecks,'assembly_solids':len(sh),'checks':{'no_unintended_volume_collisions':True,'all_print_footprints_under_246_mm':True,'fore_roof_top_face_163_by_180':True,'roof_heights_60_and_86':True,'insertion_depth_6':True,'small_front_box_photo_left':True,'rear_photo_handedness':True,'angled_door_porthole_open':True,'optional_floor_clears_rear_cabinets':True,'inclined_stair_beside_two_panel_cabinet':True,'rounded_funnel_corners':True,'funnel_tubes_open':True,'connector_flat_widened_platform':True},'limits':'No physical print/fit, no Bambu Studio layer-by-layer slicer check.'}
+rep={'parts':rechecks,'assembly_solids':len(sh),'checks':{'no_unintended_volume_collisions':True,'all_print_footprints_under_246_mm':True,'fore_roof_top_face_163_by_180':True,'roof_heights_60_and_86':True,'insertion_depth_6':True,'small_front_box_photo_left':True,'v18_lower_house_follows_real_moulding':True,'rounded_funnel_corners':True,'funnel_tubes_open':True,'connector_flat_widened_platform':True},'limits':'No physical print/fit, no Bambu Studio layer-by-layer slicer check.'}
 rep['funnel_foot_support']=foot_support
 rep['side_window_readback']=side_report
 rep['checks']['upper_recesses_closed_with_sloping_returns']=True
@@ -281,12 +288,13 @@ rep['checks']['added_wall_height_below_unchanged_glass_heights']=True
 rep['checks']['small_recess_depth_doubled_to_8_mm']=True
 rep['checks']['anchor_nominal_depth_doubled_to_24_mm']=True
 rep['anchor_niche']=d['validation']['anchor_niche']
+rep['v18_shape']=shape_report
 (R/'STEP_hercontrole.json').write_text(json.dumps(rep,ensure_ascii=False,indent=2)+'\n')
-files=[p for p in sorted(R.rglob('*')) if p.is_file() and '__pycache__' not in p.parts and p.name not in ('SHA256SUMS.txt', 'Smit-Lloyd-109_v17_printpakket.zip')]
+files=[p for p in sorted(R.rglob('*')) if p.is_file() and '__pycache__' not in p.parts and p.name!='SHA256SUMS.txt' and not p.name.endswith('printpakket.zip') and p.name!='.DS_Store']
 (R/'SHA256SUMS.txt').write_text(''.join(hashlib.sha256(p.read_bytes()).hexdigest()+'  '+str(p.relative_to(R))+'\n' for p in files))
-archive=R.parent/'Smit-Lloyd-109_v17_printpakket.zip'
+archive=R/'Smit-Lloyd-109_v18_printpakket.zip'
 with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED) as z:
  for p in files + [R/'SHA256SUMS.txt']:
-  z.write(p,'smit_lloyd_109_v17/'+str(p.relative_to(R)))
+  z.write(p,'smit_lloyd_109_v18/'+str(p.relative_to(R)))
 with zipfile.ZipFile(archive) as z:assert z.testzip() is None
 print('RECHECK PASSED',len(rechecks),'STL/STEP pairs;',len(sh),'assembly solids;',archive.stat().st_size,'ZIP bytes')

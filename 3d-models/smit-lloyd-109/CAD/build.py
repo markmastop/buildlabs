@@ -1,4 +1,4 @@
-"""Smit-Lloyd 109 v17. Millimetres. Measured lower house plus photographic upperwork.
+"""Smit-Lloyd 109 v18. Millimetres. Measured lower house plus photographic upperwork.
 Run with CadQuery 2.8: python CAD/build.py. All editable dimensions: parameters.json.
 See metingen.json for measurement definitions. No claim of historical drawing accuracy.
 """
@@ -8,6 +8,7 @@ import cadquery as cq
 import trimesh
 from smit_logo import relief
 from bridge import make_bridge
+import voetafdruk
 ROOT=Path(__file__).resolve().parents[1]
 P=json.loads((ROOT/'CAD/parameters.json').read_text());M=P['measured'];C=P['construction'];U=P['upper'];A=P['aft'];B=P['connector'];SIDE=P['sides'];N=P['anchor_niche']
 W=C['wall'];T=C['deck'];L=M['length'];Z=M['aft_deck_height'];FZ=M['fore_roof_height'];SPLIT=C['lower_split_x']
@@ -55,8 +56,7 @@ def add(name,shape,*,roof=False,base=False,flip=False,qty=1,include=True,note=''
 def nose_points(width):
     # Fine polygon approximation avoids the OCCT STEP loss of long elliptic extrusion faces.
     # 96 segments: maximum chord error below 0.05 mm for this assumed 35 x 90 nose.
-    n=C['fore_nose_segments'];nr=C['fore_nose_depth'];yy=width/2
-    return [(nr-nr*math.cos(-math.pi/2+i*math.pi/n),yy*math.sin(-math.pi/2+i*math.pi/n)) for i in range(n+1)]
+    return voetafdruk.nose_points(P,width)
 def fore_wire(length,width,z=0):
     s=(cq.Workplane('XY').polyline(nose_points(width)).lineTo(length,width/2).lineTo(length,-width/2).close())
     wire=s.wire().val();b=wire.BoundingBox();assert abs(b.xmin)<.001 and abs(b.xmax-length)<.001,(b.xmin,b.xmax)
@@ -70,18 +70,14 @@ def panel(w,h,plane,depth=.6,outline=False):
     return on_plane(s,plane)
 
 # Analytic nose ellipse and measured aft widths/stations. All small radii/offsets listed as assumptions.
-H=C['aft_halfwidth'];yiL=-H+M['left_narrow'];yiR=yiL+M['U_width'];UX=L-M['U_depth_left']
-assert abs(H-yiR-M['right_with_block'])<.001
-l3=L-M['left_F3'];l4=L-M['left_F4'];r3=L-M['right_F3'];r4=L-M['right_F4']
-lout=yiL-M['left_wide'];rib=H-M['right_bare'];rheadinner=rib+C['right_shoulder_lateral_shift'];rheadouter=rheadinner+M['right_wide'];rtaper=rheadinner+M['right_bare']
-R=C['end_radius'];nt=UX+M['U_to_low_block'];ne=nt+C['small_notch_length'];ny=C['small_notch_inner_y'];nr=C['fore_nose_depth']
-wp=(cq.Workplane('XY').polyline(nose_points(M['front_width']))
- .lineTo(M['fore_roof_length'],M['front_width']/2).lineTo(UX,H).lineTo(r4,H).lineTo(r3,rheadouter)
- .lineTo(C['rear_taper_start'],rtaper).lineTo(L-R,rtaper).radiusArc((L,rtaper-R),R)
- .lineTo(L,rheadinner+R).radiusArc((L-R,rheadinner),R).lineTo(ne,rheadinner).lineTo(ne,ny).lineTo(nt,ny).lineTo(nt,yiR)
- .lineTo(UX+A['left_chamfer_run'],yiR).lineTo(UX,yiR-A['left_chamfer_inset']).lineTo(UX,yiL+A['right_chamfer_inset']).lineTo(UX+A['right_chamfer_run'],yiL).lineTo(L-R,yiL).radiusArc((L,yiL-R),R).lineTo(L,lout+R)
- .radiusArc((L-R,lout),R).lineTo(l3,lout).lineTo(l4,-H).lineTo(UX,-H).lineTo(M['fore_roof_length'],-M['front_width']/2).close())
+# V18: the shared footprint module follows the real moulded part (flat block, straight U,
+# notch, inward-tapering arm ends, rounder corners). See voetafdruk.py.
+S=voetafdruk.stations(P)
+H=S['H'];yiL=S['yiL'];yiR=S['yiR'];UX=S['UX'];l3=S['l3'];l4=S['l4'];r3=S['r3'];r4=S['r4']
+lout=S['lout'];rheadinner=S['rheadinner'];rheadouter=S['rheadouter'];nt=S['nt'];nr=C['fore_nose_depth']
+wp=cq.Workplane('XY').polyline(voetafdruk.outline_points(P)).close()
 outline=wp.wire().val();bb=outline.BoundingBox();assert abs(bb.xmin)<.001 and abs(bb.xmax-L)<.001
+assert abs(bb.ymin-lout)<.001 and abs(bb.ymax-rheadouter)<.001
 outer=wire_solid(outline,Z)
 inner=wire_solid(offset_wire(outline,W),Z+2).translate((0,0,-1))
 shell=outer.cut(inner).intersect(box(500,500,Z-T,190,0,0))
@@ -96,19 +92,7 @@ for side in ['A','B']:
 # Rear-photo convention: r increases from photo-left to photo-right.
 # Internal Y therefore decreases with r. Only aft details change sides; measured hull footprint stays.
 for r in A['window_r']:shell=shell.cut(box(10,A['window_width'],A['window_height'],UX,yiR-r,A['window_bottom']))
-dx=A['left_chamfer_run'];dy=A['left_chamfer_inset'];dd=math.hypot(dx,dy)
-door_plane=cq.Plane(origin=(UX+dx/2,yiR-dy/2,A['door_bottom']+A['door_height']/2),xDir=(dx/dd,dy/dd,0),normal=(dy/dd,-dx/dd,0))
-shell=shell.union(panel(A['door_width'],A['door_height'],door_plane)).union(panel(A['door_width'],A['door_height'],door_plane,1,True))
-hole=on_plane(cq.Workplane('XY').center(0,A['door_height']/4).circle(A['porthole_diameter']/2).extrude(6,both=True),door_plane)
-shell=shell.cut(hole)
-handle=on_plane(box(2.8,1,1,-3,0,.25),door_plane);shell=shell.union(handle)
-# The moulded broad arm includes a 34 mm inner block: replace that region by the stepped cabinet.
-cut_start=UX+A['step_start_offset'];cut_width=rib-yiR
-cabinet_cut=box(nt-cut_start,cut_width,100,(nt+cut_start)/2,(rib+yiR)/2,-1)
-shell=shell.cut(cabinet_cut)
-# Close the newly exposed hollow wing, providing connected glue faces beside/behind the separate stair cabinet.
-shell=shell.union(box(W,H-yiR,Z-T,cut_start-W/2,(H+yiR)/2).intersect(outer))
-shell=shell.union(box(nt-cut_start+W,W,Z-T,(nt+cut_start-W)/2,rib+W/2).intersect(outer))
+# V18: the inner block of the broad arm stays a flat part of the moulded shell, as on the real part.
 # Four ceiling tabs keep the frame flange inside the shell: deck datum stays at zero.
 for x in C['frame_tab_x']:
     for sign in [-1,1]:shell=shell.union(box(30,C['frame_tab_width'],C['frame_tab_thickness'],x,sign*C['frame_tab_y'],C['frame_flange'][2]).intersect(outer))
@@ -121,7 +105,7 @@ blank=box(nx1-nx0+2*nw,120-(nb-nw),Z-T-(N['sill_top']-N['sill_thickness']),(nx0+
 void=box(nx1-nx0,120-nb,Z-T-N['sill_top']+1,(nx0+nx1)/2,ns*(nb+120)/2,N['sill_top'])
 shell=shell.union(blank).cut(void)
 add('02_onderdekhuis_voor',clip(shell,-1,SPLIT),base=True,note='V17: zijde A vier voorste ramen; zijde B twee voorste ramen en gesloten ankernis. Rechtop printen; nisplafond is deel 04. Pasframevlakken blijven vrij.')
-add('03_onderdekhuis_achter',clip(shell_baseline,SPLIT,L+1),base=True,note='V9 zijwand: twee kleine ramen per zijde achter de naad; ongelijke uitlopers en knikken. Rechtop printen.')
+add('03_onderdekhuis_achter',clip(shell_baseline,SPLIT,L+1),base=True,note='V18: vlak blok aan de brede arm met inkeping, rechte U-bodem met R2, armuiteinden R8 die binnen schuin naar buiten lopen. Twee kleine ramen per zijde achter de naad. Rechtop printen.')
 
 # Fitting ring, independent of the house. Its flange is inside the lower house (Z 0..2), insertion Z -6..0.
 def frame(wall):
@@ -133,7 +117,7 @@ add('00_pasproef',frame(1.6),base=True,flip=True,include=False,note='Eerst volle
 add('01_pasframe',frame(C['frame_wall']),base=True,flip=True,note='Los droogpassen; definitieve lengtepositie op echte romp bepalen vóór verlijmen. Flens intern op Z 0..2.')
 
 # Lower roof around the upper tier, split at the same station as the walls.
-low_roof=wire_solid(outline,T).translate((0,0,Z-T)).cut(cabinet_cut)
+low_roof=wire_solid(outline,T).translate((0,0,Z-T))
 plen=M['fore_roof_length']+C['upper_rear_slope_run']
 forebottom=fore_wire(plen,M['front_width'],Z)
 foretop=fore_wire(M['fore_roof_length'],M['front_width'],FZ)
@@ -212,7 +196,7 @@ def case_on_fore(width,projection,height,y=0,notch=0):
     # Wall X at the case centre on the elliptical forward face. Dims are protrusion at centre, not a rectangular rear depth.
     back=nr-nr*math.sqrt(max(0,1-(y/(M['front_width']/2))**2))
     front=back-projection
-    raw=rounded(projection+nr+5,width,height,front+(projection+nr+5)/2,y,C['front_box_z'],min(2,width/8))
+    raw=rounded(projection+nr+5,width,height,front+(projection+nr+5)/2,y,C['front_box_z'],C['front_box_corner_radius'])
     raw=raw.cut(outer)
     raw=raw.intersect(box(projection+nr+10,width+4,height+2,front+(projection+nr+10)/2,y,C['front_box_z']-1))
     # Open underside, with a constant 2 mm front wall and side walls.
@@ -231,8 +215,8 @@ cb=M['front_center_box'];sb=M['front_small_box']
 center,center_front=case_on_fore(*cb,y=0,notch=C['front_center_notch_radius'])
 small_y=-(cb[0]/2+sb[0]/2+C['front_small_box_gap'])
 small,small_front=case_on_fore(*sb,y=small_y)
-add('08_middenblok_65x25x55',center,base=True,note='V11: gemeten 65 breed x 25 uitsteek x 55 hoog. Verticale groef over volle hoogte, voorlopig R4 met 2 mm gesloten rug. Holle onderzijde op bed; groef niet vullen.')
-add('09_klein_blok_links_25x15x30',small,base=True,note='Gemeten breedte 25, uitsteek 15 en hoogte 30 mm. Links van middenblok zoals foto; onderkant Z=0 aangenomen.')
+add('08_middenblok_65x25x55',center,base=True,note='V18: gemeten 65 breed x 25 uitsteek x 55 hoog, staande hoeken R6. Verticale groef over volle hoogte, voorlopig R4 met 2 mm gesloten rug. Holle onderzijde op bed; groef niet vullen.')
+add('09_klein_blok_links_25x15x30',small,base=True,note='V18: gemeten breedte 25, uitsteek 15 en hoogte 30 mm, staande hoeken R6. Links van middenblok zoals foto; onderkant Z=0 aangenomen.')
 
 # Independent editable wheelhouse replaces the inherited v4 solids.
 bs=U['bridge_z_shift']
@@ -273,6 +257,15 @@ def grille_masks(wb,wt,h):
     return footprint,rails
 
 funnel_outers=[];funnel_records=[]
+# V18: the arm ends taper inward, so funnel and foot stay inside the deck outline
+# (inset by a small margin). The cut becomes a flat inner facet with the same wall.
+fm=U['funnel_facet_margin']
+def inside_deck(inset):return wire_solid(offset_wire(outline,inset),400).translate((0,0,-50))
+def facet_frame(sign):
+    a=(S['taper_x'],S['yiL'] if sign<0 else S['rheadinner']);b=(L,S['left_end_inner'] if sign<0 else S['right_end_inner'])
+    dl=math.hypot(b[0]-a[0],b[1]-a[1]);d=((b[0]-a[0])/dl,(b[1]-a[1])/dl)
+    n=(-d[1],d[0]) if sign<0 else (d[1],-d[0])  # horizontal, toward the centre line
+    return a,d,n
 for sign,label,y,bw in [(-1,'L',U['left_funnel_y'],U['left_funnel_width']),(1,'R',U['right_funnel_y'],U['right_funnel_width'])]:
     x=U['funnel_center_x'];z=Z+U['funnel_flange_height'];h=U['funnel_height'];bl=U['funnel_length'];tl=U['funnel_top_length'];tw=bw-U['funnel_width_taper'];fw=U['funnel_wall'];rb=U['funnel_base_radius'];rt=U['funnel_top_radius']
     assert rb<bw/2 and rt<tw/2
@@ -280,20 +273,23 @@ for sign,label,y,bw in [(-1,'L',U['left_funnel_y'],U['left_funnel_width']),(1,'R
         return aswp(cq.Solid.makeLoft([rwire(bl+2*delta,bw+2*delta,rb+delta,x,y,z),rwire(tl+2*delta,tw+2*delta,rt+delta,x,y,z+h)],ruled=True))
     def top_height(xx):return z+h-U['funnel_top_drop']*(xx-(x-tl/2))/tl
     cut_top=cq.Workplane('XZ').polyline([(x-150,z-2),(x+150,z-2),(x+150,top_height(x+150)),(x-150,top_height(x-150))]).close().extrude(250,both=True)
-    out=loft_offset(0).intersect(cut_top)
-    hole=aswp(cq.Solid.makeLoft([rwire(bl-2*fw,bw-2*fw,rb-fw,x,y,z-1),rwire(tl-2*fw,tw-2*fw,rt-fw,x,y,z+h+1)],ruled=True))
+    out=loft_offset(0).intersect(cut_top).intersect(inside_deck(fm))
+    hole=aswp(cq.Solid.makeLoft([rwire(bl-2*fw,bw-2*fw,rb-fw,x,y,z-1),rwire(tl-2*fw,tw-2*fw,rt-fw,x,y,z+h+1)],ruled=True)).intersect(inside_deck(fm+fw))
     funnel=out.cut(hole)
     rim_band=cut_top.cut(cut_top.translate((0,0,-U['funnel_top_rim_height'])))
-    rim=loft_offset(U['funnel_top_rim_relief']).intersect(rim_band).cut(hole)
+    rim=loft_offset(U['funnel_top_rim_relief']).intersect(rim_band).intersect(inside_deck(fm-U['funnel_top_rim_relief'])).cut(hole)
     funnel=funnel.union(rim)
     logo=relief(ROOT/'inputs/smitlogo.svg',sign,width=U['logo_width'],height_center=U['logo_center_z'],depth=U['logo_relief'],x_center=x,y_center=y,z_bottom=z,base_width=bw,top_width=tw,total_height=h)
     funnel=funnel.union(logo)
-    expanded_base=loft_offset(U['funnel_grille_base_relief'])
-    expanded_ribs=loft_offset(U['funnel_grille_rib_relief'])
+    expanded_base=loft_offset(U['funnel_grille_base_relief']).intersect(inside_deck(fm-U['funnel_grille_base_relief']))
+    expanded_ribs=loft_offset(U['funnel_grille_rib_relief']).intersect(inside_deck(fm-U['funnel_grille_rib_relief']))
     gh=U['funnel_grille_height'];za=U['funnel_grille_bottom']+gh/2
     sy=(bw-tw)/2/h;ny=math.sqrt(1+sy*sy)
-    gx=x+bl/2-rb-U['funnel_inner_grille_bottom_width']/2-1
-    inner_plane=cq.Plane(origin=(gx,y-sign*(bw/2-za*sy),z+za),xDir=(sign,0,0),normal=(0,-sign/ny,sy/ny))
+    # The inner corner grille sits on the new flat facet, fully within its height.
+    fa,fd,fn=facet_frame(sign);gx=U['funnel_inner_grille_x']
+    # Point on the arm's taper line at X=gx, moved inward by the same margin as the facet.
+    gp=(gx-fm*fn[0],fa[1]+fd[1]/fd[0]*(gx-fa[0])-fm*fn[1])
+    inner_plane=cq.Plane(origin=(gp[0],gp[1],z+za),xDir=(sign*fd[0],sign*fd[1],0),normal=(fn[0],fn[1],0))
     sx=(bl-tl)/2/h;nx=math.sqrt(1+sx*sx)
     end_plane=cq.Plane(origin=(x+bl/2-za*sx,y,z+za),xDir=(0,1,0),normal=(1/nx,0,sx/nx))
     for plane,wb,wt in [(inner_plane,U['funnel_inner_grille_bottom_width'],U['funnel_inner_grille_top_width']),(end_plane,U['funnel_end_grille_bottom_width'],U['funnel_end_grille_top_width'])]:
@@ -304,12 +300,13 @@ for sign,label,y,bw in [(-1,'L',U['left_funnel_y'],U['left_funnel_width']),(1,'R
         ribs=on_plane(rails,plane).intersect(expanded_ribs)
         funnel=funnel.union(backing).union(ribs)
     funnel=funnel.cut(hole)
-    add('15_schoorsteen_logo_roosters_'+label,funnel,note='V8: rondingen R12/R10; lengte 80/62. SMIT en twee gebogen hoekroosters integraal. Afgeschuinde bovenrand; bovenzijde open. Foto-aannames. Brede onderrand op bed.')
+    add('15_schoorsteen_logo_roosters_'+label,funnel,note='V18: achteraan binnen versmald met een vlak facet langs de schuine armrand; binnenrooster op het facet. Rondingen R12/R10; lengte 80/62. SMIT en twee hoekroosters integraal. Bovenzijde open. Foto-aannames. Brede onderrand op bed.')
     flange_radius=(bw+2)/2-U['funnel_flange_radius_margin']
-    flange=rounded(bl+4,bw+2,U['funnel_flange_height'],x,y,Z,flange_radius).cut(rounded(bl-2*fw,bw-2*fw,U['funnel_flange_height']+2,x,y,Z-1,rb-fw))
-    add('14_schoorsteenvoet_'+label,flange,note='V8: afgeronde voetplaat met bijna half ronde uiteinden, 84 lang. Zelfde montagecentrum als v7. Vlak op bed; bovenkant voet op Z=62.')
+    flange=rounded(bl+4,bw+2,U['funnel_flange_height'],x,y,Z,flange_radius).intersect(inside_deck(fm))
+    flange=flange.cut(rounded(bl-2*fw,bw-2*fw,U['funnel_flange_height']+2,x,y,Z-1,rb-fw).intersect(inside_deck(fm+fw)))
+    add('14_schoorsteenvoet_'+label,flange,note='V18: afgeronde voetplaat, 84 lang, achteraan binnen ingekort tot binnen de schuine armrand. Zelfde montagecentrum als v7. Vlak op bed; bovenkant voet op Z=62.')
     funnel_outers.append(out.val())
-    funnel_records.append(dict(label=label,center_x=x,internal_center_y=y,base_z=z,height=h,base_length=bl,top_length=tl,base_width=bw,top_width=tw,base_radius=rb,top_radius=rt,top_drop=U['funnel_top_drop'],grille_height=gh,grille_bottom=U['funnel_grille_bottom']))
+    funnel_records.append(dict(label=label,inner_facet=dict(margin=fm,grille_center_x=gx,grille_origin=list(gp),direction=list(fd)),center_x=x,internal_center_y=y,base_z=z,height=h,base_length=bl,top_length=tl,base_width=bw,top_width=tw,base_radius=rb,top_radius=rt,top_drop=U['funnel_top_drop'],grille_height=gh,grille_bottom=U['funnel_grille_bottom']))
 
 # Top-view photo: a flat plate with a widened, aft-projecting middle platform.
 cy=(U['left_funnel_y']+U['right_funnel_y'])/2;span=U['right_funnel_y']-U['left_funnel_y'];x=U['funnel_center_x'];bz=U['connector_z'];bt=B['plate_thickness']
@@ -326,48 +323,6 @@ beam=beam.cut(cq.Workplane('XY').center(px,cy).circle(B['boss_inner_diameter']/2
 for ss in funnel_outers:beam=beam.cut(aswp(ss))
 add('16_dwarsverbinding_met_platform',beam,note='V8: vlakke plaat met in bovenaanzicht verbreed, naar achter uitstekend middenplatform. Kleine ring met twee schoren. Brede vlakke onderzijde op bed; foto-aannames.')
 
-# Confirmed by the user: the smooth inclined piece IS the staircase.
-# Rear-photo left is internal +Y: split the available broad inner block into a
-# 14 mm inclined stair on the outside and a narrower two-panel cabinet beside it.
-gap=A['step_gap'];xs=cut_start+gap;xe=nt-gap-A['step_panel_clearance']
-y0=yiR+gap;y1=rib-gap;sw=A['stair_width'];split_y=y1-sw
-cw=split_y-y0;yc=(y0+split_y)/2
-e1=UX+A['step_first_end_offset'];e2=UX+A['step_second_end_offset'];hh=A['step_heights']
-case17=box(e1-xs,cw,hh[0],(e1+xs)/2,yc).union(box(e2-e1,cw,hh[1],(e2+e1)/2,yc)).union(box(xe-e2,cw,hh[2],(xe+e2)/2,yc))
-case17=case17.edges('|Z').fillet(1.2)
-case17=case17.cut(box(xe-xs-2*W,cw-2*W,hh[2]-T+1,(xs+xe)/2,yc,-1))
-for yy in [yc-cw/4,yc+cw/4]:
-    pl=cq.Plane(origin=(xe,yy,hh[2]/2),xDir=(0,1,0),normal=(1,0,0))
-    case17=case17.union(panel(cw/2-2,hh[2]-5,pl,.7,True))
-stair_profile=[(xs,0),(xe,0),(xs,A['stair_high_end'])]
-stair=cq.Workplane('XZ').polyline(stair_profile).close().extrude(sw/2,both=True).translate((0,(split_y+y1)/2,0))
-# Remove underside material below a 2.4 mm vertical top skin, retaining side walls.
-# A controlled offset triangle avoids a fragile, unsupported internal knife edge.
-run=xe-xs;grade=A['stair_high_end']/run
-ix0=xs+W;ix1=xe-T/grade
-if ix1>ix0:
-    inner_h=A['stair_high_end']-grade*(ix0-xs)-T
-    hollow=cq.Workplane('XZ').polyline([(ix0,-1),(ix1,-1),(ix1,0),(ix0,inner_h)]).close().extrude((sw-2*W)/2,both=True).translate((0,(split_y+y1)/2,0))
-    stair=stair.cut(hollow)
-stair_record=dict(kind='inclined_stair_beside_cabinet',start_x=xs,end_x=xe,height_start=A['stair_high_end'],height_end=0,stair_width=sw,cabinet_width=cw,stair_internal_y=[split_y,y1],angle_degrees=math.degrees(math.atan2(A['stair_high_end'],xe-xs)),status='function confirmed by user; dimensions photographic assumptions')
-step=case17.union(stair)
-add('17_achterkast_getrapt',step,note='Achterfoto LINKS: schuin trapvlak 14 mm breed naast smallere tweepanelenkast. Samen één printdeel. Vorm trap door gebruiker verduidelijkt; breedte/helling foto-aannames. Onderzijde op bed; kastdakbrug controleren.')
-
-# Rounded, hollow low cabinet below the two windows; clear of the angled door.
-cw=A['low_box_width'];cd=A['low_box_depth'];ch=A['low_box_height'];yc=yiR-A['low_box_r_center'];xb=UX+.15;xe=xb+cd
-case=rounded(cd,cw,ch,(xb+xe)/2,yc,0,2).cut(box(cd-2*W,cw-2*W,ch-T+1,(xb+xe)/2,yc,-1)).cut(outer)
-for yy in [yc-cw/4,yc+cw/4]:
-    pl=cq.Plane(origin=(xe,yy,ch/2),xDir=(0,1,0),normal=(1,0,0))
-    case=case.union(panel(cw/2-5,ch-6,pl,.7,True))
-add('18_achterkast_laag',case,note='Onder de twee kleine ramen. Afgeronde kast met twee deurpanelen; hol, onderrand op bed. Foto-aannames 44 x 22 x 22.')
-
-# Photo-right short box has a sloping top and sits against the narrow arm.
-xb=UX+A['right_chamfer_run'];xe=xb+A['right_box_depth'];yc=yiL+A['right_box_width']/2
-right=cq.Workplane('XZ').polyline([(xb,0),(xe,0),(xe,A['right_box_low']),(xb,A['right_box_high'])]).close().extrude(A['right_box_width']/2,both=True).translate((0,yc,0)).cut(outer)
-right=right.cut(box(A['right_box_depth']-2*W,A['right_box_width']-2*W,A['right_box_low']-T+1,(xb+xe)/2,yc,-1))
-pl=cq.Plane(origin=(xe,yc,A['right_box_low']/2),xDir=(0,1,0),normal=(1,0,0))
-right=right.union(panel(A['right_box_width']-3,A['right_box_low']-5,pl,.65,True))
-add('19_achterkast_schuin',right,note='Achterfoto RECHTS, tegen smalle arm. Schuin dak; onderrand op bed. Fotomaten 20 lang x 10 breed, hoogte 32 naar 25 mm.')
 # Five loose upper grilles on the sloping rear face, just above the measured lower deck.
 slope=C['upper_rear_slope_run']/(FZ-Z);norm=math.sqrt(1+slope*slope)
 for i,y in enumerate([-65,-32.5,0,32.5,65],1):
@@ -379,17 +334,7 @@ for i,y in enumerate([-65,-32.5,0,32.5,65],1):
 floor=box(M['U_depth_left'],M['U_width'],T,UX+M['U_depth_left']/2,(yiL+yiR)/2,0).cut(outer)
 # Preserve a 0.15 mm fitting gap to the house sides.
 floor=clip(floor,UX+.15,L-.15).intersect(box(150,M['U_width']-.3,T,UX+57.5,(yiL+yiR)/2,0))
-for cabinet in [case,right]:
-    cb=cabinet.val().BoundingBox()
-    floor=floor.cut(box(cb.xlen+.3,cb.ylen+.3,T+2,(cb.xmin+cb.xmax)/2,(cb.ymin+cb.ymax)/2,-1))
-# The two cabinet clearances enclose a tiny triangular corner: leave that corner open,
-# rather than shipping an unconnected sliver in an otherwise single-piece floor.
-fs=floor.solids().vals()
-if len(fs)>1:
-    largest=max(fs,key=lambda q:q.Volume())
-    assert sum(q.Volume() for q in fs)-largest.Volume()<150
-    floor=cq.Workplane(obj=largest)
-add('21_achtervloer_optioneel',floor,include=False,note='Optioneel: centrale U-vloer, met vrije uitsparingen onder achterkasten 18/19. Niet in assemblage opgenomen. Werkelijk pasframe eerst passen.')
+add('21_achtervloer_optioneel',floor,include=False,note='Optioneel: centrale U-vloer tussen de armen. Niet in assemblage opgenomen; de echte opbouw is open. Werkelijk pasframe eerst passen.')
 add('22_lijmstrip_4x',box(30,12,2),qty=4,include=False,note='Binnen langs lengtenaad onderdekhuis lijmen, vrij plaatsen/inkorten.')
 add('23_dek_lijmstrip_4x',box(24,8,2),qty=4,include=False,note='Onder de deknaden, vrij plaatsen vóór montage.')
 
@@ -405,15 +350,14 @@ validation['status']='Geometry checked; no physical fit or print/slicer layer va
 def intervals_at(x):
     probe=outer.intersect(box(.002,500,1,x,0,10)).solids().vals()
     return sorted([(s.BoundingBox().ymin,s.BoundingBox().ymax) for s in probe])
-validation['cross_sections']={str(x):intervals_at(x) for x in [100,280,302.5,307.5,320,337,350]}
+validation['cross_sections']={str(x):intervals_at(x) for x in [100,280,302.5,307.5,320,325,335,350,370,380]}
 validation['bridge_revision']=bridge_report
 validation['simplification']=dict(solid_front_windbreak_restored_from='v12',other_railings=False,roof_equipment=False,lifebuoys=False,roof_rim=False,mast_bore=False)
 validation['front_revision']=dict(full_height_groove=True,groove_radius=C['front_center_notch_radius'],groove_backing=C['front_groove_backing'],groove_height=M['front_center_box'][2],railing_gap_width=C['front_railing_gap_width'],railing_gap_bottom=FZ,railing_gap_top=FZ+16,dimensions_status='groove and gap detail sizes are photographic assumptions')
 validation['side_windows']=dict(A=SIDE['A'],B=SIDE['B'],same_layout_confirmed_by_user=False,anchor_one_side_confirmed_by_user=True,lower_count=dict(A=6,B=4),upper_recess_count_per_side=2,lower_joint_distribution=dict(A=[4,2],B=[2,2]),dimension_status='photo estimates, not measured')
 validation['anchor_niche']=dict(**N,cavity_top=Z-T,backing_bottom=N['sill_top']-N['sill_thickness'],frame_flange_clearance=N['sill_top']-N['sill_thickness']-C['frame_flange'][2])
-validation['left_stair_transition']=stair_record
 validation['funnel_revision']=dict(parts=funnel_records,connector=dict(flat_plate=True,plate_thickness=B['plate_thickness'],planform_platform=pp),status='Photographic prototype; radii and dimensions not measured')
-validation['aft_photo_revision']=dict(door_on_left_chamfer=True,stepped_cabinet_rear_photo_left=True,right_sloping_case_rear_photo_right=True,flat_rear_deck=True,detail_dimensions='photographic assumptions; not measured',deepest_recess_x=UX,left_chamfer_mouth_x=UX+A['left_chamfer_run'],right_chamfer_mouth_x=UX+A['right_chamfer_run'])
+validation['aft_shape_revision']=dict(source='referentiefoto\'s echte opbouw (IMG_0297..0299)',flat_block_at_deck_height=True,stepped_cabinet_stair_and_aft_cabinets_removed=True,straight_U_back_wall_x=UX,U_corner_radius=C['U_corner_radius'],notch=dict(x=[S['notch_x'],nt],internal_y=[S['notch_y'],rheadinner],corner_radius=C['notch_corner_radius']),arm_inner_taper=dict(start_x=S['taper_x'],left_end_inner_y=S['left_end_inner'],right_end_inner_y=S['right_end_inner']),arm_end_radius=C['end_radius'],front_box_corner_radius=C['front_box_corner_radius'],detail_dimensions='notch, taper and radii from photo ratios or chosen by user; measured v17 dimensions unchanged')
 validation['collisions']=[]
 for i,(an,a,_,_) in enumerate(parts):
     ba=a.BoundingBox()
@@ -423,7 +367,7 @@ for i,(an,a,_,_) in enumerate(parts):
         volume=a.intersect(b).Volume()
         if volume>.05:validation['collisions'].append(dict(a=an,b=bn,volume_mm3=round(volume,5)))
 (ROOT/'controle.json').write_text(json.dumps(dict(validation=validation,parts=records),ensure_ascii=False,indent=2))
-cq.exporters.export(assembly,str(ROOT/'STEP/SL109_v17_assemblage.step'))
+cq.exporters.export(assembly,str(ROOT/'STEP/SL109_v18_assemblage.step'))
 with (ROOT/'onderdelen.csv').open('w') as f:
     w=csv.writer(f);w.writerow(['onderdeel','aantal','X_mm','Y_mm','Z_mm','volume_cm3','printstand','in_assemblage','opmerking'])
     for r in records:w.writerow([r['part'],r['qty'],*r['print_mm'],r['volume_cm3'],r['orientation'],r['assembled'],r['note']])

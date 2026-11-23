@@ -1,5 +1,5 @@
-ACTIEVE VERSIE: V17
-V17 vervangt eerdere stuurhutproporties. Oudere vermeldingen zijn geschiedenis.
+ACTIEVE VERSIE: V18
+V18 past de vorm van het onderdekhuis aan de echte opbouw aan. Oudere vermeldingen zijn geschiedenis.
 
 - 180 mm is de gemeten breedte van het afgeronde voordek; de achterste verbredingen kunnen daarbuiten vallen.
 - Bakboord/stuurboord nog niet toegewezen: L/R altijd zoals de eerste bovenfoto.
@@ -89,3 +89,10 @@ V17 vervangt eerdere stuurhutproporties. Oudere vermeldingen zijn geschiedenis.
 - v17: drie hoge achterramen blijven open, 26 hoog vanaf 25 boven de voet; de twee buitenste ramen 12 hoog vanaf 39. Zelfde glasvormen als v16, 13 mm hoger geplaatst. Stuurhut blijft links/rechts spiegelgelijk.
 - v17: dakcontact Z141; kapbasis Z143; kaal kapdeksel Z155..157. Dakoverstek 3 en kaphoogte 14 blijven; kap achterrand naar X97 zodat een vlak achterdak van 29 mm overblijft. Deze dakverhoudingen zijn foto-inschattingen.
 - v17: onderbouw, dichte voorverschansing, pasframe, schoorstenen, achtertrap en verdubbelde nisdieptes blijven ongewijzigd. Geen extra relingen, boeien, radar of antennes. Oudere notities met 42 mm stuurhutwand en achterwand X145 zijn vervallen.
+- v18: de echte opbouw (referentiefoto's IMG_0297..0299) bepaalt de vorm van het onderdekhuis. De gemeten v17-maten blijven gelden.
+- v18: het blok aan de brede arm is één vlak blok op dekhoogte Z=60, deel van het onderdekhuis. De getrapte kast met trap (17) en de kasten 18/19 vervallen, net als de schuine hoekwangen met deur in de U. De v6/v7-notities over trap, kasten, hoekwangen en deur zijn geschiedenis.
+- v18: de U-bodem is een rechte achterwand op X=270 met binnenhoeken R2. De twee kleine ramen in die wand blijven.
+- v18: inkeping in de hoek tussen blok en arm: 12 mm lang en 15 mm breed, uitgespaard aan de armkant (Y 39,5..54,5, X 318..330). Het blok loopt aan de U-kant door tot de gemeten 60 mm vanaf de U-bodem. Hoeken R3. Maten afgeleid uit fotoverhoudingen, niet gemeten; vervangt de 3 mm tussenstap uit v6.
+- v18: de binnenkant van beide armen loopt over de laatste 40 mm schuin naar buiten: smalle arm 10 mm, brede arm 7 mm. Afgeleid uit IMG_0297, niet gemeten.
+- v18: armuiteinden R8 (was R5) en staande hoeken van beide voorblokken R6 (was R2), door gebruiker gekozen na fotovergelijking. Bovenranden blijven scherp; die afronding is niet gemeten.
+- v18: schoorstenen en voetplaten blijven 0,5 mm binnen de schuine armranden, op verzoek van de gebruiker. Achteraan binnen ontstaat zo een vlak facet met dezelfde wanddikte; het binnenrooster staat op dat facet, midden op X=366 (was 362). Lengte, breedte en hoogte van de schoorstenen zijn verder ongewijzigd.

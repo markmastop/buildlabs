@@ -1,8 +1,9 @@
 # Pasmal Smit-Lloyd 109 voor de Bambu Lab P2S
 
-De vlakke mal volgt de v17-voetafdruk uit `CAD/build.py`: 410 × 189 mm
+De vlakke mal volgt de v18-voetafdruk uit `CAD/voetafdruk.py`: 410 × 189 mm
 inclusief het voorblok. De achteruitsparing heeft de asymmetrische armen, de
-knikken, de inkeping en de afgeronde uiteinden van v17. De naad tussen de
+knikken, de inkeping, de rechte U-bodem en de schuine, afgeronde armuiteinden
+van v18. De naad tussen de
 helften ligt op dezelfde plek als de naad tussen de onderdekhuisdelen 02 en 03.
 Gebruik de mal om de ruimte op het dek en de plaats van de opbouw te beoordelen.
 

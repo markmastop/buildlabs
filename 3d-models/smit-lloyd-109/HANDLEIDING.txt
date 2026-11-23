@@ -1,7 +1,24 @@
-SMIT-LLOYD 109 — V17 / PRINTBAAR FOTOPROTOTYPE
+SMIT-LLOYD 109 — V18 / PRINTBAAR FOTOPROTOTYPE
 
-V17 — HOGERE EN KORTERE STUURHUT
-De goedgekeurde proefmaten zijn nu werkelijk in CAD verwerkt:
+V18 — ONDERDEKHUIS VOLGT DE ECHTE OPBOUW
+Referentiefoto's van de echte opbouw (images/referentie/IMG_0297..0299) bepalen
+de vorm van het onderdekhuis. De gemeten maten uit v17 blijven gelden.
+- Het blok aan de brede arm is één vlak blok op dekhoogte 60, deel van 03/05.
+  De getrapte kast met trap (17) en de achterkasten 18 en 19 vervallen.
+- De U-bodem is een rechte achterwand op X270 met binnenhoeken R2; de schuine
+  hoekwangen met deur vervallen. De twee kleine ramen in die wand blijven.
+- Inkeping in de hoek tussen blok en arm: 12 lang x 15 breed, hoeken R3.
+- De binnenkant van beide armen loopt over de laatste 40 mm schuin naar buiten:
+  smalle arm 10 mm, brede arm 7 mm.
+- Armuiteinden R8 (was R5); staande hoeken van beide voorblokken R6 (was R2).
+- Schoorstenen 15 en voetplaten 14 blijven 0,5 mm binnen de schuine armrand:
+  achteraan binnen een vlak facet met dezelfde wand; binnenrooster op dat facet.
+Inkeping, schuine armuiteinden en stralen zijn foto-inschattingen, niet gemeten.
+De dekmal in pasmal/ volgt dezelfde voetafdruk. Onderdeelnummers 20-23 blijven.
+De kijkversie biedt V18 / Vergelijk v17 vanuit dezelfde kijkrichting.
+
+STUURHUT (SINDS V17)
+De goedgekeurde proefmaten zijn in CAD verwerkt:
 - Stuurhutwand 55 mm hoog zonder dak (was 42).
 - Voetlengte in vaarrichting 90 mm, van X33 tot X123 (was 112, tot X145).
 - Breedte 136 mm, gelijk aan v16.
@@ -17,12 +34,11 @@ met dezelfde glashoogtes als v16. De stuurhut is links/rechts spiegelgelijk.
 
 Het dak volgt de kortere wand met 3 mm overstek. De 14 mm hoge schuine kap eindigt
 op X97, met een laag vlak achterdak van 29 mm. Dak blijft kaal, geen rand of uitrusting.
-De kijkversie biedt V17 / Vergelijk v16 vanuit dezelfde kijkrichting.
 
 Deze stuurhutmaten zijn goedgekeurde ontwerpkeuzes uit fotoverhoudingen;
 het zijn geen opgemeten of bewezen historische schaalmaten.
 Alle overige onderdelen behouden: onderbouw, pasframe, dichte voorverschansing,
-schoorstenen, achtertrap, vier kleine nissen van 8 mm en ankernis circa 24 mm
+schoorstenen, vier kleine nissen van 8 mm en ankernis circa 24 mm
 uitsluitend aan zijde B. Geen extra relingen, boeien, radar of antennes toegevoegd.
 
 MAATSTATUS
@@ -37,13 +53,14 @@ De huidige totaalmaten staan in controle.json: dit model heeft geen hoofdmast.
 Het bovenwerk wordt niet zomaar herschaald om een onbevestigde schatting te halen.
 
 BESTANDEN
-31 unieke STL-bestanden, 31 STEP-partbestanden en SL109_v17_assemblage.step
-met 27 gemonteerde solids. onderdelen.csv geeft aantallen, afmetingen en printstand.
-Print 22 en 23 elk viermaal: 35 noodzakelijke prints inclusief deze lijmstrips;
-met pasproef 00 en optionele vloer 21 in totaal 37 prints.
+28 unieke STL-bestanden, 28 STEP-partbestanden en SL109_v18_assemblage.step
+met 24 gemonteerde solids. onderdelen.csv geeft aantallen, afmetingen en printstand.
+Print 22 en 23 elk viermaal: 32 noodzakelijke prints inclusief deze lijmstrips;
+met pasproef 00 en optionele vloer 21 in totaal 34 prints.
 CAD/build.py en bridge.py plus parameters.json vormen de parametrische bron.
 Benodigd voor herbouw: Python, CadQuery 2.8, trimesh en numpy; daarna
-python CAD/build.py en python CAD/validate.py vanuit deze map.
+python CAD/build.py, pasmal/maak_pasmal.py, CAD/maataanzichten.py,
+CAD/kijkmodel.py en CAD/validate.py vanuit deze map (zie README.md).
 De meegeleverde inputs blijven nodig om de overgenomen referentievormen te lezen.
 
 PRINTVOLGORDE / ORIENTATIE
@@ -62,8 +79,8 @@ PRINTVOLGORDE / ORIENTATIE
    12 los deksel: vlakke onderzijde op bed. 13 L/R dichte voorverschansing: onderrand op bed.
 6. 14 schoorsteenvoeten en 15 schoorstenen: onderzijde op bed, rechtop.
    SMIT-logo en onderste roosters zijn integraal meegeprint. Buizen boven open.
-7. 16 dwarsverbinding: vlakke onderzijde op bed. 17/18/19 achtertrap en kasten:
-   onderzijde op bed. De gladde schuine trap staat naast de kast met twee panelen.
+   Het vlakke facet achteraan aan de binnenkant hoort zo: het volgt de armrand.
+7. 16 dwarsverbinding: vlakke onderzijde op bed.
 8. De vijf 20-roosters vlak printen; 22 en 23 elk viermaal vlak printen.
    21 is een optionele achtervloer. Alle afzonderlijke bestanden staan op Z=0.
 
@@ -80,8 +97,6 @@ MONTAGE
   en controleer binnenin de vrije ruimte boven pasframe 01.
 - Zet 06 en 07 op de gemeten hoogtes 60/86; lijm de voorblokjes 08/09 tegen
   de voorwand. Houd de verticale groef over de volle hoogte van 08 vrij.
-- Monteer 17/18/19 achterin volgens de referentiefoto's; links/rechts in deze
-  foto's is niet dezelfde kijkrichting als de eerste bovenfoto.
 - Monteer 10 op 07. Voorzie desgewenst glasfolie aan de binnenzijde.
   Dak 11 met drie lichtkapramen beglazen en sluiten met 12. Daarna 13 L/R
   langs de voorrand plaatsen; centrale 12 mm doorgang openhouden.
@@ -93,11 +108,13 @@ CONTROLE EN BEPERKINGEN
 De digitale controle omvat gesloten STL-meshes, telkens één aangesloten solid,
 STEP opnieuw inlezen, footprint en hoogtes, montagebotsingen, symmetrie,
 open ramen, rechte deurstijlen, schuine hoekraamstijlen, ronding, eenzijdige
-ankernis, verdubbelde nisdieptes, 55 x 90 x 136 stuurhutproporties en ruimte tot het pasframe.
+ankernis, verdubbelde nisdieptes, 55 x 90 x 136 stuurhutproporties, ruimte tot het pasframe,
+en in v18 het vlakke blok, de open inkeping, de rechte U, de schuine armuiteinden,
+de R8- en R6-hoeken en schoorsteenvoeten die volledig op het dek liggen.
 Zie controle.json en STEP_hercontrole.json. SHA256SUMS.txt bewaakt de bestanden.
 Geen fysieke print/pasproef uitgevoerd en geen laagcontrole in Bambu Studio.
 Controleer de laagweergave voor een volledige print; begin met de pasproef.
 
 Referentiefoto's zijn meegeleverd voor de eigen vergelijking. Oudere
 VERSCHILLEN-bestanden beschrijven de geschiedenis; dit document en de actuele
-parameters beschrijven v17. Niet alle vroegere details zijn nog aanwezig.
+parameters beschrijven v18. Niet alle vroegere details zijn nog aanwezig.

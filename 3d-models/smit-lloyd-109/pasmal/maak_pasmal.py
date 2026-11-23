@@ -1,7 +1,8 @@
-"""Bouw de vlakke dekmal van 410 × 189 mm uit de v17-voetafdruk."""
+"""Bouw de vlakke dekmal van 410 × 189 mm uit de voetafdruk van het onderdekhuis."""
 from pathlib import Path
 import math
 import json
+import sys
 
 import cadquery as cq
 import trimesh
@@ -23,45 +24,20 @@ A = parameters["aft"]
 U = parameters["upper"]
 B = parameters["bridge"]
 
-# De omtrek volgt CAD/build.py stap voor stap, in v17-coördinaten:
-# X=0 is de punt van de neus, Y=0 de hartlijn. Daarna schuift alles
-# naar voren met de uitsteek van het grote voorblok, zodat X=0 op de mal
-# de voorste punt van het voorblok is.
-L = M["length"]
-H = C["aft_halfwidth"]
-nr = C["fore_nose_depth"]
-yiL = -H + M["left_narrow"]
-yiR = yiL + M["U_width"]
-UX = L - M["U_depth_left"]
-l3, l4 = L - M["left_F3"], L - M["left_F4"]
-r3, r4 = L - M["right_F3"], L - M["right_F4"]
-lout = yiL - M["left_wide"]
-rib = H - M["right_bare"]
-rheadinner = rib + C["right_shoulder_lateral_shift"]
-rheadouter = rheadinner + M["right_wide"]
-rtaper = rheadinner + M["right_bare"]
-R = C["end_radius"]
-nt = UX + M["U_to_low_block"]
-ne = nt + C["small_notch_length"]
-ny = C["small_notch_inner_y"]
-n = C["fore_nose_segments"]
-half_front = M["front_width"] / 2
-nose = [(nr - nr * math.cos(-math.pi / 2 + i * math.pi / n),
-         half_front * math.sin(-math.pi / 2 + i * math.pi / n)) for i in range(n + 1)]
-outline = (
-    cq.Workplane("XY").polyline(nose)
-    .lineTo(M["fore_roof_length"], half_front).lineTo(UX, H).lineTo(r4, H)
-    .lineTo(r3, rheadouter).lineTo(C["rear_taper_start"], rtaper)
-    .lineTo(L - R, rtaper).radiusArc((L, rtaper - R), R)
-    .lineTo(L, rheadinner + R).radiusArc((L - R, rheadinner), R)
-    .lineTo(ne, rheadinner).lineTo(ne, ny).lineTo(nt, ny).lineTo(nt, yiR)
-    .lineTo(UX + A["left_chamfer_run"], yiR).lineTo(UX, yiR - A["left_chamfer_inset"])
-    .lineTo(UX, yiL + A["right_chamfer_inset"]).lineTo(UX + A["right_chamfer_run"], yiL)
-    .lineTo(L - R, yiL).radiusArc((L, yiL - R), R)
-    .lineTo(L, lout + R).radiusArc((L - R, lout), R)
-    .lineTo(l3, lout).lineTo(l4, -H).lineTo(UX, -H)
-    .lineTo(M["fore_roof_length"], -half_front).close()
-)
+# De omtrek komt uit dezelfde module als CAD/build.py, in v18-coördinaten:
+# X=0 is de punt van de neus, Y=0 de hartlijn. Daarna schuift alles naar
+# voren met de uitsteek van het grote voorblok, zodat X=0 op de mal de
+# voorste punt van het voorblok is.
+sys.path.insert(0, str(OUTPUT.parent / "CAD"))
+import voetafdruk  # noqa: E402
+
+S = voetafdruk.stations(parameters)
+L = S["L"]
+nr = S["nr"]
+half_front = S["half_front"]
+UX = S["UX"]
+lout, yiL, rheadinner, rtaper = S["lout"], S["yiL"], S["rheadinner"], S["rtaper"]
+outline = cq.Workplane("XY").polyline(voetafdruk.outline_points(parameters)).close()
 template = outline.extrude(THICKNESS)
 
 
@@ -88,8 +64,9 @@ for x0, x1, half_width in [(67, 138, 63), (155, SEAM - 10, 77),
                           (SEAM + 10, UX + FRONT - 18, 77)]:
     for y0, y1 in [(-half_width, -4), (4, half_width)]:
         template = template.cut(box(x0, x1, y0, y1, 5, -1))
-for y0, y1 in [(lout + 6.5, yiL - 6.5), (rheadinner + 6.5, rtaper - 6.5)]:
-    template = template.cut(box(ne + FRONT + 4, END - 6, y0, y1, 5, -1))
+# Vakken in de armen houden 6,5 mm rand, ook langs de schuine binnenkant van de uiteinden.
+for y0, y1 in [(lout + 6.5, S["left_end_inner"] - 6.5), (S["right_end_inner"] + 6.5, rtaper - 6.5)]:
+    template = template.cut(box(S["nt"] + FRONT + 4, L - C["end_radius"] + FRONT, y0, y1, 5, -1))
 
 # Vier gaatjes geven de buitenhoeken van de voorlopige insteekrand aan.
 frame_x0 = C["frame_center_x"] - C["frame_outer"][0] / 2 + FRONT
@@ -110,7 +87,7 @@ for x in (U["funnel_center_x"] - foot + FRONT, U["funnel_center_x"] + foot + FRO
 
 bounds = template.val().BoundingBox()
 assert abs(bounds.xmin) < .01 and abs(bounds.xlen - END) < .01, (bounds.xmin, bounds.xlen)
-assert abs(bounds.ymin - lout) < .01 and abs(bounds.ymax - rheadouter) < .01, (bounds.ymin, bounds.ymax)
+assert abs(bounds.ymin - lout) < .01 and abs(bounds.ymax - S["rheadouter"]) < .01, (bounds.ymin, bounds.ymax)
 print("mal", round(bounds.xlen, 2), "×", round(bounds.ylen, 2), "mm")
 
 for number, label, x0, x1 in [(1, "voor", 0, SEAM), (2, "achter", SEAM, END)]:
