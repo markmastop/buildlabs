@@ -2,6 +2,8 @@
 
 [Open de projectpagina](index.html)
 
+**Status:** **Final v17**.
+
 Montageplaat voor de bediening van een Truma Therme. De v17 heeft een
 halfronde kabeluitsparing met straal 5,5 mm aan de zijde tegenover de knop.
 Het ontwerp is gebaseerd op de aangeleverde foto's en pasvormfeedback.

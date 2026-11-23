@@ -2,6 +2,8 @@
 
 [Open de projectpagina](index.html)
 
+**Status:** **Final**.
+
 Een printcollectie met een robot, sleutel, boogbrug, kompas, huis en boom met
 takken. De modellen zijn ontworpen op basis van de workshopbriefing, met een
 grootste maat van maximaal 8 cm per model. Ze zijn op ware printmaat

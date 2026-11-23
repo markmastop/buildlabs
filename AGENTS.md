@@ -59,6 +59,19 @@ Deze afspraken gelden voor de hele repository.
 - Vermeld benodigde bestaande onderdelen, zoals een RC-romp of chassis, inclusief de relevante aansluitmaat. Als een project meerdere uitvoeringen heeft, geef per uitvoering aan wat nodig is.
 - Link bij een printset waar mogelijk rechtstreeks naar de printbestanden of de handleiding die ze ontsluit.
 
+### Bevestigde eindstatussen
+
+De eigenaar heeft de volgende ontwerpen als Final bevestigd. Gebruik deze
+status op de homepagekaart, de projectpagina en in beide README’s. Leg
+digitale controles en fysieke passing vast op basis van de projectdocumentatie.
+
+- Dashboard: dubbele voorspeakers: **Final v7**.
+- Dashboard: subwoofer: **Final v2.5.1**.
+- EnergyDeck 7-inch behuizing: **Final v9**.
+- EnergyDeck 5-inch behuizing: **Final**.
+- Zes geometrische workshopmodellen: **Final**.
+- Truma Therme-montageplaat: **Final v17**.
+
 ## Automatisch committen
 
 - Commit na iedere afgeronde wijzigingsopdracht automatisch alle wijzigingen

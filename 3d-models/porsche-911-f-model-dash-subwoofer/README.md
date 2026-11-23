@@ -4,7 +4,7 @@ Geprinte cup voor een **Visaton W 100 X** (10 cm / 4" woofer, 2 × 4 Ω) onder
 het dashboard van de Porsche 911 F-Model (1964–1973), met een montageplaat
 voor de bestaande Porsche-gaten.
 
-**Status:** printklaar, versie 2.5.1. Nog niet in de auto gepast.
+**Status:** **Final v2.5.1**. Nog niet in de auto gepast.
 
 Open [`index.html`](index.html) voor het draaibare 3D-model met speaker en doorsnede.
 

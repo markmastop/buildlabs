@@ -2,6 +2,8 @@
 
 [Open de projectpagina](index.html)
 
+**Status:** **Final**.
+
 Bureaustandaard in portretstand voor het **ELECROW CrowPanel Advance 5.0 HMI
 ESP32-S3 IPS-touchdisplay (800 × 480)**, met de zwarte fabrieksplaten en
 hoekschroeven gemonteerd. Het ontwerp is afgestemd op de ESP32-S3-uitvoering.

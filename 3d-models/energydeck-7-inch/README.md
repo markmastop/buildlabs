@@ -9,7 +9,7 @@ behuizing en wordt bovenaan vastgezet met een losse borgclip.
 
 ## Status en maten
 
-Printprototype **v9**, digitaal gecontroleerd volgens de meegeleverde
+**Status:** **Final v9**. Digitaal gecontroleerd volgens de meegeleverde
 modelrapporten. De fysieke pasvorm van deze versie is niet bevestigd.
 
 - Schaal 1:1. Het model gebruikt millimeters.

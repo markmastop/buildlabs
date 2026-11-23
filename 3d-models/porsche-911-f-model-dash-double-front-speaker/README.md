@@ -3,7 +3,7 @@
 Geprinte adapterplaat voor twee **Audison APX 4** (Prima-serie, 10 cm / 4"
 coaxiaal) in het dashboard van de Porsche 911 F-Model (1964–1973).
 
-**Status:** ontwerp klaar (Fusion-script v7), STL beschikbaar. Nog niet in de auto gepast.
+**Status:** **Final v7** (Fusion-script), STL beschikbaar. Nog niet in de auto gepast.
 
 Open [`index.html`](index.html) voor het draaibare 3D-model.
 
