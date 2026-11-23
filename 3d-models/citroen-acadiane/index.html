@@ -65,6 +65,7 @@ h2 { font: 700 34px/1 var(--display); margin: 0; }
 #stage { height: clamp(250px, 53vw, 490px); }
 #viewer-status { padding: 16px; color: var(--muted); }
 a { color: var(--polar); }
+.note { background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 16px; font-size: 14px; color: var(--muted); margin: 0; }
 html.preview .wrap { padding: 0; max-width: none; }
 html.preview .wrap > :not(.model), html.preview .model > :not(.viewer),
 html.preview .hint { display: none; }
@@ -78,10 +79,12 @@ html.preview #stage { height: 100vh; touch-action: auto; }
 <div class="wrap">
   <a class="bl-home" href="../../index.html" aria-label="Terug naar het Build Labs-overzicht"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/></svg>Build Labs</a>
   <header>
-    <div class="eyebrow">Vormstudie v5 · RC-schaal 1:10</div>
+    <div class="eyebrow">Vormstudie v5 · schaal 1:9,9</div>
     <h1>Citroën <span>Acadiane</span> RC</h1>
-    <p class="lede">Blauwgrijze Acadiane Mixta op het Tamiya M-05-chassis, met breed schuifraam, geribde laadbak met ronde achterkant en een brede cabine met vlak dak.</p>
+    <p class="lede">Blauwgrijze Acadiane Mixta op fabrieksmaten, op een Tamiya M-05 met verlengkit naar 257 mm wielbasis. Met breed schuifraam, geribde laadbak met ronde achterkant en een brede cabine met vlak dak.</p>
   </header>
+
+  <p class="note">Nodig: Tamiya M-05 met de 3Racing-verlengkit M05-31/LB (257 mm wielbasis) · <a href="bestellen.html">Bestellijst met winkellinks</a> · <a href="RC-BESTELLIJST.md">Checklist</a></p>
 
   <section class="model" aria-label="3D-kijker">
     <div class="viewer">
@@ -98,7 +101,8 @@ html.preview #stage { height: 100vh; touch-action: auto; }
     <div class="controls" role="group" aria-label="Wielbasis">
       <button type="button" data-wheelbase="210" aria-pressed="false" disabled>S · 210 mm</button>
       <button type="button" data-wheelbase="225" aria-pressed="false" disabled>M · 225 mm</button>
-      <button type="button" data-wheelbase="239" aria-pressed="true" disabled>L · 239 mm</button>
+      <button type="button" data-wheelbase="239" aria-pressed="false" disabled>L · 239 mm</button>
+      <button type="button" data-wheelbase="257" aria-pressed="true" disabled>LB · 257 mm</button>
     </div>
     <div class="controls views" role="group" aria-label="Vaste aanzichten">
       <button type="button" data-view="schuin" disabled>Schuin</button>
@@ -110,15 +114,18 @@ html.preview #stage { height: 100vh; touch-action: auto; }
   </section>
 
   <dl class="specs">
-    <div class="spec"><dt>Wielbasis</dt><dd><span id="wheelbase" aria-live="polite">239</span> <small>mm</small></dd></div>
+    <div class="spec"><dt>Wielbasis</dt><dd><span id="wheelbase" aria-live="polite">257</span> <small>mm</small></dd></div>
     <div class="spec"><dt>Spoorbreedte</dt><dd>138 <small>mm</small></dd></div>
     <div class="spec"><dt>Band Ø × breedte</dt><dd>59 × 25 <small>mm</small></dd></div>
-    <div class="spec"><dt>Lengte opbouw</dt><dd>ca. 359 <small>mm</small></dd></div>
+    <div class="spec"><dt>Lengte opbouw</dt><dd>ca. 409 <small>mm</small></dd></div>
+    <div class="spec"><dt>Hoogte opbouw</dt><dd>ca. 185 <small>mm</small></dd></div>
   </dl>
 
   <section>
     <h2>Opbouw en passing</h2>
-    <p>De opbouw is een vormvoorstel op 239 mm wielbasis. De twee kortere wielbases zijn te bekijken in de chassisstand. Meet de montagepunten, vrije hoogte en stuuruitslag op het eigen chassis voordat de kap voor print wordt uitgewerkt.</p>
+    <p>De opbouw volgt de fabrieksmaten van de Acadiane: wielbasis 2535, lengte 4030 en hoogte 1825 mm. Op 257 mm wielbasis is dat schaal 1:9,9. Zonder verlengkit gaat de M-05 tot 239 mm; de drie standaardwielbases zijn te bekijken in de chassisstand.</p>
+    <p>De breedte volgt niet de schaal maar de wielen. Met 138 mm spoor en 25 mm brede banden moet de laadbak ongeveer 167 mm breed zijn, waar op schaal 152 mm zou passen. Daardoor is de opbouw ongeveer 1,1 keer zo hoog als breed, tegen 1,2 keer bij het origineel.</p>
+    <p>Meet de montagepunten, vrije hoogte en stuuruitslag op het eigen chassis met de verlengkit voordat de kap voor print wordt uitgewerkt.</p>
     <p><a href="https://www.tamiya.com/japan/products/84359/index.html">Tamiya M-05-specificaties</a> · <a href="https://www.tamiya.com/cms/english/rc/rcmanual/m05.pdf">Montagehandleiding</a></p>
   </section>
 </div>
@@ -595,8 +602,8 @@ html.preview #stage { height: 100vh; touch-action: auto; }
     line(mirrorCorners.map(([z, y]) => mirror(z, y, 0)), .195, chrome, true);
   }
 
-  glazedPanel([[-6.12, 9.75], [6.12, 9.75], [5.86, 13.27], [-5.86, 13.27]],
-    cabFront, .58, [.05, .075]);
+  glazedPanel([[-5.62, 9.75], [5.62, 9.75], [5.36, 13.27], [-5.36, 13.27]],
+    cabFront, .58, [.055, .075]);
   for (const z of [-2.91, 2.30]) {
     const mount = cabFront(z, 9.77, .115);
     const elbow = cabFront(z + .94, 11.13, .147);
@@ -693,30 +700,34 @@ html.preview #stage { height: 100vh; touch-action: auto; }
       [8.25, 6.18], [7.79, 7.21], [6.92, 7.63], [6.07, 7.51], [4.58, 6.46]],
     .42).map(([z, y]) => [side * z, y]);
     decal(wingFace, lampFace, paint, -.21);
+    const roundStart = body.children.length;
     const lampOutline = (w, h, rounding) => roundedOutline([
       [lampZ - w, lampY - h], [lampZ + w, lampY - h],
       [lampZ + w, lampY + h], [lampZ - w, lampY + h],
     ], rounding);
-    const bezel = lampOutline(.99, .94, .53);
+    // Koplampen op de maat van de vooraanzichtfoto's.
+    const bezel = lampOutline(1.07, 1.02, .57);
     surface(bezel.length, 10, (u, v) => {
       const [z, y] = sampleEdge([...bezel, bezel[0]], u);
-      return lampFace(mix(z, lampZ + (z - lampZ) * 1.25, v),
-        mix(y, lampY + (y - lampY) * 1.20, v), -.57 * v ** 1.35);
+      return lampFace(mix(z, lampZ + (z - lampZ) * 1.18, v),
+        mix(y, lampY + (y - lampY) * 1.14, v), -.57 * v ** 1.35);
     }, paint);
     decal(bezel, lampFace, seal, .020);
-    decal(lampOutline(.94, .88, .50), lampFace, chrome, .092);
+    decal(lampOutline(1.02, .96, .54), lampFace, chrome, .092);
     const [lx, ly, lz] = lampFace(lampZ, lampY, .108);
-    rod(body, [lx, ly, lz], [lx + .094, ly, lz], .73, satin);
-    add(body, new T.SphereGeometry(1, 40, 20), lens, lx + .07, ly, lz).scale.set(.16, .69, .69);
-    for (const offset of [-.36, -.18, 0, .18, .36]) {
-      const yy = Math.sqrt(.46 - offset ** 2) * .82;
+    rod(body, [lx, ly, lz], [lx + .094, ly, lz], .79, satin);
+    add(body, new T.SphereGeometry(1, 40, 20), lens, lx + .07, ly, lz).scale.set(.17, .75, .75);
+    for (const offset of [-.39, -.195, 0, .195, .39]) {
+      const yy = Math.sqrt(.54 - offset ** 2) * .82;
       line([[lx + .185, ly - yy, lz + offset], [lx + .227, ly, lz + offset],
         [lx + .185, ly + yy, lz + offset]], .025, chrome);
     }
-    const indicator = roundedOutline([[lampZ - .64, 5.07], [lampZ + .64, 5.07],
-      [lampZ + .64, 5.56], [lampZ - .64, 5.56]], .24);
+    // De koplamp blijft rond als de opbouw hieronder in de hoogte wordt geschaald.
+    for (const mesh of body.children.slice(roundStart)) mesh.userData.roundAbout = lampY;
+    const indicator = roundedOutline([[lampZ - .64, 5.06], [lampZ + .64, 5.06],
+      [lampZ + .64, 5.47], [lampZ - .64, 5.47]], .22);
     decal(indicator, lampFace, bumperRubber, -.09);
-    decal(indicator.map(([z, y]) => [mix(lampZ, z, .92), mix(5.315, y, .85)]), lampFace, amber, -.065);
+    decal(indicator.map(([z, y]) => [mix(lampZ, z, .92), mix(5.265, y, .85)]), lampFace, amber, -.065);
   }
 
   // Het front buigt van de brede onderzijde naar de hogere, smallere grille.
@@ -725,16 +736,17 @@ html.preview #stage { height: 100vh; touch-action: auto; }
   }
   decal(roundedOutline([[-7.67, 4.21], [7.67, 4.21], [7.94, 5.44], [5.82, 6.33],
     [4.04, 7.09], [-4.04, 7.09], [-5.82, 6.33], [-7.94, 5.44]], .52), nose, paint, -.10);
-  const grille = roundedOutline([[-4.78, 4.65], [4.78, 4.65], [4.59, 5.86],
-    [3.80, 7.02], [-3.80, 7.02], [-4.59, 5.86]], .49);
+  // Smallere, bijna rechthoekige grille tussen de bumperbeugels, zoals op de foto's.
+  const grille = roundedOutline([[-4.02, 4.65], [4.02, 4.65], [3.96, 5.92],
+    [3.56, 7.02], [-3.56, 7.02], [-3.96, 5.92]], .49);
   decal(grille, nose, seal, .012);
   line(grille.map(([z, y]) => nose(z, y, .055)), .112, satin, true);
   for (let i = 0; i < 6; i++) {
     const y = 4.91 + i * .355;
-    const w = 4.45 - Math.max(0, y - 5.53) * .53;
+    const w = 3.72 - Math.max(0, y - 5.92) * .36;
     line(Array.from({length: 17}, (_, j) => nose(mix(-w, w, j / 16), y, .068)), .082, satin);
   }
-  for (const z of [-2.45, 0, 2.45]) line([nose(z, 4.78, .023), nose(z, 6.85, .023)], .089, bumperRubber);
+  for (const z of [-2.0, 0, 2.0]) line([nose(z, 4.78, .023), nose(z, 6.85, .023)], .089, bumperRubber);
 
   // Donkere, terugliggende bodemplaat en dorpels onder de carrosserie.
   const underbody = roundedOutline([[-9.05, -6.45], [4.78, -6.43], [6.2, -5.44], [6.2, 5.44],
@@ -766,11 +778,12 @@ html.preview #stage { height: 100vh; touch-action: auto; }
     add(body, new T.SphereGeometry(1, 16, 12), chrome, x, y, z).scale.set(.25, .30, .22);
   }
   line(bumperPoints.map(([x, y, z]) => [x + .247, y, z]), .24, bumperRubber);
-  for (const z of [-4.37, 4.37]) {
+  // Hogere bumperbeugels, op de buitenhoeken van de grille.
+  for (const z of [-3.92, 3.92]) {
     const [x, y] = frontBumper(z, .29);
-    line([[x - .19, y - .56, z], [x + .11, y - .35, z], [x + .16, y + .53, z],
-      [x - .06, y + .82, z]], .39, chrome);
-    line([[x + .17, y - .33, z], [x + .22, y + .51, z]], .23, bumperRubber);
+    line([[x - .19, y - .68, z], [x + .11, y - .44, z], [x + .16, y + .66, z],
+      [x - .06, y + .98, z]], .39, chrome);
+    line([[x + .17, y - .41, z], [x + .22, y + .63, z]], .23, bumperRubber);
   }
 
   // Achterwand met dubbele deuren, ingezette ramen, scharnieren en verticale lampen.
@@ -825,23 +838,68 @@ html.preview #stage { height: 100vh; touch-action: auto; }
     line([[cargoStart - .24, 3.75, z], [cargoStart - .42, 4.07, z], [cargoStart - .42, 4.96, z]], .70, bumperRubber);
   }
 
+  // Naar de fabrieksmaten: wielbasis 2535, lengte 4030 en hoogte 1825 mm. Met de
+  // 3Racing-verlengkit heeft de M-05 257 mm wielbasis; de schaal wordt dan 1:9,9.
+  // De opbouw hierboven is getekend naar de zijfoto's op 239 mm. Die tonen de
+  // uiteinden door de lens korter dan de fabrieksmaten. Daarom rekken de overhangen
+  // en de bovenbouw extra op. De wielkasten blijven om de assen en de breedte blijft
+  // gelijk, omdat die door de wielen van de M-05 vastligt.
+  const factory = { wheelbase: 2535, length: 4030, height: 1825 };
+  const bodyWheelbase = 25.7;
+  const scale = factory.wheelbase / (bodyWheelbase * 10);
+  const grow = bodyWheelbase / (frontX - rearX);
+  const drawn = new T.Box3().setFromObject(body);
+  const overhang = [drawn.max.x - frontX, rearX - drawn.min.x];
+  const overhangTotal = factory.length / scale / 10 - bodyWheelbase;
+  const [frontExtra, rearExtra] = overhang.map(length =>
+    overhangTotal * length / (overhang[0] + overhang[1]) - grow * length);
+  const lowerBody = 7.0;
+  const topExtra = factory.height / scale / 10 - grow * drawn.max.y;
+  const ramp = (value, start, span) => Math.max(0, (value - start) / span) ** 2;
+  const reshapeX = x => grow * x + frontExtra * ramp(x, frontX, overhang[0]) -
+    rearExtra * ramp(-x, -rearX, overhang[1]);
+  const reshapeY = y => grow * y + topExtra * ramp(y, lowerBody, drawn.max.y - lowerBody);
+  body.updateMatrixWorld(true);
+  for (const mesh of body.children) {
+    const geometry = mesh.geometry.clone().applyMatrix4(mesh.matrix);
+    const position = geometry.attributes.position;
+    const round = mesh.userData.roundAbout;
+    for (let i = 0; i < position.count; i++) {
+      let y = reshapeY(position.getY(i));
+      if (round !== undefined) y = reshapeY(round) + (y - reshapeY(round)) / grow;
+      position.setXYZ(i, reshapeX(position.getX(i)), y, position.getZ(i));
+    }
+    geometry.computeVertexNormals();
+    geometry.computeBoundingBox();
+    geometry.computeBoundingSphere();
+    mesh.geometry = geometry;
+    mesh.position.set(0, 0, 0);
+    mesh.quaternion.identity();
+    mesh.scale.set(1, 1, 1);
+  }
+  const shaped = new T.Box3().setFromObject(body);
+  const bodyCenter = (shaped.min.x + shaped.max.x) / 2;
+  const bodyHeight = shaped.max.y;
+
   // Stalen schijfwielen voor de carrosserieweergave, over de M-05-velgen.
-  const hubcaps = new T.Group();
-  chassis.add(hubcaps);
+  // De achterste zitten aan de verschuifbare achtersectie.
+  const hubcaps = [new T.Group(), new T.Group()];
+  chassis.add(hubcaps[0]);
+  rear.add(hubcaps[1]);
   const wheelFinish = material(0x858982, .46);
   wheelFinish.side = T.DoubleSide;
   const wheelProfile = [[0, .37], [.44, .36], [.57, .32], [.67, .25], [.74, .18],
     [1.02, .13], [1.27, .15], [1.46, .23], [1.61, .30], [1.75, .31], [1.88, .24], [1.91, 0]];
   const dish = new T.LatheGeometry(wheelProfile.map(([r, y]) => new T.Vector2(r, y)), 60);
   const wheelNut = material(0x2a3034, .5);
-  for (const x of [rearX, frontX]) {
+  for (const [group, x] of [[hubcaps[0], frontX], [hubcaps[1], 0]]) {
     for (const side of [-1, 1]) {
       const z = side * (track / 2 + .97);
-      add(hubcaps, dish, wheelFinish, x, radius, z).rotation.x = side * Math.PI / 2;
+      add(group, dish, wheelFinish, x, radius, z).rotation.x = side * Math.PI / 2;
       for (let i = 0; i < 3; i++) {
         const angle = .32 + i * 2 * Math.PI / 3;
         const nutX = x + .86 * Math.cos(angle), nutY = radius + .86 * Math.sin(angle);
-        add(hubcaps, new T.CylinderGeometry(.087, .095, .044, 6), wheelNut,
+        add(group, new T.CylinderGeometry(.087, .095, .044, 6), wheelNut,
           nutX, nutY, z + side * .175).rotation.x = side * Math.PI / 2;
       }
     }
@@ -864,7 +922,7 @@ html.preview #stage { height: 100vh; touch-action: auto; }
     const finish = new T.MeshBasicMaterial({ map: shade, transparent: true, opacity, depthWrite: false });
     add(parent, new T.PlaneGeometry(width, depth), finish, x, -.04, z).rotation.x = -Math.PI / 2;
   }
-  groundShade(scene, 46, 29, -.4, 0, .29);
+  groundShade(scene, 52, 30, bodyCenter, 0, .29);
   for (const side of [-1, 1]) {
     groundShade(chassis, 6.8, 6.0, frontX, side * track / 2, .35);
     groundShade(rear, 6.8, 6.0, 0, side * track / 2, .35);
@@ -876,7 +934,7 @@ html.preview #stage { height: 100vh; touch-action: auto; }
   function setLayer(layer) {
     activeLayer = layer;
     body.visible = layer !== 'chassis';
-    hubcaps.visible = body.visible;
+    for (const group of hubcaps) group.visible = body.visible;
     for (const wheel of stockRims) wheel.visible = !body.visible;
     const assembled = layer === 'samen';
     chassisBumper.visible = !assembled;
@@ -884,7 +942,7 @@ html.preview #stage { height: 100vh; touch-action: auto; }
     plastic.color.setHex(assembled ? 0x090d12 : 0x323943);
     steel.color.setHex(assembled ? 0x1a222b : 0xb3bec5);
     body.position.y = layer === 'zwevend' ? 10 : 0;
-    if (body.visible) setWheelbase(239);
+    if (body.visible) setWheelbase(257);
     for (const button of document.querySelectorAll('[data-layer]')) {
       button.setAttribute('aria-pressed', button.dataset.layer === layer);
     }
@@ -910,13 +968,13 @@ html.preview #stage { height: 100vh; touch-action: auto; }
 
   function setView(view) {
     activeView = view;
-    target.y = activeLayer === 'chassis' ? 2.5 : activeLayer === 'zwevend' ? 13 : 8.2;
-    target.x = view === 'zij' && activeLayer === 'samen' ? -1.45 : 0;
+    target.y = activeLayer === 'chassis' ? 2.5 : activeLayer === 'zwevend' ? 14 : bodyHeight / 2;
+    target.x = view === 'zij' && activeLayer === 'samen' ? bodyCenter : 0;
     camera.position.set(...views[view]);
     camera.position.x += target.x;
     camera.position.y += target.y - 8.2;
     controls?.target.copy(target);
-    camera.zoom = view === 'voor' ? 1.35 : view === 'zij' && activeLayer === 'samen' ? 1.19 : 1;
+    camera.zoom = view === 'voor' ? 1.2 : view === 'zij' && activeLayer === 'samen' ? 1.06 : 1;
     camera.lookAt(target);
     camera.updateProjectionMatrix();
     controls?.update();
@@ -926,7 +984,7 @@ html.preview #stage { height: 100vh; touch-action: auto; }
   function resize() {
     const { clientWidth: width, clientHeight: height } = canvas;
     const aspect = width / height;
-    const halfHeight = Math.max(activeLayer === 'zwevend' ? 22 : 17.6, 24 / aspect);
+    const halfHeight = Math.max(activeLayer === 'zwevend' ? 24 : 19.4, 26.5 / aspect);
     camera.left = -halfHeight * aspect;
     camera.right = halfHeight * aspect;
     camera.top = halfHeight;
@@ -949,11 +1007,12 @@ html.preview #stage { height: 100vh; touch-action: auto; }
       else if (button.dataset.layer) setLayer(button.dataset.layer);
       else {
         const mm = Number(button.dataset.wheelbase);
-        if (mm !== 239 && activeLayer !== 'chassis') setLayer('chassis');
+        if (mm !== 257 && activeLayer !== 'chassis') setLayer('chassis');
         setWheelbase(mm);
       }
     });
-  }})();
+  }
+})();
 </script>
 </body>
 </html>
