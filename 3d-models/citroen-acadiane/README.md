@@ -1,8 +1,13 @@
 # Citroën Acadiane RC
 
-**Status: chassisstudie v1.** Draaibaar model van het bestaande Tamiya
-M-05-chassis met voorwielaandrijving. Het vormt de basis voor een latere
-Acadiane-opbouw. De fysieke passing moet nog worden bepaald.
+**Status: vormstudie v2.** Blauwe Acadiane-opbouw op het Tamiya M-05-chassis
+met voorwielaandrijving. De opbouw gebruikt de lange wielbasis van 239 mm.
+De fysieke passing moet nog worden bepaald. V1 bevatte het losse chassis.
+
+De referentiefoto’s in `images/` zijn gebruikt voor de aflopende motorkap,
+ronde spatborden, verhoogde laadbak met zijribben en dubbele achterdeuren.
+De opbouw is circa 400 mm lang, 174 mm breed zonder spiegels en 182 mm hoog.
+Dit zijn ontwerpmaten op modelschaal.
 
 ## Maten en uitgangspunten
 
@@ -18,6 +23,6 @@ als referentie voor de indeling.
 ## Bestanden en volgende stap
 
 - [index.html](index.html) bevat het model en de kijker, inclusief drie
-  wielbases en vaste aanzichten. Three.js 0.128.0 wordt via een CDN geladen.
+  wielbases voor het losse chassis, een kapweergave en vaste aanzichten. Three.js 0.128.0 wordt via een CDN geladen.
 - Meet het eigen M-05-chassis op en bepaal de wielbasis, vrije hoogte,
   veer- en stuurruimte en bevestigingspunten voor de Acadiane-opbouw.
