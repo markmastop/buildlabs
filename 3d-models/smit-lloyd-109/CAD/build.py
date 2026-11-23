@@ -92,7 +92,21 @@ for side in ['A','B']:
 # Rear-photo convention: r increases from photo-left to photo-right.
 # Internal Y therefore decreases with r. Only aft details change sides; measured hull footprint stays.
 for r in A['window_r']:shell=shell.cut(box(10,A['window_width'],A['window_height'],UX,yiR-r,A['window_bottom']))
-# V18: the inner block of the broad arm stays a flat part of the moulded shell, as on the real part.
+# V18: the straight U back wall carries the door (no corner chamfer any more), beside the block.
+dyc=yiR-C['U_corner_radius']-A['door_center_from_block']
+door_plane=cq.Plane(origin=(UX,dyc,A['door_bottom']+A['door_height']/2),xDir=(0,1,0),normal=(1,0,0))
+shell=shell.union(panel(A['door_width'],A['door_height'],door_plane)).union(panel(A['door_width'],A['door_height'],door_plane,1,True))
+hole=on_plane(cq.Workplane('XY').center(0,A['door_height']/4).circle(A['porthole_diameter']/2).extrude(6,both=True),door_plane)
+shell=shell.cut(hole)
+handle=on_plane(box(2.8,1,1,-3,0,.25),door_plane);shell=shell.union(handle)
+# V18: the broad block is flat like the real part, but as in v17 its aft part is cut out for
+# the separate stepped cabinet with stair (user request). Only a 3 mm strip of the notch remains.
+rib=S['rib'];cut_start=UX+A['step_start_offset'];cut_width=rib-yiR
+cabinet_cut=box(nt-cut_start,cut_width,100,(nt+cut_start)/2,(rib+yiR)/2,-1)
+shell=shell.cut(cabinet_cut)
+# Close the newly exposed hollow wing, providing connected glue faces beside/behind the separate stair cabinet.
+shell=shell.union(box(W,H-yiR,Z-T,cut_start-W/2,(H+yiR)/2).intersect(outer))
+shell=shell.union(box(nt-cut_start+W,W,Z-T,(nt+cut_start-W)/2,rib+W/2).intersect(outer))
 # Four ceiling tabs keep the frame flange inside the shell: deck datum stays at zero.
 for x in C['frame_tab_x']:
     for sign in [-1,1]:shell=shell.union(box(30,C['frame_tab_width'],C['frame_tab_thickness'],x,sign*C['frame_tab_y'],C['frame_flange'][2]).intersect(outer))
@@ -105,7 +119,7 @@ blank=box(nx1-nx0+2*nw,120-(nb-nw),Z-T-(N['sill_top']-N['sill_thickness']),(nx0+
 void=box(nx1-nx0,120-nb,Z-T-N['sill_top']+1,(nx0+nx1)/2,ns*(nb+120)/2,N['sill_top'])
 shell=shell.union(blank).cut(void)
 add('02_onderdekhuis_voor',clip(shell,-1,SPLIT),base=True,note='V17: zijde A vier voorste ramen; zijde B twee voorste ramen en gesloten ankernis. Rechtop printen; nisplafond is deel 04. Pasframevlakken blijven vrij.')
-add('03_onderdekhuis_achter',clip(shell_baseline,SPLIT,L+1),base=True,note='V18: vlak blok aan de brede arm met inkeping, rechte U-bodem met R2, armuiteinden R8 die binnen schuin naar buiten lopen. Twee kleine ramen per zijde achter de naad. Rechtop printen.')
+add('03_onderdekhuis_achter',clip(shell_baseline,SPLIT,L+1),base=True,note='V18: vlak blok aan de brede arm, achteraan uitgespaard voor trap en kast 17; rechte U-bodem met R2 en deur, armuiteinden R8 die binnen schuin naar buiten lopen. Twee kleine ramen per zijde achter de naad. Rechtop printen.')
 
 # Fitting ring, independent of the house. Its flange is inside the lower house (Z 0..2), insertion Z -6..0.
 def frame(wall):
@@ -117,7 +131,7 @@ add('00_pasproef',frame(1.6),base=True,flip=True,include=False,note='Eerst volle
 add('01_pasframe',frame(C['frame_wall']),base=True,flip=True,note='Los droogpassen; definitieve lengtepositie op echte romp bepalen vóór verlijmen. Flens intern op Z 0..2.')
 
 # Lower roof around the upper tier, split at the same station as the walls.
-low_roof=wire_solid(outline,T).translate((0,0,Z-T))
+low_roof=wire_solid(outline,T).translate((0,0,Z-T)).cut(cabinet_cut)
 plen=M['fore_roof_length']+C['upper_rear_slope_run']
 forebottom=fore_wire(plen,M['front_width'],Z)
 foretop=fore_wire(M['fore_roof_length'],M['front_width'],FZ)
@@ -330,11 +344,64 @@ for i,y in enumerate([-65,-32.5,0,32.5,65],1):
     plane=cq.Plane(origin=(plen-(gz-Z)*slope,y,gz),xDir=(0,1,0),normal=(1/norm,0,slope/norm))
     add(f'20_rooster_bovenhuis_{i}',on_plane(g,plane),print_shape=g,note='Los rooster; locatie en maat uit fotoprototype aangenomen. Vlakke rug op bed.')
 
+# Confirmed by the user: the smooth inclined piece IS the staircase.
+# Rear-photo left is internal +Y: split the available broad inner block into a
+# 14 mm inclined stair on the outside and a narrower two-panel cabinet beside it.
+gap=A['step_gap'];xs=cut_start+gap;xe=nt-gap-A['step_panel_clearance']
+y0=yiR+gap;y1=rib-gap;sw=A['stair_width'];split_y=y1-sw
+cw=split_y-y0;yc=(y0+split_y)/2
+e1=UX+A['step_first_end_offset'];e2=UX+A['step_second_end_offset'];hh=A['step_heights']
+case17=box(e1-xs,cw,hh[0],(e1+xs)/2,yc).union(box(e2-e1,cw,hh[1],(e2+e1)/2,yc)).union(box(xe-e2,cw,hh[2],(xe+e2)/2,yc))
+case17=case17.edges('|Z').fillet(1.2)
+case17=case17.cut(box(xe-xs-2*W,cw-2*W,hh[2]-T+1,(xs+xe)/2,yc,-1))
+for yy in [yc-cw/4,yc+cw/4]:
+    pl=cq.Plane(origin=(xe,yy,hh[2]/2),xDir=(0,1,0),normal=(1,0,0))
+    case17=case17.union(panel(cw/2-2,hh[2]-5,pl,.7,True))
+stair_profile=[(xs,0),(xe,0),(xs,A['stair_high_end'])]
+stair=cq.Workplane('XZ').polyline(stair_profile).close().extrude(sw/2,both=True).translate((0,(split_y+y1)/2,0))
+# Remove underside material below a 2.4 mm vertical top skin, retaining side walls.
+# A controlled offset triangle avoids a fragile, unsupported internal knife edge.
+run=xe-xs;grade=A['stair_high_end']/run
+ix0=xs+W;ix1=xe-T/grade
+if ix1>ix0:
+    inner_h=A['stair_high_end']-grade*(ix0-xs)-T
+    hollow=cq.Workplane('XZ').polyline([(ix0,-1),(ix1,-1),(ix1,0),(ix0,inner_h)]).close().extrude((sw-2*W)/2,both=True).translate((0,(split_y+y1)/2,0))
+    stair=stair.cut(hollow)
+stair_record=dict(kind='inclined_stair_beside_cabinet',start_x=xs,end_x=xe,height_start=A['stair_high_end'],height_end=0,stair_width=sw,cabinet_width=cw,stair_internal_y=[split_y,y1],angle_degrees=math.degrees(math.atan2(A['stair_high_end'],xe-xs)),status='function confirmed by user; dimensions photographic assumptions; restored in v18 on user request')
+step=case17.union(stair)
+add('17_achterkast_getrapt',step,note='Achterfoto LINKS: schuin trapvlak 14 mm breed naast smallere tweepanelenkast. Samen één printdeel, in de uitsparing achter in het blok (v18: ongewijzigd uit v17). Breedte/helling foto-aannames. Onderzijde op bed; kastdakbrug controleren.')
+
+# Rounded, hollow low cabinet below the two windows; clear of the door on the back wall.
+cw=A['low_box_width'];cd=A['low_box_depth'];ch=A['low_box_height'];yc=yiR-A['low_box_r_center'];xb=UX+.15;xe=xb+cd
+assert yc+cw/2<dyc-A['door_width']/2,'kast 18 raakt de deur'
+case=rounded(cd,cw,ch,(xb+xe)/2,yc,0,2).cut(box(cd-2*W,cw-2*W,ch-T+1,(xb+xe)/2,yc,-1)).cut(outer)
+for yy in [yc-cw/4,yc+cw/4]:
+    pl=cq.Plane(origin=(xe,yy,ch/2),xDir=(0,1,0),normal=(1,0,0))
+    case=case.union(panel(cw/2-5,ch-6,pl,.7,True))
+add('18_achterkast_laag',case,note='Onder de twee kleine ramen, tegen de rechte achterwand. Afgeronde kast met twee deurpanelen; hol, onderrand op bed. Foto-aannames 44 x 22 x 22.')
+
+# Photo-right short box has a sloping top and sits against the narrow arm, now directly on the straight back wall.
+xb=UX+.15;xe=xb+A['right_box_depth'];yc=yiL+A['right_box_width']/2
+right=cq.Workplane('XZ').polyline([(xb,0),(xe,0),(xe,A['right_box_low']),(xb,A['right_box_high'])]).close().extrude(A['right_box_width']/2,both=True).translate((0,yc,0)).cut(outer)
+right=right.cut(box(A['right_box_depth']-2*W,A['right_box_width']-2*W,A['right_box_low']-T+1,(xb+xe)/2,yc,-1))
+pl=cq.Plane(origin=(xe,yc,A['right_box_low']/2),xDir=(0,1,0),normal=(1,0,0))
+right=right.union(panel(A['right_box_width']-3,A['right_box_low']-5,pl,.65,True))
+add('19_achterkast_schuin',right,note='Achterfoto RECHTS, tegen smalle arm en rechte achterwand. Schuin dak; onderrand op bed. Fotomaten 20 lang x 10 breed, hoogte 32 naar 25 mm.')
+
 # Optional lower U floor is deliberately separate: original mould is open and frame position is not verified.
 floor=box(M['U_depth_left'],M['U_width'],T,UX+M['U_depth_left']/2,(yiL+yiR)/2,0).cut(outer)
 # Preserve a 0.15 mm fitting gap to the house sides.
 floor=clip(floor,UX+.15,L-.15).intersect(box(150,M['U_width']-.3,T,UX+57.5,(yiL+yiR)/2,0))
-add('21_achtervloer_optioneel',floor,include=False,note='Optioneel: centrale U-vloer tussen de armen. Niet in assemblage opgenomen; de echte opbouw is open. Werkelijk pasframe eerst passen.')
+for cabinet in [case,right]:
+    cb=cabinet.val().BoundingBox()
+    floor=floor.cut(box(cb.xlen+.3,cb.ylen+.3,T+2,(cb.xmin+cb.xmax)/2,(cb.ymin+cb.ymax)/2,-1))
+# Keep the floor a single piece if the cabinet clearances isolate a tiny corner.
+fs=floor.solids().vals()
+if len(fs)>1:
+    largest=max(fs,key=lambda q:q.Volume())
+    assert sum(q.Volume() for q in fs)-largest.Volume()<150
+    floor=cq.Workplane(obj=largest)
+add('21_achtervloer_optioneel',floor,include=False,note='Optioneel: centrale U-vloer tussen de armen, met vrije uitsparingen onder kasten 18/19. Niet in assemblage opgenomen; de echte opbouw is open. Werkelijk pasframe eerst passen.')
 add('22_lijmstrip_4x',box(30,12,2),qty=4,include=False,note='Binnen langs lengtenaad onderdekhuis lijmen, vrij plaatsen/inkorten.')
 add('23_dek_lijmstrip_4x',box(24,8,2),qty=4,include=False,note='Onder de deknaden, vrij plaatsen vóór montage.')
 
@@ -357,7 +424,8 @@ validation['front_revision']=dict(full_height_groove=True,groove_radius=C['front
 validation['side_windows']=dict(A=SIDE['A'],B=SIDE['B'],same_layout_confirmed_by_user=False,anchor_one_side_confirmed_by_user=True,lower_count=dict(A=6,B=4),upper_recess_count_per_side=2,lower_joint_distribution=dict(A=[4,2],B=[2,2]),dimension_status='photo estimates, not measured')
 validation['anchor_niche']=dict(**N,cavity_top=Z-T,backing_bottom=N['sill_top']-N['sill_thickness'],frame_flange_clearance=N['sill_top']-N['sill_thickness']-C['frame_flange'][2])
 validation['funnel_revision']=dict(parts=funnel_records,connector=dict(flat_plate=True,plate_thickness=B['plate_thickness'],planform_platform=pp),status='Photographic prototype; radii and dimensions not measured')
-validation['aft_shape_revision']=dict(source='referentiefoto\'s echte opbouw (IMG_0297..0299)',flat_block_at_deck_height=True,stepped_cabinet_stair_and_aft_cabinets_removed=True,straight_U_back_wall_x=UX,U_corner_radius=C['U_corner_radius'],notch=dict(x=[S['notch_x'],nt],internal_y=[S['notch_y'],rheadinner],corner_radius=C['notch_corner_radius']),arm_inner_taper=dict(start_x=S['taper_x'],left_end_inner_y=S['left_end_inner'],right_end_inner_y=S['right_end_inner']),arm_end_radius=C['end_radius'],front_box_corner_radius=C['front_box_corner_radius'],detail_dimensions='notch, taper and radii from photo ratios or chosen by user; measured v17 dimensions unchanged')
+validation['left_stair_transition']=stair_record
+validation['aft_shape_revision']=dict(source='referentiefoto\'s echte opbouw (IMG_0297..0299)',flat_block_at_deck_height=True,block_cut_for_stepped_cabinet_from_x=cut_start,details_17_18_19_and_door_restored=True,door_on_straight_back_wall=dict(center_internal_y=dyc,width=A['door_width']),straight_U_back_wall_x=UX,U_corner_radius=C['U_corner_radius'],notch=dict(x=[S['notch_x'],nt],internal_y=[S['notch_y'],rheadinner],corner_radius=C['notch_corner_radius']),arm_inner_taper=dict(start_x=S['taper_x'],left_end_inner_y=S['left_end_inner'],right_end_inner_y=S['right_end_inner']),arm_end_radius=C['end_radius'],front_box_corner_radius=C['front_box_corner_radius'],detail_dimensions='notch, taper and radii from photo ratios or chosen by user; measured v17 dimensions unchanged')
 validation['collisions']=[]
 for i,(an,a,_,_) in enumerate(parts):
     ba=a.BoundingBox()

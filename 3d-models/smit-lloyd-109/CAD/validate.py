@@ -22,7 +22,7 @@ for r in d['parts']:
  rechecks.append(dict(part=name,STL_closed=True,STL_one_component=True,STEP_readback_valid=True,STEP_STL_volume_difference_fraction=round(delta,8)))
 assembled=[r for r in d['parts'] if r['assembled']]
 sh=cq.importers.importStep(str(R/'STEP/SL109_v18_assemblage.step')).solids().vals()
-assert len(sh)==len(assembled)==24
+assert len(sh)==len(assembled)==27
 byname={r['part']:s for r,s in zip(assembled,sh)}
 for s in sh:assert s.isValid()
 for name,z in [('04_achterdek_voor',60),('05_achterdek_achter',60),('07_voordak_163mm',86)]:assert abs(byname[name].BoundingBox().zmax-z)<.001
@@ -40,21 +40,34 @@ def occupied(solid,x,y,z,r=.3):
  return solid.intersect(cq.Workplane('XY').sphere(r).translate((x,y,z)).val()).Volume()>.01
 house=byname['03_onderdekhuis_achter'];deck=byname['05_achterdek_achter']
 assembly_parts=list(byname.values())
-# Stepped cabinet, stair and aft cabinets are gone; the broad block is flat at deck height.
-assert set(byname).isdisjoint({'17_achterkast_getrapt','18_achterkast_laag','19_achterkast_schuin'})
-for xx in [285,300,325]:
- assert occupied(deck,xx,-(st['yiR']+8),59), (xx,'flat block deck missing')
- assert not any(occupied(s,xx,-(st['yiR']+8),61.5) for s in assembly_parts), (xx,'something on the flat block')
+# The broad block is flat at deck height ahead of the stair cut-out; as in v17 its aft part
+# holds the separate stepped cabinet with stair (17). Cabinets 18/19 stand in the U.
+a=p['aft'];cut_start=st['UX']+a['step_start_offset']
+assert {'17_achterkast_getrapt','18_achterkast_laag','19_achterkast_schuin'}<=set(byname)
+for xx in [275,285]:
+ assert occupied(deck,xx,-(st['yiR']+8),59),(xx,'flat block deck missing')
+ assert not any(occupied(s,xx,-(st['yiR']+8),61.5) for s in assembly_parts),(xx,'something on the flat block')
+step=byname['17_achterkast_getrapt'];sy0=st['rib']-a['step_gap']-a['stair_width']
+for xx in [300,320]:
+ assert not any(occupied(s,xx,-(st['yiR']+8),30) for s in (house,deck)),(xx,'block not cut for cabinet 17')
+assert occupied(step,cut_start+4,-(st['yiR']+8),58),'cabinet 17 top step missing'
+assert occupied(step,cut_start+4,-(sy0+7),52.8),'stair high end missing'
+assert not occupied(step,st['nt']-3,-(sy0+7),20),'stair not sloping'
+for name in ['18_achterkast_laag','19_achterkast_schuin']:
+ assert byname[name].BoundingBox().xmin<st['UX']+.3,(name,'not against the straight back wall')
+# Door with porthole on the straight back wall beside the block.
+dyc=st['yiR']-c['U_corner_radius']-a['door_center_from_block']
+assert occupied(house,st['UX']+.3,-dyc,a['door_bottom']+6,.2),'door panel missing'
+assert not occupied(house,st['UX']-1,-dyc,a['door_bottom']+a['door_height']*.75,.4),'porthole not open'
 # Straight U back wall: the old chamfer corners are open space, the wall itself is present.
 for yy in [st['yiR']-3,st['yiL']+3]:
  assert not occupied(house,st['UX']+3,-yy,30),(yy,'U corner not open')
  assert occupied(house,st['UX']-1,-yy,30),(yy,'U back wall missing')
-# Notch between block and arm: open over the full height, block continues on the U side.
-nx=(st['notch_x']+st['nt'])/2;ny=(st['notch_y']+st['rheadinner'])/2
+# Notch between block and arm: after the stair cut-out a 3 mm strip along the arm stays open.
+nx=(st['notch_x']+st['nt'])/2;ny=(st['rib']+st['rheadinner'])/2+.5
 for zz in [5,30,59]:
- assert not any(occupied(s,nx,-ny,zz) for s in (house,deck)),(zz,'notch not open')
-assert occupied(deck,nx,-(st['yiR']+6),59),'block beside notch missing'
-assert occupied(deck,st['notch_x']-3,-ny,59),'block ahead of notch missing'
+ assert not any(occupied(s,nx,-ny,zz,.25) for s in assembly_parts),(zz,'notch not open')
+assert occupied(deck,st['notch_x']-3,-ny,59,.25),'block ahead of notch missing'
 # Inner side of both arms tapers outward over the last part.
 for yy,inside in [(st['yiL']-2,False),(st['left_end_inner']-3,True),(st['rheadinner']+2,False),(st['right_end_inner']+3,True)]:
  assert occupied(deck,383,-yy,59)==inside,(yy,'arm end taper')
@@ -70,7 +83,7 @@ for name,y_out in [('08_middenblok_65x25x55',32.5),('09_klein_blok_links_25x15x3
  bb=byname[name].BoundingBox();zc=(bb.zmin+bb.zmax)/2
  assert not occupied(byname[name],bb.xmin+1,y_out-1,zc,.2),(name,'front corner not R6')
  assert occupied(byname[name],bb.xmin+.8,y_out-rf-1,zc,.2),(name,'front face missing')
-shape_report=dict(flat_block=True,straight_U_back_wall=True,notch_open_full_height=True,arm_inner_taper=True,arm_end_radius=c['end_radius'],front_box_corner_radius=rf,U_corner_radius=c['U_corner_radius'],notch_corner_radius=c['notch_corner_radius'])
+shape_report=dict(flat_block_ahead_of_stair=True,stair_cabinets_door_restored=True,straight_U_back_wall=True,notch_open_full_height=True,arm_inner_taper=True,arm_end_radius=c['end_radius'],front_box_corner_radius=rf,U_corner_radius=c['U_corner_radius'],notch_corner_radius=c['notch_corner_radius'])
 # Round funnel cross-section and flat widened connector are geometric checks.
 u=p['upper'];co=p['connector']
 for suffix,iy,bw in [('L',u['left_funnel_y'],u['left_funnel_width']),('R',u['right_funnel_y'],u['right_funnel_width'])]:

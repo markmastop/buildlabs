@@ -12,11 +12,13 @@ V18 laat het onderdekhuis de vorm van de echte opbouw volgen, op basis van de
 referentiefoto's `images/referentie/IMG_0297..0299`. De gemeten v17-maten
 blijven gelden:
 
-- Het blok aan de brede arm is één vlak blok op dekhoogte. De getrapte kast met
-  trap (17) en de achterkasten 18/19 vervallen.
+- Het blok aan de brede arm is een vlak blok op dekhoogte. Achteraan is het,
+  net als in v17, uitgespaard voor de getrapte kast met trap (17).
 - De U-bodem is een rechte achterwand met binnenhoeken R2, zonder schuine
-  hoekwangen en deur. De twee kleine ramen blijven.
-- In de hoek tussen blok en arm zit een inkeping van 12 × 15 mm (fotomaat).
+  hoekwangen. De deur met patrijspoort zit nu op die rechte wand, naast het
+  blok; kasten 18 en 19 staan ertegen. De twee kleine ramen blijven.
+- In de hoek tussen blok en arm zit een inkeping van 12 × 15 mm (fotomaat);
+  naast de uitsparing voor 17 blijft daarvan een strook van 3 mm over.
 - De binnenkant van beide armen loopt over de laatste 40 mm schuin naar buiten
   (10 en 7 mm, fotomaat).
 - Armuiteinden R8 en staande hoeken van de voorblokken R6.
@@ -44,8 +46,8 @@ Details: [`meetmaten.csv`](meetmaten.csv), [`AANNAMES.txt`](AANNAMES.txt),
 |---|---|
 | `CAD/` | Bewerkbare bron: `build.py` met `parameters.json` en `metingen.json`; `voetafdruk.py` (omtrek onderdekhuis, ook voor de dekmal), `validate.py` (controles), `maataanzichten.py` en `kijkmodel.py` (tekeningen en kijkmodellen) |
 | `inputs/` | Nodig om de CAD opnieuw te bouwen (v4-bron, logo-SVG) |
-| `STEP/` | 27 losse delen + `SL109_v18_assemblage.step` |
-| `STL/` | 27 printbestanden; `onderdelen.csv` geeft aantal, maat en printstand |
+| `STEP/` | 30 losse delen + `SL109_v18_assemblage.step` |
+| `STL/` | 30 printbestanden; `onderdelen.csv` geeft aantal, maat en printstand |
 | `pasmal/` | Pasproeven voor dekopening, buitenmaat en stuurhuthoogte |
 | `referentie_*/` | Foto's per detail, gebruikt bij de reconstructie |
 | `SHA256SUMS.txt` | Controlesommen van het oorspronkelijke printpakket |

@@ -1,10 +1,10 @@
 onderdeel,aantal,X_mm,Y_mm,Z_mm,volume_cm3,printstand,in_assemblage,opmerking
 02_onderdekhuis_voor,1,190.0,180.0,57.6,68.8289,onderzijde op bed,True,V17: zijde A vier voorste ramen; zijde B twee voorste ramen en gesloten ankernis. Rechtop printen; nisplafond is deel 04. Pasframevlakken blijven vrij.
-03_onderdekhuis_achter,1,195.0,189.0,57.6,93.9722,onderzijde op bed,True,"V18: vlak blok aan de brede arm met inkeping, rechte U-bodem met R2, armuiteinden R8 die binnen schuin naar buiten lopen. Twee kleine ramen per zijde achter de naad. Rechtop printen."
+03_onderdekhuis_achter,1,195.0,189.0,57.6,95.6599,onderzijde op bed,True,"V18: vlak blok aan de brede arm, achteraan uitgespaard voor trap en kast 17; rechte U-bodem met R2 en deur, armuiteinden R8 die binnen schuin naar buiten lopen. Twee kleine ramen per zijde achter de naad. Rechtop printen."
 00_pasproef,1,212.0,160.0,8.0,14.8557,bovenzijde op bed,False,Eerst volledig passen in 205 x 153 mm opening. Niet forceren; controleer ook hoekradius en dekdikte.
 01_pasframe,1,212.0,160.0,8.0,19.3101,bovenzijde op bed,True,Los droogpassen; definitieve lengtepositie op echte romp bepalen vóór verlijmen. Flens intern op Z 0..2.
 04_achterdek_voor,1,190.0,180.0,2.4,10.0815,onderzijde op bed,True,V17: vlak printen. Ring rond hoger voordek plus plafond ankernis aan zijde B. Eerst zijraambeglazing plaatsen; nieuwe nis droogpassen.
-05_achterdek_achter,1,195.0,189.0,2.4,56.5361,onderzijde op bed,True,Vlak printen. Meetbasis op Z=60 mm; U blijft open zoals origineel.
+05_achterdek_achter,1,195.0,189.0,2.4,53.4592,onderzijde op bed,True,Vlak printen. Meetbasis op Z=60 mm; U blijft open zoals origineel.
 06_verhoogd_voordekhuis,1,183.0,180.0,23.6,44.1755,onderzijde op bed,True,"V17: twee gesloten nissen per kant; diepte 8 mm in Y, schuine aansluitingen 2,5 mm. Achterwand integraal, voorste nis volgt ronding. Foto-inschattingen. Open schaal rechtop printen."
 07_voordak_163mm,1,164.846,180.0,2.4,67.5679,bovenzijde op bed,True,"Vlakke bovenzijde op bed. Lengte bovenzijde 163 mm, breedte 180 mm; gemeten dakhoogte 86 mm."
 08_middenblok_65x25x55,1,27.366,65.0,55.0,17.2952,onderzijde op bed,True,"V18: gemeten 65 breed x 25 uitsteek x 55 hoog, staande hoeken R6. Verticale groef over volle hoogte, voorlopig R4 met 2 mm gesloten rug. Holle onderzijde op bed; groef niet vullen."
@@ -24,6 +24,9 @@ onderdeel,aantal,X_mm,Y_mm,Z_mm,volume_cm3,printstand,in_assemblage,opmerking
 20_rooster_bovenhuis_3,1,12.0,13.0,0.91,0.1085,voorgeorienteerd; zie opmerking,True,Los rooster; locatie en maat uit fotoprototype aangenomen. Vlakke rug op bed.
 20_rooster_bovenhuis_4,1,12.0,13.0,0.91,0.1085,voorgeorienteerd; zie opmerking,True,Los rooster; locatie en maat uit fotoprototype aangenomen. Vlakke rug op bed.
 20_rooster_bovenhuis_5,1,12.0,13.0,0.91,0.1085,voorgeorienteerd; zie opmerking,True,Los rooster; locatie en maat uit fotoprototype aangenomen. Vlakke rug op bed.
-21_achtervloer_optioneel,1,114.7,79.7,2.4,21.9377,onderzijde op bed,False,Optioneel: centrale U-vloer tussen de armen. Niet in assemblage opgenomen; de echte opbouw is open. Werkelijk pasframe eerst passen.
+17_achterkast_getrapt,1,41.58,33.7,60.0,22.5867,onderzijde op bed,True,"Achterfoto LINKS: schuin trapvlak 14 mm breed naast smallere tweepanelenkast. Samen één printdeel, in de uitsparing achter in het blok (v18: ongewijzigd uit v17). Breedte/helling foto-aannames. Onderzijde op bed; kastdakbrug controleren."
+18_achterkast_laag,1,22.58,44.0,22.0,7.1658,onderzijde op bed,True,"Onder de twee kleine ramen, tegen de rechte achterwand. Afgeronde kast met twee deurpanelen; hol, onderrand op bed. Foto-aannames 44 x 22 x 22."
+19_achterkast_schuin,1,20.53,10.0,32.0,3.5313,onderzijde op bed,True,"Achterfoto RECHTS, tegen smalle arm en rechte achterwand. Schuin dak; onderrand op bed. Fotomaten 20 lang x 10 breed, hoogte 32 naar 25 mm."
+21_achtervloer_optioneel,1,114.7,79.7,2.4,19.0407,onderzijde op bed,False,"Optioneel: centrale U-vloer tussen de armen, met vrije uitsparingen onder kasten 18/19. Niet in assemblage opgenomen; de echte opbouw is open. Werkelijk pasframe eerst passen."
 22_lijmstrip_4x,4,30.0,12.0,2.0,0.72,onderzijde op bed,False,"Binnen langs lengtenaad onderdekhuis lijmen, vrij plaatsen/inkorten."
 23_dek_lijmstrip_4x,4,24.0,8.0,2.0,0.384,onderzijde op bed,False,"Onder de deknaden, vrij plaatsen vóór montage."

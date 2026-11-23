@@ -793,10 +793,30 @@
       },
       "status": "Photographic prototype; radii and dimensions not measured"
     },
+    "left_stair_transition": {
+      "kind": "inclined_stair_beside_cabinet",
+      "start_x": 288.15,
+      "end_x": 329.15000000000003,
+      "height_start": 60,
+      "height_end": 0,
+      "stair_width": 14,
+      "cabinet_width": 19.700000000000003,
+      "stair_internal_y": [
+        37.35,
+        51.35
+      ],
+      "angle_degrees": 55.653902599938455,
+      "status": "function confirmed by user; dimensions photographic assumptions; restored in v18 on user request"
+    },
     "aft_shape_revision": {
       "source": "referentiefoto's echte opbouw (IMG_0297..0299)",
       "flat_block_at_deck_height": true,
-      "stepped_cabinet_stair_and_aft_cabinets_removed": true,
+      "block_cut_for_stepped_cabinet_from_x": 288,
+      "details_17_18_19_and_door_restored": true,
+      "door_on_straight_back_wall": {
+        "center_internal_y": 3.5,
+        "width": 18
+      },
       "straight_U_back_wall_x": 270,
       "U_corner_radius": 2,
       "notch": {
@@ -845,12 +865,12 @@
         189.0,
         57.6
       ],
-      "volume_cm3": 93.9722,
+      "volume_cm3": 95.6599,
       "orientation": "onderzijde op bed",
       "assembled": true,
       "roof": false,
       "measured_base": true,
-      "note": "V18: vlak blok aan de brede arm met inkeping, rechte U-bodem met R2, armuiteinden R8 die binnen schuin naar buiten lopen. Twee kleine ramen per zijde achter de naad. Rechtop printen."
+      "note": "V18: vlak blok aan de brede arm, achteraan uitgespaard voor trap en kast 17; rechte U-bodem met R2 en deur, armuiteinden R8 die binnen schuin naar buiten lopen. Twee kleine ramen per zijde achter de naad. Rechtop printen."
     },
     {
       "part": "00_pasproef",
@@ -905,7 +925,7 @@
         189.0,
         2.4
       ],
-      "volume_cm3": 56.5361,
+      "volume_cm3": 53.4592,
       "orientation": "onderzijde op bed",
       "assembled": true,
       "roof": false,
@@ -1198,6 +1218,51 @@
       "note": "Los rooster; locatie en maat uit fotoprototype aangenomen. Vlakke rug op bed."
     },
     {
+      "part": "17_achterkast_getrapt",
+      "qty": 1,
+      "print_mm": [
+        41.58,
+        33.7,
+        60.0
+      ],
+      "volume_cm3": 22.5867,
+      "orientation": "onderzijde op bed",
+      "assembled": true,
+      "roof": false,
+      "measured_base": false,
+      "note": "Achterfoto LINKS: schuin trapvlak 14 mm breed naast smallere tweepanelenkast. Samen één printdeel, in de uitsparing achter in het blok (v18: ongewijzigd uit v17). Breedte/helling foto-aannames. Onderzijde op bed; kastdakbrug controleren."
+    },
+    {
+      "part": "18_achterkast_laag",
+      "qty": 1,
+      "print_mm": [
+        22.58,
+        44.0,
+        22.0
+      ],
+      "volume_cm3": 7.1658,
+      "orientation": "onderzijde op bed",
+      "assembled": true,
+      "roof": false,
+      "measured_base": false,
+      "note": "Onder de twee kleine ramen, tegen de rechte achterwand. Afgeronde kast met twee deurpanelen; hol, onderrand op bed. Foto-aannames 44 x 22 x 22."
+    },
+    {
+      "part": "19_achterkast_schuin",
+      "qty": 1,
+      "print_mm": [
+        20.53,
+        10.0,
+        32.0
+      ],
+      "volume_cm3": 3.5313,
+      "orientation": "onderzijde op bed",
+      "assembled": true,
+      "roof": false,
+      "measured_base": false,
+      "note": "Achterfoto RECHTS, tegen smalle arm en rechte achterwand. Schuin dak; onderrand op bed. Fotomaten 20 lang x 10 breed, hoogte 32 naar 25 mm."
+    },
+    {
       "part": "21_achtervloer_optioneel",
       "qty": 1,
       "print_mm": [
@@ -1205,12 +1270,12 @@
         79.7,
         2.4
       ],
-      "volume_cm3": 21.9377,
+      "volume_cm3": 19.0407,
       "orientation": "onderzijde op bed",
       "assembled": false,
       "roof": false,
       "measured_base": false,
-      "note": "Optioneel: centrale U-vloer tussen de armen. Niet in assemblage opgenomen; de echte opbouw is open. Werkelijk pasframe eerst passen."
+      "note": "Optioneel: centrale U-vloer tussen de armen, met vrije uitsparingen onder kasten 18/19. Niet in assemblage opgenomen; de echte opbouw is open. Werkelijk pasframe eerst passen."
     },
     {
       "part": "22_lijmstrip_4x",

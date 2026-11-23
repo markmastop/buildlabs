@@ -62,11 +62,18 @@ def same_geometry(old, solid):
 
 
 def build_variants(old_variants):
-    previous = next(iter(old_variants))
-    older = [k for k in old_variants if k != previous]
-    resolved = {previous: old_variants[previous]}
-    for key in older:
-        resolved[key] = [old_variants[previous][p['ref']] if 'ref' in p else p for p in old_variants[key]]
+    first = next(iter(old_variants))
+    resolved = {first: old_variants[first]}
+    for key in old_variants:
+        if key != first:
+            resolved[key] = [old_variants[first][p['ref']] if 'ref' in p else p for p in old_variants[key]]
+    # Opnieuw draaien binnen dezelfde versie: vergelijk dan met de versie daarvoor.
+    previous = first if first != VERSION else next(k for k in old_variants if k != VERSION)
+    # Bestaande meshdata per naam, uit alle varianten (de actuele eerst).
+    pool = {}
+    for key in [first] + [k for k in resolved if k != first]:
+        for p in resolved[key]:
+            pool.setdefault(p['name'], []).append(p)
     prev_parts = {p['name']: p for p in resolved[previous]}
     controle = json.loads((R / 'controle.json').read_text())
     assembled = [p for p in controle['parts'] if p['assembled']]
@@ -75,24 +82,28 @@ def build_variants(old_variants):
     current, reused, changed = [], {}, []
     for record, solid in zip(assembled, solids):
         name = record['part']
-        old = prev_parts.get(name)
-        if old is not None and same_geometry(old, solid):
-            reused[name] = len(current)
+        old = next((p for p in pool.get(name, []) if same_geometry(p, solid)), None)
+        if old is not None:
+            reused[id(old)] = len(current)
             current.append(old)
+            if old is not prev_parts.get(name):
+                changed.append(name)
         else:
             changed.append(name)
             part = encode(name, solid, record['roof'], record['measured_base'])
+            old = prev_parts.get(name)
             if old is not None and 'logoEdges' in old:
                 # Het logo-reliëf zelf is ongewijzigd: de lijntekening blijft geldig.
                 part = dict(list(part.items())[:3] + [('logoEdges', old['logoEdges'])] + list(part.items())[3:])
             current.append(part)
-    before = [dict(ref=reused[p['name']]) if p['name'] in reused else p for p in resolved[previous]]
+    before = [dict(ref=reused[id(p)]) if id(p) in reused else p for p in resolved[previous]]
     print('kijkmodel', VERSION, 'tegenover', previous, '· nieuw of gewijzigd:', ', '.join(changed),
           '· vervallen:', ', '.join(n for n in prev_parts if n not in {r['part'] for r in assembled}) or '-')
     return previous, {VERSION: current, previous: before}
 
 
-# Teksten in de viewer die per versie meeschuiven. Exact één keer of vaker aanwezig.
+# Teksten in de viewer die per versie meeschuiven. Een tekst moet aanwezig zijn, oud of al
+# bijgewerkt (bij opnieuw draaien binnen dezelfde versie).
 def texts(previous):
     assert (previous, VERSION) == ('v17', 'v18'), 'werk de viewerteksten bij voor deze versiestap'
     return [
@@ -100,22 +111,23 @@ def texts(previous):
          "variants.v17=variants.v17.map(p=>('ref' in p)?variants.v18[p.ref]:p);"),
         ('data-variant="v17" aria-pressed="true">V17</button>', 'data-variant="v18" aria-pressed="true">V18</button>'),
         ('data-variant="v16" aria-pressed="false">Vergelijk v16</button>', 'data-variant="v17" aria-pressed="false">Vergelijk v17</button>'),
-        ("'Vorige versie v16 · stuurhutwand 42 mm hoog, voet 112 mm lang'",
-         "'Vorige versie v17 · getrapte kast met trap, schuine U-hoeken'"),
-        ("'V16 · wand 42 mm hoog · voet 112 mm lang'",
-         "'V17 · getrapte kast, trap en achterkasten · hoeken R2/R5'"),
-        ("'Stuurhutwand 55 mm · voet 90 mm · voorbeeldromp uitsluitend visueel, niet opgemeten'",
-         "'Onderdekhuis volgt de echte opbouw · voorbeeldromp uitsluitend visueel, niet opgemeten'"),
+        (re.compile(r"'Vorige versie v1[67] · [^']*'"),
+         "'Vorige versie v17 · schuine U-hoeken met deur, armuiteinden R5'"),
+        (re.compile(r"'V1[67] · [^']*'"),
+         "'V17 · schuine U-hoeken, deur in de hoek · hoeken R2/R5'"),
+        (re.compile(r"'(?:Stuurhutwand 55 mm · voet 90 mm|Onderdekhuis volgt de echte opbouw[^·']*) · voorbeeldromp uitsluitend visueel, niet opgemeten'"),
+         "'Onderdekhuis volgt de echte opbouw, met trap, kasten en deur · voorbeeldromp uitsluitend visueel, niet opgemeten'"),
         ("variant='v17'", "variant='v18'"),
         ("variant==='v17'", "variant==='v18'"),
         ('Volledige opbouw v17', 'Volledige opbouw v18'),
         ('Smit-Lloyd 109 volledig model v17', 'Smit-Lloyd 109 volledig model v18'),
         ('Smit Lloyd 109 Volledig V17', 'Smit Lloyd 109 Volledig V18'),
         ('sl109-volledig-v17', 'sl109-volledig-v18'),
-        (re.compile(r'aria-label="Volledige draaibare opbouw v17\.[^"]*"'),
+        (re.compile(r'aria-label="Volledige draaibare opbouw v1[78]\.[^"]*"'),
          'aria-label="Volledige draaibare opbouw v18. Het onderdekhuis volgt de echte opbouw: vlak blok aan '
-         'de brede arm met inkeping, rechte U-bodem, armuiteinden die binnen schuin naar buiten lopen, '
-         'armuiteinden R8 en voorblokken R6. De schoorstenen zijn achteraan binnen versmald langs de armrand. '
+         'de brede arm, rechte U-bodem, armuiteinden die binnen schuin naar buiten lopen, armuiteinden R8 en '
+         'voorblokken R6. Trap met getrapte kast, twee achterkasten en de deur met patrijspoort staan erop. '
+         'De schoorstenen zijn achteraan binnen versmald langs de armrand. '
          'Stuurhutwand 55 mm hoog, voetlengte 90 mm, breedte 136 mm. Vergelijk met v17. Stuurhutmaten en '
          'detailvormen zijn proefmaten uit fotoverhoudingen."'),
     ]
@@ -129,7 +141,7 @@ def update_source(src, blob, previous):
         if isinstance(old, re.Pattern):
             body, n = old.subn(new, body)
         else:
-            n = body.count(old)
+            n = body.count(old) or body.count(new)
             body = body.replace(old, new)
         assert n >= 1, ('tekst niet gevonden', str(old)[:60])
     rest = body.replace('p.v16', '')

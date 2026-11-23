@@ -1,6 +1,6 @@
 {
   "version": "v18",
-  "status": "Vorm van het onderdekhuis volgt de echte opbouw: vlak blok, rechte U, inkeping, schuine armuiteinden en rondere hoeken",
+  "status": "Vorm van het onderdekhuis volgt de echte opbouw (vlak blok, rechte U, inkeping, schuine armuiteinden, rondere hoeken); trap, kasten en deur uit v17 staan er weer op",
   "measured": {
     "length": 385,
     "front_width": 180,
@@ -215,7 +215,9 @@
     "v17: dakcontact Z141; kapbasis Z143; kaal kapdeksel Z155..157. Dakoverstek 3 en kaphoogte 14 blijven; kap achterrand naar X97 zodat een vlak achterdak van 29 mm overblijft. Deze dakverhoudingen zijn foto-inschattingen.",
     "v17: onderbouw, dichte voorverschansing, pasframe, schoorstenen, achtertrap en verdubbelde nisdieptes blijven ongewijzigd. Geen extra relingen, boeien, radar of antennes. Oudere notities met 42 mm stuurhutwand en achterwand X145 zijn vervallen.",
     "v18: de echte opbouw (referentiefoto's IMG_0297..0299) bepaalt de vorm van het onderdekhuis. De gemeten v17-maten blijven gelden.",
-    "v18: het blok aan de brede arm is één vlak blok op dekhoogte Z=60, deel van het onderdekhuis. De getrapte kast met trap (17) en de kasten 18/19 vervallen, net als de schuine hoekwangen met deur in de U. De v6/v7-notities over trap, kasten, hoekwangen en deur zijn geschiedenis.",
+    "v18: het blok aan de brede arm is een vlak blok op dekhoogte Z=60, deel van het onderdekhuis. Op verzoek van de gebruiker staan de v17-details er weer op: achter X=288 is het blok uitgespaard voor de getrapte kast met trap (17), zoals in v17. De schuine hoekwangen in de U vervallen.",
+    "v18: kasten 18 (laag, onder de ramen) en 19 (schuin dak, tegen de smalle arm) staan weer in de U, nu direct tegen de rechte achterwand (19 was 10 mm verder naar achteren door de hoekwang). De deur met patrijspoort zit op de rechte achterwand, midden 12 mm naast het blok, omdat de schuine hoekwang vervalt. Maten als v17: foto-aannames.",
+    "v18: door de uitsparing voor trap en kast blijft van de inkeping alleen een strook van 3 mm langs de brede arm over (Y 51,5..54,5), zoals de 3 mm tussenstap in v17.",
     "v18: de U-bodem is een rechte achterwand op X=270 met binnenhoeken R2. De twee kleine ramen in die wand blijven.",
     "v18: inkeping in de hoek tussen blok en arm: 12 mm lang en 15 mm breed, uitgespaard aan de armkant (Y 39,5..54,5, X 318..330). Het blok loopt aan de U-kant door tot de gemeten 60 mm vanaf de U-bodem. Hoeken R3. Maten afgeleid uit fotoverhoudingen, niet gemeten; vervangt de 3 mm tussenstap uit v6.",
     "v18: de binnenkant van beide armen loopt over de laatste 40 mm schuin naar buiten: smalle arm 10 mm, brede arm 7 mm. Afgeleid uit IMG_0297, niet gemeten.",
@@ -224,6 +226,11 @@
   ],
   "export_axes": "X naar achteren; Y naar links op eerste bovenfoto (voorzijde onderaan); Z omhoog",
   "aft": {
+    "door_width": 18,
+    "door_height": 42,
+    "door_bottom": 6,
+    "door_center_from_block": 12,
+    "porthole_diameter": 5,
     "window_width": 9,
     "window_height": 9,
     "window_bottom": 35,
@@ -231,11 +238,32 @@
       28,
       59
     ],
+    "step_start_offset": 18,
+    "step_first_end_offset": 25,
+    "step_second_end_offset": 37,
+    "step_heights": [
+      60,
+      49,
+      38
+    ],
+    "step_gap": 0.15,
+    "low_box_width": 44,
+    "low_box_depth": 22,
+    "low_box_height": 22,
+    "low_box_r_center": 48,
+    "right_box_width": 10,
+    "right_box_depth": 20,
+    "right_box_high": 32,
+    "right_box_low": 25,
     "beam_width": 12,
     "beam_height": 3,
     "beam_pad_span": 28,
     "beam_pad_depth": 16,
-    "beam_pad_rise": 5
+    "beam_pad_rise": 5,
+    "step_panel_clearance": 0.7,
+    "stair_width": 14,
+    "stair_high_end": 60,
+    "stair_low_end": 0
   },
   "connector": {
     "arm_width": 10,
