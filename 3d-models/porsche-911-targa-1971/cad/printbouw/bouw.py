@@ -49,7 +49,7 @@ def maak_step(parts):
             assembly.append((name,cad))
             if p['mirror_y_copy']:
                 assembly.append((name+'-2',cad.mirror((0,1,0))))
-    export_step(STEP/'targa-assemblage.step',assembly)
+    export_step(STEP/'targa-v7-assemblage.step',assembly)
 
 
 def main(work):
@@ -76,6 +76,13 @@ def main(work):
         boss=box(center,keybox)
         body=(body+boss)-box(center,bore)
         clearance=clearance+boss
+    # Hartlijnen van de twee draaipunten op de paravan, in montagecoördinaten.
+    wiper_base=body
+    wiper_seats={}
+    for side,x,y in [('links',63.267,17.991),('rechts',63.200,-19.323)]:
+        z=body.ray_cast((x,y,105.),(x,y,80.))[0].position[2]
+        wiper_seats[side]=(x,y,z)
+        body=body-M.cylinder(5.,1.30,1.30,48).translate((x,y,z-.75))
     front,rear=body.split_by_plane((1,0,0),SPLIT)
     coupon=box((0,0,0),keybox)-box((0,0,0),bore)
     coupon=coupon.trim_by_plane((1,0,0),0)
@@ -91,7 +98,7 @@ def main(work):
         parts.append((name,oriented,quantity,group,mirror_copy,rotation,origin))
     add('00-pasblok',coupon,(0,90,0),2,'proef')
     add('01-pasveer',key,(90,0,0),quantity=2,mirror_copy=True)
-    add('02-carrosserie-voor',front,(0,-90,0))
+    add('02-carrosserie-voor-v7',front,(0,-90,0))
     add('03-carrosserie-achter',rear,(0,90,0))
     # Een vrije instap van onderaf. Vier lijmoren raken de binnenzijde van de dorpels.
     interior=shell([('interieur',.70)],.34)
@@ -121,7 +128,7 @@ def main(work):
         pane=one(regularize(pane,.24,.045),name)
         panes[name]=pane
         # Op de onderste rand; het gebogen buitenvlak blijft vrij van het bed.
-        add('07-'+name,pane)
+        add('07-'+name+('-v7' if name=='voorruit' else ''),pane)
     mirror=shell([('binnenspiegel',.52)],.24).translate((-1.20,0,-.85))
     add('08-binnenspiegel',mirror-panes['voorruit'],(0,90,0))
     for name,x in [('wiel-voor',113.4),('wiel-achter',-113.4)]:
@@ -158,6 +165,13 @@ def main(work):
         carrier=beam-bore
         assert (carrier^trunk).volume()<.5,(label,'asdrager raakt de interieurbak')
         add('11-asdrager-'+label,carrier)
+    for side in ('links','rechts'):
+        name='wisser-'+side
+        # Vorm de onderzijde van het lijmvoetje naar de gelakte paravan.
+        wiper=shell([(name,.66)],.18).translate((0,0,.85))
+        x,y,z=wiper_seats[side]
+        pin=M.cylinder(1.45,1.05,1.05,48).translate((x,y,z-.52))
+        add('12-'+name+'-v7',(wiper-wiper_base)+pin)
     report=[]
     for name,oriented,qty,group,mirror_copy,rotation,origin in parts:
         export_print(PRINT,name,oriented)

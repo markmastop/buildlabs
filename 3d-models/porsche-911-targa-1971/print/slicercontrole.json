@@ -23,28 +23,28 @@
       "sha256": "7111dcc80c8fa11201abe6cba783699ed7afdc057565bf83ad82bca96bbe6ecf"
     },
     {
-      "part": "02-carrosserie-voor",
+      "part": "02-carrosserie-voor-v7",
       "profile": "targa-p2s",
-      "grams": 187.18,
-      "seconds": 30465,
+      "grams": 183.83,
+      "seconds": 29715,
       "warning": "",
-      "sha256": "217fbc1111e2bcc653e4cadc831a194547a8f64b28c2aa454c21eee566852b1c"
+      "sha256": "b38ee45ce88350335a37a4b457b3d47fad25a9b0b1783c68f1bc4d0d1f940376"
     },
     {
       "part": "03-carrosserie-achter",
       "profile": "targa-p2s",
-      "grams": 151.24,
-      "seconds": 24988,
+      "grams": 150.36,
+      "seconds": 24901,
       "warning": "",
       "sha256": "5aa9b682b8e47aaf373e710847711025455a5200c1dee68748024e3fa45561c1"
     },
     {
       "part": "04-interieurbak",
       "profile": "targa-p2s",
-      "grams": 152.14,
-      "seconds": 38857,
+      "grams": 152.97,
+      "seconds": 38927,
       "warning": "",
-      "sha256": "b43954a0ab988fb4a9e47800e76ad4c6622ef3444ca4d13947a8a505b2bfa58f"
+      "sha256": "b0570ac56bafffd336c5dd4646384a81fe2326c2d628858d5a45ee8d3491a893"
     },
     {
       "part": "05-voorstoel-links",
@@ -71,12 +71,12 @@
       "sha256": "fd5d6258eb3ff91426b03c3aa26ea9f6ae6cb6c9fe08b51263409d4dc8bcedc9"
     },
     {
-      "part": "07-voorruit",
+      "part": "07-voorruit-v7",
       "profile": "targa-p2s",
       "grams": 9.97,
       "seconds": 2281,
       "warning": "",
-      "sha256": "083502ef1e3c7295124cab1ed03e1c1b2a845bfae26a48ac39a330871a2253d8"
+      "sha256": "a2ff82af4e95b20becdf1d1a6bb5dd331aebacca8b5e8a3d721cf9015e27960b"
     },
     {
       "part": "07-achterruit",
@@ -114,7 +114,7 @@
       "part": "09-fuchs-voor",
       "profile": "targa-kleine-overhangen-p2s",
       "grams": 25.08,
-      "seconds": 4396,
+      "seconds": 4395,
       "warning": "",
       "sha256": "5cdf22e7d7bd2c805182b2bd3cc3dbeaee5b979eabfb8e46fbc50441d441029d"
     },
@@ -149,11 +149,27 @@
       "seconds": 3937,
       "warning": "",
       "sha256": "2a35f37afd63ac850f84701a31d3366b6123cdb59ad844164257de2e2dccbbeb"
+    },
+    {
+      "part": "12-wisser-links-v7",
+      "profile": "targa-kleine-overhangen-p2s",
+      "grams": 0.46,
+      "seconds": 657,
+      "warning": "",
+      "sha256": "6bb65325dd29560fd7f8dde7d7bb26f22606f02e0e7c2e8d5cbe0a93014ca53e"
+    },
+    {
+      "part": "12-wisser-rechts-v7",
+      "profile": "targa-kleine-overhangen-p2s",
+      "grams": 0.46,
+      "seconds": 673,
+      "warning": "",
+      "sha256": "e1646d964b634c266c84ec69b61bd7cb41481faf15bae5c8cf3e2ce08f0ce7df"
     }
   ],
   "model": {
-    "gram": 755.9,
-    "uren": 44.0
+    "gram": 753.5,
+    "uren": 44.1
   },
   "proef": {
     "gram": 1.3,

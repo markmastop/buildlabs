@@ -1,13 +1,13 @@
 onderdeel,aantal,groep,x_mm,y_mm,z_mm,volume_cm3
 00-pasblok,2,proef,9.0,6.4,11.0,0.51
 01-pasveer,2,model,17.0,5.0,2.0,0.17
-02-carrosserie-voor,1,model,109.64,161.88,221.96,113.175
+02-carrosserie-voor-v7,1,model,109.64,161.88,221.96,112.723
 03-carrosserie-achter,1,model,110.1,163.12,184.81,91.585
 04-interieurbak,1,model,208.29,144.79,57.5,84.32
 05-voorstoel-links,1,model,61.15,46.59,67.26,33.801
 05-voorstoel-rechts,1,model,61.15,46.59,67.26,33.793
 06-targadak,1,model,74.62,112.07,9.23,24.646
-07-voorruit,1,model,57.89,126.19,37.76,8.137
+07-voorruit-v7,1,model,57.89,126.19,37.76,8.128
 07-achterruit,1,model,63.63,135.31,33.07,9.104
 07-tochtruit-links,1,model,31.14,13.47,33.4,0.543
 07-tochtruit-rechts,1,model,31.21,13.46,33.33,0.539
@@ -17,3 +17,5 @@ onderdeel,aantal,groep,x_mm,y_mm,z_mm,volume_cm3
 10-uitlaat,1,model,45.85,109.38,22.59,26.643
 11-asdrager-voor,1,model,12.0,93.0,51.07,11.856
 11-asdrager-achter,1,model,54.1,93.0,60.17,15.227
+12-wisser-links-v7,1,model,27.17,42.92,5.2,0.226
+12-wisser-rechts-v7,1,model,10.35,43.46,5.83,0.206

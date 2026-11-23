@@ -4,9 +4,11 @@
 
 Decoratief 3D-printmodel van Marks eigen **Porsche 911 Targa uit 1971**.
 
-**Status · Eerste printset op schaal 1:10 voor de Bambu Lab P2S.**
+**Status · Printprototype v7 op schaal 1:10 voor de Bambu Lab P2S.**
 
-Begin met de [pasproef en bouwhandleiding](print/README.md). De [onderdelenlijst](print/onderdelen.csv) geeft de aantallen en plaatmaten. De [STEP-assemblage](cad/step/targa-assemblage.step) toont de montagepositie van alle modeldelen.
+Begin met de [pasproef en bouwhandleiding](print/README.md). De [onderdelenlijst](print/onderdelen.csv) geeft de aantallen en plaatmaten. De [STEP-assemblage](cad/step/targa-v7-assemblage.step) toont de montagepositie van alle modeldelen.
+
+De vijf vormstudies tellen als v1–v5 en de eerste printset als v6 (oude namen `02-carrosserie-voor`, `07-voorruit` en `targa-assemblage.step`). In v7 zijn de twee ruitenwissers losse lijmdelen. De voorste helft heeft twee ondiepe montagegaten onder de voorruit. De set telt 20 unieke printbestanden per formaat inclusief het pasblok. De montage van de wissers is fysiek nog te testen.
 
 De eerste grotere 3D-uitwerking week volgens Mark te veel af van het voorstel en wordt niet op de projectpagina getoond. Mark wees de eerste geometrie af
 op gelijkenis. Op zijn verzoek is de mini met alle bijbehorende bestanden buiten

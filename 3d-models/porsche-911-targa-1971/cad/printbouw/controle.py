@@ -83,7 +83,7 @@ def assembly_contacts(parts):
 def main():
     parts=json.loads((PRINT/'onderdelen.json').read_text())
     checks=[audit(p) for p in parts]
-    assembly=STEP/'targa-assemblage.step'
+    assembly=STEP/'targa-v7-assemblage.step'
     labels=re.findall(r"FACETED_BREP\('([^']+)'",assembly.read_text())
     assert len(labels)==sum(p['quantity'] for p in parts if p['group']=='model')
     assert len(set(labels))==len(labels)

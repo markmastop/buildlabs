@@ -26,13 +26,13 @@ for row,sl in zip(checks['parts'],slices['checks']):
         assert digest(path)==row[kind+'_sha256']
         if kind=='three_mf': assert digest(path)==sl['sha256']
         files.append(path)
-assembly=ROOT/'cad/step/targa-assemblage.step'
+assembly=ROOT/'cad/step/targa-v7-assemblage.step'
 assert digest(assembly)==checks['assembly_sha256']
 files.append(assembly)
 sums=PRINT/'SHA256SUMS.txt'
 sums.write_text(''.join(f'{digest(f)}  {f.relative_to(ROOT)}\n' for f in sorted(files)))
 files.append(sums)
-dest=ROOT/'911-targa-1971-printpakket.zip'
+dest=ROOT/'911-targa-1971-v7-printpakket.zip'
 with ZipFile(dest,'w') as z:
     for f in sorted(files):zip_entry(z,str(f.relative_to(ROOT)),f.read_bytes())
 with ZipFile(dest) as z:

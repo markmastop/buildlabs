@@ -40,7 +40,7 @@ def main():
         def check(part):
             name=part['name']; plate=work/name;plate.mkdir()
             model=PRINT/'3mf'/(name+'.3mf')
-            profile=detail if name.startswith(('09-','10-')) else general
+            profile=detail if name.startswith(('09-','10-','12-')) else general
             cmd=[str(APP/'MacOS/BambuStudio'),'--load-settings',str(work/'machine.json')+';'+str(work/(profile+'.json')),
                  '--load-filaments',str(work/'filament.json'),'--ensure-on-bed','--arrange','0','--orient','0',
                  '--slice','0','--outputdir',str(plate),str(model)]

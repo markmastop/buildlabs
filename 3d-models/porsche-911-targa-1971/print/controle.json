@@ -12,9 +12,9 @@
     256,
     256
   ],
-  "assembly_solids": 20,
-  "max_overlap_mm3": 0.0293,
-  "assembly_sha256": "e8e047595c426d81ade2e71a8776113b46da5a783163bfc6cfb5a5fc76efb41a",
+  "assembly_solids": 22,
+  "max_overlap_mm3": 0.042,
+  "assembly_sha256": "def0d414cf2d6a0d0b544ef8ee902a115bea20a5f0e8dd0c5ffd2c7befd04ec8",
   "parts": [
     {
       "part": "00-pasblok",
@@ -43,17 +43,17 @@
       "step_sha256": "09b075dddefda0ad4e9a322fa3eff98b5cef8ad26d6675e5660bfe5e40d9ccc5"
     },
     {
-      "part": "02-carrosserie-voor",
+      "part": "02-carrosserie-voor-v7",
       "status": "PASS",
-      "triangles": 67862,
+      "triangles": 65556,
       "watertight": true,
       "connected_components": 1,
       "step_solids": 1,
       "step_valid": true,
-      "step_volume_cm3": 112.308,
-      "stl_sha256": "a53802487c949263f77b69ac0062a3c6cc4b4da87cc7ff2f81eee1d11f28029a",
-      "three_mf_sha256": "217fbc1111e2bcc653e4cadc831a194547a8f64b28c2aa454c21eee566852b1c",
-      "step_sha256": "d2cb2d00a004e439400072c2791d845cc7e5585069a43c5f2030f0048befacb6"
+      "step_volume_cm3": 111.847,
+      "stl_sha256": "141a55ccdb4fcabf04a98d69970279ff99041cef892097bf16722d8a6164a688",
+      "three_mf_sha256": "b38ee45ce88350335a37a4b457b3d47fad25a9b0b1783c68f1bc4d0d1f940376",
+      "step_sha256": "db6736308d8b9225fdec67e224f889f941ed3867563f41155dbbc728301a6754"
     },
     {
       "part": "03-carrosserie-achter",
@@ -77,9 +77,9 @@
       "step_solids": 1,
       "step_valid": true,
       "step_volume_cm3": 85.088,
-      "stl_sha256": "98d13053fb067dafe6d9b3a55c737dc6d082bd4297e14b6351d1f03634a4545f",
-      "three_mf_sha256": "b43954a0ab988fb4a9e47800e76ad4c6622ef3444ca4d13947a8a505b2bfa58f",
-      "step_sha256": "b7e1f727f790c9f97f53c7283427c28c01f204e83da88f3c3b233e8b7ea69d00"
+      "stl_sha256": "68a07a092a86f4b30b0f4c43c883208bcfc74b9d12eaa3462a9123cd655ca128",
+      "three_mf_sha256": "b0570ac56bafffd336c5dd4646384a81fe2326c2d628858d5a45ee8d3491a893",
+      "step_sha256": "06b9610f72944325eeabb8adb973644931e8314d4c6d3b779a9e4e36d6660f02"
     },
     {
       "part": "05-voorstoel-links",
@@ -121,17 +121,17 @@
       "step_sha256": "ec4ba16fae993ead53b8abcfc86068bbe8fbc3a857cac073a667821136bc1475"
     },
     {
-      "part": "07-voorruit",
+      "part": "07-voorruit-v7",
       "status": "PASS",
-      "triangles": 4994,
+      "triangles": 4860,
       "watertight": true,
       "connected_components": 1,
       "step_solids": 1,
       "step_valid": true,
-      "step_volume_cm3": 8.137,
-      "stl_sha256": "23deadf44c48333703c6b05f12cfe6a3c04985662121d265802231e2310d5793",
-      "three_mf_sha256": "083502ef1e3c7295124cab1ed03e1c1b2a845bfae26a48ac39a330871a2253d8",
-      "step_sha256": "37bbb18d72f08bbd42fc1590b2d90377cb72c8ab21e3a753aee78f9280e187b3"
+      "step_volume_cm3": 8.128,
+      "stl_sha256": "8397c8b71988b32cfb768639d031381058e7c426338aa57ed76cd4aba75c1e6f",
+      "three_mf_sha256": "a2ff82af4e95b20becdf1d1a6bb5dd331aebacca8b5e8a3d721cf9015e27960b",
+      "step_sha256": "475f07d2ab43c7c6d276587266532a5952aa263ae6141795a0c789b977272e01"
     },
     {
       "part": "07-achterruit",
@@ -249,6 +249,32 @@
       "stl_sha256": "0cfc3c6254e23821632afc55333c32f738080fb42601ee07420d2e92942c7e04",
       "three_mf_sha256": "2a35f37afd63ac850f84701a31d3366b6123cdb59ad844164257de2e2dccbbeb",
       "step_sha256": "adc9a1b5639d7d2c720b023e22f6a25350a29719732609fac9ff8797191de3e0"
+    },
+    {
+      "part": "12-wisser-links-v7",
+      "status": "PASS",
+      "triangles": 1328,
+      "watertight": true,
+      "connected_components": 1,
+      "step_solids": 1,
+      "step_valid": true,
+      "step_volume_cm3": 0.226,
+      "stl_sha256": "95fe36aa9208d45d5644928560161ac359071471e41803c5c629093de0554b6f",
+      "three_mf_sha256": "6bb65325dd29560fd7f8dde7d7bb26f22606f02e0e7c2e8d5cbe0a93014ca53e",
+      "step_sha256": "ebc44076b10bf812f43494af86e475fce05a4f81992573dc3dbc7cb13c2a784c"
+    },
+    {
+      "part": "12-wisser-rechts-v7",
+      "status": "PASS",
+      "triangles": 1148,
+      "watertight": true,
+      "connected_components": 1,
+      "step_solids": 1,
+      "step_valid": true,
+      "step_volume_cm3": 0.206,
+      "stl_sha256": "5faf9a77b18d9177a944d2c913111a9a67728b47ff0c9263e4b0c53d3b18b696",
+      "three_mf_sha256": "e1646d964b634c266c84ec69b61bd7cb41481faf15bae5c8cf3e2ce08f0ce7df",
+      "step_sha256": "73d99c868e3b1f7593b557cf76985533372bd1e34c4138985ab3f2db4ec0dac7"
     }
   ]
 }

@@ -44,7 +44,7 @@
     "volume_cm3": 0.17
   },
   {
-    "name": "02-carrosserie-voor",
+    "name": "02-carrosserie-voor-v7",
     "quantity": 1,
     "group": "model",
     "print_mm": [
@@ -63,7 +63,7 @@
       -26.0
     ],
     "mirror_y_copy": false,
-    "volume_cm3": 113.175
+    "volume_cm3": 112.723
   },
   {
     "name": "03-carrosserie-achter",
@@ -176,7 +176,7 @@
     "volume_cm3": 24.646
   },
   {
-    "name": "07-voorruit",
+    "name": "07-voorruit-v7",
     "quantity": 1,
     "group": "model",
     "print_mm": [
@@ -195,7 +195,7 @@
       87.66778436847686
     ],
     "mirror_y_copy": false,
-    "volume_cm3": 8.137
+    "volume_cm3": 8.128
   },
   {
     "name": "07-achterruit",
@@ -394,5 +394,49 @@
     ],
     "mirror_y_copy": false,
     "volume_cm3": 15.227
+  },
+  {
+    "name": "12-wisser-links-v7",
+    "quantity": 1,
+    "group": "model",
+    "print_mm": [
+      27.17,
+      42.92,
+      5.2
+    ],
+    "assembly_to_bed_rotation_deg": [
+      0,
+      0,
+      0
+    ],
+    "rotated_origin_mm": [
+      38.244590759277344,
+      15.896991178928738,
+      89.41648754627231
+    ],
+    "mirror_y_copy": false,
+    "volume_cm3": 0.226
+  },
+  {
+    "name": "12-wisser-rechts-v7",
+    "quantity": 1,
+    "group": "model",
+    "print_mm": [
+      10.35,
+      43.46,
+      5.83
+    ],
+    "assembly_to_bed_rotation_deg": [
+      0,
+      0,
+      0
+    ],
+    "rotated_origin_mm": [
+      54.98480987548828,
+      -21.435321807861328,
+      89.30812554129226
+    ],
+    "mirror_y_copy": false,
+    "volume_cm3": 0.206
   }
 ]

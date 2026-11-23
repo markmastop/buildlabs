@@ -110,7 +110,7 @@ footer { padding-top:16px; border-top:1px solid var(--rule); color:var(--muted);
     <div class="eyebrow">Decoratief schaalmodel · bouwjaar 1971</div>
     <h1>911 <span>Targa</span></h1>
     <p class="lede">Marks eigen 911 Targa als uitgangspunt voor een decoratief printmodel. De lange neus, ronde spatborden en brede Targaband moeten ook op kleine schaal herkenbaar blijven.</p>
-    <p class="phase">Eerste printset · 1:10 · ca. 407 mm lang · STL, 3MF en STEP</p>
+    <p class="phase">Printprototype v7 · 1:10 · ca. 407 mm lang · STL, 3MF en STEP</p>
     <p>Voor RC is een Tamiya M-06M-chassis op 225 mm wielbasis nodig. De passing moet nog fysiek worden getest. Voor het vitrinemodel bevat de printset asdragers en sierwielen. <a href="print/README.md">Printbestanden en bouwhandleiding</a></p>
   </header>
 
@@ -201,9 +201,12 @@ footer { padding-top:16px; border-top:1px solid var(--rule); color:var(--muted);
     <div class="section-head"><h2>Printbestanden voor de P2S</h2><p>Schaal 1:10 · millimeters</p></div>
     <div class="downloads">
       <a class="primary" href="print/README.md">Bouwhandleiding en alle printdelen</a>
+      <a href="print/3mf/02-carrosserie-voor-v7.3mf" download>Voorste helft v7</a>
+      <a href="print/3mf/12-wisser-links-v7.3mf" download>Linker ruitenwisser</a>
+      <a href="print/3mf/12-wisser-rechts-v7.3mf" download>Rechter ruitenwisser</a>
       <a href="print/3mf/00-pasblok.3mf" download>Pasblok · 3MF</a>
       <a href="print/3mf/01-pasveer.3mf" download>Pasveer · 3MF</a>
-      <a href="cad/step/targa-assemblage.step" download>Assemblage · STEP</a>
+      <a href="cad/step/targa-v7-assemblage.step" download>Assemblage · STEP</a>
     </div>
     <p class="status">De kap bestaat uit een voor- en achterdeel met twee pasveren. Bepaal de montagegaten op het gebouwde chassis.</p>
   </section>
@@ -1826,7 +1829,10 @@ add(mesh(gridGeometry(48,10,function (u,t) {
 // de arm grijpt in het midden van het blad aan en het rubber volgt het glas.
 for (var pivot of [.29,-.27]) {
   var base=cowlPoint(pivot,.22), blade=[], bridge=[];
-  add(oval(...base,12,6,12,mRubber));
+  var wiper=new T.Group();
+  wiper.userData.printPart=pivot<0 ? "wisser-links" : "wisser-rechts";
+  car.add(wiper);
+  wiper.add(oval(...base,15,9,15,mRubber));
   for (var i=0;i<=16;i++) {
     var t=i/16, p=windscreen(pivot-.35+lerp(.265,-.265,t),lerp(.073,.104,t));
     blade.push([p[0]+3,p[1]+2,p[2]]);
@@ -1836,8 +1842,8 @@ for (var pivot of [.29,-.27]) {
     }
   }
   var joint=bridge[5], hinge=[base[0]+2,base[1]+13,base[2]-15];
-  add(tube(blade,3.2,mRubber)); add(tube(bridge,3.3,mTrim));
-  add(tube([base,hinge,betweenPoints(hinge,joint,.41),joint],4.1,mTrim));
+  wiper.add(tube(blade,3.2,mRubber),tube(bridge,3.3,mTrim));
+  wiper.add(tube([base,hinge,betweenPoints(hinge,joint,.41),joint],4.1,mTrim));
 }
 
 /* Onder de ruit blijft een strook lak zichtbaar. De klep volgt de bolling
