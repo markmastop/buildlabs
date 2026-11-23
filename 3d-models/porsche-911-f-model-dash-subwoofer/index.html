@@ -60,7 +60,9 @@ td.num { font-family: var(--mono); font-size: 14px; white-space: nowrap; text-al
 .files a { font: 500 14px var(--body); text-decoration: none; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--rule); color: var(--ink); }
 .files a.primary { background: var(--ink); color: var(--ice); border-color: var(--ink); }
 </style>
-<style>.bl-home{justify-self:start;align-self:start;display:inline-flex;align-items:center;gap:8px;width:max-content;margin:0 0 4px;padding:7px 14px 7px 11px;border:1px solid rgba(127,140,150,.45);border-radius:999px;font:500 14px/1 "IBM Plex Sans",system-ui,sans-serif;color:inherit;text-decoration:none;background:transparent;transition:border-color .15s,background .15s}.bl-home:hover{border-color:currentColor;background:rgba(127,140,150,.12)}.bl-home:focus-visible{outline:2px solid currentColor;outline-offset:2px}.bl-home svg{width:15px;height:15px;flex:none}</style></head>
+<style>.bl-home{justify-self:start;align-self:start;display:inline-flex;align-items:center;gap:8px;width:max-content;margin:0 0 4px;padding:7px 14px 7px 11px;border:1px solid rgba(127,140,150,.45);border-radius:999px;font:500 14px/1 "IBM Plex Sans",system-ui,sans-serif;color:inherit;text-decoration:none;background:transparent;transition:border-color .15s,background .15s}.bl-home:hover{border-color:currentColor;background:rgba(127,140,150,.12)}.bl-home:focus-visible{outline:2px solid currentColor;outline-offset:2px}.bl-home svg{width:15px;height:15px;flex:none}</style><link rel="stylesheet" href="../kaart.css">
+<script src="../kaart.js"></script>
+</head>
 <body>
 <div class="wrap">
   <a class="bl-home" href="../../index.html" aria-label="Terug naar het Build Labs-overzicht"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/></svg>Build Labs</a>
@@ -213,13 +215,17 @@ td.num { font-family: var(--mono); font-size: 14px; white-space: nowrap; text-al
   if (reduce) spinBtn.setAttribute('aria-pressed', 'false');
   controls.addEventListener('start', function () { if (controls.autoRotate) { controls.autoRotate = false; spinBtn.setAttribute('aria-pressed', 'false'); } });
 
+  var kaart = document.documentElement.classList.contains('kaart');
+  var zichtbaar = kaart ? startKaartrotatie(cv, function (on) { controls.autoRotate = on; }) : function () { return true; };
+  if (kaart) controls.autoRotateSpeed = 1.5;
   function resize() {
-    var w = cv.parentElement.clientWidth, h = Math.round(Math.min(Math.max(w * 0.62, 280), 520));
+    var w = cv.parentElement.clientWidth, h = kaart ? cv.parentElement.clientHeight : Math.round(Math.min(Math.max(w * 0.62, 280), 520));
     renderer.setSize(w, h, false); cv.style.height = h + 'px';
     camera.aspect = w / h; camera.updateProjectionMatrix();
   }
   new ResizeObserver(resize).observe(cv.parentElement); resize();
-  (function loop() { requestAnimationFrame(loop); controls.update(); renderer.render(scene, camera); })();
+  (function loop() { requestAnimationFrame(loop);
+    if (!zichtbaar()) return; controls.update(); renderer.render(scene, camera); })();
 })();
 </script>
 </body>

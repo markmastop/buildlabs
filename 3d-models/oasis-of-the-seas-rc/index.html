@@ -73,6 +73,8 @@ footer { font-size: 14px; }
 @media (max-width: 680px) { .details { grid-template-columns: 1fr; } .stage { height: 390px; } }
 </style>
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+<link rel="stylesheet" href="../kaart.css">
+<script src="../kaart.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -153,6 +155,11 @@ stage.append(renderer.domElement);
 const camera = new T.PerspectiveCamera(40,1,0.1,600);
 const controls = new OrbitControls(camera,renderer.domElement);
 controls.enableDamping = true;
+const kaart = document.documentElement.classList.contains('kaart');
+const zichtbaar = kaart
+  ? startKaartrotatie(renderer.domElement, on => { controls.autoRotate = on; })
+  : () => true;
+if (kaart) controls.autoRotateSpeed = 1.5;
 controls.minDistance = 12;
 controls.maxDistance = 580;
 scene.add(new T.HemisphereLight(0xf0f9ff,0x586674,2.4));
@@ -371,6 +378,10 @@ function reset(){
     const corner=new T.Vector3(x,y,z).sub(controls.target);
     distance=Math.max(distance,corner.dot(direction)+Math.max(Math.abs(corner.dot(right))/horizontal,Math.abs(corner.dot(up))/vertical));
   }
+  if (kaart && current === 'ship') {
+    const radius = Math.hypot(50, 7.5, 8);
+    distance = Math.max(distance, radius / Math.sin(Math.atan(Math.min(vertical, horizontal))));
+  }
   camera.position.copy(controls.target).addScaledVector(direction,distance);
   controls.update();
 }
@@ -429,6 +440,7 @@ updateWater();
 byId('export').disabled=false;
 status.textContent='';
 renderer.setAnimationLoop(()=>{
+  if (!zichtbaar()) return;
   controls.update();
   renderer.render(scene,camera);
 });

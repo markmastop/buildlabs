@@ -100,7 +100,9 @@ footer { padding-top:16px; border-top:1px solid var(--rule); color:var(--muted);
   figcaption { padding:11px 12px; }
 }
 </style>
-<style>.bl-home{justify-self:start;align-self:start;display:inline-flex;align-items:center;gap:8px;width:max-content;margin:0 0 4px;padding:7px 14px 7px 11px;border:1px solid rgba(127,140,150,.45);border-radius:999px;font:500 14px/1 "IBM Plex Sans",system-ui,sans-serif;color:inherit;text-decoration:none;background:transparent;transition:border-color .15s,background .15s}.bl-home:hover{border-color:currentColor;background:rgba(127,140,150,.12)}.bl-home:focus-visible{outline:2px solid currentColor;outline-offset:2px}.bl-home svg{width:15px;height:15px;flex:none}</style></head>
+<style>.bl-home{justify-self:start;align-self:start;display:inline-flex;align-items:center;gap:8px;width:max-content;margin:0 0 4px;padding:7px 14px 7px 11px;border:1px solid rgba(127,140,150,.45);border-radius:999px;font:500 14px/1 "IBM Plex Sans",system-ui,sans-serif;color:inherit;text-decoration:none;background:transparent;transition:border-color .15s,background .15s}.bl-home:hover{border-color:currentColor;background:rgba(127,140,150,.12)}.bl-home:focus-visible{outline:2px solid currentColor;outline-offset:2px}.bl-home svg{width:15px;height:15px;flex:none}</style><link rel="stylesheet" href="../kaart.css">
+<script src="../kaart.js"></script>
+</head>
 <body>
 <main class="wrap">
   <a class="bl-home" href="../../index.html" aria-label="Terug naar het Build Labs-overzicht"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/></svg>Build Labs</a>
@@ -2041,6 +2043,8 @@ function setSize() {
 if (window.ResizeObserver) new ResizeObserver(setSize).observe(host); else window.addEventListener('resize', setSize);
 setSize();
 camera.position.set(...views.drie.eye);
+var kaart = document.documentElement.classList.contains('kaart');
+if (kaart) camera.position.sub(controls.target).multiplyScalar(1.35).add(controls.target);
 
 viewButtons.forEach(function (b) {
   b.addEventListener('click', function () {
@@ -2091,6 +2095,7 @@ if (spinBtn) spinBtn.addEventListener('click', function () {
   spinBtn.setAttribute('aria-pressed', String(controls.autoRotate));
 });
 controls.autoRotateSpeed = 1.2;
+if (kaart) startKaartrotatie(renderer.domElement, function (on) { controls.autoRotate = on; });
 
 var running = true;
 if (window.IntersectionObserver) new IntersectionObserver(function (e) { running = e[0].isIntersecting; }).observe(host);

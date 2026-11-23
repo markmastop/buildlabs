@@ -59,7 +59,7 @@ footer { font: 12px var(--mono); color: var(--muted); }
   .links { align-self: end; margin-top: 0; }
 }
 .shot { width: 100%; min-width: 0; min-height: 0; }
-.shot iframe { min-width: 0; min-height: 0; }
+.shot iframe { display: block; width: 100%; height: 100%; min-width: 0; min-height: 0; border: 0; }
 .body h2, .body p, .tag { overflow-wrap: anywhere; }
 </style>
 </head>
@@ -68,7 +68,7 @@ footer { font: 12px var(--mono); color: var(--muted); }
   <header>
     <div class="eyebrow">Werkplaats · Bambu Lab P2S · 256 × 256 × 256 mm</div>
     <h1><img class="brand-logo" src="assets/build-labs-logo.svg" alt="Build Labs" width="367" height="96"></h1>
-    <p class="lede">3D-ontwerpen en printprojecten. Bekijk draaibare modellen, referenties en ontwerpkeuzes; de bronbestanden en documentatie staan in de repository.</p>
+    <p class="lede">3D-ontwerpen en printprojecten. Sleep een 3D-model om het zelf te draaien. Open een project voor de ontwerpkeuzes, documentatie en bronbestanden.</p>
   </header>
 
   <main class="sections">
@@ -76,7 +76,7 @@ footer { font: 12px var(--mono); color: var(--muted); }
       <div class="group-head"><h3>Schepen</h3><span>RC-modellen</span></div>
       <div class="grid">
     <article class="card">
-      <div class="shot"><img src="3d-models/ortelius/beelden/render.jpg" alt="Render van het Ortelius RC-model" loading="lazy"></div>
+      <div class="shot"><iframe src="3d-models/ortelius/index.html?kaart" title="Draaibaar 3D-model van de Ortelius RC" loading="lazy"></iframe></div>
       <div class="body">
         <div class="meta"><span class="tag status">Printprototype v6</span><span class="tag">1:100 · 910 mm lang</span><span class="tag">STL · 3MF · STEP</span></div>
         <h2>Ortelius RC</h2>
@@ -88,7 +88,7 @@ footer { font: 12px var(--mono); color: var(--muted); }
       </div>
     </article>
     <article class="card">
-      <div class="shot"><iframe src="3d-models/smit-lloyd-109/kaart.html" title="Actueel 3D-kijkmodel Smit-Lloyd 109 met voorbeeldromp" loading="eager" style="display:block;width:100%;height:100%;border:0"></iframe></div>
+      <div class="shot"><iframe src="3d-models/smit-lloyd-109/kaart.html?kaart" title="Actueel 3D-kijkmodel Smit-Lloyd 109 met voorbeeldromp" loading="lazy"></iframe></div>
       <div class="body">
         <div class="meta"><span class="tag status">Printprototype v18</span><span class="tag">ca. 410 × 189 × 202 mm</span><span class="tag">STL · STEP</span></div>
         <h2>Smit-Lloyd 109 RC</h2>
@@ -100,7 +100,7 @@ footer { font: 12px var(--mono); color: var(--muted); }
       </div>
     </article>
     <article class="card">
-      <div class="shot"><img src="3d-models/oasis-of-the-seas-rc/aanzicht.jpg" alt="3D-concept van de Oasis of the Seas RC" loading="lazy"></div>
+      <div class="shot"><iframe src="3d-models/oasis-of-the-seas-rc/index.html?kaart" title="3D-concept van de Oasis of the Seas RC" loading="lazy"></iframe></div>
       <div class="body">
         <div class="meta"><span class="tag status">Inbouwconcept</span><span class="tag">1.000 mm lang</span><span class="tag">5 rompsegmenten</span></div>
         <h2>Oasis of the Seas RC</h2>
@@ -118,7 +118,7 @@ footer { font: 12px var(--mono); color: var(--muted); }
       <div class="group-head"><h3>Auto’s</h3><span>RC-modellen</span></div>
       <div class="grid">
     <article class="card">
-      <div class="shot"><img src="3d-models/porsche-911-targa-1971/beelden/targa-op-chassis.jpg" alt="3D-render van de geel-oranje 911 Targa uit 1971 op chassis, schuin van voren" loading="lazy"></div>
+      <div class="shot"><iframe src="3d-models/porsche-911-targa-1971/index.html?kaart" title="Draaibaar 3D-model van de 911 Targa uit 1971" loading="lazy"></iframe></div>
       <div class="body">
         <div class="meta"><span class="tag status">Eerste printset</span><span class="tag">1:10 · ca. 407 mm lang</span><span class="tag">STL · 3MF · STEP</span></div>
         <h2>911 Targa 1971 RC</h2>
@@ -130,7 +130,7 @@ footer { font: 12px var(--mono); color: var(--muted); }
       </div>
     </article>
     <article class="card">
-      <div class="shot"><iframe src="3d-models/citroen-acadiane/index.html?kaart" title="3D-weergave van de Acadiane op het M-05-chassis" loading="lazy" style="display:block;width:100%;height:100%;border:0"></iframe></div>
+      <div class="shot"><iframe src="3d-models/citroen-acadiane/index.html?kaart" title="3D-weergave van de Acadiane op het M-05-chassis" loading="lazy"></iframe></div>
       <div class="body">
         <div class="meta"><span class="tag status">Vormstudie v5</span><span class="tag">1:9,9 · opbouw ca. 409 mm lang</span><span class="tag">3D-model</span></div>
         <h2>Citroën Acadiane RC</h2>
@@ -148,7 +148,7 @@ footer { font: 12px var(--mono); color: var(--muted); }
       <div class="group-head"><h3>Porsche 911 F-Model · 1964–1973</h3><span>Dashboardaudio</span></div>
       <div class="grid">
     <article class="card">
-      <div class="shot"><img src="3d-models/porsche-911-f-model-dash-double-front-speaker/beelden/render.jpg" alt="Render van de speakerplaat voor twee Audison APX 4" loading="lazy"></div>
+      <div class="shot"><iframe src="3d-models/porsche-911-f-model-dash-double-front-speaker/index.html?kaart" title="Draaibare speakerplaat voor twee Audison APX 4" loading="lazy"></iframe></div>
       <div class="body">
         <div class="meta"><span class="tag status">Final v7</span><span class="tag">230 × 106 × 12 mm</span><span class="tag">STL</span></div>
         <h2>Dashboard: dubbele voorspeakers</h2>
@@ -160,7 +160,7 @@ footer { font: 12px var(--mono); color: var(--muted); }
       </div>
     </article>
     <article class="card">
-      <div class="shot"><img src="3d-models/porsche-911-f-model-dash-subwoofer/beelden/render.jpg" alt="Render van de subwoofer cup met Visaton W 100 X" loading="lazy"></div>
+      <div class="shot"><iframe src="3d-models/porsche-911-f-model-dash-subwoofer/index.html?kaart" title="Draaibare subwoofer cup voor de Visaton W 100 X" loading="lazy"></iframe></div>
       <div class="body">
         <div class="meta"><span class="tag status">Final v2.5.1</span><span class="tag">160 × 118 × 70 mm</span><span class="tag">STL</span></div>
         <h2>Dashboard: subwoofer</h2>
@@ -177,7 +177,7 @@ footer { font: 12px var(--mono); color: var(--muted); }
       <div class="group-head"><h3>Elektronica</h3></div>
       <div class="grid">
         <article class="card">
-          <div class="shot"><img src="3d-models/energydeck-7-inch/beelden/overzicht-v9.png" alt="Ontwerprender van de 7-inch EnergyDeck-behuizing" loading="lazy" style="object-position: center 24%"></div>
+          <div class="shot"><iframe src="3d-models/kaart-stl.html?kaart&amp;project=energydeck-7-inch" title="Draaibare printonderdelen van de 7-inch EnergyDeck-behuizing" loading="lazy"></iframe></div>
           <div class="body">
             <div class="meta"><span class="tag status">Final v9</span><span class="tag">Voet 126 × 120 mm</span><span class="tag">STL · STEP</span></div>
             <h2>EnergyDeck 7-inch behuizing</h2>
@@ -188,7 +188,7 @@ footer { font: 12px var(--mono); color: var(--muted); }
           </div>
         </article>
         <article class="card">
-          <div class="shot"><img src="3d-models/energydeck-5-inch/beelden/ontwerp_overzicht.png" alt="Voor- en achteraanzicht van de 5-inch EnergyDeck-behuizing" loading="lazy"></div>
+          <div class="shot"><iframe src="3d-models/kaart-stl.html?kaart&amp;project=energydeck-5-inch" title="Draaibare printonderdelen van de 5-inch EnergyDeck-behuizing" loading="lazy"></iframe></div>
           <div class="body">
             <div class="meta"><span class="tag status">Final</span><span class="tag">Voet 108 × 80 mm</span><span class="tag">STL · STEP</span></div>
             <h2>EnergyDeck 5-inch behuizing</h2>
@@ -205,7 +205,7 @@ footer { font: 12px var(--mono); color: var(--muted); }
       <div class="group-head"><h3>Overige printprojecten</h3></div>
       <div class="grid">
         <article class="card">
-          <div class="shot"><img src="3d-models/workshopmodellen/beelden/voorbeelden.png" alt="Overzicht van de zes oorspronkelijke modellen" loading="lazy"></div>
+          <div class="shot"><iframe src="3d-models/kaart-stl.html?kaart&amp;project=workshopmodellen" title="Zes draaibare workshopmodellen" loading="lazy"></iframe></div>
           <div class="body">
             <div class="meta"><span class="tag status">Final</span><span class="tag">Max. 80 mm per model</span><span class="tag">6 STL · Blender</span></div>
             <h2>Zes geometrische workshopmodellen</h2>
@@ -216,7 +216,7 @@ footer { font: 12px var(--mono); color: var(--muted); }
           </div>
         </article>
         <article class="card">
-          <div class="shot"><img src="3d-models/truma-therme-montageplaat/beelden/montageplaat-v17.png" alt="CAD-render van de Truma Therme-montageplaat v17" loading="lazy"></div>
+          <div class="shot"><iframe src="3d-models/kaart-stl.html?kaart&amp;project=truma-therme-montageplaat" title="Draaibare Truma Therme-montageplaat v17" loading="lazy"></iframe></div>
           <div class="body">
             <div class="meta"><span class="tag status">Final v17</span><span class="tag">78 × 61 × 29 mm</span><span class="tag">STL</span></div>
             <h2>Truma Therme-montageplaat</h2>

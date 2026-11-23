@@ -66,14 +66,9 @@ h2 { font: 700 34px/1 var(--display); margin: 0; }
 #viewer-status { padding: 16px; color: var(--muted); }
 a { color: var(--polar); }
 .note { background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 16px; font-size: 14px; color: var(--muted); margin: 0; }
-html.preview .wrap { padding: 0; max-width: none; }
-html.preview .wrap > :not(.model), html.preview .model > :not(.viewer),
-html.preview .hint { display: none; }
-html.preview .viewer { border: 0; border-radius: 0; }
-html.preview #stage { height: 100vh; touch-action: auto; }
 </style>
-<script>if (new URLSearchParams(location.search).has('kaart')) document.documentElement.classList.add('preview');</script>
-<style>body{margin:0}.bl-home{justify-self:start;align-self:start;display:inline-flex;align-items:center;gap:8px;width:max-content;margin:0 0 4px;padding:7px 14px 7px 11px;border:1px solid rgba(127,140,150,.45);border-radius:999px;font:500 14px/1 "IBM Plex Sans",system-ui,sans-serif;color:inherit;text-decoration:none;background:transparent;transition:border-color .15s,background .15s}.bl-home:hover{border-color:currentColor;background:rgba(127,140,150,.12)}.bl-home:focus-visible{outline:2px solid currentColor;outline-offset:2px}.bl-home svg{width:15px;height:15px;flex:none}</style>
+<link rel="stylesheet" href="../kaart.css">
+<script src="../kaart.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -145,10 +140,10 @@ html.preview #stage { height: 100vh; touch-action: auto; }
     status.textContent = 'Het 3D-model kon niet worden geladen. Controleer je verbinding en WebGL-ondersteuning.';
     return;
   }
-  const preview = document.documentElement.classList.contains('preview');
+  const preview = document.documentElement.classList.contains('kaart');
   const scene = new T.Scene();
   const camera = new T.OrthographicCamera(-20, 20, 12, -12, .1, 200);
-  const controls = preview ? null : new T.OrbitControls(camera, canvas);
+  const controls = new T.OrbitControls(camera, canvas);
   const target = new T.Vector3(0, 8.2, 0);
   const views = { schuin: [35, 21, 46], voor: [55, 9.3, 0], achter: [-39, 22, 43], boven: [0, 60, .01], zij: [0, 8.2, 55] };
   if (controls) {
@@ -999,7 +994,16 @@ html.preview #stage { height: 100vh; touch-action: auto; }
   document.getElementById('hint').hidden = preview;
   setLayer('samen');
   new ResizeObserver(resize).observe(canvas);
-  controls?.addEventListener('change', render);
+  controls.addEventListener('change', render);
+  if (preview) {
+    controls.autoRotateSpeed = 1.5;
+    const zichtbaar = startKaartrotatie(canvas, on => { controls.autoRotate = on; });
+    function frame() {
+      requestAnimationFrame(frame);
+      if (zichtbaar()) controls.update();
+    }
+    requestAnimationFrame(frame);
+  }
   for (const button of document.querySelectorAll('[data-wheelbase], [data-view], [data-layer]')) {
     button.disabled = false;
     button.addEventListener('click', () => {

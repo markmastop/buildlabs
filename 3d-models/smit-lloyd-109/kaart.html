@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="no-referrer">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com https://persistent.oaistatic.com/plugins/visualize/; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com https://persistent.oaistatic.com/plugins/visualize/charts/; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com https://persistent.oaistatic.com/plugins/visualize/; style-src 'self' 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com https://persistent.oaistatic.com/plugins/visualize/charts/; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <title>Smit Lloyd 109 Volledig V18</title>
 <style>:root {
   color-scheme: light dark;
@@ -1511,7 +1511,9 @@ svg.lucide {
 }
 
 html>body{padding:0}</style>
-<style>html,body{margin:0!important;padding:0!important;overflow:hidden!important;height:100%;background:#e5eef3!important}body{display:block!important}#sl109-volledig-v18{margin:0!important;padding:0!important;width:100%!important;max-width:none!important}.sl-heading,.viz-controls,.sl-caption{display:none!important}#sl109-volledig-v18 .sl-stage{height:100vh!important;min-height:0!important;max-height:none!important}canvas{cursor:grab}</style></head>
+<style>html,body{margin:0!important;padding:0!important;overflow:hidden!important;height:100%;background:#e5eef3!important}body{display:block!important}#sl109-volledig-v18{margin:0!important;padding:0!important;width:100%!important;max-width:none!important}.sl-heading,.viz-controls,.sl-caption{display:none!important}#sl109-volledig-v18 .sl-stage{height:100vh!important;min-height:0!important;max-height:none!important}canvas{cursor:grab}</style><link rel="stylesheet" href="../kaart.css">
+<script src="../kaart.js"></script>
+</head>
 <body>
 <script type="application/json" id="codex-visualization-widget-state">__CODEX_VISUALIZATION_WIDGET_STATE__</script>
 <script>(() => {
@@ -2138,6 +2140,24 @@ html>body{padding:0}</style>
     else return;
     e.preventDefault();requestDraw();save();
   });
+  if (document.documentElement.classList.contains('kaart')) {
+    let frame = 0;
+    let previous = 0;
+    function spin(now) {
+      if (previous) yaw = (yaw + Math.min(now - previous, 50) * .00032) % (2 * Math.PI);
+      previous = now;
+      requestDraw();
+      frame = requestAnimationFrame(spin);
+    }
+    startKaartrotatie(canvas, on => {
+      if (on && !frame) frame = requestAnimationFrame(spin);
+      if (!on && frame) {
+        cancelAnimationFrame(frame);
+        frame = 0;
+        previous = 0;
+      }
+    });
+  }
   new ResizeObserver(requestDraw).observe(root.querySelector('.sl-stage'));
   const observer=new MutationObserver(theme);
   observer.observe(document.documentElement,{attributes:true,attributeFilter:['class','style','data-theme']});

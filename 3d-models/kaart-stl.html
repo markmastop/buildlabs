@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Build Labs · 3D-kaart</title>
+<link rel="stylesheet" href="kaart.css">
+<style>
+:root { --stage: #dfe8ee; --sheet: #f8fafb; --ink: #14212c; --rule: #d3dde4; --polar: #1f6f94; }
+@media (prefers-color-scheme: dark) {
+  :root { --stage: #0f1e2a; --sheet: #142330; --ink: #e4ecf1; --rule: #263a4a; --polar: #6cb8d9; color-scheme: dark; }
+}
+.viewer { color: var(--ink); }
+.viewer p { position: absolute; margin: 12px; font: 14px system-ui, sans-serif; }
+</style>
+<script src="kaart.js"></script>
+</head>
+<body>
+<div class="viewer">
+  <p role="status">3D-model laden…</p>
+  <canvas aria-label="Draaibare printonderdelen"></canvas>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js"></script>
+<script>
+(async function () {
+  const models = {
+    'energydeck-7-inch': ['02_case_schuifframe', '03_voorframe_schuif', '04_borgclip'],
+    'energydeck-5-inch': ['crowpanel_back', 'crowpanel_front', 'crowpanel_foot'],
+    'workshopmodellen': ['01_robot', '02_sleutel', '03_brug', '04_kompas', '05_huis', '06_boom_met_takken'],
+    'truma-therme-montageplaat': ['truma_bracket_cable_radius_R5_5'],
+  };
+  const project = new URLSearchParams(location.search).get('project');
+  const status = document.querySelector('[role="status"]');
+  const canvas = document.querySelector('canvas');
+
+  try {
+    if (!Object.hasOwn(models, project)) throw new Error('Onbekend project');
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
+    const scene = new THREE.Scene();
+    const model = new THREE.Group();
+    scene.add(model);
+    scene.add(new THREE.HemisphereLight(0xffffff, 0x526373, 1.1));
+    const light = new THREE.DirectionalLight(0xffffff, .85);
+    light.position.set(2, 4, 3);
+    scene.add(light);
+
+    const loader = new THREE.STLLoader();
+    const parts = await Promise.all(models[project].map(file => loader.loadAsync(project + '/print/' + file + '.stl')));
+    const colors = [0x3f7897, 0xb65038, 0x537a52, 0x77619e, 0xc5903f, 0x44817c];
+    const columns = Math.min(parts.length, 3);
+    const spacing = Math.max(...parts.map(part => {
+      part.rotateX(-Math.PI / 2);
+      part.computeBoundingBox();
+      const size = part.boundingBox.getSize(new THREE.Vector3());
+      return Math.max(size.x, size.z);
+    })) * 1.14;
+    parts.forEach((part, index) => {
+      const center = part.boundingBox.getCenter(new THREE.Vector3());
+      part.translate(-center.x, -part.boundingBox.min.y, -center.z);
+      const mesh = new THREE.Mesh(part, new THREE.MeshStandardMaterial({ color: colors[index], roughness: .74 }));
+      mesh.position.set((index % columns) * spacing, 0, Math.floor(index / columns) * spacing);
+      model.add(mesh);
+    });
+    const bounds = new THREE.Box3().setFromObject(model);
+    const { center, radius } = bounds.getBoundingSphere(new THREE.Sphere());
+    model.position.sub(center);
+    model.scale.setScalar(1 / radius);
+    model.position.divideScalar(radius);
+
+    const camera = new THREE.PerspectiveCamera(36, 1, .01, 40);
+    const controls = new THREE.OrbitControls(camera, canvas);
+    controls.enablePan = false;
+    controls.enableDamping = true;
+    controls.minDistance = 1.2;
+    controls.maxDistance = 15;
+    controls.autoRotateSpeed = 1.5;
+    camera.position.set(2.7, 2.4, 4);
+    controls.update();
+    const visible = startKaartrotatie(canvas, on => { controls.autoRotate = on; });
+    new ResizeObserver(() => {
+      const { clientWidth: width, clientHeight: height } = canvas;
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+      renderer.setSize(width, height, false);
+    }).observe(canvas);
+    status.hidden = true;
+    renderer.setAnimationLoop(() => {
+      if (!visible()) return;
+      controls.update();
+      renderer.render(scene, camera);
+    });
+  } catch (error) {
+    status.textContent = 'Het 3D-model kon niet worden geladen.';
+    console.error(error);
+  }
+})();
+</script>
+</body>
+</html>
